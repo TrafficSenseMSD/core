@@ -9,16 +9,16 @@ Table of Contents
 =================
 
    * [Risks](#risks)
+   * [Table of Contents](#table-of-contents)
       * [Familiarity with git, <code>github</code> and use of source control](#familiarity-with-git-github-and-use-of-source-control)
       * [Repository structuring and project framework](#repository-structuring-and-project-framework)
       * [Ensure the entire team is comfortable doing development (not scripts) in Python 3.6](#ensure-the-entire-team-is-comfortable-doing-development-not-scripts-in-python-36)
-      * [Face the fallacy of "We will just use machine learning (ML)"](#face-the-fallacy-of-we-will-just-use-machine-learning-ml)
+      * [Face the fallacy of "We will just use machine learning (ML)" or similar algorithmic implementation](#face-the-fallacy-of-we-will-just-use-machine-learning-ml-or-similar-algorithmic-implementation)
       * [The source code must be testable and "build" after <em>most</em> commits to master](#the-source-code-must-be-testable-and-build-after-most-commits-to-master)
 
    * [Additional Information](#additional-information)
       * [Eilif Mikkelsen](#eilif-mikkelsen)
-
-
+      
 ## Familiarity with `git`, `github` and use of source control
 ### Why
 Source control tools allow multi-member software teams to develop in a parallel, distributed way.  Git 
@@ -59,9 +59,13 @@ Have every team member...
 * If it runs and performs as expected, merge it to `core/master`
 
 
-## Face the fallacy of "We will just use machine learning (ML)"
+## Face the fallacy of "We will just use machine learning (ML)" or similar algorithmic implementation
 Saying we will use ML implies ML is a magic black box with data as an input and answers as an output.  In practice implementing ML
 is a long painful process that in itself could take the entire semester.  
+
+When talking with Dr. Katie she noted the cavalier statements  like "Yeah, we will just add a genetic algorithm to do xyz" pointing out that even for experienced developers, this alone is a 
+serious undertaking. 
+
 
 ## The source code must be testable and "build" after _most_ commits to `master`
 ### Mitigation Measures
