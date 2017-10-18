@@ -1,11 +1,29 @@
 # Risks
+Identified below are a series of risks and countermeassures to derisk this project and ensure that we are able to actually
+move forward with real progress through the MSD I and MSD II phases.  After looking at the scope of the project
+and the position of groups in a similar position to the team, it is clear that without starting to explore the details
+of the system and tools, we will fail to deliver as we start development.  Nodding and saying we will add something to our scope
+without real understanding of the scale of the task is dangerous.  
+
+Table of Contents
+=================
+
+   * [Risks](#risks)
+      * [Familiarity with git, <code>github</code> and use of source control](#familiarity-with-git-github-and-use-of-source-control)
+      * [Repository structuring and project framework](#repository-structuring-and-project-framework)
+      * [Ensure the entire team is comfortable doing development (not scripts) in Python 3.6](#ensure-the-entire-team-is-comfortable-doing-development-not-scripts-in-python-36)
+      * [Face the fallacy of "We will just use machine learning (ML)"](#face-the-fallacy-of-we-will-just-use-machine-learning-ml)
+      * [The source code must be testable and "build" after <em>most</em> commits to master](#the-source-code-must-be-testable-and-build-after-most-commits-to-master)
+
+   * [Additional Information](#additional-information)
+      * [Eilif Mikkelsen](#eilif-mikkelsen)
+
 
 ## Familiarity with `git`, `github` and use of source control
 ### Why
 Source control tools allow multi-member software teams to develop in a parallel, distributed way.  Git 
 is a technology adopted world wide as an excellent source control system. GitHub is a hosted Git service
 used by thousands of companies and millions of individuals.
-
 
 ###  Mitigation Measures
 Have every team member...
@@ -15,7 +33,9 @@ Have every team member...
 * Create a pull request merging their fork with the master branch of this repository.
 * Add at least one other team member as the reviewer
 * If the reviewer, review and merge.
+
             
+
 ## Repository structuring and project framework
 ### Why
 It's not required that everyone be an expert on how to setup and structure Python software projects, that said
@@ -27,6 +47,21 @@ as the project progresses.  These changes should be considered carefully and any
 * Confirm that the entire team understand how to develop within the project structure.
 
 
+
+## Ensure the entire team is comfortable doing development (not scripts) in Python 3.6
+### Mitigation Measures
+Have every team member...
+* Fork and clone this repository
+* In `misc/training_resource` create a folder called `<firstname_lastname`
+* Complete a moderately comprehensive Python core competency test `TBD` in the created folder
+* Push this code to their fork and create a PR to `master`
+* Before merging, have at least one other team member download the other member's fork and run the code.
+* If it runs and performs as expected, merge it to `core/master`
+
+
+## Face the fallacy of "We will just use machine learning (ML)"
+Saying we will use ML implies ML is a magic black box with data as an input and answers as an output.  In practice implementing ML
+is a long painful process that in itself could take the entire semester.  
 
 ## The source code must be testable and "build" after _most_ commits to `master`
 ### Mitigation Measures
@@ -40,16 +75,6 @@ as the project progresses.  These changes should be considered carefully and any
 #### Why a Linux automated build system?
 - It's free to get a Linux build system using TravisCI or similar
 - Scientific computer is more often than not run on Linux to maximize resources
-
-
-
-## Ensure the entire team is comfortable doing development (not scripts) in Python 3.6
-### Mitigation Measures
-Have every team member...
-* Fork and clone this repository
-* 
-
-## Face the fallacy of "We will just use machine learning (ML)"
 
 
 # Additional Information
