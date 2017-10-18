@@ -15,6 +15,7 @@ Table of Contents
    * [Table of Contents](#table-of-contents)
       * [Familiarity with git, <code>github</code> and use of source control](#familiarity-with-git-github-and-use-of-source-control)
       * [Repository structuring and project framework](#repository-structuring-and-project-framework)
+      * [Configuration of Python environment](#configuration-of-python-environment)
       * [Ensure the entire team is comfortable doing development (not scripts) in Python 3.6](#ensure-the-entire-team-is-comfortable-doing-development-not-scripts-in-python-36)
       * [Core Compentency: Python   XML](#core-compentency-python--xml)
       * [Core Compentency: Python   TraCI   SUMO](#core-compentency-python--traci--sumo)
@@ -24,6 +25,7 @@ Table of Contents
       * [The source code must be testable and "build" after <em>most</em> commits to master](#the-source-code-must-be-testable-and-build-after-most-commits-to-master)
    * [Additional Information](#additional-information)
       * [Eilif Mikkelsen](#eilif-mikkelsen)
+      
       
 ## Familiarity with `git`, `github` and use of source control
 ### Purpose
