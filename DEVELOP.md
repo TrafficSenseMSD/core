@@ -1,5 +1,6 @@
 # Local Environment Configuration
-
+# Windoows Specific
+[Install Cygwin](https://cygwin.com/install.html)
 
 # Vagrant Linux Environment
 ## Install Vagrant and Virtual Box
