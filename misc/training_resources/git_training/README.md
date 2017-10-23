@@ -46,6 +46,8 @@ You should see a structure similar to that of the main repo at the time of forki
 8. Now, push the local commit back to the remote repository in GitHub with `git push origin master`.  Once complete, you should 
 see the changes you made reflected in GitHub. 
 
+On GitHub, the commit should look something like [this](https://github.com/eilifm/core/commit/5e7e6512621703fbc6e537418e599d892f174e57)
+
 
 # Other useful things to do
 ## Adding additional "remotes"
@@ -57,3 +59,6 @@ Your repository is not a clone of the "remote" repository in your fork on GH.  T
 
 # Some other online tutorials
 https://guides.github.com/activities/hello-world/
+
+# Quick Reference
+[Amazing Git Cheat Sheet](http://rogerdudler.github.io/git-guide/)
