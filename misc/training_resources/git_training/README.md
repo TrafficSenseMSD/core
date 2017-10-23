@@ -5,7 +5,7 @@ Create a GitHub account
 
 [Install Git](https://git-scm.com/book/en/v2/Getting-Started-Installing-Git)
 
-Make sure `git bash` is installed as part of this.
+Make sure `git bash` (on MacOS, use `terminal`)is installed as part of this.
 
 [Creating SSH keys](https://help.github.com/articles/generating-a-new-ssh-key-and-adding-it-to-the-ssh-agent/)
 
