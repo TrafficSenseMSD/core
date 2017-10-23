@@ -43,7 +43,7 @@ You should see a structure
 Your repository is not a clone of the "remote" repository in your fork on GH.  This "remote" is called
 `origin`.  Let's add another remote repository.  In this case let's add the main fork of the `core` repo.
 
-`git remote add git@github.com:TrafficSenseMSD/core.git`
+`git remote add msd git@github.com:TrafficSenseMSD/core.git`
 
 
 # Some other online tutorials
