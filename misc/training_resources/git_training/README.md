@@ -32,10 +32,19 @@ For example, my fork of this repository is
 `git@github.com:eilifm/core.git`
 
 
-You should see a structure 
+You should see a structure similar to that of the main repo at the time of forking.
+
 ## Step 3 -- Practice Using Git
 1. Navigate to the root directory of your cloned repo.  (`~/trafficsensemsd/core` in this example)
-
+2. Navigate to `misc/training_resources/git_training` in both `git BASH` (or terminal on MacOS) and the file explorer (Explorer for Windows/Finder for MacOS)
+3. Add a folder called `<your_first_name>_<your_last_name>` (ex. `eilif_mikkelsen`)
+4. Using your favorite text editor, add a file to this folder called "README.md"
+5. In the newly created README.md, type your name and favorite color.  Save.
+6. From `git BASH` (or terminal on MacOS) add the changes you to a commit with `git add -r ./<your_first_name>_<your_last_name>`
+7. Now let's commit the added changes to your local branch with `git commit -m "initial README.md commit"`.  
+`-m` followed by double quoted message is the commit message.  We will see where this shows up later.
+8. Now, push the local commit back to the remote repository in GitHub with `git push origin master`.  Once complete, you should 
+see the changes you made reflected in GitHub. 
 
 
 # Other useful things to do
