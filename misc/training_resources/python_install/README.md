@@ -15,7 +15,7 @@ Use the 64 bit link.  If you have issues, try to 32 bit link.
 [Windoes Miniconda 32-bit](https://repo.continuum.io/miniconda/Miniconda3-latest-Windows-x86.exe)
 
 
-###MacOS:
+### MacOS:
 
 1. Open terminal
 2. `cd ~/Downloads`
