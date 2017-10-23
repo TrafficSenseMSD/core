@@ -47,7 +47,24 @@ You should see a structure similar to that of the main repo at the time of forki
 see the changes you made reflected in GitHub. 
 
 On GitHub, the commit should look something like [this](https://github.com/eilifm/core/commit/5e7e6512621703fbc6e537418e599d892f174e57)
+9. On your fork of `core` in GitHub, create a Pull Request.
+A Pull Request is a GitHub tool to initiate the process of merging your fork back into a target branch of the main 
+`TrafficSenseMDA/core` repository.  Most of the time you will be merging from your fork's `master` branch to the main `master` branch. 
 
+![Alt text](images/make_pr.png?raw=true "Optional Title")
+
+10. On the next screen be sure that the target and source branch are correct.  If opening a PR from your fork's `master` branch,
+the default will look like the image below. 
+
+![Alt text](images/open_pr.png?raw=true "Optional Title")
+
+11. In order to help out the rest of the team, give your PR a title and description that describes your changes. 
+![Alt text](images/describe_pr.png?raw=true "Optional Title")
+
+Click "Create Pull Request"
+
+12. Once created add eilif as a reviewer.  (I can't add myself so it is blank)
+![Alt text](images/reviewers_pr.png?raw=true "Optional Title")
 
 # Other useful things to do
 ## Adding additional "remotes"
