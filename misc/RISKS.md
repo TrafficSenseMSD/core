@@ -15,6 +15,7 @@ Table of Contents
    * [Table of Contents](#table-of-contents)
       * [Familiarity with git, <code>github</code> and use of source control](#familiarity-with-git-github-and-use-of-source-control)
       * [Repository structuring and project framework](#repository-structuring-and-project-framework)
+      * [Configuration of Python environment](#configuration-of-python-environment)
       * [Ensure the entire team is comfortable doing development (not scripts) in Python 3.6](#ensure-the-entire-team-is-comfortable-doing-development-not-scripts-in-python-36)
       * [Core Compentency: Python   XML](#core-compentency-python--xml)
       * [Core Compentency: Python   TraCI   SUMO](#core-compentency-python--traci--sumo)
@@ -24,6 +25,7 @@ Table of Contents
       * [The source code must be testable and "build" after <em>most</em> commits to master](#the-source-code-must-be-testable-and-build-after-most-commits-to-master)
    * [Additional Information](#additional-information)
       * [Eilif Mikkelsen](#eilif-mikkelsen)
+      
       
 ## Familiarity with `git`, `github` and use of source control
 ### Purpose
@@ -40,7 +42,7 @@ Have every team member...
 * Add at least one other team member as the reviewer
 * If the reviewer, review and merge.
 
-            
+
 
 ## Repository structuring and project framework
 ### Purpose
@@ -54,6 +56,12 @@ as the project progresses.  These changes should be considered carefully and any
 
 
 
+## Configuration of Python environment
+Virtualenv, anaconda, pipenv, etc.  Decide and implement. 
+Everyone should be confident setting up the development tool chain on their local and test environments. 
+
+
+
 ## Ensure the entire team is comfortable doing development (not scripts) in Python 3.6
 ### Mitigation Measures
 Have every team member...
@@ -63,6 +71,11 @@ Have every team member...
 * Push this code to their fork and create a PR to `master`
 * Before merging, have at least one other team member download the other member's fork and run the code.
 * If it runs and performs as expected, merge it to `core/master`
+
+### Acceptance Criteria
+* Write two modules with classes and functions that do something and can be imported by other python code
+* One module must use functions or classes declared in the other module
+* A script or commandline tool that uses the aforementioned modules to do something
 
 
 ## Core Compentency: Python + XML
