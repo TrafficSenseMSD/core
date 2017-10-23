@@ -20,6 +20,12 @@ Once forked, go to your fork.  It should have the url
 `https://github.com/<your GH name>/core`
 
 ## Step 2 -- Clone your fork
+Replace `<your GH name>` and `<repo name>`
+
+`git clone git@github.com:<your GH name>/<repo name>.git`
+
+For example, my fork of this repository is
+`git@github.com:eilifm/core.git`
 
 
 # Some other online tutorials
