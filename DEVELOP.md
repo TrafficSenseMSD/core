@@ -1,5 +1,5 @@
 # Local Environment Configuration
-# Windoows Specific
+# Windows Specific
 [Install Cygwin](https://cygwin.com/install.html)
 
 # Vagrant Linux Environment
