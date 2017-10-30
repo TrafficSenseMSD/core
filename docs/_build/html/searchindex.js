@@ -1,0 +1,1 @@
+Search.setIndex({docnames:["index","modules","src"],envversion:51,filenames:["index.rst","modules.rst","src.rst"],objects:{},objnames:{},objtypes:{},terms:{index:0,modul:0,packag:1,page:0,search:0,subpackag:1},titles:["Welcome to TrafficSense&#8217;s documentation!","src","src package"],titleterms:{document:0,indic:0,packag:2,src:[1,2],subpackag:2,tabl:0,trafficsens:0,welcom:0}})
