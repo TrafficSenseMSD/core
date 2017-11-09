@@ -1,0 +1,19 @@
+src package
+===========
+
+.. automodule:: src
+    :members:
+    :undoc-members:
+    :show-inheritance:
+
+Subpackages
+-----------
+
+.. toctree::
+
+    src.SUMO
+    src.cli
+    src.configuration
+    src.execution
+    src.optimization
+
