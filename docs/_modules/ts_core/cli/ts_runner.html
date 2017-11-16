@@ -1,0 +1,194 @@
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title>ts_core.cli.ts_runner &#8212; TrafficSense 0.01 documentation</title>
+    <link rel="stylesheet" href="../../../_static/classic.css" type="text/css" />
+    <link rel="stylesheet" href="../../../_static/pygments.css" type="text/css" />
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    '../../../',
+        VERSION:     '0.01',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true,
+        SOURCELINK_SUFFIX: '.txt'
+      };
+    </script>
+    <script type="text/javascript" src="../../../_static/jquery.js"></script>
+    <script type="text/javascript" src="../../../_static/underscore.js"></script>
+    <script type="text/javascript" src="../../../_static/doctools.js"></script>
+    <link rel="index" title="Index" href="../../../genindex.html" />
+    <link rel="search" title="Search" href="../../../search.html" /> 
+  </head>
+  <body>
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../../../genindex.html" title="General Index"
+             accesskey="I">index</a></li>
+        <li class="right" >
+          <a href="../../../py-modindex.html" title="Python Module Index"
+             >modules</a> |</li>
+        <li class="nav-item nav-item-0"><a href="../../../index.html">TrafficSense 0.01 documentation</a> &#187;</li>
+          <li class="nav-item nav-item-1"><a href="../../index.html" accesskey="U">Module code</a> &#187;</li> 
+      </ul>
+    </div>  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body" role="main">
+            
+  <h1>Source code for ts_core.cli.ts_runner</h1><div class="highlight"><pre>
+<span></span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">``ts_runner`` is a WORK IN PROGRESS</span>
+
+<span class="sd">.. _ts_runner:</span>
+
+
+<span class="sd">``ts_runner`` Overview</span>
+<span class="sd">----------------------</span>
+<span class="sd">``ts_runner`` manages the startup and execution of the SUMO runtime along with traffic light control and data collectio</span>
+
+
+<span class="sd">Software Structure and Implementation</span>
+<span class="sd">-------------------------------------</span>
+<span class="sd">Lots of interesting text will go here</span>
+
+
+<span class="sd">&quot;&quot;&quot;</span>
+
+<span class="kn">import</span> <span class="nn">argparse</span>
+<span class="kn">from</span> <span class="nn">ts_core.utils.argparse_utils</span> <span class="k">import</span> <span class="n">FullPaths</span><span class="p">,</span> <span class="n">is_dir</span><span class="p">,</span> <span class="n">is_file</span>
+
+<span class="kn">import</span> <span class="nn">sys</span>
+<span class="kn">import</span> <span class="nn">os</span>
+<span class="kn">import</span> <span class="nn">random</span>
+<span class="kn">import</span> <span class="nn">traci</span><span class="o">,</span> <span class="nn">sumolib</span>
+
+
+<div class="viewcode-block" id="run"><a class="viewcode-back" href="../../../ts_core.cli.ts_runner.html#ts_core.cli.ts_runner.run">[docs]</a><span class="k">def</span> <span class="nf">run</span><span class="p">():</span>
+    <span class="sd">&quot;&quot;&quot;execute the TraCI control loop&quot;&quot;&quot;</span>
+    <span class="n">step</span> <span class="o">=</span> <span class="mi">0</span>
+    <span class="c1"># we start with phase 2 where EW has green</span>
+    <span class="n">traci</span><span class="o">.</span><span class="n">trafficlight</span><span class="o">.</span><span class="n">setPhase</span><span class="p">(</span><span class="s2">&quot;0&quot;</span><span class="p">,</span> <span class="mi">2</span><span class="p">)</span>
+    <span class="k">while</span> <span class="n">traci</span><span class="o">.</span><span class="n">simulation</span><span class="o">.</span><span class="n">getMinExpectedNumber</span><span class="p">()</span> <span class="o">&gt;</span> <span class="mi">0</span><span class="p">:</span>
+        <span class="n">traci</span><span class="o">.</span><span class="n">simulationStep</span><span class="p">()</span>
+        <span class="k">if</span> <span class="n">traci</span><span class="o">.</span><span class="n">trafficlight</span><span class="o">.</span><span class="n">getPhase</span><span class="p">(</span><span class="s2">&quot;0&quot;</span><span class="p">)</span> <span class="o">==</span> <span class="mi">2</span><span class="p">:</span>
+            <span class="c1"># we are not already switching</span>
+            <span class="k">if</span> <span class="n">traci</span><span class="o">.</span><span class="n">inductionloop</span><span class="o">.</span><span class="n">getLastStepVehicleNumber</span><span class="p">(</span><span class="s2">&quot;0&quot;</span><span class="p">)</span> <span class="o">&gt;</span> <span class="mi">0</span><span class="p">:</span>
+                <span class="c1"># there is a vehicle from the north, switch</span>
+                <span class="n">traci</span><span class="o">.</span><span class="n">trafficlight</span><span class="o">.</span><span class="n">setPhase</span><span class="p">(</span><span class="s2">&quot;0&quot;</span><span class="p">,</span> <span class="mi">3</span><span class="p">)</span>
+            <span class="k">else</span><span class="p">:</span>
+                <span class="c1"># otherwise try to keep green for EW</span>
+                <span class="n">traci</span><span class="o">.</span><span class="n">trafficlight</span><span class="o">.</span><span class="n">setPhase</span><span class="p">(</span><span class="s2">&quot;0&quot;</span><span class="p">,</span> <span class="mi">2</span><span class="p">)</span>
+        <span class="n">step</span> <span class="o">+=</span> <span class="mi">1</span>
+    <span class="n">traci</span><span class="o">.</span><span class="n">close</span><span class="p">()</span>
+    <span class="n">sys</span><span class="o">.</span><span class="n">stdout</span><span class="o">.</span><span class="n">flush</span><span class="p">()</span></div>
+
+
+<div class="viewcode-block" id="generate_routefile"><a class="viewcode-back" href="../../../ts_core.cli.ts_runner.html#ts_core.cli.ts_runner.generate_routefile">[docs]</a><span class="k">def</span> <span class="nf">generate_routefile</span><span class="p">():</span>
+    <span class="n">random</span><span class="o">.</span><span class="n">seed</span><span class="p">(</span><span class="mi">42</span><span class="p">)</span>  <span class="c1"># make tests reproducible</span>
+    <span class="n">N</span> <span class="o">=</span> <span class="mi">3600</span>  <span class="c1"># number of time steps</span>
+    <span class="c1"># demand per second from different directions</span>
+    <span class="n">pWE</span> <span class="o">=</span> <span class="mf">1.</span> <span class="o">/</span> <span class="mi">10</span>
+    <span class="n">pEW</span> <span class="o">=</span> <span class="mf">1.</span> <span class="o">/</span> <span class="mi">11</span>
+    <span class="n">pNS</span> <span class="o">=</span> <span class="mf">1.</span> <span class="o">/</span> <span class="mi">30</span>
+    <span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="s2">&quot;data/cross.rou.xml&quot;</span><span class="p">,</span> <span class="s2">&quot;w&quot;</span><span class="p">)</span> <span class="k">as</span> <span class="n">routes</span><span class="p">:</span>
+        <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;&quot;&quot;&lt;routes&gt;</span>
+<span class="s2">        &lt;vType id=&quot;typeWE&quot; accel=&quot;0.8&quot; decel=&quot;4.5&quot; sigma=&quot;0.5&quot; length=&quot;5&quot; minGap=&quot;2.5&quot; maxSpeed=&quot;16.67&quot; guiShape=&quot;passenger&quot;/&gt;</span>
+<span class="s2">        &lt;vType id=&quot;typeNS&quot; accel=&quot;0.8&quot; decel=&quot;4.5&quot; sigma=&quot;0.5&quot; length=&quot;7&quot; minGap=&quot;3&quot; maxSpeed=&quot;25&quot; guiShape=&quot;bus&quot;/&gt;</span>
+
+<span class="s2">        &lt;route id=&quot;right&quot; edges=&quot;51o 1i 2o 52i&quot; /&gt;</span>
+<span class="s2">        &lt;route id=&quot;left&quot; edges=&quot;52o 2i 1o 51i&quot; /&gt;</span>
+<span class="s2">        &lt;route id=&quot;down&quot; edges=&quot;54o 4i 3o 53i&quot; /&gt;&quot;&quot;&quot;</span><span class="p">,</span> <span class="n">file</span><span class="o">=</span><span class="n">routes</span><span class="p">)</span>
+        <span class="n">lastVeh</span> <span class="o">=</span> <span class="mi">0</span>
+        <span class="n">vehNr</span> <span class="o">=</span> <span class="mi">0</span>
+        <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">N</span><span class="p">):</span>
+            <span class="k">if</span> <span class="n">random</span><span class="o">.</span><span class="n">uniform</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span> <span class="o">&lt;</span> <span class="n">pWE</span><span class="p">:</span>
+                <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;    &lt;vehicle id=&quot;right_</span><span class="si">%i</span><span class="s1">&quot; type=&quot;typeWE&quot; route=&quot;right&quot; depart=&quot;</span><span class="si">%i</span><span class="s1">&quot; /&gt;&#39;</span> <span class="o">%</span> <span class="p">(</span>
+                    <span class="n">vehNr</span><span class="p">,</span> <span class="n">i</span><span class="p">),</span> <span class="n">file</span><span class="o">=</span><span class="n">routes</span><span class="p">)</span>
+                <span class="n">vehNr</span> <span class="o">+=</span> <span class="mi">1</span>
+                <span class="n">lastVeh</span> <span class="o">=</span> <span class="n">i</span>
+            <span class="k">if</span> <span class="n">random</span><span class="o">.</span><span class="n">uniform</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span> <span class="o">&lt;</span> <span class="n">pEW</span><span class="p">:</span>
+                <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;    &lt;vehicle id=&quot;left_</span><span class="si">%i</span><span class="s1">&quot; type=&quot;typeWE&quot; route=&quot;left&quot; depart=&quot;</span><span class="si">%i</span><span class="s1">&quot; /&gt;&#39;</span> <span class="o">%</span> <span class="p">(</span>
+                    <span class="n">vehNr</span><span class="p">,</span> <span class="n">i</span><span class="p">),</span> <span class="n">file</span><span class="o">=</span><span class="n">routes</span><span class="p">)</span>
+                <span class="n">vehNr</span> <span class="o">+=</span> <span class="mi">1</span>
+                <span class="n">lastVeh</span> <span class="o">=</span> <span class="n">i</span>
+            <span class="k">if</span> <span class="n">random</span><span class="o">.</span><span class="n">uniform</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span> <span class="o">&lt;</span> <span class="n">pNS</span><span class="p">:</span>
+                <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;    &lt;vehicle id=&quot;down_</span><span class="si">%i</span><span class="s1">&quot; type=&quot;typeNS&quot; route=&quot;down&quot; depart=&quot;</span><span class="si">%i</span><span class="s1">&quot; color=&quot;1,0,0&quot;/&gt;&#39;</span> <span class="o">%</span> <span class="p">(</span>
+                    <span class="n">vehNr</span><span class="p">,</span> <span class="n">i</span><span class="p">),</span> <span class="n">file</span><span class="o">=</span><span class="n">routes</span><span class="p">)</span>
+                <span class="n">vehNr</span> <span class="o">+=</span> <span class="mi">1</span>
+                <span class="n">lastVeh</span> <span class="o">=</span> <span class="n">i</span>
+        <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;&lt;/routes&gt;&quot;</span><span class="p">,</span> <span class="n">file</span><span class="o">=</span><span class="n">routes</span><span class="p">)</span></div>
+
+
+<div class="viewcode-block" id="main"><a class="viewcode-back" href="../../../ts_core.cli.ts_runner.html#ts_core.cli.ts_runner.main">[docs]</a><span class="k">def</span> <span class="nf">main</span><span class="p">():</span>
+    <span class="n">parser</span> <span class="o">=</span> <span class="n">argparse</span><span class="o">.</span><span class="n">ArgumentParser</span><span class="p">()</span>
+    <span class="n">parser</span><span class="o">.</span><span class="n">add_argument</span><span class="p">(</span><span class="s1">&#39;--gui&#39;</span><span class="p">,</span> <span class="n">action</span><span class="o">=</span><span class="s1">&#39;store_false&#39;</span><span class="p">,</span> <span class="n">help</span><span class="o">=</span><span class="s1">&#39;Toggle the use of the SUMO GUI&#39;</span><span class="p">)</span>
+    <span class="n">parser</span><span class="o">.</span><span class="n">add_argument</span><span class="p">(</span><span class="s1">&#39;--config_dir&#39;</span><span class="p">,</span> <span class="n">action</span><span class="o">=</span><span class="n">FullPaths</span><span class="p">,</span> <span class="nb">type</span><span class="o">=</span><span class="n">is_dir</span><span class="p">,</span> <span class="n">help</span><span class="o">=</span><span class="s1">&#39;Specifc the target directory from which to load config files&#39;</span><span class="p">)</span>
+    <span class="n">args</span> <span class="o">=</span> <span class="n">parser</span><span class="o">.</span><span class="n">parse_args</span><span class="p">()</span>
+
+    <span class="c1"># Checking the binary for</span>
+    <span class="k">if</span> <span class="n">args</span><span class="o">.</span><span class="n">gui</span><span class="p">:</span>
+        <span class="n">sumoBinary</span> <span class="o">=</span> <span class="n">sumolib</span><span class="o">.</span><span class="n">checkBinary</span><span class="p">(</span><span class="s1">&#39;sumo&#39;</span><span class="p">)</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="n">sumoBinary</span> <span class="o">=</span> <span class="n">sumolib</span><span class="o">.</span><span class="n">checkBinary</span><span class="p">(</span><span class="s1">&#39;sumo-gui&#39;</span><span class="p">)</span>
+
+    <span class="c1"># generate_routefile()</span>
+    <span class="c1">#</span>
+    <span class="c1"># traci.start([sumoBinary, &quot;-c&quot;, &quot;data/cross.sumocfg&quot;,</span>
+    <span class="c1">#                          &quot;--tripinfo-output&quot;, &quot;tripinfo.xml&quot;])</span>
+    <span class="c1">#</span>
+    <span class="c1"># run()</span>
+
+    <span class="k">return</span></div>
+
+<span class="k">if</span> <span class="vm">__name__</span> <span class="o">==</span> <span class="s2">&quot;__main__&quot;</span><span class="p">:</span>
+    <span class="n">main</span><span class="p">()</span>
+
+</pre></div>
+
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+<div id="searchbox" style="display: none" role="search">
+  <h3>Quick search</h3>
+    <form class="search" action="../../../search.html" method="get">
+      <div><input type="text" name="q" /></div>
+      <div><input type="submit" value="Go" /></div>
+      <input type="hidden" name="check_keywords" value="yes" />
+      <input type="hidden" name="area" value="default" />
+    </form>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../../../genindex.html" title="General Index"
+             >index</a></li>
+        <li class="right" >
+          <a href="../../../py-modindex.html" title="Python Module Index"
+             >modules</a> |</li>
+        <li class="nav-item nav-item-0"><a href="../../../index.html">TrafficSense 0.01 documentation</a> &#187;</li>
+          <li class="nav-item nav-item-1"><a href="../../index.html" >Module code</a> &#187;</li> 
+      </ul>
+    </div>
+    <div class="footer" role="contentinfo">
+        &#169; Copyright 2017, Samara, Gaitz, Eilif, Bryan, Justin, Jow.
+      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 1.6.5.
+    </div>
+  </body>
+</html>

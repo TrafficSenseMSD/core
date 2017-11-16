@@ -1,0 +1,20 @@
+ts\_core package
+================
+
+.. automodule:: ts_core
+    :members:
+    :undoc-members:
+    :show-inheritance:
+
+Subpackages
+-----------
+
+.. toctree::
+
+    ts_core.SUMO
+    ts_core.cli
+    ts_core.configuration
+    ts_core.execution
+    ts_core.optimization
+    ts_core.utils
+
