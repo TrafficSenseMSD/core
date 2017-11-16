@@ -1,6 +1,10 @@
 """
 ``ts_runner`` is a WORK IN PROGRESS
 
+Software Structure and Implementation
+-------------------------------------
+Lots of interesting text will go here
+
 """
 import argparse
 from ts_core.utils.argparse_utils import FullPaths, is_dir, is_file
