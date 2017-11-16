@@ -1,0 +1,7 @@
+ts\_core\.cli\.ts\_runner module
+================================
+
+.. automodule:: ts_core.cli.ts_runner
+    :members:
+    :undoc-members:
+    :show-inheritance:
