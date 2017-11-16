@@ -1,11 +1,21 @@
 """
 ``ts_runner`` is a WORK IN PROGRESS
 
+.. _ts_runner:
+
+
+``ts_runner`` Overview
+----------------------
+``ts_runner`` manages the startup and execution of the SUMO runtime along with traffic light control and data collectio
+
+
 Software Structure and Implementation
 -------------------------------------
 Lots of interesting text will go here
 
+
 """
+
 import argparse
 from ts_core.utils.argparse_utils import FullPaths, is_dir, is_file
 
@@ -74,7 +84,7 @@ def generate_routefile():
 def main():
     parser = argparse.ArgumentParser()
     parser.add_argument('--gui', action='store_false', help='Toggle the use of the SUMO GUI')
-    parser.add_argument('--config_dir', action=FullPaths, type=is_dir, help='Toggle the use of the SUMO GUI')
+    parser.add_argument('--config_dir', action=FullPaths, type=is_dir, help='Specifc the target directory from which to load config files')
     args = parser.parse_args()
 
     # Checking the binary for
@@ -83,12 +93,12 @@ def main():
     else:
         sumoBinary = sumolib.checkBinary('sumo-gui')
 
-    generate_routefile()
-
-    traci.start([sumoBinary, "-c", "data/cross.sumocfg",
-                             "--tripinfo-output", "tripinfo.xml"])
-
-    run()
+    # generate_routefile()
+    #
+    # traci.start([sumoBinary, "-c", "data/cross.sumocfg",
+    #                          "--tripinfo-output", "tripinfo.xml"])
+    #
+    # run()
 
     return
 
