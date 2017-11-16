@@ -5,6 +5,10 @@
 
 Welcome to TrafficSense's documentation!
 ========================================
+The TrafficSense project was started as part of the Rochester Institute of Technology Multidisciplinary Senior Design
+program. The TrafficSense tools are designed to facilitate simple use of the SUMO traffic simulation software so the
+user can focus on optimizing traffic light controls at an intersection.
+
 
 :ref:`ts_runner`
 
