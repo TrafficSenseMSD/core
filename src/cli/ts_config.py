@@ -14,10 +14,15 @@ EDGE_FILE_LOCATION = SUMO_DIRECTORY + "/edge.edg.xml"
 
 def move_file(original_filename, new_filename):
     """
+    
+    Parameters
+    ----------
+    original_filename
+    new_filename
 
-    :param original_filename:
-    :param new_filename:
-    :return:
+    Returns
+    -------
+
     """
     copyfile(original_filename, new_filename)
 
@@ -27,9 +32,13 @@ def main(args):
     Main function that parses the arguments and
     will (call functions that )creates all of the required files
 
-    Parameters:
-        args : ArgParse object with all the requirements
-    Returns: None
+    Parameters
+    ----------
+    args - ArgParse object with all the requirements
+
+    Returns
+    -------
+    Nothing
     """
     if args.intersection:
         if DEBUG: print("intersection %s " % args.intersection)
