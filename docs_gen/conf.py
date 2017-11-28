@@ -160,6 +160,3 @@ texinfo_documents = [
      author, 'TrafficSense', 'One line description of project.',
      'Miscellaneous'),
 ]
-
-
-

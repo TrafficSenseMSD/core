@@ -46,7 +46,7 @@
             
   <h1>Source code for ts_core.cli.ts_runner</h1><div class="highlight"><pre>
 <span></span><span class="sd">&quot;&quot;&quot;</span>
-<span class="sd">``ts_runner`` is a WORK IN PROGRESS</span>
+<span class="sd">``ts_runner`` is a WORK IN PROGRESS, current objective is to implement the traci_tls tutorial using our abstraction.</span>
 
 <span class="sd">.. _ts_runner:</span>
 
@@ -58,48 +58,67 @@
 
 <span class="sd">Software Structure and Implementation</span>
 <span class="sd">-------------------------------------</span>
-<span class="sd">Lots of interesting text will go here</span>
+
+<span class="sd">Light Control and Optimization</span>
+<span class="sd">------------------------------</span>
+<span class="sd">``ts_runner`` will accept an argument that specifies the file and class name to import at startup.  Messing with this</span>
+<span class="sd">part of Python is tricky business.  </span>
+
+<span class="sd">PaseBin:</span>
+
+<span class="sd">    import importlib</span>
+<span class="sd">    import sys</span>
+<span class="sd">    </span>
+<span class="sd">    def modify_and_import(module_name, package=None, modification_func):</span>
+<span class="sd">        spec = importlib.util.find_spec(module_name, package)</span>
+<span class="sd">        source = spec.loader.get_source(module_name)</span>
+<span class="sd">        new_source = modification_func(source)</span>
+<span class="sd">        module = importlib.util.module_from_spec(spec)</span>
+<span class="sd">        codeobj = compile(new_source, module.__spec__.origin, &#39;exec&#39;)</span>
+<span class="sd">        exec(codeobj, module.__dict__)</span>
+<span class="sd">        sys.modules[module_name] = module</span>
+<span class="sd">        return module</span>
+
+
+<span class="sd">Output</span>
+<span class="sd">------</span>
+
+<span class="sd">Output from ts_runner is directed to ``&lt;sumo_project_dir&gt;/output/&lt;YYYY_MM_DD_HH_MM_SS_dddddd&gt;/&#39;&#39; which</span>
+<span class="sd">contains:</span>
+<span class="sd">    ``sutripinfo.xml``</span>
+<span class="sd">    ``YYYY_MM_DD_HH_MM_SS_dddddd_ts_runner.log`` (Not yet implemented, writes to current dir)</span>
+
 
 
 <span class="sd">&quot;&quot;&quot;</span>
 
 <span class="kn">import</span> <span class="nn">argparse</span>
+<span class="kn">from</span> <span class="nn">argparse</span> <span class="k">import</span> <span class="n">RawTextHelpFormatter</span>
 <span class="kn">from</span> <span class="nn">ts_core.utils.argparse_utils</span> <span class="k">import</span> <span class="n">FullPaths</span><span class="p">,</span> <span class="n">is_dir</span><span class="p">,</span> <span class="n">is_file</span>
+<span class="kn">from</span> <span class="nn">ts_core.execution.traci_loop</span> <span class="k">import</span> <span class="n">run_loop</span>
+<span class="kn">from</span> <span class="nn">ts_core.utils.ts_logging</span> <span class="k">import</span> <span class="n">setup_logging</span>
+<span class="kn">import</span> <span class="nn">logging</span>
+
+<span class="n">setup_logging</span><span class="p">()</span>
+<span class="n">logger</span> <span class="o">=</span> <span class="n">logging</span><span class="o">.</span><span class="n">getLogger</span><span class="p">(</span><span class="vm">__name__</span><span class="p">)</span>
 
 <span class="kn">import</span> <span class="nn">sys</span>
-<span class="kn">import</span> <span class="nn">os</span>
+<span class="kn">import</span> <span class="nn">time</span>
+<span class="kn">import</span> <span class="nn">re</span>
+<span class="kn">import</span> <span class="nn">datetime</span> <span class="k">as</span> <span class="nn">dt</span>
+<span class="kn">import</span> <span class="nn">os</span><span class="o">,</span> <span class="nn">shutil</span>
 <span class="kn">import</span> <span class="nn">random</span>
-<span class="kn">import</span> <span class="nn">traci</span><span class="o">,</span> <span class="nn">sumolib</span>
+<span class="kn">import</span> <span class="nn">traci</span>
+<span class="kn">import</span> <span class="nn">sumolib</span>
 
-
-<div class="viewcode-block" id="run"><a class="viewcode-back" href="../../../ts_core.cli.ts_runner.html#ts_core.cli.ts_runner.run">[docs]</a><span class="k">def</span> <span class="nf">run</span><span class="p">():</span>
-    <span class="sd">&quot;&quot;&quot;execute the TraCI control loop&quot;&quot;&quot;</span>
-    <span class="n">step</span> <span class="o">=</span> <span class="mi">0</span>
-    <span class="c1"># we start with phase 2 where EW has green</span>
-    <span class="n">traci</span><span class="o">.</span><span class="n">trafficlight</span><span class="o">.</span><span class="n">setPhase</span><span class="p">(</span><span class="s2">&quot;0&quot;</span><span class="p">,</span> <span class="mi">2</span><span class="p">)</span>
-    <span class="k">while</span> <span class="n">traci</span><span class="o">.</span><span class="n">simulation</span><span class="o">.</span><span class="n">getMinExpectedNumber</span><span class="p">()</span> <span class="o">&gt;</span> <span class="mi">0</span><span class="p">:</span>
-        <span class="n">traci</span><span class="o">.</span><span class="n">simulationStep</span><span class="p">()</span>
-        <span class="k">if</span> <span class="n">traci</span><span class="o">.</span><span class="n">trafficlight</span><span class="o">.</span><span class="n">getPhase</span><span class="p">(</span><span class="s2">&quot;0&quot;</span><span class="p">)</span> <span class="o">==</span> <span class="mi">2</span><span class="p">:</span>
-            <span class="c1"># we are not already switching</span>
-            <span class="k">if</span> <span class="n">traci</span><span class="o">.</span><span class="n">inductionloop</span><span class="o">.</span><span class="n">getLastStepVehicleNumber</span><span class="p">(</span><span class="s2">&quot;0&quot;</span><span class="p">)</span> <span class="o">&gt;</span> <span class="mi">0</span><span class="p">:</span>
-                <span class="c1"># there is a vehicle from the north, switch</span>
-                <span class="n">traci</span><span class="o">.</span><span class="n">trafficlight</span><span class="o">.</span><span class="n">setPhase</span><span class="p">(</span><span class="s2">&quot;0&quot;</span><span class="p">,</span> <span class="mi">3</span><span class="p">)</span>
-            <span class="k">else</span><span class="p">:</span>
-                <span class="c1"># otherwise try to keep green for EW</span>
-                <span class="n">traci</span><span class="o">.</span><span class="n">trafficlight</span><span class="o">.</span><span class="n">setPhase</span><span class="p">(</span><span class="s2">&quot;0&quot;</span><span class="p">,</span> <span class="mi">2</span><span class="p">)</span>
-        <span class="n">step</span> <span class="o">+=</span> <span class="mi">1</span>
-    <span class="n">traci</span><span class="o">.</span><span class="n">close</span><span class="p">()</span>
-    <span class="n">sys</span><span class="o">.</span><span class="n">stdout</span><span class="o">.</span><span class="n">flush</span><span class="p">()</span></div>
-
-
-<div class="viewcode-block" id="generate_routefile"><a class="viewcode-back" href="../../../ts_core.cli.ts_runner.html#ts_core.cli.ts_runner.generate_routefile">[docs]</a><span class="k">def</span> <span class="nf">generate_routefile</span><span class="p">():</span>
+<div class="viewcode-block" id="generate_routefile"><a class="viewcode-back" href="../../../ts_core.cli.ts_runner.html#ts_core.cli.ts_runner.generate_routefile">[docs]</a><span class="k">def</span> <span class="nf">generate_routefile</span><span class="p">(</span><span class="n">ts_sumo_dir</span><span class="p">):</span>
     <span class="n">random</span><span class="o">.</span><span class="n">seed</span><span class="p">(</span><span class="mi">42</span><span class="p">)</span>  <span class="c1"># make tests reproducible</span>
     <span class="n">N</span> <span class="o">=</span> <span class="mi">3600</span>  <span class="c1"># number of time steps</span>
     <span class="c1"># demand per second from different directions</span>
     <span class="n">pWE</span> <span class="o">=</span> <span class="mf">1.</span> <span class="o">/</span> <span class="mi">10</span>
     <span class="n">pEW</span> <span class="o">=</span> <span class="mf">1.</span> <span class="o">/</span> <span class="mi">11</span>
     <span class="n">pNS</span> <span class="o">=</span> <span class="mf">1.</span> <span class="o">/</span> <span class="mi">30</span>
-    <span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="s2">&quot;data/cross.rou.xml&quot;</span><span class="p">,</span> <span class="s2">&quot;w&quot;</span><span class="p">)</span> <span class="k">as</span> <span class="n">routes</span><span class="p">:</span>
+    <span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="n">ts_sumo_dir</span><span class="o">+</span><span class="s2">&quot;/data/cross.rou.xml&quot;</span><span class="p">,</span> <span class="s2">&quot;w&quot;</span><span class="p">)</span> <span class="k">as</span> <span class="n">routes</span><span class="p">:</span>
         <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;&quot;&quot;&lt;routes&gt;</span>
 <span class="s2">        &lt;vType id=&quot;typeWE&quot; accel=&quot;0.8&quot; decel=&quot;4.5&quot; sigma=&quot;0.5&quot; length=&quot;5&quot; minGap=&quot;2.5&quot; maxSpeed=&quot;16.67&quot; guiShape=&quot;passenger&quot;/&gt;</span>
 <span class="s2">        &lt;vType id=&quot;typeNS&quot; accel=&quot;0.8&quot; decel=&quot;4.5&quot; sigma=&quot;0.5&quot; length=&quot;7&quot; minGap=&quot;3&quot; maxSpeed=&quot;25&quot; guiShape=&quot;bus&quot;/&gt;</span>
@@ -127,31 +146,70 @@
                 <span class="n">lastVeh</span> <span class="o">=</span> <span class="n">i</span>
         <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;&lt;/routes&gt;&quot;</span><span class="p">,</span> <span class="n">file</span><span class="o">=</span><span class="n">routes</span><span class="p">)</span></div>
 
+<span class="n">overwrite_output_help</span> <span class="o">=</span> \
+    <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Overwrite the output directory.  This will remove all previous runs and regenerate the folder.</span>
+
+<span class="sd">    &quot;&quot;&quot;</span>
+
 
 <div class="viewcode-block" id="main"><a class="viewcode-back" href="../../../ts_core.cli.ts_runner.html#ts_core.cli.ts_runner.main">[docs]</a><span class="k">def</span> <span class="nf">main</span><span class="p">():</span>
-    <span class="n">parser</span> <span class="o">=</span> <span class="n">argparse</span><span class="o">.</span><span class="n">ArgumentParser</span><span class="p">()</span>
+    <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    </span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="c1"># Initialize argument parser and declare arguments.</span>
+    <span class="n">parser</span> <span class="o">=</span> <span class="n">argparse</span><span class="o">.</span><span class="n">ArgumentParser</span><span class="p">(</span><span class="n">formatter_class</span><span class="o">=</span><span class="n">RawTextHelpFormatter</span><span class="p">,</span> <span class="n">description</span><span class="o">=</span><span class="n">main</span><span class="o">.</span><span class="vm">__doc__</span><span class="p">)</span>
+
+    <span class="sd">&quot;&quot;&quot; Argument Definitions &quot;&quot;&quot;</span>
+    <span class="n">parser</span><span class="o">.</span><span class="n">add_argument</span><span class="p">(</span><span class="s1">&#39;sumo_config_dir&#39;</span><span class="p">,</span> <span class="n">action</span><span class="o">=</span><span class="n">FullPaths</span><span class="p">,</span> <span class="nb">type</span><span class="o">=</span><span class="n">is_dir</span><span class="p">,</span>
+                        <span class="n">help</span><span class="o">=</span><span class="s1">&#39;Specify the target directory from which to load config files&#39;</span><span class="p">)</span>
+
     <span class="n">parser</span><span class="o">.</span><span class="n">add_argument</span><span class="p">(</span><span class="s1">&#39;--gui&#39;</span><span class="p">,</span> <span class="n">action</span><span class="o">=</span><span class="s1">&#39;store_false&#39;</span><span class="p">,</span> <span class="n">help</span><span class="o">=</span><span class="s1">&#39;Toggle the use of the SUMO GUI&#39;</span><span class="p">)</span>
-    <span class="n">parser</span><span class="o">.</span><span class="n">add_argument</span><span class="p">(</span><span class="s1">&#39;--config_dir&#39;</span><span class="p">,</span> <span class="n">action</span><span class="o">=</span><span class="n">FullPaths</span><span class="p">,</span> <span class="nb">type</span><span class="o">=</span><span class="n">is_dir</span><span class="p">,</span> <span class="n">help</span><span class="o">=</span><span class="s1">&#39;Specifc the target directory from which to load config files&#39;</span><span class="p">)</span>
+
+    <span class="n">parser</span><span class="o">.</span><span class="n">add_argument</span><span class="p">(</span><span class="s1">&#39;--overwrite_output&#39;</span><span class="p">,</span> <span class="n">action</span><span class="o">=</span><span class="s1">&#39;store_true&#39;</span><span class="p">,</span> <span class="n">help</span><span class="o">=</span><span class="n">overwrite_output_help</span><span class="p">)</span>
+
     <span class="n">args</span> <span class="o">=</span> <span class="n">parser</span><span class="o">.</span><span class="n">parse_args</span><span class="p">()</span>
 
-    <span class="c1"># Checking the binary for</span>
+    <span class="c1"># A handy variable with the datetime object at the time when the run started</span>
+    <span class="n">run_start_dt</span> <span class="o">=</span> <span class="n">dt</span><span class="o">.</span><span class="n">datetime</span><span class="o">.</span><span class="n">now</span><span class="p">()</span>
+    <span class="n">run_start_dt_str</span> <span class="o">=</span> <span class="n">re</span><span class="o">.</span><span class="n">sub</span><span class="p">(</span><span class="s1">&#39;[^A-Za-z0-9]+&#39;</span><span class="p">,</span> <span class="s1">&#39;_&#39;</span><span class="p">,</span> <span class="n">run_start_dt</span><span class="o">.</span><span class="n">isoformat</span><span class="p">())</span>
+    <span class="n">output_dir</span> <span class="o">=</span> <span class="n">args</span><span class="o">.</span><span class="n">sumo_config_dir</span><span class="o">+</span><span class="s2">&quot;/output/&quot;</span><span class="o">+</span><span class="n">run_start_dt_str</span>
+
+
+    <span class="sd">&quot;&quot;&quot; Output Directory Handling &quot;&quot;&quot;</span>
+
+    <span class="c1"># Wipe out the output directory if instructed by command line argument</span>
+    <span class="k">if</span> <span class="n">args</span><span class="o">.</span><span class="n">overwrite_output</span><span class="p">:</span>
+        <span class="n">shutil</span><span class="o">.</span><span class="n">rmtree</span><span class="p">(</span><span class="n">args</span><span class="o">.</span><span class="n">sumo_config_dir</span><span class="o">+</span><span class="s2">&quot;/output&quot;</span><span class="p">)</span>
+
+    <span class="c1"># Create the output director if it does not exist</span>
+    <span class="k">if</span> <span class="ow">not</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">isdir</span><span class="p">(</span><span class="n">args</span><span class="o">.</span><span class="n">sumo_config_dir</span><span class="o">+</span><span class="s2">&quot;/output&quot;</span><span class="p">):</span>
+        <span class="n">os</span><span class="o">.</span><span class="n">mkdir</span><span class="p">(</span><span class="n">args</span><span class="o">.</span><span class="n">sumo_config_dir</span><span class="o">+</span><span class="s2">&quot;/output&quot;</span><span class="p">)</span>
+
+    <span class="c1"># Create the directory for this run&#39;s output</span>
+    <span class="n">os</span><span class="o">.</span><span class="n">mkdir</span><span class="p">(</span><span class="n">output_dir</span><span class="p">)</span>
+
+    <span class="c1"># Checking the binary for both the GUI and non-gui alternatives</span>
     <span class="k">if</span> <span class="n">args</span><span class="o">.</span><span class="n">gui</span><span class="p">:</span>
         <span class="n">sumoBinary</span> <span class="o">=</span> <span class="n">sumolib</span><span class="o">.</span><span class="n">checkBinary</span><span class="p">(</span><span class="s1">&#39;sumo&#39;</span><span class="p">)</span>
     <span class="k">else</span><span class="p">:</span>
         <span class="n">sumoBinary</span> <span class="o">=</span> <span class="n">sumolib</span><span class="o">.</span><span class="n">checkBinary</span><span class="p">(</span><span class="s1">&#39;sumo-gui&#39;</span><span class="p">)</span>
 
-    <span class="c1"># generate_routefile()</span>
-    <span class="c1">#</span>
-    <span class="c1"># traci.start([sumoBinary, &quot;-c&quot;, &quot;data/cross.sumocfg&quot;,</span>
-    <span class="c1">#                          &quot;--tripinfo-output&quot;, &quot;tripinfo.xml&quot;])</span>
-    <span class="c1">#</span>
-    <span class="c1"># run()</span>
+    <span class="n">generate_routefile</span><span class="p">(</span><span class="n">args</span><span class="o">.</span><span class="n">sumo_config_dir</span><span class="p">)</span>
+
+    <span class="sd">&quot;&quot;&quot; SUMO Startup &quot;&quot;&quot;</span>
+    <span class="c1"># Start up the SUMO binary as specified by the SUMO_HOME environment variable</span>
+    <span class="n">traci</span><span class="o">.</span><span class="n">start</span><span class="p">([</span><span class="n">sumoBinary</span><span class="p">,</span> <span class="s2">&quot;-c&quot;</span><span class="p">,</span> <span class="n">args</span><span class="o">.</span><span class="n">sumo_config_dir</span><span class="o">+</span><span class="s2">&quot;/data/cross.sumocfg&quot;</span><span class="p">,</span>
+                             <span class="s2">&quot;--tripinfo-output&quot;</span><span class="p">,</span> <span class="n">output_dir</span><span class="o">+</span><span class="s2">&quot;/sutripinfo.xml&quot;</span><span class="p">])</span>
+
+    <span class="sd">&quot;&quot;&quot; Engage the SUMO event loop &quot;&quot;&quot;</span>
+    <span class="n">run_loop</span><span class="p">()</span>
 
     <span class="k">return</span></div>
 
+
 <span class="k">if</span> <span class="vm">__name__</span> <span class="o">==</span> <span class="s2">&quot;__main__&quot;</span><span class="p">:</span>
     <span class="n">main</span><span class="p">()</span>
-
 </pre></div>
 
           </div>

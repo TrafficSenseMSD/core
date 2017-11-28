@@ -43,6 +43,7 @@ class Ddict(dict):
 # os.getcwd()
 # os.chdir()
 
+
 f = open(sys.argv[1], 'r')
 data = f.readlines()
 f.close()
