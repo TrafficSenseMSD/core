@@ -162,7 +162,7 @@ class AgentManager(vehicleControl.Manager):
         self.cyberCars = []
 
     def personArrived(self, personID, edge, target):
-        if not personID in self.agents:
+        if personID not in self.agents:
             person = PersonAgent(personID)
             self.agents[personID] = person
             person.startRequest(edge.replace("footmain", "cyber"),

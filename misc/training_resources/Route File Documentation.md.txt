@@ -1,0 +1,28 @@
+Route Files - .rou.xml
+
+This file contains the vehicle definition, vehicle types, and the route information of a certain vehicle or a group of vehicles (aka flow).
+
+The XML Schema is as follows:
+<xsd:schema xmlns:xsd="http://www.w3.org/2001/XMLSchema" elementFormDefault="qualified">
+<xsd:include schemaLocation="routeTypes.xsd"/>
+<xsd:element name="routes" type="routesType"/>
+<xsd:element name="route-alternatives" type="routesType"/>
+	<xsd:complexType name="routesType">
+		<xsd:choice maxOccurs="unbounded">
+		<xsd:element name="vTypeDistribution" type="vTypeDistributionType" minOccurs="0"/>
+		<xsd:element name="routeDistribution" type="routeDistributionType" minOccurs="0"/>
+		<xsd:element name="vType" type="vTypeType" minOccurs="0"/>
+		<xsd:element name="vehicle" type="vehicleType" minOccurs="0"/>
+		<xsd:element name="route" type="routeType" minOccurs="0"/>
+		<xsd:element name="flow" type="flowType" minOccurs="0"/>
+		<xsd:element name="trip" type="tripType" minOccurs="0"/>
+		<xsd:element name="person" type="personType" minOccurs="0"/>
+		<xsd:element name="container" type="containerType" minOccurs="0"/>
+		<xsd:element name="include" minOccurs="0">
+			<xsd:complexType>
+		<xsd:attribute name="href" type="xsd:string"/>
+	</xsd:complexType>
+     </xsd:element>
+   </xsd:choice>
+ </xsd:complexType>
+</xsd:schema>

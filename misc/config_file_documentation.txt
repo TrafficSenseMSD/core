@@ -1,0 +1,62 @@
+Configuration File Documentation
+Justin Maggio
+
+_________________________________________________________
+
+.settings.xml
+
+Looking at the settings.xml configuration file, it appears this config file is simply a viewpoint instruction, where the x and y values are coordinates to center on and the zoom is to show how close to the layout the camera will be overhead (i.e. easy to see individual cars or further away and harder to see individual cars).
+The delay value is picked to default the delay used between each step of the simulation in milliseconds.
+
+(http://sumo.dlr.de/wiki/Tutorials/Hello_Sumo#Configuration)
+
+The "XXX.settings.xml" must be named the same as it is seen in the .sumocfg file.
+
+_________________________________________________________
+
+.sumocfg.xml
+
+Takes the .net.xml and .rou.xml file as inputs into this specific configuration file, pretty much being used as a pointer.
+
+Allows us to pick a start and end value for time in this file, where the time is really simulation steps (might cooridnate directly to real world seconds -- still looking into determining how fast a car is truly travelling and how to get the speed on an individual car)
+
+Once this file is created in the correct directory, a command prompt can be used to initiate sumo by:
+
+sumo -c XXX.sumocfg
+
+GUI can be initiated by:
+
+sumo-gui -c XXX.sumocfg
+
+This is where the.settings.xml configuration file will come into play, and will need to be pointed to in the .sumocfg file.
+
+(http://sumo.dlr.de/wiki/Tutorials/Hello_Sumo#Configuration)
+
+_________________________________________________________
+
+.netccfg.xml
+
+This is a configuration file for NETCONVERT.
+
+This file is created after using the command "netconvert", specifically when importing OSM to SUMO. Can also be used on VISUM networks.
+
+This command will import and convert the OSM file (exported from OSM by user) to the usable SUMO file that can be loaded directedly into a SUMO-road network. The command assumes one parameter, which is either --osm or --visum. Without an output given, the file will be written into a "net.net.xml" or can be named by using the option -o like so:
+
+netconvert --visum my_visum_net.net -o my_sumo_net.net.xml
+
+Uses .nod.xml and .edg.xml as inputs in the configuration file.
+
+Outputs as "XXX.net.xml".
+
+
+
+(http://sumo.dlr.de/wiki/NETCONVERT)
+
+_________________________________________________________
+
+
+
+
+
+
+

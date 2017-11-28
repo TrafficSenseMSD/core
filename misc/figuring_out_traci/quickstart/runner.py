@@ -35,7 +35,7 @@ retcode = subprocess.call(
     [netconvertBinary, "-c", "data/quickstart.netccfg"], stdout=sys.stdout, stderr=sys.stderr)
 try:
     shutil.copy("data/quickstart.net.xml", "net.net.xml")
-except:
+except BaseException:
     print("Missing 'quickstart.net.xml'")
 print(">> Netbuilding closed with status %s" % retcode)
 sys.stdout.flush()

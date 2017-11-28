@@ -1,0 +1,7 @@
+ts_core
+=======
+
+.. toctree::
+   :maxdepth: 4
+
+   ts_core
