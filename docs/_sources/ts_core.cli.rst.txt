@@ -1,0 +1,16 @@
+ts\_core\.cli package
+=====================
+
+.. automodule:: ts_core.cli
+    :members:
+    :undoc-members:
+    :show-inheritance:
+
+Submodules
+----------
+
+.. toctree::
+
+   ts_core.cli.ts_config
+   ts_core.cli.ts_runner
+

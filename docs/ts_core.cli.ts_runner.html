@@ -1,0 +1,210 @@
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title>ts_core.cli.ts_runner module &#8212; TrafficSense 0.01 documentation</title>
+    <link rel="stylesheet" href="_static/classic.css" type="text/css" />
+    <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    './',
+        VERSION:     '0.01',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true,
+        SOURCELINK_SUFFIX: '.txt'
+      };
+    </script>
+    <script type="text/javascript" src="_static/jquery.js"></script>
+    <script type="text/javascript" src="_static/underscore.js"></script>
+    <script type="text/javascript" src="_static/doctools.js"></script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" /> 
+  </head>
+  <body>
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="genindex.html" title="General Index"
+             accesskey="I">index</a></li>
+        <li class="right" >
+          <a href="py-modindex.html" title="Python Module Index"
+             >modules</a> |</li>
+        <li class="nav-item nav-item-0"><a href="index.html">TrafficSense 0.01 documentation</a> &#187;</li> 
+      </ul>
+    </div>  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body" role="main">
+            
+  <div class="section" id="module-ts_core.cli.ts_runner">
+<span id="ts-core-cli-ts-runner-module"></span><h1>ts_core.cli.ts_runner module<a class="headerlink" href="#module-ts_core.cli.ts_runner" title="Permalink to this headline">¶</a></h1>
+<p><code class="docutils literal"><span class="pre">ts_runner</span></code> is a WORK IN PROGRESS, current objective is to implement the traci_tls tutorial using our abstraction.</p>
+<div class="section" id="ts-runner-overview">
+<span id="ts-runner"></span><h2><code class="docutils literal"><span class="pre">ts_runner</span></code> Overview<a class="headerlink" href="#ts-runner-overview" title="Permalink to this headline">¶</a></h2>
+<p><code class="docutils literal"><span class="pre">ts_runner</span></code> manages the startup and execution of the SUMO runtime along with traffic light control and data collectio</p>
+</div>
+<div class="section" id="software-structure-and-implementation">
+<h2>Software Structure and Implementation<a class="headerlink" href="#software-structure-and-implementation" title="Permalink to this headline">¶</a></h2>
+</div>
+<div class="section" id="light-control-and-optimization">
+<h2>Light Control and Optimization<a class="headerlink" href="#light-control-and-optimization" title="Permalink to this headline">¶</a></h2>
+<p><code class="docutils literal"><span class="pre">ts_runner</span></code> will accept an argument that specifies the file and class name to import at startup.  Messing with this
+part of Python is tricky business.</p>
+<p>PaseBin:</p>
+<blockquote>
+<div><p>import importlib
+import sys</p>
+<dl class="docutils">
+<dt>def modify_and_import(module_name, package=None, modification_func):</dt>
+<dd>spec = importlib.util.find_spec(module_name, package)
+source = spec.loader.get_source(module_name)
+new_source = modification_func(source)
+module = importlib.util.module_from_spec(spec)
+codeobj = compile(new_source, module.__spec__.origin, ‘exec’)
+exec(codeobj, module.__dict__)
+sys.modules[module_name] = module
+return module</dd>
+</dl>
+</div></blockquote>
+</div>
+<div class="section" id="output">
+<h2>Output<a class="headerlink" href="#output" title="Permalink to this headline">¶</a></h2>
+<p>Output from ts_runner is directed to <a href="#id1"><span class="problematic" id="id2">``</span></a>&lt;sumo_project_dir&gt;/output/&lt;YYYY_MM_DD_HH_MM_SS_dddddd&gt;/’’ which
+contains:</p>
+<blockquote>
+<div><code class="docutils literal"><span class="pre">sutripinfo.xml</span></code>
+<code class="docutils literal"><span class="pre">YYYY_MM_DD_HH_MM_SS_dddddd_ts_runner.log</span></code> (Not yet implemented, writes to current dir)</div></blockquote>
+</div>
+<hr class="docutils" />
+<div class="section" id="command-line-arguments">
+<h2>Command-line arguments<a class="headerlink" href="#command-line-arguments" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="positional-arguments">
+<h3>Positional arguments<a class="headerlink" href="#positional-arguments" title="Permalink to this headline">¶</a></h3>
+<blockquote>
+<div><table border="1" class="docutils">
+<colgroup>
+<col width="27%" />
+<col width="73%" />
+</colgroup>
+<tbody valign="top">
+<tr class="row-odd"><td><strong>Argument</strong></td>
+<td><strong>Description</strong></td>
+</tr>
+<tr class="row-even"><td><code class="docutils literal"><span class="pre">sumo_config_dir</span></code></td>
+<td>Specify the target directory from which to load config files</td>
+</tr>
+</tbody>
+</table>
+</div></blockquote>
+</div>
+<div class="section" id="optional-arguments">
+<h3>Optional arguments<a class="headerlink" href="#optional-arguments" title="Permalink to this headline">¶</a></h3>
+<blockquote>
+<div><table border="1" class="docutils">
+<colgroup>
+<col width="21%" />
+<col width="79%" />
+</colgroup>
+<tbody valign="top">
+<tr class="row-odd"><td><strong>Argument</strong></td>
+<td><strong>Description</strong></td>
+</tr>
+<tr class="row-even"><td><code class="docutils literal"><span class="pre">-h</span></code>, <code class="docutils literal"><span class="pre">--help</span></code></td>
+<td>show this help message and exit</td>
+</tr>
+<tr class="row-odd"><td><code class="docutils literal"><span class="pre">--gui</span></code></td>
+<td>Toggle the use of the SUMO GUI</td>
+</tr>
+<tr class="row-even"><td><code class="docutils literal"><span class="pre">--overwrite_output</span></code></td>
+<td>Overwrite the output directory.  This will remove all previous runs and regenerate the folder.</td>
+</tr>
+</tbody>
+</table>
+</div></blockquote>
+</div>
+</div>
+<hr class="docutils" />
+<div class="section" id="script-contents">
+<h2>Script contents<a class="headerlink" href="#script-contents" title="Permalink to this headline">¶</a></h2>
+<dl class="function">
+<dt id="ts_core.cli.ts_runner.generate_routefile">
+<code class="descname">generate_routefile</code><span class="sig-paren">(</span><em>ts_sumo_dir</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/ts_core/cli/ts_runner.html#generate_routefile"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#ts_core.cli.ts_runner.generate_routefile" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="function">
+<dt id="ts_core.cli.ts_runner.main">
+<code class="descname">main</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/ts_core/cli/ts_runner.html#main"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#ts_core.cli.ts_runner.main" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</div>
+</div>
+
+
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+  <h3><a href="index.html">Table Of Contents</a></h3>
+  <ul>
+<li><a class="reference internal" href="#">ts_core.cli.ts_runner module</a><ul>
+<li><a class="reference internal" href="#ts-runner-overview"><code class="docutils literal"><span class="pre">ts_runner</span></code> Overview</a></li>
+<li><a class="reference internal" href="#software-structure-and-implementation">Software Structure and Implementation</a></li>
+<li><a class="reference internal" href="#light-control-and-optimization">Light Control and Optimization</a></li>
+<li><a class="reference internal" href="#output">Output</a></li>
+<li><a class="reference internal" href="#command-line-arguments">Command-line arguments</a><ul>
+<li><a class="reference internal" href="#positional-arguments">Positional arguments</a></li>
+<li><a class="reference internal" href="#optional-arguments">Optional arguments</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#script-contents">Script contents</a></li>
+</ul>
+</li>
+</ul>
+
+  <div role="note" aria-label="source link">
+    <h3>This Page</h3>
+    <ul class="this-page-menu">
+      <li><a href="_sources/ts_core.cli.ts_runner.rst.txt"
+            rel="nofollow">Show Source</a></li>
+    </ul>
+   </div>
+<div id="searchbox" style="display: none" role="search">
+  <h3>Quick search</h3>
+    <form class="search" action="search.html" method="get">
+      <div><input type="text" name="q" /></div>
+      <div><input type="submit" value="Go" /></div>
+      <input type="hidden" name="check_keywords" value="yes" />
+      <input type="hidden" name="area" value="default" />
+    </form>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="genindex.html" title="General Index"
+             >index</a></li>
+        <li class="right" >
+          <a href="py-modindex.html" title="Python Module Index"
+             >modules</a> |</li>
+        <li class="nav-item nav-item-0"><a href="index.html">TrafficSense 0.01 documentation</a> &#187;</li> 
+      </ul>
+    </div>
+    <div class="footer" role="contentinfo">
+        &#169; Copyright 2017, Samara, Gaitz, Eilif, Bryan, Justin, Jow.
+      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 1.6.5.
+    </div>
+  </body>
+</html>

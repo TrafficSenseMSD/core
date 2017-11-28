@@ -1,0 +1,9 @@
+requests==2.18.4
+matplotlib==2.1.0rc1
+numpy==1.13.1
+pandas==0.20.3
+scipy==1.0.0b1
+sklearn==0.0
+sphinx
+sphinxcontrib-argdoc
+sumotools==0.7

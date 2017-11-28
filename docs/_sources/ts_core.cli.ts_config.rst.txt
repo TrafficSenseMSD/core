@@ -1,0 +1,7 @@
+ts\_core\.cli\.ts\_config module
+================================
+
+.. automodule:: ts_core.cli.ts_config
+    :members:
+    :undoc-members:
+    :show-inheritance:

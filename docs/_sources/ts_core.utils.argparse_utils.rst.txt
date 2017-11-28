@@ -1,0 +1,7 @@
+ts\_core\.utils\.argparse\_utils module
+=======================================
+
+.. automodule:: ts_core.utils.argparse_utils
+    :members:
+    :undoc-members:
+    :show-inheritance:
