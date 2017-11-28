@@ -18,5 +18,5 @@ setup(
     author="",
     packages=find_packages(),
     entry_points={
-         'console_scripts': ['ts_runner=src.cli.ts_runner:main']}
+         'console_scripts': ['ts_runner=ts_core.cli.ts_runner:main']}
 )

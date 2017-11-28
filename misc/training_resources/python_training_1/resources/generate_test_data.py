@@ -16,6 +16,7 @@ def make_fake_data():
     }
     return out
 
+
 data = [make_fake_data() for i in range(1000)]
 
 xml = ET.Element("data")

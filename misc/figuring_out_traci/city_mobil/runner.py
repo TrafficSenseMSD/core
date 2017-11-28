@@ -31,5 +31,5 @@ vehicleControl.init(simpleManager.SimpleManager(), True)
 vehicleControl.init(agentManager.AgentManager(), True)
 try:
     shutil.copy("all-the-results.txt", "../result2")
-except:
+except BaseException:
     print("Missing 'all-the-results.txt'")

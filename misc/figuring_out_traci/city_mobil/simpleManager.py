@@ -26,7 +26,7 @@ class SimpleManager(vehicleControl.Manager):
         self.personsWaitingAt = {}
 
     def personArrived(self, personID, edge, target):
-        if not edge in self.personsWaitingAt:
+        if edge not in self.personsWaitingAt:
             self.personsWaitingAt[edge] = []
         self.personsWaitingAt[edge].append((personID, target))
 
@@ -58,6 +58,7 @@ class SimpleManager(vehicleControl.Manager):
         else:
             vehicleControl.stopAt(vehicleID, "cyberout")
         self.cyberCarLoad[vehicleID] = load
+
 
 if __name__ == "__main__":
     vehicleControl.init(SimpleManager())
