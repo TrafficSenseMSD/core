@@ -2,9 +2,11 @@ import traci
 import logging
 logger = logging.getLogger('ts_core')
 
+
 class OptimizerBase(object):
     def __init__(self):
         pass
+
 
 class LightControl(object):
     def __init__(self):
@@ -22,4 +24,3 @@ class LightControl(object):
                 return 3
             else:
                 return 2
-
