@@ -1,23 +1,30 @@
 <routes xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
         xsi:noNamespaceSchemaLocation="http://sumo.dlr.de/xsd/routes_file.xsd">
-    <route id="horizontal" edges="2i 1o 1i 2o 2i"/>
+    
+	<vType id="right_left" length="5" guiShape="truck/semitrailer" maxSpeed="70" carFollowModel="Krauss" accel="2.6" decel="4.5" sigma="0.5"/>
+	<vType id="bottom_top" length="5" maxSpeed="70" carFollowModel="Krauss" accel="2.6" decel="4.5" sigma="0.5"/>
+	<vType id="turn_right_bottom" length="5" maxSpeed="70" carFollowModel="Krauss" accel="2.6" decel="4.5" sigma="0.5"/>
+	<vType id="turn_left_bottom" length="5" maxSpeed="70" carFollowModel="Krauss" accel="2.6" decel="4.5" sigma="0.5"/>
+	<vType id="turn_left_top" length="5" maxSpeed="70" carFollowModel="Krauss" accel="2.6" decel="4.5" sigma="0.5"/>
+	
+	<route id="right_left"  edges="2i 1o 1i 2o 2i"/>
 	<route id="vertical" edges="3i 4o 4i 3o 3i"/>
 	<route id="turn_right_bottom" edges="3i 2o 2i 3o 3i"/>
 	<route id="turn_left_bottom" edges="3i 1o 1i 3o 3i"/>
 	<route id="turn_left_top" edges="4i 1o 1i 4o 4i"/>
-	<route id="turn_right_top" edges="4i 1o 1i 4o 4i"/>
-	
-    <flow id="horizontal" route="horizontal" begin="0" end="3600" period="3"
-          departPos="last" departSpeed="max"/>
-	<flow id="vertical" route="vertical" begin="0" end="3600" period="3"
-          departPos="last" departSpeed="max"/>
+	<route id="turn_right_top" edges="4i 2o 2i 4o 4i"/>
+
+    <flow id="right_left" route="right_left" begin="0" end="3600" period="3"
+          departPos="last" departSpeed="max" color="orange"/>
+	<flow id="bottom_top" route="bottom_top" begin="0" end="3600" period="3"
+          departPos="last" departSpeed="max" color="yellow"/>
 	<flow id="turn_right_bottom" route="turn_right_bottom" begin="0" end="3600" period="3"
-          departPos="last" departSpeed="max"/>	 
+          departPos="last" departSpeed="max" color="magenta"/>	 
 	<flow id="turn_left_bottom" route="turn_left_bottom" begin="0" end="3600" period="3"
-          departPos="last" departSpeed="max"/>	
+          departPos="last" departSpeed="max" color="green"/>	
 <flow id="turn_left_top" route="turn_left_top" begin="0" end="3600" period="3"
-          departPos="last" departSpeed="max"/>	 
+          departPos="last" departSpeed="max" color="cyan"/>	 
 <flow id="turn_right_top" route="turn_right_top" begin="0" end="3600" period="3"
-          departPos="last" departSpeed="max"/>		  
+          departPos="last" departSpeed="max" color="white"/>		  
 </routes>
 		  
