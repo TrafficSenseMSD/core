@@ -1,0 +1,15 @@
+<configuration>
+    <input>
+        <net-file value="hello.net.xml"/>
+        <route-files value="hello.rou.xml"/>
+    </input>
+    <time>
+        <begin value="0"/>
+        <end value="500"/>
+    </time>
+	
+	<gui_only>
+		<gui-settings-file value="hello.settings.xml"/>
+		</gui_only>
+		
+</configuration>
