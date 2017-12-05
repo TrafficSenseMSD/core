@@ -7,12 +7,19 @@
 	<vType id="turn_left_bottom" length="5" maxSpeed="70" carFollowModel="Krauss" accel="2.6" decel="4.5" sigma="0.5"/>
 	<vType id="turn_left_top" length="5" maxSpeed="70" carFollowModel="Krauss" accel="2.6" decel="4.5" sigma="0.5"/>
 	
-	<route id="right_left"  edges="2i 1o 1i 2o 2i"/>
-	<route id="vertical" edges="3i 4o 4i 3o 3i"/>
-	<route id="turn_right_bottom" edges="3i 2o 2i 3o 3i"/>
-	<route id="turn_left_bottom" edges="3i 1o 1i 3o 3i"/>
-	<route id="turn_left_top" edges="4i 1o 1i 4o 4i"/>
-	<route id="turn_right_top" edges="4i 2o 2i 4o 4i"/>
+	<route id="new3"  edges="1i 2o 2i 1o"/>
+	<route id="new4"  edges="1i 3o 3i 1o"/>
+	<route id="new5"  edges="1i 4o 4i 1o"/>
+	<route id="right_left" edges="2i 1o 1i 2o"/>
+	<route id="new" edges="2i 3o 3i 2o"/>
+	<route id="new2"  edges="2i 4o 4i 2o"/>
+	<route id="bottom_top" edges="3i 4o 4i 3o"/>
+	<route id="turn_right_bottom" edges="3i 2o 2i 3o"/>
+	<route id="turn_left_bottom" edges="3i 1o 1i 3o "/>
+	<route id="turn_left_top" edges="4i 1o 1i 4o"/>
+	<route id="turn_right_top" edges="4i 2o 2i 4o"/>
+	<route id="top_bottom" edges="4i 3o 3i 4o"/>
+	
 
     <flow id="right_left" route="right_left" begin="0" end="3600" period="3"
           departPos="last" departSpeed="max" color="orange"/>
@@ -22,9 +29,20 @@
           departPos="last" departSpeed="max" color="magenta"/>	 
 	<flow id="turn_left_bottom" route="turn_left_bottom" begin="0" end="3600" period="3"
           departPos="last" departSpeed="max" color="green"/>	
-<flow id="turn_left_top" route="turn_left_top" begin="0" end="3600" period="3"
-          departPos="last" departSpeed="max" color="cyan"/>	 
-<flow id="turn_right_top" route="turn_right_top" begin="0" end="3600" period="3"
-          departPos="last" departSpeed="max" color="white"/>		  
+	<flow id="turn_left_top" route="turn_left_top" begin="0" end="3600" period="3"
+          departPos="last" departSpeed="max" color="red"/>	 
+	<flow id="turn_right_top" route="turn_right_top" begin="0" end="3600" period="3"
+          departPos="last" departSpeed="max" color="white"/>
+	<flow id="top_bottom" route="top_bottom" begin="0" end="3600" period="3"
+          departPos="last" departSpeed="max" color="blue"/>	
+	<flow id="new" route="new" begin="0" end="3600" period="3"
+          departPos="last" departSpeed="max" color="grey"/>
+		  <flow id="new2" route="new2" begin="0" end="3600" period="3"
+          departPos="last" departSpeed="max" color="142,198,166"/>
+		  <flow id="new3" route="new3" begin="0" end="3600" period="3"
+          departPos="last" departSpeed="max" color="184,187,53"/>
+		  <flow id="new4" route="new4" begin="0" end="3600" period="3"
+          departPos="last" departSpeed="max" color="53,184,166"/>
+		  
 </routes>
 		  
