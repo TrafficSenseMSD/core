@@ -14,20 +14,20 @@ class TraCiWrapper():
         self.lane_variables = (tc.VAR_CO2EMISSION, tc.VAR_COEMISSION,
                                tc.VAR_HCEMISSION, tc.VAR_PMXEMISSION, tc.VAR_NOXEMISSION)
 
-    def establish_lane_subscriptions(self):
-        begin_time = self.variable_subscription_polling_rate
-        end_time = self.final_iteration
-        for lane_id in self.lane_ids:
-            traci.lane.subscribe(lane_id, self.lane_variables)
-
-    def get_lane_subscription_results(self, lane_id=None):
-        if lane_id:
-            return traci.lane.getSubscriptionResults(lane_id)
-        else:
-            results = {}
-            for lane_id in self.lane_ids:
-                results[lane_id] = traci.lane.getSubscriptionResults(lane_id)
-            return results
+    # def establish_lane_subscriptions(self):
+    #     begin_time = self.variable_subscription_polling_rate
+    #     end_time = self.final_iteration
+    #     for lane_id in self.lane_ids:
+    #         traci.lane.subscribe(lane_id, self.lane_variables)
+    #
+    # def get_lane_subscription_results(self, lane_id=None):
+    #     if lane_id:
+    #         return traci.lane.getSubscriptionResults(lane_id)
+    #     else:
+    #         results = {}
+    #         for lane_id in self.lane_ids:
+    #             results[lane_id] = traci.lane.getSubscriptionResults(lane_id)
+    #         return results
 
     def get_emissions_values(self, lane_id=None):
         if lane_id:
