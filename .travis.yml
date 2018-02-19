@@ -5,5 +5,5 @@ python:
 sudo: false
 cache: pip
 install: "pip install -r requirements.txt"
-install: "pip -e ."
+install: "pip install ."
 script: (cd ./docs_gen && make html)
