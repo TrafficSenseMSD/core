@@ -6283,7 +6283,6 @@ vehicleType._Automaton = _BuildAutomaton_7()
 
 
 
-
 flowWithoutIDType._AddElement(pyxb.binding.basis.element(pyxb.namespace.ExpandedName(None, 'route'), vehicleRouteType, scope=flowWithoutIDType, location=pyxb.utils.utility.Location('http://sumo.dlr.de/xsd/routeTypes.xsd', 299, 16)))
 
 flowWithoutIDType._AddElement(pyxb.binding.basis.element(pyxb.namespace.ExpandedName(None, 'routeDistribution'), vehicleRouteDistributionType, scope=flowWithoutIDType, location=pyxb.utils.utility.Location('http://sumo.dlr.de/xsd/routeTypes.xsd', 300, 16)))
