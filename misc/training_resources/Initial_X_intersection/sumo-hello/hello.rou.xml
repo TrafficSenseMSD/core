@@ -1,0 +1,23 @@
+<routes xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:noNamespaceSchemaLocation="http://sumo.dlr.de/xsd/routes_file.xsd">
+    <route id="horizontal" edges="2i 1o 1i 2o 2i"/>
+	<route id="vertical" edges="3i 4o 4i 3o 3i"/>
+	<route id="turn_right_bottom" edges="3i 2o 2i 3o 3i"/>
+	<route id="turn_left_bottom" edges="3i 1o 1i 3o 3i"/>
+	<route id="turn_left_top" edges="4i 1o 1i 4o 4i"/>
+	<route id="turn_right_top" edges="4i 1o 1i 4o 4i"/>
+	
+    <flow id="horizontal" route="horizontal" begin="0" end="3600" period="3"
+          departPos="last" departSpeed="max"/>
+	<flow id="vertical" route="vertical" begin="0" end="3600" period="3"
+          departPos="last" departSpeed="max"/>
+	<flow id="turn_right_bottom" route="turn_right_bottom" begin="0" end="3600" period="3"
+          departPos="last" departSpeed="max"/>	 
+	<flow id="turn_left_bottom" route="turn_left_bottom" begin="0" end="3600" period="3"
+          departPos="last" departSpeed="max"/>	
+<flow id="turn_left_top" route="turn_left_top" begin="0" end="3600" period="3"
+          departPos="last" departSpeed="max"/>	 
+<flow id="turn_right_top" route="turn_right_top" begin="0" end="3600" period="3"
+          departPos="last" departSpeed="max"/>		  
+</routes>
+		  
