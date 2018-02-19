@@ -6,8 +6,11 @@ class ExcelParser():
 		self.configuration_index = {
 		'Intersection Shape':'A4',
 		'Route Weights':'A7',
-		'Vehicles':'B2',
-		'Impatience':'C4',
+		'Randomize':'A11',
+		'Vehicles Size Distribution':'B4',
+		'Vehicles V2I Distribution':'B7',
+        'Initialize the Directory':'B11',
+		'Driver Impatience':'C4',
 		'Autonomous Distribution':'C7',
 		'Traffic Demand':'D2',
 		'Accident Response':'E2',
