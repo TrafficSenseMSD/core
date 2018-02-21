@@ -1,0 +1,123 @@
+<routes>
+        <vType id="typeWE" accel="5" decel="4.5" sigma="0.8" length="5" minGap="2.5" maxSpeed="30" guiShape="passenger"/>
+        <vType id="typeNS" accel="0.8" decel="4.5" sigma="0.05" length="7" minGap="3" maxSpeed="25" guiShape="bus"/>
+	
+	
+	<vTypeDistribution id="vehicledist1i">
+        <vType id="type11" accel="0.8" decel="4.5" length="5" maxSpeed="30" probability="0.8"/>
+        <vType id="type21" accel="1.8" decel="4.5" length="15" maxSpeed="25" probability="0.2"/>
+    </vTypeDistribution>
+	
+    <routeDistribution id="routedist1i">
+        <route id="route01" color="255,0,0" edges="1i 4o" probability="0.2"/>
+        <route id="route11" color="0,255,0" edges="1i 3o" probability="0.2"/>
+		<route id="route21" color="0,0,255" edges="1i 2o" probability="0.6"/> <!-- Does NOT need probability to add to 1.0, it will normalize-->
+    </routeDistribution>
+	
+	
+	<vTypeDistribution id="vehicledist2i">
+        <vType id="type12" accel="0.8" decel="4.5" length="5" maxSpeed="30" probability="0.8"/>
+        <vType id="type22" accel="1.8" decel="4.5" length="15" maxSpeed="25" probability="0.2"/>
+    </vTypeDistribution>
+	
+    <routeDistribution id="routedist2i">
+        <route id="route02" color="0,255,0" edges="2i 4o" probability="0.2"/>
+        <route id="route12" color="255,0,0" edges="2i 3o" probability="0.2"/>
+		<route id="route22" color="0,0,255" edges="2i 1o" probability="0.6"/>
+    </routeDistribution>
+	
+	
+	<vTypeDistribution id="vehicledist3i">
+        <vType id="type13" accel="0.8" decel="4.5" length="5" maxSpeed="30" probability="0.8"/>
+        <vType id="type23" accel="1.8" decel="4.5" length="15" maxSpeed="25" probability="0.2"/>
+    </vTypeDistribution>
+	
+    <routeDistribution id="routedist3i">
+        <route id="route03" color="0,0,255" edges="3i 4o" probability="0.6"/>
+        <route id="route13" color="0,255,0" edges="3i 2o" probability="0.2"/>
+		<route id="route23" color="255,0,0" edges="3i 1o" probability="0.2"/>
+    </routeDistribution>
+
+	
+	<vTypeDistribution id="vehicledist4i">
+        <vType id="type14" accel="0.8" decel="4.5" length="5" maxSpeed="30" probability="0.8"/>
+        <vType id="type24" accel="1.8" decel="4.5" length="15" maxSpeed="25" probability="0.2"/>
+    </vTypeDistribution>
+	
+    <routeDistribution id="routedist4i">
+        <route id="route04" color="255,0,0" edges="4i 2o" probability="0.2"/>
+        <route id="route14" color="0,20,255" edges="4i 3o" probability="0.6"/>
+		<route id="route24" color="0,255,0" edges="4i 1o" probability="0.2"/>
+    </routeDistribution>
+        <!--
+		<route id="right" edges="1i 2o" />
+        <route id="left" edges="2i 1o" />
+		<route id="up" edges="3i 4o" />
+        <route id="down" edges="4i 3o" />
+		<route id="turnleft23" edges="3i 1o" />
+
+		<vehicle id="left_0" type="typeWE" route="left" depart="0" />
+		<vehicle id="up_0" type="typeNS" route="up" depart="0" />
+        <vehicle id="left_1" type="typeWE" route="left" depart="2" />
+		<vehicle id="up_1" type="typeNS" route="up" depart="2" />
+        <vehicle id="right_0" type="typeWE" route="right" depart="3" />
+		<vehicle id="down_0" type="typeNS" route="down" depart="3" />
+        <vehicle id="right_1" type="typeWE" route="right" depart="4" />
+		<vehicle id="down_1" type="typeNS" route="down" depart="4" />
+        <vehicle id="left_2" type="typeWE" route="left" depart="5" />
+		<vehicle id="up_2" type="typeNS" route="up" depart="5" />
+        <vehicle id="left_3" type="typeWE" route="left" depart="6" />
+		<vehicle id="up_3" type="typeNS" route="up" depart="6" />
+        <vehicle id="right_2" type="typeWE" route="right" depart="7" />
+		<vehicle id="down_2" type="typeNS" route="down" depart="7" />
+        <vehicle id="right_3" type="typeWE" route="right" depart="8" />
+		<vehicle id="down_3" type="typeNS" route="down" depart="8" />
+		<vehicle id="left_4" type="typeWE" route="left" depart="9" />
+		<vehicle id="up_4" type="typeNS" route="up" depart="9" />
+        <vehicle id="left_5" type="typeWE" route="left" depart="10" />
+		<vehicle id="up_5" type="typeNS" route="up" depart="10" />
+        <vehicle id="right_4" type="typeWE" route="right" depart="11" />
+		<vehicle id="down_4" type="typeNS" route="down" depart="11" />
+        <vehicle id="right_5" type="typeWE" route="right" depart="12" />
+		<vehicle id="down_5" type="typeNS" route="down" depart="12" />
+		<vehicle id="left_6" type="typeWE" route="left" depart="13" />
+		<vehicle id="up_6" type="typeNS" route="up" depart="13" />
+        <vehicle id="left_7" type="typeWE" route="left" depart="14" />
+		<vehicle id="up_7" type="typeNS" route="up" depart="14" />
+        <vehicle id="right_6" type="typeWE" route="right" depart="15" />
+		<vehicle id="down_6" type="typeNS" route="down" depart="15" />
+        <vehicle id="right_7" type="typeWE" route="right" depart="16" />
+		<vehicle id="down_7" type="typeNS" route="down" depart="16" />
+		<vehicle id="left_8" type="typeWE" route="left" depart="40" />
+        <vehicle id="left_9" type="typeWE" route="left" depart="42" />
+        <vehicle id="right_8" type="typeWE" route="right" depart="44" />
+        <vehicle id="right_9" type="typeWE" route="right" depart="46" />
+		<vehicle id="left_10" type="typeWE" route="left" depart="48" />
+        <vehicle id="left_11" type="typeWE" route="left" depart="50" />
+        <vehicle id="right_10" type="typeWE" route="right" depart="52" />
+        <vehicle id="right_11" type="typeWE" route="right" depart="54" />
+		<vehicle id="turnleft0" type="typeWE" route="turnleft23" depart="54" />
+		<vehicle id="turnleft1" type="typeWE" route="turnleft23" depart="54" />
+        <vehicle id="turnleft2" type="typeWE" route="turnleft23" depart="54" />
+        <vehicle id="turnleft3" type="typeWE" route="turnleft23" depart="54" />
+        <vehicle id="turnleft4" type="typeWE" route="turnleft23" depart="54" />
+		
+		-->
+	
+        
+        <flow id="type1" begin="10" end= "1000" probability="0.2" accel="2.7" decel="4.5" sigma="0.8" length="5" minGap="2.5" maxSpeed="13.41" departSpeed="13.41" departLane="random" type="vehicledist1i" route="routedist1i" >
+		</flow>
+		
+		<flow id="type2" begin="10" end= "1000" probability="0.2" accel="2.7" decel="4.5" sigma="0.8" length="5" minGap="2.5" maxSpeed="13.41" departSpeed="13.41" departLane="random" type="vehicledist2i" route="routedist2i" >
+		</flow>
+		
+		<flow id="type3" begin="10" end= "1000" probability="0.2" accel="2.7" decel="4.5" sigma="0.8" length="5" minGap="2.5" maxSpeed="13.41" departSpeed="13.41" departLane="random" type="vehicledist3i" route="routedist3i" >
+		</flow>
+		
+		<flow id="type4" begin="10" end= "1000" probability="0.2" accel="2.7" decel="4.5" sigma="0.8" length="5" minGap="2.5" maxSpeed="13.41" departSpeed="13.41" departLane="random" type="vehicledist4i" route="routedist4i" >
+		</flow>
+        
+		
+		
+
+</routes>
