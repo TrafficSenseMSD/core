@@ -1,0 +1,86 @@
+<city>
+    <general
+        inhabitants="1000"
+        households="500"
+        childrenAgeLimit="18"
+        retirementAgeLimit="65"
+        carRate="0.58"
+        unemploymentRate="0.05"
+        footDistanceLimit="350"
+        incomingTraffic="200"
+        outgoingTraffic="50"
+    />
+	    <parameters
+        carPreference="0.50"
+        meanTimePerKmInCity="360"
+        freeTimeActivityRate="0.15"
+        uniformRandomTraffic="0.20"
+        departureVariation="120"
+    />
+    
+    <population>
+        <bracket beginAge="0" endAge="15" peopleNbr="5000" />
+        <bracket beginAge="15" endAge="30" peopleNbr="10000" />
+		 <bracket beginAge="31" endAge="60" peopleNbr="17450" />
+        <bracket beginAge="60" endAge="90" peopleNbr="9780" />
+    </population>
+	
+	<workHours>
+        <opening hour="600" proportion="0.30" />
+        <closing hour="43200" proportion="0.20" />
+     
+    </workHours>
+	
+	<streets>
+        <street edge="4i" population="2.5" workPosition="10.0" />
+          <street edge="4o" population="2.5" workPosition="10.0" />
+		  <street edge="3i" population="2.5" workPosition="10.0" />
+          <street edge="3o" population="2.5" workPosition="10.0" />
+		  <street edge="2i" population="2.5" workPosition="10.0" />
+          <street edge="2o" population="2.5" workPosition="10.0" />
+		  <street edge="1i" population="2.5" workPosition="10.0" />
+          <street edge="1o" population="2.5" workPosition="10.0" />
+    </streets>
+
+<cityGates>
+        <entrance edge="4i" pos="243.67" incoming="1.5" outgoing="2.2"/>
+        <entrance edge="4o" pos="0.00" incoming="1.0" outgoing="0.5"/>
+		<entrance edge="3i" pos="243.67" incoming="1.5" outgoing="2.2"/>
+        <entrance edge="3o" pos="0.00" incoming="1.0" outgoing="0.5"/>
+		<entrance edge="2i" pos="243.67" incoming="1.5" outgoing="2.2"/>
+        <entrance edge="2o" pos="0.00" incoming="1.0" outgoing="0.5"/>
+		<entrance edge="1i" pos="243.67" incoming="1.5" outgoing="2.2"/>
+        <entrance edge="1o" pos="0.00" incoming="1.0" outgoing="0.5"/>
+         
+    </cityGates>
+	
+	  <schools>
+        <school edge="2i" pos="23.0" beginAge="12" endAge="18" capacity="400" opening="32400" closing="64800" />
+		<school edge="1o" pos="23.0" beginAge="12" endAge="18" capacity="400" opening="32400" closing="64800" />
+		<school edge="3o" pos="23.0" beginAge="12" endAge="18" capacity="400" opening="32400" closing="64800" />
+		<school edge="4i" pos="23.0" beginAge="12" endAge="18" capacity="400" opening="32400" closing="64800" />
+    </schools>
+	
+	 <busStations>
+        <busStation id="1" edge="2o" pos="456" />
+        <busStation id="2" edge="4i" pos="324" />
+         ...
+    </busStations>
+
+    <busLines>
+        <busLine id="601" maxTripDuration="3000">
+            <stations>
+                <station refId="1" />
+                 
+            </stations>
+            <revStations>
+                <station refId="2" />
+                 
+            </revStations>
+            <frequencies>
+                <frequency begin="10000" end="25000" rate="1500" />
+                 
+            </frequencies>
+        </busLine>
+    </busLines>
+</city>
