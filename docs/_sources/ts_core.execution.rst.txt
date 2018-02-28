@@ -11,5 +11,6 @@ Submodules
 
 .. toctree::
 
+   ts_core.execution.TraCiWrapper
    ts_core.execution.traci_loop
 
