@@ -26,8 +26,9 @@ def transform_parsed_excel(parsed):
 
 
 if __name__ == "__main__":
-    with open('parser_output.json', 'r') as _bad_json:
+    with open('/Users/eilifm/github/eilifm/trafficsense/core/ts_core/excel_parser/parser_output.txt', 'r') as _bad_json:
         parsed = jsmin.jsmin(_bad_json.read())
         parsed = json.loads(parsed)
         transform_parsed_excel(parsed)
-
+    with open("/Users/eilifm/github/eilifm/trafficsense/core/ts_core/excel_parser/parser_output.txt", 'w') as outfile:
+        json.dump(parsed, outfile, indent=4)

@@ -35,7 +35,7 @@ def mk_sumocfg(parsed_data: dict):
     if "input" in parsed_data:
         _input = getattr(sumocfg, 'inputType')()
         for attr, value in parsed_data['input'].items():
-            attr_type = _input.__getattribute__("_timeType__"+attr).__dict__['_ElementDeclaration__elementBinding']
+            attr_type = _input.__getattribute__("_inputType__"+attr).__dict__['_ElementDeclaration__elementBinding']
             _input.__setattr__(attr, attr_type(value_=value))
         cfg.append(_input)
 
