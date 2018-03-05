@@ -1,0 +1,21 @@
+{"SUMOCFG": {"input": {"net_file": "cross5.net.xml", "route_file": "cross5.rou.xml"},
+"time": {"start": "0", "end": "3600"}}, "Branches": {
+"B1": {
+    "outbound_lanes": 3,
+    "L_lanes": 0,
+    "LS_lanes": 1,
+    "S_lanes": 1,
+    "RS_lanes": 1,
+    "R_lanes": 0,
+    "inbound_lanes": 3,
+    "inbound_node": 0,
+    "outbound_node": 1,
+    "speed": 20,
+    "Length": 500,
+    "id": 1,
+    "priority": 78},
+
+ "B2": {"outbound_lanes": 3, "L_lanes": 0, "LS_lanes": 1, "S_lanes": 1, "RS_lanes": 1, "R_lanes": 0, "inbound_lanes": 3, "inbound_node": 0, "outbound_node": 2, "speed": 20, "Length": 500, "id": 2, "priority": 78}, "B3": {"outbound_lanes": 3, "L_lanes": 0, "LS_lanes": 1, "S_lanes": 1, "RS_lanes": 1, "R_lanes": 0, "inbound_lanes": 3, "inbound_node": 0, "outbound_node": 3, "speed": 20, "Length": 500, "id": 3, "priority": 78}, "B4": {"outbound_lanes": 3, "L_lanes": 0, "LS_lanes": 1, "S_lanes": 1, "RS_lanes": 1, "R_lanes": 0, "inbound_lanes": 3, "inbound_node": 0, "outbound_node": 4, "speed": 20, "Length": 500, "id": 4, "priority": 78}}, "Intersections": {"I0": {"id": 0, "type": "traffic_light"}}}
+
+
+
