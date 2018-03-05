@@ -1,0 +1,7 @@
+<additional>
+   <laneAreaDetector id="example" lanes="1i_0" 
+   pos="300" endPos="400" 
+    freq="5" file="detector.xml" 
+   timeThreshold="1" speedThreshold="5" jamThreshold="10"
+    to="2o_0"/>  
+</additional>
