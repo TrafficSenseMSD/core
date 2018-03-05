@@ -46,7 +46,7 @@
     "SUMOCFG": // <tag as key": { <attr>: <val }
     {
         "time": {"begin": 0, "end": 10000},
-        "input": {"net_file": "cross.net.xml", "route_file": "cross.rou.xml"}
+        "input": {"net_file": "cross.net.xml", "route_files": "cross.rou.xml"}
     }
 }
 

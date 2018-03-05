@@ -21,7 +21,11 @@ gui_ = sumocfg.gui_onlyType()
 gui_.__setattr__("gui_settings_file", sumocfg.fileOptionType(value_="cross.settings.xml"))
 cfg.append(gui_)
 
+output_ = sumocfg.outputType()
+#print(getattr(getattr(sumocfg, 'outputType'), 'vehroute_output_write_unfinished'))
 
+#output_.__setattr__("vehroute_output_write_unfinished", True)
+cfg.append(output_)
 
 from xml.dom import minidom
 

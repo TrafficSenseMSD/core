@@ -13,3 +13,15 @@ class ParsedSchemaError(TSCoreError):
 
     def __init__(self, message):
         self.message = message
+
+class ParsedConfigNotImplementedError(TSCoreError):
+    """
+
+    Parameters
+    ----------
+    message: explanation of the error
+
+    """
+
+    def __init__(self, message):
+        self.message = message

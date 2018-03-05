@@ -5,8 +5,21 @@ from ts_core.config.config_exceptions import *
 
 
 def transform_parsed_excel(parsed):
+    """
+    This is the manager function transforming
+    
+    Parameters
+    ----------
+    parsed
+
+    Returns
+    -------
+    None
+    
+    """
     if "SUMOCFG" not in parsed:
-        raise
+        raise ParsedSchemaError("Key 'SUMOCFG' is not in top level dict")
+
     mk_sumocfg(parsed["SUMOCFG"])
 
 
@@ -16,5 +29,3 @@ if __name__ == "__main__":
         parsed = json.loads(parsed)
         transform_parsed_excel(parsed)
 
-
-        print(json.dumps(parsed, indent=3))
