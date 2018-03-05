@@ -1,0 +1,1906 @@
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title>ts_core.config.bindings.netfile module &#8212; TrafficSense 0.01 documentation</title>
+    <link rel="stylesheet" href="_static/classic.css" type="text/css" />
+    <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    './',
+        VERSION:     '0.01',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true,
+        SOURCELINK_SUFFIX: '.txt'
+      };
+    </script>
+    <script type="text/javascript" src="_static/jquery.js"></script>
+    <script type="text/javascript" src="_static/underscore.js"></script>
+    <script type="text/javascript" src="_static/doctools.js"></script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" /> 
+  </head>
+  <body>
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="genindex.html" title="General Index"
+             accesskey="I">index</a></li>
+        <li class="right" >
+          <a href="py-modindex.html" title="Python Module Index"
+             >modules</a> |</li>
+        <li class="nav-item nav-item-0"><a href="index.html">TrafficSense 0.01 documentation</a> &#187;</li> 
+      </ul>
+    </div>  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body" role="main">
+            
+  <div class="section" id="module-ts_core.config.bindings.netfile">
+<span id="ts-core-config-bindings-netfile-module"></span><h1>ts_core.config.bindings.netfile module<a class="headerlink" href="#module-ts_core.config.bindings.netfile" title="Permalink to this headline">¶</a></h1>
+<dl class="function">
+<dt id="ts_core.config.bindings.netfile.CreateFromDOM">
+<code class="descname">CreateFromDOM</code><span class="sig-paren">(</span><em>node</em>, <em>default_namespace=None</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/ts_core/config/bindings/netfile.html#CreateFromDOM"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#ts_core.config.bindings.netfile.CreateFromDOM" title="Permalink to this definition">¶</a></dt>
+<dd><p>Create a Python instance from the given DOM node.
+The node tag must correspond to an element declaration in this module.</p>
+<p>&#64;deprecated: Forcing use of DOM interface is unnecessary; use L{CreateFromDocument}.</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="ts_core.config.bindings.netfile.CreateFromDocument">
+<code class="descname">CreateFromDocument</code><span class="sig-paren">(</span><em>xml_text</em>, <em>default_namespace=None</em>, <em>location_base=None</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/ts_core/config/bindings/netfile.html#CreateFromDocument"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#ts_core.config.bindings.netfile.CreateFromDocument" title="Permalink to this definition">¶</a></dt>
+<dd><p>Parse the given XML and use the document element to create a
+Python instance.</p>
+<p>&#64;param xml_text An XML document.  This should be data (Python 2
+str or Python 3 bytes), or a text (Python 2 unicode or Python 3
+str) in the L{pyxb._InputEncoding} encoding.</p>
+<p>&#64;keyword default_namespace The L{pyxb.Namespace} instance to use as the
+default namespace where there is no default namespace in scope.
+If unspecified or C{None}, the namespace of the module containing
+this function will be used.</p>
+<p>&#64;keyword location_base: An object to be recorded as the base of all
+L{pyxb.utils.utility.Location} instances associated with events and
+objects handled by the parser.  You might pass the URI from which
+the document was obtained.</p>
+</dd></dl>
+
+<dl class="class">
+<dt id="ts_core.config.bindings.netfile.STD_ANON">
+<em class="property">class </em><code class="descname">STD_ANON</code><span class="sig-paren">(</span><em>*args</em>, <em>**kw</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/ts_core/config/bindings/netfile.html#STD_ANON"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#ts_core.config.bindings.netfile.STD_ANON" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal"><span class="pre">pyxb.binding.datatypes.float</span></code></p>
+<p>An atomic simple type.</p>
+</dd></dl>
+
+<dl class="class">
+<dt id="ts_core.config.bindings.netfile.STD_ANON_">
+<em class="property">class </em><code class="descname">STD_ANON_</code><span class="sig-paren">(</span><em>*args</em>, <em>**kw</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/ts_core/config/bindings/netfile.html#STD_ANON_"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#ts_core.config.bindings.netfile.STD_ANON_" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal"><span class="pre">pyxb.binding.datatypes.string</span></code></p>
+<p>An atomic simple type.</p>
+</dd></dl>
+
+<dl class="class">
+<dt id="ts_core.config.bindings.netfile.STD_ANON_10">
+<em class="property">class </em><code class="descname">STD_ANON_10</code><span class="sig-paren">(</span><em>*args</em>, <em>**kw</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/ts_core/config/bindings/netfile.html#STD_ANON_10"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#ts_core.config.bindings.netfile.STD_ANON_10" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal"><span class="pre">pyxb.binding.datatypes.string</span></code></p>
+<p>An atomic simple type.</p>
+</dd></dl>
+
+<dl class="class">
+<dt id="ts_core.config.bindings.netfile.STD_ANON_11">
+<em class="property">class </em><code class="descname">STD_ANON_11</code><span class="sig-paren">(</span><em>*args</em>, <em>**kw</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/ts_core/config/bindings/netfile.html#STD_ANON_11"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#ts_core.config.bindings.netfile.STD_ANON_11" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal"><span class="pre">pyxb.binding.datatypes.string</span></code></p>
+<p>An atomic simple type.</p>
+</dd></dl>
+
+<dl class="class">
+<dt id="ts_core.config.bindings.netfile.STD_ANON_12">
+<em class="property">class </em><code class="descname">STD_ANON_12</code><span class="sig-paren">(</span><em>*args</em>, <em>**kw</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/ts_core/config/bindings/netfile.html#STD_ANON_12"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#ts_core.config.bindings.netfile.STD_ANON_12" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal"><span class="pre">pyxb.binding.datatypes.string</span></code>, <code class="xref py py-class docutils literal"><span class="pre">pyxb.binding.basis.enumeration_mixin</span></code></p>
+<p>An atomic simple type.</p>
+<dl class="attribute">
+<dt id="ts_core.config.bindings.netfile.STD_ANON_12.connector">
+<code class="descname">connector</code><em class="property"> = 'connector'</em><a class="headerlink" href="#ts_core.config.bindings.netfile.STD_ANON_12.connector" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="ts_core.config.bindings.netfile.STD_ANON_12.crossing">
+<code class="descname">crossing</code><em class="property"> = 'crossing'</em><a class="headerlink" href="#ts_core.config.bindings.netfile.STD_ANON_12.crossing" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="ts_core.config.bindings.netfile.STD_ANON_12.internal">
+<code class="descname">internal</code><em class="property"> = 'internal'</em><a class="headerlink" href="#ts_core.config.bindings.netfile.STD_ANON_12.internal" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="ts_core.config.bindings.netfile.STD_ANON_12.normal">
+<code class="descname">normal</code><em class="property"> = 'normal'</em><a class="headerlink" href="#ts_core.config.bindings.netfile.STD_ANON_12.normal" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="ts_core.config.bindings.netfile.STD_ANON_12.walkingarea">
+<code class="descname">walkingarea</code><em class="property"> = 'walkingarea'</em><a class="headerlink" href="#ts_core.config.bindings.netfile.STD_ANON_12.walkingarea" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="ts_core.config.bindings.netfile.STD_ANON_13">
+<em class="property">class </em><code class="descname">STD_ANON_13</code><span class="sig-paren">(</span><em>*args</em>, <em>**kw</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/ts_core/config/bindings/netfile.html#STD_ANON_13"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#ts_core.config.bindings.netfile.STD_ANON_13" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal"><span class="pre">pyxb.binding.datatypes.string</span></code>, <code class="xref py py-class docutils literal"><span class="pre">pyxb.binding.basis.enumeration_mixin</span></code></p>
+<p>An atomic simple type.</p>
+<dl class="attribute">
+<dt id="ts_core.config.bindings.netfile.STD_ANON_13.center">
+<code class="descname">center</code><em class="property"> = 'center'</em><a class="headerlink" href="#ts_core.config.bindings.netfile.STD_ANON_13.center" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="ts_core.config.bindings.netfile.STD_ANON_13.right">
+<code class="descname">right</code><em class="property"> = 'right'</em><a class="headerlink" href="#ts_core.config.bindings.netfile.STD_ANON_13.right" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="ts_core.config.bindings.netfile.STD_ANON_14">
+<em class="property">class </em><code class="descname">STD_ANON_14</code><span class="sig-paren">(</span><em>*args</em>, <em>**kw</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/ts_core/config/bindings/netfile.html#STD_ANON_14"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#ts_core.config.bindings.netfile.STD_ANON_14" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal"><span class="pre">pyxb.binding.datatypes.string</span></code>, <code class="xref py py-class docutils literal"><span class="pre">pyxb.binding.basis.enumeration_mixin</span></code></p>
+<p>An atomic simple type.</p>
+<dl class="attribute">
+<dt id="ts_core.config.bindings.netfile.STD_ANON_14.allway_stop">
+<code class="descname">allway_stop</code><em class="property"> = 'allway_stop'</em><a class="headerlink" href="#ts_core.config.bindings.netfile.STD_ANON_14.allway_stop" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="ts_core.config.bindings.netfile.STD_ANON_14.dead_end">
+<code class="descname">dead_end</code><em class="property"> = 'dead_end'</em><a class="headerlink" href="#ts_core.config.bindings.netfile.STD_ANON_14.dead_end" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="ts_core.config.bindings.netfile.STD_ANON_14.district">
+<code class="descname">district</code><em class="property"> = 'district'</em><a class="headerlink" href="#ts_core.config.bindings.netfile.STD_ANON_14.district" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="ts_core.config.bindings.netfile.STD_ANON_14.internal">
+<code class="descname">internal</code><em class="property"> = 'internal'</em><a class="headerlink" href="#ts_core.config.bindings.netfile.STD_ANON_14.internal" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="ts_core.config.bindings.netfile.STD_ANON_14.priority">
+<code class="descname">priority</code><em class="property"> = 'priority'</em><a class="headerlink" href="#ts_core.config.bindings.netfile.STD_ANON_14.priority" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="ts_core.config.bindings.netfile.STD_ANON_14.priority_stop">
+<code class="descname">priority_stop</code><em class="property"> = 'priority_stop'</em><a class="headerlink" href="#ts_core.config.bindings.netfile.STD_ANON_14.priority_stop" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="ts_core.config.bindings.netfile.STD_ANON_14.rail_crossing">
+<code class="descname">rail_crossing</code><em class="property"> = 'rail_crossing'</em><a class="headerlink" href="#ts_core.config.bindings.netfile.STD_ANON_14.rail_crossing" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="ts_core.config.bindings.netfile.STD_ANON_14.rail_signal">
+<code class="descname">rail_signal</code><em class="property"> = 'rail_signal'</em><a class="headerlink" href="#ts_core.config.bindings.netfile.STD_ANON_14.rail_signal" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="ts_core.config.bindings.netfile.STD_ANON_14.right_before_left">
+<code class="descname">right_before_left</code><em class="property"> = 'right_before_left'</em><a class="headerlink" href="#ts_core.config.bindings.netfile.STD_ANON_14.right_before_left" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="ts_core.config.bindings.netfile.STD_ANON_14.traffic_light">
+<code class="descname">traffic_light</code><em class="property"> = 'traffic_light'</em><a class="headerlink" href="#ts_core.config.bindings.netfile.STD_ANON_14.traffic_light" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="ts_core.config.bindings.netfile.STD_ANON_14.traffic_light_right_on_red">
+<code class="descname">traffic_light_right_on_red</code><em class="property"> = 'traffic_light_right_on_red'</em><a class="headerlink" href="#ts_core.config.bindings.netfile.STD_ANON_14.traffic_light_right_on_red" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="ts_core.config.bindings.netfile.STD_ANON_14.traffic_light_unregulated">
+<code class="descname">traffic_light_unregulated</code><em class="property"> = 'traffic_light_unregulated'</em><a class="headerlink" href="#ts_core.config.bindings.netfile.STD_ANON_14.traffic_light_unregulated" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="ts_core.config.bindings.netfile.STD_ANON_14.unregulated">
+<code class="descname">unregulated</code><em class="property"> = 'unregulated'</em><a class="headerlink" href="#ts_core.config.bindings.netfile.STD_ANON_14.unregulated" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="ts_core.config.bindings.netfile.STD_ANON_14.zipper">
+<code class="descname">zipper</code><em class="property"> = 'zipper'</em><a class="headerlink" href="#ts_core.config.bindings.netfile.STD_ANON_14.zipper" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="ts_core.config.bindings.netfile.STD_ANON_15">
+<em class="property">class </em><code class="descname">STD_ANON_15</code><span class="sig-paren">(</span><em>*args</em>, <em>**kw</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/ts_core/config/bindings/netfile.html#STD_ANON_15"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#ts_core.config.bindings.netfile.STD_ANON_15" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal"><span class="pre">pyxb.binding.datatypes.string</span></code></p>
+<p>An atomic simple type.</p>
+</dd></dl>
+
+<dl class="class">
+<dt id="ts_core.config.bindings.netfile.STD_ANON_16">
+<em class="property">class </em><code class="descname">STD_ANON_16</code><span class="sig-paren">(</span><em>*args</em>, <em>**kw</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/ts_core/config/bindings/netfile.html#STD_ANON_16"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#ts_core.config.bindings.netfile.STD_ANON_16" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal"><span class="pre">pyxb.binding.datatypes.string</span></code></p>
+<p>An atomic simple type.</p>
+</dd></dl>
+
+<dl class="class">
+<dt id="ts_core.config.bindings.netfile.STD_ANON_17">
+<em class="property">class </em><code class="descname">STD_ANON_17</code><span class="sig-paren">(</span><em>*args</em>, <em>**kw</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/ts_core/config/bindings/netfile.html#STD_ANON_17"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#ts_core.config.bindings.netfile.STD_ANON_17" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal"><span class="pre">pyxb.binding.datatypes.string</span></code>, <code class="xref py py-class docutils literal"><span class="pre">pyxb.binding.basis.enumeration_mixin</span></code></p>
+<p>An atomic simple type.</p>
+<dl class="attribute">
+<dt id="ts_core.config.bindings.netfile.STD_ANON_17.L">
+<code class="descname">L</code><em class="property"> = 'L'</em><a class="headerlink" href="#ts_core.config.bindings.netfile.STD_ANON_17.L" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="ts_core.config.bindings.netfile.STD_ANON_17.R">
+<code class="descname">R</code><em class="property"> = 'R'</em><a class="headerlink" href="#ts_core.config.bindings.netfile.STD_ANON_17.R" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="ts_core.config.bindings.netfile.STD_ANON_17.T">
+<code class="descname">T</code><em class="property"> = 'T'</em><a class="headerlink" href="#ts_core.config.bindings.netfile.STD_ANON_17.T" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="ts_core.config.bindings.netfile.STD_ANON_17.l">
+<code class="descname">l</code><em class="property"> = 'l'</em><a class="headerlink" href="#ts_core.config.bindings.netfile.STD_ANON_17.l" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="ts_core.config.bindings.netfile.STD_ANON_17.r">
+<code class="descname">r</code><em class="property"> = 'r'</em><a class="headerlink" href="#ts_core.config.bindings.netfile.STD_ANON_17.r" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="ts_core.config.bindings.netfile.STD_ANON_17.s">
+<code class="descname">s</code><em class="property"> = 's'</em><a class="headerlink" href="#ts_core.config.bindings.netfile.STD_ANON_17.s" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="ts_core.config.bindings.netfile.STD_ANON_17.t">
+<code class="descname">t</code><em class="property"> = 't'</em><a class="headerlink" href="#ts_core.config.bindings.netfile.STD_ANON_17.t" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="ts_core.config.bindings.netfile.STD_ANON_18">
+<em class="property">class </em><code class="descname">STD_ANON_18</code><span class="sig-paren">(</span><em>*args</em>, <em>**kw</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/ts_core/config/bindings/netfile.html#STD_ANON_18"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#ts_core.config.bindings.netfile.STD_ANON_18" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal"><span class="pre">pyxb.binding.datatypes.string</span></code>, <code class="xref py py-class docutils literal"><span class="pre">pyxb.binding.basis.enumeration_mixin</span></code></p>
+<p>An atomic simple type.</p>
+<dl class="attribute">
+<dt id="ts_core.config.bindings.netfile.STD_ANON_18.M">
+<code class="descname">M</code><em class="property"> = 'M'</em><a class="headerlink" href="#ts_core.config.bindings.netfile.STD_ANON_18.M" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="ts_core.config.bindings.netfile.STD_ANON_18.Z">
+<code class="descname">Z</code><em class="property"> = 'Z'</em><a class="headerlink" href="#ts_core.config.bindings.netfile.STD_ANON_18.Z" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="ts_core.config.bindings.netfile.STD_ANON_18.emptyString">
+<code class="descname">emptyString</code><em class="property"> = '='</em><a class="headerlink" href="#ts_core.config.bindings.netfile.STD_ANON_18.emptyString" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="ts_core.config.bindings.netfile.STD_ANON_18.emptyString_">
+<code class="descname">emptyString_</code><em class="property"> = '-'</em><a class="headerlink" href="#ts_core.config.bindings.netfile.STD_ANON_18.emptyString_" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="ts_core.config.bindings.netfile.STD_ANON_18.m">
+<code class="descname">m</code><em class="property"> = 'm'</em><a class="headerlink" href="#ts_core.config.bindings.netfile.STD_ANON_18.m" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="ts_core.config.bindings.netfile.STD_ANON_18.o">
+<code class="descname">o</code><em class="property"> = 'o'</em><a class="headerlink" href="#ts_core.config.bindings.netfile.STD_ANON_18.o" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="ts_core.config.bindings.netfile.STD_ANON_18.s">
+<code class="descname">s</code><em class="property"> = 's'</em><a class="headerlink" href="#ts_core.config.bindings.netfile.STD_ANON_18.s" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="ts_core.config.bindings.netfile.STD_ANON_18.w">
+<code class="descname">w</code><em class="property"> = 'w'</em><a class="headerlink" href="#ts_core.config.bindings.netfile.STD_ANON_18.w" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="ts_core.config.bindings.netfile.STD_ANON_2">
+<em class="property">class </em><code class="descname">STD_ANON_2</code><span class="sig-paren">(</span><em>*args</em>, <em>**kw</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/ts_core/config/bindings/netfile.html#STD_ANON_2"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#ts_core.config.bindings.netfile.STD_ANON_2" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal"><span class="pre">pyxb.binding.datatypes.string</span></code></p>
+<p>An atomic simple type.</p>
+</dd></dl>
+
+<dl class="class">
+<dt id="ts_core.config.bindings.netfile.STD_ANON_3">
+<em class="property">class </em><code class="descname">STD_ANON_3</code><span class="sig-paren">(</span><em>*args</em>, <em>**kw</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/ts_core/config/bindings/netfile.html#STD_ANON_3"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#ts_core.config.bindings.netfile.STD_ANON_3" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal"><span class="pre">pyxb.binding.datatypes.string</span></code></p>
+<p>An atomic simple type.</p>
+</dd></dl>
+
+<dl class="class">
+<dt id="ts_core.config.bindings.netfile.STD_ANON_4">
+<em class="property">class </em><code class="descname">STD_ANON_4</code><span class="sig-paren">(</span><em>*args</em>, <em>**kw</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/ts_core/config/bindings/netfile.html#STD_ANON_4"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#ts_core.config.bindings.netfile.STD_ANON_4" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal"><span class="pre">pyxb.binding.datatypes.string</span></code>, <code class="xref py py-class docutils literal"><span class="pre">pyxb.binding.basis.enumeration_mixin</span></code></p>
+<p>An atomic simple type.</p>
+<dl class="attribute">
+<dt id="ts_core.config.bindings.netfile.STD_ANON_4.black">
+<code class="descname">black</code><em class="property"> = 'black'</em><a class="headerlink" href="#ts_core.config.bindings.netfile.STD_ANON_4.black" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="ts_core.config.bindings.netfile.STD_ANON_4.blue">
+<code class="descname">blue</code><em class="property"> = 'blue'</em><a class="headerlink" href="#ts_core.config.bindings.netfile.STD_ANON_4.blue" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="ts_core.config.bindings.netfile.STD_ANON_4.cyan">
+<code class="descname">cyan</code><em class="property"> = 'cyan'</em><a class="headerlink" href="#ts_core.config.bindings.netfile.STD_ANON_4.cyan" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="ts_core.config.bindings.netfile.STD_ANON_4.green">
+<code class="descname">green</code><em class="property"> = 'green'</em><a class="headerlink" href="#ts_core.config.bindings.netfile.STD_ANON_4.green" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="ts_core.config.bindings.netfile.STD_ANON_4.grey">
+<code class="descname">grey</code><em class="property"> = 'grey'</em><a class="headerlink" href="#ts_core.config.bindings.netfile.STD_ANON_4.grey" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="ts_core.config.bindings.netfile.STD_ANON_4.magenta">
+<code class="descname">magenta</code><em class="property"> = 'magenta'</em><a class="headerlink" href="#ts_core.config.bindings.netfile.STD_ANON_4.magenta" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="ts_core.config.bindings.netfile.STD_ANON_4.orange">
+<code class="descname">orange</code><em class="property"> = 'orange'</em><a class="headerlink" href="#ts_core.config.bindings.netfile.STD_ANON_4.orange" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="ts_core.config.bindings.netfile.STD_ANON_4.red">
+<code class="descname">red</code><em class="property"> = 'red'</em><a class="headerlink" href="#ts_core.config.bindings.netfile.STD_ANON_4.red" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="ts_core.config.bindings.netfile.STD_ANON_4.white">
+<code class="descname">white</code><em class="property"> = 'white'</em><a class="headerlink" href="#ts_core.config.bindings.netfile.STD_ANON_4.white" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="ts_core.config.bindings.netfile.STD_ANON_4.yellow">
+<code class="descname">yellow</code><em class="property"> = 'yellow'</em><a class="headerlink" href="#ts_core.config.bindings.netfile.STD_ANON_4.yellow" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="ts_core.config.bindings.netfile.STD_ANON_5">
+<em class="property">class </em><code class="descname">STD_ANON_5</code><span class="sig-paren">(</span><em>*args</em>, <em>**kw</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/ts_core/config/bindings/netfile.html#STD_ANON_5"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#ts_core.config.bindings.netfile.STD_ANON_5" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal"><span class="pre">pyxb.binding.datatypes.string</span></code></p>
+<p>An atomic simple type.</p>
+</dd></dl>
+
+<dl class="class">
+<dt id="ts_core.config.bindings.netfile.STD_ANON_6">
+<em class="property">class </em><code class="descname">STD_ANON_6</code><span class="sig-paren">(</span><em>*args</em>, <em>**kw</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/ts_core/config/bindings/netfile.html#STD_ANON_6"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#ts_core.config.bindings.netfile.STD_ANON_6" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal"><span class="pre">pyxb.binding.datatypes.string</span></code></p>
+<p>An atomic simple type.</p>
+</dd></dl>
+
+<dl class="class">
+<dt id="ts_core.config.bindings.netfile.STD_ANON_7">
+<em class="property">class </em><code class="descname">STD_ANON_7</code><span class="sig-paren">(</span><em>*args</em>, <em>**kw</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/ts_core/config/bindings/netfile.html#STD_ANON_7"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#ts_core.config.bindings.netfile.STD_ANON_7" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal"><span class="pre">pyxb.binding.datatypes.string</span></code></p>
+<p>An atomic simple type.</p>
+</dd></dl>
+
+<dl class="class">
+<dt id="ts_core.config.bindings.netfile.STD_ANON_8">
+<em class="property">class </em><code class="descname">STD_ANON_8</code><span class="sig-paren">(</span><em>*args</em>, <em>**kw</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/ts_core/config/bindings/netfile.html#STD_ANON_8"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#ts_core.config.bindings.netfile.STD_ANON_8" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal"><span class="pre">pyxb.binding.datatypes.string</span></code></p>
+<p>An atomic simple type.</p>
+</dd></dl>
+
+<dl class="class">
+<dt id="ts_core.config.bindings.netfile.STD_ANON_9">
+<em class="property">class </em><code class="descname">STD_ANON_9</code><span class="sig-paren">(</span><em>*args</em>, <em>**kw</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/ts_core/config/bindings/netfile.html#STD_ANON_9"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#ts_core.config.bindings.netfile.STD_ANON_9" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal"><span class="pre">pyxb.binding.datatypes.string</span></code></p>
+<p>An atomic simple type.</p>
+</dd></dl>
+
+<dl class="class">
+<dt id="ts_core.config.bindings.netfile.boolOptionType">
+<em class="property">class </em><code class="descname">boolOptionType</code><span class="sig-paren">(</span><em>*args</em>, <em>**kw</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/ts_core/config/bindings/netfile.html#boolOptionType"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#ts_core.config.bindings.netfile.boolOptionType" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal"><span class="pre">pyxb.binding.basis.complexTypeDefinition</span></code></p>
+<p>Complex type boolOptionType with content type EMPTY</p>
+<dl class="attribute">
+<dt id="ts_core.config.bindings.netfile.boolOptionType.help">
+<code class="descname">help</code><a class="headerlink" href="#ts_core.config.bindings.netfile.boolOptionType.help" title="Permalink to this definition">¶</a></dt>
+<dd><p>Get the value of the attribute from the instance.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="ts_core.config.bindings.netfile.boolOptionType.synonymes">
+<code class="descname">synonymes</code><a class="headerlink" href="#ts_core.config.bindings.netfile.boolOptionType.synonymes" title="Permalink to this definition">¶</a></dt>
+<dd><p>Get the value of the attribute from the instance.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="ts_core.config.bindings.netfile.boolOptionType.type">
+<code class="descname">type</code><a class="headerlink" href="#ts_core.config.bindings.netfile.boolOptionType.type" title="Permalink to this definition">¶</a></dt>
+<dd><p>Get the value of the attribute from the instance.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="ts_core.config.bindings.netfile.boolOptionType.value_">
+<code class="descname">value_</code><a class="headerlink" href="#ts_core.config.bindings.netfile.boolOptionType.value_" title="Permalink to this definition">¶</a></dt>
+<dd><p>Get the value of the attribute from the instance.</p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="ts_core.config.bindings.netfile.boolType">
+<em class="property">class </em><code class="descname">boolType</code><span class="sig-paren">(</span><em>*args</em>, <em>**kw</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/ts_core/config/bindings/netfile.html#boolType"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#ts_core.config.bindings.netfile.boolType" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal"><span class="pre">pyxb.binding.datatypes.string</span></code>, <code class="xref py py-class docutils literal"><span class="pre">pyxb.binding.basis.enumeration_mixin</span></code></p>
+<p>An atomic simple type.</p>
+<dl class="attribute">
+<dt id="ts_core.config.bindings.netfile.boolType.False_">
+<code class="descname">False_</code><em class="property"> = 'False'</em><a class="headerlink" href="#ts_core.config.bindings.netfile.boolType.False_" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="ts_core.config.bindings.netfile.boolType.True_">
+<code class="descname">True_</code><em class="property"> = 'True'</em><a class="headerlink" href="#ts_core.config.bindings.netfile.boolType.True_" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="ts_core.config.bindings.netfile.boolType.emptyString">
+<code class="descname">emptyString</code><em class="property"> = '-'</em><a class="headerlink" href="#ts_core.config.bindings.netfile.boolType.emptyString" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="ts_core.config.bindings.netfile.boolType.false">
+<code class="descname">false</code><em class="property"> = 'false'</em><a class="headerlink" href="#ts_core.config.bindings.netfile.boolType.false" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="ts_core.config.bindings.netfile.boolType.n0">
+<code class="descname">n0</code><em class="property"> = '0'</em><a class="headerlink" href="#ts_core.config.bindings.netfile.boolType.n0" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="ts_core.config.bindings.netfile.boolType.n1">
+<code class="descname">n1</code><em class="property"> = '1'</em><a class="headerlink" href="#ts_core.config.bindings.netfile.boolType.n1" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="ts_core.config.bindings.netfile.boolType.no">
+<code class="descname">no</code><em class="property"> = 'no'</em><a class="headerlink" href="#ts_core.config.bindings.netfile.boolType.no" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="ts_core.config.bindings.netfile.boolType.off">
+<code class="descname">off</code><em class="property"> = 'off'</em><a class="headerlink" href="#ts_core.config.bindings.netfile.boolType.off" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="ts_core.config.bindings.netfile.boolType.on">
+<code class="descname">on</code><em class="property"> = 'on'</em><a class="headerlink" href="#ts_core.config.bindings.netfile.boolType.on" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="ts_core.config.bindings.netfile.boolType.true">
+<code class="descname">true</code><em class="property"> = 'true'</em><a class="headerlink" href="#ts_core.config.bindings.netfile.boolType.true" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="ts_core.config.bindings.netfile.boolType.x">
+<code class="descname">x</code><em class="property"> = 'x'</em><a class="headerlink" href="#ts_core.config.bindings.netfile.boolType.x" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="ts_core.config.bindings.netfile.boolType.yes">
+<code class="descname">yes</code><em class="property"> = 'yes'</em><a class="headerlink" href="#ts_core.config.bindings.netfile.boolType.yes" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="ts_core.config.bindings.netfile.colorType">
+<em class="property">class </em><code class="descname">colorType</code><span class="sig-paren">(</span><em>*args</em>, <em>**kw</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/ts_core/config/bindings/netfile.html#colorType"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#ts_core.config.bindings.netfile.colorType" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal"><span class="pre">pyxb.binding.basis.STD_union</span></code></p>
+<p>Simple type that is a union of STD_ANON_2, STD_ANON_3, STD_ANON_4.</p>
+<dl class="attribute">
+<dt id="ts_core.config.bindings.netfile.colorType.black">
+<code class="descname">black</code><em class="property"> = 'black'</em><a class="headerlink" href="#ts_core.config.bindings.netfile.colorType.black" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="ts_core.config.bindings.netfile.colorType.blue">
+<code class="descname">blue</code><em class="property"> = 'blue'</em><a class="headerlink" href="#ts_core.config.bindings.netfile.colorType.blue" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="ts_core.config.bindings.netfile.colorType.cyan">
+<code class="descname">cyan</code><em class="property"> = 'cyan'</em><a class="headerlink" href="#ts_core.config.bindings.netfile.colorType.cyan" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="ts_core.config.bindings.netfile.colorType.green">
+<code class="descname">green</code><em class="property"> = 'green'</em><a class="headerlink" href="#ts_core.config.bindings.netfile.colorType.green" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="ts_core.config.bindings.netfile.colorType.grey">
+<code class="descname">grey</code><em class="property"> = 'grey'</em><a class="headerlink" href="#ts_core.config.bindings.netfile.colorType.grey" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="ts_core.config.bindings.netfile.colorType.magenta">
+<code class="descname">magenta</code><em class="property"> = 'magenta'</em><a class="headerlink" href="#ts_core.config.bindings.netfile.colorType.magenta" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="ts_core.config.bindings.netfile.colorType.orange">
+<code class="descname">orange</code><em class="property"> = 'orange'</em><a class="headerlink" href="#ts_core.config.bindings.netfile.colorType.orange" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="ts_core.config.bindings.netfile.colorType.red">
+<code class="descname">red</code><em class="property"> = 'red'</em><a class="headerlink" href="#ts_core.config.bindings.netfile.colorType.red" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="ts_core.config.bindings.netfile.colorType.white">
+<code class="descname">white</code><em class="property"> = 'white'</em><a class="headerlink" href="#ts_core.config.bindings.netfile.colorType.white" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="ts_core.config.bindings.netfile.colorType.yellow">
+<code class="descname">yellow</code><em class="property"> = 'yellow'</em><a class="headerlink" href="#ts_core.config.bindings.netfile.colorType.yellow" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="ts_core.config.bindings.netfile.connectionType">
+<em class="property">class </em><code class="descname">connectionType</code><span class="sig-paren">(</span><em>*args</em>, <em>**kw</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/ts_core/config/bindings/netfile.html#connectionType"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#ts_core.config.bindings.netfile.connectionType" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal"><span class="pre">pyxb.binding.basis.complexTypeDefinition</span></code></p>
+<p>Complex type connectionType with content type EMPTY</p>
+<dl class="attribute">
+<dt id="ts_core.config.bindings.netfile.connectionType.contPos">
+<code class="descname">contPos</code><a class="headerlink" href="#ts_core.config.bindings.netfile.connectionType.contPos" title="Permalink to this definition">¶</a></dt>
+<dd><p>Get the value of the attribute from the instance.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="ts_core.config.bindings.netfile.connectionType.dir">
+<code class="descname">dir</code><a class="headerlink" href="#ts_core.config.bindings.netfile.connectionType.dir" title="Permalink to this definition">¶</a></dt>
+<dd><p>Get the value of the attribute from the instance.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="ts_core.config.bindings.netfile.connectionType.fromLane">
+<code class="descname">fromLane</code><a class="headerlink" href="#ts_core.config.bindings.netfile.connectionType.fromLane" title="Permalink to this definition">¶</a></dt>
+<dd><p>Get the value of the attribute from the instance.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="ts_core.config.bindings.netfile.connectionType.from_">
+<code class="descname">from_</code><a class="headerlink" href="#ts_core.config.bindings.netfile.connectionType.from_" title="Permalink to this definition">¶</a></dt>
+<dd><p>Get the value of the attribute from the instance.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="ts_core.config.bindings.netfile.connectionType.keepClear">
+<code class="descname">keepClear</code><a class="headerlink" href="#ts_core.config.bindings.netfile.connectionType.keepClear" title="Permalink to this definition">¶</a></dt>
+<dd><p>Get the value of the attribute from the instance.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="ts_core.config.bindings.netfile.connectionType.linkIndex">
+<code class="descname">linkIndex</code><a class="headerlink" href="#ts_core.config.bindings.netfile.connectionType.linkIndex" title="Permalink to this definition">¶</a></dt>
+<dd><p>Get the value of the attribute from the instance.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="ts_core.config.bindings.netfile.connectionType.pass_">
+<code class="descname">pass_</code><a class="headerlink" href="#ts_core.config.bindings.netfile.connectionType.pass_" title="Permalink to this definition">¶</a></dt>
+<dd><p>Get the value of the attribute from the instance.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="ts_core.config.bindings.netfile.connectionType.shape">
+<code class="descname">shape</code><a class="headerlink" href="#ts_core.config.bindings.netfile.connectionType.shape" title="Permalink to this definition">¶</a></dt>
+<dd><p>Get the value of the attribute from the instance.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="ts_core.config.bindings.netfile.connectionType.speed">
+<code class="descname">speed</code><a class="headerlink" href="#ts_core.config.bindings.netfile.connectionType.speed" title="Permalink to this definition">¶</a></dt>
+<dd><p>Get the value of the attribute from the instance.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="ts_core.config.bindings.netfile.connectionType.state">
+<code class="descname">state</code><a class="headerlink" href="#ts_core.config.bindings.netfile.connectionType.state" title="Permalink to this definition">¶</a></dt>
+<dd><p>Get the value of the attribute from the instance.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="ts_core.config.bindings.netfile.connectionType.tl">
+<code class="descname">tl</code><a class="headerlink" href="#ts_core.config.bindings.netfile.connectionType.tl" title="Permalink to this definition">¶</a></dt>
+<dd><p>Get the value of the attribute from the instance.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="ts_core.config.bindings.netfile.connectionType.to">
+<code class="descname">to</code><a class="headerlink" href="#ts_core.config.bindings.netfile.connectionType.to" title="Permalink to this definition">¶</a></dt>
+<dd><p>Get the value of the attribute from the instance.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="ts_core.config.bindings.netfile.connectionType.toLane">
+<code class="descname">toLane</code><a class="headerlink" href="#ts_core.config.bindings.netfile.connectionType.toLane" title="Permalink to this definition">¶</a></dt>
+<dd><p>Get the value of the attribute from the instance.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="ts_core.config.bindings.netfile.connectionType.via">
+<code class="descname">via</code><a class="headerlink" href="#ts_core.config.bindings.netfile.connectionType.via" title="Permalink to this definition">¶</a></dt>
+<dd><p>Get the value of the attribute from the instance.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="ts_core.config.bindings.netfile.connectionType.visibility">
+<code class="descname">visibility</code><a class="headerlink" href="#ts_core.config.bindings.netfile.connectionType.visibility" title="Permalink to this definition">¶</a></dt>
+<dd><p>Get the value of the attribute from the instance.</p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="ts_core.config.bindings.netfile.edgeType">
+<em class="property">class </em><code class="descname">edgeType</code><span class="sig-paren">(</span><em>*args</em>, <em>**kw</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/ts_core/config/bindings/netfile.html#edgeType"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#ts_core.config.bindings.netfile.edgeType" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal"><span class="pre">pyxb.binding.basis.complexTypeDefinition</span></code></p>
+<p>Complex type edgeType with content type ELEMENT_ONLY</p>
+<dl class="attribute">
+<dt id="ts_core.config.bindings.netfile.edgeType.crossingEdges">
+<code class="descname">crossingEdges</code><a class="headerlink" href="#ts_core.config.bindings.netfile.edgeType.crossingEdges" title="Permalink to this definition">¶</a></dt>
+<dd><p>Get the value of the attribute from the instance.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="ts_core.config.bindings.netfile.edgeType.from_">
+<code class="descname">from_</code><a class="headerlink" href="#ts_core.config.bindings.netfile.edgeType.from_" title="Permalink to this definition">¶</a></dt>
+<dd><p>Get the value of the attribute from the instance.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="ts_core.config.bindings.netfile.edgeType.function">
+<code class="descname">function</code><a class="headerlink" href="#ts_core.config.bindings.netfile.edgeType.function" title="Permalink to this definition">¶</a></dt>
+<dd><p>Get the value of the attribute from the instance.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="ts_core.config.bindings.netfile.edgeType.id">
+<code class="descname">id</code><a class="headerlink" href="#ts_core.config.bindings.netfile.edgeType.id" title="Permalink to this definition">¶</a></dt>
+<dd><p>Get the value of the attribute from the instance.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="ts_core.config.bindings.netfile.edgeType.lane">
+<code class="descname">lane</code><a class="headerlink" href="#ts_core.config.bindings.netfile.edgeType.lane" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return the value for this use within the given instance.</p>
+<p>Note that this is the L{resetValue()}, not the L{defaultValue()}, if
+the element has not yet been assigned a value.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="ts_core.config.bindings.netfile.edgeType.length">
+<code class="descname">length</code><a class="headerlink" href="#ts_core.config.bindings.netfile.edgeType.length" title="Permalink to this definition">¶</a></dt>
+<dd><p>Get the value of the attribute from the instance.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="ts_core.config.bindings.netfile.edgeType.name">
+<code class="descname">name</code><a class="headerlink" href="#ts_core.config.bindings.netfile.edgeType.name" title="Permalink to this definition">¶</a></dt>
+<dd><p>Get the value of the attribute from the instance.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="ts_core.config.bindings.netfile.edgeType.param">
+<code class="descname">param</code><a class="headerlink" href="#ts_core.config.bindings.netfile.edgeType.param" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return the value for this use within the given instance.</p>
+<p>Note that this is the L{resetValue()}, not the L{defaultValue()}, if
+the element has not yet been assigned a value.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="ts_core.config.bindings.netfile.edgeType.priority">
+<code class="descname">priority</code><a class="headerlink" href="#ts_core.config.bindings.netfile.edgeType.priority" title="Permalink to this definition">¶</a></dt>
+<dd><p>Get the value of the attribute from the instance.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="ts_core.config.bindings.netfile.edgeType.shape">
+<code class="descname">shape</code><a class="headerlink" href="#ts_core.config.bindings.netfile.edgeType.shape" title="Permalink to this definition">¶</a></dt>
+<dd><p>Get the value of the attribute from the instance.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="ts_core.config.bindings.netfile.edgeType.spreadType">
+<code class="descname">spreadType</code><a class="headerlink" href="#ts_core.config.bindings.netfile.edgeType.spreadType" title="Permalink to this definition">¶</a></dt>
+<dd><p>Get the value of the attribute from the instance.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="ts_core.config.bindings.netfile.edgeType.to">
+<code class="descname">to</code><a class="headerlink" href="#ts_core.config.bindings.netfile.edgeType.to" title="Permalink to this definition">¶</a></dt>
+<dd><p>Get the value of the attribute from the instance.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="ts_core.config.bindings.netfile.edgeType.type">
+<code class="descname">type</code><a class="headerlink" href="#ts_core.config.bindings.netfile.edgeType.type" title="Permalink to this definition">¶</a></dt>
+<dd><p>Get the value of the attribute from the instance.</p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="ts_core.config.bindings.netfile.fileOptionType">
+<em class="property">class </em><code class="descname">fileOptionType</code><span class="sig-paren">(</span><em>*args</em>, <em>**kw</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/ts_core/config/bindings/netfile.html#fileOptionType"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#ts_core.config.bindings.netfile.fileOptionType" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal"><span class="pre">pyxb.binding.basis.complexTypeDefinition</span></code></p>
+<p>Complex type fileOptionType with content type EMPTY</p>
+<dl class="attribute">
+<dt id="ts_core.config.bindings.netfile.fileOptionType.help">
+<code class="descname">help</code><a class="headerlink" href="#ts_core.config.bindings.netfile.fileOptionType.help" title="Permalink to this definition">¶</a></dt>
+<dd><p>Get the value of the attribute from the instance.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="ts_core.config.bindings.netfile.fileOptionType.synonymes">
+<code class="descname">synonymes</code><a class="headerlink" href="#ts_core.config.bindings.netfile.fileOptionType.synonymes" title="Permalink to this definition">¶</a></dt>
+<dd><p>Get the value of the attribute from the instance.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="ts_core.config.bindings.netfile.fileOptionType.type">
+<code class="descname">type</code><a class="headerlink" href="#ts_core.config.bindings.netfile.fileOptionType.type" title="Permalink to this definition">¶</a></dt>
+<dd><p>Get the value of the attribute from the instance.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="ts_core.config.bindings.netfile.fileOptionType.value_">
+<code class="descname">value_</code><a class="headerlink" href="#ts_core.config.bindings.netfile.fileOptionType.value_" title="Permalink to this definition">¶</a></dt>
+<dd><p>Get the value of the attribute from the instance.</p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="ts_core.config.bindings.netfile.floatOptionType">
+<em class="property">class </em><code class="descname">floatOptionType</code><span class="sig-paren">(</span><em>*args</em>, <em>**kw</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/ts_core/config/bindings/netfile.html#floatOptionType"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#ts_core.config.bindings.netfile.floatOptionType" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal"><span class="pre">pyxb.binding.basis.complexTypeDefinition</span></code></p>
+<p>Complex type floatOptionType with content type EMPTY</p>
+<dl class="attribute">
+<dt id="ts_core.config.bindings.netfile.floatOptionType.help">
+<code class="descname">help</code><a class="headerlink" href="#ts_core.config.bindings.netfile.floatOptionType.help" title="Permalink to this definition">¶</a></dt>
+<dd><p>Get the value of the attribute from the instance.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="ts_core.config.bindings.netfile.floatOptionType.synonymes">
+<code class="descname">synonymes</code><a class="headerlink" href="#ts_core.config.bindings.netfile.floatOptionType.synonymes" title="Permalink to this definition">¶</a></dt>
+<dd><p>Get the value of the attribute from the instance.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="ts_core.config.bindings.netfile.floatOptionType.type">
+<code class="descname">type</code><a class="headerlink" href="#ts_core.config.bindings.netfile.floatOptionType.type" title="Permalink to this definition">¶</a></dt>
+<dd><p>Get the value of the attribute from the instance.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="ts_core.config.bindings.netfile.floatOptionType.value_">
+<code class="descname">value_</code><a class="headerlink" href="#ts_core.config.bindings.netfile.floatOptionType.value_" title="Permalink to this definition">¶</a></dt>
+<dd><p>Get the value of the attribute from the instance.</p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="ts_core.config.bindings.netfile.intArrayOptionType">
+<em class="property">class </em><code class="descname">intArrayOptionType</code><span class="sig-paren">(</span><em>*args</em>, <em>**kw</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/ts_core/config/bindings/netfile.html#intArrayOptionType"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#ts_core.config.bindings.netfile.intArrayOptionType" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal"><span class="pre">pyxb.binding.basis.complexTypeDefinition</span></code></p>
+<p>Complex type intArrayOptionType with content type EMPTY</p>
+<dl class="attribute">
+<dt id="ts_core.config.bindings.netfile.intArrayOptionType.help">
+<code class="descname">help</code><a class="headerlink" href="#ts_core.config.bindings.netfile.intArrayOptionType.help" title="Permalink to this definition">¶</a></dt>
+<dd><p>Get the value of the attribute from the instance.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="ts_core.config.bindings.netfile.intArrayOptionType.synonymes">
+<code class="descname">synonymes</code><a class="headerlink" href="#ts_core.config.bindings.netfile.intArrayOptionType.synonymes" title="Permalink to this definition">¶</a></dt>
+<dd><p>Get the value of the attribute from the instance.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="ts_core.config.bindings.netfile.intArrayOptionType.type">
+<code class="descname">type</code><a class="headerlink" href="#ts_core.config.bindings.netfile.intArrayOptionType.type" title="Permalink to this definition">¶</a></dt>
+<dd><p>Get the value of the attribute from the instance.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="ts_core.config.bindings.netfile.intArrayOptionType.value_">
+<code class="descname">value_</code><a class="headerlink" href="#ts_core.config.bindings.netfile.intArrayOptionType.value_" title="Permalink to this definition">¶</a></dt>
+<dd><p>Get the value of the attribute from the instance.</p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="ts_core.config.bindings.netfile.intOptionType">
+<em class="property">class </em><code class="descname">intOptionType</code><span class="sig-paren">(</span><em>*args</em>, <em>**kw</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/ts_core/config/bindings/netfile.html#intOptionType"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#ts_core.config.bindings.netfile.intOptionType" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal"><span class="pre">pyxb.binding.basis.complexTypeDefinition</span></code></p>
+<p>Complex type intOptionType with content type EMPTY</p>
+<dl class="attribute">
+<dt id="ts_core.config.bindings.netfile.intOptionType.help">
+<code class="descname">help</code><a class="headerlink" href="#ts_core.config.bindings.netfile.intOptionType.help" title="Permalink to this definition">¶</a></dt>
+<dd><p>Get the value of the attribute from the instance.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="ts_core.config.bindings.netfile.intOptionType.synonymes">
+<code class="descname">synonymes</code><a class="headerlink" href="#ts_core.config.bindings.netfile.intOptionType.synonymes" title="Permalink to this definition">¶</a></dt>
+<dd><p>Get the value of the attribute from the instance.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="ts_core.config.bindings.netfile.intOptionType.type">
+<code class="descname">type</code><a class="headerlink" href="#ts_core.config.bindings.netfile.intOptionType.type" title="Permalink to this definition">¶</a></dt>
+<dd><p>Get the value of the attribute from the instance.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="ts_core.config.bindings.netfile.intOptionType.value_">
+<code class="descname">value_</code><a class="headerlink" href="#ts_core.config.bindings.netfile.intOptionType.value_" title="Permalink to this definition">¶</a></dt>
+<dd><p>Get the value of the attribute from the instance.</p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="ts_core.config.bindings.netfile.junctionType">
+<em class="property">class </em><code class="descname">junctionType</code><span class="sig-paren">(</span><em>*args</em>, <em>**kw</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/ts_core/config/bindings/netfile.html#junctionType"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#ts_core.config.bindings.netfile.junctionType" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal"><span class="pre">pyxb.binding.basis.complexTypeDefinition</span></code></p>
+<p>Complex type junctionType with content type ELEMENT_ONLY</p>
+<dl class="attribute">
+<dt id="ts_core.config.bindings.netfile.junctionType.customShape">
+<code class="descname">customShape</code><a class="headerlink" href="#ts_core.config.bindings.netfile.junctionType.customShape" title="Permalink to this definition">¶</a></dt>
+<dd><p>Get the value of the attribute from the instance.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="ts_core.config.bindings.netfile.junctionType.id">
+<code class="descname">id</code><a class="headerlink" href="#ts_core.config.bindings.netfile.junctionType.id" title="Permalink to this definition">¶</a></dt>
+<dd><p>Get the value of the attribute from the instance.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="ts_core.config.bindings.netfile.junctionType.incLanes">
+<code class="descname">incLanes</code><a class="headerlink" href="#ts_core.config.bindings.netfile.junctionType.incLanes" title="Permalink to this definition">¶</a></dt>
+<dd><p>Get the value of the attribute from the instance.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="ts_core.config.bindings.netfile.junctionType.intLanes">
+<code class="descname">intLanes</code><a class="headerlink" href="#ts_core.config.bindings.netfile.junctionType.intLanes" title="Permalink to this definition">¶</a></dt>
+<dd><p>Get the value of the attribute from the instance.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="ts_core.config.bindings.netfile.junctionType.param">
+<code class="descname">param</code><a class="headerlink" href="#ts_core.config.bindings.netfile.junctionType.param" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return the value for this use within the given instance.</p>
+<p>Note that this is the L{resetValue()}, not the L{defaultValue()}, if
+the element has not yet been assigned a value.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="ts_core.config.bindings.netfile.junctionType.radius">
+<code class="descname">radius</code><a class="headerlink" href="#ts_core.config.bindings.netfile.junctionType.radius" title="Permalink to this definition">¶</a></dt>
+<dd><p>Get the value of the attribute from the instance.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="ts_core.config.bindings.netfile.junctionType.request">
+<code class="descname">request</code><a class="headerlink" href="#ts_core.config.bindings.netfile.junctionType.request" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return the value for this use within the given instance.</p>
+<p>Note that this is the L{resetValue()}, not the L{defaultValue()}, if
+the element has not yet been assigned a value.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="ts_core.config.bindings.netfile.junctionType.shape">
+<code class="descname">shape</code><a class="headerlink" href="#ts_core.config.bindings.netfile.junctionType.shape" title="Permalink to this definition">¶</a></dt>
+<dd><p>Get the value of the attribute from the instance.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="ts_core.config.bindings.netfile.junctionType.type">
+<code class="descname">type</code><a class="headerlink" href="#ts_core.config.bindings.netfile.junctionType.type" title="Permalink to this definition">¶</a></dt>
+<dd><p>Get the value of the attribute from the instance.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="ts_core.config.bindings.netfile.junctionType.x">
+<code class="descname">x</code><a class="headerlink" href="#ts_core.config.bindings.netfile.junctionType.x" title="Permalink to this definition">¶</a></dt>
+<dd><p>Get the value of the attribute from the instance.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="ts_core.config.bindings.netfile.junctionType.y">
+<code class="descname">y</code><a class="headerlink" href="#ts_core.config.bindings.netfile.junctionType.y" title="Permalink to this definition">¶</a></dt>
+<dd><p>Get the value of the attribute from the instance.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="ts_core.config.bindings.netfile.junctionType.z">
+<code class="descname">z</code><a class="headerlink" href="#ts_core.config.bindings.netfile.junctionType.z" title="Permalink to this definition">¶</a></dt>
+<dd><p>Get the value of the attribute from the instance.</p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="ts_core.config.bindings.netfile.laneType">
+<em class="property">class </em><code class="descname">laneType</code><span class="sig-paren">(</span><em>*args</em>, <em>**kw</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/ts_core/config/bindings/netfile.html#laneType"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#ts_core.config.bindings.netfile.laneType" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal"><span class="pre">pyxb.binding.basis.complexTypeDefinition</span></code></p>
+<p>Complex type laneType with content type ELEMENT_ONLY</p>
+<dl class="attribute">
+<dt id="ts_core.config.bindings.netfile.laneType.acceleration">
+<code class="descname">acceleration</code><a class="headerlink" href="#ts_core.config.bindings.netfile.laneType.acceleration" title="Permalink to this definition">¶</a></dt>
+<dd><p>Get the value of the attribute from the instance.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="ts_core.config.bindings.netfile.laneType.allow">
+<code class="descname">allow</code><a class="headerlink" href="#ts_core.config.bindings.netfile.laneType.allow" title="Permalink to this definition">¶</a></dt>
+<dd><p>Get the value of the attribute from the instance.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="ts_core.config.bindings.netfile.laneType.customShape">
+<code class="descname">customShape</code><a class="headerlink" href="#ts_core.config.bindings.netfile.laneType.customShape" title="Permalink to this definition">¶</a></dt>
+<dd><p>Get the value of the attribute from the instance.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="ts_core.config.bindings.netfile.laneType.disallow">
+<code class="descname">disallow</code><a class="headerlink" href="#ts_core.config.bindings.netfile.laneType.disallow" title="Permalink to this definition">¶</a></dt>
+<dd><p>Get the value of the attribute from the instance.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="ts_core.config.bindings.netfile.laneType.endOffset">
+<code class="descname">endOffset</code><a class="headerlink" href="#ts_core.config.bindings.netfile.laneType.endOffset" title="Permalink to this definition">¶</a></dt>
+<dd><p>Get the value of the attribute from the instance.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="ts_core.config.bindings.netfile.laneType.id">
+<code class="descname">id</code><a class="headerlink" href="#ts_core.config.bindings.netfile.laneType.id" title="Permalink to this definition">¶</a></dt>
+<dd><p>Get the value of the attribute from the instance.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="ts_core.config.bindings.netfile.laneType.index">
+<code class="descname">index</code><a class="headerlink" href="#ts_core.config.bindings.netfile.laneType.index" title="Permalink to this definition">¶</a></dt>
+<dd><p>Get the value of the attribute from the instance.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="ts_core.config.bindings.netfile.laneType.length">
+<code class="descname">length</code><a class="headerlink" href="#ts_core.config.bindings.netfile.laneType.length" title="Permalink to this definition">¶</a></dt>
+<dd><p>Get the value of the attribute from the instance.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="ts_core.config.bindings.netfile.laneType.neigh">
+<code class="descname">neigh</code><a class="headerlink" href="#ts_core.config.bindings.netfile.laneType.neigh" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return the value for this use within the given instance.</p>
+<p>Note that this is the L{resetValue()}, not the L{defaultValue()}, if
+the element has not yet been assigned a value.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="ts_core.config.bindings.netfile.laneType.param">
+<code class="descname">param</code><a class="headerlink" href="#ts_core.config.bindings.netfile.laneType.param" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return the value for this use within the given instance.</p>
+<p>Note that this is the L{resetValue()}, not the L{defaultValue()}, if
+the element has not yet been assigned a value.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="ts_core.config.bindings.netfile.laneType.prefer">
+<code class="descname">prefer</code><a class="headerlink" href="#ts_core.config.bindings.netfile.laneType.prefer" title="Permalink to this definition">¶</a></dt>
+<dd><p>Get the value of the attribute from the instance.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="ts_core.config.bindings.netfile.laneType.shape">
+<code class="descname">shape</code><a class="headerlink" href="#ts_core.config.bindings.netfile.laneType.shape" title="Permalink to this definition">¶</a></dt>
+<dd><p>Get the value of the attribute from the instance.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="ts_core.config.bindings.netfile.laneType.speed">
+<code class="descname">speed</code><a class="headerlink" href="#ts_core.config.bindings.netfile.laneType.speed" title="Permalink to this definition">¶</a></dt>
+<dd><p>Get the value of the attribute from the instance.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="ts_core.config.bindings.netfile.laneType.width">
+<code class="descname">width</code><a class="headerlink" href="#ts_core.config.bindings.netfile.laneType.width" title="Permalink to this definition">¶</a></dt>
+<dd><p>Get the value of the attribute from the instance.</p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="ts_core.config.bindings.netfile.locationType">
+<em class="property">class </em><code class="descname">locationType</code><span class="sig-paren">(</span><em>*args</em>, <em>**kw</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/ts_core/config/bindings/netfile.html#locationType"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#ts_core.config.bindings.netfile.locationType" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal"><span class="pre">pyxb.binding.basis.complexTypeDefinition</span></code></p>
+<p>Complex type locationType with content type EMPTY</p>
+<dl class="attribute">
+<dt id="ts_core.config.bindings.netfile.locationType.convBoundary">
+<code class="descname">convBoundary</code><a class="headerlink" href="#ts_core.config.bindings.netfile.locationType.convBoundary" title="Permalink to this definition">¶</a></dt>
+<dd><p>Get the value of the attribute from the instance.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="ts_core.config.bindings.netfile.locationType.netOffset">
+<code class="descname">netOffset</code><a class="headerlink" href="#ts_core.config.bindings.netfile.locationType.netOffset" title="Permalink to this definition">¶</a></dt>
+<dd><p>Get the value of the attribute from the instance.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="ts_core.config.bindings.netfile.locationType.origBoundary">
+<code class="descname">origBoundary</code><a class="headerlink" href="#ts_core.config.bindings.netfile.locationType.origBoundary" title="Permalink to this definition">¶</a></dt>
+<dd><p>Get the value of the attribute from the instance.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="ts_core.config.bindings.netfile.locationType.projParameter">
+<code class="descname">projParameter</code><a class="headerlink" href="#ts_core.config.bindings.netfile.locationType.projParameter" title="Permalink to this definition">¶</a></dt>
+<dd><p>Get the value of the attribute from the instance.</p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="ts_core.config.bindings.netfile.neighType">
+<em class="property">class </em><code class="descname">neighType</code><span class="sig-paren">(</span><em>*args</em>, <em>**kw</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/ts_core/config/bindings/netfile.html#neighType"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#ts_core.config.bindings.netfile.neighType" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal"><span class="pre">pyxb.binding.basis.complexTypeDefinition</span></code></p>
+<p>Complex type neighType with content type EMPTY</p>
+<dl class="attribute">
+<dt id="ts_core.config.bindings.netfile.neighType.lane">
+<code class="descname">lane</code><a class="headerlink" href="#ts_core.config.bindings.netfile.neighType.lane" title="Permalink to this definition">¶</a></dt>
+<dd><p>Get the value of the attribute from the instance.</p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="ts_core.config.bindings.netfile.netType">
+<em class="property">class </em><code class="descname">netType</code><span class="sig-paren">(</span><em>*args</em>, <em>**kw</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/ts_core/config/bindings/netfile.html#netType"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#ts_core.config.bindings.netfile.netType" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal"><span class="pre">pyxb.binding.basis.complexTypeDefinition</span></code></p>
+<p>Complex type netType with content type ELEMENT_ONLY</p>
+<dl class="attribute">
+<dt id="ts_core.config.bindings.netfile.netType.connection">
+<code class="descname">connection</code><a class="headerlink" href="#ts_core.config.bindings.netfile.netType.connection" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return the value for this use within the given instance.</p>
+<p>Note that this is the L{resetValue()}, not the L{defaultValue()}, if
+the element has not yet been assigned a value.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="ts_core.config.bindings.netfile.netType.edge">
+<code class="descname">edge</code><a class="headerlink" href="#ts_core.config.bindings.netfile.netType.edge" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return the value for this use within the given instance.</p>
+<p>Note that this is the L{resetValue()}, not the L{defaultValue()}, if
+the element has not yet been assigned a value.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="ts_core.config.bindings.netfile.netType.junction">
+<code class="descname">junction</code><a class="headerlink" href="#ts_core.config.bindings.netfile.netType.junction" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return the value for this use within the given instance.</p>
+<p>Note that this is the L{resetValue()}, not the L{defaultValue()}, if
+the element has not yet been assigned a value.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="ts_core.config.bindings.netfile.netType.junctionCornerDetail">
+<code class="descname">junctionCornerDetail</code><a class="headerlink" href="#ts_core.config.bindings.netfile.netType.junctionCornerDetail" title="Permalink to this definition">¶</a></dt>
+<dd><p>Get the value of the attribute from the instance.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="ts_core.config.bindings.netfile.netType.junctionLinkDetail">
+<code class="descname">junctionLinkDetail</code><a class="headerlink" href="#ts_core.config.bindings.netfile.netType.junctionLinkDetail" title="Permalink to this definition">¶</a></dt>
+<dd><p>Get the value of the attribute from the instance.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="ts_core.config.bindings.netfile.netType.lefthand">
+<code class="descname">lefthand</code><a class="headerlink" href="#ts_core.config.bindings.netfile.netType.lefthand" title="Permalink to this definition">¶</a></dt>
+<dd><p>Get the value of the attribute from the instance.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="ts_core.config.bindings.netfile.netType.location">
+<code class="descname">location</code><a class="headerlink" href="#ts_core.config.bindings.netfile.netType.location" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return the value for this use within the given instance.</p>
+<p>Note that this is the L{resetValue()}, not the L{defaultValue()}, if
+the element has not yet been assigned a value.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="ts_core.config.bindings.netfile.netType.prohibition">
+<code class="descname">prohibition</code><a class="headerlink" href="#ts_core.config.bindings.netfile.netType.prohibition" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return the value for this use within the given instance.</p>
+<p>Note that this is the L{resetValue()}, not the L{defaultValue()}, if
+the element has not yet been assigned a value.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="ts_core.config.bindings.netfile.netType.rectangularLaneCut">
+<code class="descname">rectangularLaneCut</code><a class="headerlink" href="#ts_core.config.bindings.netfile.netType.rectangularLaneCut" title="Permalink to this definition">¶</a></dt>
+<dd><p>Get the value of the attribute from the instance.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="ts_core.config.bindings.netfile.netType.roundabout">
+<code class="descname">roundabout</code><a class="headerlink" href="#ts_core.config.bindings.netfile.netType.roundabout" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return the value for this use within the given instance.</p>
+<p>Note that this is the L{resetValue()}, not the L{defaultValue()}, if
+the element has not yet been assigned a value.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="ts_core.config.bindings.netfile.netType.taz">
+<code class="descname">taz</code><a class="headerlink" href="#ts_core.config.bindings.netfile.netType.taz" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return the value for this use within the given instance.</p>
+<p>Note that this is the L{resetValue()}, not the L{defaultValue()}, if
+the element has not yet been assigned a value.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="ts_core.config.bindings.netfile.netType.tlLogic">
+<code class="descname">tlLogic</code><a class="headerlink" href="#ts_core.config.bindings.netfile.netType.tlLogic" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return the value for this use within the given instance.</p>
+<p>Note that this is the L{resetValue()}, not the L{defaultValue()}, if
+the element has not yet been assigned a value.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="ts_core.config.bindings.netfile.netType.type">
+<code class="descname">type</code><a class="headerlink" href="#ts_core.config.bindings.netfile.netType.type" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return the value for this use within the given instance.</p>
+<p>Note that this is the L{resetValue()}, not the L{defaultValue()}, if
+the element has not yet been assigned a value.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="ts_core.config.bindings.netfile.netType.version">
+<code class="descname">version</code><a class="headerlink" href="#ts_core.config.bindings.netfile.netType.version" title="Permalink to this definition">¶</a></dt>
+<dd><p>Get the value of the attribute from the instance.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="ts_core.config.bindings.netfile.netType.walkingareas">
+<code class="descname">walkingareas</code><a class="headerlink" href="#ts_core.config.bindings.netfile.netType.walkingareas" title="Permalink to this definition">¶</a></dt>
+<dd><p>Get the value of the attribute from the instance.</p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="ts_core.config.bindings.netfile.nodeTypeType">
+<em class="property">class </em><code class="descname">nodeTypeType</code><span class="sig-paren">(</span><em>*args</em>, <em>**kw</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/ts_core/config/bindings/netfile.html#nodeTypeType"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#ts_core.config.bindings.netfile.nodeTypeType" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal"><span class="pre">pyxb.binding.datatypes.string</span></code>, <code class="xref py py-class docutils literal"><span class="pre">pyxb.binding.basis.enumeration_mixin</span></code></p>
+<p>An atomic simple type.</p>
+<dl class="attribute">
+<dt id="ts_core.config.bindings.netfile.nodeTypeType.allway_stop">
+<code class="descname">allway_stop</code><em class="property"> = 'allway_stop'</em><a class="headerlink" href="#ts_core.config.bindings.netfile.nodeTypeType.allway_stop" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="ts_core.config.bindings.netfile.nodeTypeType.dead_end">
+<code class="descname">dead_end</code><em class="property"> = 'dead_end'</em><a class="headerlink" href="#ts_core.config.bindings.netfile.nodeTypeType.dead_end" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="ts_core.config.bindings.netfile.nodeTypeType.priority">
+<code class="descname">priority</code><em class="property"> = 'priority'</em><a class="headerlink" href="#ts_core.config.bindings.netfile.nodeTypeType.priority" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="ts_core.config.bindings.netfile.nodeTypeType.priority_stop">
+<code class="descname">priority_stop</code><em class="property"> = 'priority_stop'</em><a class="headerlink" href="#ts_core.config.bindings.netfile.nodeTypeType.priority_stop" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="ts_core.config.bindings.netfile.nodeTypeType.rail_crossing">
+<code class="descname">rail_crossing</code><em class="property"> = 'rail_crossing'</em><a class="headerlink" href="#ts_core.config.bindings.netfile.nodeTypeType.rail_crossing" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="ts_core.config.bindings.netfile.nodeTypeType.rail_signal">
+<code class="descname">rail_signal</code><em class="property"> = 'rail_signal'</em><a class="headerlink" href="#ts_core.config.bindings.netfile.nodeTypeType.rail_signal" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="ts_core.config.bindings.netfile.nodeTypeType.right_before_left">
+<code class="descname">right_before_left</code><em class="property"> = 'right_before_left'</em><a class="headerlink" href="#ts_core.config.bindings.netfile.nodeTypeType.right_before_left" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="ts_core.config.bindings.netfile.nodeTypeType.traffic_light">
+<code class="descname">traffic_light</code><em class="property"> = 'traffic_light'</em><a class="headerlink" href="#ts_core.config.bindings.netfile.nodeTypeType.traffic_light" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="ts_core.config.bindings.netfile.nodeTypeType.traffic_light_right_on_red">
+<code class="descname">traffic_light_right_on_red</code><em class="property"> = 'traffic_light_right_on_red'</em><a class="headerlink" href="#ts_core.config.bindings.netfile.nodeTypeType.traffic_light_right_on_red" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="ts_core.config.bindings.netfile.nodeTypeType.traffic_light_unregulated">
+<code class="descname">traffic_light_unregulated</code><em class="property"> = 'traffic_light_unregulated'</em><a class="headerlink" href="#ts_core.config.bindings.netfile.nodeTypeType.traffic_light_unregulated" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="ts_core.config.bindings.netfile.nodeTypeType.unregulated">
+<code class="descname">unregulated</code><em class="property"> = 'unregulated'</em><a class="headerlink" href="#ts_core.config.bindings.netfile.nodeTypeType.unregulated" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="ts_core.config.bindings.netfile.nodeTypeType.zipper">
+<code class="descname">zipper</code><em class="property"> = 'zipper'</em><a class="headerlink" href="#ts_core.config.bindings.netfile.nodeTypeType.zipper" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="ts_core.config.bindings.netfile.nonNegativeDistributionType">
+<em class="property">class </em><code class="descname">nonNegativeDistributionType</code><span class="sig-paren">(</span><em>*args</em>, <em>**kw</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/ts_core/config/bindings/netfile.html#nonNegativeDistributionType"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#ts_core.config.bindings.netfile.nonNegativeDistributionType" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal"><span class="pre">pyxb.binding.basis.STD_union</span></code></p>
+<p>Simple type that is a union of nonNegativeFloatType, <a href="#id1"><span class="problematic" id="id2">STD_ANON_</span></a>.</p>
+</dd></dl>
+
+<dl class="class">
+<dt id="ts_core.config.bindings.netfile.nonNegativeFloatType">
+<em class="property">class </em><code class="descname">nonNegativeFloatType</code><span class="sig-paren">(</span><em>*args</em>, <em>**kw</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/ts_core/config/bindings/netfile.html#nonNegativeFloatType"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#ts_core.config.bindings.netfile.nonNegativeFloatType" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal"><span class="pre">pyxb.binding.datatypes.float</span></code></p>
+<p>An atomic simple type.</p>
+</dd></dl>
+
+<dl class="class">
+<dt id="ts_core.config.bindings.netfile.nonNegativeFloatTypeWithErrorValue">
+<em class="property">class </em><code class="descname">nonNegativeFloatTypeWithErrorValue</code><span class="sig-paren">(</span><em>*args</em>, <em>**kw</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/ts_core/config/bindings/netfile.html#nonNegativeFloatTypeWithErrorValue"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#ts_core.config.bindings.netfile.nonNegativeFloatTypeWithErrorValue" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal"><span class="pre">pyxb.binding.basis.STD_union</span></code></p>
+<p>Simple type that is a union of nonNegativeFloatType, STD_ANON.</p>
+</dd></dl>
+
+<dl class="class">
+<dt id="ts_core.config.bindings.netfile.nonNegativeIntType">
+<em class="property">class </em><code class="descname">nonNegativeIntType</code><span class="sig-paren">(</span><em>*args</em>, <em>**kw</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/ts_core/config/bindings/netfile.html#nonNegativeIntType"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#ts_core.config.bindings.netfile.nonNegativeIntType" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal"><span class="pre">pyxb.binding.datatypes.int</span></code></p>
+<p>An atomic simple type.</p>
+</dd></dl>
+
+<dl class="class">
+<dt id="ts_core.config.bindings.netfile.paramType">
+<em class="property">class </em><code class="descname">paramType</code><span class="sig-paren">(</span><em>*args</em>, <em>**kw</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/ts_core/config/bindings/netfile.html#paramType"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#ts_core.config.bindings.netfile.paramType" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal"><span class="pre">pyxb.binding.basis.complexTypeDefinition</span></code></p>
+<p>Complex type paramType with content type EMPTY</p>
+<dl class="attribute">
+<dt id="ts_core.config.bindings.netfile.paramType.key">
+<code class="descname">key</code><a class="headerlink" href="#ts_core.config.bindings.netfile.paramType.key" title="Permalink to this definition">¶</a></dt>
+<dd><p>Get the value of the attribute from the instance.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="ts_core.config.bindings.netfile.paramType.value_">
+<code class="descname">value_</code><a class="headerlink" href="#ts_core.config.bindings.netfile.paramType.value_" title="Permalink to this definition">¶</a></dt>
+<dd><p>Get the value of the attribute from the instance.</p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="ts_core.config.bindings.netfile.phaseType">
+<em class="property">class </em><code class="descname">phaseType</code><span class="sig-paren">(</span><em>*args</em>, <em>**kw</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/ts_core/config/bindings/netfile.html#phaseType"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#ts_core.config.bindings.netfile.phaseType" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal"><span class="pre">pyxb.binding.basis.complexTypeDefinition</span></code></p>
+<p>Complex type phaseType with content type EMPTY</p>
+<dl class="attribute">
+<dt id="ts_core.config.bindings.netfile.phaseType.duration">
+<code class="descname">duration</code><a class="headerlink" href="#ts_core.config.bindings.netfile.phaseType.duration" title="Permalink to this definition">¶</a></dt>
+<dd><p>Get the value of the attribute from the instance.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="ts_core.config.bindings.netfile.phaseType.maxDur">
+<code class="descname">maxDur</code><a class="headerlink" href="#ts_core.config.bindings.netfile.phaseType.maxDur" title="Permalink to this definition">¶</a></dt>
+<dd><p>Get the value of the attribute from the instance.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="ts_core.config.bindings.netfile.phaseType.minDur">
+<code class="descname">minDur</code><a class="headerlink" href="#ts_core.config.bindings.netfile.phaseType.minDur" title="Permalink to this definition">¶</a></dt>
+<dd><p>Get the value of the attribute from the instance.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="ts_core.config.bindings.netfile.phaseType.state">
+<code class="descname">state</code><a class="headerlink" href="#ts_core.config.bindings.netfile.phaseType.state" title="Permalink to this definition">¶</a></dt>
+<dd><p>Get the value of the attribute from the instance.</p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="ts_core.config.bindings.netfile.positiveFloatType">
+<em class="property">class </em><code class="descname">positiveFloatType</code><span class="sig-paren">(</span><em>*args</em>, <em>**kw</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/ts_core/config/bindings/netfile.html#positiveFloatType"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#ts_core.config.bindings.netfile.positiveFloatType" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal"><span class="pre">pyxb.binding.datatypes.float</span></code></p>
+<p>An atomic simple type.</p>
+</dd></dl>
+
+<dl class="class">
+<dt id="ts_core.config.bindings.netfile.positiveIntType">
+<em class="property">class </em><code class="descname">positiveIntType</code><span class="sig-paren">(</span><em>*args</em>, <em>**kw</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/ts_core/config/bindings/netfile.html#positiveIntType"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#ts_core.config.bindings.netfile.positiveIntType" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal"><span class="pre">pyxb.binding.datatypes.int</span></code></p>
+<p>An atomic simple type.</p>
+</dd></dl>
+
+<dl class="class">
+<dt id="ts_core.config.bindings.netfile.prohibitionType">
+<em class="property">class </em><code class="descname">prohibitionType</code><span class="sig-paren">(</span><em>*args</em>, <em>**kw</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/ts_core/config/bindings/netfile.html#prohibitionType"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#ts_core.config.bindings.netfile.prohibitionType" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal"><span class="pre">pyxb.binding.basis.complexTypeDefinition</span></code></p>
+<p>Complex type prohibitionType with content type EMPTY</p>
+<dl class="attribute">
+<dt id="ts_core.config.bindings.netfile.prohibitionType.prohibited">
+<code class="descname">prohibited</code><a class="headerlink" href="#ts_core.config.bindings.netfile.prohibitionType.prohibited" title="Permalink to this definition">¶</a></dt>
+<dd><p>Get the value of the attribute from the instance.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="ts_core.config.bindings.netfile.prohibitionType.prohibitor">
+<code class="descname">prohibitor</code><a class="headerlink" href="#ts_core.config.bindings.netfile.prohibitionType.prohibitor" title="Permalink to this definition">¶</a></dt>
+<dd><p>Get the value of the attribute from the instance.</p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="ts_core.config.bindings.netfile.requestType">
+<em class="property">class </em><code class="descname">requestType</code><span class="sig-paren">(</span><em>*args</em>, <em>**kw</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/ts_core/config/bindings/netfile.html#requestType"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#ts_core.config.bindings.netfile.requestType" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal"><span class="pre">pyxb.binding.basis.complexTypeDefinition</span></code></p>
+<p>Complex type requestType with content type EMPTY</p>
+<dl class="attribute">
+<dt id="ts_core.config.bindings.netfile.requestType.cont">
+<code class="descname">cont</code><a class="headerlink" href="#ts_core.config.bindings.netfile.requestType.cont" title="Permalink to this definition">¶</a></dt>
+<dd><p>Get the value of the attribute from the instance.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="ts_core.config.bindings.netfile.requestType.foes">
+<code class="descname">foes</code><a class="headerlink" href="#ts_core.config.bindings.netfile.requestType.foes" title="Permalink to this definition">¶</a></dt>
+<dd><p>Get the value of the attribute from the instance.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="ts_core.config.bindings.netfile.requestType.index">
+<code class="descname">index</code><a class="headerlink" href="#ts_core.config.bindings.netfile.requestType.index" title="Permalink to this definition">¶</a></dt>
+<dd><p>Get the value of the attribute from the instance.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="ts_core.config.bindings.netfile.requestType.response">
+<code class="descname">response</code><a class="headerlink" href="#ts_core.config.bindings.netfile.requestType.response" title="Permalink to this definition">¶</a></dt>
+<dd><p>Get the value of the attribute from the instance.</p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="ts_core.config.bindings.netfile.restrictionType">
+<em class="property">class </em><code class="descname">restrictionType</code><span class="sig-paren">(</span><em>*args</em>, <em>**kw</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/ts_core/config/bindings/netfile.html#restrictionType"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#ts_core.config.bindings.netfile.restrictionType" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal"><span class="pre">pyxb.binding.basis.complexTypeDefinition</span></code></p>
+<p>Complex type restrictionType with content type EMPTY</p>
+<dl class="attribute">
+<dt id="ts_core.config.bindings.netfile.restrictionType.speed">
+<code class="descname">speed</code><a class="headerlink" href="#ts_core.config.bindings.netfile.restrictionType.speed" title="Permalink to this definition">¶</a></dt>
+<dd><p>Get the value of the attribute from the instance.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="ts_core.config.bindings.netfile.restrictionType.vClass">
+<code class="descname">vClass</code><a class="headerlink" href="#ts_core.config.bindings.netfile.restrictionType.vClass" title="Permalink to this definition">¶</a></dt>
+<dd><p>Get the value of the attribute from the instance.</p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="ts_core.config.bindings.netfile.roundaboutType">
+<em class="property">class </em><code class="descname">roundaboutType</code><span class="sig-paren">(</span><em>*args</em>, <em>**kw</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/ts_core/config/bindings/netfile.html#roundaboutType"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#ts_core.config.bindings.netfile.roundaboutType" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal"><span class="pre">pyxb.binding.basis.complexTypeDefinition</span></code></p>
+<p>Complex type roundaboutType with content type EMPTY</p>
+<dl class="attribute">
+<dt id="ts_core.config.bindings.netfile.roundaboutType.edges">
+<code class="descname">edges</code><a class="headerlink" href="#ts_core.config.bindings.netfile.roundaboutType.edges" title="Permalink to this definition">¶</a></dt>
+<dd><p>Get the value of the attribute from the instance.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="ts_core.config.bindings.netfile.roundaboutType.nodes">
+<code class="descname">nodes</code><a class="headerlink" href="#ts_core.config.bindings.netfile.roundaboutType.nodes" title="Permalink to this definition">¶</a></dt>
+<dd><p>Get the value of the attribute from the instance.</p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="ts_core.config.bindings.netfile.shapeType">
+<em class="property">class </em><code class="descname">shapeType</code><span class="sig-paren">(</span><em>*args</em>, <em>**kw</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/ts_core/config/bindings/netfile.html#shapeType"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#ts_core.config.bindings.netfile.shapeType" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal"><span class="pre">pyxb.binding.datatypes.string</span></code></p>
+<p>An atomic simple type.</p>
+</dd></dl>
+
+<dl class="class">
+<dt id="ts_core.config.bindings.netfile.shapeTypeTwo">
+<em class="property">class </em><code class="descname">shapeTypeTwo</code><span class="sig-paren">(</span><em>*args</em>, <em>**kw</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/ts_core/config/bindings/netfile.html#shapeTypeTwo"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#ts_core.config.bindings.netfile.shapeTypeTwo" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal"><span class="pre">pyxb.binding.datatypes.string</span></code></p>
+<p>An atomic simple type.</p>
+</dd></dl>
+
+<dl class="class">
+<dt id="ts_core.config.bindings.netfile.splitType">
+<em class="property">class </em><code class="descname">splitType</code><span class="sig-paren">(</span><em>*args</em>, <em>**kw</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/ts_core/config/bindings/netfile.html#splitType"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#ts_core.config.bindings.netfile.splitType" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal"><span class="pre">pyxb.binding.basis.complexTypeDefinition</span></code></p>
+<p>Complex type splitType with content type EMPTY</p>
+<dl class="attribute">
+<dt id="ts_core.config.bindings.netfile.splitType.idAfter">
+<code class="descname">idAfter</code><a class="headerlink" href="#ts_core.config.bindings.netfile.splitType.idAfter" title="Permalink to this definition">¶</a></dt>
+<dd><p>Get the value of the attribute from the instance.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="ts_core.config.bindings.netfile.splitType.idBefore">
+<code class="descname">idBefore</code><a class="headerlink" href="#ts_core.config.bindings.netfile.splitType.idBefore" title="Permalink to this definition">¶</a></dt>
+<dd><p>Get the value of the attribute from the instance.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="ts_core.config.bindings.netfile.splitType.keepClear">
+<code class="descname">keepClear</code><a class="headerlink" href="#ts_core.config.bindings.netfile.splitType.keepClear" title="Permalink to this definition">¶</a></dt>
+<dd><p>Get the value of the attribute from the instance.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="ts_core.config.bindings.netfile.splitType.lanes">
+<code class="descname">lanes</code><a class="headerlink" href="#ts_core.config.bindings.netfile.splitType.lanes" title="Permalink to this definition">¶</a></dt>
+<dd><p>Get the value of the attribute from the instance.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="ts_core.config.bindings.netfile.splitType.pos">
+<code class="descname">pos</code><a class="headerlink" href="#ts_core.config.bindings.netfile.splitType.pos" title="Permalink to this definition">¶</a></dt>
+<dd><p>Get the value of the attribute from the instance.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="ts_core.config.bindings.netfile.splitType.radius">
+<code class="descname">radius</code><a class="headerlink" href="#ts_core.config.bindings.netfile.splitType.radius" title="Permalink to this definition">¶</a></dt>
+<dd><p>Get the value of the attribute from the instance.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="ts_core.config.bindings.netfile.splitType.shape">
+<code class="descname">shape</code><a class="headerlink" href="#ts_core.config.bindings.netfile.splitType.shape" title="Permalink to this definition">¶</a></dt>
+<dd><p>Get the value of the attribute from the instance.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="ts_core.config.bindings.netfile.splitType.speed">
+<code class="descname">speed</code><a class="headerlink" href="#ts_core.config.bindings.netfile.splitType.speed" title="Permalink to this definition">¶</a></dt>
+<dd><p>Get the value of the attribute from the instance.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="ts_core.config.bindings.netfile.splitType.tl">
+<code class="descname">tl</code><a class="headerlink" href="#ts_core.config.bindings.netfile.splitType.tl" title="Permalink to this definition">¶</a></dt>
+<dd><p>Get the value of the attribute from the instance.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="ts_core.config.bindings.netfile.splitType.tlType">
+<code class="descname">tlType</code><a class="headerlink" href="#ts_core.config.bindings.netfile.splitType.tlType" title="Permalink to this definition">¶</a></dt>
+<dd><p>Get the value of the attribute from the instance.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="ts_core.config.bindings.netfile.splitType.type">
+<code class="descname">type</code><a class="headerlink" href="#ts_core.config.bindings.netfile.splitType.type" title="Permalink to this definition">¶</a></dt>
+<dd><p>Get the value of the attribute from the instance.</p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="ts_core.config.bindings.netfile.strOptionType">
+<em class="property">class </em><code class="descname">strOptionType</code><span class="sig-paren">(</span><em>*args</em>, <em>**kw</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/ts_core/config/bindings/netfile.html#strOptionType"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#ts_core.config.bindings.netfile.strOptionType" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal"><span class="pre">pyxb.binding.basis.complexTypeDefinition</span></code></p>
+<p>Complex type strOptionType with content type EMPTY</p>
+<dl class="attribute">
+<dt id="ts_core.config.bindings.netfile.strOptionType.help">
+<code class="descname">help</code><a class="headerlink" href="#ts_core.config.bindings.netfile.strOptionType.help" title="Permalink to this definition">¶</a></dt>
+<dd><p>Get the value of the attribute from the instance.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="ts_core.config.bindings.netfile.strOptionType.synonymes">
+<code class="descname">synonymes</code><a class="headerlink" href="#ts_core.config.bindings.netfile.strOptionType.synonymes" title="Permalink to this definition">¶</a></dt>
+<dd><p>Get the value of the attribute from the instance.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="ts_core.config.bindings.netfile.strOptionType.type">
+<code class="descname">type</code><a class="headerlink" href="#ts_core.config.bindings.netfile.strOptionType.type" title="Permalink to this definition">¶</a></dt>
+<dd><p>Get the value of the attribute from the instance.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="ts_core.config.bindings.netfile.strOptionType.value_">
+<code class="descname">value_</code><a class="headerlink" href="#ts_core.config.bindings.netfile.strOptionType.value_" title="Permalink to this definition">¶</a></dt>
+<dd><p>Get the value of the attribute from the instance.</p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="ts_core.config.bindings.netfile.tazSubType">
+<em class="property">class </em><code class="descname">tazSubType</code><span class="sig-paren">(</span><em>*args</em>, <em>**kw</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/ts_core/config/bindings/netfile.html#tazSubType"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#ts_core.config.bindings.netfile.tazSubType" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal"><span class="pre">pyxb.binding.basis.complexTypeDefinition</span></code></p>
+<p>Complex type tazSubType with content type EMPTY</p>
+<dl class="attribute">
+<dt id="ts_core.config.bindings.netfile.tazSubType.id">
+<code class="descname">id</code><a class="headerlink" href="#ts_core.config.bindings.netfile.tazSubType.id" title="Permalink to this definition">¶</a></dt>
+<dd><p>Get the value of the attribute from the instance.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="ts_core.config.bindings.netfile.tazSubType.weight">
+<code class="descname">weight</code><a class="headerlink" href="#ts_core.config.bindings.netfile.tazSubType.weight" title="Permalink to this definition">¶</a></dt>
+<dd><p>Get the value of the attribute from the instance.</p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="ts_core.config.bindings.netfile.tazType">
+<em class="property">class </em><code class="descname">tazType</code><span class="sig-paren">(</span><em>*args</em>, <em>**kw</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/ts_core/config/bindings/netfile.html#tazType"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#ts_core.config.bindings.netfile.tazType" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal"><span class="pre">pyxb.binding.basis.complexTypeDefinition</span></code></p>
+<p>Complex type tazType with content type ELEMENT_ONLY</p>
+<dl class="attribute">
+<dt id="ts_core.config.bindings.netfile.tazType.edges">
+<code class="descname">edges</code><a class="headerlink" href="#ts_core.config.bindings.netfile.tazType.edges" title="Permalink to this definition">¶</a></dt>
+<dd><p>Get the value of the attribute from the instance.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="ts_core.config.bindings.netfile.tazType.id">
+<code class="descname">id</code><a class="headerlink" href="#ts_core.config.bindings.netfile.tazType.id" title="Permalink to this definition">¶</a></dt>
+<dd><p>Get the value of the attribute from the instance.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="ts_core.config.bindings.netfile.tazType.shape">
+<code class="descname">shape</code><a class="headerlink" href="#ts_core.config.bindings.netfile.tazType.shape" title="Permalink to this definition">¶</a></dt>
+<dd><p>Get the value of the attribute from the instance.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="ts_core.config.bindings.netfile.tazType.tazSink">
+<code class="descname">tazSink</code><a class="headerlink" href="#ts_core.config.bindings.netfile.tazType.tazSink" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return the value for this use within the given instance.</p>
+<p>Note that this is the L{resetValue()}, not the L{defaultValue()}, if
+the element has not yet been assigned a value.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="ts_core.config.bindings.netfile.tazType.tazSource">
+<code class="descname">tazSource</code><a class="headerlink" href="#ts_core.config.bindings.netfile.tazType.tazSource" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return the value for this use within the given instance.</p>
+<p>Note that this is the L{resetValue()}, not the L{defaultValue()}, if
+the element has not yet been assigned a value.</p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="ts_core.config.bindings.netfile.tazsType">
+<em class="property">class </em><code class="descname">tazsType</code><span class="sig-paren">(</span><em>*args</em>, <em>**kw</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/ts_core/config/bindings/netfile.html#tazsType"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#ts_core.config.bindings.netfile.tazsType" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal"><span class="pre">pyxb.binding.basis.complexTypeDefinition</span></code></p>
+<p>Complex type tazsType with content type ELEMENT_ONLY</p>
+<dl class="attribute">
+<dt id="ts_core.config.bindings.netfile.tazsType.taz">
+<code class="descname">taz</code><a class="headerlink" href="#ts_core.config.bindings.netfile.tazsType.taz" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return the value for this use within the given instance.</p>
+<p>Note that this is the L{resetValue()}, not the L{defaultValue()}, if
+the element has not yet been assigned a value.</p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="ts_core.config.bindings.netfile.timeOptionType">
+<em class="property">class </em><code class="descname">timeOptionType</code><span class="sig-paren">(</span><em>*args</em>, <em>**kw</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/ts_core/config/bindings/netfile.html#timeOptionType"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#ts_core.config.bindings.netfile.timeOptionType" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal"><span class="pre">pyxb.binding.basis.complexTypeDefinition</span></code></p>
+<p>Complex type timeOptionType with content type EMPTY</p>
+<dl class="attribute">
+<dt id="ts_core.config.bindings.netfile.timeOptionType.help">
+<code class="descname">help</code><a class="headerlink" href="#ts_core.config.bindings.netfile.timeOptionType.help" title="Permalink to this definition">¶</a></dt>
+<dd><p>Get the value of the attribute from the instance.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="ts_core.config.bindings.netfile.timeOptionType.synonymes">
+<code class="descname">synonymes</code><a class="headerlink" href="#ts_core.config.bindings.netfile.timeOptionType.synonymes" title="Permalink to this definition">¶</a></dt>
+<dd><p>Get the value of the attribute from the instance.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="ts_core.config.bindings.netfile.timeOptionType.type">
+<code class="descname">type</code><a class="headerlink" href="#ts_core.config.bindings.netfile.timeOptionType.type" title="Permalink to this definition">¶</a></dt>
+<dd><p>Get the value of the attribute from the instance.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="ts_core.config.bindings.netfile.timeOptionType.value_">
+<code class="descname">value_</code><a class="headerlink" href="#ts_core.config.bindings.netfile.timeOptionType.value_" title="Permalink to this definition">¶</a></dt>
+<dd><p>Get the value of the attribute from the instance.</p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="ts_core.config.bindings.netfile.tlLogicType">
+<em class="property">class </em><code class="descname">tlLogicType</code><span class="sig-paren">(</span><em>*args</em>, <em>**kw</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/ts_core/config/bindings/netfile.html#tlLogicType"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#ts_core.config.bindings.netfile.tlLogicType" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal"><span class="pre">pyxb.binding.basis.complexTypeDefinition</span></code></p>
+<p>Complex type tlLogicType with content type ELEMENT_ONLY</p>
+<dl class="attribute">
+<dt id="ts_core.config.bindings.netfile.tlLogicType.id">
+<code class="descname">id</code><a class="headerlink" href="#ts_core.config.bindings.netfile.tlLogicType.id" title="Permalink to this definition">¶</a></dt>
+<dd><p>Get the value of the attribute from the instance.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="ts_core.config.bindings.netfile.tlLogicType.offset">
+<code class="descname">offset</code><a class="headerlink" href="#ts_core.config.bindings.netfile.tlLogicType.offset" title="Permalink to this definition">¶</a></dt>
+<dd><p>Get the value of the attribute from the instance.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="ts_core.config.bindings.netfile.tlLogicType.param">
+<code class="descname">param</code><a class="headerlink" href="#ts_core.config.bindings.netfile.tlLogicType.param" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return the value for this use within the given instance.</p>
+<p>Note that this is the L{resetValue()}, not the L{defaultValue()}, if
+the element has not yet been assigned a value.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="ts_core.config.bindings.netfile.tlLogicType.phase">
+<code class="descname">phase</code><a class="headerlink" href="#ts_core.config.bindings.netfile.tlLogicType.phase" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return the value for this use within the given instance.</p>
+<p>Note that this is the L{resetValue()}, not the L{defaultValue()}, if
+the element has not yet been assigned a value.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="ts_core.config.bindings.netfile.tlLogicType.programID">
+<code class="descname">programID</code><a class="headerlink" href="#ts_core.config.bindings.netfile.tlLogicType.programID" title="Permalink to this definition">¶</a></dt>
+<dd><p>Get the value of the attribute from the instance.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="ts_core.config.bindings.netfile.tlLogicType.type">
+<code class="descname">type</code><a class="headerlink" href="#ts_core.config.bindings.netfile.tlLogicType.type" title="Permalink to this definition">¶</a></dt>
+<dd><p>Get the value of the attribute from the instance.</p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="ts_core.config.bindings.netfile.tlTypeType">
+<em class="property">class </em><code class="descname">tlTypeType</code><span class="sig-paren">(</span><em>*args</em>, <em>**kw</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/ts_core/config/bindings/netfile.html#tlTypeType"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#ts_core.config.bindings.netfile.tlTypeType" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal"><span class="pre">pyxb.binding.datatypes.string</span></code>, <code class="xref py py-class docutils literal"><span class="pre">pyxb.binding.basis.enumeration_mixin</span></code></p>
+<p>An atomic simple type.</p>
+<dl class="attribute">
+<dt id="ts_core.config.bindings.netfile.tlTypeType.actuated">
+<code class="descname">actuated</code><em class="property"> = 'actuated'</em><a class="headerlink" href="#ts_core.config.bindings.netfile.tlTypeType.actuated" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="ts_core.config.bindings.netfile.tlTypeType.delay_based">
+<code class="descname">delay_based</code><em class="property"> = 'delay_based'</em><a class="headerlink" href="#ts_core.config.bindings.netfile.tlTypeType.delay_based" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="ts_core.config.bindings.netfile.tlTypeType.static">
+<code class="descname">static</code><em class="property"> = 'static'</em><a class="headerlink" href="#ts_core.config.bindings.netfile.tlTypeType.static" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="ts_core.config.bindings.netfile.typeType">
+<em class="property">class </em><code class="descname">typeType</code><span class="sig-paren">(</span><em>*args</em>, <em>**kw</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/ts_core/config/bindings/netfile.html#typeType"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#ts_core.config.bindings.netfile.typeType" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal"><span class="pre">pyxb.binding.basis.complexTypeDefinition</span></code></p>
+<p>Complex type typeType with content type ELEMENT_ONLY</p>
+<dl class="attribute">
+<dt id="ts_core.config.bindings.netfile.typeType.allow">
+<code class="descname">allow</code><a class="headerlink" href="#ts_core.config.bindings.netfile.typeType.allow" title="Permalink to this definition">¶</a></dt>
+<dd><p>Get the value of the attribute from the instance.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="ts_core.config.bindings.netfile.typeType.bikeLaneWidth">
+<code class="descname">bikeLaneWidth</code><a class="headerlink" href="#ts_core.config.bindings.netfile.typeType.bikeLaneWidth" title="Permalink to this definition">¶</a></dt>
+<dd><p>Get the value of the attribute from the instance.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="ts_core.config.bindings.netfile.typeType.disallow">
+<code class="descname">disallow</code><a class="headerlink" href="#ts_core.config.bindings.netfile.typeType.disallow" title="Permalink to this definition">¶</a></dt>
+<dd><p>Get the value of the attribute from the instance.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="ts_core.config.bindings.netfile.typeType.discard">
+<code class="descname">discard</code><a class="headerlink" href="#ts_core.config.bindings.netfile.typeType.discard" title="Permalink to this definition">¶</a></dt>
+<dd><p>Get the value of the attribute from the instance.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="ts_core.config.bindings.netfile.typeType.id">
+<code class="descname">id</code><a class="headerlink" href="#ts_core.config.bindings.netfile.typeType.id" title="Permalink to this definition">¶</a></dt>
+<dd><p>Get the value of the attribute from the instance.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="ts_core.config.bindings.netfile.typeType.numLanes">
+<code class="descname">numLanes</code><a class="headerlink" href="#ts_core.config.bindings.netfile.typeType.numLanes" title="Permalink to this definition">¶</a></dt>
+<dd><p>Get the value of the attribute from the instance.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="ts_core.config.bindings.netfile.typeType.oneway">
+<code class="descname">oneway</code><a class="headerlink" href="#ts_core.config.bindings.netfile.typeType.oneway" title="Permalink to this definition">¶</a></dt>
+<dd><p>Get the value of the attribute from the instance.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="ts_core.config.bindings.netfile.typeType.priority">
+<code class="descname">priority</code><a class="headerlink" href="#ts_core.config.bindings.netfile.typeType.priority" title="Permalink to this definition">¶</a></dt>
+<dd><p>Get the value of the attribute from the instance.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="ts_core.config.bindings.netfile.typeType.restriction">
+<code class="descname">restriction</code><a class="headerlink" href="#ts_core.config.bindings.netfile.typeType.restriction" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return the value for this use within the given instance.</p>
+<p>Note that this is the L{resetValue()}, not the L{defaultValue()}, if
+the element has not yet been assigned a value.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="ts_core.config.bindings.netfile.typeType.sidewalkWidth">
+<code class="descname">sidewalkWidth</code><a class="headerlink" href="#ts_core.config.bindings.netfile.typeType.sidewalkWidth" title="Permalink to this definition">¶</a></dt>
+<dd><p>Get the value of the attribute from the instance.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="ts_core.config.bindings.netfile.typeType.speed">
+<code class="descname">speed</code><a class="headerlink" href="#ts_core.config.bindings.netfile.typeType.speed" title="Permalink to this definition">¶</a></dt>
+<dd><p>Get the value of the attribute from the instance.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="ts_core.config.bindings.netfile.typeType.width">
+<code class="descname">width</code><a class="headerlink" href="#ts_core.config.bindings.netfile.typeType.width" title="Permalink to this definition">¶</a></dt>
+<dd><p>Get the value of the attribute from the instance.</p>
+</dd></dl>
+
+</dd></dl>
+
+</div>
+
+
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+  <div role="note" aria-label="source link">
+    <h3>This Page</h3>
+    <ul class="this-page-menu">
+      <li><a href="_sources/ts_core.config.bindings.netfile.rst.txt"
+            rel="nofollow">Show Source</a></li>
+    </ul>
+   </div>
+<div id="searchbox" style="display: none" role="search">
+  <h3>Quick search</h3>
+    <form class="search" action="search.html" method="get">
+      <div><input type="text" name="q" /></div>
+      <div><input type="submit" value="Go" /></div>
+      <input type="hidden" name="check_keywords" value="yes" />
+      <input type="hidden" name="area" value="default" />
+    </form>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="genindex.html" title="General Index"
+             >index</a></li>
+        <li class="right" >
+          <a href="py-modindex.html" title="Python Module Index"
+             >modules</a> |</li>
+        <li class="nav-item nav-item-0"><a href="index.html">TrafficSense 0.01 documentation</a> &#187;</li> 
+      </ul>
+    </div>
+    <div class="footer" role="contentinfo">
+        &#169; Copyright 2017, Samara, Gaitz, Eilif, Bryan, Justin, Jow.
+      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 1.6.5.
+    </div>
+  </body>
+</html>

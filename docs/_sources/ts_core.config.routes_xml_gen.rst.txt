@@ -1,0 +1,7 @@
+ts\_core\.config\.routes\_xml\_gen module
+=========================================
+
+.. automodule:: ts_core.config.routes_xml_gen
+    :members:
+    :undoc-members:
+    :show-inheritance:

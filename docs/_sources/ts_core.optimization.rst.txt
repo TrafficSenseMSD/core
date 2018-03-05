@@ -1,0 +1,16 @@
+ts\_core\.optimization package
+==============================
+
+.. automodule:: ts_core.optimization
+    :members:
+    :undoc-members:
+    :show-inheritance:
+
+Submodules
+----------
+
+.. toctree::
+
+   ts_core.optimization.optimizer_base
+   ts_core.optimization.optimizer_exceptions
+

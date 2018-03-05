@@ -1,0 +1,2814 @@
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title>ts_core.config.bindings.netconvert_xml module &#8212; TrafficSense 0.01 documentation</title>
+    <link rel="stylesheet" href="_static/classic.css" type="text/css" />
+    <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    './',
+        VERSION:     '0.01',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true,
+        SOURCELINK_SUFFIX: '.txt'
+      };
+    </script>
+    <script type="text/javascript" src="_static/jquery.js"></script>
+    <script type="text/javascript" src="_static/underscore.js"></script>
+    <script type="text/javascript" src="_static/doctools.js"></script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" /> 
+  </head>
+  <body>
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="genindex.html" title="General Index"
+             accesskey="I">index</a></li>
+        <li class="right" >
+          <a href="py-modindex.html" title="Python Module Index"
+             >modules</a> |</li>
+        <li class="nav-item nav-item-0"><a href="index.html">TrafficSense 0.01 documentation</a> &#187;</li> 
+      </ul>
+    </div>  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body" role="main">
+            
+  <div class="section" id="module-ts_core.config.bindings.netconvert_xml">
+<span id="ts-core-config-bindings-netconvert-xml-module"></span><h1>ts_core.config.bindings.netconvert_xml module<a class="headerlink" href="#module-ts_core.config.bindings.netconvert_xml" title="Permalink to this headline">¶</a></h1>
+<dl class="function">
+<dt id="ts_core.config.bindings.netconvert_xml.CreateFromDOM">
+<code class="descname">CreateFromDOM</code><span class="sig-paren">(</span><em>node</em>, <em>default_namespace=None</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/ts_core/config/bindings/netconvert_xml.html#CreateFromDOM"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#ts_core.config.bindings.netconvert_xml.CreateFromDOM" title="Permalink to this definition">¶</a></dt>
+<dd><p>Create a Python instance from the given DOM node.
+The node tag must correspond to an element declaration in this module.</p>
+<p>&#64;deprecated: Forcing use of DOM interface is unnecessary; use L{CreateFromDocument}.</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="ts_core.config.bindings.netconvert_xml.CreateFromDocument">
+<code class="descname">CreateFromDocument</code><span class="sig-paren">(</span><em>xml_text</em>, <em>default_namespace=None</em>, <em>location_base=None</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/ts_core/config/bindings/netconvert_xml.html#CreateFromDocument"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#ts_core.config.bindings.netconvert_xml.CreateFromDocument" title="Permalink to this definition">¶</a></dt>
+<dd><p>Parse the given XML and use the document element to create a
+Python instance.</p>
+<p>&#64;param xml_text An XML document.  This should be data (Python 2
+str or Python 3 bytes), or a text (Python 2 unicode or Python 3
+str) in the L{pyxb._InputEncoding} encoding.</p>
+<p>&#64;keyword default_namespace The L{pyxb.Namespace} instance to use as the
+default namespace where there is no default namespace in scope.
+If unspecified or C{None}, the namespace of the module containing
+this function will be used.</p>
+<p>&#64;keyword location_base: An object to be recorded as the base of all
+L{pyxb.utils.utility.Location} instances associated with events and
+objects handled by the parser.  You might pass the URI from which
+the document was obtained.</p>
+</dd></dl>
+
+<dl class="class">
+<dt id="ts_core.config.bindings.netconvert_xml.STD_ANON">
+<em class="property">class </em><code class="descname">STD_ANON</code><span class="sig-paren">(</span><em>*args</em>, <em>**kw</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/ts_core/config/bindings/netconvert_xml.html#STD_ANON"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#ts_core.config.bindings.netconvert_xml.STD_ANON" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal"><span class="pre">pyxb.binding.datatypes.float</span></code></p>
+<p>An atomic simple type.</p>
+</dd></dl>
+
+<dl class="class">
+<dt id="ts_core.config.bindings.netconvert_xml.STD_ANON_">
+<em class="property">class </em><code class="descname">STD_ANON_</code><span class="sig-paren">(</span><em>*args</em>, <em>**kw</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/ts_core/config/bindings/netconvert_xml.html#STD_ANON_"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#ts_core.config.bindings.netconvert_xml.STD_ANON_" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal"><span class="pre">pyxb.binding.datatypes.string</span></code></p>
+<p>An atomic simple type.</p>
+</dd></dl>
+
+<dl class="class">
+<dt id="ts_core.config.bindings.netconvert_xml.STD_ANON_10">
+<em class="property">class </em><code class="descname">STD_ANON_10</code><span class="sig-paren">(</span><em>*args</em>, <em>**kw</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/ts_core/config/bindings/netconvert_xml.html#STD_ANON_10"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#ts_core.config.bindings.netconvert_xml.STD_ANON_10" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal"><span class="pre">pyxb.binding.datatypes.string</span></code></p>
+<p>An atomic simple type.</p>
+</dd></dl>
+
+<dl class="class">
+<dt id="ts_core.config.bindings.netconvert_xml.STD_ANON_2">
+<em class="property">class </em><code class="descname">STD_ANON_2</code><span class="sig-paren">(</span><em>*args</em>, <em>**kw</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/ts_core/config/bindings/netconvert_xml.html#STD_ANON_2"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#ts_core.config.bindings.netconvert_xml.STD_ANON_2" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal"><span class="pre">pyxb.binding.datatypes.string</span></code></p>
+<p>An atomic simple type.</p>
+</dd></dl>
+
+<dl class="class">
+<dt id="ts_core.config.bindings.netconvert_xml.STD_ANON_3">
+<em class="property">class </em><code class="descname">STD_ANON_3</code><span class="sig-paren">(</span><em>*args</em>, <em>**kw</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/ts_core/config/bindings/netconvert_xml.html#STD_ANON_3"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#ts_core.config.bindings.netconvert_xml.STD_ANON_3" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal"><span class="pre">pyxb.binding.datatypes.string</span></code></p>
+<p>An atomic simple type.</p>
+</dd></dl>
+
+<dl class="class">
+<dt id="ts_core.config.bindings.netconvert_xml.STD_ANON_4">
+<em class="property">class </em><code class="descname">STD_ANON_4</code><span class="sig-paren">(</span><em>*args</em>, <em>**kw</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/ts_core/config/bindings/netconvert_xml.html#STD_ANON_4"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#ts_core.config.bindings.netconvert_xml.STD_ANON_4" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal"><span class="pre">pyxb.binding.datatypes.string</span></code>, <code class="xref py py-class docutils literal"><span class="pre">pyxb.binding.basis.enumeration_mixin</span></code></p>
+<p>An atomic simple type.</p>
+<dl class="attribute">
+<dt id="ts_core.config.bindings.netconvert_xml.STD_ANON_4.black">
+<code class="descname">black</code><em class="property"> = 'black'</em><a class="headerlink" href="#ts_core.config.bindings.netconvert_xml.STD_ANON_4.black" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="ts_core.config.bindings.netconvert_xml.STD_ANON_4.blue">
+<code class="descname">blue</code><em class="property"> = 'blue'</em><a class="headerlink" href="#ts_core.config.bindings.netconvert_xml.STD_ANON_4.blue" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="ts_core.config.bindings.netconvert_xml.STD_ANON_4.cyan">
+<code class="descname">cyan</code><em class="property"> = 'cyan'</em><a class="headerlink" href="#ts_core.config.bindings.netconvert_xml.STD_ANON_4.cyan" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="ts_core.config.bindings.netconvert_xml.STD_ANON_4.green">
+<code class="descname">green</code><em class="property"> = 'green'</em><a class="headerlink" href="#ts_core.config.bindings.netconvert_xml.STD_ANON_4.green" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="ts_core.config.bindings.netconvert_xml.STD_ANON_4.grey">
+<code class="descname">grey</code><em class="property"> = 'grey'</em><a class="headerlink" href="#ts_core.config.bindings.netconvert_xml.STD_ANON_4.grey" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="ts_core.config.bindings.netconvert_xml.STD_ANON_4.magenta">
+<code class="descname">magenta</code><em class="property"> = 'magenta'</em><a class="headerlink" href="#ts_core.config.bindings.netconvert_xml.STD_ANON_4.magenta" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="ts_core.config.bindings.netconvert_xml.STD_ANON_4.orange">
+<code class="descname">orange</code><em class="property"> = 'orange'</em><a class="headerlink" href="#ts_core.config.bindings.netconvert_xml.STD_ANON_4.orange" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="ts_core.config.bindings.netconvert_xml.STD_ANON_4.red">
+<code class="descname">red</code><em class="property"> = 'red'</em><a class="headerlink" href="#ts_core.config.bindings.netconvert_xml.STD_ANON_4.red" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="ts_core.config.bindings.netconvert_xml.STD_ANON_4.white">
+<code class="descname">white</code><em class="property"> = 'white'</em><a class="headerlink" href="#ts_core.config.bindings.netconvert_xml.STD_ANON_4.white" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="ts_core.config.bindings.netconvert_xml.STD_ANON_4.yellow">
+<code class="descname">yellow</code><em class="property"> = 'yellow'</em><a class="headerlink" href="#ts_core.config.bindings.netconvert_xml.STD_ANON_4.yellow" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="ts_core.config.bindings.netconvert_xml.STD_ANON_5">
+<em class="property">class </em><code class="descname">STD_ANON_5</code><span class="sig-paren">(</span><em>*args</em>, <em>**kw</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/ts_core/config/bindings/netconvert_xml.html#STD_ANON_5"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#ts_core.config.bindings.netconvert_xml.STD_ANON_5" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal"><span class="pre">pyxb.binding.datatypes.string</span></code></p>
+<p>An atomic simple type.</p>
+</dd></dl>
+
+<dl class="class">
+<dt id="ts_core.config.bindings.netconvert_xml.STD_ANON_6">
+<em class="property">class </em><code class="descname">STD_ANON_6</code><span class="sig-paren">(</span><em>*args</em>, <em>**kw</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/ts_core/config/bindings/netconvert_xml.html#STD_ANON_6"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#ts_core.config.bindings.netconvert_xml.STD_ANON_6" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal"><span class="pre">pyxb.binding.datatypes.string</span></code></p>
+<p>An atomic simple type.</p>
+</dd></dl>
+
+<dl class="class">
+<dt id="ts_core.config.bindings.netconvert_xml.STD_ANON_7">
+<em class="property">class </em><code class="descname">STD_ANON_7</code><span class="sig-paren">(</span><em>*args</em>, <em>**kw</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/ts_core/config/bindings/netconvert_xml.html#STD_ANON_7"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#ts_core.config.bindings.netconvert_xml.STD_ANON_7" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal"><span class="pre">pyxb.binding.datatypes.string</span></code></p>
+<p>An atomic simple type.</p>
+</dd></dl>
+
+<dl class="class">
+<dt id="ts_core.config.bindings.netconvert_xml.STD_ANON_8">
+<em class="property">class </em><code class="descname">STD_ANON_8</code><span class="sig-paren">(</span><em>*args</em>, <em>**kw</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/ts_core/config/bindings/netconvert_xml.html#STD_ANON_8"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#ts_core.config.bindings.netconvert_xml.STD_ANON_8" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal"><span class="pre">pyxb.binding.datatypes.string</span></code></p>
+<p>An atomic simple type.</p>
+</dd></dl>
+
+<dl class="class">
+<dt id="ts_core.config.bindings.netconvert_xml.STD_ANON_9">
+<em class="property">class </em><code class="descname">STD_ANON_9</code><span class="sig-paren">(</span><em>*args</em>, <em>**kw</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/ts_core/config/bindings/netconvert_xml.html#STD_ANON_9"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#ts_core.config.bindings.netconvert_xml.STD_ANON_9" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal"><span class="pre">pyxb.binding.datatypes.string</span></code></p>
+<p>An atomic simple type.</p>
+</dd></dl>
+
+<dl class="class">
+<dt id="ts_core.config.bindings.netconvert_xml.boolOptionType">
+<em class="property">class </em><code class="descname">boolOptionType</code><span class="sig-paren">(</span><em>*args</em>, <em>**kw</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/ts_core/config/bindings/netconvert_xml.html#boolOptionType"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#ts_core.config.bindings.netconvert_xml.boolOptionType" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal"><span class="pre">pyxb.binding.basis.complexTypeDefinition</span></code></p>
+<p>Complex type boolOptionType with content type EMPTY</p>
+<dl class="attribute">
+<dt id="ts_core.config.bindings.netconvert_xml.boolOptionType.help">
+<code class="descname">help</code><a class="headerlink" href="#ts_core.config.bindings.netconvert_xml.boolOptionType.help" title="Permalink to this definition">¶</a></dt>
+<dd><p>Get the value of the attribute from the instance.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="ts_core.config.bindings.netconvert_xml.boolOptionType.synonymes">
+<code class="descname">synonymes</code><a class="headerlink" href="#ts_core.config.bindings.netconvert_xml.boolOptionType.synonymes" title="Permalink to this definition">¶</a></dt>
+<dd><p>Get the value of the attribute from the instance.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="ts_core.config.bindings.netconvert_xml.boolOptionType.type">
+<code class="descname">type</code><a class="headerlink" href="#ts_core.config.bindings.netconvert_xml.boolOptionType.type" title="Permalink to this definition">¶</a></dt>
+<dd><p>Get the value of the attribute from the instance.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="ts_core.config.bindings.netconvert_xml.boolOptionType.value_">
+<code class="descname">value_</code><a class="headerlink" href="#ts_core.config.bindings.netconvert_xml.boolOptionType.value_" title="Permalink to this definition">¶</a></dt>
+<dd><p>Get the value of the attribute from the instance.</p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="ts_core.config.bindings.netconvert_xml.boolType">
+<em class="property">class </em><code class="descname">boolType</code><span class="sig-paren">(</span><em>*args</em>, <em>**kw</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/ts_core/config/bindings/netconvert_xml.html#boolType"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#ts_core.config.bindings.netconvert_xml.boolType" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal"><span class="pre">pyxb.binding.datatypes.string</span></code>, <code class="xref py py-class docutils literal"><span class="pre">pyxb.binding.basis.enumeration_mixin</span></code></p>
+<p>An atomic simple type.</p>
+<dl class="attribute">
+<dt id="ts_core.config.bindings.netconvert_xml.boolType.False_">
+<code class="descname">False_</code><em class="property"> = 'False'</em><a class="headerlink" href="#ts_core.config.bindings.netconvert_xml.boolType.False_" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="ts_core.config.bindings.netconvert_xml.boolType.True_">
+<code class="descname">True_</code><em class="property"> = 'True'</em><a class="headerlink" href="#ts_core.config.bindings.netconvert_xml.boolType.True_" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="ts_core.config.bindings.netconvert_xml.boolType.emptyString">
+<code class="descname">emptyString</code><em class="property"> = '-'</em><a class="headerlink" href="#ts_core.config.bindings.netconvert_xml.boolType.emptyString" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="ts_core.config.bindings.netconvert_xml.boolType.false">
+<code class="descname">false</code><em class="property"> = 'false'</em><a class="headerlink" href="#ts_core.config.bindings.netconvert_xml.boolType.false" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="ts_core.config.bindings.netconvert_xml.boolType.n0">
+<code class="descname">n0</code><em class="property"> = '0'</em><a class="headerlink" href="#ts_core.config.bindings.netconvert_xml.boolType.n0" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="ts_core.config.bindings.netconvert_xml.boolType.n1">
+<code class="descname">n1</code><em class="property"> = '1'</em><a class="headerlink" href="#ts_core.config.bindings.netconvert_xml.boolType.n1" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="ts_core.config.bindings.netconvert_xml.boolType.no">
+<code class="descname">no</code><em class="property"> = 'no'</em><a class="headerlink" href="#ts_core.config.bindings.netconvert_xml.boolType.no" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="ts_core.config.bindings.netconvert_xml.boolType.off">
+<code class="descname">off</code><em class="property"> = 'off'</em><a class="headerlink" href="#ts_core.config.bindings.netconvert_xml.boolType.off" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="ts_core.config.bindings.netconvert_xml.boolType.on">
+<code class="descname">on</code><em class="property"> = 'on'</em><a class="headerlink" href="#ts_core.config.bindings.netconvert_xml.boolType.on" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="ts_core.config.bindings.netconvert_xml.boolType.true">
+<code class="descname">true</code><em class="property"> = 'true'</em><a class="headerlink" href="#ts_core.config.bindings.netconvert_xml.boolType.true" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="ts_core.config.bindings.netconvert_xml.boolType.x">
+<code class="descname">x</code><em class="property"> = 'x'</em><a class="headerlink" href="#ts_core.config.bindings.netconvert_xml.boolType.x" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="ts_core.config.bindings.netconvert_xml.boolType.yes">
+<code class="descname">yes</code><em class="property"> = 'yes'</em><a class="headerlink" href="#ts_core.config.bindings.netconvert_xml.boolType.yes" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="ts_core.config.bindings.netconvert_xml.building_defaultsType">
+<em class="property">class </em><code class="descname">building_defaultsType</code><span class="sig-paren">(</span><em>*args</em>, <em>**kw</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/ts_core/config/bindings/netconvert_xml.html#building_defaultsType"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#ts_core.config.bindings.netconvert_xml.building_defaultsType" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal"><span class="pre">pyxb.binding.basis.complexTypeDefinition</span></code></p>
+<p>Complex type building_defaultsType with content type ELEMENT_ONLY</p>
+<dl class="attribute">
+<dt id="ts_core.config.bindings.netconvert_xml.building_defaultsType.default_disallow">
+<code class="descname">default_disallow</code><a class="headerlink" href="#ts_core.config.bindings.netconvert_xml.building_defaultsType.default_disallow" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return the value for this use within the given instance.</p>
+<p>Note that this is the L{resetValue()}, not the L{defaultValue()}, if
+the element has not yet been assigned a value.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="ts_core.config.bindings.netconvert_xml.building_defaultsType.default_junctions_keep_clear">
+<code class="descname">default_junctions_keep_clear</code><a class="headerlink" href="#ts_core.config.bindings.netconvert_xml.building_defaultsType.default_junctions_keep_clear" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return the value for this use within the given instance.</p>
+<p>Note that this is the L{resetValue()}, not the L{defaultValue()}, if
+the element has not yet been assigned a value.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="ts_core.config.bindings.netconvert_xml.building_defaultsType.default_junctions_radius">
+<code class="descname">default_junctions_radius</code><a class="headerlink" href="#ts_core.config.bindings.netconvert_xml.building_defaultsType.default_junctions_radius" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return the value for this use within the given instance.</p>
+<p>Note that this is the L{resetValue()}, not the L{defaultValue()}, if
+the element has not yet been assigned a value.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="ts_core.config.bindings.netconvert_xml.building_defaultsType.default_lanenumber">
+<code class="descname">default_lanenumber</code><a class="headerlink" href="#ts_core.config.bindings.netconvert_xml.building_defaultsType.default_lanenumber" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return the value for this use within the given instance.</p>
+<p>Note that this is the L{resetValue()}, not the L{defaultValue()}, if
+the element has not yet been assigned a value.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="ts_core.config.bindings.netconvert_xml.building_defaultsType.default_lanewidth">
+<code class="descname">default_lanewidth</code><a class="headerlink" href="#ts_core.config.bindings.netconvert_xml.building_defaultsType.default_lanewidth" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return the value for this use within the given instance.</p>
+<p>Note that this is the L{resetValue()}, not the L{defaultValue()}, if
+the element has not yet been assigned a value.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="ts_core.config.bindings.netconvert_xml.building_defaultsType.default_priority">
+<code class="descname">default_priority</code><a class="headerlink" href="#ts_core.config.bindings.netconvert_xml.building_defaultsType.default_priority" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return the value for this use within the given instance.</p>
+<p>Note that this is the L{resetValue()}, not the L{defaultValue()}, if
+the element has not yet been assigned a value.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="ts_core.config.bindings.netconvert_xml.building_defaultsType.default_sidewalk_width">
+<code class="descname">default_sidewalk_width</code><a class="headerlink" href="#ts_core.config.bindings.netconvert_xml.building_defaultsType.default_sidewalk_width" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return the value for this use within the given instance.</p>
+<p>Note that this is the L{resetValue()}, not the L{defaultValue()}, if
+the element has not yet been assigned a value.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="ts_core.config.bindings.netconvert_xml.building_defaultsType.default_speed">
+<code class="descname">default_speed</code><a class="headerlink" href="#ts_core.config.bindings.netconvert_xml.building_defaultsType.default_speed" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return the value for this use within the given instance.</p>
+<p>Note that this is the L{resetValue()}, not the L{defaultValue()}, if
+the element has not yet been assigned a value.</p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="ts_core.config.bindings.netconvert_xml.colorType">
+<em class="property">class </em><code class="descname">colorType</code><span class="sig-paren">(</span><em>*args</em>, <em>**kw</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/ts_core/config/bindings/netconvert_xml.html#colorType"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#ts_core.config.bindings.netconvert_xml.colorType" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal"><span class="pre">pyxb.binding.basis.STD_union</span></code></p>
+<p>Simple type that is a union of STD_ANON_2, STD_ANON_3, STD_ANON_4.</p>
+<dl class="attribute">
+<dt id="ts_core.config.bindings.netconvert_xml.colorType.black">
+<code class="descname">black</code><em class="property"> = 'black'</em><a class="headerlink" href="#ts_core.config.bindings.netconvert_xml.colorType.black" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="ts_core.config.bindings.netconvert_xml.colorType.blue">
+<code class="descname">blue</code><em class="property"> = 'blue'</em><a class="headerlink" href="#ts_core.config.bindings.netconvert_xml.colorType.blue" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="ts_core.config.bindings.netconvert_xml.colorType.cyan">
+<code class="descname">cyan</code><em class="property"> = 'cyan'</em><a class="headerlink" href="#ts_core.config.bindings.netconvert_xml.colorType.cyan" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="ts_core.config.bindings.netconvert_xml.colorType.green">
+<code class="descname">green</code><em class="property"> = 'green'</em><a class="headerlink" href="#ts_core.config.bindings.netconvert_xml.colorType.green" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="ts_core.config.bindings.netconvert_xml.colorType.grey">
+<code class="descname">grey</code><em class="property"> = 'grey'</em><a class="headerlink" href="#ts_core.config.bindings.netconvert_xml.colorType.grey" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="ts_core.config.bindings.netconvert_xml.colorType.magenta">
+<code class="descname">magenta</code><em class="property"> = 'magenta'</em><a class="headerlink" href="#ts_core.config.bindings.netconvert_xml.colorType.magenta" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="ts_core.config.bindings.netconvert_xml.colorType.orange">
+<code class="descname">orange</code><em class="property"> = 'orange'</em><a class="headerlink" href="#ts_core.config.bindings.netconvert_xml.colorType.orange" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="ts_core.config.bindings.netconvert_xml.colorType.red">
+<code class="descname">red</code><em class="property"> = 'red'</em><a class="headerlink" href="#ts_core.config.bindings.netconvert_xml.colorType.red" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="ts_core.config.bindings.netconvert_xml.colorType.white">
+<code class="descname">white</code><em class="property"> = 'white'</em><a class="headerlink" href="#ts_core.config.bindings.netconvert_xml.colorType.white" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="ts_core.config.bindings.netconvert_xml.colorType.yellow">
+<code class="descname">yellow</code><em class="property"> = 'yellow'</em><a class="headerlink" href="#ts_core.config.bindings.netconvert_xml.colorType.yellow" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="ts_core.config.bindings.netconvert_xml.configurationType">
+<em class="property">class </em><code class="descname">configurationType</code><span class="sig-paren">(</span><em>*args</em>, <em>**kw</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/ts_core/config/bindings/netconvert_xml.html#configurationType"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#ts_core.config.bindings.netconvert_xml.configurationType" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal"><span class="pre">pyxb.binding.basis.complexTypeDefinition</span></code></p>
+<p>Complex type configurationType with content type ELEMENT_ONLY</p>
+<dl class="attribute">
+<dt id="ts_core.config.bindings.netconvert_xml.configurationType.building_defaults">
+<code class="descname">building_defaults</code><a class="headerlink" href="#ts_core.config.bindings.netconvert_xml.configurationType.building_defaults" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return the value for this use within the given instance.</p>
+<p>Note that this is the L{resetValue()}, not the L{defaultValue()}, if
+the element has not yet been assigned a value.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="ts_core.config.bindings.netconvert_xml.configurationType.edge_removal">
+<code class="descname">edge_removal</code><a class="headerlink" href="#ts_core.config.bindings.netconvert_xml.configurationType.edge_removal" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return the value for this use within the given instance.</p>
+<p>Note that this is the L{resetValue()}, not the L{defaultValue()}, if
+the element has not yet been assigned a value.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="ts_core.config.bindings.netconvert_xml.configurationType.input">
+<code class="descname">input</code><a class="headerlink" href="#ts_core.config.bindings.netconvert_xml.configurationType.input" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return the value for this use within the given instance.</p>
+<p>Note that this is the L{resetValue()}, not the L{defaultValue()}, if
+the element has not yet been assigned a value.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="ts_core.config.bindings.netconvert_xml.configurationType.output">
+<code class="descname">output</code><a class="headerlink" href="#ts_core.config.bindings.netconvert_xml.configurationType.output" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return the value for this use within the given instance.</p>
+<p>Note that this is the L{resetValue()}, not the L{defaultValue()}, if
+the element has not yet been assigned a value.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="ts_core.config.bindings.netconvert_xml.configurationType.processing">
+<code class="descname">processing</code><a class="headerlink" href="#ts_core.config.bindings.netconvert_xml.configurationType.processing" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return the value for this use within the given instance.</p>
+<p>Note that this is the L{resetValue()}, not the L{defaultValue()}, if
+the element has not yet been assigned a value.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="ts_core.config.bindings.netconvert_xml.configurationType.projection">
+<code class="descname">projection</code><a class="headerlink" href="#ts_core.config.bindings.netconvert_xml.configurationType.projection" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return the value for this use within the given instance.</p>
+<p>Note that this is the L{resetValue()}, not the L{defaultValue()}, if
+the element has not yet been assigned a value.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="ts_core.config.bindings.netconvert_xml.configurationType.ramp_guessing">
+<code class="descname">ramp_guessing</code><a class="headerlink" href="#ts_core.config.bindings.netconvert_xml.configurationType.ramp_guessing" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return the value for this use within the given instance.</p>
+<p>Note that this is the L{resetValue()}, not the L{defaultValue()}, if
+the element has not yet been assigned a value.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="ts_core.config.bindings.netconvert_xml.configurationType.random_number">
+<code class="descname">random_number</code><a class="headerlink" href="#ts_core.config.bindings.netconvert_xml.configurationType.random_number" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return the value for this use within the given instance.</p>
+<p>Note that this is the L{resetValue()}, not the L{defaultValue()}, if
+the element has not yet been assigned a value.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="ts_core.config.bindings.netconvert_xml.configurationType.report">
+<code class="descname">report</code><a class="headerlink" href="#ts_core.config.bindings.netconvert_xml.configurationType.report" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return the value for this use within the given instance.</p>
+<p>Note that this is the L{resetValue()}, not the L{defaultValue()}, if
+the element has not yet been assigned a value.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="ts_core.config.bindings.netconvert_xml.configurationType.tls_building">
+<code class="descname">tls_building</code><a class="headerlink" href="#ts_core.config.bindings.netconvert_xml.configurationType.tls_building" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return the value for this use within the given instance.</p>
+<p>Note that this is the L{resetValue()}, not the L{defaultValue()}, if
+the element has not yet been assigned a value.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="ts_core.config.bindings.netconvert_xml.configurationType.unregulated_nodes">
+<code class="descname">unregulated_nodes</code><a class="headerlink" href="#ts_core.config.bindings.netconvert_xml.configurationType.unregulated_nodes" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return the value for this use within the given instance.</p>
+<p>Note that this is the L{resetValue()}, not the L{defaultValue()}, if
+the element has not yet been assigned a value.</p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="ts_core.config.bindings.netconvert_xml.edge_removalType">
+<em class="property">class </em><code class="descname">edge_removalType</code><span class="sig-paren">(</span><em>*args</em>, <em>**kw</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/ts_core/config/bindings/netconvert_xml.html#edge_removalType"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#ts_core.config.bindings.netconvert_xml.edge_removalType" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal"><span class="pre">pyxb.binding.basis.complexTypeDefinition</span></code></p>
+<p>Complex type edge_removalType with content type ELEMENT_ONLY</p>
+<dl class="attribute">
+<dt id="ts_core.config.bindings.netconvert_xml.edge_removalType.keep_edges_by_type">
+<code class="descname">keep_edges_by_type</code><a class="headerlink" href="#ts_core.config.bindings.netconvert_xml.edge_removalType.keep_edges_by_type" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return the value for this use within the given instance.</p>
+<p>Note that this is the L{resetValue()}, not the L{defaultValue()}, if
+the element has not yet been assigned a value.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="ts_core.config.bindings.netconvert_xml.edge_removalType.keep_edges_by_vclass">
+<code class="descname">keep_edges_by_vclass</code><a class="headerlink" href="#ts_core.config.bindings.netconvert_xml.edge_removalType.keep_edges_by_vclass" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return the value for this use within the given instance.</p>
+<p>Note that this is the L{resetValue()}, not the L{defaultValue()}, if
+the element has not yet been assigned a value.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="ts_core.config.bindings.netconvert_xml.edge_removalType.keep_edges_components">
+<code class="descname">keep_edges_components</code><a class="headerlink" href="#ts_core.config.bindings.netconvert_xml.edge_removalType.keep_edges_components" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return the value for this use within the given instance.</p>
+<p>Note that this is the L{resetValue()}, not the L{defaultValue()}, if
+the element has not yet been assigned a value.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="ts_core.config.bindings.netconvert_xml.edge_removalType.keep_edges_explicit">
+<code class="descname">keep_edges_explicit</code><a class="headerlink" href="#ts_core.config.bindings.netconvert_xml.edge_removalType.keep_edges_explicit" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return the value for this use within the given instance.</p>
+<p>Note that this is the L{resetValue()}, not the L{defaultValue()}, if
+the element has not yet been assigned a value.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="ts_core.config.bindings.netconvert_xml.edge_removalType.keep_edges_in_boundary">
+<code class="descname">keep_edges_in_boundary</code><a class="headerlink" href="#ts_core.config.bindings.netconvert_xml.edge_removalType.keep_edges_in_boundary" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return the value for this use within the given instance.</p>
+<p>Note that this is the L{resetValue()}, not the L{defaultValue()}, if
+the element has not yet been assigned a value.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="ts_core.config.bindings.netconvert_xml.edge_removalType.keep_edges_in_geo_boundary">
+<code class="descname">keep_edges_in_geo_boundary</code><a class="headerlink" href="#ts_core.config.bindings.netconvert_xml.edge_removalType.keep_edges_in_geo_boundary" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return the value for this use within the given instance.</p>
+<p>Note that this is the L{resetValue()}, not the L{defaultValue()}, if
+the element has not yet been assigned a value.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="ts_core.config.bindings.netconvert_xml.edge_removalType.keep_edges_input_file">
+<code class="descname">keep_edges_input_file</code><a class="headerlink" href="#ts_core.config.bindings.netconvert_xml.edge_removalType.keep_edges_input_file" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return the value for this use within the given instance.</p>
+<p>Note that this is the L{resetValue()}, not the L{defaultValue()}, if
+the element has not yet been assigned a value.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="ts_core.config.bindings.netconvert_xml.edge_removalType.keep_edges_min_speed">
+<code class="descname">keep_edges_min_speed</code><a class="headerlink" href="#ts_core.config.bindings.netconvert_xml.edge_removalType.keep_edges_min_speed" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return the value for this use within the given instance.</p>
+<p>Note that this is the L{resetValue()}, not the L{defaultValue()}, if
+the element has not yet been assigned a value.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="ts_core.config.bindings.netconvert_xml.edge_removalType.keep_edges_postload">
+<code class="descname">keep_edges_postload</code><a class="headerlink" href="#ts_core.config.bindings.netconvert_xml.edge_removalType.keep_edges_postload" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return the value for this use within the given instance.</p>
+<p>Note that this is the L{resetValue()}, not the L{defaultValue()}, if
+the element has not yet been assigned a value.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="ts_core.config.bindings.netconvert_xml.edge_removalType.remove_edges_by_type">
+<code class="descname">remove_edges_by_type</code><a class="headerlink" href="#ts_core.config.bindings.netconvert_xml.edge_removalType.remove_edges_by_type" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return the value for this use within the given instance.</p>
+<p>Note that this is the L{resetValue()}, not the L{defaultValue()}, if
+the element has not yet been assigned a value.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="ts_core.config.bindings.netconvert_xml.edge_removalType.remove_edges_by_vclass">
+<code class="descname">remove_edges_by_vclass</code><a class="headerlink" href="#ts_core.config.bindings.netconvert_xml.edge_removalType.remove_edges_by_vclass" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return the value for this use within the given instance.</p>
+<p>Note that this is the L{resetValue()}, not the L{defaultValue()}, if
+the element has not yet been assigned a value.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="ts_core.config.bindings.netconvert_xml.edge_removalType.remove_edges_explicit">
+<code class="descname">remove_edges_explicit</code><a class="headerlink" href="#ts_core.config.bindings.netconvert_xml.edge_removalType.remove_edges_explicit" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return the value for this use within the given instance.</p>
+<p>Note that this is the L{resetValue()}, not the L{defaultValue()}, if
+the element has not yet been assigned a value.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="ts_core.config.bindings.netconvert_xml.edge_removalType.remove_edges_input_file">
+<code class="descname">remove_edges_input_file</code><a class="headerlink" href="#ts_core.config.bindings.netconvert_xml.edge_removalType.remove_edges_input_file" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return the value for this use within the given instance.</p>
+<p>Note that this is the L{resetValue()}, not the L{defaultValue()}, if
+the element has not yet been assigned a value.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="ts_core.config.bindings.netconvert_xml.edge_removalType.remove_edges_isolated">
+<code class="descname">remove_edges_isolated</code><a class="headerlink" href="#ts_core.config.bindings.netconvert_xml.edge_removalType.remove_edges_isolated" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return the value for this use within the given instance.</p>
+<p>Note that this is the L{resetValue()}, not the L{defaultValue()}, if
+the element has not yet been assigned a value.</p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="ts_core.config.bindings.netconvert_xml.fileOptionType">
+<em class="property">class </em><code class="descname">fileOptionType</code><span class="sig-paren">(</span><em>*args</em>, <em>**kw</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/ts_core/config/bindings/netconvert_xml.html#fileOptionType"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#ts_core.config.bindings.netconvert_xml.fileOptionType" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal"><span class="pre">pyxb.binding.basis.complexTypeDefinition</span></code></p>
+<p>Complex type fileOptionType with content type EMPTY</p>
+<dl class="attribute">
+<dt id="ts_core.config.bindings.netconvert_xml.fileOptionType.help">
+<code class="descname">help</code><a class="headerlink" href="#ts_core.config.bindings.netconvert_xml.fileOptionType.help" title="Permalink to this definition">¶</a></dt>
+<dd><p>Get the value of the attribute from the instance.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="ts_core.config.bindings.netconvert_xml.fileOptionType.synonymes">
+<code class="descname">synonymes</code><a class="headerlink" href="#ts_core.config.bindings.netconvert_xml.fileOptionType.synonymes" title="Permalink to this definition">¶</a></dt>
+<dd><p>Get the value of the attribute from the instance.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="ts_core.config.bindings.netconvert_xml.fileOptionType.type">
+<code class="descname">type</code><a class="headerlink" href="#ts_core.config.bindings.netconvert_xml.fileOptionType.type" title="Permalink to this definition">¶</a></dt>
+<dd><p>Get the value of the attribute from the instance.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="ts_core.config.bindings.netconvert_xml.fileOptionType.value_">
+<code class="descname">value_</code><a class="headerlink" href="#ts_core.config.bindings.netconvert_xml.fileOptionType.value_" title="Permalink to this definition">¶</a></dt>
+<dd><p>Get the value of the attribute from the instance.</p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="ts_core.config.bindings.netconvert_xml.floatOptionType">
+<em class="property">class </em><code class="descname">floatOptionType</code><span class="sig-paren">(</span><em>*args</em>, <em>**kw</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/ts_core/config/bindings/netconvert_xml.html#floatOptionType"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#ts_core.config.bindings.netconvert_xml.floatOptionType" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal"><span class="pre">pyxb.binding.basis.complexTypeDefinition</span></code></p>
+<p>Complex type floatOptionType with content type EMPTY</p>
+<dl class="attribute">
+<dt id="ts_core.config.bindings.netconvert_xml.floatOptionType.help">
+<code class="descname">help</code><a class="headerlink" href="#ts_core.config.bindings.netconvert_xml.floatOptionType.help" title="Permalink to this definition">¶</a></dt>
+<dd><p>Get the value of the attribute from the instance.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="ts_core.config.bindings.netconvert_xml.floatOptionType.synonymes">
+<code class="descname">synonymes</code><a class="headerlink" href="#ts_core.config.bindings.netconvert_xml.floatOptionType.synonymes" title="Permalink to this definition">¶</a></dt>
+<dd><p>Get the value of the attribute from the instance.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="ts_core.config.bindings.netconvert_xml.floatOptionType.type">
+<code class="descname">type</code><a class="headerlink" href="#ts_core.config.bindings.netconvert_xml.floatOptionType.type" title="Permalink to this definition">¶</a></dt>
+<dd><p>Get the value of the attribute from the instance.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="ts_core.config.bindings.netconvert_xml.floatOptionType.value_">
+<code class="descname">value_</code><a class="headerlink" href="#ts_core.config.bindings.netconvert_xml.floatOptionType.value_" title="Permalink to this definition">¶</a></dt>
+<dd><p>Get the value of the attribute from the instance.</p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="ts_core.config.bindings.netconvert_xml.inputType">
+<em class="property">class </em><code class="descname">inputType</code><span class="sig-paren">(</span><em>*args</em>, <em>**kw</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/ts_core/config/bindings/netconvert_xml.html#inputType"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#ts_core.config.bindings.netconvert_xml.inputType" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal"><span class="pre">pyxb.binding.basis.complexTypeDefinition</span></code></p>
+<p>Complex type inputType with content type ELEMENT_ONLY</p>
+<dl class="attribute">
+<dt id="ts_core.config.bindings.netconvert_xml.inputType.connection_files">
+<code class="descname">connection_files</code><a class="headerlink" href="#ts_core.config.bindings.netconvert_xml.inputType.connection_files" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return the value for this use within the given instance.</p>
+<p>Note that this is the L{resetValue()}, not the L{defaultValue()}, if
+the element has not yet been assigned a value.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="ts_core.config.bindings.netconvert_xml.inputType.dlr_navteq_prefix">
+<code class="descname">dlr_navteq_prefix</code><a class="headerlink" href="#ts_core.config.bindings.netconvert_xml.inputType.dlr_navteq_prefix" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return the value for this use within the given instance.</p>
+<p>Note that this is the L{resetValue()}, not the L{defaultValue()}, if
+the element has not yet been assigned a value.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="ts_core.config.bindings.netconvert_xml.inputType.edge_files">
+<code class="descname">edge_files</code><a class="headerlink" href="#ts_core.config.bindings.netconvert_xml.inputType.edge_files" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return the value for this use within the given instance.</p>
+<p>Note that this is the L{resetValue()}, not the L{defaultValue()}, if
+the element has not yet been assigned a value.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="ts_core.config.bindings.netconvert_xml.inputType.heightmap_geotiff">
+<code class="descname">heightmap_geotiff</code><a class="headerlink" href="#ts_core.config.bindings.netconvert_xml.inputType.heightmap_geotiff" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return the value for this use within the given instance.</p>
+<p>Note that this is the L{resetValue()}, not the L{defaultValue()}, if
+the element has not yet been assigned a value.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="ts_core.config.bindings.netconvert_xml.inputType.heightmap_shapefiles">
+<code class="descname">heightmap_shapefiles</code><a class="headerlink" href="#ts_core.config.bindings.netconvert_xml.inputType.heightmap_shapefiles" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return the value for this use within the given instance.</p>
+<p>Note that this is the L{resetValue()}, not the L{defaultValue()}, if
+the element has not yet been assigned a value.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="ts_core.config.bindings.netconvert_xml.inputType.itsumo_files">
+<code class="descname">itsumo_files</code><a class="headerlink" href="#ts_core.config.bindings.netconvert_xml.inputType.itsumo_files" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return the value for this use within the given instance.</p>
+<p>Note that this is the L{resetValue()}, not the L{defaultValue()}, if
+the element has not yet been assigned a value.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="ts_core.config.bindings.netconvert_xml.inputType.matsim_files">
+<code class="descname">matsim_files</code><a class="headerlink" href="#ts_core.config.bindings.netconvert_xml.inputType.matsim_files" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return the value for this use within the given instance.</p>
+<p>Note that this is the L{resetValue()}, not the L{defaultValue()}, if
+the element has not yet been assigned a value.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="ts_core.config.bindings.netconvert_xml.inputType.node_files">
+<code class="descname">node_files</code><a class="headerlink" href="#ts_core.config.bindings.netconvert_xml.inputType.node_files" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return the value for this use within the given instance.</p>
+<p>Note that this is the L{resetValue()}, not the L{defaultValue()}, if
+the element has not yet been assigned a value.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="ts_core.config.bindings.netconvert_xml.inputType.opendrive_files">
+<code class="descname">opendrive_files</code><a class="headerlink" href="#ts_core.config.bindings.netconvert_xml.inputType.opendrive_files" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return the value for this use within the given instance.</p>
+<p>Note that this is the L{resetValue()}, not the L{defaultValue()}, if
+the element has not yet been assigned a value.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="ts_core.config.bindings.netconvert_xml.inputType.osm_files">
+<code class="descname">osm_files</code><a class="headerlink" href="#ts_core.config.bindings.netconvert_xml.inputType.osm_files" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return the value for this use within the given instance.</p>
+<p>Note that this is the L{resetValue()}, not the L{defaultValue()}, if
+the element has not yet been assigned a value.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="ts_core.config.bindings.netconvert_xml.inputType.robocup_dir">
+<code class="descname">robocup_dir</code><a class="headerlink" href="#ts_core.config.bindings.netconvert_xml.inputType.robocup_dir" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return the value for this use within the given instance.</p>
+<p>Note that this is the L{resetValue()}, not the L{defaultValue()}, if
+the element has not yet been assigned a value.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="ts_core.config.bindings.netconvert_xml.inputType.shapefile_prefix">
+<code class="descname">shapefile_prefix</code><a class="headerlink" href="#ts_core.config.bindings.netconvert_xml.inputType.shapefile_prefix" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return the value for this use within the given instance.</p>
+<p>Note that this is the L{resetValue()}, not the L{defaultValue()}, if
+the element has not yet been assigned a value.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="ts_core.config.bindings.netconvert_xml.inputType.sumo_net_file">
+<code class="descname">sumo_net_file</code><a class="headerlink" href="#ts_core.config.bindings.netconvert_xml.inputType.sumo_net_file" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return the value for this use within the given instance.</p>
+<p>Note that this is the L{resetValue()}, not the L{defaultValue()}, if
+the element has not yet been assigned a value.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="ts_core.config.bindings.netconvert_xml.inputType.tllogic_files">
+<code class="descname">tllogic_files</code><a class="headerlink" href="#ts_core.config.bindings.netconvert_xml.inputType.tllogic_files" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return the value for this use within the given instance.</p>
+<p>Note that this is the L{resetValue()}, not the L{defaultValue()}, if
+the element has not yet been assigned a value.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="ts_core.config.bindings.netconvert_xml.inputType.type_files">
+<code class="descname">type_files</code><a class="headerlink" href="#ts_core.config.bindings.netconvert_xml.inputType.type_files" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return the value for this use within the given instance.</p>
+<p>Note that this is the L{resetValue()}, not the L{defaultValue()}, if
+the element has not yet been assigned a value.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="ts_core.config.bindings.netconvert_xml.inputType.vissim_file">
+<code class="descname">vissim_file</code><a class="headerlink" href="#ts_core.config.bindings.netconvert_xml.inputType.vissim_file" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return the value for this use within the given instance.</p>
+<p>Note that this is the L{resetValue()}, not the L{defaultValue()}, if
+the element has not yet been assigned a value.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="ts_core.config.bindings.netconvert_xml.inputType.visum_file">
+<code class="descname">visum_file</code><a class="headerlink" href="#ts_core.config.bindings.netconvert_xml.inputType.visum_file" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return the value for this use within the given instance.</p>
+<p>Note that this is the L{resetValue()}, not the L{defaultValue()}, if
+the element has not yet been assigned a value.</p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="ts_core.config.bindings.netconvert_xml.intArrayOptionType">
+<em class="property">class </em><code class="descname">intArrayOptionType</code><span class="sig-paren">(</span><em>*args</em>, <em>**kw</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/ts_core/config/bindings/netconvert_xml.html#intArrayOptionType"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#ts_core.config.bindings.netconvert_xml.intArrayOptionType" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal"><span class="pre">pyxb.binding.basis.complexTypeDefinition</span></code></p>
+<p>Complex type intArrayOptionType with content type EMPTY</p>
+<dl class="attribute">
+<dt id="ts_core.config.bindings.netconvert_xml.intArrayOptionType.help">
+<code class="descname">help</code><a class="headerlink" href="#ts_core.config.bindings.netconvert_xml.intArrayOptionType.help" title="Permalink to this definition">¶</a></dt>
+<dd><p>Get the value of the attribute from the instance.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="ts_core.config.bindings.netconvert_xml.intArrayOptionType.synonymes">
+<code class="descname">synonymes</code><a class="headerlink" href="#ts_core.config.bindings.netconvert_xml.intArrayOptionType.synonymes" title="Permalink to this definition">¶</a></dt>
+<dd><p>Get the value of the attribute from the instance.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="ts_core.config.bindings.netconvert_xml.intArrayOptionType.type">
+<code class="descname">type</code><a class="headerlink" href="#ts_core.config.bindings.netconvert_xml.intArrayOptionType.type" title="Permalink to this definition">¶</a></dt>
+<dd><p>Get the value of the attribute from the instance.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="ts_core.config.bindings.netconvert_xml.intArrayOptionType.value_">
+<code class="descname">value_</code><a class="headerlink" href="#ts_core.config.bindings.netconvert_xml.intArrayOptionType.value_" title="Permalink to this definition">¶</a></dt>
+<dd><p>Get the value of the attribute from the instance.</p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="ts_core.config.bindings.netconvert_xml.intOptionType">
+<em class="property">class </em><code class="descname">intOptionType</code><span class="sig-paren">(</span><em>*args</em>, <em>**kw</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/ts_core/config/bindings/netconvert_xml.html#intOptionType"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#ts_core.config.bindings.netconvert_xml.intOptionType" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal"><span class="pre">pyxb.binding.basis.complexTypeDefinition</span></code></p>
+<p>Complex type intOptionType with content type EMPTY</p>
+<dl class="attribute">
+<dt id="ts_core.config.bindings.netconvert_xml.intOptionType.help">
+<code class="descname">help</code><a class="headerlink" href="#ts_core.config.bindings.netconvert_xml.intOptionType.help" title="Permalink to this definition">¶</a></dt>
+<dd><p>Get the value of the attribute from the instance.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="ts_core.config.bindings.netconvert_xml.intOptionType.synonymes">
+<code class="descname">synonymes</code><a class="headerlink" href="#ts_core.config.bindings.netconvert_xml.intOptionType.synonymes" title="Permalink to this definition">¶</a></dt>
+<dd><p>Get the value of the attribute from the instance.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="ts_core.config.bindings.netconvert_xml.intOptionType.type">
+<code class="descname">type</code><a class="headerlink" href="#ts_core.config.bindings.netconvert_xml.intOptionType.type" title="Permalink to this definition">¶</a></dt>
+<dd><p>Get the value of the attribute from the instance.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="ts_core.config.bindings.netconvert_xml.intOptionType.value_">
+<code class="descname">value_</code><a class="headerlink" href="#ts_core.config.bindings.netconvert_xml.intOptionType.value_" title="Permalink to this definition">¶</a></dt>
+<dd><p>Get the value of the attribute from the instance.</p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="ts_core.config.bindings.netconvert_xml.locationType">
+<em class="property">class </em><code class="descname">locationType</code><span class="sig-paren">(</span><em>*args</em>, <em>**kw</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/ts_core/config/bindings/netconvert_xml.html#locationType"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#ts_core.config.bindings.netconvert_xml.locationType" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal"><span class="pre">pyxb.binding.basis.complexTypeDefinition</span></code></p>
+<p>Complex type locationType with content type EMPTY</p>
+<dl class="attribute">
+<dt id="ts_core.config.bindings.netconvert_xml.locationType.convBoundary">
+<code class="descname">convBoundary</code><a class="headerlink" href="#ts_core.config.bindings.netconvert_xml.locationType.convBoundary" title="Permalink to this definition">¶</a></dt>
+<dd><p>Get the value of the attribute from the instance.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="ts_core.config.bindings.netconvert_xml.locationType.netOffset">
+<code class="descname">netOffset</code><a class="headerlink" href="#ts_core.config.bindings.netconvert_xml.locationType.netOffset" title="Permalink to this definition">¶</a></dt>
+<dd><p>Get the value of the attribute from the instance.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="ts_core.config.bindings.netconvert_xml.locationType.origBoundary">
+<code class="descname">origBoundary</code><a class="headerlink" href="#ts_core.config.bindings.netconvert_xml.locationType.origBoundary" title="Permalink to this definition">¶</a></dt>
+<dd><p>Get the value of the attribute from the instance.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="ts_core.config.bindings.netconvert_xml.locationType.projParameter">
+<code class="descname">projParameter</code><a class="headerlink" href="#ts_core.config.bindings.netconvert_xml.locationType.projParameter" title="Permalink to this definition">¶</a></dt>
+<dd><p>Get the value of the attribute from the instance.</p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="ts_core.config.bindings.netconvert_xml.nodeTypeType">
+<em class="property">class </em><code class="descname">nodeTypeType</code><span class="sig-paren">(</span><em>*args</em>, <em>**kw</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/ts_core/config/bindings/netconvert_xml.html#nodeTypeType"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#ts_core.config.bindings.netconvert_xml.nodeTypeType" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal"><span class="pre">pyxb.binding.datatypes.string</span></code>, <code class="xref py py-class docutils literal"><span class="pre">pyxb.binding.basis.enumeration_mixin</span></code></p>
+<p>An atomic simple type.</p>
+<dl class="attribute">
+<dt id="ts_core.config.bindings.netconvert_xml.nodeTypeType.allway_stop">
+<code class="descname">allway_stop</code><em class="property"> = 'allway_stop'</em><a class="headerlink" href="#ts_core.config.bindings.netconvert_xml.nodeTypeType.allway_stop" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="ts_core.config.bindings.netconvert_xml.nodeTypeType.dead_end">
+<code class="descname">dead_end</code><em class="property"> = 'dead_end'</em><a class="headerlink" href="#ts_core.config.bindings.netconvert_xml.nodeTypeType.dead_end" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="ts_core.config.bindings.netconvert_xml.nodeTypeType.priority">
+<code class="descname">priority</code><em class="property"> = 'priority'</em><a class="headerlink" href="#ts_core.config.bindings.netconvert_xml.nodeTypeType.priority" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="ts_core.config.bindings.netconvert_xml.nodeTypeType.priority_stop">
+<code class="descname">priority_stop</code><em class="property"> = 'priority_stop'</em><a class="headerlink" href="#ts_core.config.bindings.netconvert_xml.nodeTypeType.priority_stop" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="ts_core.config.bindings.netconvert_xml.nodeTypeType.rail_crossing">
+<code class="descname">rail_crossing</code><em class="property"> = 'rail_crossing'</em><a class="headerlink" href="#ts_core.config.bindings.netconvert_xml.nodeTypeType.rail_crossing" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="ts_core.config.bindings.netconvert_xml.nodeTypeType.rail_signal">
+<code class="descname">rail_signal</code><em class="property"> = 'rail_signal'</em><a class="headerlink" href="#ts_core.config.bindings.netconvert_xml.nodeTypeType.rail_signal" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="ts_core.config.bindings.netconvert_xml.nodeTypeType.right_before_left">
+<code class="descname">right_before_left</code><em class="property"> = 'right_before_left'</em><a class="headerlink" href="#ts_core.config.bindings.netconvert_xml.nodeTypeType.right_before_left" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="ts_core.config.bindings.netconvert_xml.nodeTypeType.traffic_light">
+<code class="descname">traffic_light</code><em class="property"> = 'traffic_light'</em><a class="headerlink" href="#ts_core.config.bindings.netconvert_xml.nodeTypeType.traffic_light" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="ts_core.config.bindings.netconvert_xml.nodeTypeType.traffic_light_right_on_red">
+<code class="descname">traffic_light_right_on_red</code><em class="property"> = 'traffic_light_right_on_red'</em><a class="headerlink" href="#ts_core.config.bindings.netconvert_xml.nodeTypeType.traffic_light_right_on_red" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="ts_core.config.bindings.netconvert_xml.nodeTypeType.traffic_light_unregulated">
+<code class="descname">traffic_light_unregulated</code><em class="property"> = 'traffic_light_unregulated'</em><a class="headerlink" href="#ts_core.config.bindings.netconvert_xml.nodeTypeType.traffic_light_unregulated" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="ts_core.config.bindings.netconvert_xml.nodeTypeType.unregulated">
+<code class="descname">unregulated</code><em class="property"> = 'unregulated'</em><a class="headerlink" href="#ts_core.config.bindings.netconvert_xml.nodeTypeType.unregulated" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="ts_core.config.bindings.netconvert_xml.nodeTypeType.zipper">
+<code class="descname">zipper</code><em class="property"> = 'zipper'</em><a class="headerlink" href="#ts_core.config.bindings.netconvert_xml.nodeTypeType.zipper" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="ts_core.config.bindings.netconvert_xml.nonNegativeDistributionType">
+<em class="property">class </em><code class="descname">nonNegativeDistributionType</code><span class="sig-paren">(</span><em>*args</em>, <em>**kw</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/ts_core/config/bindings/netconvert_xml.html#nonNegativeDistributionType"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#ts_core.config.bindings.netconvert_xml.nonNegativeDistributionType" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal"><span class="pre">pyxb.binding.basis.STD_union</span></code></p>
+<p>Simple type that is a union of nonNegativeFloatType, <a href="#id1"><span class="problematic" id="id2">STD_ANON_</span></a>.</p>
+</dd></dl>
+
+<dl class="class">
+<dt id="ts_core.config.bindings.netconvert_xml.nonNegativeFloatType">
+<em class="property">class </em><code class="descname">nonNegativeFloatType</code><span class="sig-paren">(</span><em>*args</em>, <em>**kw</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/ts_core/config/bindings/netconvert_xml.html#nonNegativeFloatType"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#ts_core.config.bindings.netconvert_xml.nonNegativeFloatType" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal"><span class="pre">pyxb.binding.datatypes.float</span></code></p>
+<p>An atomic simple type.</p>
+</dd></dl>
+
+<dl class="class">
+<dt id="ts_core.config.bindings.netconvert_xml.nonNegativeFloatTypeWithErrorValue">
+<em class="property">class </em><code class="descname">nonNegativeFloatTypeWithErrorValue</code><span class="sig-paren">(</span><em>*args</em>, <em>**kw</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/ts_core/config/bindings/netconvert_xml.html#nonNegativeFloatTypeWithErrorValue"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#ts_core.config.bindings.netconvert_xml.nonNegativeFloatTypeWithErrorValue" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal"><span class="pre">pyxb.binding.basis.STD_union</span></code></p>
+<p>Simple type that is a union of nonNegativeFloatType, STD_ANON.</p>
+</dd></dl>
+
+<dl class="class">
+<dt id="ts_core.config.bindings.netconvert_xml.nonNegativeIntType">
+<em class="property">class </em><code class="descname">nonNegativeIntType</code><span class="sig-paren">(</span><em>*args</em>, <em>**kw</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/ts_core/config/bindings/netconvert_xml.html#nonNegativeIntType"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#ts_core.config.bindings.netconvert_xml.nonNegativeIntType" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal"><span class="pre">pyxb.binding.datatypes.int</span></code></p>
+<p>An atomic simple type.</p>
+</dd></dl>
+
+<dl class="class">
+<dt id="ts_core.config.bindings.netconvert_xml.outputType">
+<em class="property">class </em><code class="descname">outputType</code><span class="sig-paren">(</span><em>*args</em>, <em>**kw</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/ts_core/config/bindings/netconvert_xml.html#outputType"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#ts_core.config.bindings.netconvert_xml.outputType" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal"><span class="pre">pyxb.binding.basis.complexTypeDefinition</span></code></p>
+<p>Complex type outputType with content type ELEMENT_ONLY</p>
+<dl class="attribute">
+<dt id="ts_core.config.bindings.netconvert_xml.outputType.amitran_output">
+<code class="descname">amitran_output</code><a class="headerlink" href="#ts_core.config.bindings.netconvert_xml.outputType.amitran_output" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return the value for this use within the given instance.</p>
+<p>Note that this is the L{resetValue()}, not the L{defaultValue()}, if
+the element has not yet been assigned a value.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="ts_core.config.bindings.netconvert_xml.outputType.dlr_navteq_output">
+<code class="descname">dlr_navteq_output</code><a class="headerlink" href="#ts_core.config.bindings.netconvert_xml.outputType.dlr_navteq_output" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return the value for this use within the given instance.</p>
+<p>Note that this is the L{resetValue()}, not the L{defaultValue()}, if
+the element has not yet been assigned a value.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="ts_core.config.bindings.netconvert_xml.outputType.dlr_navteq_precision">
+<code class="descname">dlr_navteq_precision</code><a class="headerlink" href="#ts_core.config.bindings.netconvert_xml.outputType.dlr_navteq_precision" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return the value for this use within the given instance.</p>
+<p>Note that this is the L{resetValue()}, not the L{defaultValue()}, if
+the element has not yet been assigned a value.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="ts_core.config.bindings.netconvert_xml.outputType.junctions_join_output">
+<code class="descname">junctions_join_output</code><a class="headerlink" href="#ts_core.config.bindings.netconvert_xml.outputType.junctions_join_output" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return the value for this use within the given instance.</p>
+<p>Note that this is the L{resetValue()}, not the L{defaultValue()}, if
+the element has not yet been assigned a value.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="ts_core.config.bindings.netconvert_xml.outputType.matsim_output">
+<code class="descname">matsim_output</code><a class="headerlink" href="#ts_core.config.bindings.netconvert_xml.outputType.matsim_output" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return the value for this use within the given instance.</p>
+<p>Note that this is the L{resetValue()}, not the L{defaultValue()}, if
+the element has not yet been assigned a value.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="ts_core.config.bindings.netconvert_xml.outputType.opendrive_output">
+<code class="descname">opendrive_output</code><a class="headerlink" href="#ts_core.config.bindings.netconvert_xml.outputType.opendrive_output" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return the value for this use within the given instance.</p>
+<p>Note that this is the L{resetValue()}, not the L{defaultValue()}, if
+the element has not yet been assigned a value.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="ts_core.config.bindings.netconvert_xml.outputType.opendrive_output_straight_threshold">
+<code class="descname">opendrive_output_straight_threshold</code><a class="headerlink" href="#ts_core.config.bindings.netconvert_xml.outputType.opendrive_output_straight_threshold" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return the value for this use within the given instance.</p>
+<p>Note that this is the L{resetValue()}, not the L{defaultValue()}, if
+the element has not yet been assigned a value.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="ts_core.config.bindings.netconvert_xml.outputType.output_file">
+<code class="descname">output_file</code><a class="headerlink" href="#ts_core.config.bindings.netconvert_xml.outputType.output_file" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return the value for this use within the given instance.</p>
+<p>Note that this is the L{resetValue()}, not the L{defaultValue()}, if
+the element has not yet been assigned a value.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="ts_core.config.bindings.netconvert_xml.outputType.output_original_names">
+<code class="descname">output_original_names</code><a class="headerlink" href="#ts_core.config.bindings.netconvert_xml.outputType.output_original_names" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return the value for this use within the given instance.</p>
+<p>Note that this is the L{resetValue()}, not the L{defaultValue()}, if
+the element has not yet been assigned a value.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="ts_core.config.bindings.netconvert_xml.outputType.output_prefix">
+<code class="descname">output_prefix</code><a class="headerlink" href="#ts_core.config.bindings.netconvert_xml.outputType.output_prefix" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return the value for this use within the given instance.</p>
+<p>Note that this is the L{resetValue()}, not the L{defaultValue()}, if
+the element has not yet been assigned a value.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="ts_core.config.bindings.netconvert_xml.outputType.output_street_names">
+<code class="descname">output_street_names</code><a class="headerlink" href="#ts_core.config.bindings.netconvert_xml.outputType.output_street_names" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return the value for this use within the given instance.</p>
+<p>Note that this is the L{resetValue()}, not the L{defaultValue()}, if
+the element has not yet been assigned a value.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="ts_core.config.bindings.netconvert_xml.outputType.plain_output_prefix">
+<code class="descname">plain_output_prefix</code><a class="headerlink" href="#ts_core.config.bindings.netconvert_xml.outputType.plain_output_prefix" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return the value for this use within the given instance.</p>
+<p>Note that this is the L{resetValue()}, not the L{defaultValue()}, if
+the element has not yet been assigned a value.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="ts_core.config.bindings.netconvert_xml.outputType.precision">
+<code class="descname">precision</code><a class="headerlink" href="#ts_core.config.bindings.netconvert_xml.outputType.precision" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return the value for this use within the given instance.</p>
+<p>Note that this is the L{resetValue()}, not the L{defaultValue()}, if
+the element has not yet been assigned a value.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="ts_core.config.bindings.netconvert_xml.outputType.precision_geo">
+<code class="descname">precision_geo</code><a class="headerlink" href="#ts_core.config.bindings.netconvert_xml.outputType.precision_geo" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return the value for this use within the given instance.</p>
+<p>Note that this is the L{resetValue()}, not the L{defaultValue()}, if
+the element has not yet been assigned a value.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="ts_core.config.bindings.netconvert_xml.outputType.ptline_output">
+<code class="descname">ptline_output</code><a class="headerlink" href="#ts_core.config.bindings.netconvert_xml.outputType.ptline_output" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return the value for this use within the given instance.</p>
+<p>Note that this is the L{resetValue()}, not the L{defaultValue()}, if
+the element has not yet been assigned a value.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="ts_core.config.bindings.netconvert_xml.outputType.ptstop_output">
+<code class="descname">ptstop_output</code><a class="headerlink" href="#ts_core.config.bindings.netconvert_xml.outputType.ptstop_output" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return the value for this use within the given instance.</p>
+<p>Note that this is the L{resetValue()}, not the L{defaultValue()}, if
+the element has not yet been assigned a value.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="ts_core.config.bindings.netconvert_xml.outputType.street_sign_output">
+<code class="descname">street_sign_output</code><a class="headerlink" href="#ts_core.config.bindings.netconvert_xml.outputType.street_sign_output" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return the value for this use within the given instance.</p>
+<p>Note that this is the L{resetValue()}, not the L{defaultValue()}, if
+the element has not yet been assigned a value.</p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="ts_core.config.bindings.netconvert_xml.paramType">
+<em class="property">class </em><code class="descname">paramType</code><span class="sig-paren">(</span><em>*args</em>, <em>**kw</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/ts_core/config/bindings/netconvert_xml.html#paramType"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#ts_core.config.bindings.netconvert_xml.paramType" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal"><span class="pre">pyxb.binding.basis.complexTypeDefinition</span></code></p>
+<p>Complex type paramType with content type EMPTY</p>
+<dl class="attribute">
+<dt id="ts_core.config.bindings.netconvert_xml.paramType.key">
+<code class="descname">key</code><a class="headerlink" href="#ts_core.config.bindings.netconvert_xml.paramType.key" title="Permalink to this definition">¶</a></dt>
+<dd><p>Get the value of the attribute from the instance.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="ts_core.config.bindings.netconvert_xml.paramType.value_">
+<code class="descname">value_</code><a class="headerlink" href="#ts_core.config.bindings.netconvert_xml.paramType.value_" title="Permalink to this definition">¶</a></dt>
+<dd><p>Get the value of the attribute from the instance.</p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="ts_core.config.bindings.netconvert_xml.phaseType">
+<em class="property">class </em><code class="descname">phaseType</code><span class="sig-paren">(</span><em>*args</em>, <em>**kw</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/ts_core/config/bindings/netconvert_xml.html#phaseType"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#ts_core.config.bindings.netconvert_xml.phaseType" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal"><span class="pre">pyxb.binding.basis.complexTypeDefinition</span></code></p>
+<p>Complex type phaseType with content type EMPTY</p>
+<dl class="attribute">
+<dt id="ts_core.config.bindings.netconvert_xml.phaseType.duration">
+<code class="descname">duration</code><a class="headerlink" href="#ts_core.config.bindings.netconvert_xml.phaseType.duration" title="Permalink to this definition">¶</a></dt>
+<dd><p>Get the value of the attribute from the instance.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="ts_core.config.bindings.netconvert_xml.phaseType.maxDur">
+<code class="descname">maxDur</code><a class="headerlink" href="#ts_core.config.bindings.netconvert_xml.phaseType.maxDur" title="Permalink to this definition">¶</a></dt>
+<dd><p>Get the value of the attribute from the instance.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="ts_core.config.bindings.netconvert_xml.phaseType.minDur">
+<code class="descname">minDur</code><a class="headerlink" href="#ts_core.config.bindings.netconvert_xml.phaseType.minDur" title="Permalink to this definition">¶</a></dt>
+<dd><p>Get the value of the attribute from the instance.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="ts_core.config.bindings.netconvert_xml.phaseType.state">
+<code class="descname">state</code><a class="headerlink" href="#ts_core.config.bindings.netconvert_xml.phaseType.state" title="Permalink to this definition">¶</a></dt>
+<dd><p>Get the value of the attribute from the instance.</p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="ts_core.config.bindings.netconvert_xml.positiveFloatType">
+<em class="property">class </em><code class="descname">positiveFloatType</code><span class="sig-paren">(</span><em>*args</em>, <em>**kw</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/ts_core/config/bindings/netconvert_xml.html#positiveFloatType"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#ts_core.config.bindings.netconvert_xml.positiveFloatType" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal"><span class="pre">pyxb.binding.datatypes.float</span></code></p>
+<p>An atomic simple type.</p>
+</dd></dl>
+
+<dl class="class">
+<dt id="ts_core.config.bindings.netconvert_xml.positiveIntType">
+<em class="property">class </em><code class="descname">positiveIntType</code><span class="sig-paren">(</span><em>*args</em>, <em>**kw</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/ts_core/config/bindings/netconvert_xml.html#positiveIntType"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#ts_core.config.bindings.netconvert_xml.positiveIntType" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal"><span class="pre">pyxb.binding.datatypes.int</span></code></p>
+<p>An atomic simple type.</p>
+</dd></dl>
+
+<dl class="class">
+<dt id="ts_core.config.bindings.netconvert_xml.processingType">
+<em class="property">class </em><code class="descname">processingType</code><span class="sig-paren">(</span><em>*args</em>, <em>**kw</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/ts_core/config/bindings/netconvert_xml.html#processingType"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#ts_core.config.bindings.netconvert_xml.processingType" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal"><span class="pre">pyxb.binding.basis.complexTypeDefinition</span></code></p>
+<p>Complex type processingType with content type ELEMENT_ONLY</p>
+<dl class="attribute">
+<dt id="ts_core.config.bindings.netconvert_xml.processingType.check_lane_foes_all">
+<code class="descname">check_lane_foes_all</code><a class="headerlink" href="#ts_core.config.bindings.netconvert_xml.processingType.check_lane_foes_all" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return the value for this use within the given instance.</p>
+<p>Note that this is the L{resetValue()}, not the L{defaultValue()}, if
+the element has not yet been assigned a value.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="ts_core.config.bindings.netconvert_xml.processingType.check_lane_foes_roundabout">
+<code class="descname">check_lane_foes_roundabout</code><a class="headerlink" href="#ts_core.config.bindings.netconvert_xml.processingType.check_lane_foes_roundabout" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return the value for this use within the given instance.</p>
+<p>Note that this is the L{resetValue()}, not the L{defaultValue()}, if
+the element has not yet been assigned a value.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="ts_core.config.bindings.netconvert_xml.processingType.construction_date">
+<code class="descname">construction_date</code><a class="headerlink" href="#ts_core.config.bindings.netconvert_xml.processingType.construction_date" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return the value for this use within the given instance.</p>
+<p>Note that this is the L{resetValue()}, not the L{defaultValue()}, if
+the element has not yet been assigned a value.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="ts_core.config.bindings.netconvert_xml.processingType.crossings_guess">
+<code class="descname">crossings_guess</code><a class="headerlink" href="#ts_core.config.bindings.netconvert_xml.processingType.crossings_guess" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return the value for this use within the given instance.</p>
+<p>Note that this is the L{resetValue()}, not the L{defaultValue()}, if
+the element has not yet been assigned a value.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="ts_core.config.bindings.netconvert_xml.processingType.crossings_guess_speed_threshold">
+<code class="descname">crossings_guess_speed_threshold</code><a class="headerlink" href="#ts_core.config.bindings.netconvert_xml.processingType.crossings_guess_speed_threshold" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return the value for this use within the given instance.</p>
+<p>Note that this is the L{resetValue()}, not the L{defaultValue()}, if
+the element has not yet been assigned a value.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="ts_core.config.bindings.netconvert_xml.processingType.dismiss_vclasses">
+<code class="descname">dismiss_vclasses</code><a class="headerlink" href="#ts_core.config.bindings.netconvert_xml.processingType.dismiss_vclasses" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return the value for this use within the given instance.</p>
+<p>Note that this is the L{resetValue()}, not the L{defaultValue()}, if
+the element has not yet been assigned a value.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="ts_core.config.bindings.netconvert_xml.processingType.edges_join">
+<code class="descname">edges_join</code><a class="headerlink" href="#ts_core.config.bindings.netconvert_xml.processingType.edges_join" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return the value for this use within the given instance.</p>
+<p>Note that this is the L{resetValue()}, not the L{defaultValue()}, if
+the element has not yet been assigned a value.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="ts_core.config.bindings.netconvert_xml.processingType.flip_y_axis">
+<code class="descname">flip_y_axis</code><a class="headerlink" href="#ts_core.config.bindings.netconvert_xml.processingType.flip_y_axis" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return the value for this use within the given instance.</p>
+<p>Note that this is the L{resetValue()}, not the L{defaultValue()}, if
+the element has not yet been assigned a value.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="ts_core.config.bindings.netconvert_xml.processingType.geometry_check_overlap">
+<code class="descname">geometry_check_overlap</code><a class="headerlink" href="#ts_core.config.bindings.netconvert_xml.processingType.geometry_check_overlap" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return the value for this use within the given instance.</p>
+<p>Note that this is the L{resetValue()}, not the L{defaultValue()}, if
+the element has not yet been assigned a value.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="ts_core.config.bindings.netconvert_xml.processingType.geometry_check_overlap_vertical_threshold">
+<code class="descname">geometry_check_overlap_vertical_threshold</code><a class="headerlink" href="#ts_core.config.bindings.netconvert_xml.processingType.geometry_check_overlap_vertical_threshold" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return the value for this use within the given instance.</p>
+<p>Note that this is the L{resetValue()}, not the L{defaultValue()}, if
+the element has not yet been assigned a value.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="ts_core.config.bindings.netconvert_xml.processingType.geometry_junction_mismatch_threshold">
+<code class="descname">geometry_junction_mismatch_threshold</code><a class="headerlink" href="#ts_core.config.bindings.netconvert_xml.processingType.geometry_junction_mismatch_threshold" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return the value for this use within the given instance.</p>
+<p>Note that this is the L{resetValue()}, not the L{defaultValue()}, if
+the element has not yet been assigned a value.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="ts_core.config.bindings.netconvert_xml.processingType.geometry_max_angle">
+<code class="descname">geometry_max_angle</code><a class="headerlink" href="#ts_core.config.bindings.netconvert_xml.processingType.geometry_max_angle" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return the value for this use within the given instance.</p>
+<p>Note that this is the L{resetValue()}, not the L{defaultValue()}, if
+the element has not yet been assigned a value.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="ts_core.config.bindings.netconvert_xml.processingType.geometry_max_grade">
+<code class="descname">geometry_max_grade</code><a class="headerlink" href="#ts_core.config.bindings.netconvert_xml.processingType.geometry_max_grade" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return the value for this use within the given instance.</p>
+<p>Note that this is the L{resetValue()}, not the L{defaultValue()}, if
+the element has not yet been assigned a value.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="ts_core.config.bindings.netconvert_xml.processingType.geometry_max_segment_length">
+<code class="descname">geometry_max_segment_length</code><a class="headerlink" href="#ts_core.config.bindings.netconvert_xml.processingType.geometry_max_segment_length" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return the value for this use within the given instance.</p>
+<p>Note that this is the L{resetValue()}, not the L{defaultValue()}, if
+the element has not yet been assigned a value.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="ts_core.config.bindings.netconvert_xml.processingType.geometry_min_dist">
+<code class="descname">geometry_min_dist</code><a class="headerlink" href="#ts_core.config.bindings.netconvert_xml.processingType.geometry_min_dist" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return the value for this use within the given instance.</p>
+<p>Note that this is the L{resetValue()}, not the L{defaultValue()}, if
+the element has not yet been assigned a value.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="ts_core.config.bindings.netconvert_xml.processingType.geometry_min_radius">
+<code class="descname">geometry_min_radius</code><a class="headerlink" href="#ts_core.config.bindings.netconvert_xml.processingType.geometry_min_radius" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return the value for this use within the given instance.</p>
+<p>Note that this is the L{resetValue()}, not the L{defaultValue()}, if
+the element has not yet been assigned a value.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="ts_core.config.bindings.netconvert_xml.processingType.geometry_min_radius_fix">
+<code class="descname">geometry_min_radius_fix</code><a class="headerlink" href="#ts_core.config.bindings.netconvert_xml.processingType.geometry_min_radius_fix" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return the value for this use within the given instance.</p>
+<p>Note that this is the L{resetValue()}, not the L{defaultValue()}, if
+the element has not yet been assigned a value.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="ts_core.config.bindings.netconvert_xml.processingType.geometry_remove">
+<code class="descname">geometry_remove</code><a class="headerlink" href="#ts_core.config.bindings.netconvert_xml.processingType.geometry_remove" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return the value for this use within the given instance.</p>
+<p>Note that this is the L{resetValue()}, not the L{defaultValue()}, if
+the element has not yet been assigned a value.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="ts_core.config.bindings.netconvert_xml.processingType.geometry_remove_keep_edges_explicit">
+<code class="descname">geometry_remove_keep_edges_explicit</code><a class="headerlink" href="#ts_core.config.bindings.netconvert_xml.processingType.geometry_remove_keep_edges_explicit" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return the value for this use within the given instance.</p>
+<p>Note that this is the L{resetValue()}, not the L{defaultValue()}, if
+the element has not yet been assigned a value.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="ts_core.config.bindings.netconvert_xml.processingType.geometry_remove_keep_edges_input_file">
+<code class="descname">geometry_remove_keep_edges_input_file</code><a class="headerlink" href="#ts_core.config.bindings.netconvert_xml.processingType.geometry_remove_keep_edges_input_file" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return the value for this use within the given instance.</p>
+<p>Note that this is the L{resetValue()}, not the L{defaultValue()}, if
+the element has not yet been assigned a value.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="ts_core.config.bindings.netconvert_xml.processingType.geometry_split">
+<code class="descname">geometry_split</code><a class="headerlink" href="#ts_core.config.bindings.netconvert_xml.processingType.geometry_split" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return the value for this use within the given instance.</p>
+<p>Note that this is the L{resetValue()}, not the L{defaultValue()}, if
+the element has not yet been assigned a value.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="ts_core.config.bindings.netconvert_xml.processingType.ignore_errors">
+<code class="descname">ignore_errors</code><a class="headerlink" href="#ts_core.config.bindings.netconvert_xml.processingType.ignore_errors" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return the value for this use within the given instance.</p>
+<p>Note that this is the L{resetValue()}, not the L{defaultValue()}, if
+the element has not yet been assigned a value.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="ts_core.config.bindings.netconvert_xml.processingType.ignore_errors_connections">
+<code class="descname">ignore_errors_connections</code><a class="headerlink" href="#ts_core.config.bindings.netconvert_xml.processingType.ignore_errors_connections" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return the value for this use within the given instance.</p>
+<p>Note that this is the L{resetValue()}, not the L{defaultValue()}, if
+the element has not yet been assigned a value.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="ts_core.config.bindings.netconvert_xml.processingType.ignore_errors_edge_type">
+<code class="descname">ignore_errors_edge_type</code><a class="headerlink" href="#ts_core.config.bindings.netconvert_xml.processingType.ignore_errors_edge_type" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return the value for this use within the given instance.</p>
+<p>Note that this is the L{resetValue()}, not the L{defaultValue()}, if
+the element has not yet been assigned a value.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="ts_core.config.bindings.netconvert_xml.processingType.junctions_corner_detail">
+<code class="descname">junctions_corner_detail</code><a class="headerlink" href="#ts_core.config.bindings.netconvert_xml.processingType.junctions_corner_detail" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return the value for this use within the given instance.</p>
+<p>Note that this is the L{resetValue()}, not the L{defaultValue()}, if
+the element has not yet been assigned a value.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="ts_core.config.bindings.netconvert_xml.processingType.junctions_internal_link_detail">
+<code class="descname">junctions_internal_link_detail</code><a class="headerlink" href="#ts_core.config.bindings.netconvert_xml.processingType.junctions_internal_link_detail" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return the value for this use within the given instance.</p>
+<p>Note that this is the L{resetValue()}, not the L{defaultValue()}, if
+the element has not yet been assigned a value.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="ts_core.config.bindings.netconvert_xml.processingType.junctions_join">
+<code class="descname">junctions_join</code><a class="headerlink" href="#ts_core.config.bindings.netconvert_xml.processingType.junctions_join" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return the value for this use within the given instance.</p>
+<p>Note that this is the L{resetValue()}, not the L{defaultValue()}, if
+the element has not yet been assigned a value.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="ts_core.config.bindings.netconvert_xml.processingType.junctions_join_dist">
+<code class="descname">junctions_join_dist</code><a class="headerlink" href="#ts_core.config.bindings.netconvert_xml.processingType.junctions_join_dist" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return the value for this use within the given instance.</p>
+<p>Note that this is the L{resetValue()}, not the L{defaultValue()}, if
+the element has not yet been assigned a value.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="ts_core.config.bindings.netconvert_xml.processingType.junctions_join_exclude">
+<code class="descname">junctions_join_exclude</code><a class="headerlink" href="#ts_core.config.bindings.netconvert_xml.processingType.junctions_join_exclude" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return the value for this use within the given instance.</p>
+<p>Note that this is the L{resetValue()}, not the L{defaultValue()}, if
+the element has not yet been assigned a value.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="ts_core.config.bindings.netconvert_xml.processingType.junctions_join_turns">
+<code class="descname">junctions_join_turns</code><a class="headerlink" href="#ts_core.config.bindings.netconvert_xml.processingType.junctions_join_turns" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return the value for this use within the given instance.</p>
+<p>Note that this is the L{resetValue()}, not the L{defaultValue()}, if
+the element has not yet been assigned a value.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="ts_core.config.bindings.netconvert_xml.processingType.junctions_scurve_stretch">
+<code class="descname">junctions_scurve_stretch</code><a class="headerlink" href="#ts_core.config.bindings.netconvert_xml.processingType.junctions_scurve_stretch" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return the value for this use within the given instance.</p>
+<p>Note that this is the L{resetValue()}, not the L{defaultValue()}, if
+the element has not yet been assigned a value.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="ts_core.config.bindings.netconvert_xml.processingType.lanes_from_capacity_norm">
+<code class="descname">lanes_from_capacity_norm</code><a class="headerlink" href="#ts_core.config.bindings.netconvert_xml.processingType.lanes_from_capacity_norm" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return the value for this use within the given instance.</p>
+<p>Note that this is the L{resetValue()}, not the L{defaultValue()}, if
+the element has not yet been assigned a value.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="ts_core.config.bindings.netconvert_xml.processingType.lefthand">
+<code class="descname">lefthand</code><a class="headerlink" href="#ts_core.config.bindings.netconvert_xml.processingType.lefthand" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return the value for this use within the given instance.</p>
+<p>Note that this is the L{resetValue()}, not the L{defaultValue()}, if
+the element has not yet been assigned a value.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="ts_core.config.bindings.netconvert_xml.processingType.matsim_keep_length">
+<code class="descname">matsim_keep_length</code><a class="headerlink" href="#ts_core.config.bindings.netconvert_xml.processingType.matsim_keep_length" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return the value for this use within the given instance.</p>
+<p>Note that this is the L{resetValue()}, not the L{defaultValue()}, if
+the element has not yet been assigned a value.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="ts_core.config.bindings.netconvert_xml.processingType.matsim_lanes_from_capacity">
+<code class="descname">matsim_lanes_from_capacity</code><a class="headerlink" href="#ts_core.config.bindings.netconvert_xml.processingType.matsim_lanes_from_capacity" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return the value for this use within the given instance.</p>
+<p>Note that this is the L{resetValue()}, not the L{defaultValue()}, if
+the element has not yet been assigned a value.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="ts_core.config.bindings.netconvert_xml.processingType.no_internal_links">
+<code class="descname">no_internal_links</code><a class="headerlink" href="#ts_core.config.bindings.netconvert_xml.processingType.no_internal_links" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return the value for this use within the given instance.</p>
+<p>Note that this is the L{resetValue()}, not the L{defaultValue()}, if
+the element has not yet been assigned a value.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="ts_core.config.bindings.netconvert_xml.processingType.no_left_connections">
+<code class="descname">no_left_connections</code><a class="headerlink" href="#ts_core.config.bindings.netconvert_xml.processingType.no_left_connections" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return the value for this use within the given instance.</p>
+<p>Note that this is the L{resetValue()}, not the L{defaultValue()}, if
+the element has not yet been assigned a value.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="ts_core.config.bindings.netconvert_xml.processingType.no_turnarounds">
+<code class="descname">no_turnarounds</code><a class="headerlink" href="#ts_core.config.bindings.netconvert_xml.processingType.no_turnarounds" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return the value for this use within the given instance.</p>
+<p>Note that this is the L{resetValue()}, not the L{defaultValue()}, if
+the element has not yet been assigned a value.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="ts_core.config.bindings.netconvert_xml.processingType.no_turnarounds_tls">
+<code class="descname">no_turnarounds_tls</code><a class="headerlink" href="#ts_core.config.bindings.netconvert_xml.processingType.no_turnarounds_tls" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return the value for this use within the given instance.</p>
+<p>Note that this is the L{resetValue()}, not the L{defaultValue()}, if
+the element has not yet been assigned a value.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="ts_core.config.bindings.netconvert_xml.processingType.numerical_ids">
+<code class="descname">numerical_ids</code><a class="headerlink" href="#ts_core.config.bindings.netconvert_xml.processingType.numerical_ids" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return the value for this use within the given instance.</p>
+<p>Note that this is the L{resetValue()}, not the L{defaultValue()}, if
+the element has not yet been assigned a value.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="ts_core.config.bindings.netconvert_xml.processingType.offset_disable_normalization">
+<code class="descname">offset_disable_normalization</code><a class="headerlink" href="#ts_core.config.bindings.netconvert_xml.processingType.offset_disable_normalization" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return the value for this use within the given instance.</p>
+<p>Note that this is the L{resetValue()}, not the L{defaultValue()}, if
+the element has not yet been assigned a value.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="ts_core.config.bindings.netconvert_xml.processingType.offset_x">
+<code class="descname">offset_x</code><a class="headerlink" href="#ts_core.config.bindings.netconvert_xml.processingType.offset_x" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return the value for this use within the given instance.</p>
+<p>Note that this is the L{resetValue()}, not the L{defaultValue()}, if
+the element has not yet been assigned a value.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="ts_core.config.bindings.netconvert_xml.processingType.offset_y">
+<code class="descname">offset_y</code><a class="headerlink" href="#ts_core.config.bindings.netconvert_xml.processingType.offset_y" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return the value for this use within the given instance.</p>
+<p>Note that this is the L{resetValue()}, not the L{defaultValue()}, if
+the element has not yet been assigned a value.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="ts_core.config.bindings.netconvert_xml.processingType.opendrive_advance_stopline">
+<code class="descname">opendrive_advance_stopline</code><a class="headerlink" href="#ts_core.config.bindings.netconvert_xml.processingType.opendrive_advance_stopline" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return the value for this use within the given instance.</p>
+<p>Note that this is the L{resetValue()}, not the L{defaultValue()}, if
+the element has not yet been assigned a value.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="ts_core.config.bindings.netconvert_xml.processingType.opendrive_curve_resolution">
+<code class="descname">opendrive_curve_resolution</code><a class="headerlink" href="#ts_core.config.bindings.netconvert_xml.processingType.opendrive_curve_resolution" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return the value for this use within the given instance.</p>
+<p>Note that this is the L{resetValue()}, not the L{defaultValue()}, if
+the element has not yet been assigned a value.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="ts_core.config.bindings.netconvert_xml.processingType.opendrive_ignore_widths">
+<code class="descname">opendrive_ignore_widths</code><a class="headerlink" href="#ts_core.config.bindings.netconvert_xml.processingType.opendrive_ignore_widths" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return the value for this use within the given instance.</p>
+<p>Note that this is the L{resetValue()}, not the L{defaultValue()}, if
+the element has not yet been assigned a value.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="ts_core.config.bindings.netconvert_xml.processingType.opendrive_import_all_lanes">
+<code class="descname">opendrive_import_all_lanes</code><a class="headerlink" href="#ts_core.config.bindings.netconvert_xml.processingType.opendrive_import_all_lanes" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return the value for this use within the given instance.</p>
+<p>Note that this is the L{resetValue()}, not the L{defaultValue()}, if
+the element has not yet been assigned a value.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="ts_core.config.bindings.netconvert_xml.processingType.opendrive_min_width">
+<code class="descname">opendrive_min_width</code><a class="headerlink" href="#ts_core.config.bindings.netconvert_xml.processingType.opendrive_min_width" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return the value for this use within the given instance.</p>
+<p>Note that this is the L{resetValue()}, not the L{defaultValue()}, if
+the element has not yet been assigned a value.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="ts_core.config.bindings.netconvert_xml.processingType.opposites_guess">
+<code class="descname">opposites_guess</code><a class="headerlink" href="#ts_core.config.bindings.netconvert_xml.processingType.opposites_guess" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return the value for this use within the given instance.</p>
+<p>Note that this is the L{resetValue()}, not the L{defaultValue()}, if
+the element has not yet been assigned a value.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="ts_core.config.bindings.netconvert_xml.processingType.opposites_guess_fix_lengths">
+<code class="descname">opposites_guess_fix_lengths</code><a class="headerlink" href="#ts_core.config.bindings.netconvert_xml.processingType.opposites_guess_fix_lengths" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return the value for this use within the given instance.</p>
+<p>Note that this is the L{resetValue()}, not the L{defaultValue()}, if
+the element has not yet been assigned a value.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="ts_core.config.bindings.netconvert_xml.processingType.osm_elevation">
+<code class="descname">osm_elevation</code><a class="headerlink" href="#ts_core.config.bindings.netconvert_xml.processingType.osm_elevation" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return the value for this use within the given instance.</p>
+<p>Note that this is the L{resetValue()}, not the L{defaultValue()}, if
+the element has not yet been assigned a value.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="ts_core.config.bindings.netconvert_xml.processingType.osm_layer_elevation">
+<code class="descname">osm_layer_elevation</code><a class="headerlink" href="#ts_core.config.bindings.netconvert_xml.processingType.osm_layer_elevation" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return the value for this use within the given instance.</p>
+<p>Note that this is the L{resetValue()}, not the L{defaultValue()}, if
+the element has not yet been assigned a value.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="ts_core.config.bindings.netconvert_xml.processingType.osm_layer_elevation_max_grade">
+<code class="descname">osm_layer_elevation_max_grade</code><a class="headerlink" href="#ts_core.config.bindings.netconvert_xml.processingType.osm_layer_elevation_max_grade" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return the value for this use within the given instance.</p>
+<p>Note that this is the L{resetValue()}, not the L{defaultValue()}, if
+the element has not yet been assigned a value.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="ts_core.config.bindings.netconvert_xml.processingType.osm_oneway_spread_right">
+<code class="descname">osm_oneway_spread_right</code><a class="headerlink" href="#ts_core.config.bindings.netconvert_xml.processingType.osm_oneway_spread_right" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return the value for this use within the given instance.</p>
+<p>Note that this is the L{resetValue()}, not the L{defaultValue()}, if
+the element has not yet been assigned a value.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="ts_core.config.bindings.netconvert_xml.processingType.osm_skip_duplicates_check">
+<code class="descname">osm_skip_duplicates_check</code><a class="headerlink" href="#ts_core.config.bindings.netconvert_xml.processingType.osm_skip_duplicates_check" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return the value for this use within the given instance.</p>
+<p>Note that this is the L{resetValue()}, not the L{defaultValue()}, if
+the element has not yet been assigned a value.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="ts_core.config.bindings.netconvert_xml.processingType.osm_stop_output_length">
+<code class="descname">osm_stop_output_length</code><a class="headerlink" href="#ts_core.config.bindings.netconvert_xml.processingType.osm_stop_output_length" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return the value for this use within the given instance.</p>
+<p>Note that this is the L{resetValue()}, not the L{defaultValue()}, if
+the element has not yet been assigned a value.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="ts_core.config.bindings.netconvert_xml.processingType.plain_extend_edge_shape">
+<code class="descname">plain_extend_edge_shape</code><a class="headerlink" href="#ts_core.config.bindings.netconvert_xml.processingType.plain_extend_edge_shape" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return the value for this use within the given instance.</p>
+<p>Note that this is the L{resetValue()}, not the L{defaultValue()}, if
+the element has not yet been assigned a value.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="ts_core.config.bindings.netconvert_xml.processingType.rectangular_lane_cut">
+<code class="descname">rectangular_lane_cut</code><a class="headerlink" href="#ts_core.config.bindings.netconvert_xml.processingType.rectangular_lane_cut" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return the value for this use within the given instance.</p>
+<p>Note that this is the L{resetValue()}, not the L{defaultValue()}, if
+the element has not yet been assigned a value.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="ts_core.config.bindings.netconvert_xml.processingType.reserved_ids">
+<code class="descname">reserved_ids</code><a class="headerlink" href="#ts_core.config.bindings.netconvert_xml.processingType.reserved_ids" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return the value for this use within the given instance.</p>
+<p>Note that this is the L{resetValue()}, not the L{defaultValue()}, if
+the element has not yet been assigned a value.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="ts_core.config.bindings.netconvert_xml.processingType.roundabouts_guess">
+<code class="descname">roundabouts_guess</code><a class="headerlink" href="#ts_core.config.bindings.netconvert_xml.processingType.roundabouts_guess" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return the value for this use within the given instance.</p>
+<p>Note that this is the L{resetValue()}, not the L{defaultValue()}, if
+the element has not yet been assigned a value.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="ts_core.config.bindings.netconvert_xml.processingType.shapefile_all_bidirectional">
+<code class="descname">shapefile_all_bidirectional</code><a class="headerlink" href="#ts_core.config.bindings.netconvert_xml.processingType.shapefile_all_bidirectional" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return the value for this use within the given instance.</p>
+<p>Note that this is the L{resetValue()}, not the L{defaultValue()}, if
+the element has not yet been assigned a value.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="ts_core.config.bindings.netconvert_xml.processingType.shapefile_from_id">
+<code class="descname">shapefile_from_id</code><a class="headerlink" href="#ts_core.config.bindings.netconvert_xml.processingType.shapefile_from_id" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return the value for this use within the given instance.</p>
+<p>Note that this is the L{resetValue()}, not the L{defaultValue()}, if
+the element has not yet been assigned a value.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="ts_core.config.bindings.netconvert_xml.processingType.shapefile_guess_projection">
+<code class="descname">shapefile_guess_projection</code><a class="headerlink" href="#ts_core.config.bindings.netconvert_xml.processingType.shapefile_guess_projection" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return the value for this use within the given instance.</p>
+<p>Note that this is the L{resetValue()}, not the L{defaultValue()}, if
+the element has not yet been assigned a value.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="ts_core.config.bindings.netconvert_xml.processingType.shapefile_street_id">
+<code class="descname">shapefile_street_id</code><a class="headerlink" href="#ts_core.config.bindings.netconvert_xml.processingType.shapefile_street_id" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return the value for this use within the given instance.</p>
+<p>Note that this is the L{resetValue()}, not the L{defaultValue()}, if
+the element has not yet been assigned a value.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="ts_core.config.bindings.netconvert_xml.processingType.shapefile_to_id">
+<code class="descname">shapefile_to_id</code><a class="headerlink" href="#ts_core.config.bindings.netconvert_xml.processingType.shapefile_to_id" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return the value for this use within the given instance.</p>
+<p>Note that this is the L{resetValue()}, not the L{defaultValue()}, if
+the element has not yet been assigned a value.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="ts_core.config.bindings.netconvert_xml.processingType.shapefile_type_id">
+<code class="descname">shapefile_type_id</code><a class="headerlink" href="#ts_core.config.bindings.netconvert_xml.processingType.shapefile_type_id" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return the value for this use within the given instance.</p>
+<p>Note that this is the L{resetValue()}, not the L{defaultValue()}, if
+the element has not yet been assigned a value.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="ts_core.config.bindings.netconvert_xml.processingType.shapefile_use_defaults_on_failure">
+<code class="descname">shapefile_use_defaults_on_failure</code><a class="headerlink" href="#ts_core.config.bindings.netconvert_xml.processingType.shapefile_use_defaults_on_failure" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return the value for this use within the given instance.</p>
+<p>Note that this is the L{resetValue()}, not the L{defaultValue()}, if
+the element has not yet been assigned a value.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="ts_core.config.bindings.netconvert_xml.processingType.show_errors_connections_first_try">
+<code class="descname">show_errors_connections_first_try</code><a class="headerlink" href="#ts_core.config.bindings.netconvert_xml.processingType.show_errors_connections_first_try" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return the value for this use within the given instance.</p>
+<p>Note that this is the L{resetValue()}, not the L{defaultValue()}, if
+the element has not yet been assigned a value.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="ts_core.config.bindings.netconvert_xml.processingType.sidewalks_guess">
+<code class="descname">sidewalks_guess</code><a class="headerlink" href="#ts_core.config.bindings.netconvert_xml.processingType.sidewalks_guess" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return the value for this use within the given instance.</p>
+<p>Note that this is the L{resetValue()}, not the L{defaultValue()}, if
+the element has not yet been assigned a value.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="ts_core.config.bindings.netconvert_xml.processingType.sidewalks_guess_exclude">
+<code class="descname">sidewalks_guess_exclude</code><a class="headerlink" href="#ts_core.config.bindings.netconvert_xml.processingType.sidewalks_guess_exclude" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return the value for this use within the given instance.</p>
+<p>Note that this is the L{resetValue()}, not the L{defaultValue()}, if
+the element has not yet been assigned a value.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="ts_core.config.bindings.netconvert_xml.processingType.sidewalks_guess_from_permissions">
+<code class="descname">sidewalks_guess_from_permissions</code><a class="headerlink" href="#ts_core.config.bindings.netconvert_xml.processingType.sidewalks_guess_from_permissions" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return the value for this use within the given instance.</p>
+<p>Note that this is the L{resetValue()}, not the L{defaultValue()}, if
+the element has not yet been assigned a value.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="ts_core.config.bindings.netconvert_xml.processingType.sidewalks_guess_max_speed">
+<code class="descname">sidewalks_guess_max_speed</code><a class="headerlink" href="#ts_core.config.bindings.netconvert_xml.processingType.sidewalks_guess_max_speed" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return the value for this use within the given instance.</p>
+<p>Note that this is the L{resetValue()}, not the L{defaultValue()}, if
+the element has not yet been assigned a value.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="ts_core.config.bindings.netconvert_xml.processingType.sidewalks_guess_min_speed">
+<code class="descname">sidewalks_guess_min_speed</code><a class="headerlink" href="#ts_core.config.bindings.netconvert_xml.processingType.sidewalks_guess_min_speed" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return the value for this use within the given instance.</p>
+<p>Note that this is the L{resetValue()}, not the L{defaultValue()}, if
+the element has not yet been assigned a value.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="ts_core.config.bindings.netconvert_xml.processingType.speed_factor">
+<code class="descname">speed_factor</code><a class="headerlink" href="#ts_core.config.bindings.netconvert_xml.processingType.speed_factor" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return the value for this use within the given instance.</p>
+<p>Note that this is the L{resetValue()}, not the L{defaultValue()}, if
+the element has not yet been assigned a value.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="ts_core.config.bindings.netconvert_xml.processingType.speed_in_kmh">
+<code class="descname">speed_in_kmh</code><a class="headerlink" href="#ts_core.config.bindings.netconvert_xml.processingType.speed_in_kmh" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return the value for this use within the given instance.</p>
+<p>Note that this is the L{resetValue()}, not the L{defaultValue()}, if
+the element has not yet been assigned a value.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="ts_core.config.bindings.netconvert_xml.processingType.speed_minimum">
+<code class="descname">speed_minimum</code><a class="headerlink" href="#ts_core.config.bindings.netconvert_xml.processingType.speed_minimum" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return the value for this use within the given instance.</p>
+<p>Note that this is the L{resetValue()}, not the L{defaultValue()}, if
+the element has not yet been assigned a value.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="ts_core.config.bindings.netconvert_xml.processingType.speed_offset">
+<code class="descname">speed_offset</code><a class="headerlink" href="#ts_core.config.bindings.netconvert_xml.processingType.speed_offset" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return the value for this use within the given instance.</p>
+<p>Note that this is the L{resetValue()}, not the L{defaultValue()}, if
+the element has not yet been assigned a value.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="ts_core.config.bindings.netconvert_xml.processingType.vissim_default_speed">
+<code class="descname">vissim_default_speed</code><a class="headerlink" href="#ts_core.config.bindings.netconvert_xml.processingType.vissim_default_speed" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return the value for this use within the given instance.</p>
+<p>Note that this is the L{resetValue()}, not the L{defaultValue()}, if
+the element has not yet been assigned a value.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="ts_core.config.bindings.netconvert_xml.processingType.vissim_join_distance">
+<code class="descname">vissim_join_distance</code><a class="headerlink" href="#ts_core.config.bindings.netconvert_xml.processingType.vissim_join_distance" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return the value for this use within the given instance.</p>
+<p>Note that this is the L{resetValue()}, not the L{defaultValue()}, if
+the element has not yet been assigned a value.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="ts_core.config.bindings.netconvert_xml.processingType.vissim_report_unset_speeds">
+<code class="descname">vissim_report_unset_speeds</code><a class="headerlink" href="#ts_core.config.bindings.netconvert_xml.processingType.vissim_report_unset_speeds" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return the value for this use within the given instance.</p>
+<p>Note that this is the L{resetValue()}, not the L{defaultValue()}, if
+the element has not yet been assigned a value.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="ts_core.config.bindings.netconvert_xml.processingType.vissim_speed_norm">
+<code class="descname">vissim_speed_norm</code><a class="headerlink" href="#ts_core.config.bindings.netconvert_xml.processingType.vissim_speed_norm" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return the value for this use within the given instance.</p>
+<p>Note that this is the L{resetValue()}, not the L{defaultValue()}, if
+the element has not yet been assigned a value.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="ts_core.config.bindings.netconvert_xml.processingType.visum_connector_speeds">
+<code class="descname">visum_connector_speeds</code><a class="headerlink" href="#ts_core.config.bindings.netconvert_xml.processingType.visum_connector_speeds" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return the value for this use within the given instance.</p>
+<p>Note that this is the L{resetValue()}, not the L{defaultValue()}, if
+the element has not yet been assigned a value.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="ts_core.config.bindings.netconvert_xml.processingType.visum_connectors_lane_number">
+<code class="descname">visum_connectors_lane_number</code><a class="headerlink" href="#ts_core.config.bindings.netconvert_xml.processingType.visum_connectors_lane_number" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return the value for this use within the given instance.</p>
+<p>Note that this is the L{resetValue()}, not the L{defaultValue()}, if
+the element has not yet been assigned a value.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="ts_core.config.bindings.netconvert_xml.processingType.visum_no_connectors">
+<code class="descname">visum_no_connectors</code><a class="headerlink" href="#ts_core.config.bindings.netconvert_xml.processingType.visum_no_connectors" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return the value for this use within the given instance.</p>
+<p>Note that this is the L{resetValue()}, not the L{defaultValue()}, if
+the element has not yet been assigned a value.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="ts_core.config.bindings.netconvert_xml.processingType.visum_recompute_lane_number">
+<code class="descname">visum_recompute_lane_number</code><a class="headerlink" href="#ts_core.config.bindings.netconvert_xml.processingType.visum_recompute_lane_number" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return the value for this use within the given instance.</p>
+<p>Note that this is the L{resetValue()}, not the L{defaultValue()}, if
+the element has not yet been assigned a value.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="ts_core.config.bindings.netconvert_xml.processingType.visum_use_type_laneno">
+<code class="descname">visum_use_type_laneno</code><a class="headerlink" href="#ts_core.config.bindings.netconvert_xml.processingType.visum_use_type_laneno" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return the value for this use within the given instance.</p>
+<p>Note that this is the L{resetValue()}, not the L{defaultValue()}, if
+the element has not yet been assigned a value.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="ts_core.config.bindings.netconvert_xml.processingType.visum_use_type_priority">
+<code class="descname">visum_use_type_priority</code><a class="headerlink" href="#ts_core.config.bindings.netconvert_xml.processingType.visum_use_type_priority" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return the value for this use within the given instance.</p>
+<p>Note that this is the L{resetValue()}, not the L{defaultValue()}, if
+the element has not yet been assigned a value.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="ts_core.config.bindings.netconvert_xml.processingType.visum_use_type_speed">
+<code class="descname">visum_use_type_speed</code><a class="headerlink" href="#ts_core.config.bindings.netconvert_xml.processingType.visum_use_type_speed" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return the value for this use within the given instance.</p>
+<p>Note that this is the L{resetValue()}, not the L{defaultValue()}, if
+the element has not yet been assigned a value.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="ts_core.config.bindings.netconvert_xml.processingType.visum_verbose_warnings">
+<code class="descname">visum_verbose_warnings</code><a class="headerlink" href="#ts_core.config.bindings.netconvert_xml.processingType.visum_verbose_warnings" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return the value for this use within the given instance.</p>
+<p>Note that this is the L{resetValue()}, not the L{defaultValue()}, if
+the element has not yet been assigned a value.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="ts_core.config.bindings.netconvert_xml.processingType.walkingareas">
+<code class="descname">walkingareas</code><a class="headerlink" href="#ts_core.config.bindings.netconvert_xml.processingType.walkingareas" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return the value for this use within the given instance.</p>
+<p>Note that this is the L{resetValue()}, not the L{defaultValue()}, if
+the element has not yet been assigned a value.</p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="ts_core.config.bindings.netconvert_xml.projectionType">
+<em class="property">class </em><code class="descname">projectionType</code><span class="sig-paren">(</span><em>*args</em>, <em>**kw</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/ts_core/config/bindings/netconvert_xml.html#projectionType"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#ts_core.config.bindings.netconvert_xml.projectionType" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal"><span class="pre">pyxb.binding.basis.complexTypeDefinition</span></code></p>
+<p>Complex type projectionType with content type ELEMENT_ONLY</p>
+<dl class="attribute">
+<dt id="ts_core.config.bindings.netconvert_xml.projectionType.proj">
+<code class="descname">proj</code><a class="headerlink" href="#ts_core.config.bindings.netconvert_xml.projectionType.proj" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return the value for this use within the given instance.</p>
+<p>Note that this is the L{resetValue()}, not the L{defaultValue()}, if
+the element has not yet been assigned a value.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="ts_core.config.bindings.netconvert_xml.projectionType.proj_dhdn">
+<code class="descname">proj_dhdn</code><a class="headerlink" href="#ts_core.config.bindings.netconvert_xml.projectionType.proj_dhdn" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return the value for this use within the given instance.</p>
+<p>Note that this is the L{resetValue()}, not the L{defaultValue()}, if
+the element has not yet been assigned a value.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="ts_core.config.bindings.netconvert_xml.projectionType.proj_dhdnutm">
+<code class="descname">proj_dhdnutm</code><a class="headerlink" href="#ts_core.config.bindings.netconvert_xml.projectionType.proj_dhdnutm" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return the value for this use within the given instance.</p>
+<p>Note that this is the L{resetValue()}, not the L{defaultValue()}, if
+the element has not yet been assigned a value.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="ts_core.config.bindings.netconvert_xml.projectionType.proj_inverse">
+<code class="descname">proj_inverse</code><a class="headerlink" href="#ts_core.config.bindings.netconvert_xml.projectionType.proj_inverse" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return the value for this use within the given instance.</p>
+<p>Note that this is the L{resetValue()}, not the L{defaultValue()}, if
+the element has not yet been assigned a value.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="ts_core.config.bindings.netconvert_xml.projectionType.proj_plain_geo">
+<code class="descname">proj_plain_geo</code><a class="headerlink" href="#ts_core.config.bindings.netconvert_xml.projectionType.proj_plain_geo" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return the value for this use within the given instance.</p>
+<p>Note that this is the L{resetValue()}, not the L{defaultValue()}, if
+the element has not yet been assigned a value.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="ts_core.config.bindings.netconvert_xml.projectionType.proj_scale">
+<code class="descname">proj_scale</code><a class="headerlink" href="#ts_core.config.bindings.netconvert_xml.projectionType.proj_scale" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return the value for this use within the given instance.</p>
+<p>Note that this is the L{resetValue()}, not the L{defaultValue()}, if
+the element has not yet been assigned a value.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="ts_core.config.bindings.netconvert_xml.projectionType.proj_utm">
+<code class="descname">proj_utm</code><a class="headerlink" href="#ts_core.config.bindings.netconvert_xml.projectionType.proj_utm" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return the value for this use within the given instance.</p>
+<p>Note that this is the L{resetValue()}, not the L{defaultValue()}, if
+the element has not yet been assigned a value.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="ts_core.config.bindings.netconvert_xml.projectionType.simple_projection">
+<code class="descname">simple_projection</code><a class="headerlink" href="#ts_core.config.bindings.netconvert_xml.projectionType.simple_projection" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return the value for this use within the given instance.</p>
+<p>Note that this is the L{resetValue()}, not the L{defaultValue()}, if
+the element has not yet been assigned a value.</p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="ts_core.config.bindings.netconvert_xml.ramp_guessingType">
+<em class="property">class </em><code class="descname">ramp_guessingType</code><span class="sig-paren">(</span><em>*args</em>, <em>**kw</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/ts_core/config/bindings/netconvert_xml.html#ramp_guessingType"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#ts_core.config.bindings.netconvert_xml.ramp_guessingType" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal"><span class="pre">pyxb.binding.basis.complexTypeDefinition</span></code></p>
+<p>Complex type ramp_guessingType with content type ELEMENT_ONLY</p>
+<dl class="attribute">
+<dt id="ts_core.config.bindings.netconvert_xml.ramp_guessingType.ramps_guess">
+<code class="descname">ramps_guess</code><a class="headerlink" href="#ts_core.config.bindings.netconvert_xml.ramp_guessingType.ramps_guess" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return the value for this use within the given instance.</p>
+<p>Note that this is the L{resetValue()}, not the L{defaultValue()}, if
+the element has not yet been assigned a value.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="ts_core.config.bindings.netconvert_xml.ramp_guessingType.ramps_max_ramp_speed">
+<code class="descname">ramps_max_ramp_speed</code><a class="headerlink" href="#ts_core.config.bindings.netconvert_xml.ramp_guessingType.ramps_max_ramp_speed" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return the value for this use within the given instance.</p>
+<p>Note that this is the L{resetValue()}, not the L{defaultValue()}, if
+the element has not yet been assigned a value.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="ts_core.config.bindings.netconvert_xml.ramp_guessingType.ramps_min_highway_speed">
+<code class="descname">ramps_min_highway_speed</code><a class="headerlink" href="#ts_core.config.bindings.netconvert_xml.ramp_guessingType.ramps_min_highway_speed" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return the value for this use within the given instance.</p>
+<p>Note that this is the L{resetValue()}, not the L{defaultValue()}, if
+the element has not yet been assigned a value.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="ts_core.config.bindings.netconvert_xml.ramp_guessingType.ramps_no_split">
+<code class="descname">ramps_no_split</code><a class="headerlink" href="#ts_core.config.bindings.netconvert_xml.ramp_guessingType.ramps_no_split" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return the value for this use within the given instance.</p>
+<p>Note that this is the L{resetValue()}, not the L{defaultValue()}, if
+the element has not yet been assigned a value.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="ts_core.config.bindings.netconvert_xml.ramp_guessingType.ramps_ramp_length">
+<code class="descname">ramps_ramp_length</code><a class="headerlink" href="#ts_core.config.bindings.netconvert_xml.ramp_guessingType.ramps_ramp_length" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return the value for this use within the given instance.</p>
+<p>Note that this is the L{resetValue()}, not the L{defaultValue()}, if
+the element has not yet been assigned a value.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="ts_core.config.bindings.netconvert_xml.ramp_guessingType.ramps_set">
+<code class="descname">ramps_set</code><a class="headerlink" href="#ts_core.config.bindings.netconvert_xml.ramp_guessingType.ramps_set" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return the value for this use within the given instance.</p>
+<p>Note that this is the L{resetValue()}, not the L{defaultValue()}, if
+the element has not yet been assigned a value.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="ts_core.config.bindings.netconvert_xml.ramp_guessingType.ramps_unset">
+<code class="descname">ramps_unset</code><a class="headerlink" href="#ts_core.config.bindings.netconvert_xml.ramp_guessingType.ramps_unset" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return the value for this use within the given instance.</p>
+<p>Note that this is the L{resetValue()}, not the L{defaultValue()}, if
+the element has not yet been assigned a value.</p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="ts_core.config.bindings.netconvert_xml.random_numberType">
+<em class="property">class </em><code class="descname">random_numberType</code><span class="sig-paren">(</span><em>*args</em>, <em>**kw</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/ts_core/config/bindings/netconvert_xml.html#random_numberType"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#ts_core.config.bindings.netconvert_xml.random_numberType" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal"><span class="pre">pyxb.binding.basis.complexTypeDefinition</span></code></p>
+<p>Complex type random_numberType with content type ELEMENT_ONLY</p>
+<dl class="attribute">
+<dt id="ts_core.config.bindings.netconvert_xml.random_numberType.random">
+<code class="descname">random</code><a class="headerlink" href="#ts_core.config.bindings.netconvert_xml.random_numberType.random" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return the value for this use within the given instance.</p>
+<p>Note that this is the L{resetValue()}, not the L{defaultValue()}, if
+the element has not yet been assigned a value.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="ts_core.config.bindings.netconvert_xml.random_numberType.seed">
+<code class="descname">seed</code><a class="headerlink" href="#ts_core.config.bindings.netconvert_xml.random_numberType.seed" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return the value for this use within the given instance.</p>
+<p>Note that this is the L{resetValue()}, not the L{defaultValue()}, if
+the element has not yet been assigned a value.</p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="ts_core.config.bindings.netconvert_xml.reportType">
+<em class="property">class </em><code class="descname">reportType</code><span class="sig-paren">(</span><em>*args</em>, <em>**kw</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/ts_core/config/bindings/netconvert_xml.html#reportType"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#ts_core.config.bindings.netconvert_xml.reportType" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal"><span class="pre">pyxb.binding.basis.complexTypeDefinition</span></code></p>
+<p>Complex type reportType with content type ELEMENT_ONLY</p>
+<dl class="attribute">
+<dt id="ts_core.config.bindings.netconvert_xml.reportType.error_log">
+<code class="descname">error_log</code><a class="headerlink" href="#ts_core.config.bindings.netconvert_xml.reportType.error_log" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return the value for this use within the given instance.</p>
+<p>Note that this is the L{resetValue()}, not the L{defaultValue()}, if
+the element has not yet been assigned a value.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="ts_core.config.bindings.netconvert_xml.reportType.help">
+<code class="descname">help</code><a class="headerlink" href="#ts_core.config.bindings.netconvert_xml.reportType.help" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return the value for this use within the given instance.</p>
+<p>Note that this is the L{resetValue()}, not the L{defaultValue()}, if
+the element has not yet been assigned a value.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="ts_core.config.bindings.netconvert_xml.reportType.log">
+<code class="descname">log</code><a class="headerlink" href="#ts_core.config.bindings.netconvert_xml.reportType.log" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return the value for this use within the given instance.</p>
+<p>Note that this is the L{resetValue()}, not the L{defaultValue()}, if
+the element has not yet been assigned a value.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="ts_core.config.bindings.netconvert_xml.reportType.message_log">
+<code class="descname">message_log</code><a class="headerlink" href="#ts_core.config.bindings.netconvert_xml.reportType.message_log" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return the value for this use within the given instance.</p>
+<p>Note that this is the L{resetValue()}, not the L{defaultValue()}, if
+the element has not yet been assigned a value.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="ts_core.config.bindings.netconvert_xml.reportType.no_warnings">
+<code class="descname">no_warnings</code><a class="headerlink" href="#ts_core.config.bindings.netconvert_xml.reportType.no_warnings" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return the value for this use within the given instance.</p>
+<p>Note that this is the L{resetValue()}, not the L{defaultValue()}, if
+the element has not yet been assigned a value.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="ts_core.config.bindings.netconvert_xml.reportType.print_options">
+<code class="descname">print_options</code><a class="headerlink" href="#ts_core.config.bindings.netconvert_xml.reportType.print_options" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return the value for this use within the given instance.</p>
+<p>Note that this is the L{resetValue()}, not the L{defaultValue()}, if
+the element has not yet been assigned a value.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="ts_core.config.bindings.netconvert_xml.reportType.verbose">
+<code class="descname">verbose</code><a class="headerlink" href="#ts_core.config.bindings.netconvert_xml.reportType.verbose" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return the value for this use within the given instance.</p>
+<p>Note that this is the L{resetValue()}, not the L{defaultValue()}, if
+the element has not yet been assigned a value.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="ts_core.config.bindings.netconvert_xml.reportType.version">
+<code class="descname">version</code><a class="headerlink" href="#ts_core.config.bindings.netconvert_xml.reportType.version" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return the value for this use within the given instance.</p>
+<p>Note that this is the L{resetValue()}, not the L{defaultValue()}, if
+the element has not yet been assigned a value.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="ts_core.config.bindings.netconvert_xml.reportType.xml_validation">
+<code class="descname">xml_validation</code><a class="headerlink" href="#ts_core.config.bindings.netconvert_xml.reportType.xml_validation" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return the value for this use within the given instance.</p>
+<p>Note that this is the L{resetValue()}, not the L{defaultValue()}, if
+the element has not yet been assigned a value.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="ts_core.config.bindings.netconvert_xml.reportType.xml_validation_net">
+<code class="descname">xml_validation_net</code><a class="headerlink" href="#ts_core.config.bindings.netconvert_xml.reportType.xml_validation_net" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return the value for this use within the given instance.</p>
+<p>Note that this is the L{resetValue()}, not the L{defaultValue()}, if
+the element has not yet been assigned a value.</p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="ts_core.config.bindings.netconvert_xml.restrictionType">
+<em class="property">class </em><code class="descname">restrictionType</code><span class="sig-paren">(</span><em>*args</em>, <em>**kw</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/ts_core/config/bindings/netconvert_xml.html#restrictionType"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#ts_core.config.bindings.netconvert_xml.restrictionType" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal"><span class="pre">pyxb.binding.basis.complexTypeDefinition</span></code></p>
+<p>Complex type restrictionType with content type EMPTY</p>
+<dl class="attribute">
+<dt id="ts_core.config.bindings.netconvert_xml.restrictionType.speed">
+<code class="descname">speed</code><a class="headerlink" href="#ts_core.config.bindings.netconvert_xml.restrictionType.speed" title="Permalink to this definition">¶</a></dt>
+<dd><p>Get the value of the attribute from the instance.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="ts_core.config.bindings.netconvert_xml.restrictionType.vClass">
+<code class="descname">vClass</code><a class="headerlink" href="#ts_core.config.bindings.netconvert_xml.restrictionType.vClass" title="Permalink to this definition">¶</a></dt>
+<dd><p>Get the value of the attribute from the instance.</p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="ts_core.config.bindings.netconvert_xml.shapeType">
+<em class="property">class </em><code class="descname">shapeType</code><span class="sig-paren">(</span><em>*args</em>, <em>**kw</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/ts_core/config/bindings/netconvert_xml.html#shapeType"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#ts_core.config.bindings.netconvert_xml.shapeType" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal"><span class="pre">pyxb.binding.datatypes.string</span></code></p>
+<p>An atomic simple type.</p>
+</dd></dl>
+
+<dl class="class">
+<dt id="ts_core.config.bindings.netconvert_xml.shapeTypeTwo">
+<em class="property">class </em><code class="descname">shapeTypeTwo</code><span class="sig-paren">(</span><em>*args</em>, <em>**kw</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/ts_core/config/bindings/netconvert_xml.html#shapeTypeTwo"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#ts_core.config.bindings.netconvert_xml.shapeTypeTwo" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal"><span class="pre">pyxb.binding.datatypes.string</span></code></p>
+<p>An atomic simple type.</p>
+</dd></dl>
+
+<dl class="class">
+<dt id="ts_core.config.bindings.netconvert_xml.splitType">
+<em class="property">class </em><code class="descname">splitType</code><span class="sig-paren">(</span><em>*args</em>, <em>**kw</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/ts_core/config/bindings/netconvert_xml.html#splitType"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#ts_core.config.bindings.netconvert_xml.splitType" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal"><span class="pre">pyxb.binding.basis.complexTypeDefinition</span></code></p>
+<p>Complex type splitType with content type EMPTY</p>
+<dl class="attribute">
+<dt id="ts_core.config.bindings.netconvert_xml.splitType.idAfter">
+<code class="descname">idAfter</code><a class="headerlink" href="#ts_core.config.bindings.netconvert_xml.splitType.idAfter" title="Permalink to this definition">¶</a></dt>
+<dd><p>Get the value of the attribute from the instance.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="ts_core.config.bindings.netconvert_xml.splitType.idBefore">
+<code class="descname">idBefore</code><a class="headerlink" href="#ts_core.config.bindings.netconvert_xml.splitType.idBefore" title="Permalink to this definition">¶</a></dt>
+<dd><p>Get the value of the attribute from the instance.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="ts_core.config.bindings.netconvert_xml.splitType.keepClear">
+<code class="descname">keepClear</code><a class="headerlink" href="#ts_core.config.bindings.netconvert_xml.splitType.keepClear" title="Permalink to this definition">¶</a></dt>
+<dd><p>Get the value of the attribute from the instance.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="ts_core.config.bindings.netconvert_xml.splitType.lanes">
+<code class="descname">lanes</code><a class="headerlink" href="#ts_core.config.bindings.netconvert_xml.splitType.lanes" title="Permalink to this definition">¶</a></dt>
+<dd><p>Get the value of the attribute from the instance.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="ts_core.config.bindings.netconvert_xml.splitType.pos">
+<code class="descname">pos</code><a class="headerlink" href="#ts_core.config.bindings.netconvert_xml.splitType.pos" title="Permalink to this definition">¶</a></dt>
+<dd><p>Get the value of the attribute from the instance.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="ts_core.config.bindings.netconvert_xml.splitType.radius">
+<code class="descname">radius</code><a class="headerlink" href="#ts_core.config.bindings.netconvert_xml.splitType.radius" title="Permalink to this definition">¶</a></dt>
+<dd><p>Get the value of the attribute from the instance.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="ts_core.config.bindings.netconvert_xml.splitType.shape">
+<code class="descname">shape</code><a class="headerlink" href="#ts_core.config.bindings.netconvert_xml.splitType.shape" title="Permalink to this definition">¶</a></dt>
+<dd><p>Get the value of the attribute from the instance.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="ts_core.config.bindings.netconvert_xml.splitType.speed">
+<code class="descname">speed</code><a class="headerlink" href="#ts_core.config.bindings.netconvert_xml.splitType.speed" title="Permalink to this definition">¶</a></dt>
+<dd><p>Get the value of the attribute from the instance.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="ts_core.config.bindings.netconvert_xml.splitType.tl">
+<code class="descname">tl</code><a class="headerlink" href="#ts_core.config.bindings.netconvert_xml.splitType.tl" title="Permalink to this definition">¶</a></dt>
+<dd><p>Get the value of the attribute from the instance.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="ts_core.config.bindings.netconvert_xml.splitType.tlType">
+<code class="descname">tlType</code><a class="headerlink" href="#ts_core.config.bindings.netconvert_xml.splitType.tlType" title="Permalink to this definition">¶</a></dt>
+<dd><p>Get the value of the attribute from the instance.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="ts_core.config.bindings.netconvert_xml.splitType.type">
+<code class="descname">type</code><a class="headerlink" href="#ts_core.config.bindings.netconvert_xml.splitType.type" title="Permalink to this definition">¶</a></dt>
+<dd><p>Get the value of the attribute from the instance.</p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="ts_core.config.bindings.netconvert_xml.strOptionType">
+<em class="property">class </em><code class="descname">strOptionType</code><span class="sig-paren">(</span><em>*args</em>, <em>**kw</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/ts_core/config/bindings/netconvert_xml.html#strOptionType"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#ts_core.config.bindings.netconvert_xml.strOptionType" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal"><span class="pre">pyxb.binding.basis.complexTypeDefinition</span></code></p>
+<p>Complex type strOptionType with content type EMPTY</p>
+<dl class="attribute">
+<dt id="ts_core.config.bindings.netconvert_xml.strOptionType.help">
+<code class="descname">help</code><a class="headerlink" href="#ts_core.config.bindings.netconvert_xml.strOptionType.help" title="Permalink to this definition">¶</a></dt>
+<dd><p>Get the value of the attribute from the instance.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="ts_core.config.bindings.netconvert_xml.strOptionType.synonymes">
+<code class="descname">synonymes</code><a class="headerlink" href="#ts_core.config.bindings.netconvert_xml.strOptionType.synonymes" title="Permalink to this definition">¶</a></dt>
+<dd><p>Get the value of the attribute from the instance.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="ts_core.config.bindings.netconvert_xml.strOptionType.type">
+<code class="descname">type</code><a class="headerlink" href="#ts_core.config.bindings.netconvert_xml.strOptionType.type" title="Permalink to this definition">¶</a></dt>
+<dd><p>Get the value of the attribute from the instance.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="ts_core.config.bindings.netconvert_xml.strOptionType.value_">
+<code class="descname">value_</code><a class="headerlink" href="#ts_core.config.bindings.netconvert_xml.strOptionType.value_" title="Permalink to this definition">¶</a></dt>
+<dd><p>Get the value of the attribute from the instance.</p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="ts_core.config.bindings.netconvert_xml.timeOptionType">
+<em class="property">class </em><code class="descname">timeOptionType</code><span class="sig-paren">(</span><em>*args</em>, <em>**kw</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/ts_core/config/bindings/netconvert_xml.html#timeOptionType"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#ts_core.config.bindings.netconvert_xml.timeOptionType" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal"><span class="pre">pyxb.binding.basis.complexTypeDefinition</span></code></p>
+<p>Complex type timeOptionType with content type EMPTY</p>
+<dl class="attribute">
+<dt id="ts_core.config.bindings.netconvert_xml.timeOptionType.help">
+<code class="descname">help</code><a class="headerlink" href="#ts_core.config.bindings.netconvert_xml.timeOptionType.help" title="Permalink to this definition">¶</a></dt>
+<dd><p>Get the value of the attribute from the instance.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="ts_core.config.bindings.netconvert_xml.timeOptionType.synonymes">
+<code class="descname">synonymes</code><a class="headerlink" href="#ts_core.config.bindings.netconvert_xml.timeOptionType.synonymes" title="Permalink to this definition">¶</a></dt>
+<dd><p>Get the value of the attribute from the instance.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="ts_core.config.bindings.netconvert_xml.timeOptionType.type">
+<code class="descname">type</code><a class="headerlink" href="#ts_core.config.bindings.netconvert_xml.timeOptionType.type" title="Permalink to this definition">¶</a></dt>
+<dd><p>Get the value of the attribute from the instance.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="ts_core.config.bindings.netconvert_xml.timeOptionType.value_">
+<code class="descname">value_</code><a class="headerlink" href="#ts_core.config.bindings.netconvert_xml.timeOptionType.value_" title="Permalink to this definition">¶</a></dt>
+<dd><p>Get the value of the attribute from the instance.</p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="ts_core.config.bindings.netconvert_xml.tlLogicType">
+<em class="property">class </em><code class="descname">tlLogicType</code><span class="sig-paren">(</span><em>*args</em>, <em>**kw</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/ts_core/config/bindings/netconvert_xml.html#tlLogicType"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#ts_core.config.bindings.netconvert_xml.tlLogicType" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal"><span class="pre">pyxb.binding.basis.complexTypeDefinition</span></code></p>
+<p>Complex type tlLogicType with content type ELEMENT_ONLY</p>
+<dl class="attribute">
+<dt id="ts_core.config.bindings.netconvert_xml.tlLogicType.id">
+<code class="descname">id</code><a class="headerlink" href="#ts_core.config.bindings.netconvert_xml.tlLogicType.id" title="Permalink to this definition">¶</a></dt>
+<dd><p>Get the value of the attribute from the instance.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="ts_core.config.bindings.netconvert_xml.tlLogicType.offset">
+<code class="descname">offset</code><a class="headerlink" href="#ts_core.config.bindings.netconvert_xml.tlLogicType.offset" title="Permalink to this definition">¶</a></dt>
+<dd><p>Get the value of the attribute from the instance.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="ts_core.config.bindings.netconvert_xml.tlLogicType.param">
+<code class="descname">param</code><a class="headerlink" href="#ts_core.config.bindings.netconvert_xml.tlLogicType.param" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return the value for this use within the given instance.</p>
+<p>Note that this is the L{resetValue()}, not the L{defaultValue()}, if
+the element has not yet been assigned a value.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="ts_core.config.bindings.netconvert_xml.tlLogicType.phase">
+<code class="descname">phase</code><a class="headerlink" href="#ts_core.config.bindings.netconvert_xml.tlLogicType.phase" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return the value for this use within the given instance.</p>
+<p>Note that this is the L{resetValue()}, not the L{defaultValue()}, if
+the element has not yet been assigned a value.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="ts_core.config.bindings.netconvert_xml.tlLogicType.programID">
+<code class="descname">programID</code><a class="headerlink" href="#ts_core.config.bindings.netconvert_xml.tlLogicType.programID" title="Permalink to this definition">¶</a></dt>
+<dd><p>Get the value of the attribute from the instance.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="ts_core.config.bindings.netconvert_xml.tlLogicType.type">
+<code class="descname">type</code><a class="headerlink" href="#ts_core.config.bindings.netconvert_xml.tlLogicType.type" title="Permalink to this definition">¶</a></dt>
+<dd><p>Get the value of the attribute from the instance.</p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="ts_core.config.bindings.netconvert_xml.tlTypeType">
+<em class="property">class </em><code class="descname">tlTypeType</code><span class="sig-paren">(</span><em>*args</em>, <em>**kw</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/ts_core/config/bindings/netconvert_xml.html#tlTypeType"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#ts_core.config.bindings.netconvert_xml.tlTypeType" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal"><span class="pre">pyxb.binding.datatypes.string</span></code>, <code class="xref py py-class docutils literal"><span class="pre">pyxb.binding.basis.enumeration_mixin</span></code></p>
+<p>An atomic simple type.</p>
+<dl class="attribute">
+<dt id="ts_core.config.bindings.netconvert_xml.tlTypeType.actuated">
+<code class="descname">actuated</code><em class="property"> = 'actuated'</em><a class="headerlink" href="#ts_core.config.bindings.netconvert_xml.tlTypeType.actuated" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="ts_core.config.bindings.netconvert_xml.tlTypeType.delay_based">
+<code class="descname">delay_based</code><em class="property"> = 'delay_based'</em><a class="headerlink" href="#ts_core.config.bindings.netconvert_xml.tlTypeType.delay_based" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="ts_core.config.bindings.netconvert_xml.tlTypeType.static">
+<code class="descname">static</code><em class="property"> = 'static'</em><a class="headerlink" href="#ts_core.config.bindings.netconvert_xml.tlTypeType.static" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="ts_core.config.bindings.netconvert_xml.tls_buildingType">
+<em class="property">class </em><code class="descname">tls_buildingType</code><span class="sig-paren">(</span><em>*args</em>, <em>**kw</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/ts_core/config/bindings/netconvert_xml.html#tls_buildingType"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#ts_core.config.bindings.netconvert_xml.tls_buildingType" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal"><span class="pre">pyxb.binding.basis.complexTypeDefinition</span></code></p>
+<p>Complex type tls_buildingType with content type ELEMENT_ONLY</p>
+<dl class="attribute">
+<dt id="ts_core.config.bindings.netconvert_xml.tls_buildingType.tls_allred_time">
+<code class="descname">tls_allred_time</code><a class="headerlink" href="#ts_core.config.bindings.netconvert_xml.tls_buildingType.tls_allred_time" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return the value for this use within the given instance.</p>
+<p>Note that this is the L{resetValue()}, not the L{defaultValue()}, if
+the element has not yet been assigned a value.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="ts_core.config.bindings.netconvert_xml.tls_buildingType.tls_cycle_time">
+<code class="descname">tls_cycle_time</code><a class="headerlink" href="#ts_core.config.bindings.netconvert_xml.tls_buildingType.tls_cycle_time" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return the value for this use within the given instance.</p>
+<p>Note that this is the L{resetValue()}, not the L{defaultValue()}, if
+the element has not yet been assigned a value.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="ts_core.config.bindings.netconvert_xml.tls_buildingType.tls_default_type">
+<code class="descname">tls_default_type</code><a class="headerlink" href="#ts_core.config.bindings.netconvert_xml.tls_buildingType.tls_default_type" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return the value for this use within the given instance.</p>
+<p>Note that this is the L{resetValue()}, not the L{defaultValue()}, if
+the element has not yet been assigned a value.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="ts_core.config.bindings.netconvert_xml.tls_buildingType.tls_discard_loaded">
+<code class="descname">tls_discard_loaded</code><a class="headerlink" href="#ts_core.config.bindings.netconvert_xml.tls_buildingType.tls_discard_loaded" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return the value for this use within the given instance.</p>
+<p>Note that this is the L{resetValue()}, not the L{defaultValue()}, if
+the element has not yet been assigned a value.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="ts_core.config.bindings.netconvert_xml.tls_buildingType.tls_discard_simple">
+<code class="descname">tls_discard_simple</code><a class="headerlink" href="#ts_core.config.bindings.netconvert_xml.tls_buildingType.tls_discard_simple" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return the value for this use within the given instance.</p>
+<p>Note that this is the L{resetValue()}, not the L{defaultValue()}, if
+the element has not yet been assigned a value.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="ts_core.config.bindings.netconvert_xml.tls_buildingType.tls_green_time">
+<code class="descname">tls_green_time</code><a class="headerlink" href="#ts_core.config.bindings.netconvert_xml.tls_buildingType.tls_green_time" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return the value for this use within the given instance.</p>
+<p>Note that this is the L{resetValue()}, not the L{defaultValue()}, if
+the element has not yet been assigned a value.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="ts_core.config.bindings.netconvert_xml.tls_buildingType.tls_guess">
+<code class="descname">tls_guess</code><a class="headerlink" href="#ts_core.config.bindings.netconvert_xml.tls_buildingType.tls_guess" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return the value for this use within the given instance.</p>
+<p>Note that this is the L{resetValue()}, not the L{defaultValue()}, if
+the element has not yet been assigned a value.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="ts_core.config.bindings.netconvert_xml.tls_buildingType.tls_guess_joining">
+<code class="descname">tls_guess_joining</code><a class="headerlink" href="#ts_core.config.bindings.netconvert_xml.tls_buildingType.tls_guess_joining" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return the value for this use within the given instance.</p>
+<p>Note that this is the L{resetValue()}, not the L{defaultValue()}, if
+the element has not yet been assigned a value.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="ts_core.config.bindings.netconvert_xml.tls_buildingType.tls_guess_signals">
+<code class="descname">tls_guess_signals</code><a class="headerlink" href="#ts_core.config.bindings.netconvert_xml.tls_buildingType.tls_guess_signals" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return the value for this use within the given instance.</p>
+<p>Note that this is the L{resetValue()}, not the L{defaultValue()}, if
+the element has not yet been assigned a value.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="ts_core.config.bindings.netconvert_xml.tls_buildingType.tls_guess_signals_dist">
+<code class="descname">tls_guess_signals_dist</code><a class="headerlink" href="#ts_core.config.bindings.netconvert_xml.tls_buildingType.tls_guess_signals_dist" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return the value for this use within the given instance.</p>
+<p>Note that this is the L{resetValue()}, not the L{defaultValue()}, if
+the element has not yet been assigned a value.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="ts_core.config.bindings.netconvert_xml.tls_buildingType.tls_half_offset">
+<code class="descname">tls_half_offset</code><a class="headerlink" href="#ts_core.config.bindings.netconvert_xml.tls_buildingType.tls_half_offset" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return the value for this use within the given instance.</p>
+<p>Note that this is the L{resetValue()}, not the L{defaultValue()}, if
+the element has not yet been assigned a value.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="ts_core.config.bindings.netconvert_xml.tls_buildingType.tls_join">
+<code class="descname">tls_join</code><a class="headerlink" href="#ts_core.config.bindings.netconvert_xml.tls_buildingType.tls_join" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return the value for this use within the given instance.</p>
+<p>Note that this is the L{resetValue()}, not the L{defaultValue()}, if
+the element has not yet been assigned a value.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="ts_core.config.bindings.netconvert_xml.tls_buildingType.tls_join_dist">
+<code class="descname">tls_join_dist</code><a class="headerlink" href="#ts_core.config.bindings.netconvert_xml.tls_buildingType.tls_join_dist" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return the value for this use within the given instance.</p>
+<p>Note that this is the L{resetValue()}, not the L{defaultValue()}, if
+the element has not yet been assigned a value.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="ts_core.config.bindings.netconvert_xml.tls_buildingType.tls_left_green_time">
+<code class="descname">tls_left_green_time</code><a class="headerlink" href="#ts_core.config.bindings.netconvert_xml.tls_buildingType.tls_left_green_time" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return the value for this use within the given instance.</p>
+<p>Note that this is the L{resetValue()}, not the L{defaultValue()}, if
+the element has not yet been assigned a value.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="ts_core.config.bindings.netconvert_xml.tls_buildingType.tls_max_dur">
+<code class="descname">tls_max_dur</code><a class="headerlink" href="#ts_core.config.bindings.netconvert_xml.tls_buildingType.tls_max_dur" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return the value for this use within the given instance.</p>
+<p>Note that this is the L{resetValue()}, not the L{defaultValue()}, if
+the element has not yet been assigned a value.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="ts_core.config.bindings.netconvert_xml.tls_buildingType.tls_min_dur">
+<code class="descname">tls_min_dur</code><a class="headerlink" href="#ts_core.config.bindings.netconvert_xml.tls_buildingType.tls_min_dur" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return the value for this use within the given instance.</p>
+<p>Note that this is the L{resetValue()}, not the L{defaultValue()}, if
+the element has not yet been assigned a value.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="ts_core.config.bindings.netconvert_xml.tls_buildingType.tls_quarter_offset">
+<code class="descname">tls_quarter_offset</code><a class="headerlink" href="#ts_core.config.bindings.netconvert_xml.tls_buildingType.tls_quarter_offset" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return the value for this use within the given instance.</p>
+<p>Note that this is the L{resetValue()}, not the L{defaultValue()}, if
+the element has not yet been assigned a value.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="ts_core.config.bindings.netconvert_xml.tls_buildingType.tls_red_time">
+<code class="descname">tls_red_time</code><a class="headerlink" href="#ts_core.config.bindings.netconvert_xml.tls_buildingType.tls_red_time" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return the value for this use within the given instance.</p>
+<p>Note that this is the L{resetValue()}, not the L{defaultValue()}, if
+the element has not yet been assigned a value.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="ts_core.config.bindings.netconvert_xml.tls_buildingType.tls_set">
+<code class="descname">tls_set</code><a class="headerlink" href="#ts_core.config.bindings.netconvert_xml.tls_buildingType.tls_set" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return the value for this use within the given instance.</p>
+<p>Note that this is the L{resetValue()}, not the L{defaultValue()}, if
+the element has not yet been assigned a value.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="ts_core.config.bindings.netconvert_xml.tls_buildingType.tls_taz_nodes">
+<code class="descname">tls_taz_nodes</code><a class="headerlink" href="#ts_core.config.bindings.netconvert_xml.tls_buildingType.tls_taz_nodes" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return the value for this use within the given instance.</p>
+<p>Note that this is the L{resetValue()}, not the L{defaultValue()}, if
+the element has not yet been assigned a value.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="ts_core.config.bindings.netconvert_xml.tls_buildingType.tls_uncontrolled_within">
+<code class="descname">tls_uncontrolled_within</code><a class="headerlink" href="#ts_core.config.bindings.netconvert_xml.tls_buildingType.tls_uncontrolled_within" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return the value for this use within the given instance.</p>
+<p>Note that this is the L{resetValue()}, not the L{defaultValue()}, if
+the element has not yet been assigned a value.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="ts_core.config.bindings.netconvert_xml.tls_buildingType.tls_unset">
+<code class="descname">tls_unset</code><a class="headerlink" href="#ts_core.config.bindings.netconvert_xml.tls_buildingType.tls_unset" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return the value for this use within the given instance.</p>
+<p>Note that this is the L{resetValue()}, not the L{defaultValue()}, if
+the element has not yet been assigned a value.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="ts_core.config.bindings.netconvert_xml.tls_buildingType.tls_yellow_min_decel">
+<code class="descname">tls_yellow_min_decel</code><a class="headerlink" href="#ts_core.config.bindings.netconvert_xml.tls_buildingType.tls_yellow_min_decel" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return the value for this use within the given instance.</p>
+<p>Note that this is the L{resetValue()}, not the L{defaultValue()}, if
+the element has not yet been assigned a value.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="ts_core.config.bindings.netconvert_xml.tls_buildingType.tls_yellow_patch_small">
+<code class="descname">tls_yellow_patch_small</code><a class="headerlink" href="#ts_core.config.bindings.netconvert_xml.tls_buildingType.tls_yellow_patch_small" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return the value for this use within the given instance.</p>
+<p>Note that this is the L{resetValue()}, not the L{defaultValue()}, if
+the element has not yet been assigned a value.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="ts_core.config.bindings.netconvert_xml.tls_buildingType.tls_yellow_time">
+<code class="descname">tls_yellow_time</code><a class="headerlink" href="#ts_core.config.bindings.netconvert_xml.tls_buildingType.tls_yellow_time" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return the value for this use within the given instance.</p>
+<p>Note that this is the L{resetValue()}, not the L{defaultValue()}, if
+the element has not yet been assigned a value.</p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="ts_core.config.bindings.netconvert_xml.typeType">
+<em class="property">class </em><code class="descname">typeType</code><span class="sig-paren">(</span><em>*args</em>, <em>**kw</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/ts_core/config/bindings/netconvert_xml.html#typeType"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#ts_core.config.bindings.netconvert_xml.typeType" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal"><span class="pre">pyxb.binding.basis.complexTypeDefinition</span></code></p>
+<p>Complex type typeType with content type ELEMENT_ONLY</p>
+<dl class="attribute">
+<dt id="ts_core.config.bindings.netconvert_xml.typeType.allow">
+<code class="descname">allow</code><a class="headerlink" href="#ts_core.config.bindings.netconvert_xml.typeType.allow" title="Permalink to this definition">¶</a></dt>
+<dd><p>Get the value of the attribute from the instance.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="ts_core.config.bindings.netconvert_xml.typeType.bikeLaneWidth">
+<code class="descname">bikeLaneWidth</code><a class="headerlink" href="#ts_core.config.bindings.netconvert_xml.typeType.bikeLaneWidth" title="Permalink to this definition">¶</a></dt>
+<dd><p>Get the value of the attribute from the instance.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="ts_core.config.bindings.netconvert_xml.typeType.disallow">
+<code class="descname">disallow</code><a class="headerlink" href="#ts_core.config.bindings.netconvert_xml.typeType.disallow" title="Permalink to this definition">¶</a></dt>
+<dd><p>Get the value of the attribute from the instance.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="ts_core.config.bindings.netconvert_xml.typeType.discard">
+<code class="descname">discard</code><a class="headerlink" href="#ts_core.config.bindings.netconvert_xml.typeType.discard" title="Permalink to this definition">¶</a></dt>
+<dd><p>Get the value of the attribute from the instance.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="ts_core.config.bindings.netconvert_xml.typeType.id">
+<code class="descname">id</code><a class="headerlink" href="#ts_core.config.bindings.netconvert_xml.typeType.id" title="Permalink to this definition">¶</a></dt>
+<dd><p>Get the value of the attribute from the instance.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="ts_core.config.bindings.netconvert_xml.typeType.numLanes">
+<code class="descname">numLanes</code><a class="headerlink" href="#ts_core.config.bindings.netconvert_xml.typeType.numLanes" title="Permalink to this definition">¶</a></dt>
+<dd><p>Get the value of the attribute from the instance.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="ts_core.config.bindings.netconvert_xml.typeType.oneway">
+<code class="descname">oneway</code><a class="headerlink" href="#ts_core.config.bindings.netconvert_xml.typeType.oneway" title="Permalink to this definition">¶</a></dt>
+<dd><p>Get the value of the attribute from the instance.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="ts_core.config.bindings.netconvert_xml.typeType.priority">
+<code class="descname">priority</code><a class="headerlink" href="#ts_core.config.bindings.netconvert_xml.typeType.priority" title="Permalink to this definition">¶</a></dt>
+<dd><p>Get the value of the attribute from the instance.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="ts_core.config.bindings.netconvert_xml.typeType.restriction">
+<code class="descname">restriction</code><a class="headerlink" href="#ts_core.config.bindings.netconvert_xml.typeType.restriction" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return the value for this use within the given instance.</p>
+<p>Note that this is the L{resetValue()}, not the L{defaultValue()}, if
+the element has not yet been assigned a value.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="ts_core.config.bindings.netconvert_xml.typeType.sidewalkWidth">
+<code class="descname">sidewalkWidth</code><a class="headerlink" href="#ts_core.config.bindings.netconvert_xml.typeType.sidewalkWidth" title="Permalink to this definition">¶</a></dt>
+<dd><p>Get the value of the attribute from the instance.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="ts_core.config.bindings.netconvert_xml.typeType.speed">
+<code class="descname">speed</code><a class="headerlink" href="#ts_core.config.bindings.netconvert_xml.typeType.speed" title="Permalink to this definition">¶</a></dt>
+<dd><p>Get the value of the attribute from the instance.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="ts_core.config.bindings.netconvert_xml.typeType.width">
+<code class="descname">width</code><a class="headerlink" href="#ts_core.config.bindings.netconvert_xml.typeType.width" title="Permalink to this definition">¶</a></dt>
+<dd><p>Get the value of the attribute from the instance.</p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="ts_core.config.bindings.netconvert_xml.unregulated_nodesType">
+<em class="property">class </em><code class="descname">unregulated_nodesType</code><span class="sig-paren">(</span><em>*args</em>, <em>**kw</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/ts_core/config/bindings/netconvert_xml.html#unregulated_nodesType"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#ts_core.config.bindings.netconvert_xml.unregulated_nodesType" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal"><span class="pre">pyxb.binding.basis.complexTypeDefinition</span></code></p>
+<p>Complex type unregulated_nodesType with content type ELEMENT_ONLY</p>
+<dl class="attribute">
+<dt id="ts_core.config.bindings.netconvert_xml.unregulated_nodesType.keep_nodes_unregulated">
+<code class="descname">keep_nodes_unregulated</code><a class="headerlink" href="#ts_core.config.bindings.netconvert_xml.unregulated_nodesType.keep_nodes_unregulated" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return the value for this use within the given instance.</p>
+<p>Note that this is the L{resetValue()}, not the L{defaultValue()}, if
+the element has not yet been assigned a value.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="ts_core.config.bindings.netconvert_xml.unregulated_nodesType.keep_nodes_unregulated_district_nodes">
+<code class="descname">keep_nodes_unregulated_district_nodes</code><a class="headerlink" href="#ts_core.config.bindings.netconvert_xml.unregulated_nodesType.keep_nodes_unregulated_district_nodes" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return the value for this use within the given instance.</p>
+<p>Note that this is the L{resetValue()}, not the L{defaultValue()}, if
+the element has not yet been assigned a value.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="ts_core.config.bindings.netconvert_xml.unregulated_nodesType.keep_nodes_unregulated_explicit">
+<code class="descname">keep_nodes_unregulated_explicit</code><a class="headerlink" href="#ts_core.config.bindings.netconvert_xml.unregulated_nodesType.keep_nodes_unregulated_explicit" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return the value for this use within the given instance.</p>
+<p>Note that this is the L{resetValue()}, not the L{defaultValue()}, if
+the element has not yet been assigned a value.</p>
+</dd></dl>
+
+</dd></dl>
+
+</div>
+
+
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+  <div role="note" aria-label="source link">
+    <h3>This Page</h3>
+    <ul class="this-page-menu">
+      <li><a href="_sources/ts_core.config.bindings.netconvert_xml.rst.txt"
+            rel="nofollow">Show Source</a></li>
+    </ul>
+   </div>
+<div id="searchbox" style="display: none" role="search">
+  <h3>Quick search</h3>
+    <form class="search" action="search.html" method="get">
+      <div><input type="text" name="q" /></div>
+      <div><input type="submit" value="Go" /></div>
+      <input type="hidden" name="check_keywords" value="yes" />
+      <input type="hidden" name="area" value="default" />
+    </form>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="genindex.html" title="General Index"
+             >index</a></li>
+        <li class="right" >
+          <a href="py-modindex.html" title="Python Module Index"
+             >modules</a> |</li>
+        <li class="nav-item nav-item-0"><a href="index.html">TrafficSense 0.01 documentation</a> &#187;</li> 
+      </ul>
+    </div>
+    <div class="footer" role="contentinfo">
+        &#169; Copyright 2017, Samara, Gaitz, Eilif, Bryan, Justin, Jow.
+      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 1.6.5.
+    </div>
+  </body>
+</html>

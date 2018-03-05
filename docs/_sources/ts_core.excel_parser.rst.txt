@@ -1,0 +1,15 @@
+ts\_core\.excel\_parser package
+===============================
+
+.. automodule:: ts_core.excel_parser
+    :members:
+    :undoc-members:
+    :show-inheritance:
+
+Submodules
+----------
+
+.. toctree::
+
+   ts_core.excel_parser.parser
+

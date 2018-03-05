@@ -1,0 +1,183 @@
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title>ts_core.config.routes_xml_gen &#8212; TrafficSense 0.01 documentation</title>
+    <link rel="stylesheet" href="../../../_static/classic.css" type="text/css" />
+    <link rel="stylesheet" href="../../../_static/pygments.css" type="text/css" />
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    '../../../',
+        VERSION:     '0.01',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true,
+        SOURCELINK_SUFFIX: '.txt'
+      };
+    </script>
+    <script type="text/javascript" src="../../../_static/jquery.js"></script>
+    <script type="text/javascript" src="../../../_static/underscore.js"></script>
+    <script type="text/javascript" src="../../../_static/doctools.js"></script>
+    <link rel="index" title="Index" href="../../../genindex.html" />
+    <link rel="search" title="Search" href="../../../search.html" /> 
+  </head>
+  <body>
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../../../genindex.html" title="General Index"
+             accesskey="I">index</a></li>
+        <li class="right" >
+          <a href="../../../py-modindex.html" title="Python Module Index"
+             >modules</a> |</li>
+        <li class="nav-item nav-item-0"><a href="../../../index.html">TrafficSense 0.01 documentation</a> &#187;</li>
+          <li class="nav-item nav-item-1"><a href="../../index.html" accesskey="U">Module code</a> &#187;</li> 
+      </ul>
+    </div>  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body" role="main">
+            
+  <h1>Source code for ts_core.config.routes_xml_gen</h1><div class="highlight"><pre>
+<span></span><span class="kn">import</span> <span class="nn">ts_core.config.bindings.routes</span> <span class="k">as</span> <span class="nn">routes</span>
+<span class="kn">import</span> <span class="nn">pyxb</span>
+
+<div class="viewcode-block" id="sample_route_file"><a class="viewcode-back" href="../../../ts_core.config.routes_xml_gen.html#ts_core.config.routes_xml_gen.sample_route_file">[docs]</a><span class="k">def</span> <span class="nf">sample_route_file</span><span class="p">():</span>
+    <span class="n">r</span> <span class="o">=</span> <span class="n">routes</span><span class="o">.</span><span class="n">routes</span><span class="p">()</span>
+
+    <span class="c1">#######</span>
+    <span class="n">flow1</span> <span class="o">=</span> <span class="n">routes</span><span class="o">.</span><span class="n">flowType</span><span class="p">(</span><span class="nb">id</span><span class="o">=</span><span class="s2">&quot;type1&quot;</span><span class="p">,</span> <span class="n">probability</span><span class="o">=</span><span class="mf">0.2</span><span class="p">)</span> <span class="c1"># begin=&quot;10&quot;, end= &quot;1000&quot;, probability=&quot;0.2&quot;, accel=&quot;2.7&quot;, decel=&quot;4.5&quot;, sigma=&quot;0.8&quot;, length=&quot;5&quot;, minGap=&quot;2.5&quot;, maxSpeed=&quot;13.41&quot;, departSpeed=&quot;13.41&quot;, departLane=&quot;random&quot;, type=&quot;vehicledist1i&quot;, route=&quot;routedist1i&quot;)</span>
+
+    <span class="n">r</span><span class="o">.</span><span class="n">flow</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">flow1</span><span class="p">)</span>
+
+    <span class="n">r</span><span class="o">.</span><span class="n">vType</span><span class="o">.</span><span class="n">append</span><span class="p">(</span>
+        <span class="n">routes</span><span class="o">.</span><span class="n">vTypeType</span><span class="p">(</span><span class="nb">id</span><span class="o">=</span><span class="s2">&quot;typeWE&quot;</span><span class="p">,</span> <span class="n">accel</span><span class="o">=</span><span class="s2">&quot;5&quot;</span><span class="p">,</span> <span class="n">decel</span><span class="o">=</span><span class="s2">&quot;4.5&quot;</span><span class="p">,</span> <span class="n">sigma</span><span class="o">=</span><span class="s2">&quot;0.8&quot;</span><span class="p">,</span> <span class="n">length</span><span class="o">=</span><span class="s2">&quot;5&quot;</span><span class="p">,</span> <span class="n">minGap</span><span class="o">=</span><span class="s2">&quot;2.5&quot;</span><span class="p">,</span> <span class="n">maxSpeed</span><span class="o">=</span><span class="s2">&quot;30&quot;</span><span class="p">,</span> <span class="n">guiShape</span><span class="o">=</span><span class="s2">&quot;passenger&quot;</span><span class="p">))</span>
+    <span class="n">r</span><span class="o">.</span><span class="n">vType</span><span class="o">.</span><span class="n">append</span><span class="p">(</span>
+        <span class="n">routes</span><span class="o">.</span><span class="n">vTypeType</span><span class="p">(</span><span class="nb">id</span><span class="o">=</span><span class="s2">&quot;typeNS&quot;</span><span class="p">,</span> <span class="n">accel</span><span class="o">=</span><span class="s2">&quot;0.8&quot;</span><span class="p">,</span> <span class="n">decel</span><span class="o">=</span><span class="s2">&quot;4.5&quot;</span><span class="p">,</span> <span class="n">sigma</span><span class="o">=</span><span class="s2">&quot;0.05&quot;</span><span class="p">,</span> <span class="n">length</span><span class="o">=</span><span class="s2">&quot;7&quot;</span><span class="p">,</span> <span class="n">minGap</span><span class="o">=</span><span class="s2">&quot;3&quot;</span><span class="p">,</span> <span class="n">maxSpeed</span><span class="o">=</span><span class="s2">&quot;25&quot;</span><span class="p">,</span> <span class="n">guiShape</span><span class="o">=</span><span class="s2">&quot;bus&quot;</span><span class="p">))</span>
+
+    <span class="n">vTypeDist1</span> <span class="o">=</span> <span class="n">routes</span><span class="o">.</span><span class="n">vTypeDistributionType</span><span class="p">(</span><span class="nb">id</span><span class="o">=</span><span class="s2">&quot;vehicledist1i&quot;</span><span class="p">)</span>
+    <span class="n">vTypeDist1</span><span class="o">.</span><span class="n">vType</span><span class="o">.</span><span class="n">append</span><span class="p">(</span>
+        <span class="n">routes</span><span class="o">.</span><span class="n">vTypeType</span><span class="p">(</span><span class="nb">id</span><span class="o">=</span><span class="s2">&quot;type11&quot;</span><span class="p">,</span> <span class="n">accel</span><span class="o">=</span><span class="s2">&quot;0.8&quot;</span><span class="p">,</span> <span class="n">decel</span><span class="o">=</span><span class="s2">&quot;4.5&quot;</span><span class="p">,</span> <span class="n">length</span><span class="o">=</span><span class="s2">&quot;5&quot;</span><span class="p">,</span> <span class="n">maxSpeed</span><span class="o">=</span><span class="s2">&quot;30&quot;</span><span class="p">,</span> <span class="n">probability</span><span class="o">=</span><span class="s2">&quot;0.8&quot;</span><span class="p">))</span>
+    <span class="n">vTypeDist1</span><span class="o">.</span><span class="n">vType</span><span class="o">.</span><span class="n">append</span><span class="p">(</span>
+        <span class="n">routes</span><span class="o">.</span><span class="n">vTypeType</span><span class="p">(</span><span class="nb">id</span><span class="o">=</span><span class="s2">&quot;type21&quot;</span><span class="p">,</span> <span class="n">accel</span><span class="o">=</span><span class="s2">&quot;1.8&quot;</span><span class="p">,</span> <span class="n">decel</span><span class="o">=</span><span class="s2">&quot;4.5&quot;</span><span class="p">,</span> <span class="n">length</span><span class="o">=</span><span class="s2">&quot;15&quot;</span><span class="p">,</span> <span class="n">maxSpeed</span><span class="o">=</span><span class="s2">&quot;25&quot;</span><span class="p">,</span> <span class="n">probability</span><span class="o">=</span><span class="s2">&quot;0.2&quot;</span><span class="p">))</span>
+
+    <span class="c1"># r.vTypeDistribution.append(vTypeDist1)</span>
+
+    <span class="n">routeDist1</span> <span class="o">=</span> <span class="n">routes</span><span class="o">.</span><span class="n">vehicleRouteDistributionType</span><span class="p">(</span><span class="nb">id</span><span class="o">=</span><span class="s2">&quot;routedist1i&quot;</span><span class="p">)</span>
+    <span class="n">routeDist1</span><span class="o">.</span><span class="n">route</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">routes</span><span class="o">.</span><span class="n">routeDistRouteType</span><span class="p">(</span><span class="nb">id</span><span class="o">=</span><span class="s2">&quot;route01&quot;</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s2">&quot;255,0,0&quot;</span><span class="p">,</span> <span class="n">edges</span><span class="o">=</span><span class="s2">&quot;1i 4o&quot;</span><span class="p">,</span> <span class="n">probability</span><span class="o">=</span><span class="s2">&quot;0.2&quot;</span><span class="p">))</span>
+    <span class="n">routeDist1</span><span class="o">.</span><span class="n">route</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">routes</span><span class="o">.</span><span class="n">routeDistRouteType</span><span class="p">(</span><span class="nb">id</span><span class="o">=</span><span class="s2">&quot;route11&quot;</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s2">&quot;0,255,0&quot;</span><span class="p">,</span> <span class="n">edges</span><span class="o">=</span><span class="s2">&quot;1i 3o&quot;</span><span class="p">,</span> <span class="n">probability</span><span class="o">=</span><span class="s2">&quot;0.2&quot;</span><span class="p">))</span>
+    <span class="n">routeDist1</span><span class="o">.</span><span class="n">route</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">routes</span><span class="o">.</span><span class="n">routeDistRouteType</span><span class="p">(</span><span class="nb">id</span><span class="o">=</span><span class="s2">&quot;route21&quot;</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s2">&quot;0,0,255&quot;</span><span class="p">,</span> <span class="n">edges</span><span class="o">=</span><span class="s2">&quot;1i 2o&quot;</span><span class="p">,</span> <span class="n">probability</span><span class="o">=</span><span class="s2">&quot;0.6&quot;</span><span class="p">))</span>
+    <span class="c1">#r.routeDistribution.append(routeDist1)</span>
+
+
+    <span class="n">flow1</span><span class="o">.</span><span class="n">type</span> <span class="o">=</span> <span class="n">vTypeDist1</span><span class="o">.</span><span class="n">id</span>
+    <span class="n">flow1</span><span class="o">.</span><span class="n">routeDistribution</span> <span class="o">=</span> <span class="n">routeDist1</span>
+
+
+    <span class="c1">#######</span>
+    <span class="n">vTypeDist1</span> <span class="o">=</span> <span class="n">routes</span><span class="o">.</span><span class="n">vTypeDistributionType</span><span class="p">(</span><span class="nb">id</span><span class="o">=</span><span class="s2">&quot;vehicledist2i&quot;</span><span class="p">)</span>
+    <span class="n">vTypeDist1</span><span class="o">.</span><span class="n">vType</span><span class="o">.</span><span class="n">append</span><span class="p">(</span>
+        <span class="n">routes</span><span class="o">.</span><span class="n">vTypeType</span><span class="p">(</span><span class="nb">id</span><span class="o">=</span><span class="s2">&quot;type12&quot;</span><span class="p">,</span> <span class="n">accel</span><span class="o">=</span><span class="s2">&quot;0.8&quot;</span><span class="p">,</span> <span class="n">decel</span><span class="o">=</span><span class="s2">&quot;4.5&quot;</span><span class="p">,</span> <span class="n">length</span><span class="o">=</span><span class="s2">&quot;5&quot;</span><span class="p">,</span> <span class="n">maxSpeed</span><span class="o">=</span><span class="s2">&quot;30&quot;</span><span class="p">,</span> <span class="n">probability</span><span class="o">=</span><span class="s2">&quot;0.8&quot;</span><span class="p">))</span>
+
+    <span class="n">vTypeDist1</span><span class="o">.</span><span class="n">vType</span><span class="o">.</span><span class="n">append</span><span class="p">(</span>
+        <span class="n">routes</span><span class="o">.</span><span class="n">vTypeType</span><span class="p">(</span><span class="nb">id</span><span class="o">=</span><span class="s2">&quot;type22&quot;</span><span class="p">,</span> <span class="n">accel</span><span class="o">=</span><span class="s2">&quot;1.8&quot;</span><span class="p">,</span> <span class="n">decel</span><span class="o">=</span><span class="s2">&quot;4.5&quot;</span><span class="p">,</span> <span class="n">length</span><span class="o">=</span><span class="s2">&quot;15&quot;</span><span class="p">,</span> <span class="n">maxSpeed</span><span class="o">=</span><span class="s2">&quot;25&quot;</span><span class="p">,</span> <span class="n">probability</span><span class="o">=</span><span class="s2">&quot;0.2&quot;</span><span class="p">))</span>
+
+    <span class="n">r</span><span class="o">.</span><span class="n">vTypeDistribution</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">vTypeDist1</span><span class="p">)</span>
+
+    <span class="n">routeDist1</span> <span class="o">=</span> <span class="n">routes</span><span class="o">.</span><span class="n">routeDistributionType</span><span class="p">(</span><span class="nb">id</span><span class="o">=</span><span class="s2">&quot;routedist2i&quot;</span><span class="p">)</span>
+    <span class="n">routeDist1</span><span class="o">.</span><span class="n">route</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">routes</span><span class="o">.</span><span class="n">routeDistRouteType</span><span class="p">(</span><span class="nb">id</span><span class="o">=</span><span class="s2">&quot;route02&quot;</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s2">&quot;0,255,0&quot;</span><span class="p">,</span> <span class="n">edges</span><span class="o">=</span><span class="s2">&quot;2i 4o&quot;</span><span class="p">,</span> <span class="n">probability</span><span class="o">=</span><span class="s2">&quot;0.2&quot;</span><span class="p">))</span>
+    <span class="n">routeDist1</span><span class="o">.</span><span class="n">route</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">routes</span><span class="o">.</span><span class="n">routeDistRouteType</span><span class="p">(</span><span class="nb">id</span><span class="o">=</span><span class="s2">&quot;route12&quot;</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s2">&quot;255,0,0&quot;</span><span class="p">,</span> <span class="n">edges</span><span class="o">=</span><span class="s2">&quot;2i 3o&quot;</span><span class="p">,</span> <span class="n">probability</span><span class="o">=</span><span class="s2">&quot;0.2&quot;</span><span class="p">))</span>
+    <span class="n">routeDist1</span><span class="o">.</span><span class="n">route</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">routes</span><span class="o">.</span><span class="n">routeDistRouteType</span><span class="p">(</span><span class="nb">id</span><span class="o">=</span><span class="s2">&quot;route22&quot;</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s2">&quot;0,0,255&quot;</span><span class="p">,</span> <span class="n">edges</span><span class="o">=</span><span class="s2">&quot;2i 1o&quot;</span><span class="p">,</span> <span class="n">probability</span><span class="o">=</span><span class="s2">&quot;0.6&quot;</span><span class="p">))</span>
+    <span class="n">r</span><span class="o">.</span><span class="n">routeDistribution</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">routeDist1</span><span class="p">)</span>
+
+    <span class="c1">#######</span>
+    <span class="n">vTypeDist1</span> <span class="o">=</span> <span class="n">routes</span><span class="o">.</span><span class="n">vTypeDistributionType</span><span class="p">(</span><span class="nb">id</span><span class="o">=</span><span class="s2">&quot;vehicledist3i&quot;</span><span class="p">)</span>
+    <span class="n">vTypeDist1</span><span class="o">.</span><span class="n">vType</span><span class="o">.</span><span class="n">append</span><span class="p">(</span>
+        <span class="n">routes</span><span class="o">.</span><span class="n">vTypeType</span><span class="p">(</span><span class="nb">id</span><span class="o">=</span><span class="s2">&quot;type13&quot;</span><span class="p">,</span> <span class="n">accel</span><span class="o">=</span><span class="s2">&quot;0.8&quot;</span><span class="p">,</span> <span class="n">decel</span><span class="o">=</span><span class="s2">&quot;4.5&quot;</span><span class="p">,</span> <span class="n">length</span><span class="o">=</span><span class="s2">&quot;5&quot;</span><span class="p">,</span> <span class="n">maxSpeed</span><span class="o">=</span><span class="s2">&quot;30&quot;</span><span class="p">,</span> <span class="n">probability</span><span class="o">=</span><span class="s2">&quot;0.8&quot;</span><span class="p">))</span>
+
+    <span class="n">vTypeDist1</span><span class="o">.</span><span class="n">vType</span><span class="o">.</span><span class="n">append</span><span class="p">(</span>
+        <span class="n">routes</span><span class="o">.</span><span class="n">vTypeType</span><span class="p">(</span><span class="nb">id</span><span class="o">=</span><span class="s2">&quot;type23&quot;</span><span class="p">,</span> <span class="n">accel</span><span class="o">=</span><span class="s2">&quot;1.8&quot;</span><span class="p">,</span> <span class="n">decel</span><span class="o">=</span><span class="s2">&quot;4.5&quot;</span><span class="p">,</span> <span class="n">length</span><span class="o">=</span><span class="s2">&quot;15&quot;</span><span class="p">,</span> <span class="n">maxSpeed</span><span class="o">=</span><span class="s2">&quot;25&quot;</span><span class="p">,</span> <span class="n">probability</span><span class="o">=</span><span class="s2">&quot;0.2&quot;</span><span class="p">))</span>
+
+    <span class="n">r</span><span class="o">.</span><span class="n">vTypeDistribution</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">vTypeDist1</span><span class="p">)</span>
+
+    <span class="n">routeDist1</span> <span class="o">=</span> <span class="n">routes</span><span class="o">.</span><span class="n">routeDistributionType</span><span class="p">(</span><span class="nb">id</span><span class="o">=</span><span class="s2">&quot;routedist3i&quot;</span><span class="p">)</span>
+    <span class="n">routeDist1</span><span class="o">.</span><span class="n">route</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">routes</span><span class="o">.</span><span class="n">routeDistRouteType</span><span class="p">(</span><span class="nb">id</span><span class="o">=</span><span class="s2">&quot;route03&quot;</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s2">&quot;0,0,255&quot;</span><span class="p">,</span> <span class="n">edges</span><span class="o">=</span><span class="s2">&quot;3i 4o&quot;</span><span class="p">,</span> <span class="n">probability</span><span class="o">=</span><span class="s2">&quot;0.6&quot;</span><span class="p">))</span>
+    <span class="n">routeDist1</span><span class="o">.</span><span class="n">route</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">routes</span><span class="o">.</span><span class="n">routeDistRouteType</span><span class="p">(</span><span class="nb">id</span><span class="o">=</span><span class="s2">&quot;route13&quot;</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s2">&quot;0,255,0&quot;</span><span class="p">,</span> <span class="n">edges</span><span class="o">=</span><span class="s2">&quot;3i 2o&quot;</span><span class="p">,</span> <span class="n">probability</span><span class="o">=</span><span class="s2">&quot;0.2&quot;</span><span class="p">))</span>
+    <span class="n">routeDist1</span><span class="o">.</span><span class="n">route</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">routes</span><span class="o">.</span><span class="n">routeDistRouteType</span><span class="p">(</span><span class="nb">id</span><span class="o">=</span><span class="s2">&quot;route23&quot;</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s2">&quot;255,0,0&quot;</span><span class="p">,</span> <span class="n">edges</span><span class="o">=</span><span class="s2">&quot;3i 1o&quot;</span><span class="p">,</span> <span class="n">probability</span><span class="o">=</span><span class="s2">&quot;0.2&quot;</span><span class="p">))</span>
+    <span class="n">r</span><span class="o">.</span><span class="n">routeDistribution</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">routeDist1</span><span class="p">)</span>
+
+    <span class="c1">#######</span>
+    <span class="n">vTypeDist1</span> <span class="o">=</span> <span class="n">routes</span><span class="o">.</span><span class="n">vTypeDistributionType</span><span class="p">(</span><span class="nb">id</span><span class="o">=</span><span class="s2">&quot;vehicledist4i&quot;</span><span class="p">)</span>
+    <span class="n">vTypeDist1</span><span class="o">.</span><span class="n">vType</span><span class="o">.</span><span class="n">append</span><span class="p">(</span>
+        <span class="n">routes</span><span class="o">.</span><span class="n">vTypeType</span><span class="p">(</span><span class="nb">id</span><span class="o">=</span><span class="s2">&quot;type14&quot;</span><span class="p">,</span> <span class="n">accel</span><span class="o">=</span><span class="s2">&quot;0.8&quot;</span><span class="p">,</span> <span class="n">decel</span><span class="o">=</span><span class="s2">&quot;4.5&quot;</span><span class="p">,</span> <span class="n">length</span><span class="o">=</span><span class="s2">&quot;5&quot;</span><span class="p">,</span> <span class="n">maxSpeed</span><span class="o">=</span><span class="s2">&quot;30&quot;</span><span class="p">,</span> <span class="n">probability</span><span class="o">=</span><span class="s2">&quot;0.8&quot;</span><span class="p">))</span>
+
+    <span class="n">vTypeDist1</span><span class="o">.</span><span class="n">vType</span><span class="o">.</span><span class="n">append</span><span class="p">(</span>
+        <span class="n">routes</span><span class="o">.</span><span class="n">vTypeType</span><span class="p">(</span><span class="nb">id</span><span class="o">=</span><span class="s2">&quot;type24&quot;</span><span class="p">,</span> <span class="n">accel</span><span class="o">=</span><span class="s2">&quot;1.8&quot;</span><span class="p">,</span> <span class="n">decel</span><span class="o">=</span><span class="s2">&quot;4.5&quot;</span><span class="p">,</span> <span class="n">length</span><span class="o">=</span><span class="s2">&quot;15&quot;</span><span class="p">,</span> <span class="n">maxSpeed</span><span class="o">=</span><span class="s2">&quot;25&quot;</span><span class="p">,</span> <span class="n">probability</span><span class="o">=</span><span class="s2">&quot;0.2&quot;</span><span class="p">))</span>
+
+    <span class="n">r</span><span class="o">.</span><span class="n">vTypeDistribution</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">vTypeDist1</span><span class="p">)</span>
+
+    <span class="n">routeDist1</span> <span class="o">=</span> <span class="n">routes</span><span class="o">.</span><span class="n">routeDistributionType</span><span class="p">(</span><span class="nb">id</span><span class="o">=</span><span class="s2">&quot;routedist4i&quot;</span><span class="p">)</span>
+    <span class="n">routeDist1</span><span class="o">.</span><span class="n">route</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">routes</span><span class="o">.</span><span class="n">routeDistRouteType</span><span class="p">(</span><span class="nb">id</span><span class="o">=</span><span class="s2">&quot;route04&quot;</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s2">&quot;255,0,0&quot;</span><span class="p">,</span> <span class="n">edges</span><span class="o">=</span><span class="s2">&quot;4i 2o&quot;</span><span class="p">,</span> <span class="n">probability</span><span class="o">=</span><span class="s2">&quot;0.2&quot;</span><span class="p">))</span>
+    <span class="n">routeDist1</span><span class="o">.</span><span class="n">route</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">routes</span><span class="o">.</span><span class="n">routeDistRouteType</span><span class="p">(</span><span class="nb">id</span><span class="o">=</span><span class="s2">&quot;route14&quot;</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s2">&quot;0,20,255&quot;</span><span class="p">,</span> <span class="n">edges</span><span class="o">=</span><span class="s2">&quot;4i 3o&quot;</span><span class="p">,</span> <span class="n">probability</span><span class="o">=</span><span class="s2">&quot;0.6&quot;</span><span class="p">))</span>
+    <span class="n">routeDist1</span><span class="o">.</span><span class="n">route</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">routes</span><span class="o">.</span><span class="n">routeDistRouteType</span><span class="p">(</span><span class="nb">id</span><span class="o">=</span><span class="s2">&quot;route24&quot;</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s2">&quot;0,255,0&quot;</span><span class="p">,</span> <span class="n">edges</span><span class="o">=</span><span class="s2">&quot;4i 1o&quot;</span><span class="p">,</span> <span class="n">probability</span><span class="o">=</span><span class="s2">&quot;0.2&quot;</span><span class="p">))</span>
+    <span class="n">r</span><span class="o">.</span><span class="n">routeDistribution</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">routeDist1</span><span class="p">)</span>
+
+
+
+    <span class="kn">from</span> <span class="nn">xml.dom</span> <span class="k">import</span> <span class="n">minidom</span>
+    <span class="n">xmlstr</span> <span class="o">=</span> <span class="n">minidom</span><span class="o">.</span><span class="n">parseString</span><span class="p">(</span><span class="n">r</span><span class="o">.</span><span class="n">toxml</span><span class="p">(</span><span class="s2">&quot;utf-8&quot;</span><span class="p">)</span><span class="o">.</span><span class="n">decode</span><span class="p">(</span><span class="s1">&#39;utf-8&#39;</span><span class="p">))</span><span class="o">.</span><span class="n">toprettyxml</span><span class="p">(</span><span class="n">indent</span><span class="o">=</span><span class="s2">&quot;   &quot;</span><span class="p">)</span>
+    <span class="nb">print</span><span class="p">(</span><span class="n">xmlstr</span><span class="p">)</span></div>
+
+
+
+
+<span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">http://sumo.dlr.de/xsd/sumoConfiguration.xsd</span>
+<span class="sd">&quot;&quot;&quot;</span>
+
+</pre></div>
+
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+<div id="searchbox" style="display: none" role="search">
+  <h3>Quick search</h3>
+    <form class="search" action="../../../search.html" method="get">
+      <div><input type="text" name="q" /></div>
+      <div><input type="submit" value="Go" /></div>
+      <input type="hidden" name="check_keywords" value="yes" />
+      <input type="hidden" name="area" value="default" />
+    </form>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../../../genindex.html" title="General Index"
+             >index</a></li>
+        <li class="right" >
+          <a href="../../../py-modindex.html" title="Python Module Index"
+             >modules</a> |</li>
+        <li class="nav-item nav-item-0"><a href="../../../index.html">TrafficSense 0.01 documentation</a> &#187;</li>
+          <li class="nav-item nav-item-1"><a href="../../index.html" >Module code</a> &#187;</li> 
+      </ul>
+    </div>
+    <div class="footer" role="contentinfo">
+        &#169; Copyright 2017, Samara, Gaitz, Eilif, Bryan, Justin, Jow.
+      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 1.6.5.
+    </div>
+  </body>
+</html>
