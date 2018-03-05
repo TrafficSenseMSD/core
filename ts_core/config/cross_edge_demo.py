@@ -1,4 +1,4 @@
-import ts_core.configuration.bindings.edges_xml as edge
+import ts_core.config.bindings.edges_xml as edge
 
 e = edge.edges()
 

@@ -1,4 +1,4 @@
-import ts_core.configuration.bindings.con_xml as conn
+import ts_core.config.bindings.con_xml as conn
 
 con = conn.connections()
 

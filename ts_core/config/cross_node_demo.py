@@ -1,4 +1,4 @@
-import ts_core.configuration.bindings.nodes_xml as nodes
+import ts_core.config.bindings.nodes_xml as nodes
 
 n = nodes.nodes()
 

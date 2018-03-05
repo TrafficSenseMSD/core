@@ -1,9 +1,12 @@
 import jsmin
 import json
-from ts_core.configuration.config_helpers import *
+from ts_core.config.config_helpers import *
+from ts_core.config.config_exceptions import *
 
 
 def transform_parsed_excel(parsed):
+    if "SUMOCFG" not in parsed:
+        raise
     mk_sumocfg(parsed["SUMOCFG"])
 
 

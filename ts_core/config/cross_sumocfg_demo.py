@@ -1,4 +1,4 @@
-import ts_core.configuration.bindings.sumocfg as sumocfg
+import ts_core.config.bindings.sumocfg as sumocfg
 
 
 cfg = sumocfg.configuration()

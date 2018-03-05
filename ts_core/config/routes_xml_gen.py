@@ -1,4 +1,4 @@
-import ts_core.configuration.bindings.routes as routes
+import ts_core.config.bindings.routes as routes
 import pyxb
 
 def sample_route_file():
