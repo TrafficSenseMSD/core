@@ -11,18 +11,29 @@ cfg.append(input_)
 
 # Working with the time block
 time_ = sumocfg.timeType()
-time_.__setattr__("begin", sumocfg.timeOptionType(value_=0))
-time_.__setattr__("end", sumocfg.timeOptionType(value_=20000))
+#time_.__setattr__("begin", sumocfg.timeOptionType(value_=0))
+#time_.__setattr__("end", sumocfg.timeOptionType(value_=20000))
+#time_.__setattr__("end", 20000)
+
+
+#print(time_)
 cfg.append(time_)
 
 
+import pprint
+pprint.pprint(input_.__getattribute__("_inputType__load_state").__dict__)
+pprint.pprint(sumocfg.inputType.__dict__)
+#pprint.pprint(sumocfg.configurationType.__dict__['_ElementMap'])
+#pprint.pprint(dir(getattr(sumocfg, 'timeType').__dict__['begin']))
+
+
 # gui_only params
-gui_ = sumocfg.gui_onlyType()
-gui_.__setattr__("gui_settings_file", sumocfg.fileOptionType(value_="cross.settings.xml"))
-cfg.append(gui_)
+# gui_ = sumocfg.gui_onlyType()
+# gui_.__setattr__("gui_settings_file", sumocfg.fileOptionType(value_="cross.settings.xml"))
+# cfg.append(gui_)
 
 output_ = sumocfg.outputType()
-#print(getattr(getattr(sumocfg, 'outputType'), 'vehroute_output_write_unfinished'))
+
 
 #output_.__setattr__("vehroute_output_write_unfinished", True)
 cfg.append(output_)

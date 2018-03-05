@@ -1,6 +1,7 @@
 import jsmin
 import json
 import re
+import pprint
 import ts_core.config.bindings.sumocfg as sumocfg
 from ts_core.config.config_exceptions import *
 
@@ -34,23 +35,25 @@ def mk_sumocfg(parsed_data: dict):
     if "input" in parsed_data:
         _input = getattr(sumocfg, 'inputType')()
         for attr, value in parsed_data['input'].items():
-            _input.__setattr__(attr, getattr(sumocfg, 'fileOptionType')(value_=value))
-            print(attr, value)
+            attr_type = _input.__getattribute__("_timeType__"+attr).__dict__['_ElementDeclaration__elementBinding']
+            _input.__setattr__(attr, attr_type(value_=value))
         cfg.append(_input)
 
     # Working with the
     if "time" in parsed_data:
         _time = getattr(sumocfg, 'timeType')()
         for attr, value in parsed_data['time'].items():
-
-            _time.__setattr__(attr, getattr(sumocfg, 'timeOptionType')(value_=value))
-            print(attr, value)
+            attr_type = _time.__getattribute__("_timeType__"+attr).__dict__['_ElementDeclaration__elementBinding']
+            _time.__setattr__(attr, attr_type(value_=value))
         cfg.append(_time)
 
     if "gui_only" in parsed_data:
-        _gui = getattr(sumocfg, 'gui_onlyType')
+        _gui = getattr(sumocfg, 'gui_onlyType')()
         for attr, value in parsed_data['gui_only'].items():
-            _gui.__setattr__(getattr(sumocfg, 'fileOptionType')(value_=value))
+            # Some wizardry to find the right option type
+            attr_type = _gui.__getattribute__("_gui_onlyType__"+attr).__dict__['_ElementDeclaration__elementBinding']
+            # Setting the tag and attributes correctly.
+            _gui.__setattr__(attr, attr_type(value_=value))
 
         cfg.append(_gui)
 

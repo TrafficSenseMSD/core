@@ -1,5 +1,7 @@
 import jsmin
 import json
+import pyxb
+pyxb._CorruptionDetectionEnabled = False
 from ts_core.config.config_helpers import *
 from ts_core.config.config_exceptions import *
 
