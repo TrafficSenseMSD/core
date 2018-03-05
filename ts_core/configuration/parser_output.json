@@ -1,3 +1,8 @@
+/* This is the master definition file for schema definitions.
+ * In order to read this you must first run this file through
+ * a JavaScript minifier. jsmin is installed with this package.
+*/
+
 {
     "Intersections":{
           "I0":{
