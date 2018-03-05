@@ -16,6 +16,7 @@
             "S_lanes": 1,  (any number)
             "RS_lanes": 1, (only 0 or 1)
             "R_lanes": 0,  (any number)
+            "iutbound_lanes": 3, (has to = sum of all inbound lanes from above
             "outbound_lanes": 3,
 
             # Node file attributes
@@ -30,7 +31,6 @@
             "Inbound_priority": 78,
             "Outbound_priority": 46,
 
-            "numLanes": 3, (has to = sum of all inbound lanes from above
             "speed": 20,
             }
 
