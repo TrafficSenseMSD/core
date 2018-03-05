@@ -7,3 +7,4 @@ sklearn==0.0
 sphinx
 sphinxcontrib-argdoc
 sumotools==0.7
+jsmin==2.2.2
