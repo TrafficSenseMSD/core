@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="iso-8859-1"?>
+<connections xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="http://sumo.dlr.de/xsd/connections_file.xsd">
+<!-- Lane 0 is the RIGHT-most, Lane 1 is the middle lane, and Lane 2 is the left lane -->
+	<connection from="1i" to="2o" fromLane="1" toLane="1"/>
+	<!--<connection from="1i" to="2o" fromLane="0" toLane="0"/>-->
+	<connection from="1i" to="4o" fromLane="2" toLane="2"/>
+	<connection from="1i" to="3o" fromLane="0" toLane="0"/>
+	
+	<connection from="1is" to="1i" fromLane="0" toLane="0"/>
+	<connection from="1is" to="1i" fromLane="0" toLane="1"/>
+	<connection from="1is" to="1i" fromLane="1" toLane="2"/>
+	
+	<connection from="1o" to="1os" fromLane="0" toLane="0"/>
+	<connection from="1o" to="1os" fromLane="1" toLane="1"/>
+	<connection from="1o" to="1os" fromLane="2" toLane="2"/>
+	
+	
+	
+	<connection from="2i" to="1o" fromLane="1" toLane="1"/>
+	<connection from="2i" to="1o" fromLane="0" toLane="0"/>
+	<connection from="2i" to="3o" fromLane="2" toLane="2"/>
+	<connection from="2i" to="4o" fromLane="0" toLane="0"/>
+	
+	<connection from="3i" to="1o" fromLane="2" toLane="2"/>	
+	<connection from="3i" to="2o" fromLane="0" toLane="0"/>	
+	<connection from="3i" to="4o" fromLane="1" toLane="1"/>	
+	<connection from="3i" to="4o" fromLane="0" toLane="0"/>	
+	
+	<connection from="4i" to="1o" fromLane="0" toLane="0"/>
+	<connection from="4i" to="2o" fromLane="2" toLane="2"/>
+	<connection from="4i" to="3o" fromLane="1" toLane="1"/>
+	<connection from="4i" to="3o" fromLane="0" toLane="0"/>
+	
+	
+	
+	
+	
+
+</connections>
