@@ -1,0 +1,227 @@
+import traci
+import numpy as np
+from pandas import Panel
+from VariableDictionary import VariableDictionary
+        
+class DataBuffer():
+    '''
+    Buffers to hold simulation data
+    
+    '''
+    def __init__(self, buffer_length, domain=None attributes=None, dumpfile=None, id_update_frequency=None):
+        self.domain = domain #e.g.: traci.junction
+        self.attributes = attributes #(attribute label, [id list], sampling frequency)
+        self.buffer_length = buffer_length
+        self.dumpfile = dumpfile
+        self.subscription_ledger = {}
+        self.id_table = {}
+        self.attribute_table = {}
+        
+        #create subscription ledger and attribute table
+        # 'car100':[(attribute_label,sampling_frequency,simulation_ticks_since_last_update), ...]
+        for attribute in self.attributes:
+            self.attribute_table[attribute[0]] = attribute[1]
+            for id in attribute[1]:
+                try:
+                    if self.subscription_ledger[id]:
+                        self.subscription_ledger[id].append((attribute[0],attribute[2],0))
+                except KeyError:
+                    self.subscription_ledger[id] = [(attribute[0],attribute[2],0)]            
+
+        #create ID look-up table
+        index = 0
+        for id in self.subscription_ledger.keys():
+            self.id_table[id] = [index]
+            for attribute in id:
+                self.id_table[id].append(attribute[0])
+            index += 1
+        self.num_ids = index
+            
+        #zeros len(attributes) x len(IDs) x buffer_len
+        z = np.zeros(len(self.attributes), self.num_ids, self.buffer_length)
+        self.buffer = Panel(data=z, major_axis=self.attribute_dictionary.keys().sorted(), minor_axis=self.id_table.keys().sorted())
+            
+            
+    def attribute_dictionary(self, attributes=None):
+        a_dict = {}
+        index = 0
+        for attribute in attribute:
+            a_list = [index]
+            a_list.extend(attribute[1:])
+            a_dict[attribute[0]] = a_list)
+            index +=1
+        return a_dict
+            
+    def update(self):
+        try:
+        
+        except MemoryError as e:
+            print(e)
+            
+        return
+        
+    #attribute can be name string or buffer index
+    #example remove ids 1,2,3 of attributes 'a','b','c':
+    #   [('a', [1,2,3]),
+    #    ('b', [1,2,3]),
+    #    ('c', [1,2,3])]
+    #example remove all ids of attributes 'a','b','c':
+    #   [('a', []),
+    #    ('b', []),
+    #    ('c', [])]
+    def remove(self, attributes=None):
+        for attribute in attributes:
+            if attribute[1] == []:
+                self.frame.remove_col
+            else:
+                pass
+        
+    def dump(self, dumpfile=None):
+        if self.dumpfile:
+            print('Changing dumpfile from {} to {}'.format(self.dumpfile.name, dumpfile.name))
+        self.dumpfile = dumpfile
+        self.dumpfile.write(self.frame.to_pickle())
+        self.dumpfile.flush()
+        
+    def reset(self, attributes=None):
+        if not attributes:
+            self.__init__(self, self.attributes = attributes, self.buffer_length = buffer_length,
+            self.frame_time = frame_time, self.dumpfile = dumpfile, self.ticks_per_second = ticks_per_second)
+        else:
+            for attribute in attributes:
+                pass
+
+class Rolodex():
+    """
+    Data buffer wrapper class
+    
+    Parameters
+    ----------
+    attributes - what data is needed to be collected, strings found in SumoAttributeDictionary
+        An empty id list will gather the specified attribute data for every id available 
+        at setup time
+        Can specify unique sampling frequencies for each attribute/context id, or choose
+        to use a global sampling frequency for all attributes
+        
+        UPDATE
+        ***********(context, attribute label, [id list], sampling frequency)***********
+        
+        Example attributes:
+            attribute_frequency_list = [
+            (‘vehicle acceleration’, [vehicle_ids], sampling_frequency_0),
+            (‘aggregate CO2 emissions’, [lane_ids 1,2], sampling_frequency_1),
+            (‘aggregate CO2 emissions’, [lane_ids 3,4], sampling_frequency_2),
+            (‘last step vehicle ids’, [], global_sampling_frequency )]
+        
+    buffer_length - if a global buffer length is desired for all attributes
+    
+    dumpfile - file pointer to dump buffer contents to when requested / on fatal errors
+    
+    Returns
+    -------
+    Nothing
+    """
+    
+    self.default_global_sampling_frequency = 1
+    self.singular_frequency = False
+    self.ticks_per_second #assuming we still can't change the number of ticks per second
+    
+    attribute_frequency_list = [('vehicle', ‘vehicle acceleration’, [5], sampling_frequency_0),('vehicle', ‘aggregate CO2 emissions’, [1,2],sampling_frequency_1),(‘aggregate CO2 emissions’, [3,4], sampling_frequency_2),(‘last step vehicle ids’, [],global_sampling_frequency )]
+    
+    def __init__(self, attributes=None, buffer_length=None, frame_time=None, simulation_run_time=None, dumpfile=None, id_update_frequency=None, ticks_per_second=1):
+        self.frame_time = frame_time
+        self.simulation_run_time = simulation_run_time
+        self.ticks_per_second = ticks_per_second
+        self.default_buffer_length = 100
+        self.buffers = {}
+        
+        self.context_domains = {}
+        self.context_domains['induction loop'] = traci.___
+        self.context_domains['multi-entry-exit detectors'] = traci.___
+        self.context_domains['traffic lights'] = traci.___
+        self.context_domains['lane'] = traci.___
+        self.context_domains['vehicle'] = traci.___
+        self.context_domains['vehicle type'] = traci.___
+        self.context_domains['route'] = traci.___
+        self.context_domains['poi'] = traci.___
+        self.context_domains['polygon'] = traci.___
+        self.context_domains['junction'] = traci.junction
+        self.context_domains['edge'] = traci.___
+        self.context_domains['simulation'] = traci.___
+        
+        self.domain_attributes = {}
+        for domain in context_domains.keys():
+            self.domain_attributes[domain] = []
+
+        for attribute in attributes:
+            try:
+                self.domain_attributes[attribute[0]].append(attribute[1:])
+            except KeyError:
+                print('ERROR:Rolodex:__init__:attributes :: attribute context: {} in {} not valid'.format(attribute[0], attribute))
+        
+        if buffer_length:
+            self.buffer_length = buffer_length
+        else self.buffer_length:
+            if self.frame_time:
+                self.buffer_length = self.frame_time / self.ticks_per_second
+            else:
+                self.buffer_length = self.default_buffer_length
+                print('WARNING:Rolodex:__init__: Using default buffer lengths of {} for {} domain'.format(self.default_buffer_length, domain))
+
+        for domain in self.domain_attributes.keys():
+            if self.domain_attributes[domain]:
+                context = self.context_domains[domain]
+                self.buffers[domain] = DataBuffer(self.buffer_length, domain=context, attributes=self.domain_attributes[domain], id_update_frequency=id_update_frequency)
+                self.setup_subscription(context, self.buffers[domain].subscription_ledger)
+        
+    #id_table = 'car100':[attribute_label_0,attribute_label_1, ...]
+    def setup_subscription(self, domain, id_table):
+        for id in id_table:
+            domain.subscribe(id, (id_table[id]))        
+        
+    def list_context_domains(self):
+        for context in self.context_domains:
+            print('{}:{}'.format(context, context_domains[context]))
+            
+    #context_attributes = [(context_domain, contextID, attribute_domain, range, [attributes])]
+    #example: [junctionID, tc.CMD_GET_VEHICLE_VARIABLE, 42, [tc.VAR_SPEED, tc.VAR_WAITING_TIME]]
+    def setup_context_subscription(self, context_attributes=None):
+        for context in context_attributes:
+            if context[0] in self.context_domains:
+                context_domains[context[0]].subscribe(context[1], context[2], context[3], context[4])
+            else:
+                print('Error: Invalid Context Domain: {}'.format(context[0]))
+                
+    #Ability to set the frequency of updates for each attribute after instantiation
+    def set_update_frequency(self, attribute, num_simulation_ticks_between_samples, ids=[list of all ids for the attribute context]):
+        return
+    #Update functions
+    #Automatically update data at the specified frequency
+    #Manually update when requested
+    def update_buffers(self, attributes=None, indices=[]):
+        return
+    #Returns a COPY of the data buffers (this has memory implications but will minimize the risk of data corruption).
+    #Where attributes is a list of tuples: [ (attribute string ,[ids]) ]
+        #Can specify the indices to retrieve
+    def get_data(self, attributes=None, indices=[]):
+        return
+
+    #Option to dump buffers to file
+    def dump_to_file(self, dumpfile=None):
+        self.buffers.dump(dumpfile=dumpfile)
+        
+    #Function to retrieve the value of an attribute without a subscription
+    def get_value(self, attributes=None, ids=[]):
+        return
+        
+    def remove_subscription(self, attributes=[], ids=[]):
+        pass
+        
+    #Function to clear and reset buffers
+    def reset(self, attributes=None, ids=[]):
+        pass
+
+if __name__ == '__main__':
+    buffers = Rolodex(attributes=attribute_frequency_list)
+    #Or initialize without assigning attributes to set up collection of all available attributes. Can set global_sampling_frequency for all attributes/ids, or use default of updating every simulation tick
+    buffers = Rolodex(global_sampling_frequency=60)
