@@ -1,14 +1,14 @@
 import traci
 import numpy as np
 from pandas import Panel
-from VariableDictionary import VariableDictionary
+#from VariableDictionary import VariableDictionary
         
 class DataBuffer():
     '''
     Buffers to hold simulation data
     
     '''
-    def __init__(self, buffer_length, domain=None attributes=None, dumpfile=None, id_update_frequency=None):
+    def __init__(self, buffer_length, domain=None, attributes=None, dumpfile=None, id_update_frequency=None):
         self.domain = domain #e.g.: traci.junction
         self.attributes = attributes #(attribute label, [id list], sampling frequency)
         self.buffer_length = buffer_length
@@ -48,13 +48,13 @@ class DataBuffer():
         for attribute in attribute:
             a_list = [index]
             a_list.extend(attribute[1:])
-            a_dict[attribute[0]] = a_list)
+            a_dict[attribute[0]] = a_list
             index +=1
         return a_dict
             
     def update(self):
         try:
-        
+            pass
         except MemoryError as e:
             print(e)
             
@@ -85,8 +85,8 @@ class DataBuffer():
         
     def reset(self, attributes=None):
         if not attributes:
-            self.__init__(self, self.attributes = attributes, self.buffer_length = buffer_length,
-            self.frame_time = frame_time, self.dumpfile = dumpfile, self.ticks_per_second = ticks_per_second)
+            self.__init__(attributes=self.attributes, buffer_length=self.buffer_length,
+            frame_time=self.frame_time, dumpfile=self.dumpfile, ticks_per_second = self.ticks_per_second)
         else:
             for attribute in attributes:
                 pass
@@ -122,7 +122,7 @@ class Rolodex():
     Nothing
     """
         
-    attribute_frequency_list = [('vehicle', ‘vehicle acceleration’, [5], sampling_frequency_0),('vehicle', ‘aggregate CO2 emissions’, [1,2],sampling_frequency_1),(‘aggregate CO2 emissions’, [3,4], sampling_frequency_2),(‘last step vehicle ids’, [],global_sampling_frequency )]
+    #attribute_frequency_list = [('vehicle', ‘vehicle acceleration’, [5], sampling_frequency_0),('vehicle', ‘aggregate CO2 emissions’, [1,2],sampling_frequency_1),(‘aggregate CO2 emissions’, [3,4], sampling_frequency_2),(‘last step vehicle ids’, [],global_sampling_frequency )]
     
     def __init__(self, attributes=None, buffer_length=None, frame_time=None, simulation_run_time=None, dumpfile=None, id_update_frequency=None, ticks_per_second=1):
         self.frame_time = frame_time
@@ -160,7 +160,7 @@ class Rolodex():
         
         if buffer_length:
             self.buffer_length = buffer_length
-        else self.buffer_length:
+        else:
             if self.frame_time:
                 self.buffer_length = self.frame_time / self.ticks_per_second
             else:
@@ -192,7 +192,7 @@ class Rolodex():
                 print('Error: Invalid Context Domain: {}'.format(context[0]))
                 
     #Ability to set the frequency of updates for each attribute after instantiation
-    def set_update_frequency(self, attribute, num_simulation_ticks_between_samples, ids=[list of all ids for the attribute context]):
+    def set_update_frequency(self, attribute, num_simulation_ticks_between_samples, ids=[]):
         return
     #Update functions
     #Automatically update data at the specified frequency
