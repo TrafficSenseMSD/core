@@ -121,11 +121,7 @@ class Rolodex():
     -------
     Nothing
     """
-    
-    self.default_global_sampling_frequency = 1
-    self.singular_frequency = False
-    self.ticks_per_second #assuming we still can't change the number of ticks per second
-    
+        
     attribute_frequency_list = [('vehicle', ‘vehicle acceleration’, [5], sampling_frequency_0),('vehicle', ‘aggregate CO2 emissions’, [1,2],sampling_frequency_1),(‘aggregate CO2 emissions’, [3,4], sampling_frequency_2),(‘last step vehicle ids’, [],global_sampling_frequency )]
     
     def __init__(self, attributes=None, buffer_length=None, frame_time=None, simulation_run_time=None, dumpfile=None, id_update_frequency=None, ticks_per_second=1):
@@ -136,18 +132,21 @@ class Rolodex():
         self.buffers = {}
         
         self.context_domains = {}
-        self.context_domains['induction loop'] = traci.___
-        self.context_domains['multi-entry-exit detectors'] = traci.___
-        self.context_domains['traffic lights'] = traci.___
-        self.context_domains['lane'] = traci.___
-        self.context_domains['vehicle'] = traci.___
-        self.context_domains['vehicle type'] = traci.___
-        self.context_domains['route'] = traci.___
-        self.context_domains['poi'] = traci.___
-        self.context_domains['polygon'] = traci.___
+        self.context_domains['edge'] = traci.edge
+        self.context_domains['gui'] = traci.gui
+        self.context_domains['induction loop'] = traci.inductionloop
         self.context_domains['junction'] = traci.junction
-        self.context_domains['edge'] = traci.___
-        self.context_domains['simulation'] = traci.___
+        self.context_domains['lane'] = traci.lane
+        self.context_domains['lane area'] = traci.lanearea
+        self.context_domains['multi-entry-exit detector'] = traci.multientryexit
+        self.context_domains['person'] = traci.person
+        self.context_domains['poi'] = traci.poi
+        self.context_domains['polygon'] = traci.polygon
+        self.context_domains['route'] = traci.route
+        self.context_domains['simulation'] = traci.simulation
+        self.context_domains['traffic light'] = traci.trafficlight
+        self.context_domains['vehicle'] = traci.vehicle
+        self.context_domains['vehicle type'] = traci.vehicletype
         
         self.domain_attributes = {}
         for domain in context_domains.keys():
