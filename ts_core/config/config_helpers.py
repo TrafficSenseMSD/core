@@ -1,16 +1,14 @@
-import jsmin
-import json
 import re
-import pprint
 import ts_core.config.bindings.sumocfg as sumocfg
 from ts_core.config.config_exceptions import *
 import ts_core.config.bindings.nodes_xml as nodes
-import pprint
 from xml.dom import minidom
 import numpy as np
 
+
 def _sind(x, places):
     return round(np.sin( x * np.pi / 180), places)
+
 
 def _cosd(x, places):
     return round(np.cos(x * np.pi / 180), places)
@@ -20,66 +18,6 @@ def mk_node(intersections: dict, branches: dict):
     """
     
     Let's do an example...
-    >>> intersections = {'I0': {'id': 0, 'type': 'traffic_light'}}
-    >>> branches = {
-    ... 'B1': 
-    ...         {'LS_lanes': 1,
-    ...         'L_lanes': 0,
-    ...         'Length': 500,
-    ...         'RS_lanes': 1,
-    ...         'R_lanes': 0,
-    ...         'S_lanes': 1,
-    ...         'id': 1,
-    ...         'inbound_lanes': 3,
-    ...         'inbound_node': 0,
-    ...         'outbound_lanes': 3,
-    ...         'outbound_node': 1,
-    ...         'priority': 78,
-    ...         'speed': 20,
-    ...         'type': 'priority'},
-    ...  'B2': {'LS_lanes': 1,
-    ...         'L_lanes': 0,
-    ...         'Length': 500,
-    ...         'RS_lanes': 1,
-    ...         'R_lanes': 0,
-    ...         'S_lanes': 1,
-    ...         'id': 2,
-    ...         'inbound_lanes': 3,
-    ...         'inbound_node': 0,
-    ...         'outbound_lanes': 3,
-    ...         'outbound_node': 2,
-    ...         'priority': 78,
-    ...         'speed': 20,
-    ...         'type': 'priority'},
-    ...  'B3': {'LS_lanes': 1,
-    ...         'L_lanes': 0,
-    ...         'Length': 500,
-    ...         'RS_lanes': 1,
-    ...         'R_lanes': 0,
-    ...         'S_lanes': 1,
-    ...         'id': 3,
-    ...         'inbound_lanes': 3,
-    ...         'inbound_node': 0,
-    ...         'outbound_lanes': 3,
-    ...         'outbound_node': 3,
-    ...         'priority': 78,
-    ...         'speed': 20,
-    ...         'type': 'priority'},
-    ...  'B4': {'LS_lanes': 1,
-    ...         'L_lanes': 0,
-    ...         'Length': 500,
-    ...         'RS_lanes': 1,
-    ...         'R_lanes': 0,
-    ...         'S_lanes': 1,
-    ...         'id': 4,
-    ...         'inbound_lanes': 3,
-    ...         'inbound_node': 0,
-    ...         'outbound_lanes': 3,
-    ...         'outbound_node': 4,
-    ...         'priority': 78,
-    ...         'speed': 20,
-    ...         'type': 'priority'}
-    ... }
     
     
     Parameters
