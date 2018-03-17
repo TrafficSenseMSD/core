@@ -122,10 +122,5 @@
         "input": {"net_file": "cross.net.xml", "route_file": "cross.rou.xml"}
     }
 
-
-
-
-
-
 }
 

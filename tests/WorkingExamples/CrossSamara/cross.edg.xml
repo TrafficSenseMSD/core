@@ -9,5 +9,4 @@
    <edge id="4i" from="4" to="0" priority="78" numLanes="3" speed="19.444" />
    <edge id="4o" from="0" to="4" priority="46" numLanes="3" speed="11.111" />
 
-
 </edges>
