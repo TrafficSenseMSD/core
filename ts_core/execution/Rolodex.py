@@ -21,7 +21,12 @@ class DataBuffer():
         # 'car100':[(attribute_label,sampling_frequency,simulation_ticks_since_last_update), ...]
         for attribute in self.attributes:
             self.attribute_table[attribute[0]] = attribute[1]
-            for id in attribute[1]:
+            if not attribute[1]:
+                #empty ID list, get current list from domain
+                ids = self.domain.getIDList()#VERIFY OUTPUT
+            else:
+                ids = attribute[1]
+            for id in ids:
                 try:
                     if self.subscription_ledger[id]:
                         self.subscription_ledger[id].append((attribute[0],attribute[2],0))
@@ -110,15 +115,7 @@ class Rolodex():
         Can specify unique sampling frequencies for each attribute/context id, or choose
         to use a global sampling frequency for all attributes
         
-        UPDATE
-        ***********(context, attribute label, [id list], sampling frequency)***********
-        
-        Example attributes:
-            attribute_frequency_list = [
-            (‘vehicle acceleration’, [vehicle_ids], sampling_frequency_0),
-            (‘aggregate CO2 emissions’, [lane_ids 1,2], sampling_frequency_1),
-            (‘aggregate CO2 emissions’, [lane_ids 3,4], sampling_frequency_2),
-            (‘last step vehicle ids’, [], global_sampling_frequency )]
+        (context, attribute label, [id list], sampling frequency)
         
     buffer_length - if a global buffer length is desired for all attributes
     
@@ -176,7 +173,7 @@ class Rolodex():
             if self.domain_attributes[domain]:
                 context = self.context_domains[domain]
                 self.buffers[domain] = DataBuffer(self.buffer_length, context, attributes=self.domain_attributes[domain], id_update_frequency=id_update_frequency)
-                self.setup_subscription(context, self.buffers[domain].subscription_ledger)
+                self.setup_subscription(context, self.buffers[domain].id_table)
         
     #id_table = 'car100':[attribute_label_0,attribute_label_1, ...]
     def setup_subscription(self, domain, id_table):
