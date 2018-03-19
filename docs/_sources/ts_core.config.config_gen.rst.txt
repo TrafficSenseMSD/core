@@ -1,0 +1,7 @@
+ts\_core\.config\.config\_gen module
+====================================
+
+.. automodule:: ts_core.config.config_gen
+    :members:
+    :undoc-members:
+    :show-inheritance:

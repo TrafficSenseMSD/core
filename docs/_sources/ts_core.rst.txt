@@ -13,8 +13,16 @@ Subpackages
 
     ts_core.SUMO
     ts_core.cli
-    ts_core.configuration
+    ts_core.config
+    ts_core.excel_parser
     ts_core.execution
     ts_core.optimization
     ts_core.utils
+
+Submodules
+----------
+
+.. toctree::
+
+   ts_core.core_exceptions
 

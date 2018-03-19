@@ -1,0 +1,55 @@
+/* This is the master definition file for schema definitions.
+ * In order to read this you must first run this file through
+ * a JavaScript minifier. jsmin is installed with this package.
+*/
+
+{
+    "Intersections":{
+          "I0":{
+              "ID": 0,
+              "type": "traffic_light"
+          }
+      },
+    "Branches": {
+      "B1":{
+        "L_lanes": 1,  /* (any number) */
+        "LS_lanes": 1, /* (only 0 or 1) */
+        "S_lanes": 1,  /* (any number) */
+        "RS_lanes": 1, /* (only 0 or 1) */
+        "R_lanes": 1,  /* (any number) */
+        "outbound_lanes": 1, /* And int however it should be related to the lanes tu
+            turning in */
+
+        // Node file attributes
+        "id": 1, // (NODE ID, use this instead of getting it from the "B1")
+        "Length": 500, // (Might be good to use the x and y system instead?)
+        "type": "priority",
+
+        // edge file attributes
+        "Inbound_node": 0,// ( "ID" of node/intersection for inbound lanes)
+        "outbound_node": "output", // ("output" meaning no connection (exits simulation)
+        "priority": 1, // integer,
+        "numLanes": 2, // int -- has to = sum of all inbound lanes from above
+        "speed": { "file.tag.attr": "float"}
+      },
+        "B2":{}
+    },
+    "VehicleTypes":
+    {
+        "type1":{
+            "id": "default", // This makes no sense. What is "default"
+            "vClass": "passenger",
+            "color": "yellow",
+            "guiShape": "passenger"
+        }
+    },
+    "SUMOCFG": // <tag as key": { <attr>: <val }
+    {
+        "time": {"begin": 0, "end": 10000},
+        "input": {"net_file": "cross.net.xml", "route_files": "cross.rou.xml"},
+        "gui_only": {
+          "gui_settings_file": true,
+          "tracker_interval": 2.3
+        }
+    }
+}

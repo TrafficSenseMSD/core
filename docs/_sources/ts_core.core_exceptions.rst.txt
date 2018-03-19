@@ -1,0 +1,7 @@
+ts\_core\.core\_exceptions module
+=================================
+
+.. automodule:: ts_core.core_exceptions
+    :members:
+    :undoc-members:
+    :show-inheritance:
