@@ -8,7 +8,7 @@ class DataBuffer():
     Buffers to hold simulation data
     
     '''
-    def __init__(self, buffer_length, domain=None, attributes=None, dumpfile=None, id_update_frequency=None):
+    def __init__(self, buffer_length, domain, attributes=None, dumpfile=None, id_update_frequency=None):
         self.domain = domain #e.g.: traci.junction
         self.attributes = attributes #(attribute label, [id list], sampling frequency)
         self.buffer_length = buffer_length
@@ -52,12 +52,19 @@ class DataBuffer():
             index +=1
         return a_dict
             
-    def update(self):
-        try:
-            pass
-        except MemoryError as e:
-            print(e)
-            
+    def update(self, id, attribute, data):
+        i = 0
+        while i < 2:
+            try:
+                return #if full{shift}, insert
+            except MemoryError as e:
+                print(e)
+                self.dump()
+                if i == 1:
+                    print('UPDATE ABORTED: MEMORY ERROR')
+                    return
+                    
+    def add(self, id_table):
         return
         
     #attribute can be name string or buffer index
@@ -121,9 +128,7 @@ class Rolodex():
     -------
     Nothing
     """
-        
-    #attribute_frequency_list = [('vehicle', ‘vehicle acceleration’, [5], sampling_frequency_0),('vehicle', ‘aggregate CO2 emissions’, [1,2],sampling_frequency_1),(‘aggregate CO2 emissions’, [3,4], sampling_frequency_2),(‘last step vehicle ids’, [],global_sampling_frequency )]
-    
+   
     def __init__(self, attributes=None, buffer_length=None, frame_time=None, simulation_run_time=None, dumpfile=None, id_update_frequency=None, ticks_per_second=1):
         self.frame_time = frame_time
         self.simulation_run_time = simulation_run_time
@@ -149,12 +154,12 @@ class Rolodex():
         self.context_domains['vehicle type'] = traci.vehicletype
         
         self.domain_attributes = {}
-        for domain in context_domains.keys():
+        for domain in context_domains:
             self.domain_attributes[domain] = []
 
         for attribute in attributes:
             try:
-                self.domain_attributes[attribute[0]].append(attribute[1:])
+                self.domain_attributes[attribute[0]].append(attribute[1:]) #verify appending a list for each attribute, not params of each
             except KeyError:
                 print('ERROR:Rolodex:__init__:attributes :: attribute context: {} in {} not valid'.format(attribute[0], attribute))
         
@@ -167,16 +172,23 @@ class Rolodex():
                 self.buffer_length = self.default_buffer_length
                 print('WARNING:Rolodex:__init__: Using default buffer lengths of {} for {} domain'.format(self.default_buffer_length, domain))
 
-        for domain in self.domain_attributes.keys():
+        for domain in self.domain_attributes:
             if self.domain_attributes[domain]:
                 context = self.context_domains[domain]
-                self.buffers[domain] = DataBuffer(self.buffer_length, domain=context, attributes=self.domain_attributes[domain], id_update_frequency=id_update_frequency)
+                self.buffers[domain] = DataBuffer(self.buffer_length, context, attributes=self.domain_attributes[domain], id_update_frequency=id_update_frequency)
                 self.setup_subscription(context, self.buffers[domain].subscription_ledger)
         
     #id_table = 'car100':[attribute_label_0,attribute_label_1, ...]
     def setup_subscription(self, domain, id_table):
         for id in id_table:
-            domain.subscribe(id, (id_table[id]))        
+            domain.subscribe(id, (id_table[id]))
+            
+    #id_table = 'car100':[attribute_label_0,attribute_label_1, ...]
+    #also adds to DataBuffer
+    def add_subscription(self, domain, id_table):
+        for id in id_table:
+            domain.subscribe(id, (id_table[id]))
+            domain
         
     def list_context_domains(self):
         for context in self.context_domains:
@@ -194,11 +206,30 @@ class Rolodex():
     #Ability to set the frequency of updates for each attribute after instantiation
     def set_update_frequency(self, attribute, num_simulation_ticks_between_samples, ids=[]):
         return
+        
+        
     #Update functions
     #Automatically update data at the specified frequency
     #Manually update when requested
-    def update_buffers(self, attributes=None, indices=[]):
-        return
+    # domain = 'junction'
+    # id_table = {
+    #   'car100':[(attribute_label,sampling_frequency,simulation_ticks_since_last_update), ...],
+    #   'car101':[(attribute_label,sampling_frequency,simulation_ticks_since_last_update), ...]
+    #}
+    def update_subscription_buffers(self, domain, id_table):
+        buffer = self.buffers[domain]
+        for id in id_table:
+            if id not in buffer.id_table:
+                print('WARNING::Rolodex.update_subscription_buffers: ID: {} not in {} Subscription ID Table, adding the following attribute subscriptions:'.format(id,domain))
+                self.add_subscription(domain, {id:id_table[id]})
+                data = self.context_domains[domain].getSubscriptionResults(id)
+                #FIGURE OUT WHAT ^ RETURNS
+                data = [6,0,0]
+                for attribute in id_table[id]:
+                    if attribute[2] == attribute[1]:
+                        buffer.update(id, attribute[0], data[0]) #FIGURE OUT WHAT ORDER DATA IS RETURNED IN
+        
+        
     #Returns a COPY of the data buffers (this has memory implications but will minimize the risk of data corruption).
     #Where attributes is a list of tuples: [ (attribute string ,[ids]) ]
         #Can specify the indices to retrieve
@@ -206,8 +237,12 @@ class Rolodex():
         return
 
     #Option to dump buffers to file
-    def dump_to_file(self, dumpfile=None):
-        self.buffers.dump(dumpfile=dumpfile)
+    def dump_to_file(self, domain=None, dumpfile=None):
+        if domain:
+            self.buffers[domain].dump(dumpfile=dumpfile)
+        else:
+            for buffer in self.buffers:
+                buffer.dump(dumpfile=dumpfile)
         
     #Function to retrieve the value of an attribute without a subscription
     def get_value(self, attributes=None, ids=[]):
