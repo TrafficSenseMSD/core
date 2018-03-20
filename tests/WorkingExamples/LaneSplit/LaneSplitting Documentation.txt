@@ -1,0 +1,24 @@
+Lane splitting is shown in the LaneSplit folder.
+
+This causes changes to the .edg and .con config files.
+
+For the .edg file, thr change is shown below:
+
+   <edge id="1i" from="1" to="0" priority="78" numLanes="3" speed="20" >
+	<split pos="0" lanes="1 2"/>
+	<split pos="450" lanes="0 1 2"/>
+   </edge>
+
+The difference is the two split lines that are in. We must first denote the total numer of lanes that will be used on this edge in numLanes. Then with the split commands, we can tell the edg to split right away to have less lanes. Then it will split 450 meters away from the edge beginning and lane 0 will appear (as a right-only turn lane, later to be determined by the .con file). Depending on how you want the approaching road to look, you can make the lanes expand either direction as the cars approach the intersection. This will allow us to create the left-only turn lanes and right-only turn lanes much easier. Please see the three images provided in this folder. The code will be shown with the GUI of the intersection.
+
+This way of lane splitting creates a new node on the edge at the designated split area. HOWEVER, this new node DOES NOT need to be mentioned in the .nod file. The .con file will see this change the most as it will now need to define the connections from this new node that has been created. These can all be compiled together with the anticipation of how SUMO denotes a lane split. The image "ConFileChange" shows the change underlined, which is shown below:
+
+	<connection from="1i.450" to="2o" fromLane="1" toLane="1"/>
+	<connection from="1i.450" to="4o" fromLane="2" toLane="2"/>
+	<connection from="1i.450" to="3o" fromLane="0" toLane="0"/>	
+	
+	<connection from="2i" to="1o" fromLane="1" toLane="1"/>
+	<connection from="2i" to="3o" fromLane="2" toLane="2"/>
+	<connection from="2i" to="4o" fromLane="0" toLane="0"/>
+
+The ".450" is added to the edge name to create a new edge, as the new edge will be between the new node and the intersection now. However, this new node that is created was only done on the inbound lane, so the connections will only have to be prepared for this specfic inbound direction. The outbound connections will be all the same, unless lane splits are performed there.
