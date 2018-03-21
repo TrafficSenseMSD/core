@@ -1,0 +1,10 @@
+<additional>
+	
+	<laneAreaDetector id="Area0" lane="1i.450_0" pos="0" endPos="30" freq="10" file="test_area.xml"/>
+	<laneAreaDetector id="Area1" lane="1i.450_1" pos="0" endPos="30" freq="10" file="test_area.xml"/>
+	<laneAreaDetector id="Area2" lane="1i.450_2" pos="0" endPos="30" freq="10" file="test_area.xml"/>
+	<laneAreaDetector id="Area1i_0" lane="1i_0" pos="400" endPos="440" freq="10" file="test_area.xml"/>
+	<!-- The way indexing works ^^ here is that it will be placed at the right-most lane, and not necessarily the "right" lane. This example has the left lane and center lane approaching a split where the the right lane appears after the split -->
+	<laneAreaDetector id="Area1i_1" lane="1i_1" pos="400" endPos="440" freq="10" file="test_area.xml"/>
+	
+ </additional>
