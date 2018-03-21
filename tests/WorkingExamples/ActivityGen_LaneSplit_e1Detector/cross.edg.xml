@@ -5,7 +5,9 @@
    
    <edge id="1i" from="1" to="0" priority="78" numLanes="3" speed="20" />
    <edge id="1os" from="1" to="1s" priority="46" numLanes="3" speed="20" />
-  
+   
+   
+   
    <edge id="2i" from="2" to="0" priority="78" numLanes="3" speed="20" />
    <edge id="2o" from="0" to="2" priority="46" numLanes="3" speed="20" />
    <edge id="3i" from="3" to="0" priority="78" numLanes="3" speed="20" />
