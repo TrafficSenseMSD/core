@@ -20,12 +20,10 @@
             "inbound_lanes": 3,
             "inbound_node": 0,
             "outbound_node": 1,
+            "theta": 90,
             "speed": 20,
             "Length": 500,
-            "id": 1,
-            "priority": 78,
-            "type": "priority",
-            "theta": 90
+            "id": 1
         },
         "B2": {
             "outbound_lanes": 3,
@@ -37,12 +35,10 @@
             "inbound_lanes": 3,
             "inbound_node": 0,
             "outbound_node": 2,
+            "theta": 0,
             "speed": 20,
             "Length": 500,
-            "id": 2,
-            "priority": 78,
-            "type": "priority",
-            "theta": 0
+            "id": 2
         },
         "B3": {
             "outbound_lanes": 3,
@@ -54,12 +50,10 @@
             "inbound_lanes": 3,
             "inbound_node": 0,
             "outbound_node": 3,
+            "theta": 270,
             "speed": 20,
             "Length": 500,
-            "id": 3,
-            "priority": 78,
-            "type": "priority",
-            "theta": 180
+            "id": 3
         },
         "B4": {
             "outbound_lanes": 3,
@@ -71,12 +65,10 @@
             "inbound_lanes": 3,
             "inbound_node": 0,
             "outbound_node": 4,
+            "theta": 180,
             "speed": 20,
             "Length": 500,
-            "id": 4,
-            "priority": 78,
-            "type": "priority",
-            "theta": 270
+            "id": 4
         }
     },
     "Intersections": {

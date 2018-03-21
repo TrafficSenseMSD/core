@@ -13,6 +13,8 @@ def _sind(x, places):
 def _cosd(x, places):
     return round(np.cos(x * np.pi / 180), places)
 
+def mk_edge(intersections: dict, branches: dict):
+    pass
 
 def mk_node(intersections: dict, branches: dict):
     """
