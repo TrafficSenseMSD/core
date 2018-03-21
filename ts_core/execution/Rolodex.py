@@ -1,7 +1,7 @@
 import traci
 import numpy as np
 from pandas import Panel
-from VariableDictionary as vd
+import VariableDictionary as vd
         
 class DataBuffer():
     '''
