@@ -70,4 +70,16 @@ class VariableDictionary():
     self.vehicletype = {}
     
     def get_var(self, domain_label, attribute_label):
-        return self.domains[domain][0][attribute]
+        if domain_label in self.domains:
+            try:
+                return self.domains[domain][0][attribute]
+            except KeyError:
+                print('ERROR::VariableDictionary.get_var: key {} not found in {} dictionary.'.format(attribute_label, domain_label))
+        else:
+            print('ERROR::VariableDictionary:get_var: domain {} does not exist'.format(domain_label))
+            
+    def get_domain_dictionary(self, domain_label):
+        try:
+            return self.domains[domain_label]
+        except KeyError:
+            print('ERROR::VariableDictionary:get_var: domain {} does not exist'.format(domain_label))
