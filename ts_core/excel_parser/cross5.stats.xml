@@ -8,7 +8,10 @@
 		<bracket beginAge="31" endAge="60" peopleNbr="17450"/>
 		<bracket beginAge="60" endAge="90" peopleNbr="9780"/>
 	</population>
-	<workHours/>
+	<workHours>
+		<opening hour="600" peopleNbr="0.3"/>
+		<closing hour="43200" peopleNbr="0.2"/>
+	</workHours>
 	<streets>
 		<street edge="1i" population="2.5" workPosition="10"/>
 		<street edge="1o" population="2.5" workPosition="10"/>

@@ -171,7 +171,7 @@ def parse_stats(sheet):
                           "Bus Stations": "busStations", "Bus Lines": "busLines"}
     expected_entries = {"bracket": 3, "opening": 2, "closing": 2, "street": 3, "entrance": 4,
                         "school": 7, "busStation": 3}
-    sub_tags = {"population": "bracket", "streets": "street", "cityGates": "entrance", "schools": "school",
+    sub_tags = {"population": "bracket", "workHours": "opening", "streets": "street", "cityGates": "entrance", "schools": "school",
                 "busStations": "busStation"}
 
     root = ET.Element("city")
@@ -187,8 +187,14 @@ def parse_stats(sheet):
             # If a category has been parsed, put it in the xml
             if data is not None:
                 for tag in data.keys():
-                    sub_tag = tag.split("_")[0]
                     attributes = data[tag]
+
+                    if "TAG" in attributes.keys():
+                        sub_tag = attributes["TAG"].lower()
+                        del attributes["TAG"]
+                    else:
+                        sub_tag = tag.split("_")[0]
+
                     if sub_tag in expected_entries.keys() and len(attributes) < expected_entries[sub_tag]:
                         continue
                     ET.SubElement(category_root, sub_tag, attrib={attr: str(attributes[attr]) for attr in attributes})
@@ -210,7 +216,7 @@ def parse_stats(sheet):
                 input_data = get_input_from_row(sheet, row, cols=1)
                 category_root.attrib[input_data[SUMOATTR]] = str(input_data[USERVAL])
 
-        elif current_category in ["population", "streets", "cityGates", "schools", "busStations"]:
+        elif current_category in ["population", "workHours", "streets", "cityGates", "schools", "busStations"]:
             sub_tag = sub_tags[current_category]
 
             if row_has_data(sheet, row):
@@ -226,6 +232,7 @@ def parse_stats(sheet):
                         data["%s_%d" % (sub_tag, i)][attribute] = str(input_data[USERVAL+i])
 
         elif current_category == "workHours":
+
             pass
     return root
 
@@ -319,5 +326,13 @@ def main(excel_file_path="Configuration_template.xlsx", stats_file_path=""):
     return OUTPUT_DICT
 
 
-# if __name__ == "__main__":
-#     main()
+if __name__ == "__main__":
+    main()
+
+
+
+
+
+
+
+
