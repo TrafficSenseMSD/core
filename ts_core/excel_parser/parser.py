@@ -1,4 +1,3 @@
-#!/usr/bin/python
 from openpyxl import *
 import json
 
@@ -258,7 +257,7 @@ def get_input_from_row(sheet, row_num, cols=1):
         return tuple(output)
 
 
-def main(excel_file_path="Configuration_template.xlsx"):
+def run_parser(excel_file_path, outpath):
     wb = load_workbook(filename=excel_file_path, data_only=True)
 
     parse_general(wb["General Settings"])
@@ -269,14 +268,14 @@ def main(excel_file_path="Configuration_template.xlsx"):
     parse_branches(wb["Branch Settings"], type)
     # parse_stats(wb["Advanced Customization"])
 
-    parser_output_file = open("parser_output.txt", "w")
 
-    print(OUTPUT_DICT)
-    parser_output_file.write(json.dumps(OUTPUT_DICT, indent=4,))
+#    print(OUTPUT_DICT)
 
+    # Context manager to dump parsed config to json
+    with open(outpath+"/parser_output.json", 'w') as outfile:
+        json.dump(OUTPUT_DICT, outfile, indent=4,)
 
-if __name__ == "__main__":
-    main()
+    return OUTPUT_DICT
 
 
 def parse_vehicles(sheet):
@@ -319,49 +318,3 @@ def parse_vehicles(sheet):
                 print(row.value)
     t = get_input_from_row(sheet, 7)
     return dct
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
