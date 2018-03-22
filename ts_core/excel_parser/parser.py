@@ -181,7 +181,7 @@ def parse_stats(sheet):
     num_entries = 15    # Maximum number of entries for any category TODO global
 
     for row in range(MIN_ROW, 100):
-        prettyprint(root)
+        # prettyprint(root)
 
         if row_has_category(sheet, row) is not None:
             # If a category has been parsed, put it in the xml
@@ -193,7 +193,7 @@ def parse_stats(sheet):
                         continue
                     ET.SubElement(category_root, sub_tag, attrib={attr: str(attributes[attr]) for attr in attributes})
 
-                prettyprint(root)
+                # prettyprint(root)
             current_category = row_has_category(sheet, row)
             if current_category in category_translate.keys():
                 current_category = category_translate[current_category]
@@ -307,16 +307,16 @@ def main(excel_file_path="Configuration_template.xlsx", stats_file_path=""):
         print("ERROR")
         return -1
     parse_branches(wb["Branch Settings"], type)
+    parser_output_file = open("parser_output.txt", "w")
+    # print(json.dumps(OUTPUT_DICT, indent=4,))
+    parser_output_file.write(json.dumps(OUTPUT_DICT, indent=4,))
+
     stats_root_node = parse_stats(wb["Advanced Customization"])
     stats_file = open(stats_file_path+config_name+".stats.xml", "w")
-
     xml1 = xml.dom.minidom.parseString(ET.tostring(stats_root_node, encoding='utf8', method='xml').decode())
     stats_file.write(xml1.toprettyxml())
 
-    parser_output_file = open("parser_output.txt", "w")
-
-    print(OUTPUT_DICT)
-    parser_output_file.write(json.dumps(OUTPUT_DICT, indent=4,))
+    return OUTPUT_DICT
 
 
 # if __name__ == "__main__":
