@@ -1,5 +1,7 @@
 from openpyxl import *
 import json
+import xml.etree.ElementTree as ET
+import xml.dom.minidom
 
 SUMO_ATTR_COLUMN = 0    # Column A
 SUMO_FILE_COLUMN = 1    # Column B
@@ -8,7 +10,7 @@ UNITS_COLUMN = 4        # Column E
 VALUE_COLUMN = 5        # Column F for single entry data
 
 MIN_ROW = 3  # Minimum row number where config information CAN be stored
-MAX_ROW = 20    # Max row where data is stored TODO update?
+MAX_ROW = 100    # Max row where data is stored TODO update?
 MIN_COLUMN = 2
 
 UNIT_CONVERT = {
@@ -74,7 +76,8 @@ def parse_general(sheet):
 
     # Overall Traffic Demand
     # TODO Where does this go in the xmls if anywhere?
-    input_traffic_demand = get_input_from_row(sheet, MIN_ROW+2)
+    # input_traffic_demand = get_input_from_row(sheet, MIN_ROW+2)
+    return config_name
 
 
 def parse_intersection(sheet):
@@ -162,39 +165,82 @@ def row_has_data(sheet, row_num):
 
 
 def parse_stats(sheet):
-    current_category = None
-    for row in range(MIN_ROW, 100):
-        if row_has_category(sheet, row) is not None:
-            current_category = row_has_category(sheet, row)
-            if current_category is not None:
-                current_category = current_category.lower()
-                OUTPUT_DICT["stats"][current_category] = {}
-            continue
-        else:
-            if current_category in ["general", "parameters"]:
-                if row_has_data(sheet, row):
-                    input_data = get_input_from_row(sheet, row, cols=1)
-                    OUTPUT_DICT["stats"][current_category][input_data[SUMOATTR]] = input_data[USERVAL]
-            else:
-                if current_category == "population":
-                    sub_tag = "bracket"
-                    num_entries = 100
-                    data = None
-                    if row_has_data(sheet, row):
-                        input_data = get_input_from_row(sheet, row, cols=100)
-                        num_entries = min(num_entries, len(input_data)-3)
-                        if data is None:
-                            data = {}
-                            for i in range(0, num_entries):
-                                data["%s_%d" % (sub_tag, i)] = {}  # Bracket_0: {}, Bracket_1: {} etc
-                        for i in range(0, num_entries):
-                            data["%s_%d" % (sub_tag, i)][input_data[SUMOATTR]] = input_data[USERVAL+i]
-                    print(data)
-                    if sub_tag not in OUTPUT_DICT["stats"][current_category].keys():
-                        OUTPUT_DICT["stats"][current_category][sub_tag] = {}
+    category_translate = {"Work Hours": "workHours", "City Gates": "cityGates",
+                          "Bus Stations": "busStations", "Bus Lines": "busLines"}
+    expected_entries = {"bracket": 3, "opening": 2, "closing": 2, "street": 3, "entrance": 4,
+                        "school": 7, "busStation": 3}
+    sub_tags = {"population": "bracket", "workHours": "opening", "streets": "street", "cityGates": "entrance", "schools": "school",
+                "busStations": "busStation"}
 
-                    OUTPUT_DICT["stats"][current_category][sub_tag][input_data[SUMOATTR]] = data
-                    print(input_data)
+    root = ET.Element("city")
+    current_category = None
+    category_root = None
+    data = None
+    num_entries = 15    # Maximum number of entries for any category TODO global
+
+    for row in range(MIN_ROW, 100):
+        # prettyprint(root)
+
+        if row_has_category(sheet, row) is not None:
+            # If a category has been parsed, put it in the xml
+            if data is not None:
+                for tag in data.keys():
+                    attributes = data[tag]
+
+                    if "TAG" in attributes.keys():
+                        sub_tag = attributes["TAG"].lower()
+                        del attributes["TAG"]
+                    else:
+                        sub_tag = tag.split("_")[0]
+
+                    if sub_tag in expected_entries.keys() and len(attributes) < expected_entries[sub_tag]:
+                        continue
+                    ET.SubElement(category_root, sub_tag, attrib={attr: str(attributes[attr]) for attr in attributes})
+
+                # prettyprint(root)
+            current_category = row_has_category(sheet, row)
+            if current_category in category_translate.keys():
+                current_category = category_translate[current_category]
+            else:
+                current_category = current_category.lower().strip(" ")
+            category_root = ET.SubElement(root, current_category)
+            data = None
+            continue
+        elif category_root is None:
+            continue
+
+        if current_category in ["general", "parameters"]:
+            if row_has_data(sheet, row):
+                input_data = get_input_from_row(sheet, row, cols=1)
+                category_root.attrib[input_data[SUMOATTR]] = str(input_data[USERVAL])
+
+        elif current_category in ["population", "workHours", "streets", "cityGates", "schools", "busStations"]:
+            sub_tag = sub_tags[current_category]
+
+            if row_has_data(sheet, row):
+                input_data = get_input_from_row(sheet, row, cols=100)
+                if data is None:
+                    data = {"%s_%d" % (sub_tag, i): {} for i in range(0, num_entries)}
+
+                for i in range(0, len(input_data)-3):
+                    attribute = input_data[SUMOATTR]
+                    if attribute == "edge2":  # Deal with inbound/outbound attributes since sumo uses i and o notation
+                        data["%s_%d" % (sub_tag, i)]["edge"] += {"Inbound": "i", "Outbound": "o"}[input_data[USERVAL+i]]
+                    else:
+                        data["%s_%d" % (sub_tag, i)][attribute] = str(input_data[USERVAL+i])
+
+        elif current_category == "workHours":
+
+            pass
+    return root
+
+
+def prettyprint(root):
+    try:
+        xml1 = xml.dom.minidom.parseString(ET.tostring(root, encoding='utf8', method='xml').decode())
+        print(xml1.toprettyxml())
+    except:
+        pass
 
 
 def row_has_category(sheet, row_num):
@@ -260,61 +306,27 @@ def get_input_from_row(sheet, row_num, cols=1):
 def run_parser(excel_file_path, outpath):
     wb = load_workbook(filename=excel_file_path, data_only=True)
 
-    parse_general(wb["General Settings"])
+    config_name = parse_general(wb["General Settings"])
     type = parse_intersection(wb["Intersection Settings"])
     if parse_intersection is None:
         print("ERROR")
         return -1
     parse_branches(wb["Branch Settings"], type)
-    # parse_stats(wb["Advanced Customization"])
+    parser_output_file = open("parser_output.txt", "w")
+    # print(json.dumps(OUTPUT_DICT, indent=4,))
+    parser_output_file.write(json.dumps(OUTPUT_DICT, indent=4,))
 
-
-#    print(OUTPUT_DICT)
-
-    # Context manager to dump parsed config to json
-    with open(outpath+"/parser_output.json", 'w') as outfile:
-        json.dump(OUTPUT_DICT, outfile, indent=4,)
+    stats_root_node = parse_stats(wb["Advanced Customization"])
+    stats_file = open(stats_file_path+config_name+".stats.xml", "w")
+    xml1 = xml.dom.minidom.parseString(ET.tostring(stats_root_node, encoding='utf8', method='xml').decode())
+    stats_file.write(xml1.toprettyxml())
 
     return OUTPUT_DICT
 
 
-def parse_vehicles(sheet):
-    """
 
-    Parameters
-    ----------
-    sheet - The vehicle definition sheet
 
-    Returns
-    -------
-    dct: Dictionary containing all attributes for each Vehicle class
-    """
 
-    sheet_name = "Vehicle Type Customization"  # TODO Get from sheet parameter?
 
-    vType_to_attr = {"Cars": "car", "Semi Trucks": "large vehicle???"}
-    vehicle_type_info = {}  # {"car": [(accel, ROUTE, attr1), (decel, ROUTE, attr1, attr2...)]
-    dct = {}
 
-    # Initialize all vehicle classes that will be created
-    for col in sheet.iter_cols(max_col=1):    # Go through all rows of Column A
-        for vClass_col in col:
-            if vClass_col.row >= MIN_ROW:    # Only look at usable columns
-                col_value = vClass_col.value
-                if col_value is not None:  # Check for value
-                    # Check to see if it is a recognized vehicle class
-                    if col_value in vType_to_attr.keys():
-                        vehicle_type_info[col_value] = [vClass_col.row]
-                    else:
-                        print('Unknown Vehicle class: "%s"'
-                              ' in entry "%s"'
-                              ' in worksheet "%s"' % (col_value, vClass_col.coordinate, sheet_name))
 
-    # Get all user inputs for each vehicle type
-    for vClass in vehicle_type_info.keys():
-        vClass_row_start = vehicle_type_info[vClass][0]
-        for col in sheet.get_squared_range(min_col=2, min_row=vClass_row_start, max_col=8, max_row=vClass_row_start):
-            for row in col:
-                print(row.value)
-    t = get_input_from_row(sheet, 7)
-    return dct
