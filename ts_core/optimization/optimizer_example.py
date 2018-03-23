@@ -29,7 +29,7 @@ class OptimizerExample():
         self.rolodex = Rolodex(attributes=self.attributes, buffer_length=10)
 
     def train(self, tick_num):
-        if tick_num > 100:
+        if tick_num > 80:
             time.sleep(0.5)
         self.rolodex.update_subscription_buffers(tick_num)
         print('Vehicle domain buffer data:\n{}'.format(self.rolodex.buffers['vehicle'].buffer))
