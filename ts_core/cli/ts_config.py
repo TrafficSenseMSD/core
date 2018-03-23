@@ -39,7 +39,7 @@ def parse_args():
     init.set_defaults(which='init')
 
     build = subparsers.add_parser('build', help="", description="")
-    build.add_argument("config_file", action=FullPaths)
+    build.add_argument("config_file")#, action=FullPaths)
     build.add_argument("--project_path", action=FullPaths)
     build.set_defaults(which='build')
 
@@ -47,7 +47,6 @@ def parse_args():
     # parser.add_argument("--randomize", dest="randomize", default=False, help="Makes the configs slightly randomized")
     arguments = parser.parse_args()
     return arguments
-
 
 
 
@@ -67,59 +66,13 @@ def main():
     args = parse_args()
 
     if args.which == 'build':
-        parsed_excel = parser.run_parser(args.config_file, args.project_path)
-        transform_parsed_excel(parsed_excel)
+        conf_file_path = args.project_path + "/" + args.config_file
+        parsed_excel, stats_xml = parser.run_parser(conf_file_path, args.project_path)
+
+        transform_parsed_excel(parsed_excel, args.project_path, stats_xml)
+
     elif args.which == 'init':
         pass
     else:
         raise ValueError("Invalid subcommand somehow passed Argparse, please try again.")
-
-    # if args.intersection:
-    #     if DEBUG: print("intersection %s " % args.intersection)
-    #     file_list = args.intersection.split(",")
-    #     if not os.path.exists("SUMO_DIRECTORY"):
-    #         print('SUMO Directory does not exist. Please run "--init"')
-    #         return
-    #     if args.intersection == "default":
-    #         copyfile(DEFAULT_NODE_FILE, NODE_FILE_LOCATION)
-    #         copyfile(DEFAULT_EDGE_FILE, EDGE_FILE_LOCATION)
-    #
-    #     if len(file_list) == 2:
-    #         copyfile(file_list[0], NODE_FILE_LOCATION)
-    #         copyfile(file_list[1], EDGE_FILE_LOCATION)
-
-    # parser.run_parser()
-
-    # if args.driver_behavior:
-    #     if DEBUG: print("driver_behavior %s" % args.driver_behavior)
-    #
-    # if args.vehicle_size_distribution:
-    #     if DEBUG: print("vehicle_size_distribution %s" % args.vehicle_size_distribution)
-    #
-    # if args.traffic_demand:
-    #     if DEBUG: print("traffic_demand %s" % args.traffic_demand)
-    #
-    # if args.accident_behavior:
-    #     if DEBUG: print("accident_behavior %s" % args.accident_behavior)
-    #
-    # if args.v2i_distribution:
-    #     if DEBUG: print("v2i_distribution %s" % args.v2i_distribution)
-    #
-    # if args.optimizer:  # C
-    #     if DEBUG: print("optimizer %s" % args.optimizer)
-    #
-    # if args.route_weights:
-    #     if DEBUG: print("route_weights %s" % args.route_weights)
-    #
-    # if args.initialize_directory:
-    #     if DEBUG: print("initialize_directory %s" % args.initialize_directory)
-    #
-    #     if not os.path.exists("SUMO_DIRECTORY"):
-    #         os.makedirs("SUMO_DIRECTORY")
-    #
-    # if args.randomize:
-    #     if DEBUG: print("randomize %s " % args.randomize)
-    #
-    # return
-    #
 

@@ -303,25 +303,29 @@ def get_input_from_row(sheet, row_num, cols=1):
         return tuple(output)
 
 
-def run_parser(excel_file_path, outpath):
+def run_parser(excel_file_path, outpath, stats_file_path=""):
     wb = load_workbook(filename=excel_file_path, data_only=True)
 
     config_name = parse_general(wb["General Settings"])
+
     type = parse_intersection(wb["Intersection Settings"])
     if parse_intersection is None:
         print("ERROR")
         return -1
+
     parse_branches(wb["Branch Settings"], type)
-    parser_output_file = open("parser_output.txt", "w")
-    # print(json.dumps(OUTPUT_DICT, indent=4,))
-    parser_output_file.write(json.dumps(OUTPUT_DICT, indent=4,))
+
+
+    # Context manager to dump parsed config to json
+    with open(outpath+"/parser_output.json", 'w') as outfile:
+        json.dump(OUTPUT_DICT, outfile, indent=4,)
 
     stats_root_node = parse_stats(wb["Advanced Customization"])
-    stats_file = open(stats_file_path+config_name+".stats.xml", "w")
-    xml1 = xml.dom.minidom.parseString(ET.tostring(stats_root_node, encoding='utf8', method='xml').decode())
-    stats_file.write(xml1.toprettyxml())
 
-    return OUTPUT_DICT
+
+    stats_xml = xml.dom.minidom.parseString(ET.tostring(stats_root_node, encoding='utf8', method='xml').decode())
+
+    return OUTPUT_DICT, stats_xml.toprettyxml()
 
 
 
