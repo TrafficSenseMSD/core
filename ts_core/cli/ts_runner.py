@@ -83,7 +83,6 @@ def run_loop():
     while traci.simulation.getMinExpectedNumber() > 0:
         traci.simulationStep()
         op.train(tick)
-        input('Continue?')
         tick += 1
     traci.close()
     sys.stdout.flush()

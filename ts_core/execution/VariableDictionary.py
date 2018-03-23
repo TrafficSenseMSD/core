@@ -3,23 +3,6 @@ import traci.constants as tc
 
 class VariableDictionary():
     def __init__(self):
-        self.domains = {
-            'edge':(self.edge, traci.edge),
-            'gui': (self.gui, traci.gui),
-            'induction loop': (self.inductionloop, traci.inductionloop),
-            'junction': (self.junction, traci.junction),
-            'lane': (self.lane, traci.lane),
-            'lane area': (self.lanearea, traci.lanearea),
-            'multi-entry-exit detector': (self.multientryexit, traci.multientryexit),
-            'person': (self.person, traci.person),
-            'poi': (self.poi, traci.poi),
-            'polygon': (self.polygon, traci.polygon),
-            'route': (self.route, traci.route),
-            'simulation': (self.simulation, traci.simulation),
-            #'traffic light': (self.trafficlight, traci.trafficlight),
-            'vehicle': (self.vehicle, traci.vehicle),        
-            'vehicle type': (self.vehicletype, traci.vehicletype)
-        }
         
         self.edge = {}
             # 'id list': traci.edge.getIDList,
@@ -69,17 +52,35 @@ class VariableDictionary():
             'lane position': tc.VAR_LANEPOSITION}
             
         self.vehicletype = {}
+        
+        self.domains = {
+            'edge':(self.edge, traci.edge),
+            'gui': (self.gui, traci.gui),
+            'induction loop': (self.inductionloop, traci.inductionloop),
+            'junction': (self.junction, traci.junction),
+            'lane': (self.lane, traci.lane),
+            'lane area': (self.lanearea, traci.lanearea),
+            'multi-entry-exit detector': (self.multientryexit, traci.multientryexit),
+            'person': (self.person, traci.person),
+            'poi': (self.poi, traci.poi),
+            'polygon': (self.polygon, traci.polygon),
+            'route': (self.route, traci.route),
+            'simulation': (self.simulation, traci.simulation),
+            #'traffic light': (self.trafficlight, traci.trafficlight),
+            'vehicle': (self.vehicle, traci.vehicle),        
+            'vehicle type': (self.vehicletype, traci.vehicletype)
+        }
     
     #will make a new table for quicker lookup, but quick soln for now:
     def get_attribute_label(self, domain_label, code):
-        for key,value in self.domains[domain][0]:
-            if value == code:
+        for key in self.domains[domain_label][0]:
+            if self.domains[domain_label][0][key] == code:
                 return key
     
     def get_var(self, domain_label, attribute_label):
         if domain_label in self.domains:
             try:
-                return self.domains[domain][0][attribute]
+                return self.domains[domain_label][0][attribute_label]
             except KeyError:
                 print('ERROR::VariableDictionary.get_var: key {} not found in {} dictionary.'.format(attribute_label, domain_label))
         else:

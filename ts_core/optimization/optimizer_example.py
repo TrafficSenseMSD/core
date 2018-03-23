@@ -1,6 +1,6 @@
 #!/usr/bin/env python
 
-import sys
+import time
 from ts_core.execution.Rolodex import Rolodex
     
 class OptimizerExample():
@@ -26,8 +26,10 @@ class OptimizerExample():
             ('vehicle','road id',[],1),
             ('vehicle','lane position',[],1),
         ]
-        self.rolodex = Rolodex(attributes=self.attributes)
+        self.rolodex = Rolodex(attributes=self.attributes, buffer_length=10)
 
     def train(self, tick_num):
+        if tick_num > 100:
+            time.sleep(0.5)
         self.rolodex.update_subscription_buffers(tick_num)
         print('Vehicle domain buffer data:\n{}'.format(self.rolodex.buffers['vehicle'].buffer))

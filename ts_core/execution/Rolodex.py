@@ -18,8 +18,13 @@ class DataBuffer():
         self.subscription_ledger = {}
         self.id_table = {}
         self.attribute_table = {}
-        self.last_tick_num = 0
+        self.last_tick_num = 1
         
+        self.generate_data_structures(self.last_tick_num)
+        
+    def generate_data_structures(self, tick_num):
+        self.last_tick_num = tick_num
+        new_ids = []
         #create subscription ledger and attribute table
         # 'car100':[(attribute_label,sampling_frequency,simulation_ticks_since_last_update), ...]
         for attribute in self.attributes:
@@ -27,6 +32,7 @@ class DataBuffer():
             if not attribute[1]:
                 #empty ID list, get current list from domain
                 ids = self.domain.getIDList()#VERIFY OUTPUT
+                new_ids = ids
             else:
                 ids = attribute[1]
             for id in ids:
@@ -35,15 +41,16 @@ class DataBuffer():
                         self.subscription_ledger[id].append((attribute[0],attribute[2],0))
                 except KeyError:
                     self.subscription_ledger[id] = [(attribute[0],attribute[2],0)]            
-
+        print('\n\nSubscription Ledger: {}'.format(self.subscription_ledger))
         #create ID look-up table
         index = 0
-        for id in self.subscription_ledger.keys():
-            self.id_table[id] = [index]
-            for attribute in id:
+        for id in self.subscription_ledger:
+            self.id_table[id] = []
+            for attribute in self.subscription_ledger[id]:
                 self.id_table[id].append(attribute[0])
             index += 1
-        self.num_ids = index
+        self.num_ids = index           
+        print('ID table: {}'.format(self.id_table))
             
         #zeros len(attributes) x len(IDs) x buffer_len
         #z = np.zeros(len(self.attributes), self.num_ids, self.buffer_length)
@@ -63,17 +70,19 @@ class DataBuffer():
         #'car100' : {tick0:{'lane':'5a','speed':29},tick1:{'lane':'5a','speed':27},...}
         self.buffer = {}
         for id in self.id_table:
-            (self.id_table[id])
+            #(self.id_table[id])
+            tick_dict = {}
             frame_dict = {}
-            for attribute in id_table[id]:
+            for attribute in self.id_table[id]:
                 #frame_dict[attribute] = np.zeros(self.buffer_length)
                 frame_dict[attribute] = 0
             #panel_frames[id] = DataFrame(frame_dict)
-            self.buffer[id][-1] = frame_dict
+            tick_dict[self.last_tick_num] = frame_dict
+            self.buffer[id] = tick_dict
         
         #self.buffer = Panel(data = panel_frames)
         ##self.buffer = Panel(data=z, major_axis=self.attribute_table.keys().sorted(), minor_axis=self.id_table.keys().sorted())
-            
+        return new_ids
             
     #id = 'car100'
     #data = {'lane position':123.12345123451234, ...}
@@ -85,7 +94,7 @@ class DataBuffer():
         #oldest_data = rbuffer.loc[self.buffer_len-1,slice(None)]
         old_data = {}
         keylist = sorted(self.buffer[id].keys())
-        for old in keylist[:-self.buffer_len]:
+        for old in keylist[:-self.buffer_length]:
             old_data[old] = self.buffer[id].pop(old)
         #for attribute in data:
             #self.buffer[id].loc[self.buffer_len-1,attribute] = data[attribute]
@@ -157,6 +166,7 @@ class Rolodex():
         self.ticks_per_second = ticks_per_second
         self.default_buffer_length = 100
         self.buffers = {}
+        self.var_dict = vd()
         
         self.context_domains = {}
         self.context_domains['edge'] = traci.edge
@@ -183,7 +193,7 @@ class Rolodex():
             try:
                 self.domain_attributes[attribute[0]].append(attribute[1:]) #verify appending a list for each attribute, not params of each
             except KeyError:
-                print('ERROR:Rolodex:__init__:attributes :: attribute context: {} in {} not valid'.format(attribute[0], attribute))
+                print('\nERROR:Rolodex:__init__:attributes :: attribute context: {} in {} not valid'.format(attribute[0], attribute))
         
         if buffer_length:
             self.buffer_length = buffer_length
@@ -192,10 +202,11 @@ class Rolodex():
                 self.buffer_length = self.frame_time / self.ticks_per_second
             else:
                 self.buffer_length = self.default_buffer_length
-                print('WARNING:Rolodex:__init__: Using default buffer lengths of {} for {} domain'.format(self.default_buffer_length, domain))
+                print('\nWARNING:Rolodex:__init__: Using default buffer lengths of {} for {} domain'.format(self.default_buffer_length, domain))
 
         for domain in self.context_domains:
             if domain in self.domain_attributes:
+                print('\nDomain: {}, attributes: {}'.format(domain, self.domain_attributes[domain]))
                 if self.domain_attributes[domain]:
                     context = self.context_domains[domain]
                     self.buffers[domain] = DataBuffer(self.buffer_length, context, attributes=self.domain_attributes[domain], id_update_frequency=id_update_frequency)
@@ -212,7 +223,8 @@ class Rolodex():
     #also adds to DataBuffer
     def add_subscription(self, domain, id_table):
         for id in id_table:
-            domain.subscribe(id, (id_table[id]))
+            print(id_table[id])
+            self.context_domains[domain].subscribe(id, self.attribute_to_var_tuple(domain,id_table[id]))
             domain
         
     def list_context_domains(self):
@@ -232,10 +244,16 @@ class Rolodex():
     def set_update_frequency(self, attribute, num_simulation_ticks_between_samples, ids=[]):
         return
         
+    def attribute_to_var_tuple(self, domain, list):
+        tp = []
+        for item in list:
+            tp.append(self.var_dict.get_var(domain, item))
+        return tuple(tp)
+        
     def convert_hex_to_attribute(self, domain, data):
         converted = {}
         for item in data:
-            converted[vd.get_attribute_label(domain, item)] = data[item]
+            converted[self.var_dict.get_attribute_label(domain, item)] = data[item]
         return converted
             
     #Update functions
@@ -243,24 +261,29 @@ class Rolodex():
     #Manually update when requested
     # domains = ['junction', 'vehicle', ...]
     #TODO: Implement frequency schedule updates
-    def update_subscription_buffers(self, domains=None, tick_num=None):
+    def update_subscription_buffers(self, tick_num, domains=None):
         i = 0
         while i < 2:
             try:
                 if not domains:
                     domains = self.context_domains
-                #print('\ndomains: {}'.format(domains))
                 for domain in domains:
                     try:
                         buffer = self.buffers[domain]
                         if buffer:
+                            if not buffer.id_table:
+                                new_ids = buffer.generate_data_structures(tick_num)
+                                print('Buffer ID table: {}'.format(buffer.id_table))
+                                if new_ids:
+                                    self.add_subscription(domain, buffer.id_table)
+                                    print('adding new vehicle ids: {}'.format(new_ids))
                             for id in buffer.id_table:
                                 # buffer.id_table = {
                                 #   'car100':[(attribute_label,sampling_frequency,simulation_ticks_since_last_update), ...],
                                 #   'car101':[(attribute_label,sampling_frequency,simulation_ticks_since_last_update), ...]
                                 #}       
                                 data = self.context_domains[domain].getSubscriptionResults(id)
-                                buffer.update(id, convert_hex_to_attribute(domain, data), tick_num=tick_num)
+                                buffer.update(id, self.convert_hex_to_attribute(domain, data), tick_num=tick_num)
                                 #for attribute in id_table[id]:
                                     #if attribute[2] == attribute[1]:#if time to sample, based on sampling frequency
                                     #buffer.update(id, attribute[0], data[vd.get_var(domain, attribute[0])])                        
@@ -283,7 +306,7 @@ class Rolodex():
         buffer = self.buffers[domain]
         for id in id_table:
             if id not in buffer.id_table:
-                print('WARNING::Rolodex.update_subscription_buffers: ID: {} not in {} Subscription ID Table, adding the following attribute subscriptions:'.format(id,domain))
+                print('\nWARNING::Rolodex.update_subscription_buffers: ID: {} not in {} Subscription ID Table, adding the following attribute subscriptions:'.format(id,domain))
                 self.add_subscription(domain, {id:id_table[id]})# VERIFY behavior with customer
             data = self.context_domains[domain].getSubscriptionResults(id)
             for attribute in id_table[id]:
