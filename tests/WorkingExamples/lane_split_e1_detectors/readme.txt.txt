@@ -1,0 +1,7 @@
+This working version, uploaded in the folder as "lane_split_e1_detectors" gives us the demonstration of:
+
+1) Lane Splitting (.nod, .edg, .con)
+	-Where an extra node was created on the West inbound road. "1s" was the original "1" node at 500 meters from the intersection and the new "1" node was created at 50 meters from the intersection. This allows us to create an edge (road) from node "1s" to node "1" that is 2 lanes. The split happens from node "1" to node "0" (intersection junction) where the edge is defined as having 3 lanes. Care must now be taken in the XXX.con.xml file now to make the correct connections. DUE TO LANE CHANGING MODEL, PLEASE NOTE THE FOLLOWING: do not make a connection in the connection file from the right-most lane of the 2-lane road to the right-most lane of the 3-lane road. Cars that are turning right will automatically move over correctly. Otherwise, the lane changing model makes the cars prefer to be in the right-most lane any chance they get. This causes unnecessary lane changes.
+
+2) Induction Loop (E1) Detectors (.add, and output files-see .add file for naming)
+	-Induction loops have been added to the West inbound lane at two different locations to experiment with the output of the file. The information retrieved from the detectors is not used whatsoever in the traffic light sequence, but rather proof of introduction to our simulation. There is still more decoding that needs to be done on the output files.

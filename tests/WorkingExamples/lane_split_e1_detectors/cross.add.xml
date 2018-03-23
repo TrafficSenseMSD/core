@@ -1,0 +1,7 @@
+<additional>
+    <inductionLoop id="myLoop1_0" lane="1i_0" pos="10" freq="10" file="40_meters_away.xml"/>
+	<inductionLoop id="myLoop1_1" lane="1i_1" pos="10" freq="10" file="40_meters_away.xml"/>
+	<inductionLoop id="myLoop1_2" lane="1i_2" pos="10" freq="10" file="40_meters_away.xml"/>
+	<inductionLoop id="myLoop1s_0" lane="1is_0" pos="50" freq="10" file="earlier_detection_loops.xml"/>
+	<inductionLoop id="myLoop1s_1" lane="1is_1" pos="50" freq="10" file="earlier_detection_loops.xml"/>
+ </additional>
