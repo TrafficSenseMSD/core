@@ -1,6 +1,7 @@
 import traci
 import numpy as np
 from pandas import Panel
+from pandas import DataFrame
 import VariableDictionary as vd
         
 class DataBuffer():
@@ -45,34 +46,38 @@ class DataBuffer():
             
         #zeros len(attributes) x len(IDs) x buffer_len
         z = np.zeros(len(self.attributes), self.num_ids, self.buffer_length)
-        self.buffer = Panel(data=z, major_axis=self.attribute_table.keys().sorted(), minor_axis=self.id_table.keys().sorted())
+        
+        # Panel = collection of DataFrames:
+        # Each DataFrame corresponds with an ID:
+        #
+        #              'car100'         |         'car101'              |
+        #               ------          |          ------               |
+            #          Attribute:       |                               |
+            #          lane    speed    |        travel time    speed   |
+            #Tick   3   5a      29      |   131       52          32    |
+            #       2   5a      27      |   130       51          31    |  
+            #       1   5a      23      |   129       50          30    |
+            #       0   4a      16      |   128       49          31    |
+        panel_frames = {}
+        for id in self.id_table:
+            (self.id_table[id])
+            frame_dict = {}
+            for attribute in id_table[id]:
+                frame_dict[attribute] = np.zeros(self.buffer_length)
+            panel_frames[id] = DataFrame(frame_dict)
+        self.buffer = Panel(data = panel_frames)
+        #self.buffer = Panel(data=z, major_axis=self.attribute_table.keys().sorted(), minor_axis=self.id_table.keys().sorted())
             
-            
-    def attribute_dictionary(self, attributes=None):
-        a_dict = {}
-        index = 0
-        for attribute in attribute:
-            a_list = [index]
-            a_list.extend(attribute[1:])
-            a_dict[attribute[0]] = a_list
-            index +=1
-        return a_dict
             
     #id = 'car100'
-    #attribute = 'lane position'
-    #data = 123.12345123451234
-    def update(self, id, attribute, data):
-        i = 0
-        while i < 2:
-            try:
-                
-                return #if full{shift}, insert
-            except MemoryError as e:
-                print(e)
-                self.dump()
-                if i == 1:
-                    print('UPDATE ABORTED: MEMORY ERROR')
-                    return
+    #data = {'lane position':123.12345123451234, ...}
+    def update(self, id, data):
+        rbuffer = self.buffer[id]
+        oldest_data = rbuffer.loc[self.buffer_len-1,slice(None)]
+        for attribute in data:
+            self.buffer[id].loc[self.buffer_len-1,attribute] = data[attribute]
+        self.buffer[id] = self.buffer[id].reindex(rbuffer.axes[0]._cache['_data'])
+        return oldest_data
                     
     def add(self, id_table):
         return
@@ -214,20 +219,31 @@ class Rolodex():
     #Automatically update data at the specified frequency
     #Manually update when requested
     # domains = ['junction', 'vehicle', ...]
+    #TODO: Implement frequency schedule updates
     def update_subscription_buffers(self, domains=[]):
-        if not domains:
-        domains = self.context_domains.keys()
-        for domain in domains:
-            buffer = self.buffers[domain]
-            for id in buffer.id_table:
-                # buffer.id_table = {
-                #   'car100':[(attribute_label,sampling_frequency,simulation_ticks_since_last_update), ...],
-                #   'car101':[(attribute_label,sampling_frequency,simulation_ticks_since_last_update), ...]
-                #}       
-                data = self.context_domains[domain].getSubscriptionResults(id)
-                for attribute in id_table[id]:
-                    #if attribute[2] == attribute[1]:#if time to sample, based on sampling frequency
-                    buffer.update(id, attribute[0], data[vd.get_var(domain, attribute[0])])
+        i = 0
+        while i < 2:
+            try:
+                if not domains:
+                domains = self.context_domains.keys()
+                for domain in domains:
+                    buffer = self.buffers[domain]
+                    for id in buffer.id_table:
+                        # buffer.id_table = {
+                        #   'car100':[(attribute_label,sampling_frequency,simulation_ticks_since_last_update), ...],
+                        #   'car101':[(attribute_label,sampling_frequency,simulation_ticks_since_last_update), ...]
+                        #}       
+                        data = self.context_domains[domain].getSubscriptionResults(id)
+                        buffer.update(id, data)
+                        #for attribute in id_table[id]:
+                            #if attribute[2] == attribute[1]:#if time to sample, based on sampling frequency
+                            #buffer.update(id, attribute[0], data[vd.get_var(domain, attribute[0])])                        
+            except MemoryError as e:
+                print(e)
+                self.dump_to_file()
+                if i == 1:
+                    print('UPDATE ABORTED: MEMORY ERROR')
+                    return
      
     # domain = 'junction'    
     # id_table = {
@@ -245,11 +261,13 @@ class Rolodex():
                 #if attribute[2] == attribute[1]:#if time to sample, based on sampling frequency
                 buffer.update(id, attribute[0], data[vd.get_var(domain, attribute[0])])
         
-    #Returns a COPY of the data buffers (this has memory implications but will minimize the risk of data corruption).
-    #Where attributes is a list of tuples: [ (attribute string ,[ids]) ]
-        #Can specify the indices to retrieve
-    def get_data(self, attributes=None, indices=[]):
-        return
+    #Returns a copy of the data buffers for the given domains
+    #domains = ['vehicle', 'lane', ...]
+    def get_data(self, domains=[]):
+        data = {}
+        for domain in domains:
+            data[domain] = self.buffers[domain].buffer.values()
+        return data
 
     #Option to dump buffers to file
     def dump_to_file(self, domain=None, dumpfile=None):
