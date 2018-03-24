@@ -23,6 +23,7 @@ def mk_edge(intersections: dict, branches: dict):
         'id',
         'L_lanes',
         'R_lanes',
+        'S_lanes',
         'RS_lanes',
         'LS_lanes',
         'priority'
@@ -31,6 +32,7 @@ def mk_edge(intersections: dict, branches: dict):
     _lanes_fields = [
         'L_lanes',
         'R_lanes',
+        'S_lanes',
         'RS_lanes',
         'LS_lanes'
     ]
@@ -54,7 +56,7 @@ def mk_edge(intersections: dict, branches: dict):
         )
 
         outbound_edge = edges.edgeType(
-            id=str(branches[branch]['id'])+"i",
+            id=str(branches[branch]['id'])+"o",
             priority=branches[branch]['priority'],
             to=str(branches[branch]['id']),
             from_=0,

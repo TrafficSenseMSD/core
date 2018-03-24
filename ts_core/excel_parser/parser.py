@@ -81,13 +81,19 @@ def parse_general(sheet):
 
 
 def parse_intersection(sheet):
-    """
-    Parse the Intersection Tab
-
-    :param sheet: openpyxl sheet - The General Intersection Settings tab
-    :return: String - The selected intersection type. Key in ITYPE_BRANCHES
 
     """
+    
+    Parameters
+    ----------
+    sheet: openpyxl sheet - The General Intersection Settings tab
+
+    Returns
+    -------
+    String - The selected intersection type. Key in ITYPE_BRANCHES
+    
+    """
+
     # Intersection type (Cross, T, Y, etc)
     input_intersection_type = get_input_from_row(sheet, MIN_ROW)
     intersection_type = input_intersection_type[USERVAL]
@@ -303,10 +309,23 @@ def get_input_from_row(sheet, row_num, cols=1):
         return tuple(output)
 
 
-def run_parser(excel_file_path, outpath, stats_file_path=""):
+def run_parser(excel_file_path, outpath):
+    """
+    
+    Parameters
+    ----------
+    excel_file_path
+    outpath
+    stats_file_path
+
+    Returns
+    -------
+
+    """
     wb = load_workbook(filename=excel_file_path, data_only=True)
 
     config_name = parse_general(wb["General Settings"])
+
 
     type = parse_intersection(wb["Intersection Settings"])
     if parse_intersection is None:
@@ -317,7 +336,7 @@ def run_parser(excel_file_path, outpath, stats_file_path=""):
 
 
     # Context manager to dump parsed config to json
-    with open(outpath+"/parser_output.json", 'w') as outfile:
+    with open(outpath+ "/" + config_name + "_parsed.json", 'w') as outfile:
         json.dump(OUTPUT_DICT, outfile, indent=4,)
 
     stats_root_node = parse_stats(wb["Advanced Customization"])
@@ -325,7 +344,7 @@ def run_parser(excel_file_path, outpath, stats_file_path=""):
 
     stats_xml = xml.dom.minidom.parseString(ET.tostring(stats_root_node, encoding='utf8', method='xml').decode())
 
-    return OUTPUT_DICT, stats_xml.toprettyxml()
+    return config_name, OUTPUT_DICT, stats_xml.toprettyxml()
 
 
 

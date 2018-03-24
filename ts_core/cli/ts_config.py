@@ -30,6 +30,7 @@ def move_file(original_filename, new_filename):
     """
     copyfile(original_filename, new_filename)
 
+
 def parse_args():
     parser = argparse.ArgumentParser()
     subparsers = parser.add_subparsers(title="subcommands", help="choose one")
@@ -67,9 +68,9 @@ def main():
 
     if args.which == 'build':
         conf_file_path = args.project_path + "/" + args.config_file
-        parsed_excel, stats_xml = parser.run_parser(conf_file_path, args.project_path)
+        config_name, parsed_excel, stats_xml = parser.run_parser(conf_file_path, args.project_path)
 
-        transform_parsed_excel(parsed_excel, args.project_path, stats_xml)
+        transform_parsed_excel(parsed_excel, args.project_path, stats_xml, config_name)
 
     elif args.which == 'init':
         pass
