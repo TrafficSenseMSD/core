@@ -12,4 +12,5 @@ Submodules
 .. toctree::
 
    ts_core.excel_parser.parser
+   ts_core.excel_parser.parser_constants
 

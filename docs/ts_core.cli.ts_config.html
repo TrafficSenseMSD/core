@@ -46,64 +46,11 @@
   <div class="section" id="module-ts_core.cli.ts_config">
 <span id="ts-core-cli-ts-config-module"></span><h1>ts_core.cli.ts_config module<a class="headerlink" href="#module-ts_core.cli.ts_config" title="Permalink to this headline">¶</a></h1>
 <hr class="docutils" />
-<div class="section" id="command-line-arguments">
-<h2>Command-line arguments<a class="headerlink" href="#command-line-arguments" title="Permalink to this headline">¶</a></h2>
-<div class="section" id="optional-arguments">
-<h3>Optional arguments<a class="headerlink" href="#optional-arguments" title="Permalink to this headline">¶</a></h3>
-<blockquote>
-<div><table border="1" class="docutils">
-<colgroup>
-<col width="66%" />
-<col width="34%" />
-</colgroup>
-<tbody valign="top">
-<tr class="row-odd"><td><strong>Argument</strong></td>
-<td><strong>Description</strong></td>
-</tr>
-<tr class="row-even"><td><code class="docutils literal"><span class="pre">-h</span></code>, <code class="docutils literal"><span class="pre">--help</span></code></td>
-<td>show this help message and exit</td>
-</tr>
-<tr class="row-odd"><td><code class="docutils literal"><span class="pre">-i</span>&#160; <span class="pre">INTERSECTION</span></code>, <code class="docutils literal"><span class="pre">--intersection</span>&#160; <span class="pre">INTERSECTION</span></code></td>
-<td>defines the Intersection to generate</td>
-</tr>
-<tr class="row-even"><td><code class="docutils literal"><span class="pre">-d</span>&#160; <span class="pre">DRIVER_BEHAVIOR</span></code>, <code class="docutils literal"><span class="pre">--driver_behav</span>&#160; <span class="pre">DRIVER_BEHAVIOR</span></code></td>
-<td>Specify the driver behavior</td>
-</tr>
-<tr class="row-odd"><td><code class="docutils literal"><span class="pre">-v</span>&#160; <span class="pre">VEHICLE_SIZE_DISTRIBUTION</span></code>, <code class="docutils literal"><span class="pre">--vehicle_size</span>&#160; <span class="pre">VEHICLE_SIZE_DISTRIBUTION</span></code></td>
-<td>Vehicle size distribution</td>
-</tr>
-<tr class="row-even"><td><code class="docutils literal"><span class="pre">-t</span>&#160; <span class="pre">TRAFFIC_DEMAND</span></code>, <code class="docutils literal"><span class="pre">--traffic_demand</span>&#160; <span class="pre">TRAFFIC_DEMAND</span></code></td>
-<td>&#160;</td>
-</tr>
-<tr class="row-odd"><td><code class="docutils literal"><span class="pre">-a</span>&#160; <span class="pre">ACCIDENT_BEHAVIOR</span></code>, <code class="docutils literal"><span class="pre">--accident_behavior</span>&#160; <span class="pre">ACCIDENT_BEHAVIOR</span></code></td>
-<td>&#160;</td>
-</tr>
-<tr class="row-even"><td><code class="docutils literal"><span class="pre">-v2i</span>&#160; <span class="pre">V2I_DISTRIBUTION</span></code>, <code class="docutils literal"><span class="pre">--v2i_distribution</span>&#160; <span class="pre">V2I_DISTRIBUTION</span></code></td>
-<td>&#160;</td>
-</tr>
-<tr class="row-odd"><td><code class="docutils literal"><span class="pre">-o</span>&#160; <span class="pre">OPTIMIZER</span></code>, <code class="docutils literal"><span class="pre">--optimizer</span>&#160; <span class="pre">OPTIMIZER</span></code></td>
-<td>&#160;</td>
-</tr>
-<tr class="row-even"><td><code class="docutils literal"><span class="pre">-r</span>&#160; <span class="pre">ROUTE_WEIGHTS</span></code>, <code class="docutils literal"><span class="pre">--route_weights</span>&#160; <span class="pre">ROUTE_WEIGHTS</span></code></td>
-<td>&#160;</td>
-</tr>
-<tr class="row-odd"><td><code class="docutils literal"><span class="pre">--init</span></code></td>
-<td>Initializes the directory…</td>
-</tr>
-<tr class="row-even"><td><code class="docutils literal"><span class="pre">--randomize</span>&#160; <span class="pre">RANDOMIZE</span></code></td>
-<td>Makes the configs slightly randomized</td>
-</tr>
-</tbody>
-</table>
-</div></blockquote>
-</div>
-</div>
-<hr class="docutils" />
 <div class="section" id="script-contents">
 <h2>Script contents<a class="headerlink" href="#script-contents" title="Permalink to this headline">¶</a></h2>
 <dl class="function">
 <dt id="ts_core.cli.ts_config.main">
-<code class="descname">main</code><span class="sig-paren">(</span><em>args</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/ts_core/cli/ts_config.html#main"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#ts_core.cli.ts_config.main" title="Permalink to this definition">¶</a></dt>
+<code class="descname">main</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/ts_core/cli/ts_config.html#main"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#ts_core.cli.ts_config.main" title="Permalink to this definition">¶</a></dt>
 <dd><p>Main function that parses the arguments and
 will (call functions that )creates all of the required files</p>
 <table class="docutils field-list" frame="void" rules="none">
@@ -137,6 +84,11 @@ will (call functions that )creates all of the required files</p>
 </table>
 </dd></dl>
 
+<dl class="function">
+<dt id="ts_core.cli.ts_config.parse_args">
+<code class="descname">parse_args</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/ts_core/cli/ts_config.html#parse_args"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#ts_core.cli.ts_config.parse_args" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
 </div>
 </div>
 
@@ -149,10 +101,6 @@ will (call functions that )creates all of the required files</p>
   <h3><a href="index.html">Table Of Contents</a></h3>
   <ul>
 <li><a class="reference internal" href="#">ts_core.cli.ts_config module</a><ul>
-<li><a class="reference internal" href="#command-line-arguments">Command-line arguments</a><ul>
-<li><a class="reference internal" href="#optional-arguments">Optional arguments</a></li>
-</ul>
-</li>
 <li><a class="reference internal" href="#script-contents">Script contents</a></li>
 </ul>
 </li>

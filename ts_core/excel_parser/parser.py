@@ -347,9 +347,6 @@ def run_parser(excel_file_path, outpath):
     return config_name, OUTPUT_DICT, stats_xml.toprettyxml()
 
 
-
-
-
-
-
+if __name__ == "__main__":
+    print("%s" % "_"*200000)
 
