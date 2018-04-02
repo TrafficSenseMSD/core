@@ -1,10 +1,139 @@
-import jsmin
-import json
 import re
-import pprint
 import ts_core.config.bindings.sumocfg as sumocfg
 from ts_core.config.config_exceptions import *
+import ts_core.config.bindings.nodes_xml as nodes
+import ts_core.config.bindings.edges_xml as edges
+from xml.dom import minidom
+import numpy as np
 
+
+def _sind(x, places):
+    return round(np.sin( x * np.pi / 180), places)
+
+
+def _cosd(x, places):
+    return round(np.cos(x * np.pi / 180), places)
+
+def mk_edge(intersections: dict, branches: dict):
+
+    edge = edges.edges()
+
+
+    _branch_validation = [
+        'id',
+        'L_lanes',
+        'R_lanes',
+        'S_lanes',
+        'RS_lanes',
+        'LS_lanes',
+        'priority'
+    ]
+
+    _lanes_fields = [
+        'L_lanes',
+        'R_lanes',
+        'S_lanes',
+        'RS_lanes',
+        'LS_lanes'
+    ]
+
+
+    for branch in branches:
+        numlanes = sum([branches[branch][l] for l in _lanes_fields])
+
+        # Make sure each branch has all the keys that are about to be called
+        if not all(field in branches[branch] for field in _branch_validation):
+            raise ParsedSchemaError("All of the fields in the list {} must be in each branch".format(str(_branch_validation)))
+
+
+        inbound_edge = edges.edgeType(
+            id=str(branches[branch]['id'])+"i",
+            priority=branches[branch]['priority'],
+            from_=str(branches[branch]['id']),
+            to=0,
+            numLanes=numlanes,
+            speed=str(branches[branch]['speed'])
+        )
+
+        outbound_edge = edges.edgeType(
+            id=str(branches[branch]['id'])+"o",
+            priority=branches[branch]['priority'],
+            to=str(branches[branch]['id']),
+            from_=0,
+            numLanes=numlanes,
+            speed=str(branches[branch]['speed'])
+        )
+        edge.append(inbound_edge)
+        edge.append(outbound_edge)
+
+    xmlstr = minidom.parseString(edge.toxml("utf-8").decode('utf-8')).toprettyxml(indent="   ")
+    return xmlstr
+
+
+def mk_node(intersections: dict, branches: dict):
+    """
+    
+    Let's do an example...
+    
+    
+    Parameters
+    ----------
+    intersections
+    branches
+
+    Returns
+    -------
+
+    """
+    n = nodes.nodes()
+
+    _branch_validation = [
+        'id',
+        'type',
+        'theta',
+        'Length',
+    ]
+
+    _intersection_validation = [
+        'id',
+        'type'
+    ]
+
+    branch_metadata = {}
+
+    # Iterate intersections
+    # NOTE: Will only generate the intersection with id == 0 until multiple intersection
+    # support is added.
+    for inter in intersections:
+        if not all(field in intersections[inter] for field in _intersection_validation):
+            raise ParsedSchemaError("All of the fields in the list {} must be in each branch".format(
+                str(_branch_validation))
+            )
+        if intersections[inter]['id'] != 0:
+            continue
+
+        n.append(nodes.nodeType(id=intersections[inter]['id'], x=0, y=0, type=intersections[inter]['type']))
+
+    for branch in branches:
+        # Make sure each branch has all the keys that are about to be called
+        if not all(field in branches[branch] for field in _branch_validation):
+            raise ParsedSchemaError("All of the fields in the list {} must be in each branch".format(str(_branch_validation)))
+
+        # branch_metadata[branches[branch]['id']] = {}
+
+
+        try:
+            n.append(nodes.nodeType(id=branches[branch]['id'],
+                                x=branches[branch]['Length']*_cosd(branches[branch]['theta'], 2),
+                                y=branches[branch]['Length']*_sind(branches[branch]['theta'], 2),
+                                type=str.lower(branches[branch]['type'])))
+        except Exception as e:
+            print(branches[branch])
+            print(e)
+
+    xmlstr = minidom.parseString(n.toxml("utf-8").decode('utf-8')).toprettyxml(indent="   ")
+
+    return xmlstr
 
 def mk_sumocfg(parsed_data: dict):
     """
@@ -57,9 +186,7 @@ def mk_sumocfg(parsed_data: dict):
 
         cfg.append(_gui)
 
-    from xml.dom import minidom
     xmlstr = minidom.parseString(cfg.toxml("utf-8").decode('utf-8')).toprettyxml(indent="   ")
-    print(xmlstr)
-
+    return xmlstr
 
 

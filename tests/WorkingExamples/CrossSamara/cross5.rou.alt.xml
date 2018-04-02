@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<!-- generated on 02/19/18 09:43:34 by SUMO duarouter Version 0.31.0
+<!-- generated on 03/23/18 20:49:01 by SUMO duarouter Version 0.31.0
 <?xml version="1.0" encoding="UTF-8"?>
 
 <configuration xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="http://sumo.dlr.de/xsd/duarouterConfiguration.xsd">
@@ -605,7 +605,7 @@
     </vehicle>
     <vehicle id="carIn134:1" type="default" depart="372.00" departPos="243.67" arrivalPos="480.15" arrivalSpeed="0.00">
         <routeDistribution last="0">
-            <route cost="138.24" probability="1.00000000" edges="2i 1o 1i 2o"/>
+            <route cost="69.12" probability="1.00000000" edges="2i 2o"/>
         </routeDistribution>
     </vehicle>
     <vehicle id="carIn172:1" type="default" depart="373.00" departPos="0.00" arrivalPos="24.57" arrivalSpeed="0.00">
@@ -615,7 +615,7 @@
     </vehicle>
     <vehicle id="carIn187:1" type="default" depart="373.00" departPos="243.67" arrivalPos="372.31" arrivalSpeed="0.00">
         <routeDistribution last="0">
-            <route cost="138.24" probability="1.00000000" edges="3i 1o 1i 3o"/>
+            <route cost="69.12" probability="1.00000000" edges="3i 3o"/>
         </routeDistribution>
     </vehicle>
     <vehicle id="carIn82:1" type="default" depart="375.00" departPos="0.00" arrivalPos="273.47" arrivalSpeed="0.00">
@@ -665,7 +665,7 @@
     </vehicle>
     <vehicle id="carIn96:1" type="default" depart="387.00" departPos="243.67" arrivalPos="349.98" arrivalSpeed="0.00">
         <routeDistribution last="0">
-            <route cost="138.24" probability="1.00000000" edges="4i 1o 1i 4o"/>
+            <route cost="69.12" probability="1.00000000" edges="4i 4o"/>
         </routeDistribution>
     </vehicle>
     <vehicle id="h166c1:1" type="default" depart="390.00" departPos="48.35" arrivalPos="145.18" arrivalSpeed="0.00">
@@ -795,7 +795,7 @@
     </vehicle>
     <vehicle id="carIn5:1" type="default" depart="418.00" departPos="243.67" arrivalPos="215.04" arrivalSpeed="0.00">
         <routeDistribution last="0">
-            <route cost="138.24" probability="1.00000000" edges="1i 2o 2i 1o"/>
+            <route cost="69.12" probability="1.00000000" edges="1i 1o"/>
         </routeDistribution>
     </vehicle>
     <vehicle id="h469c2:1" type="default" depart="421.00" departPos="400.10" arrivalPos="208.36" arrivalSpeed="0.00">
@@ -1205,7 +1205,7 @@
     </vehicle>
     <vehicle id="carIn8:1" type="default" depart="497.00" departPos="243.67" arrivalPos="275.17" arrivalSpeed="0.00">
         <routeDistribution last="0">
-            <route cost="138.24" probability="1.00000000" edges="4i 1o 1i 4o"/>
+            <route cost="69.12" probability="1.00000000" edges="4i 4o"/>
         </routeDistribution>
     </vehicle>
     <vehicle id="h371c1:1" type="default" depart="499.00" departPos="322.87" arrivalPos="257.45" arrivalSpeed="0.00">
@@ -1400,7 +1400,7 @@
     </vehicle>
     <vehicle id="h424c1:1" type="default" depart="546.00" departPos="405.23" arrivalPos="432.56" arrivalSpeed="0.00">
         <routeDistribution last="0">
-            <route cost="138.24" probability="1.00000000" edges="1i 2o 2i 1o"/>
+            <route cost="69.12" probability="1.00000000" edges="1i 1o"/>
         </routeDistribution>
     </vehicle>
     <vehicle id="carIn32:1" type="default" depart="546.00" departPos="0.00" arrivalPos="307.02" arrivalSpeed="0.00">
@@ -1700,7 +1700,7 @@
     </vehicle>
     <vehicle id="carIn157:1" type="default" depart="624.00" departPos="243.67" arrivalPos="253.90" arrivalSpeed="0.00">
         <routeDistribution last="0">
-            <route cost="138.24" probability="1.00000000" edges="2i 1o 1i 2o"/>
+            <route cost="69.12" probability="1.00000000" edges="2i 2o"/>
         </routeDistribution>
     </vehicle>
     <vehicle id="carIn198:1" type="default" depart="624.00" departPos="0.00" arrivalPos="277.40" arrivalSpeed="0.00">
@@ -1790,7 +1790,7 @@
     </vehicle>
     <vehicle id="carIn94:1" type="default" depart="649.00" departPos="243.67" arrivalPos="425.06" arrivalSpeed="0.00">
         <routeDistribution last="0">
-            <route cost="138.24" probability="1.00000000" edges="1i 2o 2i 1o"/>
+            <route cost="69.12" probability="1.00000000" edges="1i 1o"/>
         </routeDistribution>
     </vehicle>
     <vehicle id="carIn10:1" type="default" depart="653.00" departPos="0.00" arrivalPos="0.00" arrivalSpeed="0.00">
@@ -1855,7 +1855,7 @@
     </vehicle>
     <vehicle id="carIn37:1" type="default" depart="690.00" departPos="243.67" arrivalPos="258.11" arrivalSpeed="0.00">
         <routeDistribution last="0">
-            <route cost="138.24" probability="1.00000000" edges="2i 1o 1i 2o"/>
+            <route cost="69.12" probability="1.00000000" edges="2i 2o"/>
         </routeDistribution>
     </vehicle>
     <vehicle id="carIn22:1" type="default" depart="695.00" departPos="0.00" arrivalPos="243.67" arrivalSpeed="0.00">
@@ -2077,7 +2077,7 @@
     </vehicle>
     <vehicle id="randUni167:1" type="random" depart="13596.00" departPos="474.28" arrivalPos="62.82" arrivalSpeed="0.00">
         <routeDistribution last="0">
-            <route cost="138.24" probability="1.00000000" edges="4i 1o 1i 4o"/>
+            <route cost="69.12" probability="1.00000000" edges="4i 4o"/>
         </routeDistribution>
     </vehicle>
     <vehicle id="randUni132:1" type="random" depart="13910.00" departPos="70.58" arrivalPos="144.86" arrivalSpeed="0.00">
@@ -2112,7 +2112,7 @@
     </vehicle>
     <vehicle id="randUni396:1" type="random" depart="14885.00" departPos="93.33" arrivalPos="377.73" arrivalSpeed="0.00">
         <routeDistribution last="0">
-            <route cost="138.24" probability="1.00000000" edges="3i 1o 1i 3o"/>
+            <route cost="69.12" probability="1.00000000" edges="3i 3o"/>
         </routeDistribution>
     </vehicle>
     <vehicle id="randUni380:1" type="random" depart="15188.00" departPos="320.51" arrivalPos="141.04" arrivalSpeed="0.00">
@@ -2312,7 +2312,7 @@
     </vehicle>
     <vehicle id="randUni336:1" type="random" depart="28725.00" departPos="423.87" arrivalPos="126.23" arrivalSpeed="0.00">
         <routeDistribution last="0">
-            <route cost="138.24" probability="1.00000000" edges="1i 2o 2i 1o"/>
+            <route cost="69.12" probability="1.00000000" edges="1i 1o"/>
         </routeDistribution>
     </vehicle>
     <vehicle id="randUni350:1" type="random" depart="29423.00" departPos="121.32" arrivalPos="164.78" arrivalSpeed="0.00">
@@ -2512,7 +2512,7 @@
     </vehicle>
     <vehicle id="carIn35:3" type="default" depart="42926.00" departPos="422.93" arrivalPos="0.00" arrivalSpeed="0.00">
         <routeDistribution last="0">
-            <route cost="138.24" probability="1.00000000" edges="2i 1o 1i 2o"/>
+            <route cost="69.12" probability="1.00000000" edges="2i 2o"/>
         </routeDistribution>
     </vehicle>
     <vehicle id="carIn163:3" type="default" depart="42935.00" departPos="372.14" arrivalPos="243.67" arrivalSpeed="0.00">
@@ -2797,12 +2797,12 @@
     </vehicle>
     <vehicle id="carIn2:3" type="default" depart="43087.00" departPos="447.73" arrivalPos="0.00" arrivalSpeed="0.00">
         <routeDistribution last="0">
-            <route cost="138.24" probability="1.00000000" edges="3i 1o 1i 3o"/>
+            <route cost="69.12" probability="1.00000000" edges="3i 3o"/>
         </routeDistribution>
     </vehicle>
     <vehicle id="carIn73:3" type="default" depart="43089.00" departPos="334.37" arrivalPos="0.00" arrivalSpeed="0.00">
         <routeDistribution last="0">
-            <route cost="138.24" probability="1.00000000" edges="3i 1o 1i 3o"/>
+            <route cost="69.12" probability="1.00000000" edges="3i 3o"/>
         </routeDistribution>
     </vehicle>
     <vehicle id="h163c1:3" type="default" depart="43091.00" departPos="54.22" arrivalPos="33.44" arrivalSpeed="0.00">
@@ -2852,7 +2852,7 @@
     </vehicle>
     <vehicle id="carIn1:3" type="default" depart="43104.00" departPos="8.52" arrivalPos="0.00" arrivalSpeed="0.00">
         <routeDistribution last="0">
-            <route cost="138.24" probability="1.00000000" edges="3i 1o 1i 3o"/>
+            <route cost="69.12" probability="1.00000000" edges="3i 3o"/>
         </routeDistribution>
     </vehicle>
     <vehicle id="carIn25:3" type="default" depart="43105.00" departPos="353.03" arrivalPos="243.67" arrivalSpeed="0.00">
@@ -3157,7 +3157,7 @@
     </vehicle>
     <vehicle id="carIn88:3" type="default" depart="43158.00" departPos="406.28" arrivalPos="0.00" arrivalSpeed="0.00">
         <routeDistribution last="0">
-            <route cost="138.24" probability="1.00000000" edges="3i 1o 1i 3o"/>
+            <route cost="69.12" probability="1.00000000" edges="3i 3o"/>
         </routeDistribution>
     </vehicle>
     <vehicle id="h34c1:3" type="default" depart="43159.00" departPos="162.88" arrivalPos="4.75" arrivalSpeed="0.00">
@@ -3372,7 +3372,7 @@
     </vehicle>
     <vehicle id="carIn153:3" type="default" depart="43195.00" departPos="450.19" arrivalPos="0.00" arrivalSpeed="0.00">
         <routeDistribution last="0">
-            <route cost="138.24" probability="1.00000000" edges="3i 1o 1i 3o"/>
+            <route cost="69.12" probability="1.00000000" edges="3i 3o"/>
         </routeDistribution>
     </vehicle>
     <vehicle id="carIn169:3" type="default" depart="43195.00" departPos="201.26" arrivalPos="243.67" arrivalSpeed="0.00">
@@ -3382,7 +3382,7 @@
     </vehicle>
     <vehicle id="carIn22:3" type="default" depart="43196.00" departPos="243.67" arrivalPos="0.00" arrivalSpeed="0.00">
         <routeDistribution last="0">
-            <route cost="138.24" probability="1.00000000" edges="4i 1o 1i 4o"/>
+            <route cost="69.12" probability="1.00000000" edges="4i 4o"/>
         </routeDistribution>
     </vehicle>
     <vehicle id="carIn76:3" type="default" depart="43196.00" departPos="184.94" arrivalPos="0.00" arrivalSpeed="0.00">
@@ -3652,7 +3652,7 @@
     </vehicle>
     <vehicle id="carIn50:3" type="default" depart="43236.00" departPos="8.02" arrivalPos="0.00" arrivalSpeed="0.00">
         <routeDistribution last="0">
-            <route cost="138.24" probability="1.00000000" edges="4i 1o 1i 4o"/>
+            <route cost="69.12" probability="1.00000000" edges="4i 4o"/>
         </routeDistribution>
     </vehicle>
     <vehicle id="h260c1:3" type="default" depart="43239.00" departPos="204.99" arrivalPos="146.49" arrivalSpeed="0.00">
@@ -4162,7 +4162,7 @@
     </vehicle>
     <vehicle id="carIn138:3" type="default" depart="43338.00" departPos="17.73" arrivalPos="0.00" arrivalSpeed="0.00">
         <routeDistribution last="0">
-            <route cost="138.24" probability="1.00000000" edges="3i 1o 1i 3o"/>
+            <route cost="69.12" probability="1.00000000" edges="3i 3o"/>
         </routeDistribution>
     </vehicle>
     <vehicle id="h308c1:3" type="default" depart="43342.00" departPos="239.44" arrivalPos="44.09" arrivalSpeed="0.00">
@@ -4282,7 +4282,7 @@
     </vehicle>
     <vehicle id="carIn87:3" type="default" depart="43398.00" departPos="289.62" arrivalPos="0.00" arrivalSpeed="0.00">
         <routeDistribution last="0">
-            <route cost="138.24" probability="1.00000000" edges="4i 1o 1i 4o"/>
+            <route cost="69.12" probability="1.00000000" edges="4i 4o"/>
         </routeDistribution>
     </vehicle>
     <vehicle id="carIn13:3" type="default" depart="43399.00" departPos="341.80" arrivalPos="243.67" arrivalSpeed="0.00">
@@ -4417,7 +4417,7 @@
     </vehicle>
     <vehicle id="randUni18:1" type="random" depart="45455.00" departPos="110.97" arrivalPos="6.10" arrivalSpeed="0.00">
         <routeDistribution last="0">
-            <route cost="138.24" probability="1.00000000" edges="2i 1o 1i 2o"/>
+            <route cost="69.12" probability="1.00000000" edges="2i 2o"/>
         </routeDistribution>
     </vehicle>
     <vehicle id="randUni95:1" type="random" depart="45774.00" departPos="175.08" arrivalPos="0.41" arrivalSpeed="0.00">
@@ -4432,7 +4432,7 @@
     </vehicle>
     <vehicle id="h203c1:2" type="default" depart="46600.00" departPos="464.41" arrivalPos="284.06" arrivalSpeed="0.00">
         <routeDistribution last="0">
-            <route cost="138.24" probability="1.00000000" edges="3i 1o 1i 3o"/>
+            <route cost="69.12" probability="1.00000000" edges="3i 3o"/>
         </routeDistribution>
     </vehicle>
     <vehicle id="randUni38:1" type="random" depart="46790.00" departPos="397.42" arrivalPos="387.45" arrivalSpeed="0.00">
@@ -4727,7 +4727,7 @@
     </vehicle>
     <vehicle id="randUni96:1" type="random" depart="63677.00" departPos="179.92" arrivalPos="276.78" arrivalSpeed="0.00">
         <routeDistribution last="0">
-            <route cost="138.24" probability="1.00000000" edges="4i 1o 1i 4o"/>
+            <route cost="69.12" probability="1.00000000" edges="4i 4o"/>
         </routeDistribution>
     </vehicle>
     <vehicle id="randUni276:1" type="random" depart="63760.00" departPos="163.10" arrivalPos="379.70" arrivalSpeed="0.00">
@@ -4807,12 +4807,12 @@
     </vehicle>
     <vehicle id="randUni266:1" type="random" depart="67202.00" departPos="162.82" arrivalPos="60.17" arrivalSpeed="0.00">
         <routeDistribution last="0">
-            <route cost="138.24" probability="1.00000000" edges="4i 1o 1i 4o"/>
+            <route cost="69.12" probability="1.00000000" edges="4i 4o"/>
         </routeDistribution>
     </vehicle>
     <vehicle id="randUni325:1" type="random" depart="67387.00" departPos="255.06" arrivalPos="335.80" arrivalSpeed="0.00">
         <routeDistribution last="0">
-            <route cost="138.24" probability="1.00000000" edges="2i 1o 1i 2o"/>
+            <route cost="69.12" probability="1.00000000" edges="2i 2o"/>
         </routeDistribution>
     </vehicle>
     <vehicle id="randUni406:1" type="random" depart="67468.00" departPos="126.46" arrivalPos="83.71" arrivalSpeed="0.00">
@@ -4917,7 +4917,7 @@
     </vehicle>
     <vehicle id="h46c1:5" type="default" depart="70914.00" departPos="146.33" arrivalPos="218.16" arrivalSpeed="0.00">
         <routeDistribution last="0">
-            <route cost="138.24" probability="1.00000000" edges="4i 1o 1i 4o"/>
+            <route cost="69.12" probability="1.00000000" edges="4i 4o"/>
         </routeDistribution>
     </vehicle>
     <vehicle id="h399c1:2" type="default" depart="71089.00" departPos="351.36" arrivalPos="467.16" arrivalSpeed="0.00">
@@ -5077,7 +5077,7 @@
     </vehicle>
     <vehicle id="h174c1:1" type="default" depart="77076.00" departPos="444.69" arrivalPos="394.88" arrivalSpeed="0.00">
         <routeDistribution last="0">
-            <route cost="138.24" probability="1.00000000" edges="3i 1o 1i 3o"/>
+            <route cost="69.12" probability="1.00000000" edges="3i 3o"/>
         </routeDistribution>
     </vehicle>
     <vehicle id="h279c1:2" type="default" depart="77510.00" departPos="127.64" arrivalPos="424.10" arrivalSpeed="0.00">
@@ -5122,7 +5122,7 @@
     </vehicle>
     <vehicle id="randUni76:1" type="random" depart="78409.00" departPos="115.81" arrivalPos="38.25" arrivalSpeed="0.00">
         <routeDistribution last="0">
-            <route cost="138.24" probability="1.00000000" edges="1i 2o 2i 1o"/>
+            <route cost="69.12" probability="1.00000000" edges="1i 1o"/>
         </routeDistribution>
     </vehicle>
     <vehicle id="h123c1:1" type="default" depart="78411.00" departPos="285.51" arrivalPos="185.05" arrivalSpeed="0.00">
@@ -5212,7 +5212,7 @@
     </vehicle>
     <vehicle id="randUni348:1" type="random" depart="81071.00" departPos="313.24" arrivalPos="340.60" arrivalSpeed="0.00">
         <routeDistribution last="0">
-            <route cost="138.24" probability="1.00000000" edges="3i 1o 1i 3o"/>
+            <route cost="69.12" probability="1.00000000" edges="3i 3o"/>
         </routeDistribution>
     </vehicle>
     <vehicle id="h12c1:6" type="default" depart="81126.00" departPos="380.41" arrivalPos="353.60" arrivalSpeed="0.00">
@@ -5247,7 +5247,7 @@
     </vehicle>
     <vehicle id="h121c1:2" type="default" depart="81867.00" departPos="22.63" arrivalPos="123.69" arrivalSpeed="0.00">
         <routeDistribution last="0">
-            <route cost="138.24" probability="1.00000000" edges="4i 1o 1i 4o"/>
+            <route cost="69.12" probability="1.00000000" edges="4i 4o"/>
         </routeDistribution>
     </vehicle>
     <vehicle id="h22c1:6" type="default" depart="82053.00" departPos="9.10" arrivalPos="95.74" arrivalSpeed="0.00">
@@ -5262,7 +5262,7 @@
     </vehicle>
     <vehicle id="h162c1:5" type="default" depart="82420.00" departPos="106.83" arrivalPos="43.16" arrivalSpeed="0.00">
         <routeDistribution last="0">
-            <route cost="138.24" probability="1.00000000" edges="3i 1o 1i 3o"/>
+            <route cost="69.12" probability="1.00000000" edges="3i 3o"/>
         </routeDistribution>
     </vehicle>
     <vehicle id="h491c1:6" type="default" depart="82501.00" departPos="283.85" arrivalPos="374.15" arrivalSpeed="0.00">
@@ -5317,7 +5317,7 @@
     </vehicle>
     <vehicle id="randUni67:1" type="random" depart="83156.00" departPos="120.44" arrivalPos="153.29" arrivalSpeed="0.00">
         <routeDistribution last="0">
-            <route cost="138.24" probability="1.00000000" edges="1i 2o 2i 1o"/>
+            <route cost="69.12" probability="1.00000000" edges="1i 1o"/>
         </routeDistribution>
     </vehicle>
     <vehicle id="h174c1:2" type="default" depart="83350.00" departPos="394.88" arrivalPos="444.69" arrivalSpeed="0.00">
