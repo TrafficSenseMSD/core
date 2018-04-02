@@ -1,0 +1,1364 @@
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title>ts_core.config.bindings.edges_xml module &#8212; TrafficSense 0.01 documentation</title>
+    <link rel="stylesheet" href="_static/classic.css" type="text/css" />
+    <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    './',
+        VERSION:     '0.01',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true,
+        SOURCELINK_SUFFIX: '.txt'
+      };
+    </script>
+    <script type="text/javascript" src="_static/jquery.js"></script>
+    <script type="text/javascript" src="_static/underscore.js"></script>
+    <script type="text/javascript" src="_static/doctools.js"></script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" /> 
+  </head>
+  <body>
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="genindex.html" title="General Index"
+             accesskey="I">index</a></li>
+        <li class="right" >
+          <a href="py-modindex.html" title="Python Module Index"
+             >modules</a> |</li>
+        <li class="nav-item nav-item-0"><a href="index.html">TrafficSense 0.01 documentation</a> &#187;</li> 
+      </ul>
+    </div>  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body" role="main">
+            
+  <div class="section" id="module-ts_core.config.bindings.edges_xml">
+<span id="ts-core-config-bindings-edges-xml-module"></span><h1>ts_core.config.bindings.edges_xml module<a class="headerlink" href="#module-ts_core.config.bindings.edges_xml" title="Permalink to this headline">¶</a></h1>
+<dl class="function">
+<dt id="ts_core.config.bindings.edges_xml.CreateFromDOM">
+<code class="descname">CreateFromDOM</code><span class="sig-paren">(</span><em>node</em>, <em>default_namespace=None</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/ts_core/config/bindings/edges_xml.html#CreateFromDOM"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#ts_core.config.bindings.edges_xml.CreateFromDOM" title="Permalink to this definition">¶</a></dt>
+<dd><p>Create a Python instance from the given DOM node.
+The node tag must correspond to an element declaration in this module.</p>
+<p>&#64;deprecated: Forcing use of DOM interface is unnecessary; use L{CreateFromDocument}.</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="ts_core.config.bindings.edges_xml.CreateFromDocument">
+<code class="descname">CreateFromDocument</code><span class="sig-paren">(</span><em>xml_text</em>, <em>default_namespace=None</em>, <em>location_base=None</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/ts_core/config/bindings/edges_xml.html#CreateFromDocument"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#ts_core.config.bindings.edges_xml.CreateFromDocument" title="Permalink to this definition">¶</a></dt>
+<dd><p>Parse the given XML and use the document element to create a
+Python instance.</p>
+<p>&#64;param xml_text An XML document.  This should be data (Python 2
+str or Python 3 bytes), or a text (Python 2 unicode or Python 3
+str) in the L{pyxb._InputEncoding} encoding.</p>
+<p>&#64;keyword default_namespace The L{pyxb.Namespace} instance to use as the
+default namespace where there is no default namespace in scope.
+If unspecified or C{None}, the namespace of the module containing
+this function will be used.</p>
+<p>&#64;keyword location_base: An object to be recorded as the base of all
+L{pyxb.utils.utility.Location} instances associated with events and
+objects handled by the parser.  You might pass the URI from which
+the document was obtained.</p>
+</dd></dl>
+
+<dl class="class">
+<dt id="ts_core.config.bindings.edges_xml.STD_ANON">
+<em class="property">class </em><code class="descname">STD_ANON</code><span class="sig-paren">(</span><em>*args</em>, <em>**kw</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/ts_core/config/bindings/edges_xml.html#STD_ANON"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#ts_core.config.bindings.edges_xml.STD_ANON" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal"><span class="pre">pyxb.binding.datatypes.float</span></code></p>
+<p>An atomic simple type.</p>
+</dd></dl>
+
+<dl class="class">
+<dt id="ts_core.config.bindings.edges_xml.STD_ANON_">
+<em class="property">class </em><code class="descname">STD_ANON_</code><span class="sig-paren">(</span><em>*args</em>, <em>**kw</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/ts_core/config/bindings/edges_xml.html#STD_ANON_"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#ts_core.config.bindings.edges_xml.STD_ANON_" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal"><span class="pre">pyxb.binding.datatypes.string</span></code></p>
+<p>An atomic simple type.</p>
+</dd></dl>
+
+<dl class="class">
+<dt id="ts_core.config.bindings.edges_xml.STD_ANON_10">
+<em class="property">class </em><code class="descname">STD_ANON_10</code><span class="sig-paren">(</span><em>*args</em>, <em>**kw</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/ts_core/config/bindings/edges_xml.html#STD_ANON_10"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#ts_core.config.bindings.edges_xml.STD_ANON_10" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal"><span class="pre">pyxb.binding.datatypes.string</span></code></p>
+<p>An atomic simple type.</p>
+</dd></dl>
+
+<dl class="class">
+<dt id="ts_core.config.bindings.edges_xml.STD_ANON_11">
+<em class="property">class </em><code class="descname">STD_ANON_11</code><span class="sig-paren">(</span><em>*args</em>, <em>**kw</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/ts_core/config/bindings/edges_xml.html#STD_ANON_11"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#ts_core.config.bindings.edges_xml.STD_ANON_11" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal"><span class="pre">pyxb.binding.datatypes.string</span></code></p>
+<p>An atomic simple type.</p>
+</dd></dl>
+
+<dl class="class">
+<dt id="ts_core.config.bindings.edges_xml.STD_ANON_12">
+<em class="property">class </em><code class="descname">STD_ANON_12</code><span class="sig-paren">(</span><em>*args</em>, <em>**kw</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/ts_core/config/bindings/edges_xml.html#STD_ANON_12"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#ts_core.config.bindings.edges_xml.STD_ANON_12" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal"><span class="pre">pyxb.binding.datatypes.string</span></code>, <code class="xref py py-class docutils literal"><span class="pre">pyxb.binding.basis.enumeration_mixin</span></code></p>
+<p>An atomic simple type.</p>
+<dl class="attribute">
+<dt id="ts_core.config.bindings.edges_xml.STD_ANON_12.center">
+<code class="descname">center</code><em class="property"> = 'center'</em><a class="headerlink" href="#ts_core.config.bindings.edges_xml.STD_ANON_12.center" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="ts_core.config.bindings.edges_xml.STD_ANON_12.right">
+<code class="descname">right</code><em class="property"> = 'right'</em><a class="headerlink" href="#ts_core.config.bindings.edges_xml.STD_ANON_12.right" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="ts_core.config.bindings.edges_xml.STD_ANON_2">
+<em class="property">class </em><code class="descname">STD_ANON_2</code><span class="sig-paren">(</span><em>*args</em>, <em>**kw</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/ts_core/config/bindings/edges_xml.html#STD_ANON_2"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#ts_core.config.bindings.edges_xml.STD_ANON_2" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal"><span class="pre">pyxb.binding.datatypes.string</span></code></p>
+<p>An atomic simple type.</p>
+</dd></dl>
+
+<dl class="class">
+<dt id="ts_core.config.bindings.edges_xml.STD_ANON_3">
+<em class="property">class </em><code class="descname">STD_ANON_3</code><span class="sig-paren">(</span><em>*args</em>, <em>**kw</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/ts_core/config/bindings/edges_xml.html#STD_ANON_3"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#ts_core.config.bindings.edges_xml.STD_ANON_3" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal"><span class="pre">pyxb.binding.datatypes.string</span></code></p>
+<p>An atomic simple type.</p>
+</dd></dl>
+
+<dl class="class">
+<dt id="ts_core.config.bindings.edges_xml.STD_ANON_4">
+<em class="property">class </em><code class="descname">STD_ANON_4</code><span class="sig-paren">(</span><em>*args</em>, <em>**kw</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/ts_core/config/bindings/edges_xml.html#STD_ANON_4"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#ts_core.config.bindings.edges_xml.STD_ANON_4" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal"><span class="pre">pyxb.binding.datatypes.string</span></code>, <code class="xref py py-class docutils literal"><span class="pre">pyxb.binding.basis.enumeration_mixin</span></code></p>
+<p>An atomic simple type.</p>
+<dl class="attribute">
+<dt id="ts_core.config.bindings.edges_xml.STD_ANON_4.black">
+<code class="descname">black</code><em class="property"> = 'black'</em><a class="headerlink" href="#ts_core.config.bindings.edges_xml.STD_ANON_4.black" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="ts_core.config.bindings.edges_xml.STD_ANON_4.blue">
+<code class="descname">blue</code><em class="property"> = 'blue'</em><a class="headerlink" href="#ts_core.config.bindings.edges_xml.STD_ANON_4.blue" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="ts_core.config.bindings.edges_xml.STD_ANON_4.cyan">
+<code class="descname">cyan</code><em class="property"> = 'cyan'</em><a class="headerlink" href="#ts_core.config.bindings.edges_xml.STD_ANON_4.cyan" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="ts_core.config.bindings.edges_xml.STD_ANON_4.green">
+<code class="descname">green</code><em class="property"> = 'green'</em><a class="headerlink" href="#ts_core.config.bindings.edges_xml.STD_ANON_4.green" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="ts_core.config.bindings.edges_xml.STD_ANON_4.grey">
+<code class="descname">grey</code><em class="property"> = 'grey'</em><a class="headerlink" href="#ts_core.config.bindings.edges_xml.STD_ANON_4.grey" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="ts_core.config.bindings.edges_xml.STD_ANON_4.magenta">
+<code class="descname">magenta</code><em class="property"> = 'magenta'</em><a class="headerlink" href="#ts_core.config.bindings.edges_xml.STD_ANON_4.magenta" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="ts_core.config.bindings.edges_xml.STD_ANON_4.orange">
+<code class="descname">orange</code><em class="property"> = 'orange'</em><a class="headerlink" href="#ts_core.config.bindings.edges_xml.STD_ANON_4.orange" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="ts_core.config.bindings.edges_xml.STD_ANON_4.red">
+<code class="descname">red</code><em class="property"> = 'red'</em><a class="headerlink" href="#ts_core.config.bindings.edges_xml.STD_ANON_4.red" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="ts_core.config.bindings.edges_xml.STD_ANON_4.white">
+<code class="descname">white</code><em class="property"> = 'white'</em><a class="headerlink" href="#ts_core.config.bindings.edges_xml.STD_ANON_4.white" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="ts_core.config.bindings.edges_xml.STD_ANON_4.yellow">
+<code class="descname">yellow</code><em class="property"> = 'yellow'</em><a class="headerlink" href="#ts_core.config.bindings.edges_xml.STD_ANON_4.yellow" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="ts_core.config.bindings.edges_xml.STD_ANON_5">
+<em class="property">class </em><code class="descname">STD_ANON_5</code><span class="sig-paren">(</span><em>*args</em>, <em>**kw</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/ts_core/config/bindings/edges_xml.html#STD_ANON_5"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#ts_core.config.bindings.edges_xml.STD_ANON_5" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal"><span class="pre">pyxb.binding.datatypes.string</span></code></p>
+<p>An atomic simple type.</p>
+</dd></dl>
+
+<dl class="class">
+<dt id="ts_core.config.bindings.edges_xml.STD_ANON_6">
+<em class="property">class </em><code class="descname">STD_ANON_6</code><span class="sig-paren">(</span><em>*args</em>, <em>**kw</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/ts_core/config/bindings/edges_xml.html#STD_ANON_6"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#ts_core.config.bindings.edges_xml.STD_ANON_6" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal"><span class="pre">pyxb.binding.datatypes.string</span></code></p>
+<p>An atomic simple type.</p>
+</dd></dl>
+
+<dl class="class">
+<dt id="ts_core.config.bindings.edges_xml.STD_ANON_7">
+<em class="property">class </em><code class="descname">STD_ANON_7</code><span class="sig-paren">(</span><em>*args</em>, <em>**kw</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/ts_core/config/bindings/edges_xml.html#STD_ANON_7"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#ts_core.config.bindings.edges_xml.STD_ANON_7" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal"><span class="pre">pyxb.binding.datatypes.string</span></code></p>
+<p>An atomic simple type.</p>
+</dd></dl>
+
+<dl class="class">
+<dt id="ts_core.config.bindings.edges_xml.STD_ANON_8">
+<em class="property">class </em><code class="descname">STD_ANON_8</code><span class="sig-paren">(</span><em>*args</em>, <em>**kw</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/ts_core/config/bindings/edges_xml.html#STD_ANON_8"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#ts_core.config.bindings.edges_xml.STD_ANON_8" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal"><span class="pre">pyxb.binding.datatypes.string</span></code></p>
+<p>An atomic simple type.</p>
+</dd></dl>
+
+<dl class="class">
+<dt id="ts_core.config.bindings.edges_xml.STD_ANON_9">
+<em class="property">class </em><code class="descname">STD_ANON_9</code><span class="sig-paren">(</span><em>*args</em>, <em>**kw</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/ts_core/config/bindings/edges_xml.html#STD_ANON_9"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#ts_core.config.bindings.edges_xml.STD_ANON_9" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal"><span class="pre">pyxb.binding.datatypes.string</span></code></p>
+<p>An atomic simple type.</p>
+</dd></dl>
+
+<dl class="class">
+<dt id="ts_core.config.bindings.edges_xml.boolOptionType">
+<em class="property">class </em><code class="descname">boolOptionType</code><span class="sig-paren">(</span><em>*args</em>, <em>**kw</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/ts_core/config/bindings/edges_xml.html#boolOptionType"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#ts_core.config.bindings.edges_xml.boolOptionType" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal"><span class="pre">pyxb.binding.basis.complexTypeDefinition</span></code></p>
+<p>Complex type boolOptionType with content type EMPTY</p>
+<dl class="attribute">
+<dt id="ts_core.config.bindings.edges_xml.boolOptionType.help">
+<code class="descname">help</code><a class="headerlink" href="#ts_core.config.bindings.edges_xml.boolOptionType.help" title="Permalink to this definition">¶</a></dt>
+<dd><p>Get the value of the attribute from the instance.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="ts_core.config.bindings.edges_xml.boolOptionType.synonymes">
+<code class="descname">synonymes</code><a class="headerlink" href="#ts_core.config.bindings.edges_xml.boolOptionType.synonymes" title="Permalink to this definition">¶</a></dt>
+<dd><p>Get the value of the attribute from the instance.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="ts_core.config.bindings.edges_xml.boolOptionType.type">
+<code class="descname">type</code><a class="headerlink" href="#ts_core.config.bindings.edges_xml.boolOptionType.type" title="Permalink to this definition">¶</a></dt>
+<dd><p>Get the value of the attribute from the instance.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="ts_core.config.bindings.edges_xml.boolOptionType.value_">
+<code class="descname">value_</code><a class="headerlink" href="#ts_core.config.bindings.edges_xml.boolOptionType.value_" title="Permalink to this definition">¶</a></dt>
+<dd><p>Get the value of the attribute from the instance.</p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="ts_core.config.bindings.edges_xml.boolType">
+<em class="property">class </em><code class="descname">boolType</code><span class="sig-paren">(</span><em>*args</em>, <em>**kw</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/ts_core/config/bindings/edges_xml.html#boolType"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#ts_core.config.bindings.edges_xml.boolType" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal"><span class="pre">pyxb.binding.datatypes.string</span></code>, <code class="xref py py-class docutils literal"><span class="pre">pyxb.binding.basis.enumeration_mixin</span></code></p>
+<p>An atomic simple type.</p>
+<dl class="attribute">
+<dt id="ts_core.config.bindings.edges_xml.boolType.False_">
+<code class="descname">False_</code><em class="property"> = 'False'</em><a class="headerlink" href="#ts_core.config.bindings.edges_xml.boolType.False_" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="ts_core.config.bindings.edges_xml.boolType.True_">
+<code class="descname">True_</code><em class="property"> = 'True'</em><a class="headerlink" href="#ts_core.config.bindings.edges_xml.boolType.True_" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="ts_core.config.bindings.edges_xml.boolType.emptyString">
+<code class="descname">emptyString</code><em class="property"> = '-'</em><a class="headerlink" href="#ts_core.config.bindings.edges_xml.boolType.emptyString" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="ts_core.config.bindings.edges_xml.boolType.false">
+<code class="descname">false</code><em class="property"> = 'false'</em><a class="headerlink" href="#ts_core.config.bindings.edges_xml.boolType.false" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="ts_core.config.bindings.edges_xml.boolType.n0">
+<code class="descname">n0</code><em class="property"> = '0'</em><a class="headerlink" href="#ts_core.config.bindings.edges_xml.boolType.n0" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="ts_core.config.bindings.edges_xml.boolType.n1">
+<code class="descname">n1</code><em class="property"> = '1'</em><a class="headerlink" href="#ts_core.config.bindings.edges_xml.boolType.n1" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="ts_core.config.bindings.edges_xml.boolType.no">
+<code class="descname">no</code><em class="property"> = 'no'</em><a class="headerlink" href="#ts_core.config.bindings.edges_xml.boolType.no" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="ts_core.config.bindings.edges_xml.boolType.off">
+<code class="descname">off</code><em class="property"> = 'off'</em><a class="headerlink" href="#ts_core.config.bindings.edges_xml.boolType.off" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="ts_core.config.bindings.edges_xml.boolType.on">
+<code class="descname">on</code><em class="property"> = 'on'</em><a class="headerlink" href="#ts_core.config.bindings.edges_xml.boolType.on" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="ts_core.config.bindings.edges_xml.boolType.true">
+<code class="descname">true</code><em class="property"> = 'true'</em><a class="headerlink" href="#ts_core.config.bindings.edges_xml.boolType.true" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="ts_core.config.bindings.edges_xml.boolType.x">
+<code class="descname">x</code><em class="property"> = 'x'</em><a class="headerlink" href="#ts_core.config.bindings.edges_xml.boolType.x" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="ts_core.config.bindings.edges_xml.boolType.yes">
+<code class="descname">yes</code><em class="property"> = 'yes'</em><a class="headerlink" href="#ts_core.config.bindings.edges_xml.boolType.yes" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="ts_core.config.bindings.edges_xml.colorType">
+<em class="property">class </em><code class="descname">colorType</code><span class="sig-paren">(</span><em>*args</em>, <em>**kw</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/ts_core/config/bindings/edges_xml.html#colorType"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#ts_core.config.bindings.edges_xml.colorType" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal"><span class="pre">pyxb.binding.basis.STD_union</span></code></p>
+<p>Simple type that is a union of STD_ANON_2, STD_ANON_3, STD_ANON_4.</p>
+<dl class="attribute">
+<dt id="ts_core.config.bindings.edges_xml.colorType.black">
+<code class="descname">black</code><em class="property"> = 'black'</em><a class="headerlink" href="#ts_core.config.bindings.edges_xml.colorType.black" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="ts_core.config.bindings.edges_xml.colorType.blue">
+<code class="descname">blue</code><em class="property"> = 'blue'</em><a class="headerlink" href="#ts_core.config.bindings.edges_xml.colorType.blue" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="ts_core.config.bindings.edges_xml.colorType.cyan">
+<code class="descname">cyan</code><em class="property"> = 'cyan'</em><a class="headerlink" href="#ts_core.config.bindings.edges_xml.colorType.cyan" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="ts_core.config.bindings.edges_xml.colorType.green">
+<code class="descname">green</code><em class="property"> = 'green'</em><a class="headerlink" href="#ts_core.config.bindings.edges_xml.colorType.green" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="ts_core.config.bindings.edges_xml.colorType.grey">
+<code class="descname">grey</code><em class="property"> = 'grey'</em><a class="headerlink" href="#ts_core.config.bindings.edges_xml.colorType.grey" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="ts_core.config.bindings.edges_xml.colorType.magenta">
+<code class="descname">magenta</code><em class="property"> = 'magenta'</em><a class="headerlink" href="#ts_core.config.bindings.edges_xml.colorType.magenta" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="ts_core.config.bindings.edges_xml.colorType.orange">
+<code class="descname">orange</code><em class="property"> = 'orange'</em><a class="headerlink" href="#ts_core.config.bindings.edges_xml.colorType.orange" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="ts_core.config.bindings.edges_xml.colorType.red">
+<code class="descname">red</code><em class="property"> = 'red'</em><a class="headerlink" href="#ts_core.config.bindings.edges_xml.colorType.red" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="ts_core.config.bindings.edges_xml.colorType.white">
+<code class="descname">white</code><em class="property"> = 'white'</em><a class="headerlink" href="#ts_core.config.bindings.edges_xml.colorType.white" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="ts_core.config.bindings.edges_xml.colorType.yellow">
+<code class="descname">yellow</code><em class="property"> = 'yellow'</em><a class="headerlink" href="#ts_core.config.bindings.edges_xml.colorType.yellow" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="ts_core.config.bindings.edges_xml.deleteType">
+<em class="property">class </em><code class="descname">deleteType</code><span class="sig-paren">(</span><em>*args</em>, <em>**kw</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/ts_core/config/bindings/edges_xml.html#deleteType"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#ts_core.config.bindings.edges_xml.deleteType" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal"><span class="pre">pyxb.binding.basis.complexTypeDefinition</span></code></p>
+<p>Complex type deleteType with content type EMPTY</p>
+<dl class="attribute">
+<dt id="ts_core.config.bindings.edges_xml.deleteType.id">
+<code class="descname">id</code><a class="headerlink" href="#ts_core.config.bindings.edges_xml.deleteType.id" title="Permalink to this definition">¶</a></dt>
+<dd><p>Get the value of the attribute from the instance.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="ts_core.config.bindings.edges_xml.deleteType.index">
+<code class="descname">index</code><a class="headerlink" href="#ts_core.config.bindings.edges_xml.deleteType.index" title="Permalink to this definition">¶</a></dt>
+<dd><p>Get the value of the attribute from the instance.</p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="ts_core.config.bindings.edges_xml.edgeType">
+<em class="property">class </em><code class="descname">edgeType</code><span class="sig-paren">(</span><em>*args</em>, <em>**kw</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/ts_core/config/bindings/edges_xml.html#edgeType"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#ts_core.config.bindings.edges_xml.edgeType" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal"><span class="pre">pyxb.binding.basis.complexTypeDefinition</span></code></p>
+<p>Complex type edgeType with content type ELEMENT_ONLY</p>
+<dl class="attribute">
+<dt id="ts_core.config.bindings.edges_xml.edgeType.allow">
+<code class="descname">allow</code><a class="headerlink" href="#ts_core.config.bindings.edges_xml.edgeType.allow" title="Permalink to this definition">¶</a></dt>
+<dd><p>Get the value of the attribute from the instance.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="ts_core.config.bindings.edges_xml.edgeType.bikeLaneWidth">
+<code class="descname">bikeLaneWidth</code><a class="headerlink" href="#ts_core.config.bindings.edges_xml.edgeType.bikeLaneWidth" title="Permalink to this definition">¶</a></dt>
+<dd><p>Get the value of the attribute from the instance.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="ts_core.config.bindings.edges_xml.edgeType.disallow">
+<code class="descname">disallow</code><a class="headerlink" href="#ts_core.config.bindings.edges_xml.edgeType.disallow" title="Permalink to this definition">¶</a></dt>
+<dd><p>Get the value of the attribute from the instance.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="ts_core.config.bindings.edges_xml.edgeType.endOffset">
+<code class="descname">endOffset</code><a class="headerlink" href="#ts_core.config.bindings.edges_xml.edgeType.endOffset" title="Permalink to this definition">¶</a></dt>
+<dd><p>Get the value of the attribute from the instance.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="ts_core.config.bindings.edges_xml.edgeType.from_">
+<code class="descname">from_</code><a class="headerlink" href="#ts_core.config.bindings.edges_xml.edgeType.from_" title="Permalink to this definition">¶</a></dt>
+<dd><p>Get the value of the attribute from the instance.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="ts_core.config.bindings.edges_xml.edgeType.id">
+<code class="descname">id</code><a class="headerlink" href="#ts_core.config.bindings.edges_xml.edgeType.id" title="Permalink to this definition">¶</a></dt>
+<dd><p>Get the value of the attribute from the instance.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="ts_core.config.bindings.edges_xml.edgeType.lane">
+<code class="descname">lane</code><a class="headerlink" href="#ts_core.config.bindings.edges_xml.edgeType.lane" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return the value for this use within the given instance.</p>
+<p>Note that this is the L{resetValue()}, not the L{defaultValue()}, if
+the element has not yet been assigned a value.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="ts_core.config.bindings.edges_xml.edgeType.length">
+<code class="descname">length</code><a class="headerlink" href="#ts_core.config.bindings.edges_xml.edgeType.length" title="Permalink to this definition">¶</a></dt>
+<dd><p>Get the value of the attribute from the instance.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="ts_core.config.bindings.edges_xml.edgeType.name">
+<code class="descname">name</code><a class="headerlink" href="#ts_core.config.bindings.edges_xml.edgeType.name" title="Permalink to this definition">¶</a></dt>
+<dd><p>Get the value of the attribute from the instance.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="ts_core.config.bindings.edges_xml.edgeType.neigh">
+<code class="descname">neigh</code><a class="headerlink" href="#ts_core.config.bindings.edges_xml.edgeType.neigh" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return the value for this use within the given instance.</p>
+<p>Note that this is the L{resetValue()}, not the L{defaultValue()}, if
+the element has not yet been assigned a value.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="ts_core.config.bindings.edges_xml.edgeType.numLanes">
+<code class="descname">numLanes</code><a class="headerlink" href="#ts_core.config.bindings.edges_xml.edgeType.numLanes" title="Permalink to this definition">¶</a></dt>
+<dd><p>Get the value of the attribute from the instance.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="ts_core.config.bindings.edges_xml.edgeType.param">
+<code class="descname">param</code><a class="headerlink" href="#ts_core.config.bindings.edges_xml.edgeType.param" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return the value for this use within the given instance.</p>
+<p>Note that this is the L{resetValue()}, not the L{defaultValue()}, if
+the element has not yet been assigned a value.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="ts_core.config.bindings.edges_xml.edgeType.priority">
+<code class="descname">priority</code><a class="headerlink" href="#ts_core.config.bindings.edges_xml.edgeType.priority" title="Permalink to this definition">¶</a></dt>
+<dd><p>Get the value of the attribute from the instance.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="ts_core.config.bindings.edges_xml.edgeType.shape">
+<code class="descname">shape</code><a class="headerlink" href="#ts_core.config.bindings.edges_xml.edgeType.shape" title="Permalink to this definition">¶</a></dt>
+<dd><p>Get the value of the attribute from the instance.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="ts_core.config.bindings.edges_xml.edgeType.sidewalkWidth">
+<code class="descname">sidewalkWidth</code><a class="headerlink" href="#ts_core.config.bindings.edges_xml.edgeType.sidewalkWidth" title="Permalink to this definition">¶</a></dt>
+<dd><p>Get the value of the attribute from the instance.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="ts_core.config.bindings.edges_xml.edgeType.speed">
+<code class="descname">speed</code><a class="headerlink" href="#ts_core.config.bindings.edges_xml.edgeType.speed" title="Permalink to this definition">¶</a></dt>
+<dd><p>Get the value of the attribute from the instance.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="ts_core.config.bindings.edges_xml.edgeType.split">
+<code class="descname">split</code><a class="headerlink" href="#ts_core.config.bindings.edges_xml.edgeType.split" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return the value for this use within the given instance.</p>
+<p>Note that this is the L{resetValue()}, not the L{defaultValue()}, if
+the element has not yet been assigned a value.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="ts_core.config.bindings.edges_xml.edgeType.spreadType">
+<code class="descname">spreadType</code><a class="headerlink" href="#ts_core.config.bindings.edges_xml.edgeType.spreadType" title="Permalink to this definition">¶</a></dt>
+<dd><p>Get the value of the attribute from the instance.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="ts_core.config.bindings.edges_xml.edgeType.to">
+<code class="descname">to</code><a class="headerlink" href="#ts_core.config.bindings.edges_xml.edgeType.to" title="Permalink to this definition">¶</a></dt>
+<dd><p>Get the value of the attribute from the instance.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="ts_core.config.bindings.edges_xml.edgeType.type">
+<code class="descname">type</code><a class="headerlink" href="#ts_core.config.bindings.edges_xml.edgeType.type" title="Permalink to this definition">¶</a></dt>
+<dd><p>Get the value of the attribute from the instance.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="ts_core.config.bindings.edges_xml.edgeType.width">
+<code class="descname">width</code><a class="headerlink" href="#ts_core.config.bindings.edges_xml.edgeType.width" title="Permalink to this definition">¶</a></dt>
+<dd><p>Get the value of the attribute from the instance.</p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="ts_core.config.bindings.edges_xml.edgesType">
+<em class="property">class </em><code class="descname">edgesType</code><span class="sig-paren">(</span><em>*args</em>, <em>**kw</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/ts_core/config/bindings/edges_xml.html#edgesType"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#ts_core.config.bindings.edges_xml.edgesType" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal"><span class="pre">pyxb.binding.basis.complexTypeDefinition</span></code></p>
+<p>Complex type edgesType with content type ELEMENT_ONLY</p>
+<dl class="attribute">
+<dt id="ts_core.config.bindings.edges_xml.edgesType.delete">
+<code class="descname">delete</code><a class="headerlink" href="#ts_core.config.bindings.edges_xml.edgesType.delete" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return the value for this use within the given instance.</p>
+<p>Note that this is the L{resetValue()}, not the L{defaultValue()}, if
+the element has not yet been assigned a value.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="ts_core.config.bindings.edges_xml.edgesType.edge">
+<code class="descname">edge</code><a class="headerlink" href="#ts_core.config.bindings.edges_xml.edgesType.edge" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return the value for this use within the given instance.</p>
+<p>Note that this is the L{resetValue()}, not the L{defaultValue()}, if
+the element has not yet been assigned a value.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="ts_core.config.bindings.edges_xml.edgesType.roundabout">
+<code class="descname">roundabout</code><a class="headerlink" href="#ts_core.config.bindings.edges_xml.edgesType.roundabout" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return the value for this use within the given instance.</p>
+<p>Note that this is the L{resetValue()}, not the L{defaultValue()}, if
+the element has not yet been assigned a value.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="ts_core.config.bindings.edges_xml.edgesType.version">
+<code class="descname">version</code><a class="headerlink" href="#ts_core.config.bindings.edges_xml.edgesType.version" title="Permalink to this definition">¶</a></dt>
+<dd><p>Get the value of the attribute from the instance.</p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="ts_core.config.bindings.edges_xml.fileOptionType">
+<em class="property">class </em><code class="descname">fileOptionType</code><span class="sig-paren">(</span><em>*args</em>, <em>**kw</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/ts_core/config/bindings/edges_xml.html#fileOptionType"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#ts_core.config.bindings.edges_xml.fileOptionType" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal"><span class="pre">pyxb.binding.basis.complexTypeDefinition</span></code></p>
+<p>Complex type fileOptionType with content type EMPTY</p>
+<dl class="attribute">
+<dt id="ts_core.config.bindings.edges_xml.fileOptionType.help">
+<code class="descname">help</code><a class="headerlink" href="#ts_core.config.bindings.edges_xml.fileOptionType.help" title="Permalink to this definition">¶</a></dt>
+<dd><p>Get the value of the attribute from the instance.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="ts_core.config.bindings.edges_xml.fileOptionType.synonymes">
+<code class="descname">synonymes</code><a class="headerlink" href="#ts_core.config.bindings.edges_xml.fileOptionType.synonymes" title="Permalink to this definition">¶</a></dt>
+<dd><p>Get the value of the attribute from the instance.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="ts_core.config.bindings.edges_xml.fileOptionType.type">
+<code class="descname">type</code><a class="headerlink" href="#ts_core.config.bindings.edges_xml.fileOptionType.type" title="Permalink to this definition">¶</a></dt>
+<dd><p>Get the value of the attribute from the instance.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="ts_core.config.bindings.edges_xml.fileOptionType.value_">
+<code class="descname">value_</code><a class="headerlink" href="#ts_core.config.bindings.edges_xml.fileOptionType.value_" title="Permalink to this definition">¶</a></dt>
+<dd><p>Get the value of the attribute from the instance.</p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="ts_core.config.bindings.edges_xml.floatOptionType">
+<em class="property">class </em><code class="descname">floatOptionType</code><span class="sig-paren">(</span><em>*args</em>, <em>**kw</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/ts_core/config/bindings/edges_xml.html#floatOptionType"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#ts_core.config.bindings.edges_xml.floatOptionType" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal"><span class="pre">pyxb.binding.basis.complexTypeDefinition</span></code></p>
+<p>Complex type floatOptionType with content type EMPTY</p>
+<dl class="attribute">
+<dt id="ts_core.config.bindings.edges_xml.floatOptionType.help">
+<code class="descname">help</code><a class="headerlink" href="#ts_core.config.bindings.edges_xml.floatOptionType.help" title="Permalink to this definition">¶</a></dt>
+<dd><p>Get the value of the attribute from the instance.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="ts_core.config.bindings.edges_xml.floatOptionType.synonymes">
+<code class="descname">synonymes</code><a class="headerlink" href="#ts_core.config.bindings.edges_xml.floatOptionType.synonymes" title="Permalink to this definition">¶</a></dt>
+<dd><p>Get the value of the attribute from the instance.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="ts_core.config.bindings.edges_xml.floatOptionType.type">
+<code class="descname">type</code><a class="headerlink" href="#ts_core.config.bindings.edges_xml.floatOptionType.type" title="Permalink to this definition">¶</a></dt>
+<dd><p>Get the value of the attribute from the instance.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="ts_core.config.bindings.edges_xml.floatOptionType.value_">
+<code class="descname">value_</code><a class="headerlink" href="#ts_core.config.bindings.edges_xml.floatOptionType.value_" title="Permalink to this definition">¶</a></dt>
+<dd><p>Get the value of the attribute from the instance.</p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="ts_core.config.bindings.edges_xml.intArrayOptionType">
+<em class="property">class </em><code class="descname">intArrayOptionType</code><span class="sig-paren">(</span><em>*args</em>, <em>**kw</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/ts_core/config/bindings/edges_xml.html#intArrayOptionType"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#ts_core.config.bindings.edges_xml.intArrayOptionType" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal"><span class="pre">pyxb.binding.basis.complexTypeDefinition</span></code></p>
+<p>Complex type intArrayOptionType with content type EMPTY</p>
+<dl class="attribute">
+<dt id="ts_core.config.bindings.edges_xml.intArrayOptionType.help">
+<code class="descname">help</code><a class="headerlink" href="#ts_core.config.bindings.edges_xml.intArrayOptionType.help" title="Permalink to this definition">¶</a></dt>
+<dd><p>Get the value of the attribute from the instance.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="ts_core.config.bindings.edges_xml.intArrayOptionType.synonymes">
+<code class="descname">synonymes</code><a class="headerlink" href="#ts_core.config.bindings.edges_xml.intArrayOptionType.synonymes" title="Permalink to this definition">¶</a></dt>
+<dd><p>Get the value of the attribute from the instance.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="ts_core.config.bindings.edges_xml.intArrayOptionType.type">
+<code class="descname">type</code><a class="headerlink" href="#ts_core.config.bindings.edges_xml.intArrayOptionType.type" title="Permalink to this definition">¶</a></dt>
+<dd><p>Get the value of the attribute from the instance.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="ts_core.config.bindings.edges_xml.intArrayOptionType.value_">
+<code class="descname">value_</code><a class="headerlink" href="#ts_core.config.bindings.edges_xml.intArrayOptionType.value_" title="Permalink to this definition">¶</a></dt>
+<dd><p>Get the value of the attribute from the instance.</p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="ts_core.config.bindings.edges_xml.intOptionType">
+<em class="property">class </em><code class="descname">intOptionType</code><span class="sig-paren">(</span><em>*args</em>, <em>**kw</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/ts_core/config/bindings/edges_xml.html#intOptionType"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#ts_core.config.bindings.edges_xml.intOptionType" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal"><span class="pre">pyxb.binding.basis.complexTypeDefinition</span></code></p>
+<p>Complex type intOptionType with content type EMPTY</p>
+<dl class="attribute">
+<dt id="ts_core.config.bindings.edges_xml.intOptionType.help">
+<code class="descname">help</code><a class="headerlink" href="#ts_core.config.bindings.edges_xml.intOptionType.help" title="Permalink to this definition">¶</a></dt>
+<dd><p>Get the value of the attribute from the instance.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="ts_core.config.bindings.edges_xml.intOptionType.synonymes">
+<code class="descname">synonymes</code><a class="headerlink" href="#ts_core.config.bindings.edges_xml.intOptionType.synonymes" title="Permalink to this definition">¶</a></dt>
+<dd><p>Get the value of the attribute from the instance.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="ts_core.config.bindings.edges_xml.intOptionType.type">
+<code class="descname">type</code><a class="headerlink" href="#ts_core.config.bindings.edges_xml.intOptionType.type" title="Permalink to this definition">¶</a></dt>
+<dd><p>Get the value of the attribute from the instance.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="ts_core.config.bindings.edges_xml.intOptionType.value_">
+<code class="descname">value_</code><a class="headerlink" href="#ts_core.config.bindings.edges_xml.intOptionType.value_" title="Permalink to this definition">¶</a></dt>
+<dd><p>Get the value of the attribute from the instance.</p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="ts_core.config.bindings.edges_xml.laneType">
+<em class="property">class </em><code class="descname">laneType</code><span class="sig-paren">(</span><em>*args</em>, <em>**kw</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/ts_core/config/bindings/edges_xml.html#laneType"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#ts_core.config.bindings.edges_xml.laneType" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal"><span class="pre">pyxb.binding.basis.complexTypeDefinition</span></code></p>
+<p>Complex type laneType with content type ELEMENT_ONLY</p>
+<dl class="attribute">
+<dt id="ts_core.config.bindings.edges_xml.laneType.acceleration">
+<code class="descname">acceleration</code><a class="headerlink" href="#ts_core.config.bindings.edges_xml.laneType.acceleration" title="Permalink to this definition">¶</a></dt>
+<dd><p>Get the value of the attribute from the instance.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="ts_core.config.bindings.edges_xml.laneType.allow">
+<code class="descname">allow</code><a class="headerlink" href="#ts_core.config.bindings.edges_xml.laneType.allow" title="Permalink to this definition">¶</a></dt>
+<dd><p>Get the value of the attribute from the instance.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="ts_core.config.bindings.edges_xml.laneType.disallow">
+<code class="descname">disallow</code><a class="headerlink" href="#ts_core.config.bindings.edges_xml.laneType.disallow" title="Permalink to this definition">¶</a></dt>
+<dd><p>Get the value of the attribute from the instance.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="ts_core.config.bindings.edges_xml.laneType.endOffset">
+<code class="descname">endOffset</code><a class="headerlink" href="#ts_core.config.bindings.edges_xml.laneType.endOffset" title="Permalink to this definition">¶</a></dt>
+<dd><p>Get the value of the attribute from the instance.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="ts_core.config.bindings.edges_xml.laneType.index">
+<code class="descname">index</code><a class="headerlink" href="#ts_core.config.bindings.edges_xml.laneType.index" title="Permalink to this definition">¶</a></dt>
+<dd><p>Get the value of the attribute from the instance.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="ts_core.config.bindings.edges_xml.laneType.neigh">
+<code class="descname">neigh</code><a class="headerlink" href="#ts_core.config.bindings.edges_xml.laneType.neigh" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return the value for this use within the given instance.</p>
+<p>Note that this is the L{resetValue()}, not the L{defaultValue()}, if
+the element has not yet been assigned a value.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="ts_core.config.bindings.edges_xml.laneType.param">
+<code class="descname">param</code><a class="headerlink" href="#ts_core.config.bindings.edges_xml.laneType.param" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return the value for this use within the given instance.</p>
+<p>Note that this is the L{resetValue()}, not the L{defaultValue()}, if
+the element has not yet been assigned a value.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="ts_core.config.bindings.edges_xml.laneType.prefer">
+<code class="descname">prefer</code><a class="headerlink" href="#ts_core.config.bindings.edges_xml.laneType.prefer" title="Permalink to this definition">¶</a></dt>
+<dd><p>Get the value of the attribute from the instance.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="ts_core.config.bindings.edges_xml.laneType.shape">
+<code class="descname">shape</code><a class="headerlink" href="#ts_core.config.bindings.edges_xml.laneType.shape" title="Permalink to this definition">¶</a></dt>
+<dd><p>Get the value of the attribute from the instance.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="ts_core.config.bindings.edges_xml.laneType.speed">
+<code class="descname">speed</code><a class="headerlink" href="#ts_core.config.bindings.edges_xml.laneType.speed" title="Permalink to this definition">¶</a></dt>
+<dd><p>Get the value of the attribute from the instance.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="ts_core.config.bindings.edges_xml.laneType.width">
+<code class="descname">width</code><a class="headerlink" href="#ts_core.config.bindings.edges_xml.laneType.width" title="Permalink to this definition">¶</a></dt>
+<dd><p>Get the value of the attribute from the instance.</p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="ts_core.config.bindings.edges_xml.locationType">
+<em class="property">class </em><code class="descname">locationType</code><span class="sig-paren">(</span><em>*args</em>, <em>**kw</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/ts_core/config/bindings/edges_xml.html#locationType"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#ts_core.config.bindings.edges_xml.locationType" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal"><span class="pre">pyxb.binding.basis.complexTypeDefinition</span></code></p>
+<p>Complex type locationType with content type EMPTY</p>
+<dl class="attribute">
+<dt id="ts_core.config.bindings.edges_xml.locationType.convBoundary">
+<code class="descname">convBoundary</code><a class="headerlink" href="#ts_core.config.bindings.edges_xml.locationType.convBoundary" title="Permalink to this definition">¶</a></dt>
+<dd><p>Get the value of the attribute from the instance.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="ts_core.config.bindings.edges_xml.locationType.netOffset">
+<code class="descname">netOffset</code><a class="headerlink" href="#ts_core.config.bindings.edges_xml.locationType.netOffset" title="Permalink to this definition">¶</a></dt>
+<dd><p>Get the value of the attribute from the instance.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="ts_core.config.bindings.edges_xml.locationType.origBoundary">
+<code class="descname">origBoundary</code><a class="headerlink" href="#ts_core.config.bindings.edges_xml.locationType.origBoundary" title="Permalink to this definition">¶</a></dt>
+<dd><p>Get the value of the attribute from the instance.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="ts_core.config.bindings.edges_xml.locationType.projParameter">
+<code class="descname">projParameter</code><a class="headerlink" href="#ts_core.config.bindings.edges_xml.locationType.projParameter" title="Permalink to this definition">¶</a></dt>
+<dd><p>Get the value of the attribute from the instance.</p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="ts_core.config.bindings.edges_xml.neighType">
+<em class="property">class </em><code class="descname">neighType</code><span class="sig-paren">(</span><em>*args</em>, <em>**kw</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/ts_core/config/bindings/edges_xml.html#neighType"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#ts_core.config.bindings.edges_xml.neighType" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal"><span class="pre">pyxb.binding.basis.complexTypeDefinition</span></code></p>
+<p>Complex type neighType with content type EMPTY</p>
+<dl class="attribute">
+<dt id="ts_core.config.bindings.edges_xml.neighType.lane">
+<code class="descname">lane</code><a class="headerlink" href="#ts_core.config.bindings.edges_xml.neighType.lane" title="Permalink to this definition">¶</a></dt>
+<dd><p>Get the value of the attribute from the instance.</p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="ts_core.config.bindings.edges_xml.nodeTypeType">
+<em class="property">class </em><code class="descname">nodeTypeType</code><span class="sig-paren">(</span><em>*args</em>, <em>**kw</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/ts_core/config/bindings/edges_xml.html#nodeTypeType"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#ts_core.config.bindings.edges_xml.nodeTypeType" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal"><span class="pre">pyxb.binding.datatypes.string</span></code>, <code class="xref py py-class docutils literal"><span class="pre">pyxb.binding.basis.enumeration_mixin</span></code></p>
+<p>An atomic simple type.</p>
+<dl class="attribute">
+<dt id="ts_core.config.bindings.edges_xml.nodeTypeType.allway_stop">
+<code class="descname">allway_stop</code><em class="property"> = 'allway_stop'</em><a class="headerlink" href="#ts_core.config.bindings.edges_xml.nodeTypeType.allway_stop" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="ts_core.config.bindings.edges_xml.nodeTypeType.dead_end">
+<code class="descname">dead_end</code><em class="property"> = 'dead_end'</em><a class="headerlink" href="#ts_core.config.bindings.edges_xml.nodeTypeType.dead_end" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="ts_core.config.bindings.edges_xml.nodeTypeType.priority">
+<code class="descname">priority</code><em class="property"> = 'priority'</em><a class="headerlink" href="#ts_core.config.bindings.edges_xml.nodeTypeType.priority" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="ts_core.config.bindings.edges_xml.nodeTypeType.priority_stop">
+<code class="descname">priority_stop</code><em class="property"> = 'priority_stop'</em><a class="headerlink" href="#ts_core.config.bindings.edges_xml.nodeTypeType.priority_stop" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="ts_core.config.bindings.edges_xml.nodeTypeType.rail_crossing">
+<code class="descname">rail_crossing</code><em class="property"> = 'rail_crossing'</em><a class="headerlink" href="#ts_core.config.bindings.edges_xml.nodeTypeType.rail_crossing" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="ts_core.config.bindings.edges_xml.nodeTypeType.rail_signal">
+<code class="descname">rail_signal</code><em class="property"> = 'rail_signal'</em><a class="headerlink" href="#ts_core.config.bindings.edges_xml.nodeTypeType.rail_signal" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="ts_core.config.bindings.edges_xml.nodeTypeType.right_before_left">
+<code class="descname">right_before_left</code><em class="property"> = 'right_before_left'</em><a class="headerlink" href="#ts_core.config.bindings.edges_xml.nodeTypeType.right_before_left" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="ts_core.config.bindings.edges_xml.nodeTypeType.traffic_light">
+<code class="descname">traffic_light</code><em class="property"> = 'traffic_light'</em><a class="headerlink" href="#ts_core.config.bindings.edges_xml.nodeTypeType.traffic_light" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="ts_core.config.bindings.edges_xml.nodeTypeType.traffic_light_right_on_red">
+<code class="descname">traffic_light_right_on_red</code><em class="property"> = 'traffic_light_right_on_red'</em><a class="headerlink" href="#ts_core.config.bindings.edges_xml.nodeTypeType.traffic_light_right_on_red" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="ts_core.config.bindings.edges_xml.nodeTypeType.traffic_light_unregulated">
+<code class="descname">traffic_light_unregulated</code><em class="property"> = 'traffic_light_unregulated'</em><a class="headerlink" href="#ts_core.config.bindings.edges_xml.nodeTypeType.traffic_light_unregulated" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="ts_core.config.bindings.edges_xml.nodeTypeType.unregulated">
+<code class="descname">unregulated</code><em class="property"> = 'unregulated'</em><a class="headerlink" href="#ts_core.config.bindings.edges_xml.nodeTypeType.unregulated" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="ts_core.config.bindings.edges_xml.nodeTypeType.zipper">
+<code class="descname">zipper</code><em class="property"> = 'zipper'</em><a class="headerlink" href="#ts_core.config.bindings.edges_xml.nodeTypeType.zipper" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="ts_core.config.bindings.edges_xml.nonNegativeDistributionType">
+<em class="property">class </em><code class="descname">nonNegativeDistributionType</code><span class="sig-paren">(</span><em>*args</em>, <em>**kw</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/ts_core/config/bindings/edges_xml.html#nonNegativeDistributionType"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#ts_core.config.bindings.edges_xml.nonNegativeDistributionType" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal"><span class="pre">pyxb.binding.basis.STD_union</span></code></p>
+<p>Simple type that is a union of nonNegativeFloatType, <a href="#id1"><span class="problematic" id="id2">STD_ANON_</span></a>.</p>
+</dd></dl>
+
+<dl class="class">
+<dt id="ts_core.config.bindings.edges_xml.nonNegativeFloatType">
+<em class="property">class </em><code class="descname">nonNegativeFloatType</code><span class="sig-paren">(</span><em>*args</em>, <em>**kw</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/ts_core/config/bindings/edges_xml.html#nonNegativeFloatType"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#ts_core.config.bindings.edges_xml.nonNegativeFloatType" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal"><span class="pre">pyxb.binding.datatypes.float</span></code></p>
+<p>An atomic simple type.</p>
+</dd></dl>
+
+<dl class="class">
+<dt id="ts_core.config.bindings.edges_xml.nonNegativeFloatTypeWithErrorValue">
+<em class="property">class </em><code class="descname">nonNegativeFloatTypeWithErrorValue</code><span class="sig-paren">(</span><em>*args</em>, <em>**kw</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/ts_core/config/bindings/edges_xml.html#nonNegativeFloatTypeWithErrorValue"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#ts_core.config.bindings.edges_xml.nonNegativeFloatTypeWithErrorValue" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal"><span class="pre">pyxb.binding.basis.STD_union</span></code></p>
+<p>Simple type that is a union of nonNegativeFloatType, STD_ANON.</p>
+</dd></dl>
+
+<dl class="class">
+<dt id="ts_core.config.bindings.edges_xml.nonNegativeIntType">
+<em class="property">class </em><code class="descname">nonNegativeIntType</code><span class="sig-paren">(</span><em>*args</em>, <em>**kw</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/ts_core/config/bindings/edges_xml.html#nonNegativeIntType"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#ts_core.config.bindings.edges_xml.nonNegativeIntType" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal"><span class="pre">pyxb.binding.datatypes.int</span></code></p>
+<p>An atomic simple type.</p>
+</dd></dl>
+
+<dl class="class">
+<dt id="ts_core.config.bindings.edges_xml.paramType">
+<em class="property">class </em><code class="descname">paramType</code><span class="sig-paren">(</span><em>*args</em>, <em>**kw</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/ts_core/config/bindings/edges_xml.html#paramType"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#ts_core.config.bindings.edges_xml.paramType" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal"><span class="pre">pyxb.binding.basis.complexTypeDefinition</span></code></p>
+<p>Complex type paramType with content type EMPTY</p>
+<dl class="attribute">
+<dt id="ts_core.config.bindings.edges_xml.paramType.key">
+<code class="descname">key</code><a class="headerlink" href="#ts_core.config.bindings.edges_xml.paramType.key" title="Permalink to this definition">¶</a></dt>
+<dd><p>Get the value of the attribute from the instance.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="ts_core.config.bindings.edges_xml.paramType.value_">
+<code class="descname">value_</code><a class="headerlink" href="#ts_core.config.bindings.edges_xml.paramType.value_" title="Permalink to this definition">¶</a></dt>
+<dd><p>Get the value of the attribute from the instance.</p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="ts_core.config.bindings.edges_xml.phaseType">
+<em class="property">class </em><code class="descname">phaseType</code><span class="sig-paren">(</span><em>*args</em>, <em>**kw</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/ts_core/config/bindings/edges_xml.html#phaseType"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#ts_core.config.bindings.edges_xml.phaseType" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal"><span class="pre">pyxb.binding.basis.complexTypeDefinition</span></code></p>
+<p>Complex type phaseType with content type EMPTY</p>
+<dl class="attribute">
+<dt id="ts_core.config.bindings.edges_xml.phaseType.duration">
+<code class="descname">duration</code><a class="headerlink" href="#ts_core.config.bindings.edges_xml.phaseType.duration" title="Permalink to this definition">¶</a></dt>
+<dd><p>Get the value of the attribute from the instance.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="ts_core.config.bindings.edges_xml.phaseType.maxDur">
+<code class="descname">maxDur</code><a class="headerlink" href="#ts_core.config.bindings.edges_xml.phaseType.maxDur" title="Permalink to this definition">¶</a></dt>
+<dd><p>Get the value of the attribute from the instance.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="ts_core.config.bindings.edges_xml.phaseType.minDur">
+<code class="descname">minDur</code><a class="headerlink" href="#ts_core.config.bindings.edges_xml.phaseType.minDur" title="Permalink to this definition">¶</a></dt>
+<dd><p>Get the value of the attribute from the instance.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="ts_core.config.bindings.edges_xml.phaseType.state">
+<code class="descname">state</code><a class="headerlink" href="#ts_core.config.bindings.edges_xml.phaseType.state" title="Permalink to this definition">¶</a></dt>
+<dd><p>Get the value of the attribute from the instance.</p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="ts_core.config.bindings.edges_xml.positiveFloatType">
+<em class="property">class </em><code class="descname">positiveFloatType</code><span class="sig-paren">(</span><em>*args</em>, <em>**kw</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/ts_core/config/bindings/edges_xml.html#positiveFloatType"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#ts_core.config.bindings.edges_xml.positiveFloatType" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal"><span class="pre">pyxb.binding.datatypes.float</span></code></p>
+<p>An atomic simple type.</p>
+</dd></dl>
+
+<dl class="class">
+<dt id="ts_core.config.bindings.edges_xml.positiveIntType">
+<em class="property">class </em><code class="descname">positiveIntType</code><span class="sig-paren">(</span><em>*args</em>, <em>**kw</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/ts_core/config/bindings/edges_xml.html#positiveIntType"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#ts_core.config.bindings.edges_xml.positiveIntType" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal"><span class="pre">pyxb.binding.datatypes.int</span></code></p>
+<p>An atomic simple type.</p>
+</dd></dl>
+
+<dl class="class">
+<dt id="ts_core.config.bindings.edges_xml.restrictionType">
+<em class="property">class </em><code class="descname">restrictionType</code><span class="sig-paren">(</span><em>*args</em>, <em>**kw</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/ts_core/config/bindings/edges_xml.html#restrictionType"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#ts_core.config.bindings.edges_xml.restrictionType" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal"><span class="pre">pyxb.binding.basis.complexTypeDefinition</span></code></p>
+<p>Complex type restrictionType with content type EMPTY</p>
+<dl class="attribute">
+<dt id="ts_core.config.bindings.edges_xml.restrictionType.speed">
+<code class="descname">speed</code><a class="headerlink" href="#ts_core.config.bindings.edges_xml.restrictionType.speed" title="Permalink to this definition">¶</a></dt>
+<dd><p>Get the value of the attribute from the instance.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="ts_core.config.bindings.edges_xml.restrictionType.vClass">
+<code class="descname">vClass</code><a class="headerlink" href="#ts_core.config.bindings.edges_xml.restrictionType.vClass" title="Permalink to this definition">¶</a></dt>
+<dd><p>Get the value of the attribute from the instance.</p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="ts_core.config.bindings.edges_xml.roundaboutType">
+<em class="property">class </em><code class="descname">roundaboutType</code><span class="sig-paren">(</span><em>*args</em>, <em>**kw</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/ts_core/config/bindings/edges_xml.html#roundaboutType"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#ts_core.config.bindings.edges_xml.roundaboutType" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal"><span class="pre">pyxb.binding.basis.complexTypeDefinition</span></code></p>
+<p>Complex type roundaboutType with content type EMPTY</p>
+<dl class="attribute">
+<dt id="ts_core.config.bindings.edges_xml.roundaboutType.edges">
+<code class="descname">edges</code><a class="headerlink" href="#ts_core.config.bindings.edges_xml.roundaboutType.edges" title="Permalink to this definition">¶</a></dt>
+<dd><p>Get the value of the attribute from the instance.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="ts_core.config.bindings.edges_xml.roundaboutType.nodes">
+<code class="descname">nodes</code><a class="headerlink" href="#ts_core.config.bindings.edges_xml.roundaboutType.nodes" title="Permalink to this definition">¶</a></dt>
+<dd><p>Get the value of the attribute from the instance.</p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="ts_core.config.bindings.edges_xml.shapeType">
+<em class="property">class </em><code class="descname">shapeType</code><span class="sig-paren">(</span><em>*args</em>, <em>**kw</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/ts_core/config/bindings/edges_xml.html#shapeType"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#ts_core.config.bindings.edges_xml.shapeType" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal"><span class="pre">pyxb.binding.datatypes.string</span></code></p>
+<p>An atomic simple type.</p>
+</dd></dl>
+
+<dl class="class">
+<dt id="ts_core.config.bindings.edges_xml.shapeTypeTwo">
+<em class="property">class </em><code class="descname">shapeTypeTwo</code><span class="sig-paren">(</span><em>*args</em>, <em>**kw</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/ts_core/config/bindings/edges_xml.html#shapeTypeTwo"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#ts_core.config.bindings.edges_xml.shapeTypeTwo" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal"><span class="pre">pyxb.binding.datatypes.string</span></code></p>
+<p>An atomic simple type.</p>
+</dd></dl>
+
+<dl class="class">
+<dt id="ts_core.config.bindings.edges_xml.splitType">
+<em class="property">class </em><code class="descname">splitType</code><span class="sig-paren">(</span><em>*args</em>, <em>**kw</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/ts_core/config/bindings/edges_xml.html#splitType"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#ts_core.config.bindings.edges_xml.splitType" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal"><span class="pre">pyxb.binding.basis.complexTypeDefinition</span></code></p>
+<p>Complex type splitType with content type EMPTY</p>
+<dl class="attribute">
+<dt id="ts_core.config.bindings.edges_xml.splitType.idAfter">
+<code class="descname">idAfter</code><a class="headerlink" href="#ts_core.config.bindings.edges_xml.splitType.idAfter" title="Permalink to this definition">¶</a></dt>
+<dd><p>Get the value of the attribute from the instance.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="ts_core.config.bindings.edges_xml.splitType.idBefore">
+<code class="descname">idBefore</code><a class="headerlink" href="#ts_core.config.bindings.edges_xml.splitType.idBefore" title="Permalink to this definition">¶</a></dt>
+<dd><p>Get the value of the attribute from the instance.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="ts_core.config.bindings.edges_xml.splitType.keepClear">
+<code class="descname">keepClear</code><a class="headerlink" href="#ts_core.config.bindings.edges_xml.splitType.keepClear" title="Permalink to this definition">¶</a></dt>
+<dd><p>Get the value of the attribute from the instance.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="ts_core.config.bindings.edges_xml.splitType.lanes">
+<code class="descname">lanes</code><a class="headerlink" href="#ts_core.config.bindings.edges_xml.splitType.lanes" title="Permalink to this definition">¶</a></dt>
+<dd><p>Get the value of the attribute from the instance.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="ts_core.config.bindings.edges_xml.splitType.pos">
+<code class="descname">pos</code><a class="headerlink" href="#ts_core.config.bindings.edges_xml.splitType.pos" title="Permalink to this definition">¶</a></dt>
+<dd><p>Get the value of the attribute from the instance.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="ts_core.config.bindings.edges_xml.splitType.radius">
+<code class="descname">radius</code><a class="headerlink" href="#ts_core.config.bindings.edges_xml.splitType.radius" title="Permalink to this definition">¶</a></dt>
+<dd><p>Get the value of the attribute from the instance.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="ts_core.config.bindings.edges_xml.splitType.shape">
+<code class="descname">shape</code><a class="headerlink" href="#ts_core.config.bindings.edges_xml.splitType.shape" title="Permalink to this definition">¶</a></dt>
+<dd><p>Get the value of the attribute from the instance.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="ts_core.config.bindings.edges_xml.splitType.speed">
+<code class="descname">speed</code><a class="headerlink" href="#ts_core.config.bindings.edges_xml.splitType.speed" title="Permalink to this definition">¶</a></dt>
+<dd><p>Get the value of the attribute from the instance.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="ts_core.config.bindings.edges_xml.splitType.tl">
+<code class="descname">tl</code><a class="headerlink" href="#ts_core.config.bindings.edges_xml.splitType.tl" title="Permalink to this definition">¶</a></dt>
+<dd><p>Get the value of the attribute from the instance.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="ts_core.config.bindings.edges_xml.splitType.tlType">
+<code class="descname">tlType</code><a class="headerlink" href="#ts_core.config.bindings.edges_xml.splitType.tlType" title="Permalink to this definition">¶</a></dt>
+<dd><p>Get the value of the attribute from the instance.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="ts_core.config.bindings.edges_xml.splitType.type">
+<code class="descname">type</code><a class="headerlink" href="#ts_core.config.bindings.edges_xml.splitType.type" title="Permalink to this definition">¶</a></dt>
+<dd><p>Get the value of the attribute from the instance.</p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="ts_core.config.bindings.edges_xml.strOptionType">
+<em class="property">class </em><code class="descname">strOptionType</code><span class="sig-paren">(</span><em>*args</em>, <em>**kw</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/ts_core/config/bindings/edges_xml.html#strOptionType"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#ts_core.config.bindings.edges_xml.strOptionType" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal"><span class="pre">pyxb.binding.basis.complexTypeDefinition</span></code></p>
+<p>Complex type strOptionType with content type EMPTY</p>
+<dl class="attribute">
+<dt id="ts_core.config.bindings.edges_xml.strOptionType.help">
+<code class="descname">help</code><a class="headerlink" href="#ts_core.config.bindings.edges_xml.strOptionType.help" title="Permalink to this definition">¶</a></dt>
+<dd><p>Get the value of the attribute from the instance.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="ts_core.config.bindings.edges_xml.strOptionType.synonymes">
+<code class="descname">synonymes</code><a class="headerlink" href="#ts_core.config.bindings.edges_xml.strOptionType.synonymes" title="Permalink to this definition">¶</a></dt>
+<dd><p>Get the value of the attribute from the instance.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="ts_core.config.bindings.edges_xml.strOptionType.type">
+<code class="descname">type</code><a class="headerlink" href="#ts_core.config.bindings.edges_xml.strOptionType.type" title="Permalink to this definition">¶</a></dt>
+<dd><p>Get the value of the attribute from the instance.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="ts_core.config.bindings.edges_xml.strOptionType.value_">
+<code class="descname">value_</code><a class="headerlink" href="#ts_core.config.bindings.edges_xml.strOptionType.value_" title="Permalink to this definition">¶</a></dt>
+<dd><p>Get the value of the attribute from the instance.</p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="ts_core.config.bindings.edges_xml.timeOptionType">
+<em class="property">class </em><code class="descname">timeOptionType</code><span class="sig-paren">(</span><em>*args</em>, <em>**kw</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/ts_core/config/bindings/edges_xml.html#timeOptionType"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#ts_core.config.bindings.edges_xml.timeOptionType" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal"><span class="pre">pyxb.binding.basis.complexTypeDefinition</span></code></p>
+<p>Complex type timeOptionType with content type EMPTY</p>
+<dl class="attribute">
+<dt id="ts_core.config.bindings.edges_xml.timeOptionType.help">
+<code class="descname">help</code><a class="headerlink" href="#ts_core.config.bindings.edges_xml.timeOptionType.help" title="Permalink to this definition">¶</a></dt>
+<dd><p>Get the value of the attribute from the instance.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="ts_core.config.bindings.edges_xml.timeOptionType.synonymes">
+<code class="descname">synonymes</code><a class="headerlink" href="#ts_core.config.bindings.edges_xml.timeOptionType.synonymes" title="Permalink to this definition">¶</a></dt>
+<dd><p>Get the value of the attribute from the instance.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="ts_core.config.bindings.edges_xml.timeOptionType.type">
+<code class="descname">type</code><a class="headerlink" href="#ts_core.config.bindings.edges_xml.timeOptionType.type" title="Permalink to this definition">¶</a></dt>
+<dd><p>Get the value of the attribute from the instance.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="ts_core.config.bindings.edges_xml.timeOptionType.value_">
+<code class="descname">value_</code><a class="headerlink" href="#ts_core.config.bindings.edges_xml.timeOptionType.value_" title="Permalink to this definition">¶</a></dt>
+<dd><p>Get the value of the attribute from the instance.</p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="ts_core.config.bindings.edges_xml.tlLogicType">
+<em class="property">class </em><code class="descname">tlLogicType</code><span class="sig-paren">(</span><em>*args</em>, <em>**kw</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/ts_core/config/bindings/edges_xml.html#tlLogicType"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#ts_core.config.bindings.edges_xml.tlLogicType" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal"><span class="pre">pyxb.binding.basis.complexTypeDefinition</span></code></p>
+<p>Complex type tlLogicType with content type ELEMENT_ONLY</p>
+<dl class="attribute">
+<dt id="ts_core.config.bindings.edges_xml.tlLogicType.id">
+<code class="descname">id</code><a class="headerlink" href="#ts_core.config.bindings.edges_xml.tlLogicType.id" title="Permalink to this definition">¶</a></dt>
+<dd><p>Get the value of the attribute from the instance.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="ts_core.config.bindings.edges_xml.tlLogicType.offset">
+<code class="descname">offset</code><a class="headerlink" href="#ts_core.config.bindings.edges_xml.tlLogicType.offset" title="Permalink to this definition">¶</a></dt>
+<dd><p>Get the value of the attribute from the instance.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="ts_core.config.bindings.edges_xml.tlLogicType.param">
+<code class="descname">param</code><a class="headerlink" href="#ts_core.config.bindings.edges_xml.tlLogicType.param" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return the value for this use within the given instance.</p>
+<p>Note that this is the L{resetValue()}, not the L{defaultValue()}, if
+the element has not yet been assigned a value.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="ts_core.config.bindings.edges_xml.tlLogicType.phase">
+<code class="descname">phase</code><a class="headerlink" href="#ts_core.config.bindings.edges_xml.tlLogicType.phase" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return the value for this use within the given instance.</p>
+<p>Note that this is the L{resetValue()}, not the L{defaultValue()}, if
+the element has not yet been assigned a value.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="ts_core.config.bindings.edges_xml.tlLogicType.programID">
+<code class="descname">programID</code><a class="headerlink" href="#ts_core.config.bindings.edges_xml.tlLogicType.programID" title="Permalink to this definition">¶</a></dt>
+<dd><p>Get the value of the attribute from the instance.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="ts_core.config.bindings.edges_xml.tlLogicType.type">
+<code class="descname">type</code><a class="headerlink" href="#ts_core.config.bindings.edges_xml.tlLogicType.type" title="Permalink to this definition">¶</a></dt>
+<dd><p>Get the value of the attribute from the instance.</p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="ts_core.config.bindings.edges_xml.tlTypeType">
+<em class="property">class </em><code class="descname">tlTypeType</code><span class="sig-paren">(</span><em>*args</em>, <em>**kw</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/ts_core/config/bindings/edges_xml.html#tlTypeType"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#ts_core.config.bindings.edges_xml.tlTypeType" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal"><span class="pre">pyxb.binding.datatypes.string</span></code>, <code class="xref py py-class docutils literal"><span class="pre">pyxb.binding.basis.enumeration_mixin</span></code></p>
+<p>An atomic simple type.</p>
+<dl class="attribute">
+<dt id="ts_core.config.bindings.edges_xml.tlTypeType.actuated">
+<code class="descname">actuated</code><em class="property"> = 'actuated'</em><a class="headerlink" href="#ts_core.config.bindings.edges_xml.tlTypeType.actuated" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="ts_core.config.bindings.edges_xml.tlTypeType.delay_based">
+<code class="descname">delay_based</code><em class="property"> = 'delay_based'</em><a class="headerlink" href="#ts_core.config.bindings.edges_xml.tlTypeType.delay_based" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="ts_core.config.bindings.edges_xml.tlTypeType.static">
+<code class="descname">static</code><em class="property"> = 'static'</em><a class="headerlink" href="#ts_core.config.bindings.edges_xml.tlTypeType.static" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="ts_core.config.bindings.edges_xml.typeType">
+<em class="property">class </em><code class="descname">typeType</code><span class="sig-paren">(</span><em>*args</em>, <em>**kw</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/ts_core/config/bindings/edges_xml.html#typeType"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#ts_core.config.bindings.edges_xml.typeType" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal"><span class="pre">pyxb.binding.basis.complexTypeDefinition</span></code></p>
+<p>Complex type typeType with content type ELEMENT_ONLY</p>
+<dl class="attribute">
+<dt id="ts_core.config.bindings.edges_xml.typeType.allow">
+<code class="descname">allow</code><a class="headerlink" href="#ts_core.config.bindings.edges_xml.typeType.allow" title="Permalink to this definition">¶</a></dt>
+<dd><p>Get the value of the attribute from the instance.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="ts_core.config.bindings.edges_xml.typeType.bikeLaneWidth">
+<code class="descname">bikeLaneWidth</code><a class="headerlink" href="#ts_core.config.bindings.edges_xml.typeType.bikeLaneWidth" title="Permalink to this definition">¶</a></dt>
+<dd><p>Get the value of the attribute from the instance.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="ts_core.config.bindings.edges_xml.typeType.disallow">
+<code class="descname">disallow</code><a class="headerlink" href="#ts_core.config.bindings.edges_xml.typeType.disallow" title="Permalink to this definition">¶</a></dt>
+<dd><p>Get the value of the attribute from the instance.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="ts_core.config.bindings.edges_xml.typeType.discard">
+<code class="descname">discard</code><a class="headerlink" href="#ts_core.config.bindings.edges_xml.typeType.discard" title="Permalink to this definition">¶</a></dt>
+<dd><p>Get the value of the attribute from the instance.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="ts_core.config.bindings.edges_xml.typeType.id">
+<code class="descname">id</code><a class="headerlink" href="#ts_core.config.bindings.edges_xml.typeType.id" title="Permalink to this definition">¶</a></dt>
+<dd><p>Get the value of the attribute from the instance.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="ts_core.config.bindings.edges_xml.typeType.numLanes">
+<code class="descname">numLanes</code><a class="headerlink" href="#ts_core.config.bindings.edges_xml.typeType.numLanes" title="Permalink to this definition">¶</a></dt>
+<dd><p>Get the value of the attribute from the instance.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="ts_core.config.bindings.edges_xml.typeType.oneway">
+<code class="descname">oneway</code><a class="headerlink" href="#ts_core.config.bindings.edges_xml.typeType.oneway" title="Permalink to this definition">¶</a></dt>
+<dd><p>Get the value of the attribute from the instance.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="ts_core.config.bindings.edges_xml.typeType.priority">
+<code class="descname">priority</code><a class="headerlink" href="#ts_core.config.bindings.edges_xml.typeType.priority" title="Permalink to this definition">¶</a></dt>
+<dd><p>Get the value of the attribute from the instance.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="ts_core.config.bindings.edges_xml.typeType.restriction">
+<code class="descname">restriction</code><a class="headerlink" href="#ts_core.config.bindings.edges_xml.typeType.restriction" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return the value for this use within the given instance.</p>
+<p>Note that this is the L{resetValue()}, not the L{defaultValue()}, if
+the element has not yet been assigned a value.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="ts_core.config.bindings.edges_xml.typeType.sidewalkWidth">
+<code class="descname">sidewalkWidth</code><a class="headerlink" href="#ts_core.config.bindings.edges_xml.typeType.sidewalkWidth" title="Permalink to this definition">¶</a></dt>
+<dd><p>Get the value of the attribute from the instance.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="ts_core.config.bindings.edges_xml.typeType.speed">
+<code class="descname">speed</code><a class="headerlink" href="#ts_core.config.bindings.edges_xml.typeType.speed" title="Permalink to this definition">¶</a></dt>
+<dd><p>Get the value of the attribute from the instance.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="ts_core.config.bindings.edges_xml.typeType.width">
+<code class="descname">width</code><a class="headerlink" href="#ts_core.config.bindings.edges_xml.typeType.width" title="Permalink to this definition">¶</a></dt>
+<dd><p>Get the value of the attribute from the instance.</p>
+</dd></dl>
+
+</dd></dl>
+
+</div>
+
+
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+  <div role="note" aria-label="source link">
+    <h3>This Page</h3>
+    <ul class="this-page-menu">
+      <li><a href="_sources/ts_core.config.bindings.edges_xml.rst.txt"
+            rel="nofollow">Show Source</a></li>
+    </ul>
+   </div>
+<div id="searchbox" style="display: none" role="search">
+  <h3>Quick search</h3>
+    <form class="search" action="search.html" method="get">
+      <div><input type="text" name="q" /></div>
+      <div><input type="submit" value="Go" /></div>
+      <input type="hidden" name="check_keywords" value="yes" />
+      <input type="hidden" name="area" value="default" />
+    </form>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="genindex.html" title="General Index"
+             >index</a></li>
+        <li class="right" >
+          <a href="py-modindex.html" title="Python Module Index"
+             >modules</a> |</li>
+        <li class="nav-item nav-item-0"><a href="index.html">TrafficSense 0.01 documentation</a> &#187;</li> 
+      </ul>
+    </div>
+    <div class="footer" role="contentinfo">
+        &#169; Copyright 2017, Samara, Gaitz, Eilif, Bryan, Justin, Jow.
+      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 1.6.5.
+    </div>
+  </body>
+</html>

@@ -1,5 +1,3 @@
-#!/usr/bin/python
-
 from openpyxl import *
 import json
 import xml.etree.ElementTree as ET
@@ -83,13 +81,19 @@ def parse_general(sheet):
 
 
 def parse_intersection(sheet):
-    """
-    Parse the Intersection Tab
-
-    :param sheet: openpyxl sheet - The General Intersection Settings tab
-    :return: String - The selected intersection type. Key in ITYPE_BRANCHES
 
     """
+    
+    Parameters
+    ----------
+    sheet: openpyxl sheet - The General Intersection Settings tab
+
+    Returns
+    -------
+    String - The selected intersection type. Key in ITYPE_BRANCHES
+    
+    """
+
     # Intersection type (Cross, T, Y, etc)
     input_intersection_type = get_input_from_row(sheet, MIN_ROW)
     intersection_type = input_intersection_type[USERVAL]
@@ -305,29 +309,45 @@ def get_input_from_row(sheet, row_num, cols=1):
         return tuple(output)
 
 
-def main(excel_file_path="Configuration_template.xlsx", stats_file_path=""):
+def run_parser(excel_file_path, outpath):
+    """
+    
+    Parameters
+    ----------
+    excel_file_path
+    outpath
+    stats_file_path
+
+    Returns
+    -------
+
+    """
     wb = load_workbook(filename=excel_file_path, data_only=True)
 
     config_name = parse_general(wb["General Settings"])
+
+
     type = parse_intersection(wb["Intersection Settings"])
     if parse_intersection is None:
         print("ERROR")
         return -1
+
     parse_branches(wb["Branch Settings"], type)
-    parser_output_file = open("parser_output.txt", "w")
-    # print(json.dumps(OUTPUT_DICT, indent=4,))
-    parser_output_file.write(json.dumps(OUTPUT_DICT, indent=4,))
+
+
+    # Context manager to dump parsed config to json
+    with open(outpath+ "/" + config_name + "_parsed.json", 'w') as outfile:
+        json.dump(OUTPUT_DICT, outfile, indent=4,)
 
     stats_root_node = parse_stats(wb["Advanced Customization"])
     stats_file = open(stats_file_path+config_name+".stat.xml", "w")
     xml1 = xml.dom.minidom.parseString(ET.tostring(stats_root_node, encoding='utf8', method='xml').decode())
     stats_file.write(xml1.toprettyxml())
 
-    return OUTPUT_DICT
 
+    stats_xml = xml.dom.minidom.parseString(ET.tostring(stats_root_node, encoding='utf8', method='xml').decode())
 
-if __name__ == "__main__":
-    main()
+    return config_name, OUTPUT_DICT, stats_xml.toprettyxml()
 
 
 

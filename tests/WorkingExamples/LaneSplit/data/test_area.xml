@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!-- generated on 3/20/2018 4:06:42 PM by SUMO gui Version 0.30.0
+<?xml version="1.0" encoding="UTF-8"?>
+
+<configuration xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="http://sumo.dlr.de/xsd/sumoConfiguration.xsd">
+
+    <input>
+        <net-file value="C:\Users\Justin\Documents\sumo\Sumo\doc\tutorial\LaneSplit\data\cross.net.xml"/>
+        <route-files value="C:\Users\Justin\Documents\sumo\Sumo\doc\tutorial\LaneSplit\data\cross.rou.xml"/>
+        <additional-files value="C:\Users\Justin\Documents\sumo\Sumo\doc\tutorial\LaneSplit\data\cross.add.xml"/>
+    </input>
+
+    <time>
+        <begin value="0"/>
+        <end value="200"/>
+    </time>
+
+    <gui_only>
+        <gui-settings-file value="C:\Users\Justin\Documents\sumo\Sumo\doc\tutorial\LaneSplit\data\cross.settings.xml"/>
+    </gui_only>
+
+</configuration>
+-->
+
+<detector xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="http://sumo.dlr.de/xsd/det_e2_file.xsd">
+</detector>

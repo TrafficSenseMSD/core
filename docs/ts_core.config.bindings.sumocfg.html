@@ -1,0 +1,2665 @@
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title>ts_core.config.bindings.sumocfg module &#8212; TrafficSense 0.01 documentation</title>
+    <link rel="stylesheet" href="_static/classic.css" type="text/css" />
+    <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    './',
+        VERSION:     '0.01',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true,
+        SOURCELINK_SUFFIX: '.txt'
+      };
+    </script>
+    <script type="text/javascript" src="_static/jquery.js"></script>
+    <script type="text/javascript" src="_static/underscore.js"></script>
+    <script type="text/javascript" src="_static/doctools.js"></script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" /> 
+  </head>
+  <body>
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="genindex.html" title="General Index"
+             accesskey="I">index</a></li>
+        <li class="right" >
+          <a href="py-modindex.html" title="Python Module Index"
+             >modules</a> |</li>
+        <li class="nav-item nav-item-0"><a href="index.html">TrafficSense 0.01 documentation</a> &#187;</li> 
+      </ul>
+    </div>  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body" role="main">
+            
+  <div class="section" id="module-ts_core.config.bindings.sumocfg">
+<span id="ts-core-config-bindings-sumocfg-module"></span><h1>ts_core.config.bindings.sumocfg module<a class="headerlink" href="#module-ts_core.config.bindings.sumocfg" title="Permalink to this headline">¶</a></h1>
+<dl class="function">
+<dt id="ts_core.config.bindings.sumocfg.CreateFromDOM">
+<code class="descname">CreateFromDOM</code><span class="sig-paren">(</span><em>node</em>, <em>default_namespace=None</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/ts_core/config/bindings/sumocfg.html#CreateFromDOM"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#ts_core.config.bindings.sumocfg.CreateFromDOM" title="Permalink to this definition">¶</a></dt>
+<dd><p>Create a Python instance from the given DOM node.
+The node tag must correspond to an element declaration in this module.</p>
+<p>&#64;deprecated: Forcing use of DOM interface is unnecessary; use L{CreateFromDocument}.</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="ts_core.config.bindings.sumocfg.CreateFromDocument">
+<code class="descname">CreateFromDocument</code><span class="sig-paren">(</span><em>xml_text</em>, <em>default_namespace=None</em>, <em>location_base=None</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/ts_core/config/bindings/sumocfg.html#CreateFromDocument"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#ts_core.config.bindings.sumocfg.CreateFromDocument" title="Permalink to this definition">¶</a></dt>
+<dd><p>Parse the given XML and use the document element to create a
+Python instance.</p>
+<p>&#64;param xml_text An XML document.  This should be data (Python 2
+str or Python 3 bytes), or a text (Python 2 unicode or Python 3
+str) in the L{pyxb._InputEncoding} encoding.</p>
+<p>&#64;keyword default_namespace The L{pyxb.Namespace} instance to use as the
+default namespace where there is no default namespace in scope.
+If unspecified or C{None}, the namespace of the module containing
+this function will be used.</p>
+<p>&#64;keyword location_base: An object to be recorded as the base of all
+L{pyxb.utils.utility.Location} instances associated with events and
+objects handled by the parser.  You might pass the URI from which
+the document was obtained.</p>
+</dd></dl>
+
+<dl class="class">
+<dt id="ts_core.config.bindings.sumocfg.STD_ANON">
+<em class="property">class </em><code class="descname">STD_ANON</code><span class="sig-paren">(</span><em>*args</em>, <em>**kw</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/ts_core/config/bindings/sumocfg.html#STD_ANON"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#ts_core.config.bindings.sumocfg.STD_ANON" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal"><span class="pre">pyxb.binding.datatypes.float</span></code></p>
+<p>An atomic simple type.</p>
+</dd></dl>
+
+<dl class="class">
+<dt id="ts_core.config.bindings.sumocfg.STD_ANON_">
+<em class="property">class </em><code class="descname">STD_ANON_</code><span class="sig-paren">(</span><em>*args</em>, <em>**kw</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/ts_core/config/bindings/sumocfg.html#STD_ANON_"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#ts_core.config.bindings.sumocfg.STD_ANON_" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal"><span class="pre">pyxb.binding.datatypes.string</span></code></p>
+<p>An atomic simple type.</p>
+</dd></dl>
+
+<dl class="class">
+<dt id="ts_core.config.bindings.sumocfg.STD_ANON_10">
+<em class="property">class </em><code class="descname">STD_ANON_10</code><span class="sig-paren">(</span><em>*args</em>, <em>**kw</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/ts_core/config/bindings/sumocfg.html#STD_ANON_10"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#ts_core.config.bindings.sumocfg.STD_ANON_10" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal"><span class="pre">pyxb.binding.datatypes.string</span></code></p>
+<p>An atomic simple type.</p>
+</dd></dl>
+
+<dl class="class">
+<dt id="ts_core.config.bindings.sumocfg.STD_ANON_2">
+<em class="property">class </em><code class="descname">STD_ANON_2</code><span class="sig-paren">(</span><em>*args</em>, <em>**kw</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/ts_core/config/bindings/sumocfg.html#STD_ANON_2"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#ts_core.config.bindings.sumocfg.STD_ANON_2" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal"><span class="pre">pyxb.binding.datatypes.string</span></code></p>
+<p>An atomic simple type.</p>
+</dd></dl>
+
+<dl class="class">
+<dt id="ts_core.config.bindings.sumocfg.STD_ANON_3">
+<em class="property">class </em><code class="descname">STD_ANON_3</code><span class="sig-paren">(</span><em>*args</em>, <em>**kw</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/ts_core/config/bindings/sumocfg.html#STD_ANON_3"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#ts_core.config.bindings.sumocfg.STD_ANON_3" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal"><span class="pre">pyxb.binding.datatypes.string</span></code></p>
+<p>An atomic simple type.</p>
+</dd></dl>
+
+<dl class="class">
+<dt id="ts_core.config.bindings.sumocfg.STD_ANON_4">
+<em class="property">class </em><code class="descname">STD_ANON_4</code><span class="sig-paren">(</span><em>*args</em>, <em>**kw</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/ts_core/config/bindings/sumocfg.html#STD_ANON_4"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#ts_core.config.bindings.sumocfg.STD_ANON_4" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal"><span class="pre">pyxb.binding.datatypes.string</span></code>, <code class="xref py py-class docutils literal"><span class="pre">pyxb.binding.basis.enumeration_mixin</span></code></p>
+<p>An atomic simple type.</p>
+<dl class="attribute">
+<dt id="ts_core.config.bindings.sumocfg.STD_ANON_4.black">
+<code class="descname">black</code><em class="property"> = 'black'</em><a class="headerlink" href="#ts_core.config.bindings.sumocfg.STD_ANON_4.black" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="ts_core.config.bindings.sumocfg.STD_ANON_4.blue">
+<code class="descname">blue</code><em class="property"> = 'blue'</em><a class="headerlink" href="#ts_core.config.bindings.sumocfg.STD_ANON_4.blue" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="ts_core.config.bindings.sumocfg.STD_ANON_4.cyan">
+<code class="descname">cyan</code><em class="property"> = 'cyan'</em><a class="headerlink" href="#ts_core.config.bindings.sumocfg.STD_ANON_4.cyan" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="ts_core.config.bindings.sumocfg.STD_ANON_4.green">
+<code class="descname">green</code><em class="property"> = 'green'</em><a class="headerlink" href="#ts_core.config.bindings.sumocfg.STD_ANON_4.green" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="ts_core.config.bindings.sumocfg.STD_ANON_4.grey">
+<code class="descname">grey</code><em class="property"> = 'grey'</em><a class="headerlink" href="#ts_core.config.bindings.sumocfg.STD_ANON_4.grey" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="ts_core.config.bindings.sumocfg.STD_ANON_4.magenta">
+<code class="descname">magenta</code><em class="property"> = 'magenta'</em><a class="headerlink" href="#ts_core.config.bindings.sumocfg.STD_ANON_4.magenta" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="ts_core.config.bindings.sumocfg.STD_ANON_4.orange">
+<code class="descname">orange</code><em class="property"> = 'orange'</em><a class="headerlink" href="#ts_core.config.bindings.sumocfg.STD_ANON_4.orange" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="ts_core.config.bindings.sumocfg.STD_ANON_4.red">
+<code class="descname">red</code><em class="property"> = 'red'</em><a class="headerlink" href="#ts_core.config.bindings.sumocfg.STD_ANON_4.red" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="ts_core.config.bindings.sumocfg.STD_ANON_4.white">
+<code class="descname">white</code><em class="property"> = 'white'</em><a class="headerlink" href="#ts_core.config.bindings.sumocfg.STD_ANON_4.white" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="ts_core.config.bindings.sumocfg.STD_ANON_4.yellow">
+<code class="descname">yellow</code><em class="property"> = 'yellow'</em><a class="headerlink" href="#ts_core.config.bindings.sumocfg.STD_ANON_4.yellow" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="ts_core.config.bindings.sumocfg.STD_ANON_5">
+<em class="property">class </em><code class="descname">STD_ANON_5</code><span class="sig-paren">(</span><em>*args</em>, <em>**kw</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/ts_core/config/bindings/sumocfg.html#STD_ANON_5"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#ts_core.config.bindings.sumocfg.STD_ANON_5" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal"><span class="pre">pyxb.binding.datatypes.string</span></code></p>
+<p>An atomic simple type.</p>
+</dd></dl>
+
+<dl class="class">
+<dt id="ts_core.config.bindings.sumocfg.STD_ANON_6">
+<em class="property">class </em><code class="descname">STD_ANON_6</code><span class="sig-paren">(</span><em>*args</em>, <em>**kw</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/ts_core/config/bindings/sumocfg.html#STD_ANON_6"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#ts_core.config.bindings.sumocfg.STD_ANON_6" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal"><span class="pre">pyxb.binding.datatypes.string</span></code></p>
+<p>An atomic simple type.</p>
+</dd></dl>
+
+<dl class="class">
+<dt id="ts_core.config.bindings.sumocfg.STD_ANON_7">
+<em class="property">class </em><code class="descname">STD_ANON_7</code><span class="sig-paren">(</span><em>*args</em>, <em>**kw</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/ts_core/config/bindings/sumocfg.html#STD_ANON_7"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#ts_core.config.bindings.sumocfg.STD_ANON_7" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal"><span class="pre">pyxb.binding.datatypes.string</span></code></p>
+<p>An atomic simple type.</p>
+</dd></dl>
+
+<dl class="class">
+<dt id="ts_core.config.bindings.sumocfg.STD_ANON_8">
+<em class="property">class </em><code class="descname">STD_ANON_8</code><span class="sig-paren">(</span><em>*args</em>, <em>**kw</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/ts_core/config/bindings/sumocfg.html#STD_ANON_8"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#ts_core.config.bindings.sumocfg.STD_ANON_8" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal"><span class="pre">pyxb.binding.datatypes.string</span></code></p>
+<p>An atomic simple type.</p>
+</dd></dl>
+
+<dl class="class">
+<dt id="ts_core.config.bindings.sumocfg.STD_ANON_9">
+<em class="property">class </em><code class="descname">STD_ANON_9</code><span class="sig-paren">(</span><em>*args</em>, <em>**kw</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/ts_core/config/bindings/sumocfg.html#STD_ANON_9"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#ts_core.config.bindings.sumocfg.STD_ANON_9" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal"><span class="pre">pyxb.binding.datatypes.string</span></code></p>
+<p>An atomic simple type.</p>
+</dd></dl>
+
+<dl class="class">
+<dt id="ts_core.config.bindings.sumocfg.batteryType">
+<em class="property">class </em><code class="descname">batteryType</code><span class="sig-paren">(</span><em>*args</em>, <em>**kw</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/ts_core/config/bindings/sumocfg.html#batteryType"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#ts_core.config.bindings.sumocfg.batteryType" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal"><span class="pre">pyxb.binding.basis.complexTypeDefinition</span></code></p>
+<p>Complex type batteryType with content type ELEMENT_ONLY</p>
+<dl class="attribute">
+<dt id="ts_core.config.bindings.sumocfg.batteryType.device_battery_deterministic">
+<code class="descname">device_battery_deterministic</code><a class="headerlink" href="#ts_core.config.bindings.sumocfg.batteryType.device_battery_deterministic" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return the value for this use within the given instance.</p>
+<p>Note that this is the L{resetValue()}, not the L{defaultValue()}, if
+the element has not yet been assigned a value.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="ts_core.config.bindings.sumocfg.batteryType.device_battery_explicit">
+<code class="descname">device_battery_explicit</code><a class="headerlink" href="#ts_core.config.bindings.sumocfg.batteryType.device_battery_explicit" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return the value for this use within the given instance.</p>
+<p>Note that this is the L{resetValue()}, not the L{defaultValue()}, if
+the element has not yet been assigned a value.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="ts_core.config.bindings.sumocfg.batteryType.device_battery_probability">
+<code class="descname">device_battery_probability</code><a class="headerlink" href="#ts_core.config.bindings.sumocfg.batteryType.device_battery_probability" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return the value for this use within the given instance.</p>
+<p>Note that this is the L{resetValue()}, not the L{defaultValue()}, if
+the element has not yet been assigned a value.</p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="ts_core.config.bindings.sumocfg.bluelight_deviceType">
+<em class="property">class </em><code class="descname">bluelight_deviceType</code><span class="sig-paren">(</span><em>*args</em>, <em>**kw</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/ts_core/config/bindings/sumocfg.html#bluelight_deviceType"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#ts_core.config.bindings.sumocfg.bluelight_deviceType" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal"><span class="pre">pyxb.binding.basis.complexTypeDefinition</span></code></p>
+<p>Complex type bluelight_deviceType with content type ELEMENT_ONLY</p>
+<dl class="attribute">
+<dt id="ts_core.config.bindings.sumocfg.bluelight_deviceType.device_bluelight_deterministic">
+<code class="descname">device_bluelight_deterministic</code><a class="headerlink" href="#ts_core.config.bindings.sumocfg.bluelight_deviceType.device_bluelight_deterministic" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return the value for this use within the given instance.</p>
+<p>Note that this is the L{resetValue()}, not the L{defaultValue()}, if
+the element has not yet been assigned a value.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="ts_core.config.bindings.sumocfg.bluelight_deviceType.device_bluelight_explicit">
+<code class="descname">device_bluelight_explicit</code><a class="headerlink" href="#ts_core.config.bindings.sumocfg.bluelight_deviceType.device_bluelight_explicit" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return the value for this use within the given instance.</p>
+<p>Note that this is the L{resetValue()}, not the L{defaultValue()}, if
+the element has not yet been assigned a value.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="ts_core.config.bindings.sumocfg.bluelight_deviceType.device_bluelight_parameter">
+<code class="descname">device_bluelight_parameter</code><a class="headerlink" href="#ts_core.config.bindings.sumocfg.bluelight_deviceType.device_bluelight_parameter" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return the value for this use within the given instance.</p>
+<p>Note that this is the L{resetValue()}, not the L{defaultValue()}, if
+the element has not yet been assigned a value.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="ts_core.config.bindings.sumocfg.bluelight_deviceType.device_bluelight_probability">
+<code class="descname">device_bluelight_probability</code><a class="headerlink" href="#ts_core.config.bindings.sumocfg.bluelight_deviceType.device_bluelight_probability" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return the value for this use within the given instance.</p>
+<p>Note that this is the L{resetValue()}, not the L{defaultValue()}, if
+the element has not yet been assigned a value.</p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="ts_core.config.bindings.sumocfg.boolOptionType">
+<em class="property">class </em><code class="descname">boolOptionType</code><span class="sig-paren">(</span><em>*args</em>, <em>**kw</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/ts_core/config/bindings/sumocfg.html#boolOptionType"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#ts_core.config.bindings.sumocfg.boolOptionType" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal"><span class="pre">pyxb.binding.basis.complexTypeDefinition</span></code></p>
+<p>Complex type boolOptionType with content type EMPTY</p>
+<dl class="attribute">
+<dt id="ts_core.config.bindings.sumocfg.boolOptionType.help">
+<code class="descname">help</code><a class="headerlink" href="#ts_core.config.bindings.sumocfg.boolOptionType.help" title="Permalink to this definition">¶</a></dt>
+<dd><p>Get the value of the attribute from the instance.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="ts_core.config.bindings.sumocfg.boolOptionType.synonymes">
+<code class="descname">synonymes</code><a class="headerlink" href="#ts_core.config.bindings.sumocfg.boolOptionType.synonymes" title="Permalink to this definition">¶</a></dt>
+<dd><p>Get the value of the attribute from the instance.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="ts_core.config.bindings.sumocfg.boolOptionType.type">
+<code class="descname">type</code><a class="headerlink" href="#ts_core.config.bindings.sumocfg.boolOptionType.type" title="Permalink to this definition">¶</a></dt>
+<dd><p>Get the value of the attribute from the instance.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="ts_core.config.bindings.sumocfg.boolOptionType.value_">
+<code class="descname">value_</code><a class="headerlink" href="#ts_core.config.bindings.sumocfg.boolOptionType.value_" title="Permalink to this definition">¶</a></dt>
+<dd><p>Get the value of the attribute from the instance.</p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="ts_core.config.bindings.sumocfg.boolType">
+<em class="property">class </em><code class="descname">boolType</code><span class="sig-paren">(</span><em>*args</em>, <em>**kw</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/ts_core/config/bindings/sumocfg.html#boolType"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#ts_core.config.bindings.sumocfg.boolType" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal"><span class="pre">pyxb.binding.datatypes.string</span></code>, <code class="xref py py-class docutils literal"><span class="pre">pyxb.binding.basis.enumeration_mixin</span></code></p>
+<p>An atomic simple type.</p>
+<dl class="attribute">
+<dt id="ts_core.config.bindings.sumocfg.boolType.False_">
+<code class="descname">False_</code><em class="property"> = 'False'</em><a class="headerlink" href="#ts_core.config.bindings.sumocfg.boolType.False_" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="ts_core.config.bindings.sumocfg.boolType.True_">
+<code class="descname">True_</code><em class="property"> = 'True'</em><a class="headerlink" href="#ts_core.config.bindings.sumocfg.boolType.True_" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="ts_core.config.bindings.sumocfg.boolType.emptyString">
+<code class="descname">emptyString</code><em class="property"> = '-'</em><a class="headerlink" href="#ts_core.config.bindings.sumocfg.boolType.emptyString" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="ts_core.config.bindings.sumocfg.boolType.false">
+<code class="descname">false</code><em class="property"> = 'false'</em><a class="headerlink" href="#ts_core.config.bindings.sumocfg.boolType.false" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="ts_core.config.bindings.sumocfg.boolType.n0">
+<code class="descname">n0</code><em class="property"> = '0'</em><a class="headerlink" href="#ts_core.config.bindings.sumocfg.boolType.n0" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="ts_core.config.bindings.sumocfg.boolType.n1">
+<code class="descname">n1</code><em class="property"> = '1'</em><a class="headerlink" href="#ts_core.config.bindings.sumocfg.boolType.n1" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="ts_core.config.bindings.sumocfg.boolType.no">
+<code class="descname">no</code><em class="property"> = 'no'</em><a class="headerlink" href="#ts_core.config.bindings.sumocfg.boolType.no" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="ts_core.config.bindings.sumocfg.boolType.off">
+<code class="descname">off</code><em class="property"> = 'off'</em><a class="headerlink" href="#ts_core.config.bindings.sumocfg.boolType.off" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="ts_core.config.bindings.sumocfg.boolType.on">
+<code class="descname">on</code><em class="property"> = 'on'</em><a class="headerlink" href="#ts_core.config.bindings.sumocfg.boolType.on" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="ts_core.config.bindings.sumocfg.boolType.true">
+<code class="descname">true</code><em class="property"> = 'true'</em><a class="headerlink" href="#ts_core.config.bindings.sumocfg.boolType.true" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="ts_core.config.bindings.sumocfg.boolType.x">
+<code class="descname">x</code><em class="property"> = 'x'</em><a class="headerlink" href="#ts_core.config.bindings.sumocfg.boolType.x" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="ts_core.config.bindings.sumocfg.boolType.yes">
+<code class="descname">yes</code><em class="property"> = 'yes'</em><a class="headerlink" href="#ts_core.config.bindings.sumocfg.boolType.yes" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="ts_core.config.bindings.sumocfg.colorType">
+<em class="property">class </em><code class="descname">colorType</code><span class="sig-paren">(</span><em>*args</em>, <em>**kw</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/ts_core/config/bindings/sumocfg.html#colorType"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#ts_core.config.bindings.sumocfg.colorType" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal"><span class="pre">pyxb.binding.basis.STD_union</span></code></p>
+<p>Simple type that is a union of STD_ANON_2, STD_ANON_3, STD_ANON_4.</p>
+<dl class="attribute">
+<dt id="ts_core.config.bindings.sumocfg.colorType.black">
+<code class="descname">black</code><em class="property"> = 'black'</em><a class="headerlink" href="#ts_core.config.bindings.sumocfg.colorType.black" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="ts_core.config.bindings.sumocfg.colorType.blue">
+<code class="descname">blue</code><em class="property"> = 'blue'</em><a class="headerlink" href="#ts_core.config.bindings.sumocfg.colorType.blue" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="ts_core.config.bindings.sumocfg.colorType.cyan">
+<code class="descname">cyan</code><em class="property"> = 'cyan'</em><a class="headerlink" href="#ts_core.config.bindings.sumocfg.colorType.cyan" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="ts_core.config.bindings.sumocfg.colorType.green">
+<code class="descname">green</code><em class="property"> = 'green'</em><a class="headerlink" href="#ts_core.config.bindings.sumocfg.colorType.green" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="ts_core.config.bindings.sumocfg.colorType.grey">
+<code class="descname">grey</code><em class="property"> = 'grey'</em><a class="headerlink" href="#ts_core.config.bindings.sumocfg.colorType.grey" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="ts_core.config.bindings.sumocfg.colorType.magenta">
+<code class="descname">magenta</code><em class="property"> = 'magenta'</em><a class="headerlink" href="#ts_core.config.bindings.sumocfg.colorType.magenta" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="ts_core.config.bindings.sumocfg.colorType.orange">
+<code class="descname">orange</code><em class="property"> = 'orange'</em><a class="headerlink" href="#ts_core.config.bindings.sumocfg.colorType.orange" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="ts_core.config.bindings.sumocfg.colorType.red">
+<code class="descname">red</code><em class="property"> = 'red'</em><a class="headerlink" href="#ts_core.config.bindings.sumocfg.colorType.red" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="ts_core.config.bindings.sumocfg.colorType.white">
+<code class="descname">white</code><em class="property"> = 'white'</em><a class="headerlink" href="#ts_core.config.bindings.sumocfg.colorType.white" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="ts_core.config.bindings.sumocfg.colorType.yellow">
+<code class="descname">yellow</code><em class="property"> = 'yellow'</em><a class="headerlink" href="#ts_core.config.bindings.sumocfg.colorType.yellow" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="ts_core.config.bindings.sumocfg.communicationType">
+<em class="property">class </em><code class="descname">communicationType</code><span class="sig-paren">(</span><em>*args</em>, <em>**kw</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/ts_core/config/bindings/sumocfg.html#communicationType"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#ts_core.config.bindings.sumocfg.communicationType" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal"><span class="pre">pyxb.binding.basis.complexTypeDefinition</span></code></p>
+<p>Complex type communicationType with content type ELEMENT_ONLY</p>
+<dl class="attribute">
+<dt id="ts_core.config.bindings.sumocfg.communicationType.device_btreceiver_all_recognitions">
+<code class="descname">device_btreceiver_all_recognitions</code><a class="headerlink" href="#ts_core.config.bindings.sumocfg.communicationType.device_btreceiver_all_recognitions" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return the value for this use within the given instance.</p>
+<p>Note that this is the L{resetValue()}, not the L{defaultValue()}, if
+the element has not yet been assigned a value.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="ts_core.config.bindings.sumocfg.communicationType.device_btreceiver_deterministic">
+<code class="descname">device_btreceiver_deterministic</code><a class="headerlink" href="#ts_core.config.bindings.sumocfg.communicationType.device_btreceiver_deterministic" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return the value for this use within the given instance.</p>
+<p>Note that this is the L{resetValue()}, not the L{defaultValue()}, if
+the element has not yet been assigned a value.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="ts_core.config.bindings.sumocfg.communicationType.device_btreceiver_explicit">
+<code class="descname">device_btreceiver_explicit</code><a class="headerlink" href="#ts_core.config.bindings.sumocfg.communicationType.device_btreceiver_explicit" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return the value for this use within the given instance.</p>
+<p>Note that this is the L{resetValue()}, not the L{defaultValue()}, if
+the element has not yet been assigned a value.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="ts_core.config.bindings.sumocfg.communicationType.device_btreceiver_offtime">
+<code class="descname">device_btreceiver_offtime</code><a class="headerlink" href="#ts_core.config.bindings.sumocfg.communicationType.device_btreceiver_offtime" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return the value for this use within the given instance.</p>
+<p>Note that this is the L{resetValue()}, not the L{defaultValue()}, if
+the element has not yet been assigned a value.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="ts_core.config.bindings.sumocfg.communicationType.device_btreceiver_probability">
+<code class="descname">device_btreceiver_probability</code><a class="headerlink" href="#ts_core.config.bindings.sumocfg.communicationType.device_btreceiver_probability" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return the value for this use within the given instance.</p>
+<p>Note that this is the L{resetValue()}, not the L{defaultValue()}, if
+the element has not yet been assigned a value.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="ts_core.config.bindings.sumocfg.communicationType.device_btreceiver_range">
+<code class="descname">device_btreceiver_range</code><a class="headerlink" href="#ts_core.config.bindings.sumocfg.communicationType.device_btreceiver_range" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return the value for this use within the given instance.</p>
+<p>Note that this is the L{resetValue()}, not the L{defaultValue()}, if
+the element has not yet been assigned a value.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="ts_core.config.bindings.sumocfg.communicationType.device_btsender_deterministic">
+<code class="descname">device_btsender_deterministic</code><a class="headerlink" href="#ts_core.config.bindings.sumocfg.communicationType.device_btsender_deterministic" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return the value for this use within the given instance.</p>
+<p>Note that this is the L{resetValue()}, not the L{defaultValue()}, if
+the element has not yet been assigned a value.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="ts_core.config.bindings.sumocfg.communicationType.device_btsender_explicit">
+<code class="descname">device_btsender_explicit</code><a class="headerlink" href="#ts_core.config.bindings.sumocfg.communicationType.device_btsender_explicit" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return the value for this use within the given instance.</p>
+<p>Note that this is the L{resetValue()}, not the L{defaultValue()}, if
+the element has not yet been assigned a value.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="ts_core.config.bindings.sumocfg.communicationType.device_btsender_probability">
+<code class="descname">device_btsender_probability</code><a class="headerlink" href="#ts_core.config.bindings.sumocfg.communicationType.device_btsender_probability" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return the value for this use within the given instance.</p>
+<p>Note that this is the L{resetValue()}, not the L{defaultValue()}, if
+the element has not yet been assigned a value.</p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="ts_core.config.bindings.sumocfg.configurationType">
+<em class="property">class </em><code class="descname">configurationType</code><span class="sig-paren">(</span><em>*args</em>, <em>**kw</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/ts_core/config/bindings/sumocfg.html#configurationType"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#ts_core.config.bindings.sumocfg.configurationType" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal"><span class="pre">pyxb.binding.basis.complexTypeDefinition</span></code></p>
+<p>Complex type configurationType with content type ELEMENT_ONLY</p>
+<dl class="attribute">
+<dt id="ts_core.config.bindings.sumocfg.configurationType.battery">
+<code class="descname">battery</code><a class="headerlink" href="#ts_core.config.bindings.sumocfg.configurationType.battery" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return the value for this use within the given instance.</p>
+<p>Note that this is the L{resetValue()}, not the L{defaultValue()}, if
+the element has not yet been assigned a value.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="ts_core.config.bindings.sumocfg.configurationType.bluelight_device">
+<code class="descname">bluelight_device</code><a class="headerlink" href="#ts_core.config.bindings.sumocfg.configurationType.bluelight_device" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return the value for this use within the given instance.</p>
+<p>Note that this is the L{resetValue()}, not the L{defaultValue()}, if
+the element has not yet been assigned a value.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="ts_core.config.bindings.sumocfg.configurationType.communication">
+<code class="descname">communication</code><a class="headerlink" href="#ts_core.config.bindings.sumocfg.configurationType.communication" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return the value for this use within the given instance.</p>
+<p>Note that this is the L{resetValue()}, not the L{defaultValue()}, if
+the element has not yet been assigned a value.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="ts_core.config.bindings.sumocfg.configurationType.emissions">
+<code class="descname">emissions</code><a class="headerlink" href="#ts_core.config.bindings.sumocfg.configurationType.emissions" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return the value for this use within the given instance.</p>
+<p>Note that this is the L{resetValue()}, not the L{defaultValue()}, if
+the element has not yet been assigned a value.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="ts_core.config.bindings.sumocfg.configurationType.example_device">
+<code class="descname">example_device</code><a class="headerlink" href="#ts_core.config.bindings.sumocfg.configurationType.example_device" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return the value for this use within the given instance.</p>
+<p>Note that this is the L{resetValue()}, not the L{defaultValue()}, if
+the element has not yet been assigned a value.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="ts_core.config.bindings.sumocfg.configurationType.gui_only">
+<code class="descname">gui_only</code><a class="headerlink" href="#ts_core.config.bindings.sumocfg.configurationType.gui_only" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return the value for this use within the given instance.</p>
+<p>Note that this is the L{resetValue()}, not the L{defaultValue()}, if
+the element has not yet been assigned a value.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="ts_core.config.bindings.sumocfg.configurationType.input">
+<code class="descname">input</code><a class="headerlink" href="#ts_core.config.bindings.sumocfg.configurationType.input" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return the value for this use within the given instance.</p>
+<p>Note that this is the L{resetValue()}, not the L{defaultValue()}, if
+the element has not yet been assigned a value.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="ts_core.config.bindings.sumocfg.configurationType.mesoscopic">
+<code class="descname">mesoscopic</code><a class="headerlink" href="#ts_core.config.bindings.sumocfg.configurationType.mesoscopic" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return the value for this use within the given instance.</p>
+<p>Note that this is the L{resetValue()}, not the L{defaultValue()}, if
+the element has not yet been assigned a value.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="ts_core.config.bindings.sumocfg.configurationType.output">
+<code class="descname">output</code><a class="headerlink" href="#ts_core.config.bindings.sumocfg.configurationType.output" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return the value for this use within the given instance.</p>
+<p>Note that this is the L{resetValue()}, not the L{defaultValue()}, if
+the element has not yet been assigned a value.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="ts_core.config.bindings.sumocfg.configurationType.processing">
+<code class="descname">processing</code><a class="headerlink" href="#ts_core.config.bindings.sumocfg.configurationType.processing" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return the value for this use within the given instance.</p>
+<p>Note that this is the L{resetValue()}, not the L{defaultValue()}, if
+the element has not yet been assigned a value.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="ts_core.config.bindings.sumocfg.configurationType.random_number">
+<code class="descname">random_number</code><a class="headerlink" href="#ts_core.config.bindings.sumocfg.configurationType.random_number" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return the value for this use within the given instance.</p>
+<p>Note that this is the L{resetValue()}, not the L{defaultValue()}, if
+the element has not yet been assigned a value.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="ts_core.config.bindings.sumocfg.configurationType.report">
+<code class="descname">report</code><a class="headerlink" href="#ts_core.config.bindings.sumocfg.configurationType.report" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return the value for this use within the given instance.</p>
+<p>Note that this is the L{resetValue()}, not the L{defaultValue()}, if
+the element has not yet been assigned a value.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="ts_core.config.bindings.sumocfg.configurationType.routing">
+<code class="descname">routing</code><a class="headerlink" href="#ts_core.config.bindings.sumocfg.configurationType.routing" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return the value for this use within the given instance.</p>
+<p>Note that this is the L{resetValue()}, not the L{defaultValue()}, if
+the element has not yet been assigned a value.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="ts_core.config.bindings.sumocfg.configurationType.ssm_device">
+<code class="descname">ssm_device</code><a class="headerlink" href="#ts_core.config.bindings.sumocfg.configurationType.ssm_device" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return the value for this use within the given instance.</p>
+<p>Note that this is the L{resetValue()}, not the L{defaultValue()}, if
+the element has not yet been assigned a value.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="ts_core.config.bindings.sumocfg.configurationType.time">
+<code class="descname">time</code><a class="headerlink" href="#ts_core.config.bindings.sumocfg.configurationType.time" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return the value for this use within the given instance.</p>
+<p>Note that this is the L{resetValue()}, not the L{defaultValue()}, if
+the element has not yet been assigned a value.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="ts_core.config.bindings.sumocfg.configurationType.traci_server">
+<code class="descname">traci_server</code><a class="headerlink" href="#ts_core.config.bindings.sumocfg.configurationType.traci_server" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return the value for this use within the given instance.</p>
+<p>Note that this is the L{resetValue()}, not the L{defaultValue()}, if
+the element has not yet been assigned a value.</p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="ts_core.config.bindings.sumocfg.emissionsType">
+<em class="property">class </em><code class="descname">emissionsType</code><span class="sig-paren">(</span><em>*args</em>, <em>**kw</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/ts_core/config/bindings/sumocfg.html#emissionsType"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#ts_core.config.bindings.sumocfg.emissionsType" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal"><span class="pre">pyxb.binding.basis.complexTypeDefinition</span></code></p>
+<p>Complex type emissionsType with content type ELEMENT_ONLY</p>
+<dl class="attribute">
+<dt id="ts_core.config.bindings.sumocfg.emissionsType.device_emissions_deterministic">
+<code class="descname">device_emissions_deterministic</code><a class="headerlink" href="#ts_core.config.bindings.sumocfg.emissionsType.device_emissions_deterministic" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return the value for this use within the given instance.</p>
+<p>Note that this is the L{resetValue()}, not the L{defaultValue()}, if
+the element has not yet been assigned a value.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="ts_core.config.bindings.sumocfg.emissionsType.device_emissions_explicit">
+<code class="descname">device_emissions_explicit</code><a class="headerlink" href="#ts_core.config.bindings.sumocfg.emissionsType.device_emissions_explicit" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return the value for this use within the given instance.</p>
+<p>Note that this is the L{resetValue()}, not the L{defaultValue()}, if
+the element has not yet been assigned a value.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="ts_core.config.bindings.sumocfg.emissionsType.device_emissions_probability">
+<code class="descname">device_emissions_probability</code><a class="headerlink" href="#ts_core.config.bindings.sumocfg.emissionsType.device_emissions_probability" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return the value for this use within the given instance.</p>
+<p>Note that this is the L{resetValue()}, not the L{defaultValue()}, if
+the element has not yet been assigned a value.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="ts_core.config.bindings.sumocfg.emissionsType.phemlight_path">
+<code class="descname">phemlight_path</code><a class="headerlink" href="#ts_core.config.bindings.sumocfg.emissionsType.phemlight_path" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return the value for this use within the given instance.</p>
+<p>Note that this is the L{resetValue()}, not the L{defaultValue()}, if
+the element has not yet been assigned a value.</p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="ts_core.config.bindings.sumocfg.example_deviceType">
+<em class="property">class </em><code class="descname">example_deviceType</code><span class="sig-paren">(</span><em>*args</em>, <em>**kw</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/ts_core/config/bindings/sumocfg.html#example_deviceType"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#ts_core.config.bindings.sumocfg.example_deviceType" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal"><span class="pre">pyxb.binding.basis.complexTypeDefinition</span></code></p>
+<p>Complex type example_deviceType with content type ELEMENT_ONLY</p>
+<dl class="attribute">
+<dt id="ts_core.config.bindings.sumocfg.example_deviceType.device_example_deterministic">
+<code class="descname">device_example_deterministic</code><a class="headerlink" href="#ts_core.config.bindings.sumocfg.example_deviceType.device_example_deterministic" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return the value for this use within the given instance.</p>
+<p>Note that this is the L{resetValue()}, not the L{defaultValue()}, if
+the element has not yet been assigned a value.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="ts_core.config.bindings.sumocfg.example_deviceType.device_example_explicit">
+<code class="descname">device_example_explicit</code><a class="headerlink" href="#ts_core.config.bindings.sumocfg.example_deviceType.device_example_explicit" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return the value for this use within the given instance.</p>
+<p>Note that this is the L{resetValue()}, not the L{defaultValue()}, if
+the element has not yet been assigned a value.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="ts_core.config.bindings.sumocfg.example_deviceType.device_example_parameter">
+<code class="descname">device_example_parameter</code><a class="headerlink" href="#ts_core.config.bindings.sumocfg.example_deviceType.device_example_parameter" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return the value for this use within the given instance.</p>
+<p>Note that this is the L{resetValue()}, not the L{defaultValue()}, if
+the element has not yet been assigned a value.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="ts_core.config.bindings.sumocfg.example_deviceType.device_example_probability">
+<code class="descname">device_example_probability</code><a class="headerlink" href="#ts_core.config.bindings.sumocfg.example_deviceType.device_example_probability" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return the value for this use within the given instance.</p>
+<p>Note that this is the L{resetValue()}, not the L{defaultValue()}, if
+the element has not yet been assigned a value.</p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="ts_core.config.bindings.sumocfg.fileOptionType">
+<em class="property">class </em><code class="descname">fileOptionType</code><span class="sig-paren">(</span><em>*args</em>, <em>**kw</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/ts_core/config/bindings/sumocfg.html#fileOptionType"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#ts_core.config.bindings.sumocfg.fileOptionType" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal"><span class="pre">pyxb.binding.basis.complexTypeDefinition</span></code></p>
+<p>Complex type fileOptionType with content type EMPTY</p>
+<dl class="attribute">
+<dt id="ts_core.config.bindings.sumocfg.fileOptionType.help">
+<code class="descname">help</code><a class="headerlink" href="#ts_core.config.bindings.sumocfg.fileOptionType.help" title="Permalink to this definition">¶</a></dt>
+<dd><p>Get the value of the attribute from the instance.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="ts_core.config.bindings.sumocfg.fileOptionType.synonymes">
+<code class="descname">synonymes</code><a class="headerlink" href="#ts_core.config.bindings.sumocfg.fileOptionType.synonymes" title="Permalink to this definition">¶</a></dt>
+<dd><p>Get the value of the attribute from the instance.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="ts_core.config.bindings.sumocfg.fileOptionType.type">
+<code class="descname">type</code><a class="headerlink" href="#ts_core.config.bindings.sumocfg.fileOptionType.type" title="Permalink to this definition">¶</a></dt>
+<dd><p>Get the value of the attribute from the instance.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="ts_core.config.bindings.sumocfg.fileOptionType.value_">
+<code class="descname">value_</code><a class="headerlink" href="#ts_core.config.bindings.sumocfg.fileOptionType.value_" title="Permalink to this definition">¶</a></dt>
+<dd><p>Get the value of the attribute from the instance.</p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="ts_core.config.bindings.sumocfg.floatOptionType">
+<em class="property">class </em><code class="descname">floatOptionType</code><span class="sig-paren">(</span><em>*args</em>, <em>**kw</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/ts_core/config/bindings/sumocfg.html#floatOptionType"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#ts_core.config.bindings.sumocfg.floatOptionType" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal"><span class="pre">pyxb.binding.basis.complexTypeDefinition</span></code></p>
+<p>Complex type floatOptionType with content type EMPTY</p>
+<dl class="attribute">
+<dt id="ts_core.config.bindings.sumocfg.floatOptionType.help">
+<code class="descname">help</code><a class="headerlink" href="#ts_core.config.bindings.sumocfg.floatOptionType.help" title="Permalink to this definition">¶</a></dt>
+<dd><p>Get the value of the attribute from the instance.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="ts_core.config.bindings.sumocfg.floatOptionType.synonymes">
+<code class="descname">synonymes</code><a class="headerlink" href="#ts_core.config.bindings.sumocfg.floatOptionType.synonymes" title="Permalink to this definition">¶</a></dt>
+<dd><p>Get the value of the attribute from the instance.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="ts_core.config.bindings.sumocfg.floatOptionType.type">
+<code class="descname">type</code><a class="headerlink" href="#ts_core.config.bindings.sumocfg.floatOptionType.type" title="Permalink to this definition">¶</a></dt>
+<dd><p>Get the value of the attribute from the instance.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="ts_core.config.bindings.sumocfg.floatOptionType.value_">
+<code class="descname">value_</code><a class="headerlink" href="#ts_core.config.bindings.sumocfg.floatOptionType.value_" title="Permalink to this definition">¶</a></dt>
+<dd><p>Get the value of the attribute from the instance.</p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="ts_core.config.bindings.sumocfg.gui_onlyType">
+<em class="property">class </em><code class="descname">gui_onlyType</code><span class="sig-paren">(</span><em>*args</em>, <em>**kw</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/ts_core/config/bindings/sumocfg.html#gui_onlyType"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#ts_core.config.bindings.sumocfg.gui_onlyType" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal"><span class="pre">pyxb.binding.basis.complexTypeDefinition</span></code></p>
+<p>Complex type gui_onlyType with content type ELEMENT_ONLY</p>
+<dl class="attribute">
+<dt id="ts_core.config.bindings.sumocfg.gui_onlyType.demo">
+<code class="descname">demo</code><a class="headerlink" href="#ts_core.config.bindings.sumocfg.gui_onlyType.demo" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return the value for this use within the given instance.</p>
+<p>Note that this is the L{resetValue()}, not the L{defaultValue()}, if
+the element has not yet been assigned a value.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="ts_core.config.bindings.sumocfg.gui_onlyType.disable_textures">
+<code class="descname">disable_textures</code><a class="headerlink" href="#ts_core.config.bindings.sumocfg.gui_onlyType.disable_textures" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return the value for this use within the given instance.</p>
+<p>Note that this is the L{resetValue()}, not the L{defaultValue()}, if
+the element has not yet been assigned a value.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="ts_core.config.bindings.sumocfg.gui_onlyType.game">
+<code class="descname">game</code><a class="headerlink" href="#ts_core.config.bindings.sumocfg.gui_onlyType.game" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return the value for this use within the given instance.</p>
+<p>Note that this is the L{resetValue()}, not the L{defaultValue()}, if
+the element has not yet been assigned a value.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="ts_core.config.bindings.sumocfg.gui_onlyType.gui_settings_file">
+<code class="descname">gui_settings_file</code><a class="headerlink" href="#ts_core.config.bindings.sumocfg.gui_onlyType.gui_settings_file" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return the value for this use within the given instance.</p>
+<p>Note that this is the L{resetValue()}, not the L{defaultValue()}, if
+the element has not yet been assigned a value.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="ts_core.config.bindings.sumocfg.gui_onlyType.gui_testing">
+<code class="descname">gui_testing</code><a class="headerlink" href="#ts_core.config.bindings.sumocfg.gui_onlyType.gui_testing" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return the value for this use within the given instance.</p>
+<p>Note that this is the L{resetValue()}, not the L{defaultValue()}, if
+the element has not yet been assigned a value.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="ts_core.config.bindings.sumocfg.gui_onlyType.gui_testing_debug">
+<code class="descname">gui_testing_debug</code><a class="headerlink" href="#ts_core.config.bindings.sumocfg.gui_onlyType.gui_testing_debug" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return the value for this use within the given instance.</p>
+<p>Note that this is the L{resetValue()}, not the L{defaultValue()}, if
+the element has not yet been assigned a value.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="ts_core.config.bindings.sumocfg.gui_onlyType.osg_view">
+<code class="descname">osg_view</code><a class="headerlink" href="#ts_core.config.bindings.sumocfg.gui_onlyType.osg_view" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return the value for this use within the given instance.</p>
+<p>Note that this is the L{resetValue()}, not the L{defaultValue()}, if
+the element has not yet been assigned a value.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="ts_core.config.bindings.sumocfg.gui_onlyType.quit_on_end">
+<code class="descname">quit_on_end</code><a class="headerlink" href="#ts_core.config.bindings.sumocfg.gui_onlyType.quit_on_end" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return the value for this use within the given instance.</p>
+<p>Note that this is the L{resetValue()}, not the L{defaultValue()}, if
+the element has not yet been assigned a value.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="ts_core.config.bindings.sumocfg.gui_onlyType.start">
+<code class="descname">start</code><a class="headerlink" href="#ts_core.config.bindings.sumocfg.gui_onlyType.start" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return the value for this use within the given instance.</p>
+<p>Note that this is the L{resetValue()}, not the L{defaultValue()}, if
+the element has not yet been assigned a value.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="ts_core.config.bindings.sumocfg.gui_onlyType.tracker_interval">
+<code class="descname">tracker_interval</code><a class="headerlink" href="#ts_core.config.bindings.sumocfg.gui_onlyType.tracker_interval" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return the value for this use within the given instance.</p>
+<p>Note that this is the L{resetValue()}, not the L{defaultValue()}, if
+the element has not yet been assigned a value.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="ts_core.config.bindings.sumocfg.gui_onlyType.window_pos">
+<code class="descname">window_pos</code><a class="headerlink" href="#ts_core.config.bindings.sumocfg.gui_onlyType.window_pos" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return the value for this use within the given instance.</p>
+<p>Note that this is the L{resetValue()}, not the L{defaultValue()}, if
+the element has not yet been assigned a value.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="ts_core.config.bindings.sumocfg.gui_onlyType.window_size">
+<code class="descname">window_size</code><a class="headerlink" href="#ts_core.config.bindings.sumocfg.gui_onlyType.window_size" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return the value for this use within the given instance.</p>
+<p>Note that this is the L{resetValue()}, not the L{defaultValue()}, if
+the element has not yet been assigned a value.</p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="ts_core.config.bindings.sumocfg.inputType">
+<em class="property">class </em><code class="descname">inputType</code><span class="sig-paren">(</span><em>*args</em>, <em>**kw</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/ts_core/config/bindings/sumocfg.html#inputType"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#ts_core.config.bindings.sumocfg.inputType" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal"><span class="pre">pyxb.binding.basis.complexTypeDefinition</span></code></p>
+<p>Complex type inputType with content type ELEMENT_ONLY</p>
+<dl class="attribute">
+<dt id="ts_core.config.bindings.sumocfg.inputType.additional_files">
+<code class="descname">additional_files</code><a class="headerlink" href="#ts_core.config.bindings.sumocfg.inputType.additional_files" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return the value for this use within the given instance.</p>
+<p>Note that this is the L{resetValue()}, not the L{defaultValue()}, if
+the element has not yet been assigned a value.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="ts_core.config.bindings.sumocfg.inputType.load_state">
+<code class="descname">load_state</code><a class="headerlink" href="#ts_core.config.bindings.sumocfg.inputType.load_state" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return the value for this use within the given instance.</p>
+<p>Note that this is the L{resetValue()}, not the L{defaultValue()}, if
+the element has not yet been assigned a value.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="ts_core.config.bindings.sumocfg.inputType.load_state_offset">
+<code class="descname">load_state_offset</code><a class="headerlink" href="#ts_core.config.bindings.sumocfg.inputType.load_state_offset" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return the value for this use within the given instance.</p>
+<p>Note that this is the L{resetValue()}, not the L{defaultValue()}, if
+the element has not yet been assigned a value.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="ts_core.config.bindings.sumocfg.inputType.load_state_remove_vehicles">
+<code class="descname">load_state_remove_vehicles</code><a class="headerlink" href="#ts_core.config.bindings.sumocfg.inputType.load_state_remove_vehicles" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return the value for this use within the given instance.</p>
+<p>Note that this is the L{resetValue()}, not the L{defaultValue()}, if
+the element has not yet been assigned a value.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="ts_core.config.bindings.sumocfg.inputType.net_file">
+<code class="descname">net_file</code><a class="headerlink" href="#ts_core.config.bindings.sumocfg.inputType.net_file" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return the value for this use within the given instance.</p>
+<p>Note that this is the L{resetValue()}, not the L{defaultValue()}, if
+the element has not yet been assigned a value.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="ts_core.config.bindings.sumocfg.inputType.route_files">
+<code class="descname">route_files</code><a class="headerlink" href="#ts_core.config.bindings.sumocfg.inputType.route_files" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return the value for this use within the given instance.</p>
+<p>Note that this is the L{resetValue()}, not the L{defaultValue()}, if
+the element has not yet been assigned a value.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="ts_core.config.bindings.sumocfg.inputType.weight_attribute">
+<code class="descname">weight_attribute</code><a class="headerlink" href="#ts_core.config.bindings.sumocfg.inputType.weight_attribute" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return the value for this use within the given instance.</p>
+<p>Note that this is the L{resetValue()}, not the L{defaultValue()}, if
+the element has not yet been assigned a value.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="ts_core.config.bindings.sumocfg.inputType.weight_files">
+<code class="descname">weight_files</code><a class="headerlink" href="#ts_core.config.bindings.sumocfg.inputType.weight_files" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return the value for this use within the given instance.</p>
+<p>Note that this is the L{resetValue()}, not the L{defaultValue()}, if
+the element has not yet been assigned a value.</p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="ts_core.config.bindings.sumocfg.intArrayOptionType">
+<em class="property">class </em><code class="descname">intArrayOptionType</code><span class="sig-paren">(</span><em>*args</em>, <em>**kw</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/ts_core/config/bindings/sumocfg.html#intArrayOptionType"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#ts_core.config.bindings.sumocfg.intArrayOptionType" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal"><span class="pre">pyxb.binding.basis.complexTypeDefinition</span></code></p>
+<p>Complex type intArrayOptionType with content type EMPTY</p>
+<dl class="attribute">
+<dt id="ts_core.config.bindings.sumocfg.intArrayOptionType.help">
+<code class="descname">help</code><a class="headerlink" href="#ts_core.config.bindings.sumocfg.intArrayOptionType.help" title="Permalink to this definition">¶</a></dt>
+<dd><p>Get the value of the attribute from the instance.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="ts_core.config.bindings.sumocfg.intArrayOptionType.synonymes">
+<code class="descname">synonymes</code><a class="headerlink" href="#ts_core.config.bindings.sumocfg.intArrayOptionType.synonymes" title="Permalink to this definition">¶</a></dt>
+<dd><p>Get the value of the attribute from the instance.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="ts_core.config.bindings.sumocfg.intArrayOptionType.type">
+<code class="descname">type</code><a class="headerlink" href="#ts_core.config.bindings.sumocfg.intArrayOptionType.type" title="Permalink to this definition">¶</a></dt>
+<dd><p>Get the value of the attribute from the instance.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="ts_core.config.bindings.sumocfg.intArrayOptionType.value_">
+<code class="descname">value_</code><a class="headerlink" href="#ts_core.config.bindings.sumocfg.intArrayOptionType.value_" title="Permalink to this definition">¶</a></dt>
+<dd><p>Get the value of the attribute from the instance.</p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="ts_core.config.bindings.sumocfg.intOptionType">
+<em class="property">class </em><code class="descname">intOptionType</code><span class="sig-paren">(</span><em>*args</em>, <em>**kw</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/ts_core/config/bindings/sumocfg.html#intOptionType"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#ts_core.config.bindings.sumocfg.intOptionType" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal"><span class="pre">pyxb.binding.basis.complexTypeDefinition</span></code></p>
+<p>Complex type intOptionType with content type EMPTY</p>
+<dl class="attribute">
+<dt id="ts_core.config.bindings.sumocfg.intOptionType.help">
+<code class="descname">help</code><a class="headerlink" href="#ts_core.config.bindings.sumocfg.intOptionType.help" title="Permalink to this definition">¶</a></dt>
+<dd><p>Get the value of the attribute from the instance.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="ts_core.config.bindings.sumocfg.intOptionType.synonymes">
+<code class="descname">synonymes</code><a class="headerlink" href="#ts_core.config.bindings.sumocfg.intOptionType.synonymes" title="Permalink to this definition">¶</a></dt>
+<dd><p>Get the value of the attribute from the instance.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="ts_core.config.bindings.sumocfg.intOptionType.type">
+<code class="descname">type</code><a class="headerlink" href="#ts_core.config.bindings.sumocfg.intOptionType.type" title="Permalink to this definition">¶</a></dt>
+<dd><p>Get the value of the attribute from the instance.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="ts_core.config.bindings.sumocfg.intOptionType.value_">
+<code class="descname">value_</code><a class="headerlink" href="#ts_core.config.bindings.sumocfg.intOptionType.value_" title="Permalink to this definition">¶</a></dt>
+<dd><p>Get the value of the attribute from the instance.</p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="ts_core.config.bindings.sumocfg.locationType">
+<em class="property">class </em><code class="descname">locationType</code><span class="sig-paren">(</span><em>*args</em>, <em>**kw</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/ts_core/config/bindings/sumocfg.html#locationType"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#ts_core.config.bindings.sumocfg.locationType" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal"><span class="pre">pyxb.binding.basis.complexTypeDefinition</span></code></p>
+<p>Complex type locationType with content type EMPTY</p>
+<dl class="attribute">
+<dt id="ts_core.config.bindings.sumocfg.locationType.convBoundary">
+<code class="descname">convBoundary</code><a class="headerlink" href="#ts_core.config.bindings.sumocfg.locationType.convBoundary" title="Permalink to this definition">¶</a></dt>
+<dd><p>Get the value of the attribute from the instance.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="ts_core.config.bindings.sumocfg.locationType.netOffset">
+<code class="descname">netOffset</code><a class="headerlink" href="#ts_core.config.bindings.sumocfg.locationType.netOffset" title="Permalink to this definition">¶</a></dt>
+<dd><p>Get the value of the attribute from the instance.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="ts_core.config.bindings.sumocfg.locationType.origBoundary">
+<code class="descname">origBoundary</code><a class="headerlink" href="#ts_core.config.bindings.sumocfg.locationType.origBoundary" title="Permalink to this definition">¶</a></dt>
+<dd><p>Get the value of the attribute from the instance.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="ts_core.config.bindings.sumocfg.locationType.projParameter">
+<code class="descname">projParameter</code><a class="headerlink" href="#ts_core.config.bindings.sumocfg.locationType.projParameter" title="Permalink to this definition">¶</a></dt>
+<dd><p>Get the value of the attribute from the instance.</p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="ts_core.config.bindings.sumocfg.mesoscopicType">
+<em class="property">class </em><code class="descname">mesoscopicType</code><span class="sig-paren">(</span><em>*args</em>, <em>**kw</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/ts_core/config/bindings/sumocfg.html#mesoscopicType"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#ts_core.config.bindings.sumocfg.mesoscopicType" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal"><span class="pre">pyxb.binding.basis.complexTypeDefinition</span></code></p>
+<p>Complex type mesoscopicType with content type ELEMENT_ONLY</p>
+<dl class="attribute">
+<dt id="ts_core.config.bindings.sumocfg.mesoscopicType.meso_edgelength">
+<code class="descname">meso_edgelength</code><a class="headerlink" href="#ts_core.config.bindings.sumocfg.mesoscopicType.meso_edgelength" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return the value for this use within the given instance.</p>
+<p>Note that this is the L{resetValue()}, not the L{defaultValue()}, if
+the element has not yet been assigned a value.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="ts_core.config.bindings.sumocfg.mesoscopicType.meso_jam_threshold">
+<code class="descname">meso_jam_threshold</code><a class="headerlink" href="#ts_core.config.bindings.sumocfg.mesoscopicType.meso_jam_threshold" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return the value for this use within the given instance.</p>
+<p>Note that this is the L{resetValue()}, not the L{defaultValue()}, if
+the element has not yet been assigned a value.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="ts_core.config.bindings.sumocfg.mesoscopicType.meso_junction_control">
+<code class="descname">meso_junction_control</code><a class="headerlink" href="#ts_core.config.bindings.sumocfg.mesoscopicType.meso_junction_control" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return the value for this use within the given instance.</p>
+<p>Note that this is the L{resetValue()}, not the L{defaultValue()}, if
+the element has not yet been assigned a value.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="ts_core.config.bindings.sumocfg.mesoscopicType.meso_junction_control_limited">
+<code class="descname">meso_junction_control_limited</code><a class="headerlink" href="#ts_core.config.bindings.sumocfg.mesoscopicType.meso_junction_control_limited" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return the value for this use within the given instance.</p>
+<p>Note that this is the L{resetValue()}, not the L{defaultValue()}, if
+the element has not yet been assigned a value.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="ts_core.config.bindings.sumocfg.mesoscopicType.meso_minor_penalty">
+<code class="descname">meso_minor_penalty</code><a class="headerlink" href="#ts_core.config.bindings.sumocfg.mesoscopicType.meso_minor_penalty" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return the value for this use within the given instance.</p>
+<p>Note that this is the L{resetValue()}, not the L{defaultValue()}, if
+the element has not yet been assigned a value.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="ts_core.config.bindings.sumocfg.mesoscopicType.meso_multi_queue">
+<code class="descname">meso_multi_queue</code><a class="headerlink" href="#ts_core.config.bindings.sumocfg.mesoscopicType.meso_multi_queue" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return the value for this use within the given instance.</p>
+<p>Note that this is the L{resetValue()}, not the L{defaultValue()}, if
+the element has not yet been assigned a value.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="ts_core.config.bindings.sumocfg.mesoscopicType.meso_overtaking">
+<code class="descname">meso_overtaking</code><a class="headerlink" href="#ts_core.config.bindings.sumocfg.mesoscopicType.meso_overtaking" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return the value for this use within the given instance.</p>
+<p>Note that this is the L{resetValue()}, not the L{defaultValue()}, if
+the element has not yet been assigned a value.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="ts_core.config.bindings.sumocfg.mesoscopicType.meso_recheck">
+<code class="descname">meso_recheck</code><a class="headerlink" href="#ts_core.config.bindings.sumocfg.mesoscopicType.meso_recheck" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return the value for this use within the given instance.</p>
+<p>Note that this is the L{resetValue()}, not the L{defaultValue()}, if
+the element has not yet been assigned a value.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="ts_core.config.bindings.sumocfg.mesoscopicType.meso_tauff">
+<code class="descname">meso_tauff</code><a class="headerlink" href="#ts_core.config.bindings.sumocfg.mesoscopicType.meso_tauff" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return the value for this use within the given instance.</p>
+<p>Note that this is the L{resetValue()}, not the L{defaultValue()}, if
+the element has not yet been assigned a value.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="ts_core.config.bindings.sumocfg.mesoscopicType.meso_taufj">
+<code class="descname">meso_taufj</code><a class="headerlink" href="#ts_core.config.bindings.sumocfg.mesoscopicType.meso_taufj" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return the value for this use within the given instance.</p>
+<p>Note that this is the L{resetValue()}, not the L{defaultValue()}, if
+the element has not yet been assigned a value.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="ts_core.config.bindings.sumocfg.mesoscopicType.meso_taujf">
+<code class="descname">meso_taujf</code><a class="headerlink" href="#ts_core.config.bindings.sumocfg.mesoscopicType.meso_taujf" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return the value for this use within the given instance.</p>
+<p>Note that this is the L{resetValue()}, not the L{defaultValue()}, if
+the element has not yet been assigned a value.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="ts_core.config.bindings.sumocfg.mesoscopicType.meso_taujj">
+<code class="descname">meso_taujj</code><a class="headerlink" href="#ts_core.config.bindings.sumocfg.mesoscopicType.meso_taujj" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return the value for this use within the given instance.</p>
+<p>Note that this is the L{resetValue()}, not the L{defaultValue()}, if
+the element has not yet been assigned a value.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="ts_core.config.bindings.sumocfg.mesoscopicType.meso_tls_penalty">
+<code class="descname">meso_tls_penalty</code><a class="headerlink" href="#ts_core.config.bindings.sumocfg.mesoscopicType.meso_tls_penalty" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return the value for this use within the given instance.</p>
+<p>Note that this is the L{resetValue()}, not the L{defaultValue()}, if
+the element has not yet been assigned a value.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="ts_core.config.bindings.sumocfg.mesoscopicType.mesosim">
+<code class="descname">mesosim</code><a class="headerlink" href="#ts_core.config.bindings.sumocfg.mesoscopicType.mesosim" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return the value for this use within the given instance.</p>
+<p>Note that this is the L{resetValue()}, not the L{defaultValue()}, if
+the element has not yet been assigned a value.</p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="ts_core.config.bindings.sumocfg.nodeTypeType">
+<em class="property">class </em><code class="descname">nodeTypeType</code><span class="sig-paren">(</span><em>*args</em>, <em>**kw</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/ts_core/config/bindings/sumocfg.html#nodeTypeType"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#ts_core.config.bindings.sumocfg.nodeTypeType" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal"><span class="pre">pyxb.binding.datatypes.string</span></code>, <code class="xref py py-class docutils literal"><span class="pre">pyxb.binding.basis.enumeration_mixin</span></code></p>
+<p>An atomic simple type.</p>
+<dl class="attribute">
+<dt id="ts_core.config.bindings.sumocfg.nodeTypeType.allway_stop">
+<code class="descname">allway_stop</code><em class="property"> = 'allway_stop'</em><a class="headerlink" href="#ts_core.config.bindings.sumocfg.nodeTypeType.allway_stop" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="ts_core.config.bindings.sumocfg.nodeTypeType.dead_end">
+<code class="descname">dead_end</code><em class="property"> = 'dead_end'</em><a class="headerlink" href="#ts_core.config.bindings.sumocfg.nodeTypeType.dead_end" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="ts_core.config.bindings.sumocfg.nodeTypeType.priority">
+<code class="descname">priority</code><em class="property"> = 'priority'</em><a class="headerlink" href="#ts_core.config.bindings.sumocfg.nodeTypeType.priority" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="ts_core.config.bindings.sumocfg.nodeTypeType.priority_stop">
+<code class="descname">priority_stop</code><em class="property"> = 'priority_stop'</em><a class="headerlink" href="#ts_core.config.bindings.sumocfg.nodeTypeType.priority_stop" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="ts_core.config.bindings.sumocfg.nodeTypeType.rail_crossing">
+<code class="descname">rail_crossing</code><em class="property"> = 'rail_crossing'</em><a class="headerlink" href="#ts_core.config.bindings.sumocfg.nodeTypeType.rail_crossing" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="ts_core.config.bindings.sumocfg.nodeTypeType.rail_signal">
+<code class="descname">rail_signal</code><em class="property"> = 'rail_signal'</em><a class="headerlink" href="#ts_core.config.bindings.sumocfg.nodeTypeType.rail_signal" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="ts_core.config.bindings.sumocfg.nodeTypeType.right_before_left">
+<code class="descname">right_before_left</code><em class="property"> = 'right_before_left'</em><a class="headerlink" href="#ts_core.config.bindings.sumocfg.nodeTypeType.right_before_left" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="ts_core.config.bindings.sumocfg.nodeTypeType.traffic_light">
+<code class="descname">traffic_light</code><em class="property"> = 'traffic_light'</em><a class="headerlink" href="#ts_core.config.bindings.sumocfg.nodeTypeType.traffic_light" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="ts_core.config.bindings.sumocfg.nodeTypeType.traffic_light_right_on_red">
+<code class="descname">traffic_light_right_on_red</code><em class="property"> = 'traffic_light_right_on_red'</em><a class="headerlink" href="#ts_core.config.bindings.sumocfg.nodeTypeType.traffic_light_right_on_red" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="ts_core.config.bindings.sumocfg.nodeTypeType.traffic_light_unregulated">
+<code class="descname">traffic_light_unregulated</code><em class="property"> = 'traffic_light_unregulated'</em><a class="headerlink" href="#ts_core.config.bindings.sumocfg.nodeTypeType.traffic_light_unregulated" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="ts_core.config.bindings.sumocfg.nodeTypeType.unregulated">
+<code class="descname">unregulated</code><em class="property"> = 'unregulated'</em><a class="headerlink" href="#ts_core.config.bindings.sumocfg.nodeTypeType.unregulated" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="ts_core.config.bindings.sumocfg.nodeTypeType.zipper">
+<code class="descname">zipper</code><em class="property"> = 'zipper'</em><a class="headerlink" href="#ts_core.config.bindings.sumocfg.nodeTypeType.zipper" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="ts_core.config.bindings.sumocfg.nonNegativeDistributionType">
+<em class="property">class </em><code class="descname">nonNegativeDistributionType</code><span class="sig-paren">(</span><em>*args</em>, <em>**kw</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/ts_core/config/bindings/sumocfg.html#nonNegativeDistributionType"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#ts_core.config.bindings.sumocfg.nonNegativeDistributionType" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal"><span class="pre">pyxb.binding.basis.STD_union</span></code></p>
+<p>Simple type that is a union of nonNegativeFloatType, <a href="#id1"><span class="problematic" id="id2">STD_ANON_</span></a>.</p>
+</dd></dl>
+
+<dl class="class">
+<dt id="ts_core.config.bindings.sumocfg.nonNegativeFloatType">
+<em class="property">class </em><code class="descname">nonNegativeFloatType</code><span class="sig-paren">(</span><em>*args</em>, <em>**kw</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/ts_core/config/bindings/sumocfg.html#nonNegativeFloatType"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#ts_core.config.bindings.sumocfg.nonNegativeFloatType" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal"><span class="pre">pyxb.binding.datatypes.float</span></code></p>
+<p>An atomic simple type.</p>
+</dd></dl>
+
+<dl class="class">
+<dt id="ts_core.config.bindings.sumocfg.nonNegativeFloatTypeWithErrorValue">
+<em class="property">class </em><code class="descname">nonNegativeFloatTypeWithErrorValue</code><span class="sig-paren">(</span><em>*args</em>, <em>**kw</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/ts_core/config/bindings/sumocfg.html#nonNegativeFloatTypeWithErrorValue"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#ts_core.config.bindings.sumocfg.nonNegativeFloatTypeWithErrorValue" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal"><span class="pre">pyxb.binding.basis.STD_union</span></code></p>
+<p>Simple type that is a union of nonNegativeFloatType, STD_ANON.</p>
+</dd></dl>
+
+<dl class="class">
+<dt id="ts_core.config.bindings.sumocfg.nonNegativeIntType">
+<em class="property">class </em><code class="descname">nonNegativeIntType</code><span class="sig-paren">(</span><em>*args</em>, <em>**kw</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/ts_core/config/bindings/sumocfg.html#nonNegativeIntType"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#ts_core.config.bindings.sumocfg.nonNegativeIntType" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal"><span class="pre">pyxb.binding.datatypes.int</span></code></p>
+<p>An atomic simple type.</p>
+</dd></dl>
+
+<dl class="class">
+<dt id="ts_core.config.bindings.sumocfg.outputType">
+<em class="property">class </em><code class="descname">outputType</code><span class="sig-paren">(</span><em>*args</em>, <em>**kw</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/ts_core/config/bindings/sumocfg.html#outputType"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#ts_core.config.bindings.sumocfg.outputType" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal"><span class="pre">pyxb.binding.basis.complexTypeDefinition</span></code></p>
+<p>Complex type outputType with content type ELEMENT_ONLY</p>
+<dl class="attribute">
+<dt id="ts_core.config.bindings.sumocfg.outputType.amitran_output">
+<code class="descname">amitran_output</code><a class="headerlink" href="#ts_core.config.bindings.sumocfg.outputType.amitran_output" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return the value for this use within the given instance.</p>
+<p>Note that this is the L{resetValue()}, not the L{defaultValue()}, if
+the element has not yet been assigned a value.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="ts_core.config.bindings.sumocfg.outputType.battery_output">
+<code class="descname">battery_output</code><a class="headerlink" href="#ts_core.config.bindings.sumocfg.outputType.battery_output" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return the value for this use within the given instance.</p>
+<p>Note that this is the L{resetValue()}, not the L{defaultValue()}, if
+the element has not yet been assigned a value.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="ts_core.config.bindings.sumocfg.outputType.battery_output_precision">
+<code class="descname">battery_output_precision</code><a class="headerlink" href="#ts_core.config.bindings.sumocfg.outputType.battery_output_precision" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return the value for this use within the given instance.</p>
+<p>Note that this is the L{resetValue()}, not the L{defaultValue()}, if
+the element has not yet been assigned a value.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="ts_core.config.bindings.sumocfg.outputType.bt_output">
+<code class="descname">bt_output</code><a class="headerlink" href="#ts_core.config.bindings.sumocfg.outputType.bt_output" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return the value for this use within the given instance.</p>
+<p>Note that this is the L{resetValue()}, not the L{defaultValue()}, if
+the element has not yet been assigned a value.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="ts_core.config.bindings.sumocfg.outputType.chargingstations_output">
+<code class="descname">chargingstations_output</code><a class="headerlink" href="#ts_core.config.bindings.sumocfg.outputType.chargingstations_output" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return the value for this use within the given instance.</p>
+<p>Note that this is the L{resetValue()}, not the L{defaultValue()}, if
+the element has not yet been assigned a value.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="ts_core.config.bindings.sumocfg.outputType.emission_output">
+<code class="descname">emission_output</code><a class="headerlink" href="#ts_core.config.bindings.sumocfg.outputType.emission_output" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return the value for this use within the given instance.</p>
+<p>Note that this is the L{resetValue()}, not the L{defaultValue()}, if
+the element has not yet been assigned a value.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="ts_core.config.bindings.sumocfg.outputType.emission_output_precision">
+<code class="descname">emission_output_precision</code><a class="headerlink" href="#ts_core.config.bindings.sumocfg.outputType.emission_output_precision" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return the value for this use within the given instance.</p>
+<p>Note that this is the L{resetValue()}, not the L{defaultValue()}, if
+the element has not yet been assigned a value.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="ts_core.config.bindings.sumocfg.outputType.fcd_output">
+<code class="descname">fcd_output</code><a class="headerlink" href="#ts_core.config.bindings.sumocfg.outputType.fcd_output" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return the value for this use within the given instance.</p>
+<p>Note that this is the L{resetValue()}, not the L{defaultValue()}, if
+the element has not yet been assigned a value.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="ts_core.config.bindings.sumocfg.outputType.fcd_output_geo">
+<code class="descname">fcd_output_geo</code><a class="headerlink" href="#ts_core.config.bindings.sumocfg.outputType.fcd_output_geo" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return the value for this use within the given instance.</p>
+<p>Note that this is the L{resetValue()}, not the L{defaultValue()}, if
+the element has not yet been assigned a value.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="ts_core.config.bindings.sumocfg.outputType.fcd_output_signals">
+<code class="descname">fcd_output_signals</code><a class="headerlink" href="#ts_core.config.bindings.sumocfg.outputType.fcd_output_signals" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return the value for this use within the given instance.</p>
+<p>Note that this is the L{resetValue()}, not the L{defaultValue()}, if
+the element has not yet been assigned a value.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="ts_core.config.bindings.sumocfg.outputType.full_output">
+<code class="descname">full_output</code><a class="headerlink" href="#ts_core.config.bindings.sumocfg.outputType.full_output" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return the value for this use within the given instance.</p>
+<p>Note that this is the L{resetValue()}, not the L{defaultValue()}, if
+the element has not yet been assigned a value.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="ts_core.config.bindings.sumocfg.outputType.lanechange_output">
+<code class="descname">lanechange_output</code><a class="headerlink" href="#ts_core.config.bindings.sumocfg.outputType.lanechange_output" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return the value for this use within the given instance.</p>
+<p>Note that this is the L{resetValue()}, not the L{defaultValue()}, if
+the element has not yet been assigned a value.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="ts_core.config.bindings.sumocfg.outputType.link_output">
+<code class="descname">link_output</code><a class="headerlink" href="#ts_core.config.bindings.sumocfg.outputType.link_output" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return the value for this use within the given instance.</p>
+<p>Note that this is the L{resetValue()}, not the L{defaultValue()}, if
+the element has not yet been assigned a value.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="ts_core.config.bindings.sumocfg.outputType.netstate_dump">
+<code class="descname">netstate_dump</code><a class="headerlink" href="#ts_core.config.bindings.sumocfg.outputType.netstate_dump" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return the value for this use within the given instance.</p>
+<p>Note that this is the L{resetValue()}, not the L{defaultValue()}, if
+the element has not yet been assigned a value.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="ts_core.config.bindings.sumocfg.outputType.netstate_dump_empty_edges">
+<code class="descname">netstate_dump_empty_edges</code><a class="headerlink" href="#ts_core.config.bindings.sumocfg.outputType.netstate_dump_empty_edges" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return the value for this use within the given instance.</p>
+<p>Note that this is the L{resetValue()}, not the L{defaultValue()}, if
+the element has not yet been assigned a value.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="ts_core.config.bindings.sumocfg.outputType.netstate_dump_precision">
+<code class="descname">netstate_dump_precision</code><a class="headerlink" href="#ts_core.config.bindings.sumocfg.outputType.netstate_dump_precision" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return the value for this use within the given instance.</p>
+<p>Note that this is the L{resetValue()}, not the L{defaultValue()}, if
+the element has not yet been assigned a value.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="ts_core.config.bindings.sumocfg.outputType.output_prefix">
+<code class="descname">output_prefix</code><a class="headerlink" href="#ts_core.config.bindings.sumocfg.outputType.output_prefix" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return the value for this use within the given instance.</p>
+<p>Note that this is the L{resetValue()}, not the L{defaultValue()}, if
+the element has not yet been assigned a value.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="ts_core.config.bindings.sumocfg.outputType.precision">
+<code class="descname">precision</code><a class="headerlink" href="#ts_core.config.bindings.sumocfg.outputType.precision" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return the value for this use within the given instance.</p>
+<p>Note that this is the L{resetValue()}, not the L{defaultValue()}, if
+the element has not yet been assigned a value.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="ts_core.config.bindings.sumocfg.outputType.precision_geo">
+<code class="descname">precision_geo</code><a class="headerlink" href="#ts_core.config.bindings.sumocfg.outputType.precision_geo" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return the value for this use within the given instance.</p>
+<p>Note that this is the L{resetValue()}, not the L{defaultValue()}, if
+the element has not yet been assigned a value.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="ts_core.config.bindings.sumocfg.outputType.queue_output">
+<code class="descname">queue_output</code><a class="headerlink" href="#ts_core.config.bindings.sumocfg.outputType.queue_output" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return the value for this use within the given instance.</p>
+<p>Note that this is the L{resetValue()}, not the L{defaultValue()}, if
+the element has not yet been assigned a value.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="ts_core.config.bindings.sumocfg.outputType.save_state_files">
+<code class="descname">save_state_files</code><a class="headerlink" href="#ts_core.config.bindings.sumocfg.outputType.save_state_files" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return the value for this use within the given instance.</p>
+<p>Note that this is the L{resetValue()}, not the L{defaultValue()}, if
+the element has not yet been assigned a value.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="ts_core.config.bindings.sumocfg.outputType.save_state_period">
+<code class="descname">save_state_period</code><a class="headerlink" href="#ts_core.config.bindings.sumocfg.outputType.save_state_period" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return the value for this use within the given instance.</p>
+<p>Note that this is the L{resetValue()}, not the L{defaultValue()}, if
+the element has not yet been assigned a value.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="ts_core.config.bindings.sumocfg.outputType.save_state_prefix">
+<code class="descname">save_state_prefix</code><a class="headerlink" href="#ts_core.config.bindings.sumocfg.outputType.save_state_prefix" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return the value for this use within the given instance.</p>
+<p>Note that this is the L{resetValue()}, not the L{defaultValue()}, if
+the element has not yet been assigned a value.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="ts_core.config.bindings.sumocfg.outputType.save_state_suffix">
+<code class="descname">save_state_suffix</code><a class="headerlink" href="#ts_core.config.bindings.sumocfg.outputType.save_state_suffix" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return the value for this use within the given instance.</p>
+<p>Note that this is the L{resetValue()}, not the L{defaultValue()}, if
+the element has not yet been assigned a value.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="ts_core.config.bindings.sumocfg.outputType.save_state_times">
+<code class="descname">save_state_times</code><a class="headerlink" href="#ts_core.config.bindings.sumocfg.outputType.save_state_times" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return the value for this use within the given instance.</p>
+<p>Note that this is the L{resetValue()}, not the L{defaultValue()}, if
+the element has not yet been assigned a value.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="ts_core.config.bindings.sumocfg.outputType.stop_output">
+<code class="descname">stop_output</code><a class="headerlink" href="#ts_core.config.bindings.sumocfg.outputType.stop_output" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return the value for this use within the given instance.</p>
+<p>Note that this is the L{resetValue()}, not the L{defaultValue()}, if
+the element has not yet been assigned a value.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="ts_core.config.bindings.sumocfg.outputType.summary_output">
+<code class="descname">summary_output</code><a class="headerlink" href="#ts_core.config.bindings.sumocfg.outputType.summary_output" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return the value for this use within the given instance.</p>
+<p>Note that this is the L{resetValue()}, not the L{defaultValue()}, if
+the element has not yet been assigned a value.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="ts_core.config.bindings.sumocfg.outputType.tripinfo_output">
+<code class="descname">tripinfo_output</code><a class="headerlink" href="#ts_core.config.bindings.sumocfg.outputType.tripinfo_output" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return the value for this use within the given instance.</p>
+<p>Note that this is the L{resetValue()}, not the L{defaultValue()}, if
+the element has not yet been assigned a value.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="ts_core.config.bindings.sumocfg.outputType.tripinfo_output_write_unfinished">
+<code class="descname">tripinfo_output_write_unfinished</code><a class="headerlink" href="#ts_core.config.bindings.sumocfg.outputType.tripinfo_output_write_unfinished" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return the value for this use within the given instance.</p>
+<p>Note that this is the L{resetValue()}, not the L{defaultValue()}, if
+the element has not yet been assigned a value.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="ts_core.config.bindings.sumocfg.outputType.vehroute_output">
+<code class="descname">vehroute_output</code><a class="headerlink" href="#ts_core.config.bindings.sumocfg.outputType.vehroute_output" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return the value for this use within the given instance.</p>
+<p>Note that this is the L{resetValue()}, not the L{defaultValue()}, if
+the element has not yet been assigned a value.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="ts_core.config.bindings.sumocfg.outputType.vehroute_output_dua">
+<code class="descname">vehroute_output_dua</code><a class="headerlink" href="#ts_core.config.bindings.sumocfg.outputType.vehroute_output_dua" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return the value for this use within the given instance.</p>
+<p>Note that this is the L{resetValue()}, not the L{defaultValue()}, if
+the element has not yet been assigned a value.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="ts_core.config.bindings.sumocfg.outputType.vehroute_output_exit_times">
+<code class="descname">vehroute_output_exit_times</code><a class="headerlink" href="#ts_core.config.bindings.sumocfg.outputType.vehroute_output_exit_times" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return the value for this use within the given instance.</p>
+<p>Note that this is the L{resetValue()}, not the L{defaultValue()}, if
+the element has not yet been assigned a value.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="ts_core.config.bindings.sumocfg.outputType.vehroute_output_intended_depart">
+<code class="descname">vehroute_output_intended_depart</code><a class="headerlink" href="#ts_core.config.bindings.sumocfg.outputType.vehroute_output_intended_depart" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return the value for this use within the given instance.</p>
+<p>Note that this is the L{resetValue()}, not the L{defaultValue()}, if
+the element has not yet been assigned a value.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="ts_core.config.bindings.sumocfg.outputType.vehroute_output_last_route">
+<code class="descname">vehroute_output_last_route</code><a class="headerlink" href="#ts_core.config.bindings.sumocfg.outputType.vehroute_output_last_route" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return the value for this use within the given instance.</p>
+<p>Note that this is the L{resetValue()}, not the L{defaultValue()}, if
+the element has not yet been assigned a value.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="ts_core.config.bindings.sumocfg.outputType.vehroute_output_route_length">
+<code class="descname">vehroute_output_route_length</code><a class="headerlink" href="#ts_core.config.bindings.sumocfg.outputType.vehroute_output_route_length" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return the value for this use within the given instance.</p>
+<p>Note that this is the L{resetValue()}, not the L{defaultValue()}, if
+the element has not yet been assigned a value.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="ts_core.config.bindings.sumocfg.outputType.vehroute_output_sorted">
+<code class="descname">vehroute_output_sorted</code><a class="headerlink" href="#ts_core.config.bindings.sumocfg.outputType.vehroute_output_sorted" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return the value for this use within the given instance.</p>
+<p>Note that this is the L{resetValue()}, not the L{defaultValue()}, if
+the element has not yet been assigned a value.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="ts_core.config.bindings.sumocfg.outputType.vehroute_output_write_unfinished">
+<code class="descname">vehroute_output_write_unfinished</code><a class="headerlink" href="#ts_core.config.bindings.sumocfg.outputType.vehroute_output_write_unfinished" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return the value for this use within the given instance.</p>
+<p>Note that this is the L{resetValue()}, not the L{defaultValue()}, if
+the element has not yet been assigned a value.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="ts_core.config.bindings.sumocfg.outputType.vtk_output">
+<code class="descname">vtk_output</code><a class="headerlink" href="#ts_core.config.bindings.sumocfg.outputType.vtk_output" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return the value for this use within the given instance.</p>
+<p>Note that this is the L{resetValue()}, not the L{defaultValue()}, if
+the element has not yet been assigned a value.</p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="ts_core.config.bindings.sumocfg.paramType">
+<em class="property">class </em><code class="descname">paramType</code><span class="sig-paren">(</span><em>*args</em>, <em>**kw</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/ts_core/config/bindings/sumocfg.html#paramType"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#ts_core.config.bindings.sumocfg.paramType" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal"><span class="pre">pyxb.binding.basis.complexTypeDefinition</span></code></p>
+<p>Complex type paramType with content type EMPTY</p>
+<dl class="attribute">
+<dt id="ts_core.config.bindings.sumocfg.paramType.key">
+<code class="descname">key</code><a class="headerlink" href="#ts_core.config.bindings.sumocfg.paramType.key" title="Permalink to this definition">¶</a></dt>
+<dd><p>Get the value of the attribute from the instance.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="ts_core.config.bindings.sumocfg.paramType.value_">
+<code class="descname">value_</code><a class="headerlink" href="#ts_core.config.bindings.sumocfg.paramType.value_" title="Permalink to this definition">¶</a></dt>
+<dd><p>Get the value of the attribute from the instance.</p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="ts_core.config.bindings.sumocfg.phaseType">
+<em class="property">class </em><code class="descname">phaseType</code><span class="sig-paren">(</span><em>*args</em>, <em>**kw</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/ts_core/config/bindings/sumocfg.html#phaseType"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#ts_core.config.bindings.sumocfg.phaseType" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal"><span class="pre">pyxb.binding.basis.complexTypeDefinition</span></code></p>
+<p>Complex type phaseType with content type EMPTY</p>
+<dl class="attribute">
+<dt id="ts_core.config.bindings.sumocfg.phaseType.duration">
+<code class="descname">duration</code><a class="headerlink" href="#ts_core.config.bindings.sumocfg.phaseType.duration" title="Permalink to this definition">¶</a></dt>
+<dd><p>Get the value of the attribute from the instance.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="ts_core.config.bindings.sumocfg.phaseType.maxDur">
+<code class="descname">maxDur</code><a class="headerlink" href="#ts_core.config.bindings.sumocfg.phaseType.maxDur" title="Permalink to this definition">¶</a></dt>
+<dd><p>Get the value of the attribute from the instance.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="ts_core.config.bindings.sumocfg.phaseType.minDur">
+<code class="descname">minDur</code><a class="headerlink" href="#ts_core.config.bindings.sumocfg.phaseType.minDur" title="Permalink to this definition">¶</a></dt>
+<dd><p>Get the value of the attribute from the instance.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="ts_core.config.bindings.sumocfg.phaseType.state">
+<code class="descname">state</code><a class="headerlink" href="#ts_core.config.bindings.sumocfg.phaseType.state" title="Permalink to this definition">¶</a></dt>
+<dd><p>Get the value of the attribute from the instance.</p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="ts_core.config.bindings.sumocfg.positiveFloatType">
+<em class="property">class </em><code class="descname">positiveFloatType</code><span class="sig-paren">(</span><em>*args</em>, <em>**kw</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/ts_core/config/bindings/sumocfg.html#positiveFloatType"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#ts_core.config.bindings.sumocfg.positiveFloatType" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal"><span class="pre">pyxb.binding.datatypes.float</span></code></p>
+<p>An atomic simple type.</p>
+</dd></dl>
+
+<dl class="class">
+<dt id="ts_core.config.bindings.sumocfg.positiveIntType">
+<em class="property">class </em><code class="descname">positiveIntType</code><span class="sig-paren">(</span><em>*args</em>, <em>**kw</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/ts_core/config/bindings/sumocfg.html#positiveIntType"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#ts_core.config.bindings.sumocfg.positiveIntType" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal"><span class="pre">pyxb.binding.datatypes.int</span></code></p>
+<p>An atomic simple type.</p>
+</dd></dl>
+
+<dl class="class">
+<dt id="ts_core.config.bindings.sumocfg.processingType">
+<em class="property">class </em><code class="descname">processingType</code><span class="sig-paren">(</span><em>*args</em>, <em>**kw</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/ts_core/config/bindings/sumocfg.html#processingType"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#ts_core.config.bindings.sumocfg.processingType" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal"><span class="pre">pyxb.binding.basis.complexTypeDefinition</span></code></p>
+<p>Complex type processingType with content type ELEMENT_ONLY</p>
+<dl class="attribute">
+<dt id="ts_core.config.bindings.sumocfg.processingType.astar_landmark_distances">
+<code class="descname">astar_landmark_distances</code><a class="headerlink" href="#ts_core.config.bindings.sumocfg.processingType.astar_landmark_distances" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return the value for this use within the given instance.</p>
+<p>Note that this is the L{resetValue()}, not the L{defaultValue()}, if
+the element has not yet been assigned a value.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="ts_core.config.bindings.sumocfg.processingType.carfollow_model">
+<code class="descname">carfollow_model</code><a class="headerlink" href="#ts_core.config.bindings.sumocfg.processingType.carfollow_model" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return the value for this use within the given instance.</p>
+<p>Note that this is the L{resetValue()}, not the L{defaultValue()}, if
+the element has not yet been assigned a value.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="ts_core.config.bindings.sumocfg.processingType.collision_action">
+<code class="descname">collision_action</code><a class="headerlink" href="#ts_core.config.bindings.sumocfg.processingType.collision_action" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return the value for this use within the given instance.</p>
+<p>Note that this is the L{resetValue()}, not the L{defaultValue()}, if
+the element has not yet been assigned a value.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="ts_core.config.bindings.sumocfg.processingType.collision_check_junctions">
+<code class="descname">collision_check_junctions</code><a class="headerlink" href="#ts_core.config.bindings.sumocfg.processingType.collision_check_junctions" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return the value for this use within the given instance.</p>
+<p>Note that this is the L{resetValue()}, not the L{defaultValue()}, if
+the element has not yet been assigned a value.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="ts_core.config.bindings.sumocfg.processingType.collision_stoptime">
+<code class="descname">collision_stoptime</code><a class="headerlink" href="#ts_core.config.bindings.sumocfg.processingType.collision_stoptime" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return the value for this use within the given instance.</p>
+<p>Note that this is the L{resetValue()}, not the L{defaultValue()}, if
+the element has not yet been assigned a value.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="ts_core.config.bindings.sumocfg.processingType.default_action_step_length">
+<code class="descname">default_action_step_length</code><a class="headerlink" href="#ts_core.config.bindings.sumocfg.processingType.default_action_step_length" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return the value for this use within the given instance.</p>
+<p>Note that this is the L{resetValue()}, not the L{defaultValue()}, if
+the element has not yet been assigned a value.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="ts_core.config.bindings.sumocfg.processingType.eager_insert">
+<code class="descname">eager_insert</code><a class="headerlink" href="#ts_core.config.bindings.sumocfg.processingType.eager_insert" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return the value for this use within the given instance.</p>
+<p>Note that this is the L{resetValue()}, not the L{defaultValue()}, if
+the element has not yet been assigned a value.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="ts_core.config.bindings.sumocfg.processingType.ignore_accidents">
+<code class="descname">ignore_accidents</code><a class="headerlink" href="#ts_core.config.bindings.sumocfg.processingType.ignore_accidents" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return the value for this use within the given instance.</p>
+<p>Note that this is the L{resetValue()}, not the L{defaultValue()}, if
+the element has not yet been assigned a value.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="ts_core.config.bindings.sumocfg.processingType.ignore_junction_blocker">
+<code class="descname">ignore_junction_blocker</code><a class="headerlink" href="#ts_core.config.bindings.sumocfg.processingType.ignore_junction_blocker" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return the value for this use within the given instance.</p>
+<p>Note that this is the L{resetValue()}, not the L{defaultValue()}, if
+the element has not yet been assigned a value.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="ts_core.config.bindings.sumocfg.processingType.ignore_route_errors">
+<code class="descname">ignore_route_errors</code><a class="headerlink" href="#ts_core.config.bindings.sumocfg.processingType.ignore_route_errors" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return the value for this use within the given instance.</p>
+<p>Note that this is the L{resetValue()}, not the L{defaultValue()}, if
+the element has not yet been assigned a value.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="ts_core.config.bindings.sumocfg.processingType.lanechange_duration">
+<code class="descname">lanechange_duration</code><a class="headerlink" href="#ts_core.config.bindings.sumocfg.processingType.lanechange_duration" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return the value for this use within the given instance.</p>
+<p>Note that this is the L{resetValue()}, not the L{defaultValue()}, if
+the element has not yet been assigned a value.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="ts_core.config.bindings.sumocfg.processingType.lanechange_overtake_right">
+<code class="descname">lanechange_overtake_right</code><a class="headerlink" href="#ts_core.config.bindings.sumocfg.processingType.lanechange_overtake_right" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return the value for this use within the given instance.</p>
+<p>Note that this is the L{resetValue()}, not the L{defaultValue()}, if
+the element has not yet been assigned a value.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="ts_core.config.bindings.sumocfg.processingType.lateral_resolution">
+<code class="descname">lateral_resolution</code><a class="headerlink" href="#ts_core.config.bindings.sumocfg.processingType.lateral_resolution" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return the value for this use within the given instance.</p>
+<p>Note that this is the L{resetValue()}, not the L{defaultValue()}, if
+the element has not yet been assigned a value.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="ts_core.config.bindings.sumocfg.processingType.max_depart_delay">
+<code class="descname">max_depart_delay</code><a class="headerlink" href="#ts_core.config.bindings.sumocfg.processingType.max_depart_delay" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return the value for this use within the given instance.</p>
+<p>Note that this is the L{resetValue()}, not the L{defaultValue()}, if
+the element has not yet been assigned a value.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="ts_core.config.bindings.sumocfg.processingType.max_num_teleports">
+<code class="descname">max_num_teleports</code><a class="headerlink" href="#ts_core.config.bindings.sumocfg.processingType.max_num_teleports" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return the value for this use within the given instance.</p>
+<p>Note that this is the L{resetValue()}, not the L{defaultValue()}, if
+the element has not yet been assigned a value.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="ts_core.config.bindings.sumocfg.processingType.max_num_vehicles">
+<code class="descname">max_num_vehicles</code><a class="headerlink" href="#ts_core.config.bindings.sumocfg.processingType.max_num_vehicles" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return the value for this use within the given instance.</p>
+<p>Note that this is the L{resetValue()}, not the L{defaultValue()}, if
+the element has not yet been assigned a value.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="ts_core.config.bindings.sumocfg.processingType.no_internal_links">
+<code class="descname">no_internal_links</code><a class="headerlink" href="#ts_core.config.bindings.sumocfg.processingType.no_internal_links" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return the value for this use within the given instance.</p>
+<p>Note that this is the L{resetValue()}, not the L{defaultValue()}, if
+the element has not yet been assigned a value.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="ts_core.config.bindings.sumocfg.processingType.pedestrian_model">
+<code class="descname">pedestrian_model</code><a class="headerlink" href="#ts_core.config.bindings.sumocfg.processingType.pedestrian_model" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return the value for this use within the given instance.</p>
+<p>Note that this is the L{resetValue()}, not the L{defaultValue()}, if
+the element has not yet been assigned a value.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="ts_core.config.bindings.sumocfg.processingType.pedestrian_remote_address">
+<code class="descname">pedestrian_remote_address</code><a class="headerlink" href="#ts_core.config.bindings.sumocfg.processingType.pedestrian_remote_address" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return the value for this use within the given instance.</p>
+<p>Note that this is the L{resetValue()}, not the L{defaultValue()}, if
+the element has not yet been assigned a value.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="ts_core.config.bindings.sumocfg.processingType.pedestrian_striping_dawdling">
+<code class="descname">pedestrian_striping_dawdling</code><a class="headerlink" href="#ts_core.config.bindings.sumocfg.processingType.pedestrian_striping_dawdling" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return the value for this use within the given instance.</p>
+<p>Note that this is the L{resetValue()}, not the L{defaultValue()}, if
+the element has not yet been assigned a value.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="ts_core.config.bindings.sumocfg.processingType.pedestrian_striping_jamtime">
+<code class="descname">pedestrian_striping_jamtime</code><a class="headerlink" href="#ts_core.config.bindings.sumocfg.processingType.pedestrian_striping_jamtime" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return the value for this use within the given instance.</p>
+<p>Note that this is the L{resetValue()}, not the L{defaultValue()}, if
+the element has not yet been assigned a value.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="ts_core.config.bindings.sumocfg.processingType.pedestrian_striping_stripe_width">
+<code class="descname">pedestrian_striping_stripe_width</code><a class="headerlink" href="#ts_core.config.bindings.sumocfg.processingType.pedestrian_striping_stripe_width" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return the value for this use within the given instance.</p>
+<p>Note that this is the L{resetValue()}, not the L{defaultValue()}, if
+the element has not yet been assigned a value.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="ts_core.config.bindings.sumocfg.processingType.random_depart_offset">
+<code class="descname">random_depart_offset</code><a class="headerlink" href="#ts_core.config.bindings.sumocfg.processingType.random_depart_offset" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return the value for this use within the given instance.</p>
+<p>Note that this is the L{resetValue()}, not the L{defaultValue()}, if
+the element has not yet been assigned a value.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="ts_core.config.bindings.sumocfg.processingType.route_steps">
+<code class="descname">route_steps</code><a class="headerlink" href="#ts_core.config.bindings.sumocfg.processingType.route_steps" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return the value for this use within the given instance.</p>
+<p>Note that this is the L{resetValue()}, not the L{defaultValue()}, if
+the element has not yet been assigned a value.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="ts_core.config.bindings.sumocfg.processingType.scale">
+<code class="descname">scale</code><a class="headerlink" href="#ts_core.config.bindings.sumocfg.processingType.scale" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return the value for this use within the given instance.</p>
+<p>Note that this is the L{resetValue()}, not the L{defaultValue()}, if
+the element has not yet been assigned a value.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="ts_core.config.bindings.sumocfg.processingType.sloppy_insert">
+<code class="descname">sloppy_insert</code><a class="headerlink" href="#ts_core.config.bindings.sumocfg.processingType.sloppy_insert" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return the value for this use within the given instance.</p>
+<p>Note that this is the L{resetValue()}, not the L{defaultValue()}, if
+the element has not yet been assigned a value.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="ts_core.config.bindings.sumocfg.processingType.step_method_ballistic">
+<code class="descname">step_method_ballistic</code><a class="headerlink" href="#ts_core.config.bindings.sumocfg.processingType.step_method_ballistic" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return the value for this use within the given instance.</p>
+<p>Note that this is the L{resetValue()}, not the L{defaultValue()}, if
+the element has not yet been assigned a value.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="ts_core.config.bindings.sumocfg.processingType.time_to_impatience">
+<code class="descname">time_to_impatience</code><a class="headerlink" href="#ts_core.config.bindings.sumocfg.processingType.time_to_impatience" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return the value for this use within the given instance.</p>
+<p>Note that this is the L{resetValue()}, not the L{defaultValue()}, if
+the element has not yet been assigned a value.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="ts_core.config.bindings.sumocfg.processingType.time_to_teleport">
+<code class="descname">time_to_teleport</code><a class="headerlink" href="#ts_core.config.bindings.sumocfg.processingType.time_to_teleport" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return the value for this use within the given instance.</p>
+<p>Note that this is the L{resetValue()}, not the L{defaultValue()}, if
+the element has not yet been assigned a value.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="ts_core.config.bindings.sumocfg.processingType.time_to_teleport_highways">
+<code class="descname">time_to_teleport_highways</code><a class="headerlink" href="#ts_core.config.bindings.sumocfg.processingType.time_to_teleport_highways" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return the value for this use within the given instance.</p>
+<p>Note that this is the L{resetValue()}, not the L{defaultValue()}, if
+the element has not yet been assigned a value.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="ts_core.config.bindings.sumocfg.processingType.tls_all_off">
+<code class="descname">tls_all_off</code><a class="headerlink" href="#ts_core.config.bindings.sumocfg.processingType.tls_all_off" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return the value for this use within the given instance.</p>
+<p>Note that this is the L{resetValue()}, not the L{defaultValue()}, if
+the element has not yet been assigned a value.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="ts_core.config.bindings.sumocfg.processingType.waiting_time_memory">
+<code class="descname">waiting_time_memory</code><a class="headerlink" href="#ts_core.config.bindings.sumocfg.processingType.waiting_time_memory" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return the value for this use within the given instance.</p>
+<p>Note that this is the L{resetValue()}, not the L{defaultValue()}, if
+the element has not yet been assigned a value.</p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="ts_core.config.bindings.sumocfg.random_numberType">
+<em class="property">class </em><code class="descname">random_numberType</code><span class="sig-paren">(</span><em>*args</em>, <em>**kw</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/ts_core/config/bindings/sumocfg.html#random_numberType"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#ts_core.config.bindings.sumocfg.random_numberType" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal"><span class="pre">pyxb.binding.basis.complexTypeDefinition</span></code></p>
+<p>Complex type random_numberType with content type ELEMENT_ONLY</p>
+<dl class="attribute">
+<dt id="ts_core.config.bindings.sumocfg.random_numberType.random">
+<code class="descname">random</code><a class="headerlink" href="#ts_core.config.bindings.sumocfg.random_numberType.random" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return the value for this use within the given instance.</p>
+<p>Note that this is the L{resetValue()}, not the L{defaultValue()}, if
+the element has not yet been assigned a value.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="ts_core.config.bindings.sumocfg.random_numberType.seed">
+<code class="descname">seed</code><a class="headerlink" href="#ts_core.config.bindings.sumocfg.random_numberType.seed" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return the value for this use within the given instance.</p>
+<p>Note that this is the L{resetValue()}, not the L{defaultValue()}, if
+the element has not yet been assigned a value.</p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="ts_core.config.bindings.sumocfg.reportType">
+<em class="property">class </em><code class="descname">reportType</code><span class="sig-paren">(</span><em>*args</em>, <em>**kw</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/ts_core/config/bindings/sumocfg.html#reportType"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#ts_core.config.bindings.sumocfg.reportType" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal"><span class="pre">pyxb.binding.basis.complexTypeDefinition</span></code></p>
+<p>Complex type reportType with content type ELEMENT_ONLY</p>
+<dl class="attribute">
+<dt id="ts_core.config.bindings.sumocfg.reportType.duration_log_disable">
+<code class="descname">duration_log_disable</code><a class="headerlink" href="#ts_core.config.bindings.sumocfg.reportType.duration_log_disable" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return the value for this use within the given instance.</p>
+<p>Note that this is the L{resetValue()}, not the L{defaultValue()}, if
+the element has not yet been assigned a value.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="ts_core.config.bindings.sumocfg.reportType.duration_log_statistics">
+<code class="descname">duration_log_statistics</code><a class="headerlink" href="#ts_core.config.bindings.sumocfg.reportType.duration_log_statistics" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return the value for this use within the given instance.</p>
+<p>Note that this is the L{resetValue()}, not the L{defaultValue()}, if
+the element has not yet been assigned a value.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="ts_core.config.bindings.sumocfg.reportType.error_log">
+<code class="descname">error_log</code><a class="headerlink" href="#ts_core.config.bindings.sumocfg.reportType.error_log" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return the value for this use within the given instance.</p>
+<p>Note that this is the L{resetValue()}, not the L{defaultValue()}, if
+the element has not yet been assigned a value.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="ts_core.config.bindings.sumocfg.reportType.help">
+<code class="descname">help</code><a class="headerlink" href="#ts_core.config.bindings.sumocfg.reportType.help" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return the value for this use within the given instance.</p>
+<p>Note that this is the L{resetValue()}, not the L{defaultValue()}, if
+the element has not yet been assigned a value.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="ts_core.config.bindings.sumocfg.reportType.log">
+<code class="descname">log</code><a class="headerlink" href="#ts_core.config.bindings.sumocfg.reportType.log" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return the value for this use within the given instance.</p>
+<p>Note that this is the L{resetValue()}, not the L{defaultValue()}, if
+the element has not yet been assigned a value.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="ts_core.config.bindings.sumocfg.reportType.message_log">
+<code class="descname">message_log</code><a class="headerlink" href="#ts_core.config.bindings.sumocfg.reportType.message_log" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return the value for this use within the given instance.</p>
+<p>Note that this is the L{resetValue()}, not the L{defaultValue()}, if
+the element has not yet been assigned a value.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="ts_core.config.bindings.sumocfg.reportType.no_step_log">
+<code class="descname">no_step_log</code><a class="headerlink" href="#ts_core.config.bindings.sumocfg.reportType.no_step_log" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return the value for this use within the given instance.</p>
+<p>Note that this is the L{resetValue()}, not the L{defaultValue()}, if
+the element has not yet been assigned a value.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="ts_core.config.bindings.sumocfg.reportType.no_warnings">
+<code class="descname">no_warnings</code><a class="headerlink" href="#ts_core.config.bindings.sumocfg.reportType.no_warnings" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return the value for this use within the given instance.</p>
+<p>Note that this is the L{resetValue()}, not the L{defaultValue()}, if
+the element has not yet been assigned a value.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="ts_core.config.bindings.sumocfg.reportType.print_options">
+<code class="descname">print_options</code><a class="headerlink" href="#ts_core.config.bindings.sumocfg.reportType.print_options" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return the value for this use within the given instance.</p>
+<p>Note that this is the L{resetValue()}, not the L{defaultValue()}, if
+the element has not yet been assigned a value.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="ts_core.config.bindings.sumocfg.reportType.verbose">
+<code class="descname">verbose</code><a class="headerlink" href="#ts_core.config.bindings.sumocfg.reportType.verbose" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return the value for this use within the given instance.</p>
+<p>Note that this is the L{resetValue()}, not the L{defaultValue()}, if
+the element has not yet been assigned a value.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="ts_core.config.bindings.sumocfg.reportType.version">
+<code class="descname">version</code><a class="headerlink" href="#ts_core.config.bindings.sumocfg.reportType.version" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return the value for this use within the given instance.</p>
+<p>Note that this is the L{resetValue()}, not the L{defaultValue()}, if
+the element has not yet been assigned a value.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="ts_core.config.bindings.sumocfg.reportType.xml_validation">
+<code class="descname">xml_validation</code><a class="headerlink" href="#ts_core.config.bindings.sumocfg.reportType.xml_validation" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return the value for this use within the given instance.</p>
+<p>Note that this is the L{resetValue()}, not the L{defaultValue()}, if
+the element has not yet been assigned a value.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="ts_core.config.bindings.sumocfg.reportType.xml_validation_net">
+<code class="descname">xml_validation_net</code><a class="headerlink" href="#ts_core.config.bindings.sumocfg.reportType.xml_validation_net" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return the value for this use within the given instance.</p>
+<p>Note that this is the L{resetValue()}, not the L{defaultValue()}, if
+the element has not yet been assigned a value.</p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="ts_core.config.bindings.sumocfg.restrictionType">
+<em class="property">class </em><code class="descname">restrictionType</code><span class="sig-paren">(</span><em>*args</em>, <em>**kw</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/ts_core/config/bindings/sumocfg.html#restrictionType"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#ts_core.config.bindings.sumocfg.restrictionType" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal"><span class="pre">pyxb.binding.basis.complexTypeDefinition</span></code></p>
+<p>Complex type restrictionType with content type EMPTY</p>
+<dl class="attribute">
+<dt id="ts_core.config.bindings.sumocfg.restrictionType.speed">
+<code class="descname">speed</code><a class="headerlink" href="#ts_core.config.bindings.sumocfg.restrictionType.speed" title="Permalink to this definition">¶</a></dt>
+<dd><p>Get the value of the attribute from the instance.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="ts_core.config.bindings.sumocfg.restrictionType.vClass">
+<code class="descname">vClass</code><a class="headerlink" href="#ts_core.config.bindings.sumocfg.restrictionType.vClass" title="Permalink to this definition">¶</a></dt>
+<dd><p>Get the value of the attribute from the instance.</p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="ts_core.config.bindings.sumocfg.routingType">
+<em class="property">class </em><code class="descname">routingType</code><span class="sig-paren">(</span><em>*args</em>, <em>**kw</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/ts_core/config/bindings/sumocfg.html#routingType"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#ts_core.config.bindings.sumocfg.routingType" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal"><span class="pre">pyxb.binding.basis.complexTypeDefinition</span></code></p>
+<p>Complex type routingType with content type ELEMENT_ONLY</p>
+<dl class="attribute">
+<dt id="ts_core.config.bindings.sumocfg.routingType.astar_all_distances">
+<code class="descname">astar_all_distances</code><a class="headerlink" href="#ts_core.config.bindings.sumocfg.routingType.astar_all_distances" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return the value for this use within the given instance.</p>
+<p>Note that this is the L{resetValue()}, not the L{defaultValue()}, if
+the element has not yet been assigned a value.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="ts_core.config.bindings.sumocfg.routingType.device_rerouting_adaptation_interval">
+<code class="descname">device_rerouting_adaptation_interval</code><a class="headerlink" href="#ts_core.config.bindings.sumocfg.routingType.device_rerouting_adaptation_interval" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return the value for this use within the given instance.</p>
+<p>Note that this is the L{resetValue()}, not the L{defaultValue()}, if
+the element has not yet been assigned a value.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="ts_core.config.bindings.sumocfg.routingType.device_rerouting_adaptation_steps">
+<code class="descname">device_rerouting_adaptation_steps</code><a class="headerlink" href="#ts_core.config.bindings.sumocfg.routingType.device_rerouting_adaptation_steps" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return the value for this use within the given instance.</p>
+<p>Note that this is the L{resetValue()}, not the L{defaultValue()}, if
+the element has not yet been assigned a value.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="ts_core.config.bindings.sumocfg.routingType.device_rerouting_adaptation_weight">
+<code class="descname">device_rerouting_adaptation_weight</code><a class="headerlink" href="#ts_core.config.bindings.sumocfg.routingType.device_rerouting_adaptation_weight" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return the value for this use within the given instance.</p>
+<p>Note that this is the L{resetValue()}, not the L{defaultValue()}, if
+the element has not yet been assigned a value.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="ts_core.config.bindings.sumocfg.routingType.device_rerouting_deterministic">
+<code class="descname">device_rerouting_deterministic</code><a class="headerlink" href="#ts_core.config.bindings.sumocfg.routingType.device_rerouting_deterministic" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return the value for this use within the given instance.</p>
+<p>Note that this is the L{resetValue()}, not the L{defaultValue()}, if
+the element has not yet been assigned a value.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="ts_core.config.bindings.sumocfg.routingType.device_rerouting_explicit">
+<code class="descname">device_rerouting_explicit</code><a class="headerlink" href="#ts_core.config.bindings.sumocfg.routingType.device_rerouting_explicit" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return the value for this use within the given instance.</p>
+<p>Note that this is the L{resetValue()}, not the L{defaultValue()}, if
+the element has not yet been assigned a value.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="ts_core.config.bindings.sumocfg.routingType.device_rerouting_init_with_loaded_weights">
+<code class="descname">device_rerouting_init_with_loaded_weights</code><a class="headerlink" href="#ts_core.config.bindings.sumocfg.routingType.device_rerouting_init_with_loaded_weights" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return the value for this use within the given instance.</p>
+<p>Note that this is the L{resetValue()}, not the L{defaultValue()}, if
+the element has not yet been assigned a value.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="ts_core.config.bindings.sumocfg.routingType.device_rerouting_output">
+<code class="descname">device_rerouting_output</code><a class="headerlink" href="#ts_core.config.bindings.sumocfg.routingType.device_rerouting_output" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return the value for this use within the given instance.</p>
+<p>Note that this is the L{resetValue()}, not the L{defaultValue()}, if
+the element has not yet been assigned a value.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="ts_core.config.bindings.sumocfg.routingType.device_rerouting_period">
+<code class="descname">device_rerouting_period</code><a class="headerlink" href="#ts_core.config.bindings.sumocfg.routingType.device_rerouting_period" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return the value for this use within the given instance.</p>
+<p>Note that this is the L{resetValue()}, not the L{defaultValue()}, if
+the element has not yet been assigned a value.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="ts_core.config.bindings.sumocfg.routingType.device_rerouting_pre_period">
+<code class="descname">device_rerouting_pre_period</code><a class="headerlink" href="#ts_core.config.bindings.sumocfg.routingType.device_rerouting_pre_period" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return the value for this use within the given instance.</p>
+<p>Note that this is the L{resetValue()}, not the L{defaultValue()}, if
+the element has not yet been assigned a value.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="ts_core.config.bindings.sumocfg.routingType.device_rerouting_probability">
+<code class="descname">device_rerouting_probability</code><a class="headerlink" href="#ts_core.config.bindings.sumocfg.routingType.device_rerouting_probability" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return the value for this use within the given instance.</p>
+<p>Note that this is the L{resetValue()}, not the L{defaultValue()}, if
+the element has not yet been assigned a value.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="ts_core.config.bindings.sumocfg.routingType.device_rerouting_threads">
+<code class="descname">device_rerouting_threads</code><a class="headerlink" href="#ts_core.config.bindings.sumocfg.routingType.device_rerouting_threads" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return the value for this use within the given instance.</p>
+<p>Note that this is the L{resetValue()}, not the L{defaultValue()}, if
+the element has not yet been assigned a value.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="ts_core.config.bindings.sumocfg.routingType.device_rerouting_with_taz">
+<code class="descname">device_rerouting_with_taz</code><a class="headerlink" href="#ts_core.config.bindings.sumocfg.routingType.device_rerouting_with_taz" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return the value for this use within the given instance.</p>
+<p>Note that this is the L{resetValue()}, not the L{defaultValue()}, if
+the element has not yet been assigned a value.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="ts_core.config.bindings.sumocfg.routingType.routing_algorithm">
+<code class="descname">routing_algorithm</code><a class="headerlink" href="#ts_core.config.bindings.sumocfg.routingType.routing_algorithm" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return the value for this use within the given instance.</p>
+<p>Note that this is the L{resetValue()}, not the L{defaultValue()}, if
+the element has not yet been assigned a value.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="ts_core.config.bindings.sumocfg.routingType.weights_random_factor">
+<code class="descname">weights_random_factor</code><a class="headerlink" href="#ts_core.config.bindings.sumocfg.routingType.weights_random_factor" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return the value for this use within the given instance.</p>
+<p>Note that this is the L{resetValue()}, not the L{defaultValue()}, if
+the element has not yet been assigned a value.</p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="ts_core.config.bindings.sumocfg.shapeType">
+<em class="property">class </em><code class="descname">shapeType</code><span class="sig-paren">(</span><em>*args</em>, <em>**kw</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/ts_core/config/bindings/sumocfg.html#shapeType"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#ts_core.config.bindings.sumocfg.shapeType" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal"><span class="pre">pyxb.binding.datatypes.string</span></code></p>
+<p>An atomic simple type.</p>
+</dd></dl>
+
+<dl class="class">
+<dt id="ts_core.config.bindings.sumocfg.shapeTypeTwo">
+<em class="property">class </em><code class="descname">shapeTypeTwo</code><span class="sig-paren">(</span><em>*args</em>, <em>**kw</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/ts_core/config/bindings/sumocfg.html#shapeTypeTwo"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#ts_core.config.bindings.sumocfg.shapeTypeTwo" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal"><span class="pre">pyxb.binding.datatypes.string</span></code></p>
+<p>An atomic simple type.</p>
+</dd></dl>
+
+<dl class="class">
+<dt id="ts_core.config.bindings.sumocfg.splitType">
+<em class="property">class </em><code class="descname">splitType</code><span class="sig-paren">(</span><em>*args</em>, <em>**kw</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/ts_core/config/bindings/sumocfg.html#splitType"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#ts_core.config.bindings.sumocfg.splitType" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal"><span class="pre">pyxb.binding.basis.complexTypeDefinition</span></code></p>
+<p>Complex type splitType with content type EMPTY</p>
+<dl class="attribute">
+<dt id="ts_core.config.bindings.sumocfg.splitType.idAfter">
+<code class="descname">idAfter</code><a class="headerlink" href="#ts_core.config.bindings.sumocfg.splitType.idAfter" title="Permalink to this definition">¶</a></dt>
+<dd><p>Get the value of the attribute from the instance.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="ts_core.config.bindings.sumocfg.splitType.idBefore">
+<code class="descname">idBefore</code><a class="headerlink" href="#ts_core.config.bindings.sumocfg.splitType.idBefore" title="Permalink to this definition">¶</a></dt>
+<dd><p>Get the value of the attribute from the instance.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="ts_core.config.bindings.sumocfg.splitType.keepClear">
+<code class="descname">keepClear</code><a class="headerlink" href="#ts_core.config.bindings.sumocfg.splitType.keepClear" title="Permalink to this definition">¶</a></dt>
+<dd><p>Get the value of the attribute from the instance.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="ts_core.config.bindings.sumocfg.splitType.lanes">
+<code class="descname">lanes</code><a class="headerlink" href="#ts_core.config.bindings.sumocfg.splitType.lanes" title="Permalink to this definition">¶</a></dt>
+<dd><p>Get the value of the attribute from the instance.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="ts_core.config.bindings.sumocfg.splitType.pos">
+<code class="descname">pos</code><a class="headerlink" href="#ts_core.config.bindings.sumocfg.splitType.pos" title="Permalink to this definition">¶</a></dt>
+<dd><p>Get the value of the attribute from the instance.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="ts_core.config.bindings.sumocfg.splitType.radius">
+<code class="descname">radius</code><a class="headerlink" href="#ts_core.config.bindings.sumocfg.splitType.radius" title="Permalink to this definition">¶</a></dt>
+<dd><p>Get the value of the attribute from the instance.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="ts_core.config.bindings.sumocfg.splitType.shape">
+<code class="descname">shape</code><a class="headerlink" href="#ts_core.config.bindings.sumocfg.splitType.shape" title="Permalink to this definition">¶</a></dt>
+<dd><p>Get the value of the attribute from the instance.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="ts_core.config.bindings.sumocfg.splitType.speed">
+<code class="descname">speed</code><a class="headerlink" href="#ts_core.config.bindings.sumocfg.splitType.speed" title="Permalink to this definition">¶</a></dt>
+<dd><p>Get the value of the attribute from the instance.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="ts_core.config.bindings.sumocfg.splitType.tl">
+<code class="descname">tl</code><a class="headerlink" href="#ts_core.config.bindings.sumocfg.splitType.tl" title="Permalink to this definition">¶</a></dt>
+<dd><p>Get the value of the attribute from the instance.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="ts_core.config.bindings.sumocfg.splitType.tlType">
+<code class="descname">tlType</code><a class="headerlink" href="#ts_core.config.bindings.sumocfg.splitType.tlType" title="Permalink to this definition">¶</a></dt>
+<dd><p>Get the value of the attribute from the instance.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="ts_core.config.bindings.sumocfg.splitType.type">
+<code class="descname">type</code><a class="headerlink" href="#ts_core.config.bindings.sumocfg.splitType.type" title="Permalink to this definition">¶</a></dt>
+<dd><p>Get the value of the attribute from the instance.</p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="ts_core.config.bindings.sumocfg.ssm_deviceType">
+<em class="property">class </em><code class="descname">ssm_deviceType</code><span class="sig-paren">(</span><em>*args</em>, <em>**kw</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/ts_core/config/bindings/sumocfg.html#ssm_deviceType"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#ts_core.config.bindings.sumocfg.ssm_deviceType" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal"><span class="pre">pyxb.binding.basis.complexTypeDefinition</span></code></p>
+<p>Complex type ssm_deviceType with content type ELEMENT_ONLY</p>
+<dl class="attribute">
+<dt id="ts_core.config.bindings.sumocfg.ssm_deviceType.device_ssm_deterministic">
+<code class="descname">device_ssm_deterministic</code><a class="headerlink" href="#ts_core.config.bindings.sumocfg.ssm_deviceType.device_ssm_deterministic" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return the value for this use within the given instance.</p>
+<p>Note that this is the L{resetValue()}, not the L{defaultValue()}, if
+the element has not yet been assigned a value.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="ts_core.config.bindings.sumocfg.ssm_deviceType.device_ssm_explicit">
+<code class="descname">device_ssm_explicit</code><a class="headerlink" href="#ts_core.config.bindings.sumocfg.ssm_deviceType.device_ssm_explicit" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return the value for this use within the given instance.</p>
+<p>Note that this is the L{resetValue()}, not the L{defaultValue()}, if
+the element has not yet been assigned a value.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="ts_core.config.bindings.sumocfg.ssm_deviceType.device_ssm_extratime">
+<code class="descname">device_ssm_extratime</code><a class="headerlink" href="#ts_core.config.bindings.sumocfg.ssm_deviceType.device_ssm_extratime" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return the value for this use within the given instance.</p>
+<p>Note that this is the L{resetValue()}, not the L{defaultValue()}, if
+the element has not yet been assigned a value.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="ts_core.config.bindings.sumocfg.ssm_deviceType.device_ssm_geo">
+<code class="descname">device_ssm_geo</code><a class="headerlink" href="#ts_core.config.bindings.sumocfg.ssm_deviceType.device_ssm_geo" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return the value for this use within the given instance.</p>
+<p>Note that this is the L{resetValue()}, not the L{defaultValue()}, if
+the element has not yet been assigned a value.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="ts_core.config.bindings.sumocfg.ssm_deviceType.device_ssm_measures">
+<code class="descname">device_ssm_measures</code><a class="headerlink" href="#ts_core.config.bindings.sumocfg.ssm_deviceType.device_ssm_measures" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return the value for this use within the given instance.</p>
+<p>Note that this is the L{resetValue()}, not the L{defaultValue()}, if
+the element has not yet been assigned a value.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="ts_core.config.bindings.sumocfg.ssm_deviceType.device_ssm_probability">
+<code class="descname">device_ssm_probability</code><a class="headerlink" href="#ts_core.config.bindings.sumocfg.ssm_deviceType.device_ssm_probability" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return the value for this use within the given instance.</p>
+<p>Note that this is the L{resetValue()}, not the L{defaultValue()}, if
+the element has not yet been assigned a value.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="ts_core.config.bindings.sumocfg.ssm_deviceType.device_ssm_range">
+<code class="descname">device_ssm_range</code><a class="headerlink" href="#ts_core.config.bindings.sumocfg.ssm_deviceType.device_ssm_range" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return the value for this use within the given instance.</p>
+<p>Note that this is the L{resetValue()}, not the L{defaultValue()}, if
+the element has not yet been assigned a value.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="ts_core.config.bindings.sumocfg.ssm_deviceType.device_ssm_thresholds">
+<code class="descname">device_ssm_thresholds</code><a class="headerlink" href="#ts_core.config.bindings.sumocfg.ssm_deviceType.device_ssm_thresholds" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return the value for this use within the given instance.</p>
+<p>Note that this is the L{resetValue()}, not the L{defaultValue()}, if
+the element has not yet been assigned a value.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="ts_core.config.bindings.sumocfg.ssm_deviceType.device_ssm_trajectories">
+<code class="descname">device_ssm_trajectories</code><a class="headerlink" href="#ts_core.config.bindings.sumocfg.ssm_deviceType.device_ssm_trajectories" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return the value for this use within the given instance.</p>
+<p>Note that this is the L{resetValue()}, not the L{defaultValue()}, if
+the element has not yet been assigned a value.</p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="ts_core.config.bindings.sumocfg.strOptionType">
+<em class="property">class </em><code class="descname">strOptionType</code><span class="sig-paren">(</span><em>*args</em>, <em>**kw</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/ts_core/config/bindings/sumocfg.html#strOptionType"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#ts_core.config.bindings.sumocfg.strOptionType" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal"><span class="pre">pyxb.binding.basis.complexTypeDefinition</span></code></p>
+<p>Complex type strOptionType with content type EMPTY</p>
+<dl class="attribute">
+<dt id="ts_core.config.bindings.sumocfg.strOptionType.help">
+<code class="descname">help</code><a class="headerlink" href="#ts_core.config.bindings.sumocfg.strOptionType.help" title="Permalink to this definition">¶</a></dt>
+<dd><p>Get the value of the attribute from the instance.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="ts_core.config.bindings.sumocfg.strOptionType.synonymes">
+<code class="descname">synonymes</code><a class="headerlink" href="#ts_core.config.bindings.sumocfg.strOptionType.synonymes" title="Permalink to this definition">¶</a></dt>
+<dd><p>Get the value of the attribute from the instance.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="ts_core.config.bindings.sumocfg.strOptionType.type">
+<code class="descname">type</code><a class="headerlink" href="#ts_core.config.bindings.sumocfg.strOptionType.type" title="Permalink to this definition">¶</a></dt>
+<dd><p>Get the value of the attribute from the instance.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="ts_core.config.bindings.sumocfg.strOptionType.value_">
+<code class="descname">value_</code><a class="headerlink" href="#ts_core.config.bindings.sumocfg.strOptionType.value_" title="Permalink to this definition">¶</a></dt>
+<dd><p>Get the value of the attribute from the instance.</p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="ts_core.config.bindings.sumocfg.timeOptionType">
+<em class="property">class </em><code class="descname">timeOptionType</code><span class="sig-paren">(</span><em>*args</em>, <em>**kw</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/ts_core/config/bindings/sumocfg.html#timeOptionType"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#ts_core.config.bindings.sumocfg.timeOptionType" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal"><span class="pre">pyxb.binding.basis.complexTypeDefinition</span></code></p>
+<p>Complex type timeOptionType with content type EMPTY</p>
+<dl class="attribute">
+<dt id="ts_core.config.bindings.sumocfg.timeOptionType.help">
+<code class="descname">help</code><a class="headerlink" href="#ts_core.config.bindings.sumocfg.timeOptionType.help" title="Permalink to this definition">¶</a></dt>
+<dd><p>Get the value of the attribute from the instance.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="ts_core.config.bindings.sumocfg.timeOptionType.synonymes">
+<code class="descname">synonymes</code><a class="headerlink" href="#ts_core.config.bindings.sumocfg.timeOptionType.synonymes" title="Permalink to this definition">¶</a></dt>
+<dd><p>Get the value of the attribute from the instance.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="ts_core.config.bindings.sumocfg.timeOptionType.type">
+<code class="descname">type</code><a class="headerlink" href="#ts_core.config.bindings.sumocfg.timeOptionType.type" title="Permalink to this definition">¶</a></dt>
+<dd><p>Get the value of the attribute from the instance.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="ts_core.config.bindings.sumocfg.timeOptionType.value_">
+<code class="descname">value_</code><a class="headerlink" href="#ts_core.config.bindings.sumocfg.timeOptionType.value_" title="Permalink to this definition">¶</a></dt>
+<dd><p>Get the value of the attribute from the instance.</p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="ts_core.config.bindings.sumocfg.timeType">
+<em class="property">class </em><code class="descname">timeType</code><span class="sig-paren">(</span><em>*args</em>, <em>**kw</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/ts_core/config/bindings/sumocfg.html#timeType"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#ts_core.config.bindings.sumocfg.timeType" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal"><span class="pre">pyxb.binding.basis.complexTypeDefinition</span></code></p>
+<p>Complex type timeType with content type ELEMENT_ONLY</p>
+<dl class="attribute">
+<dt id="ts_core.config.bindings.sumocfg.timeType.begin">
+<code class="descname">begin</code><a class="headerlink" href="#ts_core.config.bindings.sumocfg.timeType.begin" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return the value for this use within the given instance.</p>
+<p>Note that this is the L{resetValue()}, not the L{defaultValue()}, if
+the element has not yet been assigned a value.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="ts_core.config.bindings.sumocfg.timeType.end">
+<code class="descname">end</code><a class="headerlink" href="#ts_core.config.bindings.sumocfg.timeType.end" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return the value for this use within the given instance.</p>
+<p>Note that this is the L{resetValue()}, not the L{defaultValue()}, if
+the element has not yet been assigned a value.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="ts_core.config.bindings.sumocfg.timeType.step_length">
+<code class="descname">step_length</code><a class="headerlink" href="#ts_core.config.bindings.sumocfg.timeType.step_length" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return the value for this use within the given instance.</p>
+<p>Note that this is the L{resetValue()}, not the L{defaultValue()}, if
+the element has not yet been assigned a value.</p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="ts_core.config.bindings.sumocfg.tlLogicType">
+<em class="property">class </em><code class="descname">tlLogicType</code><span class="sig-paren">(</span><em>*args</em>, <em>**kw</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/ts_core/config/bindings/sumocfg.html#tlLogicType"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#ts_core.config.bindings.sumocfg.tlLogicType" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal"><span class="pre">pyxb.binding.basis.complexTypeDefinition</span></code></p>
+<p>Complex type tlLogicType with content type ELEMENT_ONLY</p>
+<dl class="attribute">
+<dt id="ts_core.config.bindings.sumocfg.tlLogicType.id">
+<code class="descname">id</code><a class="headerlink" href="#ts_core.config.bindings.sumocfg.tlLogicType.id" title="Permalink to this definition">¶</a></dt>
+<dd><p>Get the value of the attribute from the instance.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="ts_core.config.bindings.sumocfg.tlLogicType.offset">
+<code class="descname">offset</code><a class="headerlink" href="#ts_core.config.bindings.sumocfg.tlLogicType.offset" title="Permalink to this definition">¶</a></dt>
+<dd><p>Get the value of the attribute from the instance.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="ts_core.config.bindings.sumocfg.tlLogicType.param">
+<code class="descname">param</code><a class="headerlink" href="#ts_core.config.bindings.sumocfg.tlLogicType.param" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return the value for this use within the given instance.</p>
+<p>Note that this is the L{resetValue()}, not the L{defaultValue()}, if
+the element has not yet been assigned a value.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="ts_core.config.bindings.sumocfg.tlLogicType.phase">
+<code class="descname">phase</code><a class="headerlink" href="#ts_core.config.bindings.sumocfg.tlLogicType.phase" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return the value for this use within the given instance.</p>
+<p>Note that this is the L{resetValue()}, not the L{defaultValue()}, if
+the element has not yet been assigned a value.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="ts_core.config.bindings.sumocfg.tlLogicType.programID">
+<code class="descname">programID</code><a class="headerlink" href="#ts_core.config.bindings.sumocfg.tlLogicType.programID" title="Permalink to this definition">¶</a></dt>
+<dd><p>Get the value of the attribute from the instance.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="ts_core.config.bindings.sumocfg.tlLogicType.type">
+<code class="descname">type</code><a class="headerlink" href="#ts_core.config.bindings.sumocfg.tlLogicType.type" title="Permalink to this definition">¶</a></dt>
+<dd><p>Get the value of the attribute from the instance.</p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="ts_core.config.bindings.sumocfg.tlTypeType">
+<em class="property">class </em><code class="descname">tlTypeType</code><span class="sig-paren">(</span><em>*args</em>, <em>**kw</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/ts_core/config/bindings/sumocfg.html#tlTypeType"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#ts_core.config.bindings.sumocfg.tlTypeType" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal"><span class="pre">pyxb.binding.datatypes.string</span></code>, <code class="xref py py-class docutils literal"><span class="pre">pyxb.binding.basis.enumeration_mixin</span></code></p>
+<p>An atomic simple type.</p>
+<dl class="attribute">
+<dt id="ts_core.config.bindings.sumocfg.tlTypeType.actuated">
+<code class="descname">actuated</code><em class="property"> = 'actuated'</em><a class="headerlink" href="#ts_core.config.bindings.sumocfg.tlTypeType.actuated" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="ts_core.config.bindings.sumocfg.tlTypeType.delay_based">
+<code class="descname">delay_based</code><em class="property"> = 'delay_based'</em><a class="headerlink" href="#ts_core.config.bindings.sumocfg.tlTypeType.delay_based" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="ts_core.config.bindings.sumocfg.tlTypeType.static">
+<code class="descname">static</code><em class="property"> = 'static'</em><a class="headerlink" href="#ts_core.config.bindings.sumocfg.tlTypeType.static" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="ts_core.config.bindings.sumocfg.traci_serverType">
+<em class="property">class </em><code class="descname">traci_serverType</code><span class="sig-paren">(</span><em>*args</em>, <em>**kw</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/ts_core/config/bindings/sumocfg.html#traci_serverType"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#ts_core.config.bindings.sumocfg.traci_serverType" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal"><span class="pre">pyxb.binding.basis.complexTypeDefinition</span></code></p>
+<p>Complex type traci_serverType with content type ELEMENT_ONLY</p>
+<dl class="attribute">
+<dt id="ts_core.config.bindings.sumocfg.traci_serverType.num_clients">
+<code class="descname">num_clients</code><a class="headerlink" href="#ts_core.config.bindings.sumocfg.traci_serverType.num_clients" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return the value for this use within the given instance.</p>
+<p>Note that this is the L{resetValue()}, not the L{defaultValue()}, if
+the element has not yet been assigned a value.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="ts_core.config.bindings.sumocfg.traci_serverType.python_script">
+<code class="descname">python_script</code><a class="headerlink" href="#ts_core.config.bindings.sumocfg.traci_serverType.python_script" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return the value for this use within the given instance.</p>
+<p>Note that this is the L{resetValue()}, not the L{defaultValue()}, if
+the element has not yet been assigned a value.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="ts_core.config.bindings.sumocfg.traci_serverType.remote_port">
+<code class="descname">remote_port</code><a class="headerlink" href="#ts_core.config.bindings.sumocfg.traci_serverType.remote_port" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return the value for this use within the given instance.</p>
+<p>Note that this is the L{resetValue()}, not the L{defaultValue()}, if
+the element has not yet been assigned a value.</p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="ts_core.config.bindings.sumocfg.typeType">
+<em class="property">class </em><code class="descname">typeType</code><span class="sig-paren">(</span><em>*args</em>, <em>**kw</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/ts_core/config/bindings/sumocfg.html#typeType"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#ts_core.config.bindings.sumocfg.typeType" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal"><span class="pre">pyxb.binding.basis.complexTypeDefinition</span></code></p>
+<p>Complex type typeType with content type ELEMENT_ONLY</p>
+<dl class="attribute">
+<dt id="ts_core.config.bindings.sumocfg.typeType.allow">
+<code class="descname">allow</code><a class="headerlink" href="#ts_core.config.bindings.sumocfg.typeType.allow" title="Permalink to this definition">¶</a></dt>
+<dd><p>Get the value of the attribute from the instance.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="ts_core.config.bindings.sumocfg.typeType.bikeLaneWidth">
+<code class="descname">bikeLaneWidth</code><a class="headerlink" href="#ts_core.config.bindings.sumocfg.typeType.bikeLaneWidth" title="Permalink to this definition">¶</a></dt>
+<dd><p>Get the value of the attribute from the instance.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="ts_core.config.bindings.sumocfg.typeType.disallow">
+<code class="descname">disallow</code><a class="headerlink" href="#ts_core.config.bindings.sumocfg.typeType.disallow" title="Permalink to this definition">¶</a></dt>
+<dd><p>Get the value of the attribute from the instance.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="ts_core.config.bindings.sumocfg.typeType.discard">
+<code class="descname">discard</code><a class="headerlink" href="#ts_core.config.bindings.sumocfg.typeType.discard" title="Permalink to this definition">¶</a></dt>
+<dd><p>Get the value of the attribute from the instance.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="ts_core.config.bindings.sumocfg.typeType.id">
+<code class="descname">id</code><a class="headerlink" href="#ts_core.config.bindings.sumocfg.typeType.id" title="Permalink to this definition">¶</a></dt>
+<dd><p>Get the value of the attribute from the instance.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="ts_core.config.bindings.sumocfg.typeType.numLanes">
+<code class="descname">numLanes</code><a class="headerlink" href="#ts_core.config.bindings.sumocfg.typeType.numLanes" title="Permalink to this definition">¶</a></dt>
+<dd><p>Get the value of the attribute from the instance.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="ts_core.config.bindings.sumocfg.typeType.oneway">
+<code class="descname">oneway</code><a class="headerlink" href="#ts_core.config.bindings.sumocfg.typeType.oneway" title="Permalink to this definition">¶</a></dt>
+<dd><p>Get the value of the attribute from the instance.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="ts_core.config.bindings.sumocfg.typeType.priority">
+<code class="descname">priority</code><a class="headerlink" href="#ts_core.config.bindings.sumocfg.typeType.priority" title="Permalink to this definition">¶</a></dt>
+<dd><p>Get the value of the attribute from the instance.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="ts_core.config.bindings.sumocfg.typeType.restriction">
+<code class="descname">restriction</code><a class="headerlink" href="#ts_core.config.bindings.sumocfg.typeType.restriction" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return the value for this use within the given instance.</p>
+<p>Note that this is the L{resetValue()}, not the L{defaultValue()}, if
+the element has not yet been assigned a value.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="ts_core.config.bindings.sumocfg.typeType.sidewalkWidth">
+<code class="descname">sidewalkWidth</code><a class="headerlink" href="#ts_core.config.bindings.sumocfg.typeType.sidewalkWidth" title="Permalink to this definition">¶</a></dt>
+<dd><p>Get the value of the attribute from the instance.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="ts_core.config.bindings.sumocfg.typeType.speed">
+<code class="descname">speed</code><a class="headerlink" href="#ts_core.config.bindings.sumocfg.typeType.speed" title="Permalink to this definition">¶</a></dt>
+<dd><p>Get the value of the attribute from the instance.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="ts_core.config.bindings.sumocfg.typeType.width">
+<code class="descname">width</code><a class="headerlink" href="#ts_core.config.bindings.sumocfg.typeType.width" title="Permalink to this definition">¶</a></dt>
+<dd><p>Get the value of the attribute from the instance.</p>
+</dd></dl>
+
+</dd></dl>
+
+</div>
+
+
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+  <div role="note" aria-label="source link">
+    <h3>This Page</h3>
+    <ul class="this-page-menu">
+      <li><a href="_sources/ts_core.config.bindings.sumocfg.rst.txt"
+            rel="nofollow">Show Source</a></li>
+    </ul>
+   </div>
+<div id="searchbox" style="display: none" role="search">
+  <h3>Quick search</h3>
+    <form class="search" action="search.html" method="get">
+      <div><input type="text" name="q" /></div>
+      <div><input type="submit" value="Go" /></div>
+      <input type="hidden" name="check_keywords" value="yes" />
+      <input type="hidden" name="area" value="default" />
+    </form>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="genindex.html" title="General Index"
+             >index</a></li>
+        <li class="right" >
+          <a href="py-modindex.html" title="Python Module Index"
+             >modules</a> |</li>
+        <li class="nav-item nav-item-0"><a href="index.html">TrafficSense 0.01 documentation</a> &#187;</li> 
+      </ul>
+    </div>
+    <div class="footer" role="contentinfo">
+        &#169; Copyright 2017, Samara, Gaitz, Eilif, Bryan, Justin, Jow.
+      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 1.6.5.
+    </div>
+  </body>
+</html>

@@ -1,0 +1,22 @@
+ts\_core\.config\.bindings package
+==================================
+
+.. automodule:: ts_core.config.bindings
+    :members:
+    :undoc-members:
+    :show-inheritance:
+
+Submodules
+----------
+
+.. toctree::
+
+   ts_core.config.bindings.additional_xml
+   ts_core.config.bindings.con_xml
+   ts_core.config.bindings.edges_xml
+   ts_core.config.bindings.netconvert_xml
+   ts_core.config.bindings.netfile
+   ts_core.config.bindings.nodes_xml
+   ts_core.config.bindings.routes
+   ts_core.config.bindings.sumocfg
+
