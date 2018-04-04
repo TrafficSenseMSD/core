@@ -134,11 +134,10 @@ class DataBuffer():
                     
                     
         
-    def remove_id(self, ids=[]):
-        for id in ids:
-            sl = self.subscription_ledger.pop(id)
-            it = self.id_table.pop(id)
-            bd = self.buffer.pop(id)
+    def remove_id(self, id):
+        sl = self.subscription_ledger.pop(id)
+        it = self.id_table.pop(id)
+        bd = self.buffer.pop(id)
         
     def dump(self, dumpfile=None):
         if self.dumpfile:
@@ -244,13 +243,15 @@ class Rolodex():
     #id_table = 'car100':[attribute_label_0,attribute_label_1, ...]
     #also adds to DataBuffer
     def add_subscription(self, domain, id_table, ids=[]):
-        if ids:
-            for id in ids:
-                print('ID: {}, tuple: {}'.format(id, self.attribute_to_var_tuple(domain,id_table[id])))
+        if not ids:
+            ids = id_table
+        for id in ids:
+            try:
                 self.context_domains[domain].subscribe(id, self.attribute_to_var_tuple(domain,id_table[id]))
-        else:
-            for id in id_table:
-                self.context_domains[domain].subscribe(id, self.attribute_to_var_tuple(domain,id_table[id]))
+            except:
+                print('WARNING:Rolodex::add_subscription: unable to add subscription for {} {}'.format(domain, id))
+                import sys
+                sys.exit()
                 
     def list_context_domains(self):
         for context in self.context_domains:
@@ -299,12 +300,15 @@ class Rolodex():
                             if domain == 'vehicle':
                                 for arrived in self.vehicles_to_remove:
                                     if self.vehicles_to_remove[arrived] <= tick_num:
-                                        self.remove_subscription(arrived)
                                         buffer.remove_id(arrived)
-                                        print('removed {}: {} subscription/data'.format(domain, arrived))
+                                        print('removed {}: {} data'.format(domain, arrived))
                                 if buffer.auto_update_attributes:
                                     print('auatts: {}'.format( buffer.auto_update_attributes))
                                     arrived_vehicles = traci.simulation.getArrivedIDList()
+                                    if arrived_vehicles:
+                                        for arrived in arrived_vehicles:
+                                            self.remove_subscription(arrived)
+                                            print('removed {}: \'{}\' subscription'.format(domain, arrived))
                                     for arrived in arrived_vehicles:
                                         self.vehicles_to_remove[arrived] = tick_num + self.auto_removal_delay
                                     departed_vehicles = traci.simulation.getDepartedIDList()
@@ -313,7 +317,9 @@ class Rolodex():
                                         #attributes = [(attribute label, [id list], sampling frequency), ...] 
                                         auto_attributes.append((attribute, departed_vehicles, buffer.attribute_table[attribute][1]))
                                     buffer.add(auto_attributes, tick_num)
-                                    self.add_subscription(domain, buffer.id_table, ids=departed_vehicles)
+                                    if departed_vehicles:
+                                        print('Departed vehicles during tick #{}: {}'.format(tick_num, departed_vehicles))
+                                        self.add_subscription(domain, buffer.id_table, ids=departed_vehicles)
                                         
                             if not buffer.id_table:
                                 new_ids = buffer.generate_data_structures(tick_num)
@@ -321,19 +327,20 @@ class Rolodex():
                                     self.add_subscription(domain, buffer.id_table)
                                     print('adding new vehicle ids: {}'.format(new_ids))
                             for id in buffer.id_table:
-                                # buffer.id_table = {
-                                #   'car100':[(attribute_label,sampling_frequency,simulation_ticks_since_last_update), ...],
-                                #   'car101':[(attribute_label,sampling_frequency,simulation_ticks_since_last_update), ...]
-                                #}       
-                                data = self.context_domains[domain].getSubscriptionResults(id)
-                                print('New data for ID {} : {}'.format(id, data))
-                                try:
-                                    buffer.update(id, self.convert_hex_to_attribute(domain, data), tick_num=tick_num)
-                                except TypeError:
-                                    print('id: {}, subscription results: {}'.format(id, data))
-                                #for attribute in id_table[id]:
-                                    #if attribute[2] == attribute[1]:#if time to sample, based on sampling frequency
-                                    #buffer.update(id, attribute[0], data[vd.get_var(domain, attribute[0])])                        
+                                if id not in self.vehicles_to_remove:
+                                    # buffer.id_table = {
+                                    #   'car100':[(attribute_label,sampling_frequency,simulation_ticks_since_last_update), ...],
+                                    #   'car101':[(attribute_label,sampling_frequency,simulation_ticks_since_last_update), ...]
+                                    #}       
+                                    data = self.context_domains[domain].getSubscriptionResults(id)
+                                    print('New data for ID {} : {}'.format(id, data))
+                                    try:
+                                        buffer.update(id, self.convert_hex_to_attribute(domain, data), tick_num=tick_num)
+                                    except TypeError:
+                                        print('id: {}, subscription results: {}'.format(id, data))
+                                    #for attribute in id_table[id]:
+                                        #if attribute[2] == attribute[1]:#if time to sample, based on sampling frequency
+                                        #buffer.update(id, attribute[0], data[vd.get_var(domain, attribute[0])])                        
                     except KeyError:
                         pass
                 i=3
