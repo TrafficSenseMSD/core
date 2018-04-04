@@ -18,6 +18,7 @@ class DataBuffer():
         self.subscription_ledger = {}
         self.id_table = {}
         self.attribute_table = {}
+        self.auto_update_attributes = []
         self.last_tick_num = 1
         
         self.generate_data_structures(self.last_tick_num)
@@ -28,98 +29,116 @@ class DataBuffer():
         #create subscription ledger and attribute table
         # 'car100':[(attribute_label,sampling_frequency,simulation_ticks_since_last_update), ...]
         for attribute in self.attributes:
-            self.attribute_table[attribute[0]] = attribute[1]
+            self.attribute_table[attribute[0]] = attribute[1:]
             if not attribute[1]:
+                if attribute[0] not in self.auto_update_attributes:
+                    self.auto_update_attributes.append(attribute[0])
                 #empty ID list, get current list from domain
-                ids = self.domain.getIDList()#VERIFY OUTPUT
+                ids = self.domain.getIDList()
                 new_ids = ids
             else:
                 ids = attribute[1]
             for id in ids:
+                #create subscription ledger
                 try:
-                    if self.subscription_ledger[id]:
-                        self.subscription_ledger[id].append((attribute[0],attribute[2],0))
+                    self.subscription_ledger[id].append((attribute[0],attribute[2],attribute[2]))
                 except KeyError:
-                    self.subscription_ledger[id] = [(attribute[0],attribute[2],0)]            
+                    self.subscription_ledger[id] = [(attribute[0],attribute[2],attribute[2])]
+                
+                #create ID look-up table
+                print('ID: {}, attribute: {}'.format(id, attribute[0]))
+                try:
+                    self.id_table[id].append(attribute[0])
+                except KeyError:
+                    self.id_table[id] = [attribute[0]]
+                
         print('\n\nSubscription Ledger: {}'.format(self.subscription_ledger))
-        #create ID look-up table
-        index = 0
-        for id in self.subscription_ledger:
-            self.id_table[id] = []
-            for attribute in self.subscription_ledger[id]:
-                self.id_table[id].append(attribute[0])
-            index += 1
-        self.num_ids = index           
         print('ID table: {}'.format(self.id_table))
             
-        #zeros len(attributes) x len(IDs) x buffer_len
-        #z = np.zeros(len(self.attributes), self.num_ids, self.buffer_length)
-        
-        # Panel = collection of DataFrames:
-        # Each DataFrame corresponds with an ID:
-        #
-        #              'car100'         |         'car101'              |
-        #               ------          |          ------               |
-            #          Attribute:       |                               |
-            #          lane    speed    |        travel time    speed   |
-            #Tick   3   5a      29      |   131       52          32    |
-            #       2   5a      27      |   130       51          31    |  
-            #       1   5a      23      |   129       50          30    |
-            #       0   4a      16      |   128       49          31    |
-        #panel_frames = {}
-        #'car100' : {tick0:{'lane':'5a','speed':29},tick1:{'lane':'5a','speed':27},...}
+        #vehicle domain buffer:
+        #'car100' : { last_tick:{'lane':'0','speed':0} }
+        #'car101' : { last_tick:{'lane':'0','speed':0} }
         self.buffer = {}
         for id in self.id_table:
-            #(self.id_table[id])
             tick_dict = {}
             frame_dict = {}
             for attribute in self.id_table[id]:
-                #frame_dict[attribute] = np.zeros(self.buffer_length)
-                frame_dict[attribute] = 0
-            #panel_frames[id] = DataFrame(frame_dict)
+                frame_dict[attribute] = -1
             tick_dict[self.last_tick_num] = frame_dict
             self.buffer[id] = tick_dict
-        
-        #self.buffer = Panel(data = panel_frames)
-        ##self.buffer = Panel(data=z, major_axis=self.attribute_table.keys().sorted(), minor_axis=self.id_table.keys().sorted())
-        return new_ids
             
+        return new_ids
+    
     #id = 'car100'
     #data = {'lane position':123.12345123451234, ...}
     def update(self, id, data, tick_num=None):
         if not tick_num:
             tick_num = self.last_tick_num + 1
         self.last_tick_num = tick_num
-        #rbuffer = self.buffer[id]
-        #oldest_data = rbuffer.loc[self.buffer_len-1,slice(None)]
         old_data = {}
         keylist = sorted(self.buffer[id].keys())
         for old in keylist[:-self.buffer_length]:
             old_data[old] = self.buffer[id].pop(old)
-        #for attribute in data:
-            #self.buffer[id].loc[self.buffer_len-1,attribute] = data[attribute]
         self.buffer[id][tick_num] = data
-        #self.buffer[id] = self.buffer[id].reindex(rbuffer.axes[0]._cache['_data'])
         return old_data
-                    
-    def add(self, id_table):
-        return
-        
-    #attribute can be name string or buffer index
-    #example remove ids 1,2,3 of attributes 'a','b','c':
-    #   [('a', [1,2,3]),
-    #    ('b', [1,2,3]),
-    #    ('c', [1,2,3])]
-    #example remove all ids of attributes 'a','b','c':
-    #   [('a', []),
-    #    ('b', []),
-    #    ('c', [])]
-    def remove(self, attributes=None):
+                  
+    #attributes = [(attribute label, [id list], sampling frequency), ...] 
+    #does not support empty ID lists
+    def add(self, attributes, tick_num):
+        #update subscription ledger and attribute table
+        # 'car100':[(attribute_label,sampling_frequency,simulation_ticks_since_last_update), ...]
+        overall_new_ids = []
+        overall_new_attributes = {}
+        #print('attributes: {}'.format(attributes))
         for attribute in attributes:
-            if attribute[1] == []:
-                self.frame.remove_col
+            new_ids = []
+            if attribute[0] in self.attribute_table:
+                self.attribute_table[attribute[0]][0].extend(attribute[1])
+                old_ids = self.attribute_table[attribute[0]]
+                for id in attribute[1]:
+                    if id not in old_ids:
+                        new_ids.append(id)
             else:
-                pass
+                overall_new_attributes[attribute[0]] = attribute[1]
+                self.attribute_table[attribute[0]] = attribute[1]
+                new_ids = attribute[1]
+            overall_new_ids.append(new_ids)
+            #print('new IDs: {}'.format(len(overall_new_ids)))
+            for id in new_ids:
+                #update subscription ledger
+                try:
+                    self.subscription_ledger[id].append((attribute[0],attribute[2],attribute[2]))
+                except KeyError:
+                    self.subscription_ledger[id] = [(attribute[0],attribute[2],attribute[2])]
+                
+                #update ID look-up table
+                try:
+                    self.id_table[id].append(attribute[0])
+                except KeyError:
+                    self.id_table[id] = [attribute[0]]
+            
+        #vehicle domain buffer:
+        #'car100' : { last_tick:{'lane':'0','speed':0} }
+        #'car101' : { last_tick:{'lane':'0','speed':0} }
+        for id_list in overall_new_ids:
+            for id in id_list:
+                frame_dict = {}
+                for attribute in self.id_table[id]:
+                    frame_dict[attribute] = -1
+                if id not in self.buffer:
+                    tick_dict = {}
+                    tick_dict[tick_num] = frame_dict
+                    self.buffer[id] = tick_dict
+                else:
+                    self.buffer[id][tick_num] = frame_dict
+                    
+                    
+        
+    def remove_id(self, ids=[]):
+        for id in ids:
+            sl = self.subscription_ledger.pop(id)
+            it = self.id_table.pop(id)
+            bd = self.buffer.pop(id)
         
     def dump(self, dumpfile=None):
         if self.dumpfile:
@@ -159,12 +178,15 @@ class Rolodex():
     Nothing
     """
    
-    def __init__(self, attributes=None, buffer_length=None, frame_time=None, simulation_run_time=None, dumpfile=None, id_update_frequency=None, ticks_per_second=1):
+    def __init__(self, attributes=None, buffer_length=None, frame_time=None, simulation_run_time=None, 
+                dumpfile=None, id_update_frequency=None, ticks_per_second=1, auto_removal_delay=10):
         self.frame_time = frame_time
         self.simulation_run_time = simulation_run_time
         self.dumpfile = dumpfile
         self.ticks_per_second = ticks_per_second
         self.default_buffer_length = 100
+        self.auto_removal_delay = auto_removal_delay
+        self.vehicles_to_remove = {}
         self.buffers = {}
         self.var_dict = vd()
         
@@ -221,12 +243,15 @@ class Rolodex():
             
     #id_table = 'car100':[attribute_label_0,attribute_label_1, ...]
     #also adds to DataBuffer
-    def add_subscription(self, domain, id_table):
-        for id in id_table:
-            print(id_table[id])
-            self.context_domains[domain].subscribe(id, self.attribute_to_var_tuple(domain,id_table[id]))
-            domain
-        
+    def add_subscription(self, domain, id_table, ids=[]):
+        if ids:
+            for id in ids:
+                print('ID: {}, tuple: {}'.format(id, self.attribute_to_var_tuple(domain,id_table[id])))
+                self.context_domains[domain].subscribe(id, self.attribute_to_var_tuple(domain,id_table[id]))
+        else:
+            for id in id_table:
+                self.context_domains[domain].subscribe(id, self.attribute_to_var_tuple(domain,id_table[id]))
+                
     def list_context_domains(self):
         for context in self.context_domains:
             print('{}:{}'.format(context, context_domains[context]))
@@ -271,9 +296,27 @@ class Rolodex():
                     try:
                         buffer = self.buffers[domain]
                         if buffer:
+                            if domain == 'vehicle':
+                                for arrived in self.vehicles_to_remove:
+                                    if self.vehicles_to_remove[arrived] <= tick_num:
+                                        self.remove_subscription(arrived)
+                                        buffer.remove_id(arrived)
+                                        print('removed {}: {} subscription/data'.format(domain, arrived))
+                                if buffer.auto_update_attributes:
+                                    print('auatts: {}'.format( buffer.auto_update_attributes))
+                                    arrived_vehicles = traci.simulation.getArrivedIDList()
+                                    for arrived in arrived_vehicles:
+                                        self.vehicles_to_remove[arrived] = tick_num + self.auto_removal_delay
+                                    departed_vehicles = traci.simulation.getDepartedIDList()
+                                    auto_attributes = []
+                                    for attribute in buffer.auto_update_attributes:
+                                        #attributes = [(attribute label, [id list], sampling frequency), ...] 
+                                        auto_attributes.append((attribute, departed_vehicles, buffer.attribute_table[attribute][1]))
+                                    buffer.add(auto_attributes, tick_num)
+                                    self.add_subscription(domain, buffer.id_table, ids=departed_vehicles)
+                                        
                             if not buffer.id_table:
                                 new_ids = buffer.generate_data_structures(tick_num)
-                                print('Buffer ID table: {}'.format(buffer.id_table))
                                 if new_ids:
                                     self.add_subscription(domain, buffer.id_table)
                                     print('adding new vehicle ids: {}'.format(new_ids))
@@ -283,7 +326,11 @@ class Rolodex():
                                 #   'car101':[(attribute_label,sampling_frequency,simulation_ticks_since_last_update), ...]
                                 #}       
                                 data = self.context_domains[domain].getSubscriptionResults(id)
-                                buffer.update(id, self.convert_hex_to_attribute(domain, data), tick_num=tick_num)
+                                print('New data for ID {} : {}'.format(id, data))
+                                try:
+                                    buffer.update(id, self.convert_hex_to_attribute(domain, data), tick_num=tick_num)
+                                except TypeError:
+                                    print('id: {}, subscription results: {}'.format(id, data))
                                 #for attribute in id_table[id]:
                                     #if attribute[2] == attribute[1]:#if time to sample, based on sampling frequency
                                     #buffer.update(id, attribute[0], data[vd.get_var(domain, attribute[0])])                        
@@ -306,7 +353,7 @@ class Rolodex():
         buffer = self.buffers[domain]
         for id in id_table:
             if id not in buffer.id_table:
-                print('\nWARNING::Rolodex.update_subscription_buffers: ID: {} not in {} Subscription ID Table, adding the following attribute subscriptions:'.format(id,domain))
+                print('\nWARNING::Rolodex.update: ID: {} not in {} Subscription ID Table, adding the following attribute subscriptions:'.format(id,domain))
                 self.add_subscription(domain, {id:id_table[id]})# VERIFY behavior with customer
             data = self.context_domains[domain].getSubscriptionResults(id)
             for attribute in id_table[id]:
@@ -335,8 +382,10 @@ class Rolodex():
     def get_value(self, attributes=None, ids=[]):
         return
         
-    def remove_subscription(self, attributes=[], ids=[]):
-        pass
+    def remove_subscription(self, domain, ids=[]):
+        for id in ids:
+            self.context_domains[domain].unsubscribe(id)
+            
         
     #Function to clear and reset buffers
     def reset(self, attributes=None, ids=[]):
