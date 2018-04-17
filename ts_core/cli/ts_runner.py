@@ -130,8 +130,25 @@ def main():
         sumoBinary = sumolib.checkBinary('sumo-gui')
 
     """ SUMO Startup """
+
+    for file in os.listdir(args.sumo_config_dir):
+        if file.lower().endswith(".sumocfg"):
+            sumo_cfg_file = file
+            sumo_cfg_name = file.split('.')[0]
+            print()
+            print("Found .sumocfg file: %s" % file)
+            print("Configuration name: %s" % sumo_cfg_name)
+            print()
+            break
+    else:
+        print("No .sumocfg file found in %s" % args.sumo_config_dir)
+        return
+
+    # generate_routefile(args.sumo_config_dir, sumo_cfg_name)
+
+
     # Start up the SUMO binary as specified by the SUMO_HOME environment variable
-    traci.start([sumoBinary, "-c", args.sumo_config_dir+"/cross.sumocfg",
+    traci.start([sumoBinary, "-c", args.sumo_config_dir + '/' + sumo_cfg_file,
                              "--tripinfo-output", output_dir+"/sutripinfo.xml"])
 
     """ Engage the SUMO event loop """
