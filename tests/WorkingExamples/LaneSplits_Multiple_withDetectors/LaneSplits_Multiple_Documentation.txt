@@ -1,0 +1,34 @@
+3/21/2018
+
+Using R-Right, C-Center, L-Left
+
+This is documentation to help with splitting from 1 lane to 2 lanes at one position, and then from 2 lanes to 3 lanes at another position further down the road. This will again be denoted in the .edg file under the split tag. See the code below:
+
+   <edge id="1i" from="1" to="0" priority="78" numLanes="3" speed="20" >
+	<split pos="0" lanes="1"/>
+	<split pos="425" lanes="1 2"/>
+	<split pos="450" lanes="0 1 2"/>
+   </edge>
+
+Again, we must take care to have the numLanes in the edge tag to bethe maximum number of lanes on this inbound road. By providing a split at position 0, this tells SUMO that lane 1 (C lane) is the only lane after position 0, which is the inital position, thereby only showing one lane. On the next split, it happens at 425 meters down from the initial position, after which lanes 1 and 2 are now present (C and L). At 450 meters from the initial position we get the R lane to appear next to the C and L lanes.
+
+See screenshot: "MultipleLaneSplitsExample"
+
+The connections file is pretty much the same way that it was dealt will previously in the LaneSplit example. It takes a dot notation of the LAST SPLIT. Since the splits happen at 0, 425, and 450, the last is obviously 450. See below:
+
+	<connection from="1i.450" to="2o" fromLane="1" toLane="1"/>
+
+This creates the C lane to go straight across the intersection.
+
+The other piece to note is the use of lane area detectors in this example. The important piece to look at is the depiction of the lane in the code snippet. See below:
+
+	<laneAreaDetector id="Area1i_0" lane="1i_0" pos="350" endPos="-1" freq="10" file="test_area.xml"/>
+
+	<laneAreaDetector id="Area1i.425_0" lane="1i.425_0" pos="0" endPos="-1" freq="10" file="test_area.xml"/>
+	<laneAreaDetector id="Area1i.425_1" lane="1i.425_1" pos="0" endPos="-1" freq="10" file="test_area.xml"/>
+
+	<laneAreaDetector id="Area1i.450_0" lane="1i.450_0" pos="0" endPos="32" freq="10" file="test_area.xml"/>
+	<laneAreaDetector id="Area1i.450_1" lane="1i.450_1" pos="0" endPos="32" freq="10" file="test_area.xml"/>
+	<laneAreaDetector id="Area1i.450_2" lane="1i.450_2" pos="0" endPos="32" freq="10" file="test_area.xml"/>
+
+Because of the "new" nodes created by the splitting action, we must be careful to denote which edge we want the lane area detectors on. The first line shown above is the plain edge we originally created. The next two lines describe the edge "1i.425" which is the split at position 425. Similarly for the final 3 lines above, we are looking at the edge "1i.450". To put the correct lane in, "_0" attached to the "1i.XXX" will be the RIGHT-MOST ---AND PRESENT--- LANE. This means _0 can (and does above) denote the C lane, which in our connections file is really "_1". This is an extremely important concept that SUMO put in that can cause huge errors on the config side.
