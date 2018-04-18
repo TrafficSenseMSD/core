@@ -64,40 +64,7 @@ import random
 import traci
 import sumolib
 
-def generate_routefile(ts_sumo_dir):
-    random.seed(42)  # make tests reproducible
-    N = 3600  # number of time steps
-    # demand per second from different directions
-    pWE = 1. / 10
-    pEW = 1. / 11
-    pNS = 1. / 30
-    with open(ts_sumo_dir+"/data/cross.rou.xml", "w") as routes:
-        print("""<routes>
-        <vType id="typeWE" accel="0.8" decel="4.5" sigma="0.5" length="5" minGap="2.5" maxSpeed="16.67" guiShape="passenger"/>
-        <vType id="typeNS" accel="0.8" decel="4.5" sigma="0.5" length="7" minGap="3" maxSpeed="25" guiShape="bus"/>
 
-        <route id="right" edges="51o 1i 2o 52i" />
-        <route id="left" edges="52o 2i 1o 51i" />
-        <route id="down" edges="54o 4i 3o 53i" />""", file=routes)
-        lastVeh = 0
-        vehNr = 0
-        for i in range(N):
-            if random.uniform(0, 1) < pWE:
-                print('    <vehicle id="right_%i" type="typeWE" route="right" depart="%i" />' % (
-                    vehNr, i), file=routes)
-                vehNr += 1
-                lastVeh = i
-            if random.uniform(0, 1) < pEW:
-                print('    <vehicle id="left_%i" type="typeWE" route="left" depart="%i" />' % (
-                    vehNr, i), file=routes)
-                vehNr += 1
-                lastVeh = i
-            if random.uniform(0, 1) < pNS:
-                print('    <vehicle id="down_%i" type="typeNS" route="down" depart="%i" color="1,0,0"/>' % (
-                    vehNr, i), file=routes)
-                vehNr += 1
-                lastVeh = i
-        print("</routes>", file=routes)
 
 overwrite_output_help = \
     """
@@ -106,6 +73,20 @@ overwrite_output_help = \
     """
 
 
+def run_loop():
+    """execute the TraCI control loop"""
+    tick = 0
+    from ts_core.optimization.optimizer_example import OptimizerExample
+    op = OptimizerExample()
+    op.train(tick)
+    #traci.trafficlights.setPhase("0", 2)
+    while traci.simulation.getMinExpectedNumber() > 0:
+        traci.simulationStep()
+        op.train(tick)
+        tick += 1
+    traci.close()
+    sys.stdout.flush()
+    
 def main():
     """
     
@@ -148,11 +129,9 @@ def main():
     else:
         sumoBinary = sumolib.checkBinary('sumo-gui')
 
-    generate_routefile(args.sumo_config_dir)
-
     """ SUMO Startup """
     # Start up the SUMO binary as specified by the SUMO_HOME environment variable
-    traci.start([sumoBinary, "-c", args.sumo_config_dir+"/data/cross.sumocfg",
+    traci.start([sumoBinary, "-c", args.sumo_config_dir+"/cross.sumocfg",
                              "--tripinfo-output", output_dir+"/sutripinfo.xml"])
 
     """ Engage the SUMO event loop """
