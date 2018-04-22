@@ -64,7 +64,7 @@ import random
 import traci
 import sumolib
 
-
+from six import string_types, integer_types
 
 overwrite_output_help = \
     """
@@ -86,7 +86,49 @@ def run_loop():
         tick += 1
     traci.close()
     sys.stdout.flush()
-    
+
+
+def make_phase(light_array, default_time, min_time=None, max_time=None):
+    """
+
+    :param light_array:
+    :param default_time: Time in ticks
+    :param min_time:
+    :param max_time:
+    :return:
+    """
+    mult = 1000  # Multiplier (units are in mili ticks??) TODO Understand this
+    if min_time is None or min_time > default_time:
+        min_time = default_time
+    if max_time is None or max_time < default_time:
+        max_time = default_time
+    return traci.trafficlight.Phase(default_time*mult, min_time*mult, max_time*mult, light_array)
+
+
+def make_and_set_program(program_name, phases, starting_phase=0, tl_type=0, traffic_light_ids=()):
+    """
+
+    :param traffic_light_ids: Traffic lights to set to this program.
+            Accepts String, integer, or list (of mixed strings or integers)
+    :param tl_type:
+    :param program_name:
+    :param phases:
+    :param starting_phase:
+    :return: The program
+    """
+    new_program = traci.trafficlight.Logic(program_name, tl_type, 0, starting_phase, phases)
+    if traffic_light_ids != ():
+        if isinstance(traffic_light_ids, string_types):     # If given as a single string
+            traffic_light_ids = [traffic_light_ids]
+        elif isinstance(traffic_light_ids, integer_types):  # IF given as a single integer
+            traffic_light_ids = [traffic_light_ids]
+
+        for light_id in traffic_light_ids:
+            traci.trafficlight.setCompleteRedYellowGreenDefinition(str(light_id), new_program)
+
+    return new_program
+
+
 def main():
     """
     
@@ -107,18 +149,17 @@ def main():
     # A handy variable with the datetime object at the time when the run started
     run_start_dt = dt.datetime.now()
     run_start_dt_str = re.sub('[^A-Za-z0-9]+', '_', run_start_dt.isoformat())
-    output_dir = args.sumo_config_dir+"/output/"+run_start_dt_str
-
+    output_dir = args.sumo_config_dir + "/output/" + run_start_dt_str
 
     """ Output Directory Handling """
 
     # Wipe out the output directory if instructed by command line argument
     if args.overwrite_output:
-        shutil.rmtree(args.sumo_config_dir+"/output")
+        shutil.rmtree(args.sumo_config_dir + "/output", ignore_errors=True)  # Dont crash if there is no directory
 
     # Create the output director if it does not exist
-    if not os.path.isdir(args.sumo_config_dir+"/output"):
-        os.mkdir(args.sumo_config_dir+"/output")
+    if not os.path.isdir(args.sumo_config_dir + "/output"):
+        os.mkdir(args.sumo_config_dir + "/output")
 
     # Create the directory for this run's output
     os.mkdir(output_dir)
@@ -129,28 +170,23 @@ def main():
     else:
         sumoBinary = sumolib.checkBinary('sumo-gui')
 
-    """ SUMO Startup """
-
     for file in os.listdir(args.sumo_config_dir):
         if file.lower().endswith(".sumocfg"):
             sumo_cfg_file = file
-            sumo_cfg_name = file.split('.')[0]
-            print()
-            print("Found .sumocfg file: %s" % file)
-            print("Configuration name: %s" % sumo_cfg_name)
-            print()
+            # sumo_cfg_name = file.split('.')[0]
+            # print("Configuration name: %s" % sumo_cfg_name)
+            # print("Found .sumocfg file: %s" % file)
             break
     else:
         print("No .sumocfg file found in %s" % args.sumo_config_dir)
+        print("***EXITING***")
         return
 
-    # generate_routefile(args.sumo_config_dir, sumo_cfg_name)
-
-
+    """ SUMO Startup """
     # Start up the SUMO binary as specified by the SUMO_HOME environment variable
     traci.start([sumoBinary, "-c", args.sumo_config_dir + '/' + sumo_cfg_file,
-                             "--tripinfo-output", output_dir+"/sutripinfo.xml"])
-
+                 "--tripinfo-output", output_dir + "/sutripinfo.xml"])
+    
     """ Engage the SUMO event loop """
     run_loop()
 
