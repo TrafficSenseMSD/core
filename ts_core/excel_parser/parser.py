@@ -348,5 +348,5 @@ def run_parser(excel_file_path, outpath):
 
 
 if __name__ == "__main__":
-    print("%s" % "_"*200000)
+    run_parser('Configuration_template.xlsx', './test_dir')
 
