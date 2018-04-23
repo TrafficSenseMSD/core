@@ -43,8 +43,102 @@
         <div class="bodywrapper">
           <div class="body" role="main">
             
-  <div class="section" id="ts-core-excel-parser-parser-module">
-<h1>ts_core.excel_parser.parser module<a class="headerlink" href="#ts-core-excel-parser-parser-module" title="Permalink to this headline">¶</a></h1>
+  <div class="section" id="module-ts_core.excel_parser.parser">
+<span id="ts-core-excel-parser-parser-module"></span><h1>ts_core.excel_parser.parser module<a class="headerlink" href="#module-ts_core.excel_parser.parser" title="Permalink to this headline">¶</a></h1>
+<dl class="function">
+<dt id="ts_core.excel_parser.parser.get_input_from_row">
+<code class="descname">get_input_from_row</code><span class="sig-paren">(</span><em>sheet</em>, <em>row_num</em>, <em>cols=1</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/ts_core/excel_parser/parser.html#get_input_from_row"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#ts_core.excel_parser.parser.get_input_from_row" title="Permalink to this definition">¶</a></dt>
+<dd><p>Retrieves the input from the row and returns a tuple of all the relevant data
+:param sheet:
+:param row_num:
+:param cols:
+:return: Tupple containing the data -</p>
+<blockquote>
+<div>formatted as (sumo_file, sumo_attribute, units, user_val1, user_val2…)</div></blockquote>
+</dd></dl>
+
+<dl class="function">
+<dt id="ts_core.excel_parser.parser.parse_branches">
+<code class="descname">parse_branches</code><span class="sig-paren">(</span><em>sheet</em>, <em>intersection_type</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/ts_core/excel_parser/parser.html#parse_branches"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#ts_core.excel_parser.parser.parse_branches" title="Permalink to this definition">¶</a></dt>
+<dd><p>Parse the Branch Settings tab</p>
+<p>Fills out OUTPUT_DICT with all information needed to parse the branches of the intersection.
+:param sheet:
+:param intersection_type: The intersection Type (Cross, T, Y, etc. Needs to be a key in ITYPE_BRANCHES
+:return: None</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="ts_core.excel_parser.parser.parse_general">
+<code class="descname">parse_general</code><span class="sig-paren">(</span><em>sheet</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/ts_core/excel_parser/parser.html#parse_general"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#ts_core.excel_parser.parser.parse_general" title="Permalink to this definition">¶</a></dt>
+<dd><p>Parses the General Settings Tab</p>
+<p>Fills out OUTPUT_DICT
+:param sheet: openpyxl sheet - The General Settings tab
+:return: None</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="ts_core.excel_parser.parser.parse_intersection">
+<code class="descname">parse_intersection</code><span class="sig-paren">(</span><em>sheet</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/ts_core/excel_parser/parser.html#parse_intersection"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#ts_core.excel_parser.parser.parse_intersection" title="Permalink to this definition">¶</a></dt>
+<dd><table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>sheet</strong> (<em>openpyxl sheet - The General Intersection Settings tab</em>) – </td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"></td>
+</tr>
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body">String - The selected intersection type. Key in ITYPE_BRANCHES</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="function">
+<dt id="ts_core.excel_parser.parser.parse_stats">
+<code class="descname">parse_stats</code><span class="sig-paren">(</span><em>sheet</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/ts_core/excel_parser/parser.html#parse_stats"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#ts_core.excel_parser.parser.parse_stats" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="function">
+<dt id="ts_core.excel_parser.parser.prettyprint">
+<code class="descname">prettyprint</code><span class="sig-paren">(</span><em>root</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/ts_core/excel_parser/parser.html#prettyprint"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#ts_core.excel_parser.parser.prettyprint" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="function">
+<dt id="ts_core.excel_parser.parser.row_has_category">
+<code class="descname">row_has_category</code><span class="sig-paren">(</span><em>sheet</em>, <em>row_num</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/ts_core/excel_parser/parser.html#row_has_category"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#ts_core.excel_parser.parser.row_has_category" title="Permalink to this definition">¶</a></dt>
+<dd><p>Checks to see if this row starts a new category
+:param sheet: openpyxl sheet - The sheet to use
+:param row_num: The row to analyze
+:return: Boolean - True if there is a new category, False otherwise</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="ts_core.excel_parser.parser.row_has_data">
+<code class="descname">row_has_data</code><span class="sig-paren">(</span><em>sheet</em>, <em>row_num</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/ts_core/excel_parser/parser.html#row_has_data"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#ts_core.excel_parser.parser.row_has_data" title="Permalink to this definition">¶</a></dt>
+<dd><p>Checks whether or not this row contains a user-entered value
+:param sheet: openpyxl sheet - The sheet to use
+:param row_num: The row to analyze
+:return: Boolean - True if there is data, False otherwise</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="ts_core.excel_parser.parser.run_parser">
+<code class="descname">run_parser</code><span class="sig-paren">(</span><em>excel_file_path</em>, <em>outpath</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/ts_core/excel_parser/parser.html#run_parser"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#ts_core.excel_parser.parser.run_parser" title="Permalink to this definition">¶</a></dt>
+<dd><table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
+<li><strong>excel_file_path</strong> – </li>
+<li><strong>outpath</strong> – </li>
+<li><strong>stats_file_path</strong> – </li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
 </div>
 
 

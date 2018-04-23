@@ -36,12 +36,12 @@ def parse_args():
     subparsers = parser.add_subparsers(title="subcommands", help="choose one")
 
     init = subparsers.add_parser('init', help="", description="")
-    init.add_argument("--project_path", action=FullPaths)
+    init.add_argument("-p", "--project_path", action=FullPaths)
     init.set_defaults(which='init')
 
     build = subparsers.add_parser('build', help="", description="")
     build.add_argument("config_file")#, action=FullPaths)
-    build.add_argument("--project_path", action=FullPaths)
+    build.add_argument("-p", "--project_path", action=FullPaths)
     build.set_defaults(which='build')
 
     parser.add_argument("--init", dest="initialize_directory", action='store_true', help="Initializes the directory...")
