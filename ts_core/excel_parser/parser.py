@@ -344,8 +344,6 @@ def run_parser(excel_file_path, outpath):
         json.dump(OUTPUT_DICT, outfile, indent=4,)
 
     stats_root_node = parse_stats(wb["Advanced Customization"])
-
-
     stats_xml = xml.dom.minidom.parseString(ET.tostring(stats_root_node, encoding='utf8', method='xml').decode())
 
     return config_name, OUTPUT_DICT, stats_xml.toprettyxml()
