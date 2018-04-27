@@ -9,3 +9,4 @@ sphinxcontrib-argdoc
 sumotools>=0.7.2
 jsmin==2.2.2
 pyxb==1.2.6
+openpyxl==2.5.1
