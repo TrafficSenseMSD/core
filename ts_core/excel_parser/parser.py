@@ -60,7 +60,8 @@ def parse_general(sheet):
     if input_config_name[SUMOFILE] == "SUMOCFG" and input_config_name[SUMOATTR] == "input":
         config_name = input_config_name[USERVAL]
         OUTPUT_DICT["SUMOCFG"]["input"] = {"net_file": "%s.net.xml" % config_name,
-                                           "route_files": "%s.rou.xml" % config_name}
+                                           "route_files": "%s.rou.xml" % config_name,
+                                           "additional_files": "%s.add.xml" % config_name}
     else:
         print("Config name Error")  # TODO fill out
 
@@ -73,6 +74,9 @@ def parse_general(sheet):
         OUTPUT_DICT["SUMOCFG"]["time"] = {"begin": "0", "end": "%d" % sim_seconds}
     else:
         print("TIME ERROR", input_runtime_length)  # TODO fill out
+
+    OUTPUT_DICT["SUMOCFG"]["gui_only"] = {"gui_settings_file": "gui-settings.cfg"}
+
 
     # Overall Traffic Demand
     # TODO Where does this go in the xmls if anywhere?
@@ -346,5 +350,5 @@ def run_parser(excel_file_path, outpath):
 
 
 if __name__ == "__main__":
-    print("%s" % "_"*200000)
+    run_parser('Configuration_template.xlsx', './test_dir')
 

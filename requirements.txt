@@ -6,5 +6,7 @@ scipy==1.0.0b1
 sklearn==0.0
 sphinx
 sphinxcontrib-argdoc
-sumotools==0.7
+sumotools>=0.7.2
 jsmin==2.2.2
+pyxb==1.2.6
+openpyxl==2.5.1

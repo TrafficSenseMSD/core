@@ -3,8 +3,19 @@ import ts_core.config.bindings.sumocfg as sumocfg
 from ts_core.config.config_exceptions import *
 import ts_core.config.bindings.nodes_xml as nodes
 import ts_core.config.bindings.edges_xml as edges
+import ts_core.config.bindings.additional_xml as additional
 from xml.dom import minidom
 import numpy as np
+from pyxb import BIND
+
+_lanes_fields = [
+    'L_lanes',
+    'R_lanes',
+    'S_lanes',
+    'RS_lanes',
+    'LS_lanes'
+]
+
 
 
 def _sind(x, places):
@@ -13,6 +24,63 @@ def _sind(x, places):
 
 def _cosd(x, places):
     return round(np.cos(x * np.pi / 180), places)
+
+def mk_add(intersections: dict, branches: dict):
+    """
+    Generate the additional attributes XML file. 
+    
+    This file handles, among other things, traffic detectors. 
+    
+    Lane Area Detectors
+    -------------------
+    
+    So far the only implemented option is a set of lane area detectors on
+    all lanes for each branch. For each branch the start and end points of the detector
+    are defined in the Excel configuration as the distance from the intersection. 
+    
+    
+    Parameters
+    ----------
+    intersections
+    branches
+
+    Returns
+    -------
+
+    """
+
+    _branch_validation = [
+        'id',
+        'L_lanes',
+        'R_lanes',
+        'S_lanes',
+        'RS_lanes',
+        'LS_lanes',
+        'priority',
+        'sensor_start',
+        'sensor_end'
+    ]
+
+    ad1 = additional.additionalType()
+
+    for branch in branches:
+        numlanes = sum([branches[branch][l] for l in _lanes_fields])
+        if not all(field in branches[branch] for field in _branch_validation):
+            raise ParsedSchemaError("All of the fields in the list {} must be in each branch".format(str(_branch_validation)))
+
+        for lane in range(numlanes):
+            tmp = additional.e2DetectorType(
+                id="Area" + str(branches[branch]['id']) + "i" + "_" + str(lane),
+                lane=str(branches[branch]['id']) + "i" + "_" + str(lane),
+                pos=str(-branches[branch]['sensor_end']),
+                endPos=str(-branches[branch]['sensor_start']),
+                freq="10",
+                file="test_area.xml"
+            )
+            ad1.laneAreaDetector.append(tmp)
+
+    xmlstr = minidom.parseString(ad1.toxml("utf-8", element_name='additional').decode('utf-8')).toprettyxml(indent="   ")
+    return xmlstr
 
 def mk_edge(intersections: dict, branches: dict):
 
@@ -28,15 +96,6 @@ def mk_edge(intersections: dict, branches: dict):
         'LS_lanes',
         'priority'
     ]
-
-    _lanes_fields = [
-        'L_lanes',
-        'R_lanes',
-        'S_lanes',
-        'RS_lanes',
-        'LS_lanes'
-    ]
-
 
     for branch in branches:
         numlanes = sum([branches[branch][l] for l in _lanes_fields])
@@ -161,30 +220,18 @@ def mk_sumocfg(parsed_data: dict):
     if len(_not_implemented) > 0:
         raise  ParsedConfigNotImplementedError
 
-    if "input" in parsed_data:
-        _input = getattr(sumocfg, 'inputType')()
-        for attr, value in parsed_data['input'].items():
-            attr_type = _input.__getattribute__("_inputType__"+attr).__dict__['_ElementDeclaration__elementBinding']
+    for tag in _implemented:
+        try:
+            parsed_data[tag]
+        except KeyError:
+            continue
+
+        _input = getattr(sumocfg, tag+'Type')()
+        for attr, value in parsed_data[tag].items():
+            attr_type = _input.__getattribute__("_"+tag+"Type__"+attr).__dict__['_ElementDeclaration__elementBinding']
             _input.__setattr__(attr, attr_type(value_=value))
         cfg.append(_input)
 
-    # Working with the
-    if "time" in parsed_data:
-        _time = getattr(sumocfg, 'timeType')()
-        for attr, value in parsed_data['time'].items():
-            attr_type = _time.__getattribute__("_timeType__"+attr).__dict__['_ElementDeclaration__elementBinding']
-            _time.__setattr__(attr, attr_type(value_=value))
-        cfg.append(_time)
-
-    if "gui_only" in parsed_data:
-        _gui = getattr(sumocfg, 'gui_onlyType')()
-        for attr, value in parsed_data['gui_only'].items():
-            # Some wizardry to find the right option type
-            attr_type = _gui.__getattribute__("_gui_onlyType__"+attr).__dict__['_ElementDeclaration__elementBinding']
-            # Setting the tag and attributes correctly.
-            _gui.__setattr__(attr, attr_type(value_=value))
-
-        cfg.append(_gui)
 
     xmlstr = minidom.parseString(cfg.toxml("utf-8").decode('utf-8')).toprettyxml(indent="   ")
     return xmlstr
