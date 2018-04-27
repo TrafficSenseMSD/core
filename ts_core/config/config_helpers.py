@@ -220,9 +220,7 @@ def mk_sumocfg(parsed_data: dict):
     if len(_not_implemented) > 0:
         raise  ParsedConfigNotImplementedError
 
-    SUMOCFG_TAGS = ['input', 'time', "gui_only"]
-
-    for tag in SUMOCFG_TAGS:
+    for tag in _implemented:
         try:
             parsed_data[tag]
         except KeyError:
