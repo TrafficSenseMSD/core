@@ -74,6 +74,17 @@ def transform_parsed_excel(parsed, project_path, stats_file, config_name):
     with open(additional_file_path, "w") as cfg_file:
         cfg_file.writelines(additional_xml)
 
+    gui_settings = """
+    <viewsettings>
+        <delay value="0"/>
+        <viewport zoom="100" x="510" y="510"/>
+    </viewsettings>
+
+    """
+    gui_settings_file_path = project_path + "/gui-settings.cfg"
+    logger.info("Writing GUI Settings File to {}".format(additional_file_path))
+    with open(gui_settings_file_path, "w") as cfg_file:
+        cfg_file.writelines(gui_settings)
 
     logger.info("******** ASSUMING NETCONVERT, ACTIVITYGEN, DUAROUTER ACCESSIBLE TO SHELL ********")
 
