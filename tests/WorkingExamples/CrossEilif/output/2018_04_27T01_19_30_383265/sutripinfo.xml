@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!-- generated on 04/27/18 01:19:30 by SUMO Version 0.31.0
+<?xml version="1.0" encoding="UTF-8"?>
+
+<configuration xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="http://sumo.dlr.de/xsd/sumoConfiguration.xsd">
+
+    <input>
+        <net-file value="C:\Users\Bryan\Documents\GitHub\core\tests\WorkingExamples\CrossEilif/cross.net.xml"/>
+        <route-files value="C:\Users\Bryan\Documents\GitHub\core\tests\WorkingExamples\CrossEilif/cross.rou.xml"/>
+    </input>
+
+    <output>
+        <tripinfo-output value="C:\Users\Bryan\Documents\GitHub\core\tests\WorkingExamples\CrossEilif/output/2018_04_27T01_19_30_383265/sutripinfo.xml"/>
+    </output>
+
+    <time>
+        <begin value="0.0"/>
+        <end value="3600.0"/>
+    </time>
+
+    <traci_server>
+        <remote-port value="57233"/>
+    </traci_server>
+
+</configuration>
+-->
+
+<tripinfos xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="http://sumo.dlr.de/xsd/tripinfo_file.xsd">
+</tripinfos>
