@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="iso-8859-1"?>
+<connections xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="http://sumo.dlr.de/xsd/connections_file.xsd">
+	<connection from="1i.-50" to="2o" fromLane="1" toLane="1"/>
+	<connection from="1i.-50" to="4o" fromLane="2" toLane="2"/>
+	<connection from="1i.-50" to="3o" fromLane="0" toLane="0"/>	
+	<!--The split happens at the exact same distance as the other branches. However, whichever is used MUST be carried through the entire config files to define connections, routes, and detectors. -->
+	
+	<connection from="2i.450" to="1o" fromLane="1" toLane="1"/>
+	<connection from="2i.450" to="3o" fromLane="2" toLane="2"/>
+	<connection from="2i.450" to="4o" fromLane="0" toLane="0"/>
+	
+	<connection from="3i.450" to="1o" fromLane="2" toLane="2"/>	
+	<connection from="3i.450" to="2o" fromLane="0" toLane="0"/>	
+	<connection from="3i.450" to="4o" fromLane="1" toLane="1"/>	
+	
+	<connection from="4i.450" to="1o" fromLane="0" toLane="0"/>
+	<connection from="4i.450" to="2o" fromLane="2" toLane="2"/>
+	<connection from="4i.450" to="3o" fromLane="1" toLane="1"/>
+</connections>

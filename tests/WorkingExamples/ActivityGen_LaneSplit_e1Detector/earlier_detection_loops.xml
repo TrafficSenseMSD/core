@@ -1,14 +1,18 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<<<<<<< HEAD
+<!-- generated on 3/21/2018 4:18:13 PM by SUMO gui Version 0.30.0
+=======
 <!-- generated on 3/21/2018 4:18:53 PM by SUMO gui Version 0.31.0
+>>>>>>> 17f6228e77961074e478ff2c245e6779b4a0e296
 <?xml version="1.0" encoding="UTF-8"?>
 
 <configuration xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="http://sumo.dlr.de/xsd/sumoConfiguration.xsd">
 
     <input>
-        <net-file value="cross.net.xml"/>
-        <route-files value="cross_ag.rou.xml"/>
-        <additional-files value="cross.add.xml"/>
+        <net-file value="C:\Users\Justin\AppData\Roaming\SPB_16.6\core\tests\WorkingExamples\ActivityGen_LaneSplit_e1Detector\cross.net.xml"/>
+        <route-files value="C:\Users\Justin\AppData\Roaming\SPB_16.6\core\tests\WorkingExamples\ActivityGen_LaneSplit_e1Detector\cross_ag.rou.xml"/>
+        <additional-files value="C:\Users\Justin\AppData\Roaming\SPB_16.6\core\tests\WorkingExamples\ActivityGen_LaneSplit_e1Detector\cross.add.xml"/>
     </input>
 
     <time>
@@ -17,7 +21,7 @@
     </time>
 
     <gui_only>
-        <gui-settings-file value="cross.settings.xml"/>
+        <gui-settings-file value="C:\Users\Justin\AppData\Roaming\SPB_16.6\core\tests\WorkingExamples\ActivityGen_LaneSplit_e1Detector\cross.settings.xml"/>
     </gui_only>
 
 </configuration>
@@ -83,11 +87,19 @@
     <interval begin="280.00" end="290.00" id="myLoop1s_0" nVehContrib="0" flow="0.00" occupancy="0.00" speed="-1.00" length="-1.00" nVehEntered="0"/>
     <interval begin="280.00" end="290.00" id="myLoop1s_1" nVehContrib="0" flow="0.00" occupancy="0.00" speed="-1.00" length="-1.00" nVehEntered="0"/>
     <interval begin="290.00" end="300.00" id="myLoop1s_0" nVehContrib="0" flow="0.00" occupancy="0.00" speed="-1.00" length="-1.00" nVehEntered="0"/>
+<<<<<<< HEAD
+    <interval begin="290.00" end="300.00" id="myLoop1s_1" nVehContrib="1" flow="360.00" occupancy="2.60" speed="19.26" length="5.00" nVehEntered="1"/>
+    <interval begin="300.00" end="310.00" id="myLoop1s_0" nVehContrib="0" flow="0.00" occupancy="0.00" speed="-1.00" length="-1.00" nVehEntered="0"/>
+    <interval begin="300.00" end="310.00" id="myLoop1s_1" nVehContrib="1" flow="360.00" occupancy="2.62" speed="19.11" length="5.00" nVehEntered="1"/>
+    <interval begin="310.00" end="320.00" id="myLoop1s_0" nVehContrib="0" flow="0.00" occupancy="0.00" speed="-1.00" length="-1.00" nVehEntered="0"/>
+    <interval begin="310.00" end="320.00" id="myLoop1s_1" nVehContrib="1" flow="360.00" occupancy="2.57" speed="19.44" length="5.00" nVehEntered="1"/>
+=======
     <interval begin="290.00" end="300.00" id="myLoop1s_1" nVehContrib="1" flow="360.00" occupancy="2.55" speed="19.62" length="5.00" nVehEntered="1"/>
     <interval begin="300.00" end="310.00" id="myLoop1s_0" nVehContrib="0" flow="0.00" occupancy="0.00" speed="-1.00" length="-1.00" nVehEntered="0"/>
     <interval begin="300.00" end="310.00" id="myLoop1s_1" nVehContrib="1" flow="360.00" occupancy="2.53" speed="19.77" length="5.00" nVehEntered="1"/>
     <interval begin="310.00" end="320.00" id="myLoop1s_0" nVehContrib="0" flow="0.00" occupancy="0.00" speed="-1.00" length="-1.00" nVehEntered="0"/>
     <interval begin="310.00" end="320.00" id="myLoop1s_1" nVehContrib="1" flow="360.00" occupancy="2.51" speed="19.93" length="5.00" nVehEntered="1"/>
+>>>>>>> 17f6228e77961074e478ff2c245e6779b4a0e296
     <interval begin="320.00" end="330.00" id="myLoop1s_0" nVehContrib="0" flow="0.00" occupancy="0.00" speed="-1.00" length="-1.00" nVehEntered="0"/>
     <interval begin="320.00" end="330.00" id="myLoop1s_1" nVehContrib="1" flow="360.00" occupancy="2.56" speed="19.55" length="5.00" nVehEntered="1"/>
     <interval begin="330.00" end="340.00" id="myLoop1s_0" nVehContrib="0" flow="0.00" occupancy="0.00" speed="-1.00" length="-1.00" nVehEntered="0"/>
@@ -103,6 +115,17 @@
     <interval begin="380.00" end="390.00" id="myLoop1s_0" nVehContrib="0" flow="0.00" occupancy="0.00" speed="-1.00" length="-1.00" nVehEntered="0"/>
     <interval begin="380.00" end="390.00" id="myLoop1s_1" nVehContrib="0" flow="0.00" occupancy="0.00" speed="-1.00" length="-1.00" nVehEntered="0"/>
     <interval begin="390.00" end="400.00" id="myLoop1s_0" nVehContrib="0" flow="0.00" occupancy="0.00" speed="-1.00" length="-1.00" nVehEntered="0"/>
+<<<<<<< HEAD
+    <interval begin="390.00" end="400.00" id="myLoop1s_1" nVehContrib="2" flow="720.00" occupancy="7.48" speed="19.13" length="5.00" nVehEntered="3"/>
+    <interval begin="400.00" end="410.00" id="myLoop1s_0" nVehContrib="0" flow="0.00" occupancy="0.00" speed="-1.00" length="-1.00" nVehEntered="0"/>
+    <interval begin="400.00" end="410.00" id="myLoop1s_1" nVehContrib="2" flow="720.00" occupancy="2.91" speed="19.37" length="5.00" nVehEntered="1"/>
+    <interval begin="410.00" end="420.00" id="myLoop1s_0" nVehContrib="0" flow="0.00" occupancy="0.00" speed="-1.00" length="-1.00" nVehEntered="0"/>
+    <interval begin="410.00" end="420.00" id="myLoop1s_1" nVehContrib="1" flow="360.00" occupancy="2.58" speed="19.38" length="5.00" nVehEntered="1"/>
+    <interval begin="420.00" end="430.00" id="myLoop1s_0" nVehContrib="0" flow="0.00" occupancy="0.00" speed="-1.00" length="-1.00" nVehEntered="0"/>
+    <interval begin="420.00" end="430.00" id="myLoop1s_1" nVehContrib="0" flow="0.00" occupancy="0.00" speed="-1.00" length="-1.00" nVehEntered="0"/>
+    <interval begin="430.00" end="440.00" id="myLoop1s_0" nVehContrib="0" flow="0.00" occupancy="0.00" speed="-1.00" length="-1.00" nVehEntered="0"/>
+    <interval begin="430.00" end="440.00" id="myLoop1s_1" nVehContrib="1" flow="360.00" occupancy="2.57" speed="19.46" length="5.00" nVehEntered="1"/>
+=======
     <interval begin="390.00" end="400.00" id="myLoop1s_1" nVehContrib="3" flow="1080.00" occupancy="7.71" speed="19.46" length="5.00" nVehEntered="3"/>
     <interval begin="400.00" end="410.00" id="myLoop1s_0" nVehContrib="0" flow="0.00" occupancy="0.00" speed="-1.00" length="-1.00" nVehEntered="0"/>
     <interval begin="400.00" end="410.00" id="myLoop1s_1" nVehContrib="0" flow="0.00" occupancy="0.00" speed="-1.00" length="-1.00" nVehEntered="0"/>
@@ -112,11 +135,25 @@
     <interval begin="420.00" end="430.00" id="myLoop1s_1" nVehContrib="0" flow="0.00" occupancy="0.00" speed="-1.00" length="-1.00" nVehEntered="0"/>
     <interval begin="430.00" end="440.00" id="myLoop1s_0" nVehContrib="0" flow="0.00" occupancy="0.00" speed="-1.00" length="-1.00" nVehEntered="0"/>
     <interval begin="430.00" end="440.00" id="myLoop1s_1" nVehContrib="1" flow="360.00" occupancy="2.50" speed="20.00" length="5.00" nVehEntered="1"/>
+>>>>>>> 17f6228e77961074e478ff2c245e6779b4a0e296
     <interval begin="440.00" end="450.00" id="myLoop1s_0" nVehContrib="0" flow="0.00" occupancy="0.00" speed="-1.00" length="-1.00" nVehEntered="0"/>
     <interval begin="440.00" end="450.00" id="myLoop1s_1" nVehContrib="0" flow="0.00" occupancy="0.00" speed="-1.00" length="-1.00" nVehEntered="0"/>
     <interval begin="450.00" end="460.00" id="myLoop1s_0" nVehContrib="0" flow="0.00" occupancy="0.00" speed="-1.00" length="-1.00" nVehEntered="0"/>
     <interval begin="450.00" end="460.00" id="myLoop1s_1" nVehContrib="0" flow="0.00" occupancy="0.00" speed="-1.00" length="-1.00" nVehEntered="0"/>
     <interval begin="460.00" end="470.00" id="myLoop1s_0" nVehContrib="0" flow="0.00" occupancy="0.00" speed="-1.00" length="-1.00" nVehEntered="0"/>
+<<<<<<< HEAD
+    <interval begin="460.00" end="470.00" id="myLoop1s_1" nVehContrib="2" flow="720.00" occupancy="5.11" speed="19.59" length="5.00" nVehEntered="2"/>
+    <interval begin="470.00" end="480.00" id="myLoop1s_0" nVehContrib="0" flow="0.00" occupancy="0.00" speed="-1.00" length="-1.00" nVehEntered="0"/>
+    <interval begin="470.00" end="480.00" id="myLoop1s_1" nVehContrib="2" flow="720.00" occupancy="5.14" speed="19.45" length="5.00" nVehEntered="2"/>
+    <interval begin="480.00" end="490.00" id="myLoop1s_0" nVehContrib="0" flow="0.00" occupancy="0.00" speed="-1.00" length="-1.00" nVehEntered="0"/>
+    <interval begin="480.00" end="490.00" id="myLoop1s_1" nVehContrib="2" flow="720.00" occupancy="5.25" speed="19.04" length="5.00" nVehEntered="2"/>
+    <interval begin="490.00" end="500.00" id="myLoop1s_0" nVehContrib="0" flow="0.00" occupancy="0.00" speed="-1.00" length="-1.00" nVehEntered="0"/>
+    <interval begin="490.00" end="500.00" id="myLoop1s_1" nVehContrib="1" flow="360.00" occupancy="2.59" speed="19.34" length="5.00" nVehEntered="1"/>
+    <interval begin="500.00" end="510.00" id="myLoop1s_0" nVehContrib="0" flow="0.00" occupancy="0.00" speed="-1.00" length="-1.00" nVehEntered="0"/>
+    <interval begin="500.00" end="510.00" id="myLoop1s_1" nVehContrib="1" flow="360.00" occupancy="2.61" speed="19.19" length="5.00" nVehEntered="1"/>
+    <interval begin="510.00" end="520.00" id="myLoop1s_0" nVehContrib="2" flow="720.00" occupancy="5.11" speed="19.58" length="5.00" nVehEntered="2"/>
+    <interval begin="510.00" end="520.00" id="myLoop1s_1" nVehContrib="1" flow="360.00" occupancy="2.50" speed="19.98" length="5.00" nVehEntered="1"/>
+=======
     <interval begin="460.00" end="470.00" id="myLoop1s_1" nVehContrib="0" flow="0.00" occupancy="0.00" speed="-1.00" length="-1.00" nVehEntered="0"/>
     <interval begin="470.00" end="480.00" id="myLoop1s_0" nVehContrib="0" flow="0.00" occupancy="0.00" speed="-1.00" length="-1.00" nVehEntered="0"/>
     <interval begin="470.00" end="480.00" id="myLoop1s_1" nVehContrib="0" flow="0.00" occupancy="0.00" speed="-1.00" length="-1.00" nVehEntered="0"/>
@@ -128,11 +165,33 @@
     <interval begin="500.00" end="510.00" id="myLoop1s_1" nVehContrib="3" flow="1080.00" occupancy="7.82" speed="19.18" length="5.00" nVehEntered="3"/>
     <interval begin="510.00" end="520.00" id="myLoop1s_0" nVehContrib="0" flow="0.00" occupancy="0.00" speed="-1.00" length="-1.00" nVehEntered="0"/>
     <interval begin="510.00" end="520.00" id="myLoop1s_1" nVehContrib="2" flow="720.00" occupancy="5.19" speed="19.25" length="5.00" nVehEntered="2"/>
+>>>>>>> 17f6228e77961074e478ff2c245e6779b4a0e296
     <interval begin="520.00" end="530.00" id="myLoop1s_0" nVehContrib="0" flow="0.00" occupancy="0.00" speed="-1.00" length="-1.00" nVehEntered="0"/>
     <interval begin="520.00" end="530.00" id="myLoop1s_1" nVehContrib="0" flow="0.00" occupancy="0.00" speed="-1.00" length="-1.00" nVehEntered="0"/>
     <interval begin="530.00" end="540.00" id="myLoop1s_0" nVehContrib="0" flow="0.00" occupancy="0.00" speed="-1.00" length="-1.00" nVehEntered="0"/>
     <interval begin="530.00" end="540.00" id="myLoop1s_1" nVehContrib="0" flow="0.00" occupancy="0.00" speed="-1.00" length="-1.00" nVehEntered="0"/>
     <interval begin="540.00" end="550.00" id="myLoop1s_0" nVehContrib="0" flow="0.00" occupancy="0.00" speed="-1.00" length="-1.00" nVehEntered="0"/>
+<<<<<<< HEAD
+    <interval begin="540.00" end="550.00" id="myLoop1s_1" nVehContrib="3" flow="1080.00" occupancy="7.81" speed="19.22" length="5.00" nVehEntered="3"/>
+    <interval begin="550.00" end="560.00" id="myLoop1s_0" nVehContrib="0" flow="0.00" occupancy="0.00" speed="-1.00" length="-1.00" nVehEntered="0"/>
+    <interval begin="550.00" end="560.00" id="myLoop1s_1" nVehContrib="1" flow="360.00" occupancy="2.61" speed="19.18" length="5.00" nVehEntered="1"/>
+    <interval begin="560.00" end="570.00" id="myLoop1s_0" nVehContrib="0" flow="0.00" occupancy="0.00" speed="-1.00" length="-1.00" nVehEntered="0"/>
+    <interval begin="560.00" end="570.00" id="myLoop1s_1" nVehContrib="1" flow="360.00" occupancy="2.60" speed="19.26" length="5.00" nVehEntered="1"/>
+    <interval begin="570.00" end="580.00" id="myLoop1s_0" nVehContrib="0" flow="0.00" occupancy="0.00" speed="-1.00" length="-1.00" nVehEntered="0"/>
+    <interval begin="570.00" end="580.00" id="myLoop1s_1" nVehContrib="2" flow="720.00" occupancy="5.29" speed="18.92" length="5.00" nVehEntered="2"/>
+    <interval begin="580.00" end="590.00" id="myLoop1s_0" nVehContrib="0" flow="0.00" occupancy="0.00" speed="-1.00" length="-1.00" nVehEntered="0"/>
+    <interval begin="580.00" end="590.00" id="myLoop1s_1" nVehContrib="3" flow="1080.00" occupancy="7.76" speed="19.34" length="5.00" nVehEntered="3"/>
+    <interval begin="590.00" end="600.00" id="myLoop1s_0" nVehContrib="0" flow="0.00" occupancy="0.00" speed="-1.00" length="-1.00" nVehEntered="0"/>
+    <interval begin="590.00" end="600.00" id="myLoop1s_1" nVehContrib="3" flow="1080.00" occupancy="7.65" speed="19.60" length="5.00" nVehEntered="3"/>
+    <interval begin="600.00" end="610.00" id="myLoop1s_0" nVehContrib="0" flow="0.00" occupancy="0.00" speed="-1.00" length="-1.00" nVehEntered="0"/>
+    <interval begin="600.00" end="610.00" id="myLoop1s_1" nVehContrib="2" flow="720.00" occupancy="5.12" speed="19.53" length="5.00" nVehEntered="2"/>
+    <interval begin="610.00" end="620.00" id="myLoop1s_0" nVehContrib="0" flow="0.00" occupancy="0.00" speed="-1.00" length="-1.00" nVehEntered="0"/>
+    <interval begin="610.00" end="620.00" id="myLoop1s_1" nVehContrib="1" flow="360.00" occupancy="2.57" speed="19.42" length="5.00" nVehEntered="1"/>
+    <interval begin="620.00" end="630.00" id="myLoop1s_0" nVehContrib="0" flow="0.00" occupancy="0.00" speed="-1.00" length="-1.00" nVehEntered="0"/>
+    <interval begin="620.00" end="630.00" id="myLoop1s_1" nVehContrib="1" flow="360.00" occupancy="2.50" speed="19.97" length="5.00" nVehEntered="1"/>
+    <interval begin="630.00" end="640.00" id="myLoop1s_0" nVehContrib="0" flow="0.00" occupancy="0.00" speed="-1.00" length="-1.00" nVehEntered="0"/>
+    <interval begin="630.00" end="640.00" id="myLoop1s_1" nVehContrib="1" flow="360.00" occupancy="2.57" speed="19.47" length="5.00" nVehEntered="1"/>
+=======
     <interval begin="540.00" end="550.00" id="myLoop1s_1" nVehContrib="0" flow="0.00" occupancy="0.00" speed="-1.00" length="-1.00" nVehEntered="0"/>
     <interval begin="550.00" end="560.00" id="myLoop1s_0" nVehContrib="0" flow="0.00" occupancy="0.00" speed="-1.00" length="-1.00" nVehEntered="0"/>
     <interval begin="550.00" end="560.00" id="myLoop1s_1" nVehContrib="0" flow="0.00" occupancy="0.00" speed="-1.00" length="-1.00" nVehEntered="0"/>
@@ -152,11 +211,35 @@
     <interval begin="620.00" end="630.00" id="myLoop1s_1" nVehContrib="3" flow="1080.00" occupancy="7.66" speed="19.59" length="5.00" nVehEntered="3"/>
     <interval begin="630.00" end="640.00" id="myLoop1s_0" nVehContrib="0" flow="0.00" occupancy="0.00" speed="-1.00" length="-1.00" nVehEntered="0"/>
     <interval begin="630.00" end="640.00" id="myLoop1s_1" nVehContrib="0" flow="0.00" occupancy="0.00" speed="-1.00" length="-1.00" nVehEntered="0"/>
+>>>>>>> 17f6228e77961074e478ff2c245e6779b4a0e296
     <interval begin="640.00" end="650.00" id="myLoop1s_0" nVehContrib="0" flow="0.00" occupancy="0.00" speed="-1.00" length="-1.00" nVehEntered="0"/>
     <interval begin="640.00" end="650.00" id="myLoop1s_1" nVehContrib="0" flow="0.00" occupancy="0.00" speed="-1.00" length="-1.00" nVehEntered="0"/>
     <interval begin="650.00" end="660.00" id="myLoop1s_0" nVehContrib="0" flow="0.00" occupancy="0.00" speed="-1.00" length="-1.00" nVehEntered="0"/>
     <interval begin="650.00" end="660.00" id="myLoop1s_1" nVehContrib="0" flow="0.00" occupancy="0.00" speed="-1.00" length="-1.00" nVehEntered="0"/>
     <interval begin="660.00" end="670.00" id="myLoop1s_0" nVehContrib="0" flow="0.00" occupancy="0.00" speed="-1.00" length="-1.00" nVehEntered="0"/>
+<<<<<<< HEAD
+    <interval begin="660.00" end="670.00" id="myLoop1s_1" nVehContrib="2" flow="720.00" occupancy="5.15" speed="19.42" length="5.00" nVehEntered="2"/>
+    <interval begin="670.00" end="680.00" id="myLoop1s_0" nVehContrib="0" flow="0.00" occupancy="0.00" speed="-1.00" length="-1.00" nVehEntered="0"/>
+    <interval begin="670.00" end="680.00" id="myLoop1s_1" nVehContrib="1" flow="360.00" occupancy="2.56" speed="19.56" length="5.00" nVehEntered="1"/>
+    <interval begin="680.00" end="690.00" id="myLoop1s_0" nVehContrib="0" flow="0.00" occupancy="0.00" speed="-1.00" length="-1.00" nVehEntered="0"/>
+    <interval begin="680.00" end="690.00" id="myLoop1s_1" nVehContrib="2" flow="720.00" occupancy="5.23" speed="19.14" length="5.00" nVehEntered="2"/>
+    <interval begin="690.00" end="700.00" id="myLoop1s_0" nVehContrib="0" flow="0.00" occupancy="0.00" speed="-1.00" length="-1.00" nVehEntered="0"/>
+    <interval begin="690.00" end="700.00" id="myLoop1s_1" nVehContrib="0" flow="0.00" occupancy="0.00" speed="-1.00" length="-1.00" nVehEntered="0"/>
+    <interval begin="700.00" end="710.00" id="myLoop1s_0" nVehContrib="0" flow="0.00" occupancy="0.00" speed="-1.00" length="-1.00" nVehEntered="0"/>
+    <interval begin="700.00" end="710.00" id="myLoop1s_1" nVehContrib="1" flow="360.00" occupancy="2.63" speed="18.99" length="5.00" nVehEntered="1"/>
+    <interval begin="710.00" end="720.00" id="myLoop1s_0" nVehContrib="0" flow="0.00" occupancy="0.00" speed="-1.00" length="-1.00" nVehEntered="0"/>
+    <interval begin="710.00" end="720.00" id="myLoop1s_1" nVehContrib="1" flow="360.00" occupancy="2.61" speed="19.15" length="5.00" nVehEntered="1"/>
+    <interval begin="720.00" end="730.00" id="myLoop1s_0" nVehContrib="0" flow="0.00" occupancy="0.00" speed="-1.00" length="-1.00" nVehEntered="0"/>
+    <interval begin="720.00" end="730.00" id="myLoop1s_1" nVehContrib="2" flow="720.00" occupancy="5.16" speed="19.40" length="5.00" nVehEntered="2"/>
+    <interval begin="730.00" end="740.00" id="myLoop1s_0" nVehContrib="0" flow="0.00" occupancy="0.00" speed="-1.00" length="-1.00" nVehEntered="0"/>
+    <interval begin="730.00" end="740.00" id="myLoop1s_1" nVehContrib="1" flow="360.00" occupancy="2.56" speed="19.49" length="5.00" nVehEntered="1"/>
+    <interval begin="740.00" end="750.00" id="myLoop1s_0" nVehContrib="0" flow="0.00" occupancy="0.00" speed="-1.00" length="-1.00" nVehEntered="0"/>
+    <interval begin="740.00" end="750.00" id="myLoop1s_1" nVehContrib="0" flow="0.00" occupancy="0.00" speed="-1.00" length="-1.00" nVehEntered="0"/>
+    <interval begin="750.00" end="760.00" id="myLoop1s_0" nVehContrib="0" flow="0.00" occupancy="0.00" speed="-1.00" length="-1.00" nVehEntered="0"/>
+    <interval begin="750.00" end="760.00" id="myLoop1s_1" nVehContrib="1" flow="360.00" occupancy="2.57" speed="19.43" length="5.00" nVehEntered="1"/>
+    <interval begin="760.00" end="770.00" id="myLoop1s_0" nVehContrib="0" flow="0.00" occupancy="0.00" speed="-1.00" length="-1.00" nVehEntered="0"/>
+    <interval begin="760.00" end="770.00" id="myLoop1s_1" nVehContrib="0" flow="0.00" occupancy="0.00" speed="-1.00" length="-1.00" nVehEntered="0"/>
+=======
     <interval begin="660.00" end="670.00" id="myLoop1s_1" nVehContrib="2" flow="720.00" occupancy="5.22" speed="19.15" length="5.00" nVehEntered="2"/>
     <interval begin="670.00" end="680.00" id="myLoop1s_0" nVehContrib="0" flow="0.00" occupancy="0.00" speed="-1.00" length="-1.00" nVehEntered="0"/>
     <interval begin="670.00" end="680.00" id="myLoop1s_1" nVehContrib="2" flow="720.00" occupancy="5.13" speed="19.48" length="5.00" nVehEntered="2"/>
@@ -178,12 +261,17 @@
     <interval begin="750.00" end="760.00" id="myLoop1s_1" nVehContrib="2" flow="720.00" occupancy="5.07" speed="19.72" length="5.00" nVehEntered="2"/>
     <interval begin="760.00" end="770.00" id="myLoop1s_0" nVehContrib="0" flow="0.00" occupancy="0.00" speed="-1.00" length="-1.00" nVehEntered="0"/>
     <interval begin="760.00" end="770.00" id="myLoop1s_1" nVehContrib="2" flow="720.00" occupancy="5.17" speed="19.35" length="5.00" nVehEntered="2"/>
+>>>>>>> 17f6228e77961074e478ff2c245e6779b4a0e296
     <interval begin="770.00" end="780.00" id="myLoop1s_0" nVehContrib="0" flow="0.00" occupancy="0.00" speed="-1.00" length="-1.00" nVehEntered="0"/>
     <interval begin="770.00" end="780.00" id="myLoop1s_1" nVehContrib="0" flow="0.00" occupancy="0.00" speed="-1.00" length="-1.00" nVehEntered="0"/>
     <interval begin="780.00" end="790.00" id="myLoop1s_0" nVehContrib="0" flow="0.00" occupancy="0.00" speed="-1.00" length="-1.00" nVehEntered="0"/>
     <interval begin="780.00" end="790.00" id="myLoop1s_1" nVehContrib="0" flow="0.00" occupancy="0.00" speed="-1.00" length="-1.00" nVehEntered="0"/>
     <interval begin="790.00" end="800.00" id="myLoop1s_0" nVehContrib="0" flow="0.00" occupancy="0.00" speed="-1.00" length="-1.00" nVehEntered="0"/>
+<<<<<<< HEAD
+    <interval begin="790.00" end="800.00" id="myLoop1s_1" nVehContrib="1" flow="360.00" occupancy="2.58" speed="19.39" length="5.00" nVehEntered="1"/>
+=======
     <interval begin="790.00" end="800.00" id="myLoop1s_1" nVehContrib="1" flow="360.00" occupancy="2.63" speed="19.04" length="5.00" nVehEntered="1"/>
+>>>>>>> 17f6228e77961074e478ff2c245e6779b4a0e296
     <interval begin="800.00" end="810.00" id="myLoop1s_0" nVehContrib="0" flow="0.00" occupancy="0.00" speed="-1.00" length="-1.00" nVehEntered="0"/>
     <interval begin="800.00" end="810.00" id="myLoop1s_1" nVehContrib="0" flow="0.00" occupancy="0.00" speed="-1.00" length="-1.00" nVehEntered="0"/>
     <interval begin="810.00" end="820.00" id="myLoop1s_0" nVehContrib="0" flow="0.00" occupancy="0.00" speed="-1.00" length="-1.00" nVehEntered="0"/>
@@ -193,7 +281,11 @@
     <interval begin="830.00" end="840.00" id="myLoop1s_0" nVehContrib="0" flow="0.00" occupancy="0.00" speed="-1.00" length="-1.00" nVehEntered="0"/>
     <interval begin="830.00" end="840.00" id="myLoop1s_1" nVehContrib="0" flow="0.00" occupancy="0.00" speed="-1.00" length="-1.00" nVehEntered="0"/>
     <interval begin="840.00" end="850.00" id="myLoop1s_0" nVehContrib="0" flow="0.00" occupancy="0.00" speed="-1.00" length="-1.00" nVehEntered="0"/>
+<<<<<<< HEAD
+    <interval begin="840.00" end="850.00" id="myLoop1s_1" nVehContrib="0" flow="0.00" occupancy="0.00" speed="-1.00" length="-1.00" nVehEntered="0"/>
+=======
     <interval begin="840.00" end="850.00" id="myLoop1s_1" nVehContrib="1" flow="360.00" occupancy="2.56" speed="19.50" length="5.00" nVehEntered="1"/>
+>>>>>>> 17f6228e77961074e478ff2c245e6779b4a0e296
     <interval begin="850.00" end="860.00" id="myLoop1s_0" nVehContrib="0" flow="0.00" occupancy="0.00" speed="-1.00" length="-1.00" nVehEntered="0"/>
     <interval begin="850.00" end="860.00" id="myLoop1s_1" nVehContrib="0" flow="0.00" occupancy="0.00" speed="-1.00" length="-1.00" nVehEntered="0"/>
     <interval begin="860.00" end="870.00" id="myLoop1s_0" nVehContrib="0" flow="0.00" occupancy="0.00" speed="-1.00" length="-1.00" nVehEntered="0"/>
@@ -227,7 +319,11 @@
     <interval begin="1000.00" end="1010.00" id="myLoop1s_0" nVehContrib="0" flow="0.00" occupancy="0.00" speed="-1.00" length="-1.00" nVehEntered="0"/>
     <interval begin="1000.00" end="1010.00" id="myLoop1s_1" nVehContrib="0" flow="0.00" occupancy="0.00" speed="-1.00" length="-1.00" nVehEntered="0"/>
     <interval begin="1010.00" end="1020.00" id="myLoop1s_0" nVehContrib="0" flow="0.00" occupancy="0.00" speed="-1.00" length="-1.00" nVehEntered="0"/>
+<<<<<<< HEAD
+    <interval begin="1010.00" end="1020.00" id="myLoop1s_1" nVehContrib="1" flow="360.00" occupancy="2.59" speed="19.31" length="5.00" nVehEntered="1"/>
+=======
     <interval begin="1010.00" end="1020.00" id="myLoop1s_1" nVehContrib="1" flow="360.00" occupancy="2.64" speed="18.94" length="5.00" nVehEntered="1"/>
+>>>>>>> 17f6228e77961074e478ff2c245e6779b4a0e296
     <interval begin="1020.00" end="1030.00" id="myLoop1s_0" nVehContrib="0" flow="0.00" occupancy="0.00" speed="-1.00" length="-1.00" nVehEntered="0"/>
     <interval begin="1020.00" end="1030.00" id="myLoop1s_1" nVehContrib="0" flow="0.00" occupancy="0.00" speed="-1.00" length="-1.00" nVehEntered="0"/>
     <interval begin="1030.00" end="1040.00" id="myLoop1s_0" nVehContrib="0" flow="0.00" occupancy="0.00" speed="-1.00" length="-1.00" nVehEntered="0"/>
@@ -355,7 +451,11 @@
     <interval begin="1640.00" end="1650.00" id="myLoop1s_0" nVehContrib="0" flow="0.00" occupancy="0.00" speed="-1.00" length="-1.00" nVehEntered="0"/>
     <interval begin="1640.00" end="1650.00" id="myLoop1s_1" nVehContrib="0" flow="0.00" occupancy="0.00" speed="-1.00" length="-1.00" nVehEntered="0"/>
     <interval begin="1650.00" end="1660.00" id="myLoop1s_0" nVehContrib="0" flow="0.00" occupancy="0.00" speed="-1.00" length="-1.00" nVehEntered="0"/>
+<<<<<<< HEAD
+    <interval begin="1650.00" end="1660.00" id="myLoop1s_1" nVehContrib="1" flow="360.00" occupancy="2.55" speed="19.65" length="5.00" nVehEntered="1"/>
+=======
     <interval begin="1650.00" end="1660.00" id="myLoop1s_1" nVehContrib="1" flow="360.00" occupancy="2.59" speed="19.34" length="5.00" nVehEntered="1"/>
+>>>>>>> 17f6228e77961074e478ff2c245e6779b4a0e296
     <interval begin="1660.00" end="1670.00" id="myLoop1s_0" nVehContrib="0" flow="0.00" occupancy="0.00" speed="-1.00" length="-1.00" nVehEntered="0"/>
     <interval begin="1660.00" end="1670.00" id="myLoop1s_1" nVehContrib="0" flow="0.00" occupancy="0.00" speed="-1.00" length="-1.00" nVehEntered="0"/>
     <interval begin="1670.00" end="1680.00" id="myLoop1s_0" nVehContrib="0" flow="0.00" occupancy="0.00" speed="-1.00" length="-1.00" nVehEntered="0"/>
@@ -453,7 +553,11 @@
     <interval begin="2130.00" end="2140.00" id="myLoop1s_0" nVehContrib="0" flow="0.00" occupancy="0.00" speed="-1.00" length="-1.00" nVehEntered="0"/>
     <interval begin="2130.00" end="2140.00" id="myLoop1s_1" nVehContrib="0" flow="0.00" occupancy="0.00" speed="-1.00" length="-1.00" nVehEntered="0"/>
     <interval begin="2140.00" end="2150.00" id="myLoop1s_0" nVehContrib="0" flow="0.00" occupancy="0.00" speed="-1.00" length="-1.00" nVehEntered="0"/>
+<<<<<<< HEAD
+    <interval begin="2140.00" end="2150.00" id="myLoop1s_1" nVehContrib="1" flow="360.00" occupancy="2.67" speed="18.73" length="5.00" nVehEntered="1"/>
+=======
     <interval begin="2140.00" end="2150.00" id="myLoop1s_1" nVehContrib="1" flow="360.00" occupancy="2.58" speed="19.41" length="5.00" nVehEntered="1"/>
+>>>>>>> 17f6228e77961074e478ff2c245e6779b4a0e296
     <interval begin="2150.00" end="2160.00" id="myLoop1s_0" nVehContrib="0" flow="0.00" occupancy="0.00" speed="-1.00" length="-1.00" nVehEntered="0"/>
     <interval begin="2150.00" end="2160.00" id="myLoop1s_1" nVehContrib="0" flow="0.00" occupancy="0.00" speed="-1.00" length="-1.00" nVehEntered="0"/>
     <interval begin="2160.00" end="2170.00" id="myLoop1s_0" nVehContrib="0" flow="0.00" occupancy="0.00" speed="-1.00" length="-1.00" nVehEntered="0"/>
@@ -559,9 +663,15 @@
     <interval begin="2660.00" end="2670.00" id="myLoop1s_0" nVehContrib="0" flow="0.00" occupancy="0.00" speed="-1.00" length="-1.00" nVehEntered="0"/>
     <interval begin="2660.00" end="2670.00" id="myLoop1s_1" nVehContrib="0" flow="0.00" occupancy="0.00" speed="-1.00" length="-1.00" nVehEntered="0"/>
     <interval begin="2670.00" end="2680.00" id="myLoop1s_0" nVehContrib="0" flow="0.00" occupancy="0.00" speed="-1.00" length="-1.00" nVehEntered="0"/>
+<<<<<<< HEAD
+    <interval begin="2670.00" end="2680.00" id="myLoop1s_1" nVehContrib="0" flow="0.00" occupancy="0.00" speed="-1.00" length="-1.00" nVehEntered="0"/>
+    <interval begin="2680.00" end="2690.00" id="myLoop1s_0" nVehContrib="0" flow="0.00" occupancy="0.00" speed="-1.00" length="-1.00" nVehEntered="0"/>
+    <interval begin="2680.00" end="2690.00" id="myLoop1s_1" nVehContrib="0" flow="0.00" occupancy="0.00" speed="-1.00" length="-1.00" nVehEntered="1"/>
+=======
     <interval begin="2670.00" end="2680.00" id="myLoop1s_1" nVehContrib="0" flow="0.00" occupancy="7.55" speed="-1.00" length="-1.00" nVehEntered="1"/>
     <interval begin="2680.00" end="2690.00" id="myLoop1s_0" nVehContrib="0" flow="0.00" occupancy="0.00" speed="-1.00" length="-1.00" nVehEntered="0"/>
     <interval begin="2680.00" end="2690.00" id="myLoop1s_1" nVehContrib="0" flow="0.00" occupancy="0.00" speed="-1.00" length="-1.00" nVehEntered="0"/>
+>>>>>>> 17f6228e77961074e478ff2c245e6779b4a0e296
     <interval begin="2690.00" end="2700.00" id="myLoop1s_0" nVehContrib="0" flow="0.00" occupancy="0.00" speed="-1.00" length="-1.00" nVehEntered="0"/>
     <interval begin="2690.00" end="2700.00" id="myLoop1s_1" nVehContrib="0" flow="0.00" occupancy="0.00" speed="-1.00" length="-1.00" nVehEntered="0"/>
     <interval begin="2700.00" end="2710.00" id="myLoop1s_0" nVehContrib="0" flow="0.00" occupancy="0.00" speed="-1.00" length="-1.00" nVehEntered="0"/>
@@ -1012,6 +1122,10 @@
     <interval begin="4920.00" end="4930.00" id="myLoop1s_1" nVehContrib="0" flow="0.00" occupancy="0.00" speed="-1.00" length="-1.00" nVehEntered="0"/>
     <interval begin="4930.00" end="4940.00" id="myLoop1s_0" nVehContrib="0" flow="0.00" occupancy="0.00" speed="-1.00" length="-1.00" nVehEntered="0"/>
     <interval begin="4930.00" end="4940.00" id="myLoop1s_1" nVehContrib="0" flow="0.00" occupancy="0.00" speed="-1.00" length="-1.00" nVehEntered="0"/>
+<<<<<<< HEAD
+    <interval begin="4940.00" end="4943.00" id="myLoop1s_0" nVehContrib="0" flow="0.00" occupancy="0.00" speed="-1.00" length="-1.00" nVehEntered="0"/>
+    <interval begin="4940.00" end="4943.00" id="myLoop1s_1" nVehContrib="0" flow="0.00" occupancy="0.00" speed="-1.00" length="-1.00" nVehEntered="0"/>
+=======
     <interval begin="4940.00" end="4950.00" id="myLoop1s_0" nVehContrib="0" flow="0.00" occupancy="0.00" speed="-1.00" length="-1.00" nVehEntered="0"/>
     <interval begin="4940.00" end="4950.00" id="myLoop1s_1" nVehContrib="0" flow="0.00" occupancy="0.00" speed="-1.00" length="-1.00" nVehEntered="0"/>
     <interval begin="4950.00" end="4960.00" id="myLoop1s_0" nVehContrib="0" flow="0.00" occupancy="0.00" speed="-1.00" length="-1.00" nVehEntered="0"/>
@@ -2024,4 +2138,5 @@
     <interval begin="9980.00" end="9990.00" id="myLoop1s_1" nVehContrib="0" flow="0.00" occupancy="0.00" speed="-1.00" length="-1.00" nVehEntered="0"/>
     <interval begin="9990.00" end="10000.00" id="myLoop1s_0" nVehContrib="0" flow="0.00" occupancy="0.00" speed="-1.00" length="-1.00" nVehEntered="0"/>
     <interval begin="9990.00" end="10000.00" id="myLoop1s_1" nVehContrib="0" flow="0.00" occupancy="0.00" speed="-1.00" length="-1.00" nVehEntered="0"/>
+>>>>>>> 17f6228e77961074e478ff2c245e6779b4a0e296
 </detector>
