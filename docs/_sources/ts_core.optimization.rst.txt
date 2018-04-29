@@ -12,5 +12,6 @@ Submodules
 .. toctree::
 
    ts_core.optimization.optimizer_base
+   ts_core.optimization.optimizer_example
    ts_core.optimization.optimizer_exceptions
 

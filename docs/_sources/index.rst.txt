@@ -9,8 +9,40 @@ The TrafficSense project was started as part of the Rochester Institute of Techn
 program. The TrafficSense tools are designed to facilitate simple use of the SUMO traffic simulation software so the
 user can focus on optimizing traffic light controls at an intersection.
 
+Making it easier to make intersections better.
 
-:ref:`ts_runner`
+Installation
+------------
+
+
+
+``ts_config`` Documentation
+---------------------------
+Getting started with SUMO requires the definition of intersection geometery and traffic demand. If you need a first
+step, this is the droid you're looking for.
+
+:ref:`ts_config_cli`
+
+
+``ts_runner`` Documentation
+---------------------------
+:ref:`ts_runner_cli`
+
+
+Project Developer Documentation
+-------------------------------
+
+``ts_runner``
+~~~~~~~~~~~~~
+
+
+``ts_config``
+~~~~~~~~~~~~~
+
+:ref:`ts_config_bindings`
+
+:ref:`ts_config_parser`:
+
 
 .. toctree::
    :maxdepth: 2

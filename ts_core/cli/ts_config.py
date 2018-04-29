@@ -1,3 +1,16 @@
+"""
+
+.. _ts_config_cli:
+
+``ts_config`` Overview
+======================
+``ts_config`` manages the build of SUMO configuration files from an Excel sheet. 
+
+The user should understand that, because we have simplified configuration, not all SUMO features are supported 
+out of the box. 
+
+
+"""
 import argparse
 from shutil import copyfile
 from ..excel_parser import parser
@@ -35,11 +48,11 @@ def parse_args():
     parser = argparse.ArgumentParser()
     subparsers = parser.add_subparsers(title="subcommands", help="choose one")
 
-    init = subparsers.add_parser('init', help="", description="")
-    init.add_argument("-p", "--project_path", action=FullPaths)
-    init.set_defaults(which='init')
+    # init = subparsers.add_parser('init', help="", description="")
+    # init.add_argument("-p", "--project_path", action=FullPaths)
+    # init.set_defaults(which='init')
 
-    build = subparsers.add_parser('build', help="", description="")
+    build = subparsers.add_parser('build', help="subcommand to build the configuration", description="Run the configuration build.")
     build.add_argument("config_file")#, action=FullPaths)
     build.add_argument("-p", "--project_path", action=FullPaths)
     build.set_defaults(which='build')
@@ -72,8 +85,10 @@ def main():
 
         transform_parsed_excel(parsed_excel, args.project_path, stats_xml, config_name)
 
-    elif args.which == 'init':
-        pass
+    # elif args.which == 'init':
+    #     pass
     else:
         raise ValueError("Invalid subcommand somehow passed Argparse, please try again.")
 
+if __name__ == "__main__":
+    main()

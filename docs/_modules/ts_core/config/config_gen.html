@@ -88,29 +88,50 @@
     <span class="n">sumocfg_xml</span> <span class="o">=</span> <span class="n">mk_sumocfg</span><span class="p">(</span><span class="n">parsed</span><span class="p">[</span><span class="s2">&quot;SUMOCFG&quot;</span><span class="p">])</span>
     <span class="n">node_xml</span> <span class="o">=</span> <span class="n">mk_node</span><span class="p">(</span><span class="n">parsed</span><span class="p">[</span><span class="s1">&#39;Intersections&#39;</span><span class="p">],</span> <span class="n">parsed</span><span class="p">[</span><span class="s1">&#39;Branches&#39;</span><span class="p">])</span>
     <span class="n">edge_xml</span> <span class="o">=</span> <span class="n">mk_edge</span><span class="p">(</span><span class="n">parsed</span><span class="p">[</span><span class="s1">&#39;Intersections&#39;</span><span class="p">],</span> <span class="n">parsed</span><span class="p">[</span><span class="s1">&#39;Branches&#39;</span><span class="p">])</span>
+    <span class="n">additional_xml</span> <span class="o">=</span> <span class="n">mk_add</span><span class="p">(</span><span class="n">parsed</span><span class="p">[</span><span class="s1">&#39;Intersections&#39;</span><span class="p">],</span> <span class="n">parsed</span><span class="p">[</span><span class="s1">&#39;Branches&#39;</span><span class="p">])</span>
 
     <span class="c1"># Write SUMO config XML</span>
+
     <span class="n">sumocfg_file_path</span> <span class="o">=</span> <span class="n">project_path</span><span class="o">+</span> <span class="s2">&quot;/&quot;</span> <span class="o">+</span> <span class="n">config_name</span> <span class="o">+</span> <span class="s2">&quot;.sumocfg&quot;</span>
+    <span class="n">logger</span><span class="o">.</span><span class="n">info</span><span class="p">(</span><span class="s2">&quot;Writing SUMO Config File to </span><span class="si">{}</span><span class="s2">&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">sumocfg_file_path</span><span class="p">))</span>
     <span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="n">sumocfg_file_path</span>                              <span class="p">,</span> <span class="s2">&quot;w&quot;</span><span class="p">)</span> <span class="k">as</span> <span class="n">cfg_file</span><span class="p">:</span>
         <span class="n">cfg_file</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="n">sumocfg_xml</span><span class="p">)</span>
 
     <span class="c1"># White nodes XML</span>
     <span class="n">node_file_path</span> <span class="o">=</span> <span class="n">project_path</span> <span class="o">+</span> <span class="s2">&quot;/&quot;</span> <span class="o">+</span> <span class="n">config_name</span> <span class="o">+</span> <span class="s2">&quot;.nod.xml&quot;</span>
-
+    <span class="n">logger</span><span class="o">.</span><span class="n">info</span><span class="p">(</span><span class="s2">&quot;Writing Node File to </span><span class="si">{}</span><span class="s2">&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">node_file_path</span><span class="p">))</span>
     <span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="n">node_file_path</span><span class="p">,</span> <span class="s2">&quot;w&quot;</span><span class="p">)</span> <span class="k">as</span> <span class="n">cfg_file</span><span class="p">:</span>
         <span class="n">cfg_file</span><span class="o">.</span><span class="n">writelines</span><span class="p">(</span><span class="n">node_xml</span><span class="p">)</span>
 
     <span class="c1"># Write edges XML</span>
     <span class="n">edge_file_path</span> <span class="o">=</span> <span class="n">project_path</span> <span class="o">+</span> <span class="s2">&quot;/&quot;</span> <span class="o">+</span> <span class="n">config_name</span> <span class="o">+</span> <span class="s2">&quot;.edg.xml&quot;</span>
+    <span class="n">logger</span><span class="o">.</span><span class="n">info</span><span class="p">(</span><span class="s2">&quot;Writing Edge File to </span><span class="si">{}</span><span class="s2">&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">edge_file_path</span><span class="p">))</span>
     <span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="n">edge_file_path</span><span class="p">,</span> <span class="s2">&quot;w&quot;</span><span class="p">)</span> <span class="k">as</span> <span class="n">cfg_file</span><span class="p">:</span>
         <span class="n">cfg_file</span><span class="o">.</span><span class="n">writelines</span><span class="p">(</span><span class="n">edge_xml</span><span class="p">)</span>
 
     <span class="c1"># Write stats XML</span>
     <span class="n">stat_file_path</span> <span class="o">=</span> <span class="n">project_path</span> <span class="o">+</span> <span class="s2">&quot;/&quot;</span> <span class="o">+</span> <span class="n">config_name</span> <span class="o">+</span> <span class="s2">&quot;.stat.xml&quot;</span>
+    <span class="n">logger</span><span class="o">.</span><span class="n">info</span><span class="p">(</span><span class="s2">&quot;Writing Stats File to </span><span class="si">{}</span><span class="s2">&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">stat_file_path</span><span class="p">))</span>
     <span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="n">stat_file_path</span><span class="p">,</span> <span class="s2">&quot;w&quot;</span><span class="p">)</span> <span class="k">as</span> <span class="n">cfg_file</span><span class="p">:</span>
         <span class="n">cfg_file</span><span class="o">.</span><span class="n">writelines</span><span class="p">(</span><span class="n">stats_file</span><span class="p">)</span>
 
-    <span class="nb">print</span><span class="p">(</span><span class="n">os</span><span class="o">.</span><span class="n">getcwd</span><span class="p">())</span>
+    <span class="c1"># Write additional XML</span>
+    <span class="n">additional_file_path</span> <span class="o">=</span> <span class="n">project_path</span> <span class="o">+</span> <span class="s2">&quot;/&quot;</span> <span class="o">+</span> <span class="n">config_name</span> <span class="o">+</span> <span class="s2">&quot;.add.xml&quot;</span>
+    <span class="n">logger</span><span class="o">.</span><span class="n">info</span><span class="p">(</span><span class="s2">&quot;Writing Additional XML File to </span><span class="si">{}</span><span class="s2">&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">additional_file_path</span><span class="p">))</span>
+    <span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="n">additional_file_path</span><span class="p">,</span> <span class="s2">&quot;w&quot;</span><span class="p">)</span> <span class="k">as</span> <span class="n">cfg_file</span><span class="p">:</span>
+        <span class="n">cfg_file</span><span class="o">.</span><span class="n">writelines</span><span class="p">(</span><span class="n">additional_xml</span><span class="p">)</span>
+
+    <span class="n">gui_settings</span> <span class="o">=</span> <span class="s2">&quot;&quot;&quot;</span>
+<span class="s2">    &lt;viewsettings&gt;</span>
+<span class="s2">        &lt;delay value=&quot;0&quot;/&gt;</span>
+<span class="s2">        &lt;viewport zoom=&quot;100&quot; x=&quot;510&quot; y=&quot;510&quot;/&gt;</span>
+<span class="s2">    &lt;/viewsettings&gt;</span>
+
+<span class="s2">    &quot;&quot;&quot;</span>
+    <span class="n">gui_settings_file_path</span> <span class="o">=</span> <span class="n">project_path</span> <span class="o">+</span> <span class="s2">&quot;/gui-settings.cfg&quot;</span>
+    <span class="n">logger</span><span class="o">.</span><span class="n">info</span><span class="p">(</span><span class="s2">&quot;Writing GUI Settings File to </span><span class="si">{}</span><span class="s2">&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">additional_file_path</span><span class="p">))</span>
+    <span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="n">gui_settings_file_path</span><span class="p">,</span> <span class="s2">&quot;w&quot;</span><span class="p">)</span> <span class="k">as</span> <span class="n">cfg_file</span><span class="p">:</span>
+        <span class="n">cfg_file</span><span class="o">.</span><span class="n">writelines</span><span class="p">(</span><span class="n">gui_settings</span><span class="p">)</span>
 
     <span class="n">logger</span><span class="o">.</span><span class="n">info</span><span class="p">(</span><span class="s2">&quot;******** ASSUMING NETCONVERT, ACTIVITYGEN, DUAROUTER ACCESSIBLE TO SHELL ********&quot;</span><span class="p">)</span>
 

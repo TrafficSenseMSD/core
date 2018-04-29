@@ -1,3 +1,15 @@
+"""
+
+.. _ts_config_parser:
+
+Excel Configuration Parser Internals
+------------------------------------
+
+A bunch of global parsing constants are defined in this file. Be sure to look at the source code before you pull
+your hair out. 
+
+
+"""
 from openpyxl import *
 import json
 import xml.etree.ElementTree as ET

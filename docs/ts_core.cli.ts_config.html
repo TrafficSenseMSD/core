@@ -45,9 +45,62 @@
             
   <div class="section" id="module-ts_core.cli.ts_config">
 <span id="ts-core-cli-ts-config-module"></span><h1>ts_core.cli.ts_config module<a class="headerlink" href="#module-ts_core.cli.ts_config" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="ts-config-overview">
+<span id="ts-config-cli"></span><h2><code class="docutils literal"><span class="pre">ts_config</span></code> Overview<a class="headerlink" href="#ts-config-overview" title="Permalink to this headline">¶</a></h2>
+<p><code class="docutils literal"><span class="pre">ts_config</span></code> manages the build of SUMO configuration files from an Excel sheet.</p>
+<p>The user should understand that, because we have simplified configuration, not all SUMO features are supported
+out of the box.</p>
+<hr class="docutils" />
+<div class="section" id="command-line-arguments">
+<h3>Command-line arguments<a class="headerlink" href="#command-line-arguments" title="Permalink to this headline">¶</a></h3>
+<div class="section" id="optional-arguments">
+<h4>Optional arguments<a class="headerlink" href="#optional-arguments" title="Permalink to this headline">¶</a></h4>
+<blockquote>
+<div><blockquote>
+<div><table border="1" class="docutils">
+<colgroup>
+<col width="39%" />
+<col width="61%" />
+</colgroup>
+<tbody valign="top">
+<tr class="row-odd"><td><strong>Argument</strong></td>
+<td><strong>Description</strong></td>
+</tr>
+<tr class="row-even"><td><code class="docutils literal"><span class="pre">-h</span></code>, <code class="docutils literal"><span class="pre">--help</span></code></td>
+<td>show this help message and exit</td>
+</tr>
+<tr class="row-odd"><td><code class="docutils literal"><span class="pre">--init</span></code></td>
+<td>Initializes the directory…</td>
+</tr>
+</tbody>
+</table>
+</div></blockquote>
+<p>{build}     choose one</p>
+</div></blockquote>
+</div>
+<div class="section" id="subcommands">
+<h4>Subcommands<a class="headerlink" href="#subcommands" title="Permalink to this headline">¶</a></h4>
+<blockquote>
+<div><table border="1" class="docutils">
+<colgroup>
+<col width="25%" />
+<col width="75%" />
+</colgroup>
+<tbody valign="top">
+<tr class="row-odd"><td><strong>Argument</strong></td>
+<td><strong>Description</strong></td>
+</tr>
+<tr class="row-even"><td><code class="docutils literal"><span class="pre">build</span></code></td>
+<td>subcommand to build the configuration</td>
+</tr>
+</tbody>
+</table>
+</div></blockquote>
+</div>
+</div>
 <hr class="docutils" />
 <div class="section" id="script-contents">
-<h2>Script contents<a class="headerlink" href="#script-contents" title="Permalink to this headline">¶</a></h2>
+<h3>Script contents<a class="headerlink" href="#script-contents" title="Permalink to this headline">¶</a></h3>
 <dl class="function">
 <dt id="ts_core.cli.ts_config.main">
 <code class="descname">main</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/ts_core/cli/ts_config.html#main"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#ts_core.cli.ts_config.main" title="Permalink to this definition">¶</a></dt>
@@ -91,6 +144,7 @@ will (call functions that )creates all of the required files</p>
 
 </div>
 </div>
+</div>
 
 
           </div>
@@ -101,7 +155,15 @@ will (call functions that )creates all of the required files</p>
   <h3><a href="index.html">Table Of Contents</a></h3>
   <ul>
 <li><a class="reference internal" href="#">ts_core.cli.ts_config module</a><ul>
+<li><a class="reference internal" href="#ts-config-overview"><code class="docutils literal"><span class="pre">ts_config</span></code> Overview</a><ul>
+<li><a class="reference internal" href="#command-line-arguments">Command-line arguments</a><ul>
+<li><a class="reference internal" href="#optional-arguments">Optional arguments</a></li>
+<li><a class="reference internal" href="#subcommands">Subcommands</a></li>
+</ul>
+</li>
 <li><a class="reference internal" href="#script-contents">Script contents</a></li>
+</ul>
+</li>
 </ul>
 </li>
 </ul>
