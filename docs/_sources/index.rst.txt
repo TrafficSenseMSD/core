@@ -11,6 +11,8 @@ user can focus on optimizing traffic light controls at an intersection.
 
 The project aims to make it easier to make intersections better.
 
+The original team behind this project has graduated. Please contact Dr. Katie McConky at RIT if you need anything.
+
 Installation
 ------------
 Be sure to install ``git`` and have a dedicated Python 3.5+ environment handy. We recommend Anaconda.
