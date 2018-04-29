@@ -1,0 +1,155 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!-- generated on Fri 27 Apr 2018 09:27:23 PM DST by SUMO gui Version 0.32.0
+<?xml version="1.0" encoding="UTF-8"?>
+
+<configuration xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="http://sumo.dlr.de/xsd/sumoConfiguration.xsd">
+
+    <input>
+        <net-file value="/mnt/c/my_programs/SCHOOL/MSD/GIT/core/tests/ImagineRIT/static/cross.net.xml"/>
+        <route-files value="/mnt/c/my_programs/SCHOOL/MSD/GIT/core/tests/ImagineRIT/static/cross.rou.xml"/>
+        <additional-files value="/mnt/c/my_programs/SCHOOL/MSD/GIT/core/tests/ImagineRIT/static/cross.add.xml"/>
+    </input>
+
+    <output>
+        <tripinfo-output value="/mnt/c/my_programs/SCHOOL/MSD/GIT/core/tests/ImagineRIT/static/output/2018_04_27T21_27_22_231406/sutripinfo.xml"/>
+    </output>
+
+    <time>
+        <begin value="0.0"/>
+        <end value="18000.0"/>
+    </time>
+
+    <traci_server>
+        <remote-port value="49476"/>
+    </traci_server>
+
+    <gui_only>
+        <gui-settings-file value="/mnt/c/my_programs/SCHOOL/MSD/GIT/core/tests/ImagineRIT/static/gui-settings.cfg"/>
+    </gui_only>
+
+</configuration>
+-->
+
+<detector xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="http://sumo.dlr.de/xsd/det_e1_file.xsd">
+    <interval begin="0.00" end="300.00" id="TLS0_my_program_InductLoopOn_1i_0" nVehContrib="0" flow="0.00" occupancy="0.00" speed="-1.00" length="-1.00" nVehEntered="0"/>
+    <interval begin="0.00" end="300.00" id="TLS0_my_program_InductLoopOn_1i_1" nVehContrib="0" flow="0.00" occupancy="0.00" speed="-1.00" length="-1.00" nVehEntered="0"/>
+    <interval begin="0.00" end="300.00" id="TLS0_my_program_InductLoopOn_1i_2" nVehContrib="0" flow="0.00" occupancy="0.00" speed="-1.00" length="-1.00" nVehEntered="0"/>
+    <interval begin="0.00" end="300.00" id="TLS0_my_program_InductLoopOn_1i_3" nVehContrib="0" flow="0.00" occupancy="0.00" speed="-1.00" length="-1.00" nVehEntered="0"/>
+    <interval begin="0.00" end="300.00" id="TLS0_my_program_InductLoopOn_1i_4" nVehContrib="0" flow="0.00" occupancy="0.00" speed="-1.00" length="-1.00" nVehEntered="0"/>
+    <interval begin="0.00" end="300.00" id="TLS0_my_program_InductLoopOn_2i_0" nVehContrib="0" flow="0.00" occupancy="0.00" speed="-1.00" length="-1.00" nVehEntered="0"/>
+    <interval begin="0.00" end="300.00" id="TLS0_my_program_InductLoopOn_2i_1" nVehContrib="0" flow="0.00" occupancy="0.00" speed="-1.00" length="-1.00" nVehEntered="0"/>
+    <interval begin="0.00" end="300.00" id="TLS0_my_program_InductLoopOn_2i_2" nVehContrib="0" flow="0.00" occupancy="0.00" speed="-1.00" length="-1.00" nVehEntered="0"/>
+    <interval begin="0.00" end="300.00" id="TLS0_my_program_InductLoopOn_2i_3" nVehContrib="0" flow="0.00" occupancy="0.00" speed="-1.00" length="-1.00" nVehEntered="0"/>
+    <interval begin="0.00" end="300.00" id="TLS0_my_program_InductLoopOn_2i_4" nVehContrib="0" flow="0.00" occupancy="0.00" speed="-1.00" length="-1.00" nVehEntered="0"/>
+    <interval begin="0.00" end="300.00" id="TLS0_my_program_InductLoopOn_3i_0" nVehContrib="0" flow="0.00" occupancy="0.00" speed="-1.00" length="-1.00" nVehEntered="0"/>
+    <interval begin="0.00" end="300.00" id="TLS0_my_program_InductLoopOn_3i_1" nVehContrib="0" flow="0.00" occupancy="0.00" speed="-1.00" length="-1.00" nVehEntered="0"/>
+    <interval begin="0.00" end="300.00" id="TLS0_my_program_InductLoopOn_3i_2" nVehContrib="0" flow="0.00" occupancy="0.00" speed="-1.00" length="-1.00" nVehEntered="0"/>
+    <interval begin="0.00" end="300.00" id="TLS0_my_program_InductLoopOn_3i_3" nVehContrib="0" flow="0.00" occupancy="0.00" speed="-1.00" length="-1.00" nVehEntered="0"/>
+    <interval begin="0.00" end="300.00" id="TLS0_my_program_InductLoopOn_3i_4" nVehContrib="0" flow="0.00" occupancy="0.00" speed="-1.00" length="-1.00" nVehEntered="0"/>
+    <interval begin="0.00" end="300.00" id="TLS0_my_program_InductLoopOn_4i_0" nVehContrib="0" flow="0.00" occupancy="0.00" speed="-1.00" length="-1.00" nVehEntered="0"/>
+    <interval begin="0.00" end="300.00" id="TLS0_my_program_InductLoopOn_4i_1" nVehContrib="0" flow="0.00" occupancy="0.00" speed="-1.00" length="-1.00" nVehEntered="0"/>
+    <interval begin="0.00" end="300.00" id="TLS0_my_program_InductLoopOn_4i_2" nVehContrib="0" flow="0.00" occupancy="0.00" speed="-1.00" length="-1.00" nVehEntered="0"/>
+    <interval begin="0.00" end="300.00" id="TLS0_my_program_InductLoopOn_4i_3" nVehContrib="0" flow="0.00" occupancy="0.00" speed="-1.00" length="-1.00" nVehEntered="0"/>
+    <interval begin="0.00" end="300.00" id="TLS0_my_program_InductLoopOn_4i_4" nVehContrib="0" flow="0.00" occupancy="0.00" speed="-1.00" length="-1.00" nVehEntered="0"/>
+    <interval begin="300.00" end="600.00" id="TLS0_my_program_InductLoopOn_1i_0" nVehContrib="25" flow="300.00" occupancy="22.32" speed="2.51" length="5.00" nVehEntered="43"/>
+    <interval begin="300.00" end="600.00" id="TLS0_my_program_InductLoopOn_1i_1" nVehContrib="12" flow="144.00" occupancy="7.61" speed="2.81" length="5.00" nVehEntered="17"/>
+    <interval begin="300.00" end="600.00" id="TLS0_my_program_InductLoopOn_1i_2" nVehContrib="5" flow="60.00" occupancy="3.39" speed="3.18" length="5.00" nVehEntered="5"/>
+    <interval begin="300.00" end="600.00" id="TLS0_my_program_InductLoopOn_1i_3" nVehContrib="1" flow="12.00" occupancy="3.77" speed="2.15" length="5.00" nVehEntered="2"/>
+    <interval begin="300.00" end="600.00" id="TLS0_my_program_InductLoopOn_1i_4" nVehContrib="2" flow="24.00" occupancy="20.83" speed="3.29" length="5.00" nVehEntered="4"/>
+    <interval begin="300.00" end="600.00" id="TLS0_my_program_InductLoopOn_2i_0" nVehContrib="18" flow="216.00" occupancy="30.04" speed="1.86" length="5.00" nVehEntered="37"/>
+    <interval begin="300.00" end="600.00" id="TLS0_my_program_InductLoopOn_2i_1" nVehContrib="14" flow="168.00" occupancy="7.64" speed="3.26" length="5.00" nVehEntered="15"/>
+    <interval begin="300.00" end="600.00" id="TLS0_my_program_InductLoopOn_2i_2" nVehContrib="0" flow="0.00" occupancy="0.00" speed="-1.00" length="-1.00" nVehEntered="0"/>
+    <interval begin="300.00" end="600.00" id="TLS0_my_program_InductLoopOn_2i_3" nVehContrib="0" flow="0.00" occupancy="0.00" speed="-1.00" length="-1.00" nVehEntered="0"/>
+    <interval begin="300.00" end="600.00" id="TLS0_my_program_InductLoopOn_2i_4" nVehContrib="1" flow="12.00" occupancy="0.17" speed="9.75" length="5.00" nVehEntered="1"/>
+    <interval begin="300.00" end="600.00" id="TLS0_my_program_InductLoopOn_3i_0" nVehContrib="24" flow="288.00" occupancy="28.53" speed="2.94" length="5.00" nVehEntered="38"/>
+    <interval begin="300.00" end="600.00" id="TLS0_my_program_InductLoopOn_3i_1" nVehContrib="11" flow="132.00" occupancy="6.13" speed="3.15" length="5.00" nVehEntered="12"/>
+    <interval begin="300.00" end="600.00" id="TLS0_my_program_InductLoopOn_3i_2" nVehContrib="1" flow="12.00" occupancy="0.34" speed="4.87" length="5.00" nVehEntered="1"/>
+    <interval begin="300.00" end="600.00" id="TLS0_my_program_InductLoopOn_3i_3" nVehContrib="1" flow="12.00" occupancy="0.47" speed="3.57" length="5.00" nVehEntered="1"/>
+    <interval begin="300.00" end="600.00" id="TLS0_my_program_InductLoopOn_3i_4" nVehContrib="2" flow="24.00" occupancy="1.43" speed="3.07" length="5.00" nVehEntered="3"/>
+    <interval begin="300.00" end="600.00" id="TLS0_my_program_InductLoopOn_4i_0" nVehContrib="22" flow="264.00" occupancy="25.83" speed="2.06" length="5.00" nVehEntered="44"/>
+    <interval begin="300.00" end="600.00" id="TLS0_my_program_InductLoopOn_4i_1" nVehContrib="17" flow="204.00" occupancy="9.33" speed="3.11" length="5.00" nVehEntered="19"/>
+    <interval begin="300.00" end="600.00" id="TLS0_my_program_InductLoopOn_4i_2" nVehContrib="1" flow="12.00" occupancy="0.43" speed="3.88" length="5.00" nVehEntered="2"/>
+    <interval begin="300.00" end="600.00" id="TLS0_my_program_InductLoopOn_4i_3" nVehContrib="2" flow="24.00" occupancy="1.38" speed="2.43" length="5.00" nVehEntered="2"/>
+    <interval begin="300.00" end="600.00" id="TLS0_my_program_InductLoopOn_4i_4" nVehContrib="2" flow="24.00" occupancy="1.79" speed="5.05" length="5.00" nVehEntered="3"/>
+    <interval begin="600.00" end="900.00" id="TLS0_my_program_InductLoopOn_1i_0" nVehContrib="41" flow="492.00" occupancy="70.73" speed="4.07" length="5.00" nVehEntered="73"/>
+    <interval begin="600.00" end="900.00" id="TLS0_my_program_InductLoopOn_1i_1" nVehContrib="19" flow="228.00" occupancy="10.46" speed="3.08" length="5.00" nVehEntered="24"/>
+    <interval begin="600.00" end="900.00" id="TLS0_my_program_InductLoopOn_1i_2" nVehContrib="4" flow="48.00" occupancy="1.64" speed="4.12" length="5.00" nVehEntered="6"/>
+    <interval begin="600.00" end="900.00" id="TLS0_my_program_InductLoopOn_1i_3" nVehContrib="8" flow="96.00" occupancy="32.85" speed="2.92" length="5.00" nVehEntered="7"/>
+    <interval begin="600.00" end="900.00" id="TLS0_my_program_InductLoopOn_1i_4" nVehContrib="11" flow="132.00" occupancy="46.74" speed="3.11" length="5.00" nVehEntered="11"/>
+    <interval begin="600.00" end="900.00" id="TLS0_my_program_InductLoopOn_2i_0" nVehContrib="37" flow="444.00" occupancy="39.75" speed="3.79" length="5.00" nVehEntered="64"/>
+    <interval begin="600.00" end="900.00" id="TLS0_my_program_InductLoopOn_2i_1" nVehContrib="23" flow="276.00" occupancy="12.44" speed="3.07" length="5.00" nVehEntered="24"/>
+    <interval begin="600.00" end="900.00" id="TLS0_my_program_InductLoopOn_2i_2" nVehContrib="5" flow="60.00" occupancy="2.99" speed="3.07" length="5.00" nVehEntered="5"/>
+    <interval begin="600.00" end="900.00" id="TLS0_my_program_InductLoopOn_2i_3" nVehContrib="5" flow="60.00" occupancy="7.17" speed="3.28" length="5.00" nVehEntered="8"/>
+    <interval begin="600.00" end="900.00" id="TLS0_my_program_InductLoopOn_2i_4" nVehContrib="9" flow="108.00" occupancy="28.91" speed="1.39" length="5.00" nVehEntered="10"/>
+    <interval begin="600.00" end="900.00" id="TLS0_my_program_InductLoopOn_3i_0" nVehContrib="22" flow="264.00" occupancy="53.94" speed="2.89" length="5.00" nVehEntered="41"/>
+    <interval begin="600.00" end="900.00" id="TLS0_my_program_InductLoopOn_3i_1" nVehContrib="16" flow="192.00" occupancy="9.34" speed="2.97" length="5.00" nVehEntered="16"/>
+    <interval begin="600.00" end="900.00" id="TLS0_my_program_InductLoopOn_3i_2" nVehContrib="2" flow="24.00" occupancy="3.26" speed="1.31" length="5.00" nVehEntered="2"/>
+    <interval begin="600.00" end="900.00" id="TLS0_my_program_InductLoopOn_3i_3" nVehContrib="3" flow="36.00" occupancy="28.41" speed="6.52" length="5.00" nVehEntered="3"/>
+    <interval begin="600.00" end="900.00" id="TLS0_my_program_InductLoopOn_3i_4" nVehContrib="2" flow="24.00" occupancy="84.45" speed="2.94" length="5.00" nVehEntered="3"/>
+    <interval begin="600.00" end="900.00" id="TLS0_my_program_InductLoopOn_4i_0" nVehContrib="38" flow="456.00" occupancy="58.56" speed="2.86" length="5.00" nVehEntered="84"/>
+    <interval begin="600.00" end="900.00" id="TLS0_my_program_InductLoopOn_4i_1" nVehContrib="32" flow="384.00" occupancy="16.95" speed="3.18" length="5.00" nVehEntered="35"/>
+    <interval begin="600.00" end="900.00" id="TLS0_my_program_InductLoopOn_4i_2" nVehContrib="5" flow="60.00" occupancy="2.50" speed="3.62" length="5.00" nVehEntered="5"/>
+    <interval begin="600.00" end="900.00" id="TLS0_my_program_InductLoopOn_4i_3" nVehContrib="1" flow="12.00" occupancy="0.75" speed="2.22" length="5.00" nVehEntered="3"/>
+    <interval begin="600.00" end="900.00" id="TLS0_my_program_InductLoopOn_4i_4" nVehContrib="8" flow="96.00" occupancy="33.31" speed="3.70" length="5.00" nVehEntered="9"/>
+    <interval begin="900.00" end="1200.00" id="TLS0_my_program_InductLoopOn_1i_0" nVehContrib="15" flow="180.00" occupancy="17.49" speed="5.80" length="5.00" nVehEntered="43"/>
+    <interval begin="900.00" end="1200.00" id="TLS0_my_program_InductLoopOn_1i_1" nVehContrib="16" flow="192.00" occupancy="10.26" speed="2.76" length="5.00" nVehEntered="22"/>
+    <interval begin="900.00" end="1200.00" id="TLS0_my_program_InductLoopOn_1i_2" nVehContrib="6" flow="72.00" occupancy="3.16" speed="3.20" length="5.00" nVehEntered="6"/>
+    <interval begin="900.00" end="1200.00" id="TLS0_my_program_InductLoopOn_1i_3" nVehContrib="2" flow="24.00" occupancy="1.04" speed="3.51" length="5.00" nVehEntered="5"/>
+    <interval begin="900.00" end="1200.00" id="TLS0_my_program_InductLoopOn_1i_4" nVehContrib="9" flow="108.00" occupancy="1.93" speed="9.92" length="5.00" nVehEntered="18"/>
+    <interval begin="900.00" end="1200.00" id="TLS0_my_program_InductLoopOn_2i_0" nVehContrib="42" flow="504.00" occupancy="68.54" speed="4.10" length="5.00" nVehEntered="74"/>
+    <interval begin="900.00" end="1200.00" id="TLS0_my_program_InductLoopOn_2i_1" nVehContrib="24" flow="288.00" occupancy="12.93" speed="3.15" length="5.00" nVehEntered="25"/>
+    <interval begin="900.00" end="1200.00" id="TLS0_my_program_InductLoopOn_2i_2" nVehContrib="0" flow="0.00" occupancy="0.00" speed="-1.00" length="-1.00" nVehEntered="0"/>
+    <interval begin="900.00" end="1200.00" id="TLS0_my_program_InductLoopOn_2i_3" nVehContrib="7" flow="84.00" occupancy="4.25" speed="7.42" length="5.00" nVehEntered="8"/>
+    <interval begin="900.00" end="1200.00" id="TLS0_my_program_InductLoopOn_2i_4" nVehContrib="11" flow="132.00" occupancy="31.96" speed="4.65" length="5.00" nVehEntered="11"/>
+    <interval begin="900.00" end="1200.00" id="TLS0_my_program_InductLoopOn_3i_0" nVehContrib="33" flow="396.00" occupancy="56.29" speed="2.86" length="5.00" nVehEntered="52"/>
+    <interval begin="900.00" end="1200.00" id="TLS0_my_program_InductLoopOn_3i_1" nVehContrib="17" flow="204.00" occupancy="10.17" speed="3.15" length="5.00" nVehEntered="20"/>
+    <interval begin="900.00" end="1200.00" id="TLS0_my_program_InductLoopOn_3i_2" nVehContrib="5" flow="60.00" occupancy="2.21" speed="4.21" length="5.00" nVehEntered="11"/>
+    <interval begin="900.00" end="1200.00" id="TLS0_my_program_InductLoopOn_3i_3" nVehContrib="8" flow="96.00" occupancy="30.60" speed="2.13" length="5.00" nVehEntered="13"/>
+    <interval begin="900.00" end="1200.00" id="TLS0_my_program_InductLoopOn_3i_4" nVehContrib="10" flow="120.00" occupancy="89.79" speed="0.99" length="5.00" nVehEntered="10"/>
+    <interval begin="900.00" end="1200.00" id="TLS0_my_program_InductLoopOn_4i_0" nVehContrib="23" flow="276.00" occupancy="29.81" speed="3.36" length="5.00" nVehEntered="33"/>
+    <interval begin="900.00" end="1200.00" id="TLS0_my_program_InductLoopOn_4i_1" nVehContrib="11" flow="132.00" occupancy="12.32" speed="2.82" length="5.00" nVehEntered="15"/>
+    <interval begin="900.00" end="1200.00" id="TLS0_my_program_InductLoopOn_4i_2" nVehContrib="8" flow="96.00" occupancy="13.17" speed="2.59" length="5.00" nVehEntered="9"/>
+    <interval begin="900.00" end="1200.00" id="TLS0_my_program_InductLoopOn_4i_3" nVehContrib="6" flow="72.00" occupancy="34.70" speed="1.33" length="5.00" nVehEntered="8"/>
+    <interval begin="900.00" end="1200.00" id="TLS0_my_program_InductLoopOn_4i_4" nVehContrib="3" flow="36.00" occupancy="83.42" speed="0.07" length="5.00" nVehEntered="4"/>
+    <interval begin="1200.00" end="1500.00" id="TLS0_my_program_InductLoopOn_1i_0" nVehContrib="3" flow="36.00" occupancy="0.26" speed="19.21" length="5.00" nVehEntered="3"/>
+    <interval begin="1200.00" end="1500.00" id="TLS0_my_program_InductLoopOn_1i_1" nVehContrib="0" flow="0.00" occupancy="0.00" speed="-1.00" length="-1.00" nVehEntered="0"/>
+    <interval begin="1200.00" end="1500.00" id="TLS0_my_program_InductLoopOn_1i_2" nVehContrib="0" flow="0.00" occupancy="0.00" speed="-1.00" length="-1.00" nVehEntered="0"/>
+    <interval begin="1200.00" end="1500.00" id="TLS0_my_program_InductLoopOn_1i_3" nVehContrib="3" flow="36.00" occupancy="0.74" speed="8.52" length="5.00" nVehEntered="5"/>
+    <interval begin="1200.00" end="1500.00" id="TLS0_my_program_InductLoopOn_1i_4" nVehContrib="18" flow="216.00" occupancy="7.50" speed="10.18" length="5.00" nVehEntered="22"/>
+    <interval begin="1200.00" end="1500.00" id="TLS0_my_program_InductLoopOn_2i_0" nVehContrib="3" flow="36.00" occupancy="0.29" speed="17.10" length="5.00" nVehEntered="3"/>
+    <interval begin="1200.00" end="1500.00" id="TLS0_my_program_InductLoopOn_2i_1" nVehContrib="0" flow="0.00" occupancy="0.00" speed="-1.00" length="-1.00" nVehEntered="0"/>
+    <interval begin="1200.00" end="1500.00" id="TLS0_my_program_InductLoopOn_2i_2" nVehContrib="0" flow="0.00" occupancy="0.00" speed="-1.00" length="-1.00" nVehEntered="0"/>
+    <interval begin="1200.00" end="1500.00" id="TLS0_my_program_InductLoopOn_2i_3" nVehContrib="6" flow="72.00" occupancy="1.63" speed="6.57" length="5.00" nVehEntered="16"/>
+    <interval begin="1200.00" end="1500.00" id="TLS0_my_program_InductLoopOn_2i_4" nVehContrib="16" flow="192.00" occupancy="11.77" speed="7.46" length="5.00" nVehEntered="29"/>
+    <interval begin="1200.00" end="1500.00" id="TLS0_my_program_InductLoopOn_3i_0" nVehContrib="30" flow="360.00" occupancy="65.80" speed="3.83" length="5.00" nVehEntered="51"/>
+    <interval begin="1200.00" end="1500.00" id="TLS0_my_program_InductLoopOn_3i_1" nVehContrib="11" flow="132.00" occupancy="6.37" speed="2.85" length="5.00" nVehEntered="17"/>
+    <interval begin="1200.00" end="1500.00" id="TLS0_my_program_InductLoopOn_3i_2" nVehContrib="10" flow="120.00" occupancy="6.06" speed="4.05" length="5.00" nVehEntered="11"/>
+    <interval begin="1200.00" end="1500.00" id="TLS0_my_program_InductLoopOn_3i_3" nVehContrib="13" flow="156.00" occupancy="6.84" speed="7.99" length="5.00" nVehEntered="18"/>
+    <interval begin="1200.00" end="1500.00" id="TLS0_my_program_InductLoopOn_3i_4" nVehContrib="15" flow="180.00" occupancy="56.90" speed="2.14" length="5.00" nVehEntered="14"/>
+    <interval begin="1200.00" end="1500.00" id="TLS0_my_program_InductLoopOn_4i_0" nVehContrib="10" flow="120.00" occupancy="9.09" speed="10.21" length="5.00" nVehEntered="13"/>
+    <interval begin="1200.00" end="1500.00" id="TLS0_my_program_InductLoopOn_4i_1" nVehContrib="0" flow="0.00" occupancy="0.00" speed="-1.00" length="-1.00" nVehEntered="0"/>
+    <interval begin="1200.00" end="1500.00" id="TLS0_my_program_InductLoopOn_4i_2" nVehContrib="1" flow="12.00" occupancy="9.22" speed="0.17" length="5.00" nVehEntered="0"/>
+    <interval begin="1200.00" end="1500.00" id="TLS0_my_program_InductLoopOn_4i_3" nVehContrib="15" flow="180.00" occupancy="14.40" speed="9.18" length="5.00" nVehEntered="23"/>
+    <interval begin="1200.00" end="1500.00" id="TLS0_my_program_InductLoopOn_4i_4" nVehContrib="27" flow="324.00" occupancy="36.31" speed="5.28" length="5.00" nVehEntered="28"/>
+    <interval begin="1500.00" end="1544.00" id="TLS0_my_program_InductLoopOn_1i_0" nVehContrib="0" flow="0.00" occupancy="0.00" speed="-1.00" length="-1.00" nVehEntered="0"/>
+    <interval begin="1500.00" end="1544.00" id="TLS0_my_program_InductLoopOn_1i_1" nVehContrib="0" flow="0.00" occupancy="0.00" speed="-1.00" length="-1.00" nVehEntered="0"/>
+    <interval begin="1500.00" end="1544.00" id="TLS0_my_program_InductLoopOn_1i_2" nVehContrib="0" flow="0.00" occupancy="0.00" speed="-1.00" length="-1.00" nVehEntered="0"/>
+    <interval begin="1500.00" end="1544.00" id="TLS0_my_program_InductLoopOn_1i_3" nVehContrib="0" flow="0.00" occupancy="0.00" speed="-1.00" length="-1.00" nVehEntered="0"/>
+    <interval begin="1500.00" end="1544.00" id="TLS0_my_program_InductLoopOn_1i_4" nVehContrib="0" flow="0.00" occupancy="0.00" speed="-1.00" length="-1.00" nVehEntered="0"/>
+    <interval begin="1500.00" end="1544.00" id="TLS0_my_program_InductLoopOn_2i_0" nVehContrib="0" flow="0.00" occupancy="0.00" speed="-1.00" length="-1.00" nVehEntered="0"/>
+    <interval begin="1500.00" end="1544.00" id="TLS0_my_program_InductLoopOn_2i_1" nVehContrib="0" flow="0.00" occupancy="0.00" speed="-1.00" length="-1.00" nVehEntered="0"/>
+    <interval begin="1500.00" end="1544.00" id="TLS0_my_program_InductLoopOn_2i_2" nVehContrib="0" flow="0.00" occupancy="0.00" speed="-1.00" length="-1.00" nVehEntered="0"/>
+    <interval begin="1500.00" end="1544.00" id="TLS0_my_program_InductLoopOn_2i_3" nVehContrib="0" flow="0.00" occupancy="0.00" speed="-1.00" length="-1.00" nVehEntered="0"/>
+    <interval begin="1500.00" end="1544.00" id="TLS0_my_program_InductLoopOn_2i_4" nVehContrib="0" flow="0.00" occupancy="0.00" speed="-1.00" length="-1.00" nVehEntered="0"/>
+    <interval begin="1500.00" end="1544.00" id="TLS0_my_program_InductLoopOn_3i_0" nVehContrib="0" flow="0.00" occupancy="0.00" speed="-1.00" length="-1.00" nVehEntered="0"/>
+    <interval begin="1500.00" end="1544.00" id="TLS0_my_program_InductLoopOn_3i_1" nVehContrib="0" flow="0.00" occupancy="0.00" speed="-1.00" length="-1.00" nVehEntered="0"/>
+    <interval begin="1500.00" end="1544.00" id="TLS0_my_program_InductLoopOn_3i_2" nVehContrib="0" flow="0.00" occupancy="0.00" speed="-1.00" length="-1.00" nVehEntered="0"/>
+    <interval begin="1500.00" end="1544.00" id="TLS0_my_program_InductLoopOn_3i_3" nVehContrib="0" flow="0.00" occupancy="0.00" speed="-1.00" length="-1.00" nVehEntered="0"/>
+    <interval begin="1500.00" end="1544.00" id="TLS0_my_program_InductLoopOn_3i_4" nVehContrib="0" flow="0.00" occupancy="0.00" speed="-1.00" length="-1.00" nVehEntered="0"/>
+    <interval begin="1500.00" end="1544.00" id="TLS0_my_program_InductLoopOn_4i_0" nVehContrib="0" flow="0.00" occupancy="0.00" speed="-1.00" length="-1.00" nVehEntered="0"/>
+    <interval begin="1500.00" end="1544.00" id="TLS0_my_program_InductLoopOn_4i_1" nVehContrib="0" flow="0.00" occupancy="0.00" speed="-1.00" length="-1.00" nVehEntered="0"/>
+    <interval begin="1500.00" end="1544.00" id="TLS0_my_program_InductLoopOn_4i_2" nVehContrib="0" flow="0.00" occupancy="0.00" speed="-1.00" length="-1.00" nVehEntered="0"/>
+    <interval begin="1500.00" end="1544.00" id="TLS0_my_program_InductLoopOn_4i_3" nVehContrib="0" flow="0.00" occupancy="0.00" speed="-1.00" length="-1.00" nVehEntered="0"/>
+    <interval begin="1500.00" end="1544.00" id="TLS0_my_program_InductLoopOn_4i_4" nVehContrib="2" flow="163.64" occupancy="1.89" speed="12.85" length="5.00" nVehEntered="2"/>
+</detector>

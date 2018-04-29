@@ -1,0 +1,100 @@
+{
+    "Intersections": {
+        "I0": {
+            "id": 0,
+            "type": "traffic_light"
+        }
+    },
+    "Branches": {
+        "B1": {
+            "id": 1,
+            "S_lanes": 3,
+            "sensor_start": 1,
+            "Length": 300,
+            "R_lanes": 0,
+            "type": "Priority",
+            "LS_lanes": 1,
+            "outbound_node": 1,
+            "outbound_lanes": 3,
+            "priority": 78,
+            "inbound_lanes": 5,
+            "sensor_end": 50,
+            "L_lanes": 0,
+            "inbound_node": 0,
+            "speed": 20,
+            "RS_lanes": 1,
+            "theta": 90
+        },
+        "B4": {
+            "id": 4,
+            "S_lanes": 3,
+            "sensor_start": 1,
+            "Length": 300,
+            "R_lanes": 0,
+            "type": "Priority",
+            "LS_lanes": 1,
+            "outbound_node": 4,
+            "outbound_lanes": 3,
+            "priority": 78,
+            "inbound_lanes": 5,
+            "sensor_end": 50,
+            "L_lanes": 0,
+            "inbound_node": 0,
+            "speed": 20,
+            "RS_lanes": 1,
+            "theta": 180
+        },
+        "B2": {
+            "id": 2,
+            "S_lanes": 3,
+            "sensor_start": 1,
+            "Length": 300,
+            "R_lanes": 0,
+            "type": "Priority",
+            "LS_lanes": 1,
+            "outbound_node": 2,
+            "outbound_lanes": 3,
+            "priority": 78,
+            "inbound_lanes": 5,
+            "sensor_end": 50,
+            "L_lanes": 0,
+            "inbound_node": 0,
+            "speed": 20,
+            "RS_lanes": 1,
+            "theta": 0
+        },
+        "B3": {
+            "id": 3,
+            "S_lanes": 3,
+            "sensor_start": 1,
+            "Length": 300,
+            "R_lanes": 0,
+            "type": "Priority",
+            "LS_lanes": 1,
+            "outbound_node": 3,
+            "outbound_lanes": 3,
+            "priority": 78,
+            "inbound_lanes": 5,
+            "sensor_end": 50,
+            "L_lanes": 0,
+            "inbound_node": 0,
+            "speed": 20,
+            "RS_lanes": 1,
+            "theta": 270
+        }
+    },
+    "SUMOCFG": {
+        "time": {
+            "begin": "0",
+            "end": "7200"
+        },
+        "input": {
+            "additional_files": "cross.add.xml",
+            "route_files": "cross.rou.xml",
+            "net_file": "cross.net.xml"
+        },
+        "gui_only": {
+            "gui_settings_file": "gui-settings.cfg"
+        }
+    }
+}
