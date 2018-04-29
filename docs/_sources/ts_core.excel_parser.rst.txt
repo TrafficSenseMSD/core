@@ -12,9 +12,5 @@ Submodules
 .. toctree::
 
    ts_core.excel_parser.parser
-   ts_core.excel_parser.parser_BACKUP_12670
-   ts_core.excel_parser.parser_BASE_12670
-   ts_core.excel_parser.parser_LOCAL_12670
-   ts_core.excel_parser.parser_REMOTE_12670
    ts_core.excel_parser.parser_constants
 
