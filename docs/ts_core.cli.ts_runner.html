@@ -47,7 +47,7 @@
 <span id="ts-core-cli-ts-runner-module"></span><h1>ts_core.cli.ts_runner module<a class="headerlink" href="#module-ts_core.cli.ts_runner" title="Permalink to this headline">¶</a></h1>
 <p><code class="docutils literal"><span class="pre">ts_runner</span></code> is a WORK IN PROGRESS, current objective is to implement the traci_tls tutorial using our abstraction.</p>
 <div class="section" id="ts-runner-overview">
-<span id="ts-runner"></span><h2><code class="docutils literal"><span class="pre">ts_runner</span></code> Overview<a class="headerlink" href="#ts-runner-overview" title="Permalink to this headline">¶</a></h2>
+<span id="ts-runner-cli"></span><h2><code class="docutils literal"><span class="pre">ts_runner</span></code> Overview<a class="headerlink" href="#ts-runner-overview" title="Permalink to this headline">¶</a></h2>
 <p><code class="docutils literal"><span class="pre">ts_runner</span></code> manages the startup and execution of the SUMO runtime along with traffic light control and data collectio</p>
 </div>
 <div class="section" id="software-structure-and-implementation">
@@ -136,7 +136,8 @@ contains:</p>
 <dl class="function">
 <dt id="ts_core.cli.ts_runner.main">
 <code class="descname">main</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/ts_core/cli/ts_runner.html#main"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#ts_core.cli.ts_runner.main" title="Permalink to this definition">¶</a></dt>
-<dd></dd></dl>
+<dd><p>Initializes sumo to run using given files</p>
+</dd></dl>
 
 <dl class="function">
 <dt id="ts_core.cli.ts_runner.make_and_set_program">
@@ -146,16 +147,18 @@ contains:</p>
 <col class="field-body" />
 <tbody valign="top">
 <tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
-<li><strong>traffic_light_ids</strong> – Traffic lights to set to this program.
-Accepts String, integer, or list (of mixed strings or integers)</li>
-<li><strong>tl_type</strong> – </li>
-<li><strong>program_name</strong> – </li>
-<li><strong>phases</strong> – </li>
-<li><strong>starting_phase</strong> – </li>
+<li><strong>program_name</strong> (<em>Name for this program. Use this when setting the programs</em>) – </li>
+<li><strong>phases</strong> (<em>List/tuple of Traci phase objects demoting the various phases for this program</em>) – </li>
+<li><strong>starting_phase</strong> (<em>Integer: When this program is set</em><em>, </em><em>this phase ID will be active first</em>) – </li>
+<li><strong>tl_type</strong> (<em>---DOES NOT WORK. ALWAYS STATIC--- 0: static</em><em>, </em><em>1: delay_based</em><em>, </em><em>2: actuated</em>) – </li>
+<li><strong>traffic_light_ids</strong> (<em>ID of Traffic lights to set to this program. If empty</em><em>, </em><em>does not set any traffic lights</em>) – Accepts String, integer, or list (of mixed strings or integers)</li>
 </ul>
 </td>
 </tr>
-<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first last">The program</p>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first"></p>
+</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body"><p class="first last">Traci Program object</p>
 </td>
 </tr>
 </tbody>
@@ -170,14 +173,17 @@ Accepts String, integer, or list (of mixed strings or integers)</li>
 <col class="field-body" />
 <tbody valign="top">
 <tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
-<li><strong>light_array</strong> – </li>
-<li><strong>default_time</strong> – Time in ticks</li>
-<li><strong>min_time</strong> – </li>
-<li><strong>max_time</strong> – </li>
+<li><strong>light_array</strong> (<em>String containing the light pattern for this phase</em><em>  (</em><em>i.e &quot;GGrrGGrr</em><em>)</em>) – </li>
+<li><strong>default_time</strong> (<em>Number of ticks that this phase should be active</em>) – </li>
+<li><strong>min_time</strong> (<em>Minimum number of ticks that this phase should be active</em>) – </li>
+<li><strong>max_time</strong> (<em>maximum number of ticks that this phase should be active</em>) – </li>
 </ul>
 </td>
 </tr>
-<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first last"></p>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first"></p>
+</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body"><p class="first last">Traci phase object with specified data</p>
 </td>
 </tr>
 </tbody>

@@ -2,6 +2,7 @@
 Custom exception classes to provide more useful output when Excel parsing fails. 
 
 """
+
 from ts_core.core_exceptions import *
 
 class ParsedSchemaError(TSCoreError):

@@ -48,7 +48,7 @@
 <span></span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">``ts_runner`` is a WORK IN PROGRESS, current objective is to implement the traci_tls tutorial using our abstraction.</span>
 
-<span class="sd">.. _ts_runner:</span>
+<span class="sd">.. _ts_runner_cli:</span>
 
 
 <span class="sd">``ts_runner`` Overview</span>
@@ -123,26 +123,36 @@
 <div class="viewcode-block" id="run_loop"><a class="viewcode-back" href="../../../ts_core.cli.ts_runner.html#ts_core.cli.ts_runner.run_loop">[docs]</a><span class="k">def</span> <span class="nf">run_loop</span><span class="p">():</span>
     <span class="sd">&quot;&quot;&quot;execute the TraCI control loop&quot;&quot;&quot;</span>
     <span class="n">tick</span> <span class="o">=</span> <span class="mi">0</span>
-    <span class="kn">from</span> <span class="nn">ts_core.optimization.optimizer_example</span> <span class="k">import</span> <span class="n">OptimizerExample</span>
-    <span class="n">op</span> <span class="o">=</span> <span class="n">OptimizerExample</span><span class="p">()</span>
-    <span class="n">op</span><span class="o">.</span><span class="n">train</span><span class="p">(</span><span class="n">tick</span><span class="p">)</span>
+    <span class="c1"># from ts_core.optimization.optimizer_example import OptimizerExample</span>
+    <span class="c1"># op = OptimizerExample()</span>
+    <span class="c1"># op.train(tick)</span>
     <span class="c1">#traci.trafficlights.setPhase(&quot;0&quot;, 2)</span>
-    <span class="k">while</span> <span class="n">traci</span><span class="o">.</span><span class="n">simulation</span><span class="o">.</span><span class="n">getMinExpectedNumber</span><span class="p">()</span> <span class="o">&gt;</span> <span class="mi">0</span><span class="p">:</span>
+    <span class="n">car_flag</span> <span class="o">=</span> <span class="kc">False</span>
+    <span class="k">while</span> <span class="n">traci</span><span class="o">.</span><span class="n">simulation</span><span class="o">.</span><span class="n">getMinExpectedNumber</span><span class="p">()</span> <span class="o">&gt;</span> <span class="mi">1</span> <span class="ow">or</span> <span class="ow">not</span> <span class="n">car_flag</span><span class="p">:</span>
         <span class="n">traci</span><span class="o">.</span><span class="n">simulationStep</span><span class="p">()</span>
-        <span class="n">op</span><span class="o">.</span><span class="n">train</span><span class="p">(</span><span class="n">tick</span><span class="p">)</span>
+        <span class="k">if</span> <span class="n">traci</span><span class="o">.</span><span class="n">simulation</span><span class="o">.</span><span class="n">getMinExpectedNumber</span><span class="p">()</span> <span class="o">&gt;</span> <span class="mi">5</span><span class="p">:</span>
+            <span class="n">car_flag</span> <span class="o">=</span> <span class="kc">True</span>
+        <span class="c1"># op.train(tick)</span>
         <span class="n">tick</span> <span class="o">+=</span> <span class="mi">1</span>
     <span class="n">traci</span><span class="o">.</span><span class="n">close</span><span class="p">()</span>
-    <span class="n">sys</span><span class="o">.</span><span class="n">stdout</span><span class="o">.</span><span class="n">flush</span><span class="p">()</span></div>
+    <span class="n">sys</span><span class="o">.</span><span class="n">stdout</span><span class="o">.</span><span class="n">flush</span><span class="p">()</span>
+    <span class="nb">print</span><span class="p">()</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Simulation Took </span><span class="si">%s</span><span class="s2"> ticks&quot;</span> <span class="o">%</span> <span class="n">tick</span><span class="p">)</span></div>
 
 
 <div class="viewcode-block" id="make_phase"><a class="viewcode-back" href="../../../ts_core.cli.ts_runner.html#ts_core.cli.ts_runner.make_phase">[docs]</a><span class="k">def</span> <span class="nf">make_phase</span><span class="p">(</span><span class="n">light_array</span><span class="p">,</span> <span class="n">default_time</span><span class="p">,</span> <span class="n">min_time</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">max_time</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
     <span class="sd">&quot;&quot;&quot;</span>
 
-<span class="sd">    :param light_array:</span>
-<span class="sd">    :param default_time: Time in ticks</span>
-<span class="sd">    :param min_time:</span>
-<span class="sd">    :param max_time:</span>
-<span class="sd">    :return:</span>
+<span class="sd">    Parameters</span>
+<span class="sd">    ----------</span>
+<span class="sd">    light_array: String containing the light pattern for this phase  (i.e &quot;GGrrGGrr)</span>
+<span class="sd">    default_time: Number of ticks that this phase should be active</span>
+<span class="sd">    min_time: Minimum number of ticks that this phase should be active</span>
+<span class="sd">    max_time: maximum number of ticks that this phase should be active</span>
+
+<span class="sd">    Returns</span>
+<span class="sd">    -------</span>
+<span class="sd">    Traci phase object with specified data</span>
 <span class="sd">    &quot;&quot;&quot;</span>
     <span class="n">mult</span> <span class="o">=</span> <span class="mi">1000</span>  <span class="c1"># Multiplier (units are in mili ticks??) TODO Understand this</span>
     <span class="k">if</span> <span class="n">min_time</span> <span class="ow">is</span> <span class="kc">None</span> <span class="ow">or</span> <span class="n">min_time</span> <span class="o">&gt;</span> <span class="n">default_time</span><span class="p">:</span>
@@ -155,13 +165,19 @@
 <div class="viewcode-block" id="make_and_set_program"><a class="viewcode-back" href="../../../ts_core.cli.ts_runner.html#ts_core.cli.ts_runner.make_and_set_program">[docs]</a><span class="k">def</span> <span class="nf">make_and_set_program</span><span class="p">(</span><span class="n">program_name</span><span class="p">,</span> <span class="n">phases</span><span class="p">,</span> <span class="n">starting_phase</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">tl_type</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">traffic_light_ids</span><span class="o">=</span><span class="p">()):</span>
     <span class="sd">&quot;&quot;&quot;</span>
 
-<span class="sd">    :param traffic_light_ids: Traffic lights to set to this program.</span>
+<span class="sd">    Parameters</span>
+<span class="sd">    ----------</span>
+<span class="sd">    program_name: Name for this program. Use this when setting the programs</span>
+<span class="sd">    phases: List/tuple of Traci phase objects demoting the various phases for this program</span>
+<span class="sd">    starting_phase: Integer: When this program is set, this phase ID will be active first</span>
+<span class="sd">    tl_type: ---DOES NOT WORK. ALWAYS STATIC--- 0: static, 1: delay_based, 2: actuated</span>
+
+<span class="sd">    traffic_light_ids: ID of Traffic lights to set to this program. If empty, does not set any traffic lights</span>
 <span class="sd">            Accepts String, integer, or list (of mixed strings or integers)</span>
-<span class="sd">    :param tl_type:</span>
-<span class="sd">    :param program_name:</span>
-<span class="sd">    :param phases:</span>
-<span class="sd">    :param starting_phase:</span>
-<span class="sd">    :return: The program</span>
+
+<span class="sd">    Returns</span>
+<span class="sd">    -------</span>
+<span class="sd">    Traci Program object</span>
 <span class="sd">    &quot;&quot;&quot;</span>
     <span class="n">new_program</span> <span class="o">=</span> <span class="n">traci</span><span class="o">.</span><span class="n">trafficlight</span><span class="o">.</span><span class="n">Logic</span><span class="p">(</span><span class="n">program_name</span><span class="p">,</span> <span class="n">tl_type</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="n">starting_phase</span><span class="p">,</span> <span class="n">phases</span><span class="p">)</span>
     <span class="k">if</span> <span class="n">traffic_light_ids</span> <span class="o">!=</span> <span class="p">():</span>
@@ -178,7 +194,11 @@
 
 <div class="viewcode-block" id="main"><a class="viewcode-back" href="../../../ts_core.cli.ts_runner.html#ts_core.cli.ts_runner.main">[docs]</a><span class="k">def</span> <span class="nf">main</span><span class="p">():</span>
     <span class="sd">&quot;&quot;&quot;</span>
-<span class="sd">    </span>
+<span class="sd">    Initializes sumo to run using given files</span>
+
+<span class="sd">    Returns</span>
+<span class="sd">    -------</span>
+
 <span class="sd">    &quot;&quot;&quot;</span>
     <span class="c1"># Initialize argument parser and declare arguments.</span>
     <span class="n">parser</span> <span class="o">=</span> <span class="n">argparse</span><span class="o">.</span><span class="n">ArgumentParser</span><span class="p">(</span><span class="n">formatter_class</span><span class="o">=</span><span class="n">RawTextHelpFormatter</span><span class="p">,</span> <span class="n">description</span><span class="o">=</span><span class="n">main</span><span class="o">.</span><span class="vm">__doc__</span><span class="p">)</span>
