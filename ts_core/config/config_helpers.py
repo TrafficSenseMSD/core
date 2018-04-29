@@ -1,3 +1,9 @@
+"""
+This module contains a series of functions that transform the parsed excel document into SUMO conpatible XML. 
+
+
+
+"""
 import re
 import ts_core.config.bindings.sumocfg as sumocfg
 from ts_core.config.config_exceptions import *
@@ -23,7 +29,19 @@ def _sind(x, places):
 
 
 def _cosd(x, places):
+    """
+    Helper function for doing degree 
+    Parameters
+    ----------
+    x
+    places
+
+    Returns
+    -------
+
+    """
     return round(np.cos(x * np.pi / 180), places)
+
 
 def mk_add(intersections: dict, branches: dict):
     """

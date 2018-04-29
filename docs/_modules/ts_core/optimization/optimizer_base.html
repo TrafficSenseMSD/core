@@ -52,8 +52,11 @@
 
 <div class="viewcode-block" id="OptimizerBase"><a class="viewcode-back" href="../../../ts_core.optimization.optimizer_base.html#ts_core.optimization.optimizer_base.OptimizerBase">[docs]</a><span class="k">class</span> <span class="nc">OptimizerBase</span><span class="p">(</span><span class="nb">object</span><span class="p">):</span>
     <span class="k">def</span> <span class="nf">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
-        <span class="k">pass</span></div>
-
+        <span class="k">pass</span>
+        
+<div class="viewcode-block" id="OptimizerBase.train"><a class="viewcode-back" href="../../../ts_core.optimization.optimizer_base.html#ts_core.optimization.optimizer_base.OptimizerBase.train">[docs]</a>    <span class="k">def</span> <span class="nf">train</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">tick_num</span><span class="p">):</span>
+        <span class="k">return</span></div></div>
+        
 
 <div class="viewcode-block" id="LightControl"><a class="viewcode-back" href="../../../ts_core.optimization.optimizer_base.html#ts_core.optimization.optimizer_base.LightControl">[docs]</a><span class="k">class</span> <span class="nc">LightControl</span><span class="p">(</span><span class="nb">object</span><span class="p">):</span>
     <span class="k">def</span> <span class="nf">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
@@ -63,14 +66,15 @@
         <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_controller</span><span class="p">()</span></div>
 
     <span class="k">def</span> <span class="nf">_controller</span><span class="p">(</span><span class="bp">self</span><span class="p">,):</span>
-        <span class="n">logger</span><span class="o">.</span><span class="n">info</span><span class="p">(</span><span class="s2">&quot;TrafficLight Phase: &quot;</span> <span class="o">+</span> <span class="nb">str</span><span class="p">(</span><span class="n">traci</span><span class="o">.</span><span class="n">trafficlight</span><span class="o">.</span><span class="n">getPhase</span><span class="p">(</span><span class="s2">&quot;0&quot;</span><span class="p">)))</span>
-        <span class="n">logger</span><span class="o">.</span><span class="n">info</span><span class="p">(</span><span class="n">traci</span><span class="o">.</span><span class="n">trafficlight</span><span class="p">)</span>
-        <span class="k">if</span> <span class="n">traci</span><span class="o">.</span><span class="n">trafficlight</span><span class="o">.</span><span class="n">getPhase</span><span class="p">(</span><span class="s2">&quot;0&quot;</span><span class="p">)</span> <span class="o">==</span> <span class="mi">2</span><span class="p">:</span>
-            <span class="c1"># we are not already switching</span>
-            <span class="k">if</span> <span class="n">traci</span><span class="o">.</span><span class="n">inductionloop</span><span class="o">.</span><span class="n">getLastStepVehicleNumber</span><span class="p">(</span><span class="s2">&quot;0&quot;</span><span class="p">)</span> <span class="o">&gt;</span> <span class="mi">0</span><span class="p">:</span>
-                <span class="k">return</span> <span class="mi">3</span>
-            <span class="k">else</span><span class="p">:</span>
-                <span class="k">return</span> <span class="mi">2</span></div>
+        <span class="c1"># logger.info(&quot;TrafficLight Phase: &quot; + str(traci.trafficlight.getPhase(&quot;0&quot;)))</span>
+        <span class="c1"># logger.info(traci.trafficlight)</span>
+        <span class="c1"># if traci.trafficlight.getPhase(&quot;0&quot;) == 2:</span>
+            <span class="c1"># # we are not already switching</span>
+            <span class="c1"># if traci.inductionloop.getLastStepVehicleNumber(&quot;0&quot;) &gt; 0:</span>
+                <span class="c1"># return 3</span>
+            <span class="c1"># else:</span>
+                <span class="c1"># return 2</span>
+        <span class="k">return</span></div>
 </pre></div>
 
           </div>

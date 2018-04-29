@@ -1,3 +1,16 @@
+"""
+
+.. _ts_config_cli:
+
+``ts_config`` Overview
+======================
+``ts_config`` manages the build of SUMO configuration files from an Excel sheet. 
+
+The user should understand that, because we have simplified configuration, not all SUMO features are supported 
+out of the box. 
+
+
+"""
 import argparse
 from shutil import copyfile
 from ..excel_parser import parser
@@ -77,3 +90,5 @@ def main():
     else:
         raise ValueError("Invalid subcommand somehow passed Argparse, please try again.")
 
+if __name__ == "__main__":
+    main()
