@@ -50,6 +50,15 @@
 <p><code class="docutils literal"><span class="pre">ts_config</span></code> manages the build of SUMO configuration files from an Excel sheet.</p>
 <p>The user should understand that, because we have simplified configuration, not all SUMO features are supported
 out of the box.</p>
+<div class="section" id="quickstart">
+<h3>Quickstart<a class="headerlink" href="#quickstart" title="Permalink to this headline">¶</a></h3>
+<p>Once you’ve installed.</p>
+<ul class="simple">
+<li>Copy ts_core/config/Configuration_template.xlsx to the directory of your choosing.</li>
+<li>Edit the configuration file to your liking.</li>
+<li>From a shell, run <code class="docutils literal"><span class="pre">ts_config</span> <span class="pre">build</span> <span class="pre">-c</span> <span class="pre">&lt;config_path&gt;</span> <span class="pre">-p</span> <span class="pre">&lt;project_target_dir&gt;</span></code></li>
+</ul>
+</div>
 <hr class="docutils" />
 <div class="section" id="command-line-arguments">
 <h3>Command-line arguments<a class="headerlink" href="#command-line-arguments" title="Permalink to this headline">¶</a></h3>
@@ -59,8 +68,8 @@ out of the box.</p>
 <div><blockquote>
 <div><table border="1" class="docutils">
 <colgroup>
-<col width="39%" />
-<col width="61%" />
+<col width="62%" />
+<col width="38%" />
 </colgroup>
 <tbody valign="top">
 <tr class="row-odd"><td><strong>Argument</strong></td>
@@ -69,13 +78,13 @@ out of the box.</p>
 <tr class="row-even"><td><code class="docutils literal"><span class="pre">-h</span></code>, <code class="docutils literal"><span class="pre">--help</span></code></td>
 <td>show this help message and exit</td>
 </tr>
-<tr class="row-odd"><td><code class="docutils literal"><span class="pre">--init</span></code></td>
-<td>Initializes the directory…</td>
+<tr class="row-odd"><td><code class="docutils literal"><span class="pre">-p</span>&#160; <span class="pre">PROJECT_PATH</span></code>, <code class="docutils literal"><span class="pre">--project_path</span>&#160; <span class="pre">PROJECT_PATH</span></code></td>
+<td>&#160;</td>
 </tr>
 </tbody>
 </table>
 </div></blockquote>
-<p>{build}     choose one</p>
+<p>{build}               choose one</p>
 </div></blockquote>
 </div>
 <div class="section" id="subcommands">
@@ -110,11 +119,9 @@ will (call functions that )creates all of the required files</p>
 <col class="field-name" />
 <col class="field-body" />
 <tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>- ArgParse object with all the requirements</strong> (<em>args</em>) – </td>
+<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body"></td>
 </tr>
-<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"></td>
-</tr>
-<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body">Nothing</td>
+<tr class="field-even field"><th class="field-name">Return type:</th><td class="field-body">Nothing</td>
 </tr>
 </tbody>
 </table>
@@ -137,11 +144,6 @@ will (call functions that )creates all of the required files</p>
 </table>
 </dd></dl>
 
-<dl class="function">
-<dt id="ts_core.cli.ts_config.parse_args">
-<code class="descname">parse_args</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/ts_core/cli/ts_config.html#parse_args"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#ts_core.cli.ts_config.parse_args" title="Permalink to this definition">¶</a></dt>
-<dd></dd></dl>
-
 </div>
 </div>
 </div>
@@ -156,6 +158,7 @@ will (call functions that )creates all of the required files</p>
   <ul>
 <li><a class="reference internal" href="#">ts_core.cli.ts_config module</a><ul>
 <li><a class="reference internal" href="#ts-config-overview"><code class="docutils literal"><span class="pre">ts_config</span></code> Overview</a><ul>
+<li><a class="reference internal" href="#quickstart">Quickstart</a></li>
 <li><a class="reference internal" href="#command-line-arguments">Command-line arguments</a><ul>
 <li><a class="reference internal" href="#optional-arguments">Optional arguments</a></li>
 <li><a class="reference internal" href="#subcommands">Subcommands</a></li>

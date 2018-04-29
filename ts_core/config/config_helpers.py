@@ -1,7 +1,7 @@
 """
 This module contains a series of functions that transform the parsed excel document into SUMO conpatible XML. 
 
-
+Each function corresponds to ONE of the SUMO configuration files
 
 """
 import re
