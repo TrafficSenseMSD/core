@@ -46,6 +46,7 @@ def move_file(original_filename, new_filename):
 
 def parse_args():
     parser = argparse.ArgumentParser()
+    parser.add_argument("-p", "--project_path", action=FullPaths)
     subparsers = parser.add_subparsers(title="subcommands", help="choose one")
 
     # init = subparsers.add_parser('init', help="", description="")
@@ -53,8 +54,8 @@ def parse_args():
     # init.set_defaults(which='init')
 
     build = subparsers.add_parser('build', help="subcommand to build the configuration", description="Run the configuration build.")
-    build.add_argument("config_file")#, action=FullPaths)
-    build.add_argument("-p", "--project_path", action=FullPaths)
+    build.add_argument("-c", "--config", action=FullPaths)#, action=FullPaths)
+
     build.set_defaults(which='build')
 
     parser.add_argument("--init", dest="initialize_directory", action='store_true', help="Initializes the directory...")
