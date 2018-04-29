@@ -3,7 +3,7 @@
 .. _ts_config_cli:
 
 ``ts_config`` Overview
-----------------------
+======================
 ``ts_config`` manages the build of SUMO configuration files from an Excel sheet. 
 
 The user should understand that, because we have simplified configuration, not all SUMO features are supported 

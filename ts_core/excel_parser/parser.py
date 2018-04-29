@@ -1,3 +1,11 @@
+"""
+
+.. _ts_config_parser:
+
+Excel Configuration Parser Internals
+====================================
+
+"""
 from openpyxl import *
 import json
 import xml.etree.ElementTree as ET

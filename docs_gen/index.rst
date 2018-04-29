@@ -36,7 +36,7 @@ Project Developer Documentation
 
 :ref:`ts_config_bindings`
 
-
+:ref:`ts_config_parser`:
 
 
 .. toctree::
