@@ -5,11 +5,37 @@
 Excel Configuration Parser Internals
 ------------------------------------
 
-A bunch of global parsing constants are defined in this file. Be sure to look at the source code before you pull
-your hair out. 
+This module handles all of the excel configuration parsing.
+
+Guidelines on excel sheet formatting is as follows:
+
++------------------+--------------------+------------------+--------------------+--------------------+
+|Column A          | Column B           |Column C          | Column E           | Column F           |
++==================+====================+==================+====================+====================+
+|SUMO Attribute    |SUMO File where this|Category name     |Units column        |Value fot this attr |
+|                  |attribute resides   |                  |                    |                    |
++------------------+--------------------+------------------+--------------------+--------------------+
+
+Attributes can only be read from Row 3 and below (MIN_ROW)
+
+Only the first 1000 rows can have any attributes (MAX_ROW)
+
+Current supported tabs:
+*Vehicle Type Customization
+*General Settings
+*Intersection Definition
+*Branch Settings
+
+
+Current supported Intersection Types:
+*Cross
+*T
+*Y
 
 
 """
+
+
 from openpyxl import *
 import json
 import xml.etree.ElementTree as ET
@@ -22,8 +48,7 @@ UNITS_COLUMN = 4  # Column E
 VALUE_COLUMN = 5  # Column F for single entry data
 
 MIN_ROW = 3  # Minimum row number where config information CAN be stored
-MAX_ROW = 100  # Max row where data is stored TODO update?
-MIN_COLUMN = 2
+MAX_ROW = 1000  # Max row where data is stored TODO update?
 
 UNIT_CONVERT = {
     "time": {"Hours": 60 * 60, "Days": 60 * 60 * 24,

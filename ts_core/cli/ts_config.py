@@ -13,12 +13,10 @@ out of the box.
 """
 import argparse
 from shutil import copyfile
-from ..excel_parser import parser
+
+from core.ts_core.config import parser
 from ..config.config_gen import transform_parsed_excel
-
-from ..utils.argparse_utils import FullPaths, is_dir, is_file
-
-import os
+from ..utils.argparse_utils import FullPaths
 
 DEBUG = False
 
