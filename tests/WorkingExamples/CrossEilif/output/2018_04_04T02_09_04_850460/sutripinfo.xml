@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!-- generated on 04/04/18 02:09:05 by SUMO Version 0.31.0
+<?xml version="1.0" encoding="UTF-8"?>
+
+<configuration xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="http://sumo.dlr.de/xsd/sumoConfiguration.xsd">
+
+    <input>
+        <net-file value="C:\Users\Bryan\Documents\GitHub\core\tests\WorkingExamples\CrossEilif/cross.net.xml"/>
+        <route-files value="C:\Users\Bryan\Documents\GitHub\core\tests\WorkingExamples\CrossEilif/cross.rou.xml"/>
+    </input>
+
+    <output>
+        <tripinfo-output value="C:\Users\Bryan\Documents\GitHub\core\tests\WorkingExamples\CrossEilif/output/2018_04_04T02_09_04_850460/sutripinfo.xml"/>
+    </output>
+
+    <time>
+        <begin value="0.0"/>
+        <end value="3600.0"/>
+    </time>
+
+    <traci_server>
+        <remote-port value="54704"/>
+    </traci_server>
+
+</configuration>
+-->
+
+<tripinfos xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="http://sumo.dlr.de/xsd/tripinfo_file.xsd">
+    <tripinfo id="h264c1:1" depart="272.00" departLane="3i_0" departPos="80.63" departSpeed="0.00" departDelay="0.00" arrival="330.00" arrivalLane="1i_2" arrivalPos="4.97" arrivalSpeed="0.10" duration="58.00" routeLength="929.16" waitSteps="0" timeLoss="11.51" rerouteNo="0" devices="tripinfo_h264c1:1" vType="default" speedFactor="1.00" vaporized=""/>
+    <tripinfo id="h367c1:1" depart="316.00" departLane="3o_0" departPos="448.92" departSpeed="0.00" departDelay="0.00" arrival="388.00" arrivalLane="1o_1" arrivalPos="322.23" arrivalSpeed="0.08" duration="72.00" routeLength="878.13" waitSteps="12" timeLoss="28.05" rerouteNo="0" devices="tripinfo_h367c1:1" vType="default" speedFactor="1.00" vaporized=""/>
+    <tripinfo id="h254c1:1" depart="279.00" departLane="3i_0" departPos="46.25" departSpeed="0.00" departDelay="0.00" arrival="392.00" arrivalLane="1o_0" arrivalPos="429.48" arrivalSpeed="0.27" duration="113.00" routeLength="894.58" waitSteps="50" timeLoss="68.22" rerouteNo="0" devices="tripinfo_h254c1:1" vType="default" speedFactor="1.00" vaporized=""/>
+    <tripinfo id="h295c1:1" depart="309.00" departLane="3i_0" departPos="184.57" departSpeed="0.00" departDelay="0.00" arrival="392.00" arrivalLane="1i_2" arrivalPos="2.73" arrivalSpeed="3.12" duration="83.00" routeLength="822.98" waitSteps="27" timeLoss="41.80" rerouteNo="0" devices="tripinfo_h295c1:1" vType="default" speedFactor="1.00" vaporized=""/>
+    <tripinfo id="h70c2:1" depart="287.00" departLane="1o_0" departPos="371.97" departSpeed="0.00" departDelay="0.00" arrival="393.00" arrivalLane="3i_2" arrivalPos="9.59" arrivalSpeed="0.26" duration="106.00" routeLength="1135.91" waitSteps="33" timeLoss="49.15" rerouteNo="0" devices="tripinfo_h70c2:1" vType="default" speedFactor="1.00" vaporized=""/>
+    <tripinfo id="h336c2:1" depart="277.00" departLane="3o_0" departPos="453.46" departSpeed="0.00" departDelay="0.00" arrival="399.00" arrivalLane="1i_2" arrivalPos="64.64" arrivalSpeed="4.13" duration="122.00" routeLength="1109.47" waitSteps="49" timeLoss="66.48" rerouteNo="0" devices="tripinfo_h336c2:1" vType="default" speedFactor="1.00" vaporized=""/>
+    <tripinfo id="carIn40:1" depart="341.00" departLane="3i_0" departPos="243.00" departSpeed="0.00" departDelay="0.00" arrival="399.00" arrivalLane="1i_2" arrivalPos="30.81" arrivalSpeed="2.80" duration="58.00" routeLength="792.63" waitSteps="0" timeLoss="18.34" rerouteNo="0" devices="tripinfo_carIn40:1" vType="default" speedFactor="1.00" vaporized=""/>
+    <tripinfo id="carIn30:1" depart="356.00" departLane="3i_0" departPos="243.00" departSpeed="0.00" departDelay="0.00" arrival="401.00" arrivalLane="1o_2" arrivalPos="417.64" arrivalSpeed="0.10" duration="45.00" routeLength="685.99" waitSteps="0" timeLoss="10.68" rerouteNo="0" devices="tripinfo_carIn30:1" vType="default" speedFactor="1.00" vaporized=""/>

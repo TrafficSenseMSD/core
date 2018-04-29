@@ -25,16 +25,18 @@ class OptimizerExample():
         self.attributes = [
             ('vehicle','road id',[],1),
             ('vehicle','lane position',[],1),
+            ('lane', 'waiting time', [],1)
         ]
         self.rolodex = Rolodex(attributes=self.attributes, buffer_length=10)
 
     def train(self, tick_num):
-        if tick_num > 338:
-            time.sleep(0.1)
+        if tick_num > 280:
+            time.sleep(0.5)
             #input('continue?')
         self.rolodex.update_subscription_buffers(tick_num)
-        print('\n\nVehicle domain buffer data:')#\n{}'.format(self.rolodex.buffers['vehicle'].buffer))
-        for vehicle in self.rolodex.buffers['vehicle'].buffer:
-            print('Vehicle ID {}:'.format(vehicle))
-            for tick in self.rolodex.buffers['vehicle'].buffer[vehicle]:
-                print('Simulation tick #{}: {}'.format(tick, self.rolodex.buffers['vehicle'].buffer[vehicle][tick]))
+        print('\n\nLane domain buffer data:\n{}'.format(self.rolodex.buffers['lane'].buffer))
+        # print('\n\nVehicle domain buffer data:')#\n{}'.format(self.rolodex.buffers['vehicle'].buffer))
+        # for vehicle in self.rolodex.buffers['vehicle'].buffer:
+            # print('Vehicle ID {}:'.format(vehicle))
+            # for tick in self.rolodex.buffers['vehicle'].buffer[vehicle]:
+                # print('Simulation tick #{}: {}'.format(tick, self.rolodex.buffers['vehicle'].buffer[vehicle][tick]))
