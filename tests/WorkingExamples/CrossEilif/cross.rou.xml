@@ -1,0 +1,2378 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!-- generated on Mon Mar 26 15:18:52 2018 by SUMO duarouter Version git
+<?xml version="1.0" encoding="UTF-8"?>
+
+<configuration xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="http://sumo.dlr.de/xsd/duarouterConfiguration.xsd">
+
+    <input>
+        <net-file value="/Users/eilifm/Documents/ts_testing/data/cross.net.xml"/>
+        <route-files value="/Users/eilifm/Documents/ts_testing/data/cross.trips.rou.xml"/>
+    </input>
+
+    <output>
+        <output-file value="/Users/eilifm/Documents/ts_testing/data/cross.rou.xml"/>
+        <alternatives-output value="/Users/eilifm/Documents/ts_testing/data/cross.rou.alt.xml"/>
+    </output>
+
+</configuration>
+-->
+
+<routes xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="http://sumo.dlr.de/xsd/routes_file.xsd">
+    <vType id="default" vClass="passenger" color="red"/>
+    <vehicle id="h63c2:1" type="default" depart="272.00" departPos="27.65" arrivalPos="57.48" arrivalSpeed="0.00">
+        <route edges="1i 3o 3i"/>
+    </vehicle>
+    <vehicle id="h264c1:1" type="default" depart="272.00" departPos="80.63" arrivalPos="4.97" arrivalSpeed="0.00">
+        <route edges="3i 1o 1i"/>
+    </vehicle>
+    <vehicle id="h336c2:1" type="default" depart="277.00" departPos="453.46" arrivalPos="64.64" arrivalSpeed="0.00">
+        <route edges="3o 3i 1o 1i"/>
+    </vehicle>
+    <vehicle id="h254c1:1" type="default" depart="279.00" departPos="46.25" arrivalPos="429.48" arrivalSpeed="0.00">
+        <route edges="3i 1o"/>
+    </vehicle>
+    <vehicle id="h70c2:1" type="default" depart="287.00" departPos="371.97" arrivalPos="9.59" arrivalSpeed="0.00">
+        <route edges="1o 1i 3o 3i"/>
+    </vehicle>
+    <vehicle id="h295c1:1" type="default" depart="309.00" departPos="184.57" arrivalPos="2.73" arrivalSpeed="0.00">
+        <route edges="3i 1o 1i"/>
+    </vehicle>
+    <vehicle id="h103c2:1" type="default" depart="313.00" departPos="480.14" arrivalPos="188.38" arrivalSpeed="0.00">
+        <route edges="1o 1i 3o 3i"/>
+    </vehicle>
+    <vehicle id="h367c1:1" type="default" depart="316.00" departPos="448.92" arrivalPos="322.23" arrivalSpeed="0.00">
+        <route edges="3o 3i 1o"/>
+    </vehicle>
+    <vehicle id="h334c1:1" type="default" depart="325.00" departPos="418.65" arrivalPos="159.03" arrivalSpeed="0.00">
+        <route edges="3o 3i 1o 1i"/>
+    </vehicle>
+    <vehicle id="h34c1:1" type="default" depart="331.00" departPos="175.44" arrivalPos="69.16" arrivalSpeed="0.00">
+        <route edges="1i 3o 3i"/>
+    </vehicle>
+    <vehicle id="carIn178:1" type="default" depart="332.00" departPos="243.00" arrivalPos="5.42" arrivalSpeed="0.00">
+        <route edges="2i 4o 4i"/>
+    </vehicle>
+    <vehicle id="h103c1:1" type="default" depart="333.00" departPos="480.14" arrivalPos="243.00" arrivalSpeed="0.00">
+        <route edges="1o 1i 3o 3i"/>
+    </vehicle>
+    <vehicle id="carIn40:1" type="default" depart="341.00" departPos="243.00" arrivalPos="30.81" arrivalSpeed="0.00">
+        <route edges="3i 1o 1i"/>
+    </vehicle>
+    <vehicle id="carIn86:1" type="default" depart="341.00" departPos="243.00" arrivalPos="28.60" arrivalSpeed="0.00">
+        <route edges="1i 3o 3i"/>
+    </vehicle>
+    <vehicle id="carIn143:1" type="default" depart="343.00" departPos="243.00" arrivalPos="452.58" arrivalSpeed="0.00">
+        <route edges="4i 2o"/>
+    </vehicle>
+    <vehicle id="h111c1:1" type="default" depart="344.00" departPos="420.97" arrivalPos="212.36" arrivalSpeed="0.00">
+        <route edges="1o 1i 3o 3i"/>
+    </vehicle>
+    <vehicle id="h284c1:1" type="default" depart="348.00" departPos="47.54" arrivalPos="243.00" arrivalSpeed="0.00">
+        <route edges="3i 1o 1i"/>
+    </vehicle>
+    <vehicle id="carIn174:1" type="default" depart="353.00" departPos="243.00" arrivalPos="426.53" arrivalSpeed="0.00">
+        <route edges="2i 4o"/>
+    </vehicle>
+    <vehicle id="carIn30:1" type="default" depart="356.00" departPos="243.00" arrivalPos="417.64" arrivalSpeed="0.00">
+        <route edges="3i 1o"/>
+    </vehicle>
+    <vehicle id="h60c1:1" type="default" depart="362.00" departPos="9.59" arrivalPos="435.26" arrivalSpeed="0.00">
+        <route edges="1i 2o"/>
+    </vehicle>
+    <vehicle id="carIn51:1" type="default" depart="363.00" departPos="243.00" arrivalPos="88.24" arrivalSpeed="0.00">
+        <route edges="4i 2o 2i"/>
+    </vehicle>
+    <vehicle id="h10c1:1" type="default" depart="364.00" departPos="97.51" arrivalPos="236.50" arrivalSpeed="0.00">
+        <route edges="1i 3o 3i"/>
+    </vehicle>
+    <vehicle id="carIn196:1" type="default" depart="364.00" departPos="243.00" arrivalPos="91.45" arrivalSpeed="0.00">
+        <route edges="2i 4o 4i"/>
+    </vehicle>
+    <vehicle id="h409c1:1" type="default" depart="365.00" departPos="24.87" arrivalPos="47.08" arrivalSpeed="0.00">
+        <route edges="4i 3o 3i"/>
+    </vehicle>
+    <vehicle id="h298c1:1" type="default" depart="366.00" departPos="98.71" arrivalPos="243.00" arrivalSpeed="0.00">
+        <route edges="3i 1o 1i"/>
+    </vehicle>
+    <vehicle id="carIn9:1" type="default" depart="366.00" departPos="243.00" arrivalPos="391.38" arrivalSpeed="0.00">
+        <route edges="4i 2o"/>
+    </vehicle>
+    <vehicle id="h212c1:1" type="default" depart="370.00" departPos="475.13" arrivalPos="407.40" arrivalSpeed="0.00">
+        <route edges="2o 2i 1o"/>
+    </vehicle>
+    <vehicle id="h11c1:1" type="default" depart="371.00" departPos="273.20" arrivalPos="82.37" arrivalSpeed="0.00">
+        <route edges="1i 3o 3i"/>
+    </vehicle>
+    <vehicle id="h324c1:1" type="default" depart="371.00" departPos="329.32" arrivalPos="294.43" arrivalSpeed="0.00">
+        <route edges="3o 3i 1o"/>
+    </vehicle>
+    <vehicle id="h258c1:1" type="default" depart="372.00" departPos="150.00" arrivalPos="281.07" arrivalSpeed="0.00">
+        <route edges="3i 1o"/>
+    </vehicle>
+    <vehicle id="h403c1:1" type="default" depart="372.00" departPos="11.50" arrivalPos="93.67" arrivalSpeed="0.00">
+        <route edges="4i 3o 3i"/>
+    </vehicle>
+    <vehicle id="h279c1:1" type="default" depart="373.00" departPos="86.40" arrivalPos="20.24" arrivalSpeed="0.00">
+        <route edges="3i 4o 4i"/>
+    </vehicle>
+    <vehicle id="h391c1:1" type="default" depart="376.00" departPos="45.74" arrivalPos="418.15" arrivalSpeed="0.00">
+        <route edges="4i 1o"/>
+    </vehicle>
+    <vehicle id="h49c1:1" type="default" depart="378.00" departPos="88.68" arrivalPos="204.29" arrivalSpeed="0.00">
+        <route edges="1i 3o"/>
+    </vehicle>
+    <vehicle id="h43c1:1" type="default" depart="381.00" departPos="128.12" arrivalPos="14.30" arrivalSpeed="0.00">
+        <route edges="1i 2o 2i"/>
+    </vehicle>
+    <vehicle id="h62c1:1" type="default" depart="382.00" departPos="5.66" arrivalPos="109.56" arrivalSpeed="0.00">
+        <route edges="1i 3o"/>
+    </vehicle>
+    <vehicle id="carIn2:1" type="default" depart="384.00" departPos="243.00" arrivalPos="342.37" arrivalSpeed="0.00">
+        <route edges="3i 1o"/>
+    </vehicle>
+    <vehicle id="h221c1:1" type="default" depart="386.00" departPos="352.47" arrivalPos="24.40" arrivalSpeed="0.00">
+        <route edges="2o 2i 3o 3i"/>
+    </vehicle>
+    <vehicle id="h292c1:1" type="default" depart="386.00" departPos="103.66" arrivalPos="435.52" arrivalSpeed="0.00">
+        <route edges="3i 2o"/>
+    </vehicle>
+    <vehicle id="h100c1:1" type="default" depart="387.00" departPos="452.85" arrivalPos="124.89" arrivalSpeed="0.00">
+        <route edges="1o 1i 2o 2i"/>
+    </vehicle>
+    <vehicle id="h28c2:1" type="default" depart="389.00" departPos="2.60" arrivalPos="305.58" arrivalSpeed="0.00">
+        <route edges="1i 4o"/>
+    </vehicle>
+    <vehicle id="h116c1:1" type="default" depart="389.00" departPos="383.67" arrivalPos="427.51" arrivalSpeed="0.00">
+        <route edges="1o 1i 2o"/>
+    </vehicle>
+    <vehicle id="h157c1:1" type="default" depart="389.00" departPos="68.44" arrivalPos="392.47" arrivalSpeed="0.00">
+        <route edges="2i 3o"/>
+    </vehicle>
+    <vehicle id="h287c1:1" type="default" depart="389.00" departPos="81.53" arrivalPos="167.02" arrivalSpeed="0.00">
+        <route edges="3i 1o"/>
+    </vehicle>
+    <vehicle id="h52c1:1" type="default" depart="390.00" departPos="99.43" arrivalPos="181.74" arrivalSpeed="0.00">
+        <route edges="1i 3o"/>
+    </vehicle>
+    <vehicle id="h63c1:1" type="default" depart="390.00" departPos="27.65" arrivalPos="338.78" arrivalSpeed="0.00">
+        <route edges="1i 4o"/>
+    </vehicle>
+    <vehicle id="h307c1:1" type="default" depart="390.00" departPos="230.71" arrivalPos="313.27" arrivalSpeed="0.00">
+        <route edges="3i 1o"/>
+    </vehicle>
+    <vehicle id="h385c1:1" type="default" depart="391.00" departPos="129.29" arrivalPos="48.77" arrivalSpeed="0.00">
+        <route edges="4i 3o 3i"/>
+    </vehicle>
+    <vehicle id="h468c1:1" type="default" depart="394.00" departPos="301.27" arrivalPos="473.20" arrivalSpeed="0.00">
+        <route edges="4o 4i 3o"/>
+    </vehicle>
+    <vehicle id="h336c1:1" type="default" depart="395.00" departPos="453.46" arrivalPos="322.98" arrivalSpeed="0.00">
+        <route edges="3o 3i 4o"/>
+    </vehicle>
+    <vehicle id="h261c1:1" type="default" depart="397.00" departPos="77.81" arrivalPos="118.62" arrivalSpeed="0.00">
+        <route edges="3i 4o 4i"/>
+    </vehicle>
+    <vehicle id="h18c1:1" type="default" depart="398.00" departPos="55.84" arrivalPos="149.28" arrivalSpeed="0.00">
+        <route edges="1i 2o 2i"/>
+    </vehicle>
+    <vehicle id="h443c1:1" type="default" depart="398.00" departPos="341.54" arrivalPos="57.18" arrivalSpeed="0.00">
+        <route edges="4o 4i 3o 3i"/>
+    </vehicle>
+    <vehicle id="h174c1:1" type="default" depart="399.00" departPos="165.48" arrivalPos="440.70" arrivalSpeed="0.00">
+        <route edges="2i 1o"/>
+    </vehicle>
+    <vehicle id="h171c1:1" type="default" depart="400.00" departPos="65.96" arrivalPos="144.27" arrivalSpeed="0.00">
+        <route edges="2i 3o 3i"/>
+    </vehicle>
+    <vehicle id="carIn39:1" type="default" depart="401.00" departPos="243.00" arrivalPos="484.10" arrivalSpeed="0.00">
+        <route edges="1i 2o"/>
+    </vehicle>
+    <vehicle id="h260c1:1" type="default" depart="402.00" departPos="173.04" arrivalPos="435.19" arrivalSpeed="0.00">
+        <route edges="3i 4o"/>
+    </vehicle>
+    <vehicle id="carIn21:1" type="default" depart="402.00" departPos="243.00" arrivalPos="478.32" arrivalSpeed="0.00">
+        <route edges="3i 4o"/>
+    </vehicle>
+    <vehicle id="carIn171:1" type="default" depart="405.00" departPos="243.00" arrivalPos="470.23" arrivalSpeed="0.00">
+        <route edges="2i 1o"/>
+    </vehicle>
+    <vehicle id="h1c2:1" type="default" depart="406.00" departPos="176.45" arrivalPos="425.40" arrivalSpeed="0.00">
+        <route edges="1i 2o"/>
+    </vehicle>
+    <vehicle id="h17c1:1" type="default" depart="407.00" departPos="44.04" arrivalPos="211.00" arrivalSpeed="0.00">
+        <route edges="1i 2o 2i"/>
+    </vehicle>
+    <vehicle id="h129c1:1" type="default" depart="407.00" departPos="185.57" arrivalPos="428.05" arrivalSpeed="0.00">
+        <route edges="2i 3o"/>
+    </vehicle>
+    <vehicle id="carIn125:1" type="default" depart="407.00" departPos="243.00" arrivalPos="279.40" arrivalSpeed="0.00">
+        <route edges="1i 3o"/>
+    </vehicle>
+    <vehicle id="h344c1:1" type="default" depart="408.00" departPos="149.91" arrivalPos="115.21" arrivalSpeed="0.00">
+        <route edges="3o 3i 1o 1i"/>
+    </vehicle>
+    <vehicle id="carIn137:1" type="default" depart="408.00" departPos="243.00" arrivalPos="461.70" arrivalSpeed="0.00">
+        <route edges="4i 3o"/>
+    </vehicle>
+    <vehicle id="h249c1:1" type="default" depart="409.00" departPos="324.67" arrivalPos="407.19" arrivalSpeed="0.00">
+        <route edges="2o 2i 3o"/>
+    </vehicle>
+    <vehicle id="h281c1:1" type="default" depart="409.00" departPos="348.23" arrivalPos="108.47" arrivalSpeed="0.00">
+        <route edges="3i 1o 1i"/>
+    </vehicle>
+    <vehicle id="h328c1:1" type="default" depart="409.00" departPos="418.47" arrivalPos="178.66" arrivalSpeed="0.00">
+        <route edges="3o 3i 2o 2i"/>
+    </vehicle>
+    <vehicle id="carIn97:1" type="default" depart="410.00" departPos="243.00" arrivalPos="32.98" arrivalSpeed="0.00">
+        <route edges="3i 2o 2i"/>
+    </vehicle>
+    <vehicle id="carIn104:1" type="default" depart="411.00" departPos="243.00" arrivalPos="453.44" arrivalSpeed="0.00">
+        <route edges="3i 2o"/>
+    </vehicle>
+    <vehicle id="h40c1:1" type="default" depart="412.00" departPos="115.88" arrivalPos="349.92" arrivalSpeed="0.00">
+        <route edges="1i 2o"/>
+    </vehicle>
+    <vehicle id="carIn162:1" type="default" depart="412.00" departPos="243.00" arrivalPos="450.22" arrivalSpeed="0.00">
+        <route edges="4i 1o"/>
+    </vehicle>
+    <vehicle id="h114c2:1" type="default" depart="413.00" departPos="336.42" arrivalPos="380.62" arrivalSpeed="0.00">
+        <route edges="1o 1i 2o"/>
+    </vehicle>
+    <vehicle id="h480c1:1" type="default" depart="413.00" departPos="208.48" arrivalPos="23.36" arrivalSpeed="0.00">
+        <route edges="4o 4i 3o 3i"/>
+    </vehicle>
+    <vehicle id="carIn96:1" type="default" depart="413.00" departPos="243.00" arrivalPos="444.92" arrivalSpeed="0.00">
+        <route edges="4i 3o"/>
+    </vehicle>
+    <vehicle id="h14c1:1" type="default" depart="414.00" departPos="46.01" arrivalPos="243.00" arrivalSpeed="0.00">
+        <route edges="1i 2o 2i"/>
+    </vehicle>
+    <vehicle id="carIn78:1" type="default" depart="414.00" departPos="243.00" arrivalPos="261.78" arrivalSpeed="0.00">
+        <route edges="4i 2o"/>
+    </vehicle>
+    <vehicle id="h145c1:1" type="default" depart="416.00" departPos="205.62" arrivalPos="414.23" arrivalSpeed="0.00">
+        <route edges="2i 1o"/>
+    </vehicle>
+    <vehicle id="h368c1:1" type="default" depart="416.00" departPos="299.99" arrivalPos="88.10" arrivalSpeed="0.00">
+        <route edges="3o 3i 4o 4i"/>
+    </vehicle>
+    <vehicle id="h434c1:1" type="default" depart="416.00" departPos="273.36" arrivalPos="37.66" arrivalSpeed="0.00">
+        <route edges="4i 1o 1i"/>
+    </vehicle>
+    <vehicle id="carIn72:1" type="default" depart="416.00" departPos="243.00" arrivalPos="232.53" arrivalSpeed="0.00">
+        <route edges="1i 3o 3i"/>
+    </vehicle>
+    <vehicle id="h258c2:1" type="default" depart="418.00" departPos="150.00" arrivalPos="363.38" arrivalSpeed="0.00">
+        <route edges="3i 2o"/>
+    </vehicle>
+    <vehicle id="h439c1:1" type="default" depart="418.00" departPos="115.90" arrivalPos="325.49" arrivalSpeed="0.00">
+        <route edges="4i 3o"/>
+    </vehicle>
+    <vehicle id="h363c1:1" type="default" depart="419.00" departPos="374.31" arrivalPos="318.36" arrivalSpeed="0.00">
+        <route edges="3o 3i 2o"/>
+    </vehicle>
+    <vehicle id="carIn19:1" type="default" depart="419.00" departPos="243.00" arrivalPos="62.06" arrivalSpeed="0.00">
+        <route edges="3i 4o 4i"/>
+    </vehicle>
+    <vehicle id="h36c1:1" type="default" depart="420.00" departPos="65.45" arrivalPos="243.00" arrivalSpeed="0.00">
+        <route edges="1i 4o 4i"/>
+    </vehicle>
+    <vehicle id="h114c1:1" type="default" depart="420.00" departPos="336.42" arrivalPos="131.01" arrivalSpeed="0.00">
+        <route edges="1o 1i 2o 2i"/>
+    </vehicle>
+    <vehicle id="h191c1:1" type="default" depart="420.00" departPos="411.14" arrivalPos="3.96" arrivalSpeed="0.00">
+        <route edges="2i 1o 1i"/>
+    </vehicle>
+    <vehicle id="carIn31:1" type="default" depart="420.00" departPos="243.00" arrivalPos="243.00" arrivalSpeed="0.00">
+        <route edges="4i 2o 2i"/>
+    </vehicle>
+    <vehicle id="carIn32:1" type="default" depart="420.00" departPos="243.00" arrivalPos="243.00" arrivalSpeed="0.00">
+        <route edges="3i 1o 1i"/>
+    </vehicle>
+    <vehicle id="carIn56:1" type="default" depart="420.00" departPos="243.00" arrivalPos="243.00" arrivalSpeed="0.00">
+        <route edges="2i 4o 4i"/>
+    </vehicle>
+    <vehicle id="carIn124:1" type="default" depart="420.00" departPos="243.00" arrivalPos="243.00" arrivalSpeed="0.00">
+        <route edges="4i 2o 2i"/>
+    </vehicle>
+    <vehicle id="h28c1:1" type="default" depart="421.00" departPos="2.60" arrivalPos="470.46" arrivalSpeed="0.00">
+        <route edges="1i 2o 2i"/>
+    </vehicle>
+    <vehicle id="h153c1:1" type="default" depart="421.00" departPos="348.35" arrivalPos="465.49" arrivalSpeed="0.00">
+        <route edges="2i 3o"/>
+    </vehicle>
+    <vehicle id="h83c1:1" type="default" depart="422.00" departPos="394.96" arrivalPos="208.40" arrivalSpeed="0.00">
+        <route edges="1o 1i 2o 2i"/>
+    </vehicle>
+    <vehicle id="h202c1:1" type="default" depart="422.00" departPos="158.08" arrivalPos="459.07" arrivalSpeed="0.00">
+        <route edges="2o 2i 1o"/>
+    </vehicle>
+    <vehicle id="h231c1:1" type="default" depart="422.00" departPos="364.53" arrivalPos="317.64" arrivalSpeed="0.00">
+        <route edges="2o 2i 3o"/>
+    </vehicle>
+    <vehicle id="h308c2:1" type="default" depart="422.00" departPos="14.85" arrivalPos="102.60" arrivalSpeed="0.00">
+        <route edges="3i 2o"/>
+    </vehicle>
+    <vehicle id="carIn47:1" type="default" depart="422.00" departPos="0.00" arrivalPos="5.04" arrivalSpeed="0.00">
+        <route edges="1o 1i 2o 2i"/>
+    </vehicle>
+    <vehicle id="h467c1:1" type="default" depart="423.00" departPos="277.70" arrivalPos="394.97" arrivalSpeed="0.00">
+        <route edges="4o 4i 1o"/>
+    </vehicle>
+    <vehicle id="h108c1:1" type="default" depart="424.00" departPos="25.67" arrivalPos="35.82" arrivalSpeed="0.00">
+        <route edges="1o 1i 3o 3i"/>
+    </vehicle>
+    <vehicle id="carIn122:1" type="default" depart="424.00" departPos="243.00" arrivalPos="76.83" arrivalSpeed="0.00">
+        <route edges="1i 4o 4i"/>
+    </vehicle>
+    <vehicle id="carIn134:1" type="default" depart="424.00" departPos="243.00" arrivalPos="255.50" arrivalSpeed="0.00">
+        <route edges="1i 3o 3i"/>
+    </vehicle>
+    <vehicle id="carIn184:1" type="default" depart="424.00" departPos="243.00" arrivalPos="78.63" arrivalSpeed="0.00">
+        <route edges="2i 3o 3i"/>
+    </vehicle>
+    <vehicle id="h48c1:1" type="default" depart="425.00" departPos="420.80" arrivalPos="79.78" arrivalSpeed="0.00">
+        <route edges="1i 3o 3i"/>
+    </vehicle>
+    <vehicle id="carIn27:1" type="default" depart="425.00" departPos="0.00" arrivalPos="13.15" arrivalSpeed="0.00">
+        <route edges="2o 2i"/>
+    </vehicle>
+    <vehicle id="carIn68:1" type="default" depart="425.00" departPos="243.00" arrivalPos="407.42" arrivalSpeed="0.00">
+        <route edges="4i 3o"/>
+    </vehicle>
+    <vehicle id="carIn113:1" type="default" depart="425.00" departPos="243.00" arrivalPos="230.34" arrivalSpeed="0.00">
+        <route edges="2i 4o"/>
+    </vehicle>
+    <vehicle id="h278c2:1" type="default" depart="426.00" departPos="97.19" arrivalPos="267.27" arrivalSpeed="0.00">
+        <route edges="3i 4o"/>
+    </vehicle>
+    <vehicle id="h326c1:1" type="default" depart="426.00" departPos="411.04" arrivalPos="236.80" arrivalSpeed="0.00">
+        <route edges="3o 3i 2o"/>
+    </vehicle>
+    <vehicle id="h92c1:1" type="default" depart="427.00" departPos="474.35" arrivalPos="4.49" arrivalSpeed="0.00">
+        <route edges="1o"/>
+    </vehicle>
+    <vehicle id="h358c1:1" type="default" depart="427.00" departPos="471.00" arrivalPos="476.93" arrivalSpeed="0.00">
+        <route edges="3o 3i 4o 4i"/>
+    </vehicle>
+    <vehicle id="carIn108:1" type="default" depart="427.00" departPos="243.00" arrivalPos="85.21" arrivalSpeed="0.00">
+        <route edges="3i 4o 4i"/>
+    </vehicle>
+    <vehicle id="carIn112:1" type="default" depart="427.00" departPos="243.00" arrivalPos="402.37" arrivalSpeed="0.00">
+        <route edges="3i 2o"/>
+    </vehicle>
+    <vehicle id="h23c1:1" type="default" depart="428.00" departPos="130.63" arrivalPos="185.70" arrivalSpeed="0.00">
+        <route edges="1i 2o 2i"/>
+    </vehicle>
+    <vehicle id="h198c1:1" type="default" depart="429.00" departPos="245.55" arrivalPos="396.89" arrivalSpeed="0.00">
+        <route edges="2o 2i 1o"/>
+    </vehicle>
+    <vehicle id="carIn62:1" type="default" depart="429.00" departPos="0.00" arrivalPos="465.35" arrivalSpeed="0.00">
+        <route edges="4o"/>
+    </vehicle>
+    <vehicle id="carIn110:1" type="default" depart="429.00" departPos="243.00" arrivalPos="220.32" arrivalSpeed="0.00">
+        <route edges="3i 1o"/>
+    </vehicle>
+    <vehicle id="carIn82:1" type="default" depart="430.00" departPos="0.00" arrivalPos="464.19" arrivalSpeed="0.00">
+        <route edges="1o 1i 3o"/>
+    </vehicle>
+    <vehicle id="h121c1:1" type="default" depart="431.00" departPos="441.40" arrivalPos="358.63" arrivalSpeed="0.00">
+        <route edges="1o 1i 4o 4i"/>
+    </vehicle>
+    <vehicle id="h278c1:1" type="default" depart="431.00" departPos="97.19" arrivalPos="240.03" arrivalSpeed="0.00">
+        <route edges="3i 2o"/>
+    </vehicle>
+    <vehicle id="carIn168:1" type="default" depart="431.00" departPos="0.00" arrivalPos="458.84" arrivalSpeed="0.00">
+        <route edges="4o"/>
+    </vehicle>
+    <vehicle id="h32c1:1" type="default" depart="432.00" departPos="119.17" arrivalPos="268.73" arrivalSpeed="0.00">
+        <route edges="1i 2o"/>
+    </vehicle>
+    <vehicle id="carIn107:1" type="default" depart="432.00" departPos="243.00" arrivalPos="277.69" arrivalSpeed="0.00">
+        <route edges="1i 3o 3i"/>
+    </vehicle>
+    <vehicle id="h16c1:1" type="default" depart="433.00" departPos="35.48" arrivalPos="46.19" arrivalSpeed="0.00">
+        <route edges="1i 2o"/>
+    </vehicle>
+    <vehicle id="h106c1:1" type="default" depart="433.00" departPos="382.85" arrivalPos="243.00" arrivalSpeed="0.00">
+        <route edges="1o 1i 2o 2i"/>
+    </vehicle>
+    <vehicle id="carIn36:1" type="default" depart="433.00" departPos="0.00" arrivalPos="456.06" arrivalSpeed="0.00">
+        <route edges="1o 1i 4o"/>
+    </vehicle>
+    <vehicle id="carIn141:1" type="default" depart="433.00" departPos="0.00" arrivalPos="453.49" arrivalSpeed="0.00">
+        <route edges="4o 4i 2o"/>
+    </vehicle>
+    <vehicle id="h304c2:1" type="default" depart="434.00" departPos="50.29" arrivalPos="382.98" arrivalSpeed="0.00">
+        <route edges="3i 2o 2i"/>
+    </vehicle>
+    <vehicle id="h310c1:1" type="default" depart="434.00" departPos="158.11" arrivalPos="368.42" arrivalSpeed="0.00">
+        <route edges="3i 1o 1i"/>
+    </vehicle>
+    <vehicle id="carIn38:1" type="default" depart="434.00" departPos="243.00" arrivalPos="205.83" arrivalSpeed="0.00">
+        <route edges="2i 4o"/>
+    </vehicle>
+    <vehicle id="carIn156:1" type="default" depart="434.00" departPos="243.00" arrivalPos="110.00" arrivalSpeed="0.00">
+        <route edges="3i 2o 2i"/>
+    </vehicle>
+    <vehicle id="h495c1:1" type="default" depart="435.00" departPos="189.82" arrivalPos="407.68" arrivalSpeed="0.00">
+        <route edges="4o 4i 1o"/>
+    </vehicle>
+    <vehicle id="carIn28:1" type="default" depart="435.00" departPos="0.00" arrivalPos="449.63" arrivalSpeed="0.00">
+        <route edges="4o 4i 3o"/>
+    </vehicle>
+    <vehicle id="h322c1:1" type="default" depart="436.00" departPos="445.95" arrivalPos="33.68" arrivalSpeed="0.00">
+        <route edges="3o 3i 2o"/>
+    </vehicle>
+    <vehicle id="h423c1:1" type="default" depart="436.00" departPos="454.45" arrivalPos="444.56" arrivalSpeed="0.00">
+        <route edges="4i 1o"/>
+    </vehicle>
+    <vehicle id="h429c1:1" type="default" depart="436.00" departPos="318.20" arrivalPos="412.07" arrivalSpeed="0.00">
+        <route edges="4i 1o"/>
+    </vehicle>
+    <vehicle id="h304c1:1" type="default" depart="437.00" departPos="50.29" arrivalPos="415.93" arrivalSpeed="0.00">
+        <route edges="3i 4o 4i"/>
+    </vehicle>
+    <vehicle id="h289c1:1" type="default" depart="438.00" departPos="370.57" arrivalPos="323.33" arrivalSpeed="0.00">
+        <route edges="3i 1o"/>
+    </vehicle>
+    <vehicle id="carIn45:1" type="default" depart="438.00" departPos="0.00" arrivalPos="440.22" arrivalSpeed="0.00">
+        <route edges="4o 4i 2o"/>
+    </vehicle>
+    <vehicle id="carIn191:1" type="default" depart="438.00" departPos="243.00" arrivalPos="367.94" arrivalSpeed="0.00">
+        <route edges="2i 3o"/>
+    </vehicle>
+    <vehicle id="carIn4:1" type="default" depart="439.00" departPos="243.00" arrivalPos="361.95" arrivalSpeed="0.00">
+        <route edges="2i 1o"/>
+    </vehicle>
+    <vehicle id="h127c1:1" type="default" depart="440.00" departPos="126.91" arrivalPos="180.87" arrivalSpeed="0.00">
+        <route edges="1o 1i 3o 3i"/>
+    </vehicle>
+    <vehicle id="h216c1:1" type="default" depart="441.00" departPos="6.15" arrivalPos="55.63" arrivalSpeed="0.00">
+        <route edges="2o 2i 3o 3i"/>
+    </vehicle>
+    <vehicle id="h320c1:1" type="default" depart="441.00" departPos="28.80" arrivalPos="403.25" arrivalSpeed="0.00">
+        <route edges="3o 3i 1o"/>
+    </vehicle>
+    <vehicle id="h20c1:1" type="default" depart="442.00" departPos="125.13" arrivalPos="230.04" arrivalSpeed="0.00">
+        <route edges="1i 4o"/>
+    </vehicle>
+    <vehicle id="h139c1:1" type="default" depart="442.00" departPos="232.04" arrivalPos="344.28" arrivalSpeed="0.00">
+        <route edges="2i 3o"/>
+    </vehicle>
+    <vehicle id="h288c1:1" type="default" depart="442.00" departPos="130.73" arrivalPos="241.17" arrivalSpeed="0.00">
+        <route edges="3i 4o"/>
+    </vehicle>
+    <vehicle id="carIn3:1" type="default" depart="442.00" departPos="243.00" arrivalPos="304.90" arrivalSpeed="0.00">
+        <route edges="3i 1o 1i"/>
+    </vehicle>
+    <vehicle id="h132c1:1" type="default" depart="443.00" departPos="478.45" arrivalPos="60.70" arrivalSpeed="0.00">
+        <route edges="2i 3o 3i"/>
+    </vehicle>
+    <vehicle id="h264c2:1" type="default" depart="443.00" departPos="80.63" arrivalPos="131.87" arrivalSpeed="0.00">
+        <route edges="3i 2o"/>
+    </vehicle>
+    <vehicle id="h267c1:1" type="default" depart="443.00" departPos="128.46" arrivalPos="66.53" arrivalSpeed="0.00">
+        <route edges="3i 1o"/>
+    </vehicle>
+    <vehicle id="h318c1:1" type="default" depart="443.00" departPos="424.96" arrivalPos="452.59" arrivalSpeed="0.00">
+        <route edges="3o 3i 2o 2i"/>
+    </vehicle>
+    <vehicle id="carIn116:1" type="default" depart="443.00" departPos="243.00" arrivalPos="138.40" arrivalSpeed="0.00">
+        <route edges="4i 1o 1i"/>
+    </vehicle>
+    <vehicle id="carIn48:1" type="default" depart="444.00" departPos="243.00" arrivalPos="344.98" arrivalSpeed="0.00">
+        <route edges="2i 3o"/>
+    </vehicle>
+    <vehicle id="h40c2:1" type="default" depart="445.00" departPos="115.88" arrivalPos="291.99" arrivalSpeed="0.00">
+        <route edges="1i 4o 4i"/>
+    </vehicle>
+    <vehicle id="h311c1:1" type="default" depart="445.00" departPos="118.94" arrivalPos="204.29" arrivalSpeed="0.00">
+        <route edges="3i 4o"/>
+    </vehicle>
+    <vehicle id="h427c1:1" type="default" depart="445.00" departPos="404.68" arrivalPos="413.14" arrivalSpeed="0.00">
+        <route edges="4i 3o"/>
+    </vehicle>
+    <vehicle id="h406c1:1" type="default" depart="446.00" departPos="382.46" arrivalPos="82.21" arrivalSpeed="0.00">
+        <route edges="4i 3o 3i"/>
+    </vehicle>
+    <vehicle id="carIn165:1" type="default" depart="446.00" departPos="243.00" arrivalPos="147.03" arrivalSpeed="0.00">
+        <route edges="1i 2o 2i"/>
+    </vehicle>
+    <vehicle id="carIn186:1" type="default" depart="446.00" departPos="243.00" arrivalPos="340.91" arrivalSpeed="0.00">
+        <route edges="1i 4o"/>
+    </vehicle>
+    <vehicle id="h269c1:1" type="default" depart="447.00" departPos="447.79" arrivalPos="30.93" arrivalSpeed="0.00">
+        <route edges="3i"/>
+    </vehicle>
+    <vehicle id="h294c1:1" type="default" depart="447.00" departPos="152.36" arrivalPos="243.00" arrivalSpeed="0.00">
+        <route edges="3i 4o 4i"/>
+    </vehicle>
+    <vehicle id="h365c1:1" type="default" depart="447.00" departPos="401.41" arrivalPos="375.19" arrivalSpeed="0.00">
+        <route edges="3o 3i 2o 2i"/>
+    </vehicle>
+    <vehicle id="h490c1:1" type="default" depart="448.00" departPos="47.80" arrivalPos="78.43" arrivalSpeed="0.00">
+        <route edges="4o 4i 3o 3i"/>
+    </vehicle>
+    <vehicle id="carIn145:1" type="default" depart="448.00" departPos="0.00" arrivalPos="75.70" arrivalSpeed="0.00">
+        <route edges="3o 3i 2o 2i"/>
+    </vehicle>
+    <vehicle id="h257c1:1" type="default" depart="449.00" departPos="187.51" arrivalPos="279.33" arrivalSpeed="0.00">
+        <route edges="3i 4o"/>
+    </vehicle>
+    <vehicle id="carIn57:1" type="default" depart="449.00" departPos="243.00" arrivalPos="328.87" arrivalSpeed="0.00">
+        <route edges="1i 4o"/>
+    </vehicle>
+    <vehicle id="h343c1:1" type="default" depart="452.00" departPos="21.60" arrivalPos="381.08" arrivalSpeed="0.00">
+        <route edges="3o 3i 1o"/>
+    </vehicle>
+    <vehicle id="carIn105:1" type="default" depart="452.00" departPos="243.00" arrivalPos="319.41" arrivalSpeed="0.00">
+        <route edges="3i 4o"/>
+    </vehicle>
+    <vehicle id="h417c1:1" type="default" depart="453.00" departPos="425.36" arrivalPos="395.59" arrivalSpeed="0.00">
+        <route edges="4i 1o"/>
+    </vehicle>
+    <vehicle id="h123c1:1" type="default" depart="454.00" departPos="380.75" arrivalPos="369.84" arrivalSpeed="0.00">
+        <route edges="1o 1i 2o 2i"/>
+    </vehicle>
+    <vehicle id="carIn44:1" type="default" depart="454.00" departPos="243.00" arrivalPos="312.75" arrivalSpeed="0.00">
+        <route edges="4i 3o"/>
+    </vehicle>
+    <vehicle id="carIn91:1" type="default" depart="455.00" departPos="243.00" arrivalPos="178.29" arrivalSpeed="0.00">
+        <route edges="3i 4o 4i"/>
+    </vehicle>
+    <vehicle id="carIn34:1" type="default" depart="456.00" departPos="243.00" arrivalPos="181.21" arrivalSpeed="0.00">
+        <route edges="3i 4o 4i"/>
+    </vehicle>
+    <vehicle id="carIn117:1" type="default" depart="456.00" departPos="243.00" arrivalPos="183.98" arrivalSpeed="0.00">
+        <route edges="4i 1o 1i"/>
+    </vehicle>
+    <vehicle id="h13c1:1" type="default" depart="457.00" departPos="187.22" arrivalPos="243.00" arrivalSpeed="0.00">
+        <route edges="1i 4o 4i"/>
+    </vehicle>
+    <vehicle id="h26c1:1" type="default" depart="457.00" departPos="101.31" arrivalPos="451.36" arrivalSpeed="0.00">
+        <route edges="1i 4o 4i"/>
+    </vehicle>
+    <vehicle id="carIn65:1" type="default" depart="457.00" departPos="243.00" arrivalPos="303.02" arrivalSpeed="0.00">
+        <route edges="1i 4o"/>
+    </vehicle>
+    <vehicle id="h243c1:1" type="default" depart="458.00" departPos="187.26" arrivalPos="339.54" arrivalSpeed="0.00">
+        <route edges="2o 2i 1o"/>
+    </vehicle>
+    <vehicle id="carIn115:1" type="default" depart="458.00" departPos="0.00" arrivalPos="102.20" arrivalSpeed="0.00">
+        <route edges="1o 1i 2o 2i"/>
+    </vehicle>
+    <vehicle id="carIn119:1" type="default" depart="458.00" departPos="243.00" arrivalPos="300.34" arrivalSpeed="0.00">
+        <route edges="2i 1o"/>
+    </vehicle>
+    <vehicle id="carIn138:1" type="default" depart="458.00" departPos="0.00" arrivalPos="386.15" arrivalSpeed="0.00">
+        <route edges="2o 2i 4o"/>
+    </vehicle>
+    <vehicle id="carIn24:1" type="default" depart="459.00" departPos="243.00" arrivalPos="192.45" arrivalSpeed="0.00">
+        <route edges="3i 2o 2i"/>
+    </vehicle>
+    <vehicle id="carIn77:1" type="default" depart="459.00" departPos="243.00" arrivalPos="295.17" arrivalSpeed="0.00">
+        <route edges="1i 2o"/>
+    </vehicle>
+    <vehicle id="carIn37:1" type="default" depart="460.00" departPos="0.00" arrivalPos="106.14" arrivalSpeed="0.00">
+        <route edges="2o 2i 1o 1i"/>
+    </vehicle>
+    <vehicle id="carIn41:1" type="default" depart="460.00" departPos="243.00" arrivalPos="195.95" arrivalSpeed="0.00">
+        <route edges="1i 4o 4i"/>
+    </vehicle>
+    <vehicle id="carIn190:1" type="default" depart="460.00" departPos="0.00" arrivalPos="381.16" arrivalSpeed="0.00">
+        <route edges="4o 4i 2o"/>
+    </vehicle>
+    <vehicle id="h87c1:1" type="default" depart="461.00" departPos="327.32" arrivalPos="188.71" arrivalSpeed="0.00">
+        <route edges="1o 1i 4o"/>
+    </vehicle>
+    <vehicle id="carIn136:1" type="default" depart="461.00" departPos="0.00" arrivalPos="379.47" arrivalSpeed="0.00">
+        <route edges="2o 2i 1o"/>
+    </vehicle>
+    <vehicle id="h187c1:1" type="default" depart="462.00" departPos="419.79" arrivalPos="368.95" arrivalSpeed="0.00">
+        <route edges="2i 1o"/>
+    </vehicle>
+    <vehicle id="carIn29:1" type="default" depart="462.00" departPos="243.00" arrivalPos="285.69" arrivalSpeed="0.00">
+        <route edges="2i 3o"/>
+    </vehicle>
+    <vehicle id="h70c1:1" type="default" depart="463.00" departPos="371.97" arrivalPos="30.55" arrivalSpeed="0.00">
+        <route edges="1o 1i 4o"/>
+    </vehicle>
+    <vehicle id="h313c2:1" type="default" depart="463.00" departPos="141.30" arrivalPos="136.38" arrivalSpeed="0.00">
+        <route edges="3i 4o"/>
+    </vehicle>
+    <vehicle id="carIn17:1" type="default" depart="463.00" departPos="243.00" arrivalPos="127.56" arrivalSpeed="0.00">
+        <route edges="4i 2o"/>
+    </vehicle>
+    <vehicle id="carIn182:1" type="default" depart="463.00" departPos="0.00" arrivalPos="373.09" arrivalSpeed="0.00">
+        <route edges="3o 3i 4o"/>
+    </vehicle>
+    <vehicle id="h308c1:1" type="default" depart="464.00" departPos="14.85" arrivalPos="103.21" arrivalSpeed="0.00">
+        <route edges="3i 3o"/>
+    </vehicle>
+    <vehicle id="carIn81:1" type="default" depart="464.00" departPos="0.00" arrivalPos="370.40" arrivalSpeed="0.00">
+        <route edges="1o 1i 4o"/>
+    </vehicle>
+    <vehicle id="carIn158:1" type="default" depart="464.00" departPos="243.00" arrivalPos="277.06" arrivalSpeed="0.00">
+        <route edges="3i 4o"/>
+    </vehicle>
+    <vehicle id="h338c1:1" type="default" depart="466.00" departPos="344.80" arrivalPos="364.96" arrivalSpeed="0.00">
+        <route edges="3o 3i 4o 4i"/>
+    </vehicle>
+    <vehicle id="carIn54:1" type="default" depart="466.00" departPos="243.00" arrivalPos="118.35" arrivalSpeed="0.00">
+        <route edges="3i 1o"/>
+    </vehicle>
+    <vehicle id="h274c1:1" type="default" depart="467.00" departPos="56.39" arrivalPos="68.66" arrivalSpeed="0.00">
+        <route edges="3i 3o"/>
+    </vehicle>
+    <vehicle id="carIn194:1" type="default" depart="468.00" departPos="243.00" arrivalPos="113.76" arrivalSpeed="0.00">
+        <route edges="1i 3o"/>
+    </vehicle>
+    <vehicle id="h209c1:1" type="default" depart="469.00" departPos="122.70" arrivalPos="152.13" arrivalSpeed="0.00">
+        <route edges="2o 2i 3o 3i"/>
+    </vehicle>
+    <vehicle id="carIn64:1" type="default" depart="469.00" departPos="0.00" arrivalPos="131.23" arrivalSpeed="0.00">
+        <route edges="1o 1i 2o 2i"/>
+    </vehicle>
+    <vehicle id="h75c1:1" type="default" depart="470.00" departPos="374.53" arrivalPos="469.18" arrivalSpeed="0.00">
+        <route edges="1o 1i"/>
+    </vehicle>
+    <vehicle id="carIn50:1" type="default" depart="470.00" departPos="243.00" arrivalPos="380.77" arrivalSpeed="0.00">
+        <route edges="4i 2o 2i"/>
+    </vehicle>
+    <vehicle id="carIn118:1" type="default" depart="470.00" departPos="243.00" arrivalPos="255.73" arrivalSpeed="0.00">
+        <route edges="1i 2o"/>
+    </vehicle>
+    <vehicle id="carIn198:1" type="default" depart="470.00" departPos="0.00" arrivalPos="134.21" arrivalSpeed="0.00">
+        <route edges="3o 3i"/>
+    </vehicle>
+    <vehicle id="carIn111:1" type="default" depart="471.00" departPos="0.00" arrivalPos="352.42" arrivalSpeed="0.00">
+        <route edges="1o"/>
+    </vehicle>
+    <vehicle id="h1c1:1" type="default" depart="472.00" departPos="176.45" arrivalPos="156.54" arrivalSpeed="0.00">
+        <route edges="1i 4o"/>
+    </vehicle>
+    <vehicle id="h313c1:1" type="default" depart="472.00" departPos="141.30" arrivalPos="35.15" arrivalSpeed="0.00">
+        <route edges="3i 4o"/>
+    </vehicle>
+    <vehicle id="carIn46:1" type="default" depart="472.00" departPos="243.00" arrivalPos="247.70" arrivalSpeed="0.00">
+        <route edges="4i 1o"/>
+    </vehicle>
+    <vehicle id="carIn85:1" type="default" depart="473.00" departPos="243.00" arrivalPos="243.00" arrivalSpeed="0.00">
+        <route edges="1i 4o 4i"/>
+    </vehicle>
+    <vehicle id="carIn88:1" type="default" depart="473.00" departPos="0.00" arrivalPos="346.95" arrivalSpeed="0.00">
+        <route edges="1o 1i 2o"/>
+    </vehicle>
+    <vehicle id="carIn121:1" type="default" depart="473.00" departPos="243.00" arrivalPos="243.00" arrivalSpeed="0.00">
+        <route edges="2i 1o 1i"/>
+    </vehicle>
+    <vehicle id="carIn160:1" type="default" depart="473.00" departPos="243.00" arrivalPos="100.62" arrivalSpeed="0.00">
+        <route edges="1i 3o"/>
+    </vehicle>
+    <vehicle id="h75c2:1" type="default" depart="474.00" departPos="374.53" arrivalPos="456.25" arrivalSpeed="0.00">
+        <route edges="1o 1i"/>
+    </vehicle>
+    <vehicle id="carIn101:1" type="default" depart="474.00" departPos="0.00" arrivalPos="344.56" arrivalSpeed="0.00">
+        <route edges="4o 4i 3o"/>
+    </vehicle>
+    <vehicle id="carIn159:1" type="default" depart="474.00" departPos="243.00" arrivalPos="249.05" arrivalSpeed="0.00">
+        <route edges="4i 1o 1i"/>
+    </vehicle>
+    <vehicle id="carIn177:1" type="default" depart="474.00" departPos="0.00" arrivalPos="144.68" arrivalSpeed="0.00">
+        <route edges="3o 3i"/>
+    </vehicle>
+    <vehicle id="carIn99:1" type="default" depart="475.00" departPos="243.00" arrivalPos="237.67" arrivalSpeed="0.00">
+        <route edges="4i 1o"/>
+    </vehicle>
+    <vehicle id="carIn35:1" type="default" depart="476.00" departPos="0.00" arrivalPos="338.10" arrivalSpeed="0.00">
+        <route edges="3o"/>
+    </vehicle>
+    <vehicle id="carIn128:1" type="default" depart="476.00" departPos="243.00" arrivalPos="233.86" arrivalSpeed="0.00">
+        <route edges="1i 2o"/>
+    </vehicle>
+    <vehicle id="carIn126:1" type="default" depart="477.00" departPos="0.00" arrivalPos="154.05" arrivalSpeed="0.00">
+        <route edges="3o 3i 4o 4i"/>
+    </vehicle>
+    <vehicle id="carIn146:1" type="default" depart="477.00" departPos="0.00" arrivalPos="334.14" arrivalSpeed="0.00">
+        <route edges="2o 2i 1o"/>
+    </vehicle>
+    <vehicle id="carIn103:1" type="default" depart="478.00" departPos="243.00" arrivalPos="402.05" arrivalSpeed="0.00">
+        <route edges="2i 4o 4i"/>
+    </vehicle>
+    <vehicle id="carIn59:1" type="default" depart="479.00" departPos="0.00" arrivalPos="158.27" arrivalSpeed="0.00">
+        <route edges="3o 3i 2o 2i"/>
+    </vehicle>
+    <vehicle id="carIn130:1" type="default" depart="479.00" departPos="243.00" arrivalPos="85.08" arrivalSpeed="0.00">
+        <route edges="4i 2o"/>
+    </vehicle>
+    <vehicle id="carIn80:1" type="default" depart="481.00" departPos="243.00" arrivalPos="212.89" arrivalSpeed="0.00">
+        <route edges="3i 4o"/>
+    </vehicle>
+    <vehicle id="carIn90:1" type="default" depart="483.00" departPos="243.00" arrivalPos="202.00" arrivalSpeed="0.00">
+        <route edges="3i 4o"/>
+    </vehicle>
+    <vehicle id="carIn7:1" type="default" depart="484.00" departPos="0.00" arrivalPos="171.62" arrivalSpeed="0.00">
+        <route edges="3o 3i 1o 1i"/>
+    </vehicle>
+    <vehicle id="carIn195:1" type="default" depart="485.00" departPos="0.00" arrivalPos="312.30" arrivalSpeed="0.00">
+        <route edges="1o 1i 2o"/>
+    </vehicle>
+    <vehicle id="carIn8:1" type="default" depart="487.00" departPos="0.00" arrivalPos="181.44" arrivalSpeed="0.00">
+        <route edges="4o 4i 2o 2i"/>
+    </vehicle>
+    <vehicle id="carIn89:1" type="default" depart="487.00" departPos="243.00" arrivalPos="187.90" arrivalSpeed="0.00">
+        <route edges="2i 1o"/>
+    </vehicle>
+    <vehicle id="carIn52:1" type="default" depart="489.00" departPos="0.00" arrivalPos="185.44" arrivalSpeed="0.00">
+        <route edges="4o 4i 3o 3i"/>
+    </vehicle>
+    <vehicle id="carIn94:1" type="default" depart="490.00" departPos="0.00" arrivalPos="188.65" arrivalSpeed="0.00">
+        <route edges="2o 2i 3o 3i"/>
+    </vehicle>
+    <vehicle id="carIn26:1" type="default" depart="491.00" departPos="243.00" arrivalPos="436.18" arrivalSpeed="0.00">
+        <route edges="3i 1o 1i"/>
+    </vehicle>
+    <vehicle id="carIn71:1" type="default" depart="491.00" departPos="0.00" arrivalPos="296.50" arrivalSpeed="0.00">
+        <route edges="4o 4i 3o"/>
+    </vehicle>
+    <vehicle id="carIn18:1" type="default" depart="492.00" departPos="0.00" arrivalPos="295.44" arrivalSpeed="0.00">
+        <route edges="1o 1i 4o"/>
+    </vehicle>
+    <vehicle id="carIn131:1" type="default" depart="493.00" departPos="0.00" arrivalPos="195.64" arrivalSpeed="0.00">
+        <route edges="1o 1i 2o 2i"/>
+    </vehicle>
+    <vehicle id="carIn193:1" type="default" depart="495.00" departPos="0.00" arrivalPos="200.89" arrivalSpeed="0.00">
+        <route edges="2o 2i 1o 1i"/>
+    </vehicle>
+    <vehicle id="carIn127:1" type="default" depart="496.00" departPos="0.00" arrivalPos="205.11" arrivalSpeed="0.00">
+        <route edges="1o 1i 3o 3i"/>
+    </vehicle>
+    <vehicle id="carIn164:1" type="default" depart="496.00" departPos="243.00" arrivalPos="451.94" arrivalSpeed="0.00">
+        <route edges="1i 3o 3i"/>
+    </vehicle>
+    <vehicle id="carIn200:1" type="default" depart="497.00" departPos="243.00" arrivalPos="135.56" arrivalSpeed="0.00">
+        <route edges="4i 3o"/>
+    </vehicle>
+    <vehicle id="carIn187:1" type="default" depart="498.00" departPos="243.00" arrivalPos="31.88" arrivalSpeed="0.00">
+        <route edges="1i 3o"/>
+    </vehicle>
+    <vehicle id="carIn10:1" type="default" depart="500.00" departPos="243.00" arrivalPos="368.78" arrivalSpeed="0.00">
+        <route edges="2i 3o 3i"/>
+    </vehicle>
+    <vehicle id="carIn106:1" type="default" depart="500.00" departPos="0.00" arrivalPos="271.85" arrivalSpeed="0.00">
+        <route edges="3o 3i 2o"/>
+    </vehicle>
+    <vehicle id="carIn152:1" type="default" depart="500.00" departPos="243.00" arrivalPos="371.65" arrivalSpeed="0.00">
+        <route edges="1i 4o 4i"/>
+    </vehicle>
+    <vehicle id="carIn175:1" type="default" depart="500.00" departPos="243.00" arrivalPos="116.24" arrivalSpeed="0.00">
+        <route edges="3i 2o"/>
+    </vehicle>
+    <vehicle id="carIn140:1" type="default" depart="501.00" departPos="0.00" arrivalPos="271.31" arrivalSpeed="0.00">
+        <route edges="1o 1i 3o"/>
+    </vehicle>
+    <vehicle id="carIn153:1" type="default" depart="501.00" departPos="0.00" arrivalPos="219.06" arrivalSpeed="0.00">
+        <route edges="2o 2i 1o 1i"/>
+    </vehicle>
+    <vehicle id="carIn197:1" type="default" depart="502.00" departPos="0.00" arrivalPos="220.24" arrivalSpeed="0.00">
+        <route edges="3o 3i 4o 4i"/>
+    </vehicle>
+    <vehicle id="carIn83:1" type="default" depart="505.00" departPos="0.00" arrivalPos="228.07" arrivalSpeed="0.00">
+        <route edges="1o 1i 3o 3i"/>
+    </vehicle>
+    <vehicle id="carIn66:1" type="default" depart="506.00" departPos="243.00" arrivalPos="413.76" arrivalSpeed="0.00">
+        <route edges="2i 1o 1i"/>
+    </vehicle>
+    <vehicle id="carIn67:1" type="default" depart="507.00" departPos="243.00" arrivalPos="66.81" arrivalSpeed="0.00">
+        <route edges="3i 4o"/>
+    </vehicle>
+    <vehicle id="carIn109:1" type="default" depart="508.00" departPos="0.00" arrivalPos="251.40" arrivalSpeed="0.00">
+        <route edges="4o 4i 2o"/>
+    </vehicle>
+    <vehicle id="carIn149:1" type="default" depart="508.00" departPos="243.00" arrivalPos="51.03" arrivalSpeed="0.00">
+        <route edges="4i 3o"/>
+    </vehicle>
+    <vehicle id="carIn123:1" type="default" depart="509.00" departPos="243.00" arrivalPos="485.24" arrivalSpeed="0.00">
+        <route edges="3i 1o 1i"/>
+    </vehicle>
+    <vehicle id="carIn1:1" type="default" depart="510.00" departPos="243.00" arrivalPos="463.79" arrivalSpeed="0.00">
+        <route edges="4i 3o 3i"/>
+    </vehicle>
+    <vehicle id="carIn11:1" type="default" depart="510.00" departPos="243.00" arrivalPos="0.47" arrivalSpeed="0.00">
+        <route edges="2i 1o"/>
+    </vehicle>
+    <vehicle id="carIn33:1" type="default" depart="510.00" departPos="0.00" arrivalPos="243.00" arrivalSpeed="0.00">
+        <route edges="4o 4i 3o 3i"/>
+    </vehicle>
+    <vehicle id="carIn61:1" type="default" depart="510.00" departPos="243.00" arrivalPos="481.00" arrivalSpeed="0.00">
+        <route edges="2i 1o 1i"/>
+    </vehicle>
+    <vehicle id="carIn69:1" type="default" depart="510.00" departPos="243.00" arrivalPos="0.00" arrivalSpeed="0.00">
+        <route edges="3i 2o"/>
+    </vehicle>
+    <vehicle id="carIn87:1" type="default" depart="510.00" departPos="0.00" arrivalPos="243.00" arrivalSpeed="0.00">
+        <route edges="2o 2i 4o 4i"/>
+    </vehicle>
+    <vehicle id="carIn120:1" type="default" depart="510.00" departPos="0.00" arrivalPos="243.00" arrivalSpeed="0.00">
+        <route edges="1o 1i 2o 2i"/>
+    </vehicle>
+    <vehicle id="carIn133:1" type="default" depart="510.00" departPos="0.00" arrivalPos="243.00" arrivalSpeed="0.00">
+        <route edges="1o 1i 4o 4i"/>
+    </vehicle>
+    <vehicle id="carIn135:1" type="default" depart="510.00" departPos="243.00" arrivalPos="11.13" arrivalSpeed="0.00">
+        <route edges="4i 1o"/>
+    </vehicle>
+    <vehicle id="carIn183:1" type="default" depart="510.00" departPos="0.00" arrivalPos="243.00" arrivalSpeed="0.00">
+        <route edges="2o 2i"/>
+    </vehicle>
+    <vehicle id="carIn192:1" type="default" depart="510.00" departPos="0.00" arrivalPos="243.00" arrivalSpeed="0.00">
+        <route edges="2o 2i 4o 4i"/>
+    </vehicle>
+    <vehicle id="carIn179:1" type="default" depart="512.00" departPos="0.00" arrivalPos="239.29" arrivalSpeed="0.00">
+        <route edges="1o 1i 3o"/>
+    </vehicle>
+    <vehicle id="carIn188:1" type="default" depart="512.00" departPos="0.00" arrivalPos="239.22" arrivalSpeed="0.00">
+        <route edges="4o 4i 2o"/>
+    </vehicle>
+    <vehicle id="carIn114:1" type="default" depart="513.00" departPos="0.00" arrivalPos="251.17" arrivalSpeed="0.00">
+        <route edges="4o 4i"/>
+    </vehicle>
+    <vehicle id="carIn13:1" type="default" depart="516.00" departPos="243.00" arrivalPos="13.31" arrivalSpeed="0.00">
+        <route edges="3i"/>
+    </vehicle>
+    <vehicle id="carIn161:1" type="default" depart="516.00" departPos="243.00" arrivalPos="13.85" arrivalSpeed="0.00">
+        <route edges="1i"/>
+    </vehicle>
+    <vehicle id="carIn151:1" type="default" depart="517.00" departPos="243.00" arrivalPos="472.20" arrivalSpeed="0.00">
+        <route edges="1i 1o"/>
+    </vehicle>
+    <vehicle id="carIn58:1" type="default" depart="518.00" departPos="243.00" arrivalPos="21.64" arrivalSpeed="0.00">
+        <route edges="3i 3o"/>
+    </vehicle>
+    <vehicle id="carIn199:1" type="default" depart="518.00" departPos="0.00" arrivalPos="222.78" arrivalSpeed="0.00">
+        <route edges="3o"/>
+    </vehicle>
+    <vehicle id="carIn142:1" type="default" depart="522.00" departPos="0.00" arrivalPos="276.84" arrivalSpeed="0.00">
+        <route edges="4o 4i"/>
+    </vehicle>
+    <vehicle id="carIn166:1" type="default" depart="524.00" departPos="0.00" arrivalPos="207.86" arrivalSpeed="0.00">
+        <route edges="3o 3i 2o"/>
+    </vehicle>
+    <vehicle id="carIn63:1" type="default" depart="525.00" departPos="0.00" arrivalPos="205.64" arrivalSpeed="0.00">
+        <route edges="4o 4i 3o"/>
+    </vehicle>
+    <vehicle id="carIn167:1" type="default" depart="526.00" departPos="0.00" arrivalPos="201.17" arrivalSpeed="0.00">
+        <route edges="2o 2i 1o"/>
+    </vehicle>
+    <vehicle id="carIn148:1" type="default" depart="527.00" departPos="0.00" arrivalPos="288.71" arrivalSpeed="0.00">
+        <route edges="2o 2i"/>
+    </vehicle>
+    <vehicle id="carIn147:1" type="default" depart="528.00" departPos="243.00" arrivalPos="443.53" arrivalSpeed="0.00">
+        <route edges="1i 1o"/>
+    </vehicle>
+    <vehicle id="carIn42:1" type="default" depart="530.00" departPos="243.00" arrivalPos="54.80" arrivalSpeed="0.00">
+        <route edges="3i 3o"/>
+    </vehicle>
+    <vehicle id="carIn70:1" type="default" depart="530.00" departPos="243.00" arrivalPos="52.81" arrivalSpeed="0.00">
+        <route edges="2i"/>
+    </vehicle>
+    <vehicle id="carIn154:1" type="default" depart="533.00" departPos="243.00" arrivalPos="62.68" arrivalSpeed="0.00">
+        <route edges="1i 1o"/>
+    </vehicle>
+    <vehicle id="carIn176:1" type="default" depart="533.00" departPos="243.00" arrivalPos="426.86" arrivalSpeed="0.00">
+        <route edges="4i"/>
+    </vehicle>
+    <vehicle id="carIn181:1" type="default" depart="534.00" departPos="0.00" arrivalPos="180.31" arrivalSpeed="0.00">
+        <route edges="3o"/>
+    </vehicle>
+    <vehicle id="carIn73:1" type="default" depart="537.00" departPos="0.00" arrivalPos="315.83" arrivalSpeed="0.00">
+        <route edges="2o 2i 1o 1i"/>
+    </vehicle>
+    <vehicle id="carIn169:1" type="default" depart="539.00" departPos="243.00" arrivalPos="76.58" arrivalSpeed="0.00">
+        <route edges="2i"/>
+    </vehicle>
+    <vehicle id="carIn129:1" type="default" depart="541.00" departPos="0.00" arrivalPos="326.84" arrivalSpeed="0.00">
+        <route edges="4o 4i 2o 2i"/>
+    </vehicle>
+    <vehicle id="carIn170:1" type="default" depart="542.00" departPos="0.00" arrivalPos="330.94" arrivalSpeed="0.00">
+        <route edges="2o 2i 4o 4i"/>
+    </vehicle>
+    <vehicle id="carIn43:1" type="default" depart="543.00" departPos="243.00" arrivalPos="400.43" arrivalSpeed="0.00">
+        <route edges="2i"/>
+    </vehicle>
+    <vehicle id="carIn100:1" type="default" depart="546.00" departPos="0.00" arrivalPos="339.39" arrivalSpeed="0.00">
+        <route edges="2o 2i 4o 4i"/>
+    </vehicle>
+    <vehicle id="carIn20:1" type="default" depart="547.00" departPos="0.00" arrivalPos="146.39" arrivalSpeed="0.00">
+        <route edges="1o"/>
+    </vehicle>
+    <vehicle id="carIn15:1" type="default" depart="556.00" departPos="243.00" arrivalPos="121.69" arrivalSpeed="0.00">
+        <route edges="3i"/>
+    </vehicle>
+    <vehicle id="carIn22:1" type="default" depart="557.00" departPos="0.00" arrivalPos="117.48" arrivalSpeed="0.00">
+        <route edges="2o 2i 4o"/>
+    </vehicle>
+    <vehicle id="carIn25:1" type="default" depart="561.00" departPos="243.00" arrivalPos="349.94" arrivalSpeed="0.00">
+        <route edges="2i"/>
+    </vehicle>
+    <vehicle id="carIn132:1" type="default" depart="561.00" departPos="0.00" arrivalPos="382.53" arrivalSpeed="0.00">
+        <route edges="1o 1i 4o 4i"/>
+    </vehicle>
+    <vehicle id="carIn16:1" type="default" depart="562.00" departPos="0.00" arrivalPos="105.11" arrivalSpeed="0.00">
+        <route edges="1o 1i 3o"/>
+    </vehicle>
+    <vehicle id="carIn155:1" type="default" depart="562.00" departPos="0.00" arrivalPos="384.63" arrivalSpeed="0.00">
+        <route edges="1o 1i 2o 2i"/>
+    </vehicle>
+    <vehicle id="carIn157:1" type="default" depart="562.00" departPos="243.00" arrivalPos="346.94" arrivalSpeed="0.00">
+        <route edges="2i"/>
+    </vehicle>
+    <vehicle id="carIn93:1" type="default" depart="563.00" departPos="0.00" arrivalPos="387.84" arrivalSpeed="0.00">
+        <route edges="4o 4i 3o 3i"/>
+    </vehicle>
+    <vehicle id="carIn173:1" type="default" depart="563.00" departPos="243.00" arrivalPos="141.34" arrivalSpeed="0.00">
+        <route edges="3i"/>
+    </vehicle>
+    <vehicle id="carIn75:1" type="default" depart="564.00" departPos="0.00" arrivalPos="100.04" arrivalSpeed="0.00">
+        <route edges="3o"/>
+    </vehicle>
+    <vehicle id="carIn95:1" type="default" depart="564.00" departPos="243.00" arrivalPos="143.65" arrivalSpeed="0.00">
+        <route edges="1i"/>
+    </vehicle>
+    <vehicle id="carIn12:1" type="default" depart="567.00" departPos="0.00" arrivalPos="398.53" arrivalSpeed="0.00">
+        <route edges="1o 1i 4o 4i"/>
+    </vehicle>
+    <vehicle id="carIn84:1" type="default" depart="569.00" departPos="0.00" arrivalPos="403.65" arrivalSpeed="0.00">
+        <route edges="4o 4i"/>
+    </vehicle>
+    <vehicle id="carIn139:1" type="default" depart="569.00" departPos="243.00" arrivalPos="331.04" arrivalSpeed="0.00">
+        <route edges="2i 2o"/>
+    </vehicle>
+    <vehicle id="carIn79:1" type="default" depart="572.00" departPos="243.00" arrivalPos="165.65" arrivalSpeed="0.00">
+        <route edges="4i"/>
+    </vehicle>
+    <vehicle id="carIn5:1" type="default" depart="573.00" departPos="0.00" arrivalPos="414.15" arrivalSpeed="0.00">
+        <route edges="1o 1i"/>
+    </vehicle>
+    <vehicle id="carIn74:1" type="default" depart="573.00" departPos="0.00" arrivalPos="413.24" arrivalSpeed="0.00">
+        <route edges="3o 3i 2o 2i"/>
+    </vehicle>
+    <vehicle id="carIn144:1" type="default" depart="573.00" departPos="0.00" arrivalPos="415.01" arrivalSpeed="0.00">
+        <route edges="3o 3i"/>
+    </vehicle>
+    <vehicle id="carIn189:1" type="default" depart="574.00" departPos="243.00" arrivalPos="313.76" arrivalSpeed="0.00">
+        <route edges="1i"/>
+    </vehicle>
+    <vehicle id="carIn53:1" type="default" depart="575.00" departPos="243.00" arrivalPos="175.30" arrivalSpeed="0.00">
+        <route edges="1i 1o"/>
+    </vehicle>
+    <vehicle id="carIn180:1" type="default" depart="575.00" departPos="0.00" arrivalPos="418.82" arrivalSpeed="0.00">
+        <route edges="2o 2i 4o 4i"/>
+    </vehicle>
+    <vehicle id="carIn55:1" type="default" depart="576.00" departPos="0.00" arrivalPos="67.11" arrivalSpeed="0.00">
+        <route edges="1o 1i 4o"/>
+    </vehicle>
+    <vehicle id="carIn185:1" type="default" depart="579.00" departPos="0.00" arrivalPos="58.57" arrivalSpeed="0.00">
+        <route edges="1o 1i 4o"/>
+    </vehicle>
+    <vehicle id="carIn6:1" type="default" depart="580.00" departPos="243.00" arrivalPos="188.11" arrivalSpeed="0.00">
+        <route edges="2i"/>
+    </vehicle>
+    <vehicle id="carIn23:1" type="default" depart="582.00" departPos="243.00" arrivalPos="294.26" arrivalSpeed="0.00">
+        <route edges="4i"/>
+    </vehicle>
+    <vehicle id="carIn60:1" type="default" depart="582.00" departPos="243.00" arrivalPos="194.72" arrivalSpeed="0.00">
+        <route edges="1i 1o"/>
+    </vehicle>
+    <vehicle id="carIn172:1" type="default" depart="583.00" departPos="243.00" arrivalPos="290.25" arrivalSpeed="0.00">
+        <route edges="4i"/>
+    </vehicle>
+    <vehicle id="carIn98:1" type="default" depart="589.00" departPos="243.00" arrivalPos="274.96" arrivalSpeed="0.00">
+        <route edges="3i"/>
+    </vehicle>
+    <vehicle id="carIn163:1" type="default" depart="590.00" departPos="0.00" arrivalPos="27.59" arrivalSpeed="0.00">
+        <route edges="4o"/>
+    </vehicle>
+    <vehicle id="carIn14:1" type="default" depart="592.00" departPos="243.00" arrivalPos="268.29" arrivalSpeed="0.00">
+        <route edges="1i 1o"/>
+    </vehicle>
+    <vehicle id="carIn76:1" type="default" depart="592.00" departPos="0.00" arrivalPos="466.38" arrivalSpeed="0.00">
+        <route edges="2o 2i"/>
+    </vehicle>
+    <vehicle id="carIn102:1" type="default" depart="593.00" departPos="0.00" arrivalPos="19.36" arrivalSpeed="0.00">
+        <route edges="4o 4i 1o"/>
+    </vehicle>
+    <vehicle id="carIn150:1" type="default" depart="593.00" departPos="243.00" arrivalPos="264.70" arrivalSpeed="0.00">
+        <route edges="3i"/>
+    </vehicle>
+    <vehicle id="carIn49:1" type="default" depart="595.00" departPos="0.00" arrivalPos="473.62" arrivalSpeed="0.00">
+        <route edges="1o 1i 3o 3i"/>
+    </vehicle>
+    <vehicle id="carIn92:1" type="default" depart="600.00" departPos="0.00" arrivalPos="0.00" arrivalSpeed="0.00">
+        <route edges="4o 4i 1o"/>
+    </vehicle>
+    <vehicle id="h27c1:1" type="default" depart="30226.00" departPos="486.14" arrivalPos="172.64" arrivalSpeed="0.00">
+        <route edges="1i 4o 4i"/>
+    </vehicle>
+    <vehicle id="h27c1:2" type="default" depart="30957.00" departPos="172.64" arrivalPos="486.14" arrivalSpeed="0.00">
+        <route edges="4i 1o 1i"/>
+    </vehicle>
+    <vehicle id="h404c1:1" type="default" depart="32221.00" departPos="378.48" arrivalPos="59.72" arrivalSpeed="0.00">
+        <route edges="4i 1o"/>
+    </vehicle>
+    <vehicle id="h123c2:1" type="default" depart="32269.00" departPos="380.75" arrivalPos="380.75" arrivalSpeed="0.00">
+        <route edges="1o"/>
+    </vehicle>
+    <vehicle id="h291c1:1" type="default" depart="33566.00" departPos="271.82" arrivalPos="335.05" arrivalSpeed="0.00">
+        <route edges="3i 2o 2i"/>
+    </vehicle>
+    <vehicle id="h77c1:1" type="default" depart="35890.00" departPos="210.88" arrivalPos="275.78" arrivalSpeed="0.00">
+        <route edges="1o"/>
+    </vehicle>
+    <vehicle id="h404c1:2" type="default" depart="36212.00" departPos="59.72" arrivalPos="378.48" arrivalSpeed="0.00">
+        <route edges="1o 1i 4o 4i"/>
+    </vehicle>
+    <vehicle id="h61c1:1" type="default" depart="40752.00" departPos="147.16" arrivalPos="159.41" arrivalSpeed="0.00">
+        <route edges="1i 4o"/>
+    </vehicle>
+    <vehicle id="h1c1:3" type="default" depart="43200.00" departPos="156.54" arrivalPos="176.45" arrivalSpeed="0.00">
+        <route edges="4o 4i 1o 1i"/>
+    </vehicle>
+    <vehicle id="h1c2:3" type="default" depart="43200.00" departPos="425.40" arrivalPos="176.45" arrivalSpeed="0.00">
+        <route edges="2o 2i 1o 1i"/>
+    </vehicle>
+    <vehicle id="h10c1:3" type="default" depart="43200.00" departPos="236.50" arrivalPos="97.51" arrivalSpeed="0.00">
+        <route edges="3i 1o 1i"/>
+    </vehicle>
+    <vehicle id="h11c1:3" type="default" depart="43200.00" departPos="82.37" arrivalPos="273.20" arrivalSpeed="0.00">
+        <route edges="3i 1o 1i"/>
+    </vehicle>
+    <vehicle id="h13c1:3" type="default" depart="43200.00" departPos="243.00" arrivalPos="187.22" arrivalSpeed="0.00">
+        <route edges="4i 1o 1i"/>
+    </vehicle>
+    <vehicle id="h14c1:3" type="default" depart="43200.00" departPos="243.00" arrivalPos="46.01" arrivalSpeed="0.00">
+        <route edges="2i 1o 1i"/>
+    </vehicle>
+    <vehicle id="h16c1:3" type="default" depart="43200.00" departPos="46.19" arrivalPos="35.48" arrivalSpeed="0.00">
+        <route edges="2o 2i 1o 1i"/>
+    </vehicle>
+    <vehicle id="h17c1:3" type="default" depart="43200.00" departPos="211.00" arrivalPos="44.04" arrivalSpeed="0.00">
+        <route edges="2i 1o 1i"/>
+    </vehicle>
+    <vehicle id="h18c1:3" type="default" depart="43200.00" departPos="149.28" arrivalPos="55.84" arrivalSpeed="0.00">
+        <route edges="2i 1o 1i"/>
+    </vehicle>
+    <vehicle id="h20c1:3" type="default" depart="43200.00" departPos="230.04" arrivalPos="125.13" arrivalSpeed="0.00">
+        <route edges="4o 4i 1o 1i"/>
+    </vehicle>
+    <vehicle id="h23c1:3" type="default" depart="43200.00" departPos="185.70" arrivalPos="130.63" arrivalSpeed="0.00">
+        <route edges="2i 1o 1i"/>
+    </vehicle>
+    <vehicle id="h26c1:3" type="default" depart="43200.00" departPos="451.36" arrivalPos="101.31" arrivalSpeed="0.00">
+        <route edges="4i 1o 1i"/>
+    </vehicle>
+    <vehicle id="h28c1:3" type="default" depart="43200.00" departPos="470.46" arrivalPos="2.60" arrivalSpeed="0.00">
+        <route edges="2i 1o 1i"/>
+    </vehicle>
+    <vehicle id="h28c2:3" type="default" depart="43200.00" departPos="305.58" arrivalPos="2.60" arrivalSpeed="0.00">
+        <route edges="4o 4i 1o 1i"/>
+    </vehicle>
+    <vehicle id="h32c1:3" type="default" depart="43200.00" departPos="268.73" arrivalPos="119.17" arrivalSpeed="0.00">
+        <route edges="2o 2i 1o 1i"/>
+    </vehicle>
+    <vehicle id="h34c1:3" type="default" depart="43200.00" departPos="69.16" arrivalPos="175.44" arrivalSpeed="0.00">
+        <route edges="3i 1o 1i"/>
+    </vehicle>
+    <vehicle id="h36c1:3" type="default" depart="43200.00" departPos="243.00" arrivalPos="65.45" arrivalSpeed="0.00">
+        <route edges="4i 1o 1i"/>
+    </vehicle>
+    <vehicle id="h40c1:3" type="default" depart="43200.00" departPos="349.92" arrivalPos="115.88" arrivalSpeed="0.00">
+        <route edges="2o 2i 1o 1i"/>
+    </vehicle>
+    <vehicle id="h40c2:3" type="default" depart="43200.00" departPos="291.99" arrivalPos="115.88" arrivalSpeed="0.00">
+        <route edges="4i 1o 1i"/>
+    </vehicle>
+    <vehicle id="h43c1:3" type="default" depart="43200.00" departPos="14.30" arrivalPos="128.12" arrivalSpeed="0.00">
+        <route edges="2i 1o 1i"/>
+    </vehicle>
+    <vehicle id="h48c1:3" type="default" depart="43200.00" departPos="79.78" arrivalPos="420.80" arrivalSpeed="0.00">
+        <route edges="3i 1o 1i"/>
+    </vehicle>
+    <vehicle id="h49c1:3" type="default" depart="43200.00" departPos="204.29" arrivalPos="88.68" arrivalSpeed="0.00">
+        <route edges="3o 3i 1o 1i"/>
+    </vehicle>
+    <vehicle id="h52c1:3" type="default" depart="43200.00" departPos="181.74" arrivalPos="99.43" arrivalSpeed="0.00">
+        <route edges="3o 3i 1o 1i"/>
+    </vehicle>
+    <vehicle id="h60c1:3" type="default" depart="43200.00" departPos="435.26" arrivalPos="9.59" arrivalSpeed="0.00">
+        <route edges="2o 2i 1o 1i"/>
+    </vehicle>
+    <vehicle id="h62c1:3" type="default" depart="43200.00" departPos="109.56" arrivalPos="5.66" arrivalSpeed="0.00">
+        <route edges="3o 3i 1o 1i"/>
+    </vehicle>
+    <vehicle id="h63c1:3" type="default" depart="43200.00" departPos="338.78" arrivalPos="27.65" arrivalSpeed="0.00">
+        <route edges="4o 4i 1o 1i"/>
+    </vehicle>
+    <vehicle id="h63c2:3" type="default" depart="43200.00" departPos="57.48" arrivalPos="27.65" arrivalSpeed="0.00">
+        <route edges="3i 1o 1i"/>
+    </vehicle>
+    <vehicle id="h70c1:3" type="default" depart="43200.00" departPos="30.55" arrivalPos="371.97" arrivalSpeed="0.00">
+        <route edges="4o 4i 1o"/>
+    </vehicle>
+    <vehicle id="h70c2:3" type="default" depart="43200.00" departPos="9.59" arrivalPos="371.97" arrivalSpeed="0.00">
+        <route edges="3i 1o"/>
+    </vehicle>
+    <vehicle id="h75c1:3" type="default" depart="43200.00" departPos="469.18" arrivalPos="374.53" arrivalSpeed="0.00">
+        <route edges="1i 1o"/>
+    </vehicle>
+    <vehicle id="h75c2:3" type="default" depart="43200.00" departPos="456.25" arrivalPos="374.53" arrivalSpeed="0.00">
+        <route edges="1i 1o"/>
+    </vehicle>
+    <vehicle id="h83c1:3" type="default" depart="43200.00" departPos="208.40" arrivalPos="394.96" arrivalSpeed="0.00">
+        <route edges="2i 1o"/>
+    </vehicle>
+    <vehicle id="h87c1:3" type="default" depart="43200.00" departPos="188.71" arrivalPos="327.32" arrivalSpeed="0.00">
+        <route edges="4o 4i 1o"/>
+    </vehicle>
+    <vehicle id="h92c1:3" type="default" depart="43200.00" departPos="4.49" arrivalPos="474.35" arrivalSpeed="0.00">
+        <route edges="1o"/>
+    </vehicle>
+    <vehicle id="h100c1:3" type="default" depart="43200.00" departPos="124.89" arrivalPos="452.85" arrivalSpeed="0.00">
+        <route edges="2i 1o"/>
+    </vehicle>
+    <vehicle id="h103c1:3" type="default" depart="43200.00" departPos="243.00" arrivalPos="480.14" arrivalSpeed="0.00">
+        <route edges="3i 1o"/>
+    </vehicle>
+    <vehicle id="h103c2:3" type="default" depart="43200.00" departPos="188.38" arrivalPos="480.14" arrivalSpeed="0.00">
+        <route edges="3i 1o"/>
+    </vehicle>
+    <vehicle id="h106c1:3" type="default" depart="43200.00" departPos="243.00" arrivalPos="382.85" arrivalSpeed="0.00">
+        <route edges="2i 1o"/>
+    </vehicle>
+    <vehicle id="h108c1:3" type="default" depart="43200.00" departPos="35.82" arrivalPos="25.67" arrivalSpeed="0.00">
+        <route edges="3i 1o"/>
+    </vehicle>
+    <vehicle id="h111c1:3" type="default" depart="43200.00" departPos="212.36" arrivalPos="420.97" arrivalSpeed="0.00">
+        <route edges="3i 1o"/>
+    </vehicle>
+    <vehicle id="h114c1:3" type="default" depart="43200.00" departPos="131.01" arrivalPos="336.42" arrivalSpeed="0.00">
+        <route edges="2i 1o"/>
+    </vehicle>
+    <vehicle id="h114c2:3" type="default" depart="43200.00" departPos="380.62" arrivalPos="336.42" arrivalSpeed="0.00">
+        <route edges="2o 2i 1o"/>
+    </vehicle>
+    <vehicle id="h116c1:3" type="default" depart="43200.00" departPos="427.51" arrivalPos="383.67" arrivalSpeed="0.00">
+        <route edges="2o 2i 1o"/>
+    </vehicle>
+    <vehicle id="h121c1:3" type="default" depart="43200.00" departPos="358.63" arrivalPos="441.40" arrivalSpeed="0.00">
+        <route edges="4i 1o"/>
+    </vehicle>
+    <vehicle id="h123c1:3" type="default" depart="43200.00" departPos="369.84" arrivalPos="380.75" arrivalSpeed="0.00">
+        <route edges="2i 1o"/>
+    </vehicle>
+    <vehicle id="h127c1:3" type="default" depart="43200.00" departPos="180.87" arrivalPos="126.91" arrivalSpeed="0.00">
+        <route edges="3i 1o"/>
+    </vehicle>
+    <vehicle id="h129c1:3" type="default" depart="43200.00" departPos="428.05" arrivalPos="185.57" arrivalSpeed="0.00">
+        <route edges="3o 3i 2o 2i"/>
+    </vehicle>
+    <vehicle id="h132c1:3" type="default" depart="43200.00" departPos="60.70" arrivalPos="478.45" arrivalSpeed="0.00">
+        <route edges="3i 2o 2i"/>
+    </vehicle>
+    <vehicle id="h139c1:3" type="default" depart="43200.00" departPos="344.28" arrivalPos="232.04" arrivalSpeed="0.00">
+        <route edges="3o 3i 2o 2i"/>
+    </vehicle>
+    <vehicle id="h145c1:3" type="default" depart="43200.00" departPos="414.23" arrivalPos="205.62" arrivalSpeed="0.00">
+        <route edges="1o 1i 2o 2i"/>
+    </vehicle>
+    <vehicle id="h153c1:3" type="default" depart="43200.00" departPos="465.49" arrivalPos="348.35" arrivalSpeed="0.00">
+        <route edges="3o 3i 2o 2i"/>
+    </vehicle>
+    <vehicle id="h157c1:3" type="default" depart="43200.00" departPos="392.47" arrivalPos="68.44" arrivalSpeed="0.00">
+        <route edges="3o 3i 2o 2i"/>
+    </vehicle>
+    <vehicle id="h171c1:3" type="default" depart="43200.00" departPos="144.27" arrivalPos="65.96" arrivalSpeed="0.00">
+        <route edges="3i 2o 2i"/>
+    </vehicle>
+    <vehicle id="h174c1:3" type="default" depart="43200.00" departPos="440.70" arrivalPos="165.48" arrivalSpeed="0.00">
+        <route edges="1o 1i 2o 2i"/>
+    </vehicle>
+    <vehicle id="h187c1:3" type="default" depart="43200.00" departPos="368.95" arrivalPos="419.79" arrivalSpeed="0.00">
+        <route edges="1o 1i 2o 2i"/>
+    </vehicle>
+    <vehicle id="h191c1:3" type="default" depart="43200.00" departPos="3.96" arrivalPos="411.14" arrivalSpeed="0.00">
+        <route edges="1i 2o 2i"/>
+    </vehicle>
+    <vehicle id="h198c1:3" type="default" depart="43200.00" departPos="396.89" arrivalPos="245.55" arrivalSpeed="0.00">
+        <route edges="1o 1i 2o"/>
+    </vehicle>
+    <vehicle id="h202c1:3" type="default" depart="43200.00" departPos="459.07" arrivalPos="158.08" arrivalSpeed="0.00">
+        <route edges="1o 1i 2o"/>
+    </vehicle>
+    <vehicle id="h209c1:3" type="default" depart="43200.00" departPos="152.13" arrivalPos="122.70" arrivalSpeed="0.00">
+        <route edges="3i 2o"/>
+    </vehicle>
+    <vehicle id="h212c1:3" type="default" depart="43200.00" departPos="407.40" arrivalPos="475.13" arrivalSpeed="0.00">
+        <route edges="1o 1i 2o"/>
+    </vehicle>
+    <vehicle id="h216c1:3" type="default" depart="43200.00" departPos="55.63" arrivalPos="6.15" arrivalSpeed="0.00">
+        <route edges="3i 2o"/>
+    </vehicle>
+    <vehicle id="h221c1:3" type="default" depart="43200.00" departPos="24.40" arrivalPos="352.47" arrivalSpeed="0.00">
+        <route edges="3i 2o"/>
+    </vehicle>
+    <vehicle id="h231c1:3" type="default" depart="43200.00" departPos="317.64" arrivalPos="364.53" arrivalSpeed="0.00">
+        <route edges="3o 3i 2o"/>
+    </vehicle>
+    <vehicle id="h243c1:3" type="default" depart="43200.00" departPos="339.54" arrivalPos="187.26" arrivalSpeed="0.00">
+        <route edges="1o 1i 2o"/>
+    </vehicle>
+    <vehicle id="h249c1:3" type="default" depart="43200.00" departPos="407.19" arrivalPos="324.67" arrivalSpeed="0.00">
+        <route edges="3o 3i 2o"/>
+    </vehicle>
+    <vehicle id="h254c1:3" type="default" depart="43200.00" departPos="429.48" arrivalPos="46.25" arrivalSpeed="0.00">
+        <route edges="1o 1i 3o 3i"/>
+    </vehicle>
+    <vehicle id="h257c1:3" type="default" depart="43200.00" departPos="279.33" arrivalPos="187.51" arrivalSpeed="0.00">
+        <route edges="4o 4i 3o 3i"/>
+    </vehicle>
+    <vehicle id="h258c1:3" type="default" depart="43200.00" departPos="281.07" arrivalPos="150.00" arrivalSpeed="0.00">
+        <route edges="1o 1i 3o 3i"/>
+    </vehicle>
+    <vehicle id="h258c2:3" type="default" depart="43200.00" departPos="363.38" arrivalPos="150.00" arrivalSpeed="0.00">
+        <route edges="2o 2i 3o 3i"/>
+    </vehicle>
+    <vehicle id="h260c1:3" type="default" depart="43200.00" departPos="435.19" arrivalPos="173.04" arrivalSpeed="0.00">
+        <route edges="4o 4i 3o 3i"/>
+    </vehicle>
+    <vehicle id="h261c1:3" type="default" depart="43200.00" departPos="118.62" arrivalPos="77.81" arrivalSpeed="0.00">
+        <route edges="4i 3o 3i"/>
+    </vehicle>
+    <vehicle id="h264c1:3" type="default" depart="43200.00" departPos="4.97" arrivalPos="80.63" arrivalSpeed="0.00">
+        <route edges="1i 3o 3i"/>
+    </vehicle>
+    <vehicle id="h264c2:3" type="default" depart="43200.00" departPos="131.87" arrivalPos="80.63" arrivalSpeed="0.00">
+        <route edges="2o 2i 3o 3i"/>
+    </vehicle>
+    <vehicle id="h267c1:3" type="default" depart="43200.00" departPos="66.53" arrivalPos="128.46" arrivalSpeed="0.00">
+        <route edges="1o 1i 3o 3i"/>
+    </vehicle>
+    <vehicle id="h269c1:3" type="default" depart="43200.00" departPos="30.93" arrivalPos="447.79" arrivalSpeed="0.00">
+        <route edges="3i"/>
+    </vehicle>
+    <vehicle id="h274c1:3" type="default" depart="43200.00" departPos="68.66" arrivalPos="56.39" arrivalSpeed="0.00">
+        <route edges="3o 3i"/>
+    </vehicle>
+    <vehicle id="h278c1:3" type="default" depart="43200.00" departPos="240.03" arrivalPos="97.19" arrivalSpeed="0.00">
+        <route edges="2o 2i 3o 3i"/>
+    </vehicle>
+    <vehicle id="h278c2:3" type="default" depart="43200.00" departPos="267.27" arrivalPos="97.19" arrivalSpeed="0.00">
+        <route edges="4o 4i 3o 3i"/>
+    </vehicle>
+    <vehicle id="h279c1:3" type="default" depart="43200.00" departPos="20.24" arrivalPos="86.40" arrivalSpeed="0.00">
+        <route edges="4i 3o 3i"/>
+    </vehicle>
+    <vehicle id="h281c1:3" type="default" depart="43200.00" departPos="108.47" arrivalPos="348.23" arrivalSpeed="0.00">
+        <route edges="1i 3o 3i"/>
+    </vehicle>
+    <vehicle id="h284c1:3" type="default" depart="43200.00" departPos="243.00" arrivalPos="47.54" arrivalSpeed="0.00">
+        <route edges="1i 3o 3i"/>
+    </vehicle>
+    <vehicle id="h287c1:3" type="default" depart="43200.00" departPos="167.02" arrivalPos="81.53" arrivalSpeed="0.00">
+        <route edges="1o 1i 3o 3i"/>
+    </vehicle>
+    <vehicle id="h288c1:3" type="default" depart="43200.00" departPos="241.17" arrivalPos="130.73" arrivalSpeed="0.00">
+        <route edges="4o 4i 3o 3i"/>
+    </vehicle>
+    <vehicle id="h289c1:3" type="default" depart="43200.00" departPos="323.33" arrivalPos="370.57" arrivalSpeed="0.00">
+        <route edges="1o 1i 3o 3i"/>
+    </vehicle>
+    <vehicle id="h292c1:3" type="default" depart="43200.00" departPos="435.52" arrivalPos="103.66" arrivalSpeed="0.00">
+        <route edges="2o 2i 3o 3i"/>
+    </vehicle>
+    <vehicle id="h294c1:3" type="default" depart="43200.00" departPos="243.00" arrivalPos="152.36" arrivalSpeed="0.00">
+        <route edges="4i 3o 3i"/>
+    </vehicle>
+    <vehicle id="h295c1:3" type="default" depart="43200.00" departPos="2.73" arrivalPos="184.57" arrivalSpeed="0.00">
+        <route edges="1i 3o 3i"/>
+    </vehicle>
+    <vehicle id="h298c1:3" type="default" depart="43200.00" departPos="243.00" arrivalPos="98.71" arrivalSpeed="0.00">
+        <route edges="1i 3o 3i"/>
+    </vehicle>
+    <vehicle id="h304c1:3" type="default" depart="43200.00" departPos="415.93" arrivalPos="50.29" arrivalSpeed="0.00">
+        <route edges="4i 3o 3i"/>
+    </vehicle>
+    <vehicle id="h304c2:3" type="default" depart="43200.00" departPos="382.98" arrivalPos="50.29" arrivalSpeed="0.00">
+        <route edges="2i 3o 3i"/>
+    </vehicle>
+    <vehicle id="h307c1:3" type="default" depart="43200.00" departPos="313.27" arrivalPos="230.71" arrivalSpeed="0.00">
+        <route edges="1o 1i 3o 3i"/>
+    </vehicle>
+    <vehicle id="h308c1:3" type="default" depart="43200.00" departPos="103.21" arrivalPos="14.85" arrivalSpeed="0.00">
+        <route edges="3o 3i"/>
+    </vehicle>
+    <vehicle id="h308c2:3" type="default" depart="43200.00" departPos="102.60" arrivalPos="14.85" arrivalSpeed="0.00">
+        <route edges="2o 2i 3o 3i"/>
+    </vehicle>
+    <vehicle id="h310c1:3" type="default" depart="43200.00" departPos="368.42" arrivalPos="158.11" arrivalSpeed="0.00">
+        <route edges="1i 3o 3i"/>
+    </vehicle>
+    <vehicle id="h311c1:3" type="default" depart="43200.00" departPos="204.29" arrivalPos="118.94" arrivalSpeed="0.00">
+        <route edges="4o 4i 3o 3i"/>
+    </vehicle>
+    <vehicle id="h313c1:3" type="default" depart="43200.00" departPos="35.15" arrivalPos="141.30" arrivalSpeed="0.00">
+        <route edges="4o 4i 3o 3i"/>
+    </vehicle>
+    <vehicle id="h313c2:3" type="default" depart="43200.00" departPos="136.38" arrivalPos="141.30" arrivalSpeed="0.00">
+        <route edges="4o 4i 3o 3i"/>
+    </vehicle>
+    <vehicle id="h318c1:3" type="default" depart="43200.00" departPos="452.59" arrivalPos="424.96" arrivalSpeed="0.00">
+        <route edges="2i 3o"/>
+    </vehicle>
+    <vehicle id="h320c1:3" type="default" depart="43200.00" departPos="403.25" arrivalPos="28.80" arrivalSpeed="0.00">
+        <route edges="1o 1i 3o"/>
+    </vehicle>
+    <vehicle id="h322c1:3" type="default" depart="43200.00" departPos="33.68" arrivalPos="445.95" arrivalSpeed="0.00">
+        <route edges="2o 2i 3o"/>
+    </vehicle>
+    <vehicle id="h324c1:3" type="default" depart="43200.00" departPos="294.43" arrivalPos="329.32" arrivalSpeed="0.00">
+        <route edges="1o 1i 3o"/>
+    </vehicle>
+    <vehicle id="h326c1:3" type="default" depart="43200.00" departPos="236.80" arrivalPos="411.04" arrivalSpeed="0.00">
+        <route edges="2o 2i 3o"/>
+    </vehicle>
+    <vehicle id="h328c1:3" type="default" depart="43200.00" departPos="178.66" arrivalPos="418.47" arrivalSpeed="0.00">
+        <route edges="2i 3o"/>
+    </vehicle>
+    <vehicle id="h334c1:3" type="default" depart="43200.00" departPos="159.03" arrivalPos="418.65" arrivalSpeed="0.00">
+        <route edges="1i 3o"/>
+    </vehicle>
+    <vehicle id="h336c1:3" type="default" depart="43200.00" departPos="322.98" arrivalPos="453.46" arrivalSpeed="0.00">
+        <route edges="4o 4i 3o"/>
+    </vehicle>
+    <vehicle id="h336c2:3" type="default" depart="43200.00" departPos="64.64" arrivalPos="453.46" arrivalSpeed="0.00">
+        <route edges="1i 3o"/>
+    </vehicle>
+    <vehicle id="h338c1:3" type="default" depart="43200.00" departPos="364.96" arrivalPos="344.80" arrivalSpeed="0.00">
+        <route edges="4i 3o"/>
+    </vehicle>
+    <vehicle id="h343c1:3" type="default" depart="43200.00" departPos="381.08" arrivalPos="21.60" arrivalSpeed="0.00">
+        <route edges="1o 1i 3o"/>
+    </vehicle>
+    <vehicle id="h344c1:3" type="default" depart="43200.00" departPos="115.21" arrivalPos="149.91" arrivalSpeed="0.00">
+        <route edges="1i 3o"/>
+    </vehicle>
+    <vehicle id="h358c1:3" type="default" depart="43200.00" departPos="476.93" arrivalPos="471.00" arrivalSpeed="0.00">
+        <route edges="4i 3o"/>
+    </vehicle>
+    <vehicle id="h363c1:3" type="default" depart="43200.00" departPos="318.36" arrivalPos="374.31" arrivalSpeed="0.00">
+        <route edges="2o 2i 3o"/>
+    </vehicle>
+    <vehicle id="h365c1:3" type="default" depart="43200.00" departPos="375.19" arrivalPos="401.41" arrivalSpeed="0.00">
+        <route edges="2i 3o"/>
+    </vehicle>
+    <vehicle id="h367c1:3" type="default" depart="43200.00" departPos="322.23" arrivalPos="448.92" arrivalSpeed="0.00">
+        <route edges="1o 1i 3o"/>
+    </vehicle>
+    <vehicle id="h368c1:3" type="default" depart="43200.00" departPos="88.10" arrivalPos="299.99" arrivalSpeed="0.00">
+        <route edges="4i 3o"/>
+    </vehicle>
+    <vehicle id="h385c1:3" type="default" depart="43200.00" departPos="48.77" arrivalPos="129.29" arrivalSpeed="0.00">
+        <route edges="3i 4o 4i"/>
+    </vehicle>
+    <vehicle id="h391c1:3" type="default" depart="43200.00" departPos="418.15" arrivalPos="45.74" arrivalSpeed="0.00">
+        <route edges="1o 1i 4o 4i"/>
+    </vehicle>
+    <vehicle id="h403c1:3" type="default" depart="43200.00" departPos="93.67" arrivalPos="11.50" arrivalSpeed="0.00">
+        <route edges="3i 4o 4i"/>
+    </vehicle>
+    <vehicle id="h406c1:3" type="default" depart="43200.00" departPos="82.21" arrivalPos="382.46" arrivalSpeed="0.00">
+        <route edges="3i 4o 4i"/>
+    </vehicle>
+    <vehicle id="h409c1:3" type="default" depart="43200.00" departPos="47.08" arrivalPos="24.87" arrivalSpeed="0.00">
+        <route edges="3i 4o 4i"/>
+    </vehicle>
+    <vehicle id="h417c1:3" type="default" depart="43200.00" departPos="395.59" arrivalPos="425.36" arrivalSpeed="0.00">
+        <route edges="1o 1i 4o 4i"/>
+    </vehicle>
+    <vehicle id="h423c1:3" type="default" depart="43200.00" departPos="444.56" arrivalPos="454.45" arrivalSpeed="0.00">
+        <route edges="1o 1i 4o 4i"/>
+    </vehicle>
+    <vehicle id="h427c1:3" type="default" depart="43200.00" departPos="413.14" arrivalPos="404.68" arrivalSpeed="0.00">
+        <route edges="3o 3i 4o 4i"/>
+    </vehicle>
+    <vehicle id="h429c1:3" type="default" depart="43200.00" departPos="412.07" arrivalPos="318.20" arrivalSpeed="0.00">
+        <route edges="1o 1i 4o 4i"/>
+    </vehicle>
+    <vehicle id="h434c1:3" type="default" depart="43200.00" departPos="37.66" arrivalPos="273.36" arrivalSpeed="0.00">
+        <route edges="1i 4o 4i"/>
+    </vehicle>
+    <vehicle id="h439c1:3" type="default" depart="43200.00" departPos="325.49" arrivalPos="115.90" arrivalSpeed="0.00">
+        <route edges="3o 3i 4o 4i"/>
+    </vehicle>
+    <vehicle id="h443c1:3" type="default" depart="43200.00" departPos="57.18" arrivalPos="341.54" arrivalSpeed="0.00">
+        <route edges="3i 4o"/>
+    </vehicle>
+    <vehicle id="h467c1:3" type="default" depart="43200.00" departPos="394.97" arrivalPos="277.70" arrivalSpeed="0.00">
+        <route edges="1o 1i 4o"/>
+    </vehicle>
+    <vehicle id="h468c1:3" type="default" depart="43200.00" departPos="473.20" arrivalPos="301.27" arrivalSpeed="0.00">
+        <route edges="3o 3i 4o"/>
+    </vehicle>
+    <vehicle id="h480c1:3" type="default" depart="43200.00" departPos="23.36" arrivalPos="208.48" arrivalSpeed="0.00">
+        <route edges="3i 4o"/>
+    </vehicle>
+    <vehicle id="h490c1:3" type="default" depart="43200.00" departPos="78.43" arrivalPos="47.80" arrivalSpeed="0.00">
+        <route edges="3i 4o"/>
+    </vehicle>
+    <vehicle id="h495c1:3" type="default" depart="43200.00" departPos="407.68" arrivalPos="189.82" arrivalSpeed="0.00">
+        <route edges="1o 1i 4o"/>
+    </vehicle>
+    <vehicle id="carIn1:3" type="default" depart="43200.00" departPos="463.79" arrivalPos="243.00" arrivalSpeed="0.00">
+        <route edges="3i 4o 4i"/>
+    </vehicle>
+    <vehicle id="carIn2:3" type="default" depart="43200.00" departPos="342.37" arrivalPos="243.00" arrivalSpeed="0.00">
+        <route edges="1o 1i 3o 3i"/>
+    </vehicle>
+    <vehicle id="carIn3:3" type="default" depart="43200.00" departPos="304.90" arrivalPos="243.00" arrivalSpeed="0.00">
+        <route edges="1i 3o 3i"/>
+    </vehicle>
+    <vehicle id="carIn4:3" type="default" depart="43200.00" departPos="361.95" arrivalPos="243.00" arrivalSpeed="0.00">
+        <route edges="1o 1i 2o 2i"/>
+    </vehicle>
+    <vehicle id="carIn5:3" type="default" depart="43200.00" departPos="414.15" arrivalPos="0.00" arrivalSpeed="0.00">
+        <route edges="1i 1o"/>
+    </vehicle>
+    <vehicle id="carIn6:3" type="default" depart="43200.00" departPos="188.11" arrivalPos="243.00" arrivalSpeed="0.00">
+        <route edges="2i"/>
+    </vehicle>
+    <vehicle id="carIn7:3" type="default" depart="43200.00" departPos="171.62" arrivalPos="0.00" arrivalSpeed="0.00">
+        <route edges="1i 3o"/>
+    </vehicle>
+    <vehicle id="carIn8:3" type="default" depart="43200.00" departPos="181.44" arrivalPos="0.00" arrivalSpeed="0.00">
+        <route edges="2i 4o"/>
+    </vehicle>
+    <vehicle id="carIn9:3" type="default" depart="43200.00" departPos="391.38" arrivalPos="243.00" arrivalSpeed="0.00">
+        <route edges="2o 2i 4o 4i"/>
+    </vehicle>
+    <vehicle id="carIn10:3" type="default" depart="43200.00" departPos="368.78" arrivalPos="243.00" arrivalSpeed="0.00">
+        <route edges="3i 2o 2i"/>
+    </vehicle>
+    <vehicle id="carIn11:3" type="default" depart="43200.00" departPos="0.47" arrivalPos="243.00" arrivalSpeed="0.00">
+        <route edges="1o 1i 2o 2i"/>
+    </vehicle>
+    <vehicle id="carIn12:3" type="default" depart="43200.00" departPos="398.53" arrivalPos="0.00" arrivalSpeed="0.00">
+        <route edges="4i 1o"/>
+    </vehicle>
+    <vehicle id="carIn13:3" type="default" depart="43200.00" departPos="13.31" arrivalPos="243.00" arrivalSpeed="0.00">
+        <route edges="3i"/>
+    </vehicle>
+    <vehicle id="carIn14:3" type="default" depart="43200.00" departPos="268.29" arrivalPos="243.00" arrivalSpeed="0.00">
+        <route edges="1o 1i"/>
+    </vehicle>
+    <vehicle id="carIn15:3" type="default" depart="43200.00" departPos="121.69" arrivalPos="243.00" arrivalSpeed="0.00">
+        <route edges="3i"/>
+    </vehicle>
+    <vehicle id="carIn16:3" type="default" depart="43200.00" departPos="105.11" arrivalPos="0.00" arrivalSpeed="0.00">
+        <route edges="3o 3i 1o"/>
+    </vehicle>
+    <vehicle id="carIn17:3" type="default" depart="43200.00" departPos="127.56" arrivalPos="243.00" arrivalSpeed="0.00">
+        <route edges="2o 2i 4o 4i"/>
+    </vehicle>
+    <vehicle id="carIn18:3" type="default" depart="43200.00" departPos="295.44" arrivalPos="0.00" arrivalSpeed="0.00">
+        <route edges="4o 4i 1o"/>
+    </vehicle>
+    <vehicle id="carIn19:3" type="default" depart="43200.00" departPos="62.06" arrivalPos="243.00" arrivalSpeed="0.00">
+        <route edges="4i 3o 3i"/>
+    </vehicle>
+    <vehicle id="carIn20:3" type="default" depart="43200.00" departPos="146.39" arrivalPos="0.00" arrivalSpeed="0.00">
+        <route edges="1o"/>
+    </vehicle>
+    <vehicle id="carIn21:3" type="default" depart="43200.00" departPos="478.32" arrivalPos="243.00" arrivalSpeed="0.00">
+        <route edges="4o 4i 3o 3i"/>
+    </vehicle>
+    <vehicle id="carIn22:3" type="default" depart="43200.00" departPos="117.48" arrivalPos="0.00" arrivalSpeed="0.00">
+        <route edges="4o 4i 2o"/>
+    </vehicle>
+    <vehicle id="carIn23:3" type="default" depart="43200.00" departPos="294.26" arrivalPos="243.00" arrivalSpeed="0.00">
+        <route edges="4i"/>
+    </vehicle>
+    <vehicle id="carIn24:3" type="default" depart="43200.00" departPos="192.45" arrivalPos="243.00" arrivalSpeed="0.00">
+        <route edges="2i 3o 3i"/>
+    </vehicle>
+    <vehicle id="carIn25:3" type="default" depart="43200.00" departPos="349.94" arrivalPos="243.00" arrivalSpeed="0.00">
+        <route edges="2i"/>
+    </vehicle>
+    <vehicle id="carIn26:3" type="default" depart="43200.00" departPos="436.18" arrivalPos="243.00" arrivalSpeed="0.00">
+        <route edges="1i 3o 3i"/>
+    </vehicle>
+    <vehicle id="carIn27:3" type="default" depart="43200.00" departPos="13.15" arrivalPos="0.00" arrivalSpeed="0.00">
+        <route edges="2i 2o"/>
+    </vehicle>
+    <vehicle id="carIn28:3" type="default" depart="43200.00" departPos="449.63" arrivalPos="0.00" arrivalSpeed="0.00">
+        <route edges="3o 3i 4o"/>
+    </vehicle>
+    <vehicle id="carIn29:3" type="default" depart="43200.00" departPos="285.69" arrivalPos="243.00" arrivalSpeed="0.00">
+        <route edges="3o 3i 2o 2i"/>
+    </vehicle>
+    <vehicle id="carIn30:3" type="default" depart="43200.00" departPos="417.64" arrivalPos="243.00" arrivalSpeed="0.00">
+        <route edges="1o 1i 3o 3i"/>
+    </vehicle>
+    <vehicle id="carIn31:3" type="default" depart="43200.00" departPos="243.00" arrivalPos="243.00" arrivalSpeed="0.00">
+        <route edges="2i 4o 4i"/>
+    </vehicle>
+    <vehicle id="carIn32:3" type="default" depart="43200.00" departPos="243.00" arrivalPos="243.00" arrivalSpeed="0.00">
+        <route edges="1i 3o 3i"/>
+    </vehicle>
+    <vehicle id="carIn33:3" type="default" depart="43200.00" departPos="243.00" arrivalPos="0.00" arrivalSpeed="0.00">
+        <route edges="3i 4o"/>
+    </vehicle>
+    <vehicle id="carIn34:3" type="default" depart="43200.00" departPos="181.21" arrivalPos="243.00" arrivalSpeed="0.00">
+        <route edges="4i 3o 3i"/>
+    </vehicle>
+    <vehicle id="carIn35:3" type="default" depart="43200.00" departPos="338.10" arrivalPos="0.00" arrivalSpeed="0.00">
+        <route edges="3o"/>
+    </vehicle>
+    <vehicle id="carIn36:3" type="default" depart="43200.00" departPos="456.06" arrivalPos="0.00" arrivalSpeed="0.00">
+        <route edges="4o 4i 1o"/>
+    </vehicle>
+    <vehicle id="carIn37:3" type="default" depart="43200.00" departPos="106.14" arrivalPos="0.00" arrivalSpeed="0.00">
+        <route edges="1i 2o"/>
+    </vehicle>
+    <vehicle id="carIn38:3" type="default" depart="43200.00" departPos="205.83" arrivalPos="243.00" arrivalSpeed="0.00">
+        <route edges="4o 4i 2o 2i"/>
+    </vehicle>
+    <vehicle id="carIn39:3" type="default" depart="43200.00" departPos="484.10" arrivalPos="243.00" arrivalSpeed="0.00">
+        <route edges="2o 2i 1o 1i"/>
+    </vehicle>
+    <vehicle id="carIn40:3" type="default" depart="43200.00" departPos="30.81" arrivalPos="243.00" arrivalSpeed="0.00">
+        <route edges="1i 3o 3i"/>
+    </vehicle>
+    <vehicle id="carIn41:3" type="default" depart="43200.00" departPos="195.95" arrivalPos="243.00" arrivalSpeed="0.00">
+        <route edges="4i 1o 1i"/>
+    </vehicle>
+    <vehicle id="carIn42:3" type="default" depart="43200.00" departPos="54.80" arrivalPos="243.00" arrivalSpeed="0.00">
+        <route edges="3o 3i"/>
+    </vehicle>
+    <vehicle id="carIn43:3" type="default" depart="43200.00" departPos="400.43" arrivalPos="243.00" arrivalSpeed="0.00">
+        <route edges="2i"/>
+    </vehicle>
+    <vehicle id="carIn44:3" type="default" depart="43200.00" departPos="312.75" arrivalPos="243.00" arrivalSpeed="0.00">
+        <route edges="3o 3i 4o 4i"/>
+    </vehicle>
+    <vehicle id="carIn45:3" type="default" depart="43200.00" departPos="440.22" arrivalPos="0.00" arrivalSpeed="0.00">
+        <route edges="2o 2i 4o"/>
+    </vehicle>
+    <vehicle id="carIn46:3" type="default" depart="43200.00" departPos="247.70" arrivalPos="243.00" arrivalSpeed="0.00">
+        <route edges="1o 1i 4o 4i"/>
+    </vehicle>
+    <vehicle id="carIn47:3" type="default" depart="43200.00" departPos="5.04" arrivalPos="0.00" arrivalSpeed="0.00">
+        <route edges="2i 1o"/>
+    </vehicle>
+    <vehicle id="carIn48:3" type="default" depart="43200.00" departPos="344.98" arrivalPos="243.00" arrivalSpeed="0.00">
+        <route edges="3o 3i 2o 2i"/>
+    </vehicle>
+    <vehicle id="carIn49:3" type="default" depart="43200.00" departPos="473.62" arrivalPos="0.00" arrivalSpeed="0.00">
+        <route edges="3i 1o"/>
+    </vehicle>
+    <vehicle id="carIn50:3" type="default" depart="43200.00" departPos="380.77" arrivalPos="243.00" arrivalSpeed="0.00">
+        <route edges="2i 4o 4i"/>
+    </vehicle>
+    <vehicle id="carIn51:3" type="default" depart="43200.00" departPos="88.24" arrivalPos="243.00" arrivalSpeed="0.00">
+        <route edges="2i 4o 4i"/>
+    </vehicle>
+    <vehicle id="carIn52:3" type="default" depart="43200.00" departPos="185.44" arrivalPos="0.00" arrivalSpeed="0.00">
+        <route edges="3i 4o"/>
+    </vehicle>
+    <vehicle id="carIn53:3" type="default" depart="43200.00" departPos="175.30" arrivalPos="243.00" arrivalSpeed="0.00">
+        <route edges="1o 1i"/>
+    </vehicle>
+    <vehicle id="carIn54:3" type="default" depart="43200.00" departPos="118.35" arrivalPos="243.00" arrivalSpeed="0.00">
+        <route edges="1o 1i 3o 3i"/>
+    </vehicle>
+    <vehicle id="carIn55:3" type="default" depart="43200.00" departPos="67.11" arrivalPos="0.00" arrivalSpeed="0.00">
+        <route edges="4o 4i 1o"/>
+    </vehicle>
+    <vehicle id="carIn56:3" type="default" depart="43200.00" departPos="243.00" arrivalPos="243.00" arrivalSpeed="0.00">
+        <route edges="4i 2o 2i"/>
+    </vehicle>
+    <vehicle id="carIn57:3" type="default" depart="43200.00" departPos="328.87" arrivalPos="243.00" arrivalSpeed="0.00">
+        <route edges="4o 4i 1o 1i"/>
+    </vehicle>
+    <vehicle id="carIn58:3" type="default" depart="43200.00" departPos="21.64" arrivalPos="243.00" arrivalSpeed="0.00">
+        <route edges="3o 3i"/>
+    </vehicle>
+    <vehicle id="carIn59:3" type="default" depart="43200.00" departPos="158.27" arrivalPos="0.00" arrivalSpeed="0.00">
+        <route edges="2i 3o"/>
+    </vehicle>
+    <vehicle id="carIn60:3" type="default" depart="43200.00" departPos="194.72" arrivalPos="243.00" arrivalSpeed="0.00">
+        <route edges="1o 1i"/>
+    </vehicle>
+    <vehicle id="carIn61:3" type="default" depart="43200.00" departPos="481.00" arrivalPos="243.00" arrivalSpeed="0.00">
+        <route edges="1i 2o 2i"/>
+    </vehicle>
+    <vehicle id="carIn62:3" type="default" depart="43200.00" departPos="465.35" arrivalPos="0.00" arrivalSpeed="0.00">
+        <route edges="4o"/>
+    </vehicle>
+    <vehicle id="carIn63:3" type="default" depart="43200.00" departPos="205.64" arrivalPos="0.00" arrivalSpeed="0.00">
+        <route edges="3o 3i 4o"/>
+    </vehicle>
+    <vehicle id="carIn64:3" type="default" depart="43200.00" departPos="131.23" arrivalPos="0.00" arrivalSpeed="0.00">
+        <route edges="2i 1o"/>
+    </vehicle>
+    <vehicle id="carIn65:3" type="default" depart="43200.00" departPos="303.02" arrivalPos="243.00" arrivalSpeed="0.00">
+        <route edges="4o 4i 1o 1i"/>
+    </vehicle>
+    <vehicle id="carIn66:3" type="default" depart="43200.00" departPos="413.76" arrivalPos="243.00" arrivalSpeed="0.00">
+        <route edges="1i 2o 2i"/>
+    </vehicle>
+    <vehicle id="carIn67:3" type="default" depart="43200.00" departPos="66.81" arrivalPos="243.00" arrivalSpeed="0.00">
+        <route edges="4o 4i 3o 3i"/>
+    </vehicle>
+    <vehicle id="carIn68:3" type="default" depart="43200.00" departPos="407.42" arrivalPos="243.00" arrivalSpeed="0.00">
+        <route edges="3o 3i 4o 4i"/>
+    </vehicle>
+    <vehicle id="carIn69:3" type="default" depart="43200.00" departPos="0.00" arrivalPos="243.00" arrivalSpeed="0.00">
+        <route edges="2o 2i 3o 3i"/>
+    </vehicle>
+    <vehicle id="carIn70:3" type="default" depart="43200.00" departPos="52.81" arrivalPos="243.00" arrivalSpeed="0.00">
+        <route edges="2i"/>
+    </vehicle>
+    <vehicle id="carIn71:3" type="default" depart="43200.00" departPos="296.50" arrivalPos="0.00" arrivalSpeed="0.00">
+        <route edges="3o 3i 4o"/>
+    </vehicle>
+    <vehicle id="carIn72:3" type="default" depart="43200.00" departPos="232.53" arrivalPos="243.00" arrivalSpeed="0.00">
+        <route edges="3i 1o 1i"/>
+    </vehicle>
+    <vehicle id="carIn73:3" type="default" depart="43200.00" departPos="315.83" arrivalPos="0.00" arrivalSpeed="0.00">
+        <route edges="1i 2o"/>
+    </vehicle>
+    <vehicle id="carIn74:3" type="default" depart="43200.00" departPos="413.24" arrivalPos="0.00" arrivalSpeed="0.00">
+        <route edges="2i 3o"/>
+    </vehicle>
+    <vehicle id="carIn75:3" type="default" depart="43200.00" departPos="100.04" arrivalPos="0.00" arrivalSpeed="0.00">
+        <route edges="3o"/>
+    </vehicle>
+    <vehicle id="carIn76:3" type="default" depart="43200.00" departPos="466.38" arrivalPos="0.00" arrivalSpeed="0.00">
+        <route edges="2i 2o"/>
+    </vehicle>
+    <vehicle id="carIn77:3" type="default" depart="43200.00" departPos="295.17" arrivalPos="243.00" arrivalSpeed="0.00">
+        <route edges="2o 2i 1o 1i"/>
+    </vehicle>
+    <vehicle id="carIn78:3" type="default" depart="43200.00" departPos="261.78" arrivalPos="243.00" arrivalSpeed="0.00">
+        <route edges="2o 2i 4o 4i"/>
+    </vehicle>
+    <vehicle id="carIn79:3" type="default" depart="43200.00" departPos="165.65" arrivalPos="243.00" arrivalSpeed="0.00">
+        <route edges="4i"/>
+    </vehicle>
+    <vehicle id="carIn80:3" type="default" depart="43200.00" departPos="212.89" arrivalPos="243.00" arrivalSpeed="0.00">
+        <route edges="4o 4i 3o 3i"/>
+    </vehicle>
+    <vehicle id="carIn81:3" type="default" depart="43200.00" departPos="370.40" arrivalPos="0.00" arrivalSpeed="0.00">
+        <route edges="4o 4i 1o"/>
+    </vehicle>
+    <vehicle id="carIn82:3" type="default" depart="43200.00" departPos="464.19" arrivalPos="0.00" arrivalSpeed="0.00">
+        <route edges="3o 3i 1o"/>
+    </vehicle>
+    <vehicle id="carIn83:3" type="default" depart="43200.00" departPos="228.07" arrivalPos="0.00" arrivalSpeed="0.00">
+        <route edges="3i 1o"/>
+    </vehicle>
+    <vehicle id="carIn84:3" type="default" depart="43200.00" departPos="403.65" arrivalPos="0.00" arrivalSpeed="0.00">
+        <route edges="4i 4o"/>
+    </vehicle>
+    <vehicle id="carIn85:3" type="default" depart="43200.00" departPos="243.00" arrivalPos="243.00" arrivalSpeed="0.00">
+        <route edges="4i 1o 1i"/>
+    </vehicle>
+    <vehicle id="carIn86:3" type="default" depart="43200.00" departPos="28.60" arrivalPos="243.00" arrivalSpeed="0.00">
+        <route edges="3i 1o 1i"/>
+    </vehicle>
+    <vehicle id="carIn87:3" type="default" depart="43200.00" departPos="243.00" arrivalPos="0.00" arrivalSpeed="0.00">
+        <route edges="4i 2o"/>
+    </vehicle>
+    <vehicle id="carIn88:3" type="default" depart="43200.00" departPos="346.95" arrivalPos="0.00" arrivalSpeed="0.00">
+        <route edges="2o 2i 1o"/>
+    </vehicle>
+    <vehicle id="carIn89:3" type="default" depart="43200.00" departPos="187.90" arrivalPos="243.00" arrivalSpeed="0.00">
+        <route edges="1o 1i 2o 2i"/>
+    </vehicle>
+    <vehicle id="carIn90:3" type="default" depart="43200.00" departPos="202.00" arrivalPos="243.00" arrivalSpeed="0.00">
+        <route edges="4o 4i 3o 3i"/>
+    </vehicle>
+    <vehicle id="carIn91:3" type="default" depart="43200.00" departPos="178.29" arrivalPos="243.00" arrivalSpeed="0.00">
+        <route edges="4i 3o 3i"/>
+    </vehicle>
+    <vehicle id="carIn92:3" type="default" depart="43200.00" departPos="0.00" arrivalPos="0.00" arrivalSpeed="0.00">
+        <route edges="1o 1i 4o"/>
+    </vehicle>
+    <vehicle id="carIn93:3" type="default" depart="43200.00" departPos="387.84" arrivalPos="0.00" arrivalSpeed="0.00">
+        <route edges="3i 4o"/>
+    </vehicle>
+    <vehicle id="carIn94:3" type="default" depart="43200.00" departPos="188.65" arrivalPos="0.00" arrivalSpeed="0.00">
+        <route edges="3i 2o"/>
+    </vehicle>
+    <vehicle id="carIn95:3" type="default" depart="43200.00" departPos="143.65" arrivalPos="243.00" arrivalSpeed="0.00">
+        <route edges="1i"/>
+    </vehicle>
+    <vehicle id="carIn96:3" type="default" depart="43200.00" departPos="444.92" arrivalPos="243.00" arrivalSpeed="0.00">
+        <route edges="3o 3i 4o 4i"/>
+    </vehicle>
+    <vehicle id="carIn97:3" type="default" depart="43200.00" departPos="32.98" arrivalPos="243.00" arrivalSpeed="0.00">
+        <route edges="2i 3o 3i"/>
+    </vehicle>
+    <vehicle id="carIn98:3" type="default" depart="43200.00" departPos="274.96" arrivalPos="243.00" arrivalSpeed="0.00">
+        <route edges="3i"/>
+    </vehicle>
+    <vehicle id="carIn99:3" type="default" depart="43200.00" departPos="237.67" arrivalPos="243.00" arrivalSpeed="0.00">
+        <route edges="1o 1i 4o 4i"/>
+    </vehicle>
+    <vehicle id="carIn100:3" type="default" depart="43200.00" departPos="339.39" arrivalPos="0.00" arrivalSpeed="0.00">
+        <route edges="4i 2o"/>
+    </vehicle>
+    <vehicle id="carIn101:3" type="default" depart="43200.00" departPos="344.56" arrivalPos="0.00" arrivalSpeed="0.00">
+        <route edges="3o 3i 4o"/>
+    </vehicle>
+    <vehicle id="carIn102:3" type="default" depart="43200.00" departPos="19.36" arrivalPos="0.00" arrivalSpeed="0.00">
+        <route edges="1o 1i 4o"/>
+    </vehicle>
+    <vehicle id="carIn103:3" type="default" depart="43200.00" departPos="402.05" arrivalPos="243.00" arrivalSpeed="0.00">
+        <route edges="4i 2o 2i"/>
+    </vehicle>
+    <vehicle id="carIn104:3" type="default" depart="43200.00" departPos="453.44" arrivalPos="243.00" arrivalSpeed="0.00">
+        <route edges="2o 2i 3o 3i"/>
+    </vehicle>
+    <vehicle id="carIn105:3" type="default" depart="43200.00" departPos="319.41" arrivalPos="243.00" arrivalSpeed="0.00">
+        <route edges="4o 4i 3o 3i"/>
+    </vehicle>
+    <vehicle id="carIn106:3" type="default" depart="43200.00" departPos="271.85" arrivalPos="0.00" arrivalSpeed="0.00">
+        <route edges="2o 2i 3o"/>
+    </vehicle>
+    <vehicle id="carIn107:3" type="default" depart="43200.00" departPos="277.69" arrivalPos="243.00" arrivalSpeed="0.00">
+        <route edges="3i 1o 1i"/>
+    </vehicle>
+    <vehicle id="carIn108:3" type="default" depart="43200.00" departPos="85.21" arrivalPos="243.00" arrivalSpeed="0.00">
+        <route edges="4i 3o 3i"/>
+    </vehicle>
+    <vehicle id="carIn109:3" type="default" depart="43200.00" departPos="251.40" arrivalPos="0.00" arrivalSpeed="0.00">
+        <route edges="2o 2i 4o"/>
+    </vehicle>
+    <vehicle id="carIn110:3" type="default" depart="43200.00" departPos="220.32" arrivalPos="243.00" arrivalSpeed="0.00">
+        <route edges="1o 1i 3o 3i"/>
+    </vehicle>
+    <vehicle id="carIn111:3" type="default" depart="43200.00" departPos="352.42" arrivalPos="0.00" arrivalSpeed="0.00">
+        <route edges="1o"/>
+    </vehicle>
+    <vehicle id="carIn112:3" type="default" depart="43200.00" departPos="402.37" arrivalPos="243.00" arrivalSpeed="0.00">
+        <route edges="2o 2i 3o 3i"/>
+    </vehicle>
+    <vehicle id="carIn113:3" type="default" depart="43200.00" departPos="230.34" arrivalPos="243.00" arrivalSpeed="0.00">
+        <route edges="4o 4i 2o 2i"/>
+    </vehicle>
+    <vehicle id="carIn114:3" type="default" depart="43200.00" departPos="251.17" arrivalPos="0.00" arrivalSpeed="0.00">
+        <route edges="4i 4o"/>
+    </vehicle>
+    <vehicle id="carIn115:3" type="default" depart="43200.00" departPos="102.20" arrivalPos="0.00" arrivalSpeed="0.00">
+        <route edges="2i 1o"/>
+    </vehicle>
+    <vehicle id="carIn116:3" type="default" depart="43200.00" departPos="138.40" arrivalPos="243.00" arrivalSpeed="0.00">
+        <route edges="1i 4o 4i"/>
+    </vehicle>
+    <vehicle id="carIn117:3" type="default" depart="43200.00" departPos="183.98" arrivalPos="243.00" arrivalSpeed="0.00">
+        <route edges="1i 4o 4i"/>
+    </vehicle>
+    <vehicle id="carIn118:3" type="default" depart="43200.00" departPos="255.73" arrivalPos="243.00" arrivalSpeed="0.00">
+        <route edges="2o 2i 1o 1i"/>
+    </vehicle>
+    <vehicle id="carIn119:3" type="default" depart="43200.00" departPos="300.34" arrivalPos="243.00" arrivalSpeed="0.00">
+        <route edges="1o 1i 2o 2i"/>
+    </vehicle>
+    <vehicle id="carIn120:3" type="default" depart="43200.00" departPos="243.00" arrivalPos="0.00" arrivalSpeed="0.00">
+        <route edges="2i 1o"/>
+    </vehicle>
+    <vehicle id="carIn121:3" type="default" depart="43200.00" departPos="243.00" arrivalPos="243.00" arrivalSpeed="0.00">
+        <route edges="1i 2o 2i"/>
+    </vehicle>
+    <vehicle id="carIn122:3" type="default" depart="43200.00" departPos="76.83" arrivalPos="243.00" arrivalSpeed="0.00">
+        <route edges="4i 1o 1i"/>
+    </vehicle>
+    <vehicle id="carIn123:3" type="default" depart="43200.00" departPos="485.24" arrivalPos="243.00" arrivalSpeed="0.00">
+        <route edges="1i 3o 3i"/>
+    </vehicle>
+    <vehicle id="carIn124:3" type="default" depart="43200.00" departPos="243.00" arrivalPos="243.00" arrivalSpeed="0.00">
+        <route edges="2i 4o 4i"/>
+    </vehicle>
+    <vehicle id="carIn125:3" type="default" depart="43200.00" departPos="279.40" arrivalPos="243.00" arrivalSpeed="0.00">
+        <route edges="3o 3i 1o 1i"/>
+    </vehicle>
+    <vehicle id="carIn126:3" type="default" depart="43200.00" departPos="154.05" arrivalPos="0.00" arrivalSpeed="0.00">
+        <route edges="4i 3o"/>
+    </vehicle>
+    <vehicle id="carIn127:3" type="default" depart="43200.00" departPos="205.11" arrivalPos="0.00" arrivalSpeed="0.00">
+        <route edges="3i 1o"/>
+    </vehicle>
+    <vehicle id="carIn128:3" type="default" depart="43200.00" departPos="233.86" arrivalPos="243.00" arrivalSpeed="0.00">
+        <route edges="2o 2i 1o 1i"/>
+    </vehicle>
+    <vehicle id="carIn129:3" type="default" depart="43200.00" departPos="326.84" arrivalPos="0.00" arrivalSpeed="0.00">
+        <route edges="2i 4o"/>
+    </vehicle>
+    <vehicle id="carIn130:3" type="default" depart="43200.00" departPos="85.08" arrivalPos="243.00" arrivalSpeed="0.00">
+        <route edges="2o 2i 4o 4i"/>
+    </vehicle>
+    <vehicle id="carIn131:3" type="default" depart="43200.00" departPos="195.64" arrivalPos="0.00" arrivalSpeed="0.00">
+        <route edges="2i 1o"/>
+    </vehicle>
+    <vehicle id="carIn132:3" type="default" depart="43200.00" departPos="382.53" arrivalPos="0.00" arrivalSpeed="0.00">
+        <route edges="4i 1o"/>
+    </vehicle>
+    <vehicle id="carIn133:3" type="default" depart="43200.00" departPos="243.00" arrivalPos="0.00" arrivalSpeed="0.00">
+        <route edges="4i 1o"/>
+    </vehicle>
+    <vehicle id="carIn134:3" type="default" depart="43200.00" departPos="255.50" arrivalPos="243.00" arrivalSpeed="0.00">
+        <route edges="3i 1o 1i"/>
+    </vehicle>
+    <vehicle id="carIn135:3" type="default" depart="43200.00" departPos="11.13" arrivalPos="243.00" arrivalSpeed="0.00">
+        <route edges="1o 1i 4o 4i"/>
+    </vehicle>
+    <vehicle id="carIn136:3" type="default" depart="43200.00" departPos="379.47" arrivalPos="0.00" arrivalSpeed="0.00">
+        <route edges="1o 1i 2o"/>
+    </vehicle>
+    <vehicle id="carIn137:3" type="default" depart="43200.00" departPos="461.70" arrivalPos="243.00" arrivalSpeed="0.00">
+        <route edges="3o 3i 4o 4i"/>
+    </vehicle>
+    <vehicle id="carIn138:3" type="default" depart="43200.00" departPos="386.15" arrivalPos="0.00" arrivalSpeed="0.00">
+        <route edges="4o 4i 2o"/>
+    </vehicle>
+    <vehicle id="carIn139:3" type="default" depart="43200.00" departPos="331.04" arrivalPos="243.00" arrivalSpeed="0.00">
+        <route edges="2o 2i"/>
+    </vehicle>
+    <vehicle id="carIn140:3" type="default" depart="43200.00" departPos="271.31" arrivalPos="0.00" arrivalSpeed="0.00">
+        <route edges="3o 3i 1o"/>
+    </vehicle>
+    <vehicle id="carIn141:3" type="default" depart="43200.00" departPos="453.49" arrivalPos="0.00" arrivalSpeed="0.00">
+        <route edges="2o 2i 4o"/>
+    </vehicle>
+    <vehicle id="carIn142:3" type="default" depart="43200.00" departPos="276.84" arrivalPos="0.00" arrivalSpeed="0.00">
+        <route edges="4i 4o"/>
+    </vehicle>
+    <vehicle id="carIn143:3" type="default" depart="43200.00" departPos="452.58" arrivalPos="243.00" arrivalSpeed="0.00">
+        <route edges="2o 2i 4o 4i"/>
+    </vehicle>
+    <vehicle id="carIn144:3" type="default" depart="43200.00" departPos="415.01" arrivalPos="0.00" arrivalSpeed="0.00">
+        <route edges="3i 3o"/>
+    </vehicle>
+    <vehicle id="carIn145:3" type="default" depart="43200.00" departPos="75.70" arrivalPos="0.00" arrivalSpeed="0.00">
+        <route edges="2i 3o"/>
+    </vehicle>
+    <vehicle id="carIn146:3" type="default" depart="43200.00" departPos="334.14" arrivalPos="0.00" arrivalSpeed="0.00">
+        <route edges="1o 1i 2o"/>
+    </vehicle>
+    <vehicle id="carIn147:3" type="default" depart="43200.00" departPos="443.53" arrivalPos="243.00" arrivalSpeed="0.00">
+        <route edges="1o 1i"/>
+    </vehicle>
+    <vehicle id="carIn148:3" type="default" depart="43200.00" departPos="288.71" arrivalPos="0.00" arrivalSpeed="0.00">
+        <route edges="2i 2o"/>
+    </vehicle>
+    <vehicle id="carIn149:3" type="default" depart="43200.00" departPos="51.03" arrivalPos="243.00" arrivalSpeed="0.00">
+        <route edges="3o 3i 4o 4i"/>
+    </vehicle>
+    <vehicle id="carIn150:3" type="default" depart="43200.00" departPos="264.70" arrivalPos="243.00" arrivalSpeed="0.00">
+        <route edges="3i"/>
+    </vehicle>
+    <vehicle id="carIn151:3" type="default" depart="43200.00" departPos="472.20" arrivalPos="243.00" arrivalSpeed="0.00">
+        <route edges="1o 1i"/>
+    </vehicle>
+    <vehicle id="carIn152:3" type="default" depart="43200.00" departPos="371.65" arrivalPos="243.00" arrivalSpeed="0.00">
+        <route edges="4i 1o 1i"/>
+    </vehicle>
+    <vehicle id="carIn153:3" type="default" depart="43200.00" departPos="219.06" arrivalPos="0.00" arrivalSpeed="0.00">
+        <route edges="1i 2o"/>
+    </vehicle>
+    <vehicle id="carIn154:3" type="default" depart="43200.00" departPos="62.68" arrivalPos="243.00" arrivalSpeed="0.00">
+        <route edges="1o 1i"/>
+    </vehicle>
+    <vehicle id="carIn155:3" type="default" depart="43200.00" departPos="384.63" arrivalPos="0.00" arrivalSpeed="0.00">
+        <route edges="2i 1o"/>
+    </vehicle>
+    <vehicle id="carIn156:3" type="default" depart="43200.00" departPos="110.00" arrivalPos="243.00" arrivalSpeed="0.00">
+        <route edges="2i 3o 3i"/>
+    </vehicle>
+    <vehicle id="carIn157:3" type="default" depart="43200.00" departPos="346.94" arrivalPos="243.00" arrivalSpeed="0.00">
+        <route edges="2i"/>
+    </vehicle>
+    <vehicle id="carIn158:3" type="default" depart="43200.00" departPos="277.06" arrivalPos="243.00" arrivalSpeed="0.00">
+        <route edges="4o 4i 3o 3i"/>
+    </vehicle>
+    <vehicle id="carIn159:3" type="default" depart="43200.00" departPos="249.05" arrivalPos="243.00" arrivalSpeed="0.00">
+        <route edges="1i 4o 4i"/>
+    </vehicle>
+    <vehicle id="carIn160:3" type="default" depart="43200.00" departPos="100.62" arrivalPos="243.00" arrivalSpeed="0.00">
+        <route edges="3o 3i 1o 1i"/>
+    </vehicle>
+    <vehicle id="carIn161:3" type="default" depart="43200.00" departPos="13.85" arrivalPos="243.00" arrivalSpeed="0.00">
+        <route edges="1i"/>
+    </vehicle>
+    <vehicle id="carIn162:3" type="default" depart="43200.00" departPos="450.22" arrivalPos="243.00" arrivalSpeed="0.00">
+        <route edges="1o 1i 4o 4i"/>
+    </vehicle>
+    <vehicle id="carIn163:3" type="default" depart="43200.00" departPos="27.59" arrivalPos="0.00" arrivalSpeed="0.00">
+        <route edges="4o"/>
+    </vehicle>
+    <vehicle id="carIn164:3" type="default" depart="43200.00" departPos="451.94" arrivalPos="243.00" arrivalSpeed="0.00">
+        <route edges="3i 1o 1i"/>
+    </vehicle>
+    <vehicle id="carIn165:3" type="default" depart="43200.00" departPos="147.03" arrivalPos="243.00" arrivalSpeed="0.00">
+        <route edges="2i 1o 1i"/>
+    </vehicle>
+    <vehicle id="carIn166:3" type="default" depart="43200.00" departPos="207.86" arrivalPos="0.00" arrivalSpeed="0.00">
+        <route edges="2o 2i 3o"/>
+    </vehicle>
+    <vehicle id="carIn167:3" type="default" depart="43200.00" departPos="201.17" arrivalPos="0.00" arrivalSpeed="0.00">
+        <route edges="1o 1i 2o"/>
+    </vehicle>
+    <vehicle id="carIn168:3" type="default" depart="43200.00" departPos="458.84" arrivalPos="0.00" arrivalSpeed="0.00">
+        <route edges="4o"/>
+    </vehicle>
+    <vehicle id="carIn169:3" type="default" depart="43200.00" departPos="76.58" arrivalPos="243.00" arrivalSpeed="0.00">
+        <route edges="2i"/>
+    </vehicle>
+    <vehicle id="carIn170:3" type="default" depart="43200.00" departPos="330.94" arrivalPos="0.00" arrivalSpeed="0.00">
+        <route edges="4i 2o"/>
+    </vehicle>
+    <vehicle id="carIn171:3" type="default" depart="43200.00" departPos="470.23" arrivalPos="243.00" arrivalSpeed="0.00">
+        <route edges="1o 1i 2o 2i"/>
+    </vehicle>
+    <vehicle id="carIn172:3" type="default" depart="43200.00" departPos="290.25" arrivalPos="243.00" arrivalSpeed="0.00">
+        <route edges="4i"/>
+    </vehicle>
+    <vehicle id="carIn173:3" type="default" depart="43200.00" departPos="141.34" arrivalPos="243.00" arrivalSpeed="0.00">
+        <route edges="3i"/>
+    </vehicle>
+    <vehicle id="carIn174:3" type="default" depart="43200.00" departPos="426.53" arrivalPos="243.00" arrivalSpeed="0.00">
+        <route edges="4o 4i 2o 2i"/>
+    </vehicle>
+    <vehicle id="carIn175:3" type="default" depart="43200.00" departPos="116.24" arrivalPos="243.00" arrivalSpeed="0.00">
+        <route edges="2o 2i 3o 3i"/>
+    </vehicle>
+    <vehicle id="carIn176:3" type="default" depart="43200.00" departPos="426.86" arrivalPos="243.00" arrivalSpeed="0.00">
+        <route edges="4i"/>
+    </vehicle>
+    <vehicle id="carIn177:3" type="default" depart="43200.00" departPos="144.68" arrivalPos="0.00" arrivalSpeed="0.00">
+        <route edges="3i 3o"/>
+    </vehicle>
+    <vehicle id="carIn178:3" type="default" depart="43200.00" departPos="5.42" arrivalPos="243.00" arrivalSpeed="0.00">
+        <route edges="4i 2o 2i"/>
+    </vehicle>
+    <vehicle id="carIn179:3" type="default" depart="43200.00" departPos="239.29" arrivalPos="0.00" arrivalSpeed="0.00">
+        <route edges="3o 3i 1o"/>
+    </vehicle>
+    <vehicle id="carIn180:3" type="default" depart="43200.00" departPos="418.82" arrivalPos="0.00" arrivalSpeed="0.00">
+        <route edges="4i 2o"/>
+    </vehicle>
+    <vehicle id="carIn181:3" type="default" depart="43200.00" departPos="180.31" arrivalPos="0.00" arrivalSpeed="0.00">
+        <route edges="3o"/>
+    </vehicle>
+    <vehicle id="carIn182:3" type="default" depart="43200.00" departPos="373.09" arrivalPos="0.00" arrivalSpeed="0.00">
+        <route edges="4o 4i 3o"/>
+    </vehicle>
+    <vehicle id="carIn183:3" type="default" depart="43200.00" departPos="243.00" arrivalPos="0.00" arrivalSpeed="0.00">
+        <route edges="2i 2o"/>
+    </vehicle>
+    <vehicle id="carIn184:3" type="default" depart="43200.00" departPos="78.63" arrivalPos="243.00" arrivalSpeed="0.00">
+        <route edges="3i 2o 2i"/>
+    </vehicle>
+    <vehicle id="carIn185:3" type="default" depart="43200.00" departPos="58.57" arrivalPos="0.00" arrivalSpeed="0.00">
+        <route edges="4o 4i 1o"/>
+    </vehicle>
+    <vehicle id="carIn186:3" type="default" depart="43200.00" departPos="340.91" arrivalPos="243.00" arrivalSpeed="0.00">
+        <route edges="4o 4i 1o 1i"/>
+    </vehicle>
+    <vehicle id="carIn187:3" type="default" depart="43200.00" departPos="31.88" arrivalPos="243.00" arrivalSpeed="0.00">
+        <route edges="3o 3i 1o 1i"/>
+    </vehicle>
+    <vehicle id="carIn188:3" type="default" depart="43200.00" departPos="239.22" arrivalPos="0.00" arrivalSpeed="0.00">
+        <route edges="2o 2i 4o"/>
+    </vehicle>
+    <vehicle id="carIn189:3" type="default" depart="43200.00" departPos="313.76" arrivalPos="243.00" arrivalSpeed="0.00">
+        <route edges="1i"/>
+    </vehicle>
+    <vehicle id="carIn190:3" type="default" depart="43200.00" departPos="381.16" arrivalPos="0.00" arrivalSpeed="0.00">
+        <route edges="2o 2i 4o"/>
+    </vehicle>
+    <vehicle id="carIn191:3" type="default" depart="43200.00" departPos="367.94" arrivalPos="243.00" arrivalSpeed="0.00">
+        <route edges="3o 3i 2o 2i"/>
+    </vehicle>
+    <vehicle id="carIn192:3" type="default" depart="43200.00" departPos="243.00" arrivalPos="0.00" arrivalSpeed="0.00">
+        <route edges="4i 2o"/>
+    </vehicle>
+    <vehicle id="carIn193:3" type="default" depart="43200.00" departPos="200.89" arrivalPos="0.00" arrivalSpeed="0.00">
+        <route edges="1i 2o"/>
+    </vehicle>
+    <vehicle id="carIn194:3" type="default" depart="43200.00" departPos="113.76" arrivalPos="243.00" arrivalSpeed="0.00">
+        <route edges="3o 3i 1o 1i"/>
+    </vehicle>
+    <vehicle id="carIn195:3" type="default" depart="43200.00" departPos="312.30" arrivalPos="0.00" arrivalSpeed="0.00">
+        <route edges="2o 2i 1o"/>
+    </vehicle>
+    <vehicle id="carIn196:3" type="default" depart="43200.00" departPos="91.45" arrivalPos="243.00" arrivalSpeed="0.00">
+        <route edges="4i 2o 2i"/>
+    </vehicle>
+    <vehicle id="carIn197:3" type="default" depart="43200.00" departPos="220.24" arrivalPos="0.00" arrivalSpeed="0.00">
+        <route edges="4i 3o"/>
+    </vehicle>
+    <vehicle id="carIn198:3" type="default" depart="43200.00" departPos="134.21" arrivalPos="0.00" arrivalSpeed="0.00">
+        <route edges="3i 3o"/>
+    </vehicle>
+    <vehicle id="carIn199:3" type="default" depart="43200.00" departPos="222.78" arrivalPos="0.00" arrivalSpeed="0.00">
+        <route edges="3o"/>
+    </vehicle>
+    <vehicle id="carIn200:3" type="default" depart="43200.00" departPos="135.56" arrivalPos="243.00" arrivalSpeed="0.00">
+        <route edges="3o 3i 4o 4i"/>
+    </vehicle>
+    <vehicle id="h291c1:2" type="default" depart="43292.00" departPos="335.05" arrivalPos="271.82" arrivalSpeed="0.00">
+        <route edges="2i 3o 3i"/>
+    </vehicle>
+    <vehicle id="h61c1:2" type="default" depart="44225.00" departPos="159.41" arrivalPos="147.16" arrivalSpeed="0.00">
+        <route edges="4o 4i 1o 1i"/>
+    </vehicle>
+    <vehicle id="h149c1:1" type="default" depart="44292.00" departPos="312.54" arrivalPos="253.30" arrivalSpeed="0.00">
+        <route edges="2i 1o 1i"/>
+    </vehicle>
+    <vehicle id="h405c1:1" type="default" depart="44330.00" departPos="477.60" arrivalPos="313.47" arrivalSpeed="0.00">
+        <route edges="4i 3o"/>
+    </vehicle>
+    <vehicle id="h140c1:1" type="default" depart="44457.00" departPos="175.12" arrivalPos="108.62" arrivalSpeed="0.00">
+        <route edges="2i 3o 3i"/>
+    </vehicle>
+    <vehicle id="h342c1:1" type="default" depart="46582.00" departPos="434.42" arrivalPos="231.30" arrivalSpeed="0.00">
+        <route edges="3o 3i"/>
+    </vehicle>
+    <vehicle id="h140c1:2" type="default" depart="47098.00" departPos="108.62" arrivalPos="175.12" arrivalSpeed="0.00">
+        <route edges="3i 2o 2i"/>
+    </vehicle>
+    <vehicle id="h77c1:2" type="default" depart="48982.00" departPos="275.78" arrivalPos="210.88" arrivalSpeed="0.00">
+        <route edges="1o"/>
+    </vehicle>
+    <vehicle id="h342c1:2" type="default" depart="55100.00" departPos="231.30" arrivalPos="434.42" arrivalSpeed="0.00">
+        <route edges="3i 3o"/>
+    </vehicle>
+    <vehicle id="h149c1:2" type="default" depart="58626.00" departPos="253.30" arrivalPos="312.54" arrivalSpeed="0.00">
+        <route edges="1i 2o 2i"/>
+    </vehicle>
+    <vehicle id="h405c1:2" type="default" depart="64558.00" departPos="313.47" arrivalPos="477.60" arrivalSpeed="0.00">
+        <route edges="3o 3i 4o 4i"/>
+    </vehicle>
+    <vehicle id="h183c1:1" type="default" depart="68506.00" departPos="426.93" arrivalPos="291.94" arrivalSpeed="0.00">
+        <route edges="2i"/>
+    </vehicle>
+    <vehicle id="h78c1:1" type="default" depart="69070.00" departPos="224.28" arrivalPos="115.75" arrivalSpeed="0.00">
+        <route edges="1o 1i 4o"/>
+    </vehicle>
+    <vehicle id="h479c1:1" type="default" depart="69453.00" departPos="286.88" arrivalPos="357.82" arrivalSpeed="0.00">
+        <route edges="4o"/>
+    </vehicle>
+    <vehicle id="h150c1:1" type="default" depart="69784.00" departPos="350.16" arrivalPos="31.60" arrivalSpeed="0.00">
+        <route edges="2i 4o"/>
+    </vehicle>
+    <vehicle id="h152c1:1" type="default" depart="69882.00" departPos="199.09" arrivalPos="195.96" arrivalSpeed="0.00">
+        <route edges="2i 4o"/>
+    </vehicle>
+    <vehicle id="h353c1:1" type="default" depart="69917.00" departPos="72.35" arrivalPos="124.12" arrivalSpeed="0.00">
+        <route edges="3o 3i 2o"/>
+    </vehicle>
+    <vehicle id="h380c1:1" type="default" depart="70045.00" departPos="165.91" arrivalPos="78.53" arrivalSpeed="0.00">
+        <route edges="3o 3i 1o"/>
+    </vehicle>
+    <vehicle id="h351c1:1" type="default" depart="70093.00" departPos="150.61" arrivalPos="264.36" arrivalSpeed="0.00">
+        <route edges="3o 3i"/>
+    </vehicle>
+    <vehicle id="h163c1:1" type="default" depart="70380.00" departPos="460.68" arrivalPos="15.77" arrivalSpeed="0.00">
+        <route edges="2i 3o"/>
+    </vehicle>
+    <vehicle id="h387c1:1" type="default" depart="70387.00" departPos="439.83" arrivalPos="268.33" arrivalSpeed="0.00">
+        <route edges="4i 2o 2i"/>
+    </vehicle>
+    <vehicle id="h380c1:2" type="default" depart="70533.00" departPos="78.53" arrivalPos="165.91" arrivalSpeed="0.00">
+        <route edges="1o 1i 3o"/>
+    </vehicle>
+    <vehicle id="h52c1:5" type="default" depart="70790.00" departPos="99.43" arrivalPos="253.42" arrivalSpeed="0.00">
+        <route edges="1i 3o"/>
+    </vehicle>
+    <vehicle id="h253c1:1" type="default" depart="70808.00" departPos="135.75" arrivalPos="364.17" arrivalSpeed="0.00">
+        <route edges="2o 2i"/>
+    </vehicle>
+    <vehicle id="h287c1:5" type="default" depart="70846.00" departPos="81.53" arrivalPos="437.28" arrivalSpeed="0.00">
+        <route edges="3i 1o"/>
+    </vehicle>
+    <vehicle id="h212c1:5" type="default" depart="71119.00" departPos="475.13" arrivalPos="182.16" arrivalSpeed="0.00">
+        <route edges="2o 2i 3o 3i"/>
+    </vehicle>
+    <vehicle id="h94c1:1" type="default" depart="71825.00" departPos="19.53" arrivalPos="12.24" arrivalSpeed="0.00">
+        <route edges="1o 1i 4o 4i"/>
+    </vehicle>
+    <vehicle id="h353c1:2" type="default" depart="71830.00" departPos="124.12" arrivalPos="72.35" arrivalSpeed="0.00">
+        <route edges="2o 2i 3o"/>
+    </vehicle>
+    <vehicle id="h184c1:1" type="default" depart="72038.00" departPos="367.52" arrivalPos="64.86" arrivalSpeed="0.00">
+        <route edges="2i 4o 4i"/>
+    </vehicle>
+    <vehicle id="h111c1:5" type="default" depart="72802.00" departPos="420.97" arrivalPos="396.21" arrivalSpeed="0.00">
+        <route edges="1o 1i 2o 2i"/>
+    </vehicle>
+    <vehicle id="h499c1:1" type="default" depart="72802.00" departPos="156.92" arrivalPos="419.50" arrivalSpeed="0.00">
+        <route edges="4o 4i 1o"/>
+    </vehicle>
+    <vehicle id="h266c1:1" type="default" depart="72874.00" departPos="267.98" arrivalPos="226.10" arrivalSpeed="0.00">
+        <route edges="3i 4o"/>
+    </vehicle>
+    <vehicle id="h379c1:1" type="default" depart="72885.00" departPos="449.84" arrivalPos="47.62" arrivalSpeed="0.00">
+        <route edges="3o 3i 1o"/>
+    </vehicle>
+    <vehicle id="h111c1:6" type="default" depart="72994.00" departPos="396.21" arrivalPos="420.97" arrivalSpeed="0.00">
+        <route edges="2i 1o"/>
+    </vehicle>
+    <vehicle id="h401c1:1" type="default" depart="73174.00" departPos="142.25" arrivalPos="350.94" arrivalSpeed="0.00">
+        <route edges="4i 4o"/>
+    </vehicle>
+    <vehicle id="h379c1:2" type="default" depart="73305.00" departPos="47.62" arrivalPos="449.84" arrivalSpeed="0.00">
+        <route edges="1o 1i 3o"/>
+    </vehicle>
+    <vehicle id="h285c1:1" type="default" depart="73403.00" departPos="442.06" arrivalPos="195.34" arrivalSpeed="0.00">
+        <route edges="3i 2o"/>
+    </vehicle>
+    <vehicle id="h42c1:1" type="default" depart="73699.00" departPos="200.95" arrivalPos="75.25" arrivalSpeed="0.00">
+        <route edges="1i 3o"/>
+    </vehicle>
+    <vehicle id="h452c1:1" type="default" depart="73714.00" departPos="400.41" arrivalPos="468.03" arrivalSpeed="0.00">
+        <route edges="4o 4i 3o 3i"/>
+    </vehicle>
+    <vehicle id="h67c1:1" type="default" depart="74024.00" departPos="269.92" arrivalPos="413.55" arrivalSpeed="0.00">
+        <route edges="1o 1i 3o 3i"/>
+    </vehicle>
+    <vehicle id="h152c1:2" type="default" depart="74777.00" departPos="195.96" arrivalPos="199.09" arrivalSpeed="0.00">
+        <route edges="4o 4i 2o 2i"/>
+    </vehicle>
+    <vehicle id="h351c1:2" type="default" depart="75073.00" departPos="264.36" arrivalPos="150.61" arrivalSpeed="0.00">
+        <route edges="3i 3o"/>
+    </vehicle>
+    <vehicle id="h253c1:2" type="default" depart="75563.00" departPos="364.17" arrivalPos="135.75" arrivalSpeed="0.00">
+        <route edges="2i 2o"/>
+    </vehicle>
+    <vehicle id="h238c1:1" type="default" depart="75672.00" departPos="441.02" arrivalPos="390.72" arrivalSpeed="0.00">
+        <route edges="2o 2i 4o"/>
+    </vehicle>
+    <vehicle id="h377c1:1" type="default" depart="75988.00" departPos="149.73" arrivalPos="175.99" arrivalSpeed="0.00">
+        <route edges="3o 3i 2o"/>
+    </vehicle>
+    <vehicle id="h169c1:1" type="default" depart="76027.00" departPos="192.71" arrivalPos="212.79" arrivalSpeed="0.00">
+        <route edges="2i 4o 4i"/>
+    </vehicle>
+    <vehicle id="h212c1:6" type="default" depart="76122.00" departPos="182.16" arrivalPos="475.13" arrivalSpeed="0.00">
+        <route edges="3i 2o"/>
+    </vehicle>
+    <vehicle id="h238c1:2" type="default" depart="76321.00" departPos="390.72" arrivalPos="441.02" arrivalSpeed="0.00">
+        <route edges="4o 4i 2o"/>
+    </vehicle>
+    <vehicle id="h11c1:5" type="default" depart="76586.00" departPos="273.20" arrivalPos="300.66" arrivalSpeed="0.00">
+        <route edges="1i 1o"/>
+    </vehicle>
+    <vehicle id="h401c1:2" type="default" depart="76673.00" departPos="350.94" arrivalPos="142.25" arrivalSpeed="0.00">
+        <route edges="4o 4i"/>
+    </vehicle>
+    <vehicle id="h183c1:2" type="default" depart="76977.00" departPos="291.94" arrivalPos="426.93" arrivalSpeed="0.00">
+        <route edges="2i"/>
+    </vehicle>
+    <vehicle id="h359c1:1" type="default" depart="77841.00" departPos="64.47" arrivalPos="179.04" arrivalSpeed="0.00">
+        <route edges="3o 3i"/>
+    </vehicle>
+    <vehicle id="h490c1:5" type="default" depart="78001.00" departPos="47.80" arrivalPos="314.15" arrivalSpeed="0.00">
+        <route edges="4o 4i 1o"/>
+    </vehicle>
+    <vehicle id="h163c1:2" type="default" depart="78477.00" departPos="15.77" arrivalPos="460.68" arrivalSpeed="0.00">
+        <route edges="3o 3i 2o 2i"/>
+    </vehicle>
+    <vehicle id="h387c1:2" type="default" depart="78589.00" departPos="268.33" arrivalPos="439.83" arrivalSpeed="0.00">
+        <route edges="2i 4o 4i"/>
+    </vehicle>
+    <vehicle id="h296c1:1" type="default" depart="78767.00" departPos="277.94" arrivalPos="402.76" arrivalSpeed="0.00">
+        <route edges="3i 2o 2i"/>
+    </vehicle>
+    <vehicle id="h150c1:2" type="default" depart="79023.00" departPos="31.60" arrivalPos="350.16" arrivalSpeed="0.00">
+        <route edges="4o 4i 2o 2i"/>
+    </vehicle>
+    <vehicle id="h241c1:1" type="default" depart="79272.00" departPos="326.93" arrivalPos="398.63" arrivalSpeed="0.00">
+        <route edges="2o 2i 3o"/>
+    </vehicle>
+    <vehicle id="h432c1:1" type="default" depart="79330.00" departPos="257.06" arrivalPos="212.34" arrivalSpeed="0.00">
+        <route edges="4i"/>
+    </vehicle>
+    <vehicle id="h100c1:5" type="default" depart="79499.00" departPos="452.85" arrivalPos="14.41" arrivalSpeed="0.00">
+        <route edges="1o 1i 3o"/>
+    </vehicle>
+    <vehicle id="h11c1:6" type="default" depart="79503.00" departPos="300.66" arrivalPos="273.20" arrivalSpeed="0.00">
+        <route edges="1o 1i"/>
+    </vehicle>
+    <vehicle id="h100c1:6" type="default" depart="79799.00" departPos="14.41" arrivalPos="452.85" arrivalSpeed="0.00">
+        <route edges="3o 3i 1o"/>
+    </vehicle>
+    <vehicle id="h452c1:2" type="default" depart="79910.00" departPos="468.03" arrivalPos="400.41" arrivalSpeed="0.00">
+        <route edges="3i 4o"/>
+    </vehicle>
+    <vehicle id="h485c1:1" type="default" depart="79950.00" departPos="181.10" arrivalPos="369.49" arrivalSpeed="0.00">
+        <route edges="4o"/>
+    </vehicle>
+    <vehicle id="h169c1:2" type="default" depart="80421.00" departPos="212.79" arrivalPos="192.71" arrivalSpeed="0.00">
+        <route edges="4i 2o 2i"/>
+    </vehicle>
+    <vehicle id="h287c1:6" type="default" depart="80720.00" departPos="437.28" arrivalPos="81.53" arrivalSpeed="0.00">
+        <route edges="1o 1i 3o 3i"/>
+    </vehicle>
+    <vehicle id="h67c1:2" type="default" depart="80823.00" departPos="413.55" arrivalPos="269.92" arrivalSpeed="0.00">
+        <route edges="3i 1o"/>
+    </vehicle>
+    <vehicle id="h485c1:2" type="default" depart="80871.00" departPos="369.49" arrivalPos="181.10" arrivalSpeed="0.00">
+        <route edges="4o"/>
+    </vehicle>
+    <vehicle id="h121c1:5" type="default" depart="81081.00" departPos="441.40" arrivalPos="398.89" arrivalSpeed="0.00">
+        <route edges="1o 1i 2o"/>
+    </vehicle>
+    <vehicle id="h477c1:1" type="default" depart="81517.00" departPos="422.01" arrivalPos="28.01" arrivalSpeed="0.00">
+        <route edges="4o 4i 1o"/>
+    </vehicle>
+    <vehicle id="h335c1:1" type="default" depart="81732.00" departPos="290.44" arrivalPos="466.73" arrivalSpeed="0.00">
+        <route edges="3o 3i 2o 2i"/>
+    </vehicle>
+    <vehicle id="h42c1:2" type="default" depart="81748.00" departPos="75.25" arrivalPos="200.95" arrivalSpeed="0.00">
+        <route edges="3o 3i 1o 1i"/>
+    </vehicle>
+    <vehicle id="h499c1:2" type="default" depart="81760.00" departPos="419.50" arrivalPos="156.92" arrivalSpeed="0.00">
+        <route edges="1o 1i 4o"/>
+    </vehicle>
+    <vehicle id="h184c1:2" type="default" depart="81779.00" departPos="64.86" arrivalPos="367.52" arrivalSpeed="0.00">
+        <route edges="4i 2o 2i"/>
+    </vehicle>
+    <vehicle id="h377c1:2" type="default" depart="82161.00" departPos="175.99" arrivalPos="149.73" arrivalSpeed="0.00">
+        <route edges="2o 2i 3o"/>
+    </vehicle>
+    <vehicle id="h121c1:6" type="default" depart="82269.00" departPos="398.89" arrivalPos="441.40" arrivalSpeed="0.00">
+        <route edges="2o 2i 1o"/>
+    </vehicle>
+    <vehicle id="h296c1:2" type="default" depart="82376.00" departPos="402.76" arrivalPos="277.94" arrivalSpeed="0.00">
+        <route edges="2i 3o 3i"/>
+    </vehicle>
+    <vehicle id="h266c1:2" type="default" depart="82484.00" departPos="226.10" arrivalPos="267.98" arrivalSpeed="0.00">
+        <route edges="4o 4i 3o 3i"/>
+    </vehicle>
+    <vehicle id="h290c1:1" type="default" depart="82784.00" departPos="327.18" arrivalPos="290.23" arrivalSpeed="0.00">
+        <route edges="3i 2o 2i"/>
+    </vehicle>
+    <vehicle id="h285c1:2" type="default" depart="82805.00" departPos="195.34" arrivalPos="442.06" arrivalSpeed="0.00">
+        <route edges="2o 2i 3o 3i"/>
+    </vehicle>
+    <vehicle id="h78c1:2" type="default" depart="82840.00" departPos="115.75" arrivalPos="224.28" arrivalSpeed="0.00">
+        <route edges="4o 4i 1o"/>
+    </vehicle>
+    <vehicle id="h226c1:1" type="default" depart="82871.00" departPos="373.12" arrivalPos="196.20" arrivalSpeed="0.00">
+        <route edges="2o 2i 1o"/>
+    </vehicle>
+    <vehicle id="h241c1:2" type="default" depart="82929.00" departPos="398.63" arrivalPos="326.93" arrivalSpeed="0.00">
+        <route edges="3o 3i 2o"/>
+    </vehicle>
+    <vehicle id="h207c1:1" type="default" depart="82945.00" departPos="149.02" arrivalPos="251.47" arrivalSpeed="0.00">
+        <route edges="2o 2i"/>
+    </vehicle>
+    <vehicle id="h94c1:2" type="default" depart="83017.00" departPos="12.24" arrivalPos="19.53" arrivalSpeed="0.00">
+        <route edges="4i 1o"/>
+    </vehicle>
+    <vehicle id="h477c1:2" type="default" depart="83297.00" departPos="28.01" arrivalPos="422.01" arrivalSpeed="0.00">
+        <route edges="1o 1i 4o"/>
+    </vehicle>
+    <vehicle id="h35c1:1" type="default" depart="83673.00" departPos="245.90" arrivalPos="134.74" arrivalSpeed="0.00">
+        <route edges="1i"/>
+    </vehicle>
+    <vehicle id="h431c1:1" type="default" depart="83682.00" departPos="334.75" arrivalPos="459.79" arrivalSpeed="0.00">
+        <route edges="4i 4o"/>
+    </vehicle>
+    <vehicle id="h428c1:1" type="default" depart="83827.00" departPos="218.57" arrivalPos="53.58" arrivalSpeed="0.00">
+        <route edges="4i"/>
+    </vehicle>
+    <vehicle id="h490c1:6" type="default" depart="84000.00" departPos="314.15" arrivalPos="47.80" arrivalSpeed="0.00">
+        <route edges="1o 1i 4o"/>
+    </vehicle>
+    <vehicle id="h52c1:6" type="default" depart="84067.00" departPos="253.42" arrivalPos="99.43" arrivalSpeed="0.00">
+        <route edges="3o 3i 1o 1i"/>
+    </vehicle>
+    <vehicle id="h191c1:5" type="default" depart="84178.00" departPos="411.14" arrivalPos="454.65" arrivalSpeed="0.00">
+        <route edges="2i 4o"/>
+    </vehicle>
+    <vehicle id="h207c1:2" type="default" depart="84221.00" departPos="251.47" arrivalPos="149.02" arrivalSpeed="0.00">
+        <route edges="2i 2o"/>
+    </vehicle>
+    <vehicle id="h290c1:2" type="default" depart="84261.00" departPos="290.23" arrivalPos="327.18" arrivalSpeed="0.00">
+        <route edges="2i 3o 3i"/>
+    </vehicle>
+    <vehicle id="h359c1:2" type="default" depart="84509.00" departPos="179.04" arrivalPos="64.47" arrivalSpeed="0.00">
+        <route edges="3i 3o"/>
+    </vehicle>
+    <vehicle id="h427c1:5" type="default" depart="84598.00" departPos="404.68" arrivalPos="62.92" arrivalSpeed="0.00">
+        <route edges="4i 1o"/>
+    </vehicle>
+    <vehicle id="h191c1:6" type="default" depart="84637.00" departPos="454.65" arrivalPos="411.14" arrivalSpeed="0.00">
+        <route edges="4o 4i 2o 2i"/>
+    </vehicle>
+    <vehicle id="h335c1:2" type="default" depart="84637.00" departPos="466.73" arrivalPos="290.44" arrivalSpeed="0.00">
+        <route edges="2i 3o"/>
+    </vehicle>
+    <vehicle id="h195c1:1" type="default" depart="84678.00" departPos="212.62" arrivalPos="338.86" arrivalSpeed="0.00">
+        <route edges="2o 2i 1o 1i"/>
+    </vehicle>
+    <vehicle id="h432c1:2" type="default" depart="84813.00" departPos="212.34" arrivalPos="257.06" arrivalSpeed="0.00">
+        <route edges="4i"/>
+    </vehicle>
+    <vehicle id="h195c1:2" type="default" depart="85235.00" departPos="338.86" arrivalPos="212.62" arrivalSpeed="0.00">
+        <route edges="1i 2o"/>
+    </vehicle>
+    <vehicle id="h226c1:2" type="default" depart="85486.00" departPos="196.20" arrivalPos="373.12" arrivalSpeed="0.00">
+        <route edges="1o 1i 2o"/>
+    </vehicle>
+    <vehicle id="h97c1:1" type="default" depart="85702.00" departPos="353.68" arrivalPos="477.28" arrivalSpeed="0.00">
+        <route edges="1o 1i 4o 4i"/>
+    </vehicle>
+    <vehicle id="h328c1:5" type="default" depart="85847.00" departPos="418.47" arrivalPos="70.53" arrivalSpeed="0.00">
+        <route edges="3o 3i 4o"/>
+    </vehicle>
+    <vehicle id="h431c1:2" type="default" depart="85849.00" departPos="459.79" arrivalPos="334.75" arrivalSpeed="0.00">
+        <route edges="4o 4i"/>
+    </vehicle>
+    <vehicle id="h1c1:5" type="default" depart="85870.00" departPos="176.45" arrivalPos="227.13" arrivalSpeed="0.00">
+        <route edges="1i 4o"/>
+    </vehicle>
+    <vehicle id="h416c1:1" type="default" depart="85928.00" departPos="103.50" arrivalPos="172.45" arrivalSpeed="0.00">
+        <route edges="4i"/>
+    </vehicle>
+    <vehicle id="h97c1:2" type="default" depart="86003.00" departPos="477.28" arrivalPos="353.68" arrivalSpeed="0.00">
+        <route edges="4i 1o"/>
+    </vehicle>
+    <vehicle id="h328c1:6" type="default" depart="86083.00" departPos="70.53" arrivalPos="418.47" arrivalSpeed="0.00">
+        <route edges="4o 4i 3o"/>
+    </vehicle>
+    <vehicle id="h1c1:6" type="default" depart="86121.00" departPos="227.13" arrivalPos="176.45" arrivalSpeed="0.00">
+        <route edges="4o 4i 1o 1i"/>
+    </vehicle>
+    <vehicle id="h35c1:2" type="default" depart="86123.00" departPos="134.74" arrivalPos="245.90" arrivalSpeed="0.00">
+        <route edges="1i"/>
+    </vehicle>
+    <vehicle id="h479c1:2" type="default" depart="86185.00" departPos="357.82" arrivalPos="286.88" arrivalSpeed="0.00">
+        <route edges="4o"/>
+    </vehicle>
+    <vehicle id="h416c1:2" type="default" depart="86207.00" departPos="172.45" arrivalPos="103.50" arrivalSpeed="0.00">
+        <route edges="4i"/>
+    </vehicle>
+    <vehicle id="h427c1:6" type="default" depart="86310.00" departPos="62.92" arrivalPos="404.68" arrivalSpeed="0.00">
+        <route edges="1o 1i 4o 4i"/>
+    </vehicle>
+    <vehicle id="h428c1:2" type="default" depart="86321.00" departPos="53.58" arrivalPos="218.57" arrivalSpeed="0.00">
+        <route edges="4i"/>
+    </vehicle>
+</routes>

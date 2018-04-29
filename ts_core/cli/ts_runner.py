@@ -76,26 +76,36 @@ overwrite_output_help = \
 def run_loop():
     """execute the TraCI control loop"""
     tick = 0
-    from ts_core.optimization.optimizer_example import OptimizerExample
-    op = OptimizerExample()
-    op.train(tick)
+    # from ts_core.optimization.optimizer_example import OptimizerExample
+    # op = OptimizerExample()
+    # op.train(tick)
     #traci.trafficlights.setPhase("0", 2)
-    while traci.simulation.getMinExpectedNumber() > 0:
+    car_flag = False
+    while traci.simulation.getMinExpectedNumber() > 1 or not car_flag:
         traci.simulationStep()
-        op.train(tick)
+        if traci.simulation.getMinExpectedNumber() > 5:
+            car_flag = True
+        # op.train(tick)
         tick += 1
     traci.close()
     sys.stdout.flush()
+    print()
+    print("Simulation Took %s ticks" % tick)
 
 
 def make_phase(light_array, default_time, min_time=None, max_time=None):
     """
 
-    :param light_array:
-    :param default_time: Time in ticks
-    :param min_time:
-    :param max_time:
-    :return:
+    Parameters
+    ----------
+    light_array: String containing the light pattern for this phase  (i.e "GGrrGGrr)
+    default_time: Number of ticks that this phase should be active
+    min_time: Minimum number of ticks that this phase should be active
+    max_time: maximum number of ticks that this phase should be active
+
+    Returns
+    -------
+    Traci phase object with specified data
     """
     mult = 1000  # Multiplier (units are in mili ticks??) TODO Understand this
     if min_time is None or min_time > default_time:
@@ -108,13 +118,19 @@ def make_phase(light_array, default_time, min_time=None, max_time=None):
 def make_and_set_program(program_name, phases, starting_phase=0, tl_type=0, traffic_light_ids=()):
     """
 
-    :param traffic_light_ids: Traffic lights to set to this program.
+    Parameters
+    ----------
+    program_name: Name for this program. Use this when setting the programs
+    phases: List/tuple of Traci phase objects demoting the various phases for this program
+    starting_phase: Integer: When this program is set, this phase ID will be active first
+    tl_type: ---DOES NOT WORK. ALWAYS STATIC--- 0: static, 1: delay_based, 2: actuated
+
+    traffic_light_ids: ID of Traffic lights to set to this program. If empty, does not set any traffic lights
             Accepts String, integer, or list (of mixed strings or integers)
-    :param tl_type:
-    :param program_name:
-    :param phases:
-    :param starting_phase:
-    :return: The program
+
+    Returns
+    -------
+    Traci Program object
     """
     new_program = traci.trafficlight.Logic(program_name, tl_type, 0, starting_phase, phases)
     if traffic_light_ids != ():
@@ -131,7 +147,11 @@ def make_and_set_program(program_name, phases, starting_phase=0, tl_type=0, traf
 
 def main():
     """
-    
+    Initializes sumo to run using given files
+
+    Returns
+    -------
+
     """
     # Initialize argument parser and declare arguments.
     parser = argparse.ArgumentParser(formatter_class=RawTextHelpFormatter, description=main.__doc__)

@@ -1,0 +1,23 @@
+<?xml version="1.0" ?>
+<additional>
+   <laneAreaDetector endPos="-1.0" file="test_area.xml" freq="10.0" id="Area1i_0" lane="1i_0" pos="-50.0"/>
+   <laneAreaDetector endPos="-1.0" file="test_area.xml" freq="10.0" id="Area1i_1" lane="1i_1" pos="-50.0"/>
+   <laneAreaDetector endPos="-1.0" file="test_area.xml" freq="10.0" id="Area1i_2" lane="1i_2" pos="-50.0"/>
+   <laneAreaDetector endPos="-1.0" file="test_area.xml" freq="10.0" id="Area1i_3" lane="1i_3" pos="-50.0"/>
+   <laneAreaDetector endPos="-1.0" file="test_area.xml" freq="10.0" id="Area1i_4" lane="1i_4" pos="-50.0"/>
+   <laneAreaDetector endPos="-1.0" file="test_area.xml" freq="10.0" id="Area4i_0" lane="4i_0" pos="-50.0"/>
+   <laneAreaDetector endPos="-1.0" file="test_area.xml" freq="10.0" id="Area4i_1" lane="4i_1" pos="-50.0"/>
+   <laneAreaDetector endPos="-1.0" file="test_area.xml" freq="10.0" id="Area4i_2" lane="4i_2" pos="-50.0"/>
+   <laneAreaDetector endPos="-1.0" file="test_area.xml" freq="10.0" id="Area4i_3" lane="4i_3" pos="-50.0"/>
+   <laneAreaDetector endPos="-1.0" file="test_area.xml" freq="10.0" id="Area4i_4" lane="4i_4" pos="-50.0"/>
+   <laneAreaDetector endPos="-1.0" file="test_area.xml" freq="10.0" id="Area2i_0" lane="2i_0" pos="-50.0"/>
+   <laneAreaDetector endPos="-1.0" file="test_area.xml" freq="10.0" id="Area2i_1" lane="2i_1" pos="-50.0"/>
+   <laneAreaDetector endPos="-1.0" file="test_area.xml" freq="10.0" id="Area2i_2" lane="2i_2" pos="-50.0"/>
+   <laneAreaDetector endPos="-1.0" file="test_area.xml" freq="10.0" id="Area2i_3" lane="2i_3" pos="-50.0"/>
+   <laneAreaDetector endPos="-1.0" file="test_area.xml" freq="10.0" id="Area2i_4" lane="2i_4" pos="-50.0"/>
+   <laneAreaDetector endPos="-1.0" file="test_area.xml" freq="10.0" id="Area3i_0" lane="3i_0" pos="-50.0"/>
+   <laneAreaDetector endPos="-1.0" file="test_area.xml" freq="10.0" id="Area3i_1" lane="3i_1" pos="-50.0"/>
+   <laneAreaDetector endPos="-1.0" file="test_area.xml" freq="10.0" id="Area3i_2" lane="3i_2" pos="-50.0"/>
+   <laneAreaDetector endPos="-1.0" file="test_area.xml" freq="10.0" id="Area3i_3" lane="3i_3" pos="-50.0"/>
+   <laneAreaDetector endPos="-1.0" file="test_area.xml" freq="10.0" id="Area3i_4" lane="3i_4" pos="-50.0"/>
+</additional>

@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!-- generated on 04/04/18 01:44:31 by SUMO Version 0.31.0
+<?xml version="1.0" encoding="UTF-8"?>
+
+<configuration xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="http://sumo.dlr.de/xsd/sumoConfiguration.xsd">
+
+    <input>
+        <net-file value="C:\Users\Bryan\Documents\GitHub\core\tests\WorkingExamples\CrossEilif/cross.net.xml"/>
+        <route-files value="C:\Users\Bryan\Documents\GitHub\core\tests\WorkingExamples\CrossEilif/cross.rou.xml"/>
+    </input>
+
+    <output>
+        <tripinfo-output value="C:\Users\Bryan\Documents\GitHub\core\tests\WorkingExamples\CrossEilif/output/2018_04_04T01_44_30_686453/sutripinfo.xml"/>
+    </output>
+
+    <time>
+        <begin value="0.0"/>
+        <end value="3600.0"/>
+    </time>
+
+    <traci_server>
+        <remote-port value="54526"/>
+    </traci_server>
+
+</configuration>
+-->
+
+<tripinfos xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="http://sumo.dlr.de/xsd/tripinfo_file.xsd">
+    <tripinfo id="h264c1:1" depart="272.00" departLane="3i_0" departPos="80.63" departSpeed="0.00" departDelay="0.00" arrival="330.00" arrivalLane="1i_2" arrivalPos="4.97" arrivalSpeed="0.10" duration="58.00" routeLength="929.16" waitSteps="0" timeLoss="11.51" rerouteNo="0" devices="tripinfo_h264c1:1" vType="default" speedFactor="1.00" vaporized=""/>
+</tripinfos>
