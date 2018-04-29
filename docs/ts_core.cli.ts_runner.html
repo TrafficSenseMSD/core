@@ -134,14 +134,61 @@ contains:</p>
 <div class="section" id="script-contents">
 <h2>Script contents<a class="headerlink" href="#script-contents" title="Permalink to this headline">¶</a></h2>
 <dl class="function">
-<dt id="ts_core.cli.ts_runner.generate_routefile">
-<code class="descname">generate_routefile</code><span class="sig-paren">(</span><em>ts_sumo_dir</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/ts_core/cli/ts_runner.html#generate_routefile"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#ts_core.cli.ts_runner.generate_routefile" title="Permalink to this definition">¶</a></dt>
-<dd></dd></dl>
-
-<dl class="function">
 <dt id="ts_core.cli.ts_runner.main">
 <code class="descname">main</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/ts_core/cli/ts_runner.html#main"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#ts_core.cli.ts_runner.main" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
+
+<dl class="function">
+<dt id="ts_core.cli.ts_runner.make_and_set_program">
+<code class="descname">make_and_set_program</code><span class="sig-paren">(</span><em>program_name</em>, <em>phases</em>, <em>starting_phase=0</em>, <em>tl_type=0</em>, <em>traffic_light_ids=()</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/ts_core/cli/ts_runner.html#make_and_set_program"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#ts_core.cli.ts_runner.make_and_set_program" title="Permalink to this definition">¶</a></dt>
+<dd><table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
+<li><strong>traffic_light_ids</strong> – Traffic lights to set to this program.
+Accepts String, integer, or list (of mixed strings or integers)</li>
+<li><strong>tl_type</strong> – </li>
+<li><strong>program_name</strong> – </li>
+<li><strong>phases</strong> – </li>
+<li><strong>starting_phase</strong> – </li>
+</ul>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first last">The program</p>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="function">
+<dt id="ts_core.cli.ts_runner.make_phase">
+<code class="descname">make_phase</code><span class="sig-paren">(</span><em>light_array</em>, <em>default_time</em>, <em>min_time=None</em>, <em>max_time=None</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/ts_core/cli/ts_runner.html#make_phase"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#ts_core.cli.ts_runner.make_phase" title="Permalink to this definition">¶</a></dt>
+<dd><table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
+<li><strong>light_array</strong> – </li>
+<li><strong>default_time</strong> – Time in ticks</li>
+<li><strong>min_time</strong> – </li>
+<li><strong>max_time</strong> – </li>
+</ul>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first last"></p>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="function">
+<dt id="ts_core.cli.ts_runner.run_loop">
+<code class="descname">run_loop</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/ts_core/cli/ts_runner.html#run_loop"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#ts_core.cli.ts_runner.run_loop" title="Permalink to this definition">¶</a></dt>
+<dd><p>execute the TraCI control loop</p>
+</dd></dl>
 
 </div>
 </div>

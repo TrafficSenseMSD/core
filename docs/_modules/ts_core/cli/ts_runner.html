@@ -111,46 +111,69 @@
 <span class="kn">import</span> <span class="nn">traci</span>
 <span class="kn">import</span> <span class="nn">sumolib</span>
 
-<div class="viewcode-block" id="generate_routefile"><a class="viewcode-back" href="../../../ts_core.cli.ts_runner.html#ts_core.cli.ts_runner.generate_routefile">[docs]</a><span class="k">def</span> <span class="nf">generate_routefile</span><span class="p">(</span><span class="n">ts_sumo_dir</span><span class="p">):</span>
-    <span class="n">random</span><span class="o">.</span><span class="n">seed</span><span class="p">(</span><span class="mi">42</span><span class="p">)</span>  <span class="c1"># make tests reproducible</span>
-    <span class="n">N</span> <span class="o">=</span> <span class="mi">3600</span>  <span class="c1"># number of time steps</span>
-    <span class="c1"># demand per second from different directions</span>
-    <span class="n">pWE</span> <span class="o">=</span> <span class="mf">1.</span> <span class="o">/</span> <span class="mi">10</span>
-    <span class="n">pEW</span> <span class="o">=</span> <span class="mf">1.</span> <span class="o">/</span> <span class="mi">11</span>
-    <span class="n">pNS</span> <span class="o">=</span> <span class="mf">1.</span> <span class="o">/</span> <span class="mi">30</span>
-    <span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="n">ts_sumo_dir</span><span class="o">+</span><span class="s2">&quot;/data/cross.rou.xml&quot;</span><span class="p">,</span> <span class="s2">&quot;w&quot;</span><span class="p">)</span> <span class="k">as</span> <span class="n">routes</span><span class="p">:</span>
-        <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;&quot;&quot;&lt;routes&gt;</span>
-<span class="s2">        &lt;vType id=&quot;typeWE&quot; accel=&quot;0.8&quot; decel=&quot;4.5&quot; sigma=&quot;0.5&quot; length=&quot;5&quot; minGap=&quot;2.5&quot; maxSpeed=&quot;16.67&quot; guiShape=&quot;passenger&quot;/&gt;</span>
-<span class="s2">        &lt;vType id=&quot;typeNS&quot; accel=&quot;0.8&quot; decel=&quot;4.5&quot; sigma=&quot;0.5&quot; length=&quot;7&quot; minGap=&quot;3&quot; maxSpeed=&quot;25&quot; guiShape=&quot;bus&quot;/&gt;</span>
-
-<span class="s2">        &lt;route id=&quot;right&quot; edges=&quot;51o 1i 2o 52i&quot; /&gt;</span>
-<span class="s2">        &lt;route id=&quot;left&quot; edges=&quot;52o 2i 1o 51i&quot; /&gt;</span>
-<span class="s2">        &lt;route id=&quot;down&quot; edges=&quot;54o 4i 3o 53i&quot; /&gt;&quot;&quot;&quot;</span><span class="p">,</span> <span class="n">file</span><span class="o">=</span><span class="n">routes</span><span class="p">)</span>
-        <span class="n">lastVeh</span> <span class="o">=</span> <span class="mi">0</span>
-        <span class="n">vehNr</span> <span class="o">=</span> <span class="mi">0</span>
-        <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">N</span><span class="p">):</span>
-            <span class="k">if</span> <span class="n">random</span><span class="o">.</span><span class="n">uniform</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span> <span class="o">&lt;</span> <span class="n">pWE</span><span class="p">:</span>
-                <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;    &lt;vehicle id=&quot;right_</span><span class="si">%i</span><span class="s1">&quot; type=&quot;typeWE&quot; route=&quot;right&quot; depart=&quot;</span><span class="si">%i</span><span class="s1">&quot; /&gt;&#39;</span> <span class="o">%</span> <span class="p">(</span>
-                    <span class="n">vehNr</span><span class="p">,</span> <span class="n">i</span><span class="p">),</span> <span class="n">file</span><span class="o">=</span><span class="n">routes</span><span class="p">)</span>
-                <span class="n">vehNr</span> <span class="o">+=</span> <span class="mi">1</span>
-                <span class="n">lastVeh</span> <span class="o">=</span> <span class="n">i</span>
-            <span class="k">if</span> <span class="n">random</span><span class="o">.</span><span class="n">uniform</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span> <span class="o">&lt;</span> <span class="n">pEW</span><span class="p">:</span>
-                <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;    &lt;vehicle id=&quot;left_</span><span class="si">%i</span><span class="s1">&quot; type=&quot;typeWE&quot; route=&quot;left&quot; depart=&quot;</span><span class="si">%i</span><span class="s1">&quot; /&gt;&#39;</span> <span class="o">%</span> <span class="p">(</span>
-                    <span class="n">vehNr</span><span class="p">,</span> <span class="n">i</span><span class="p">),</span> <span class="n">file</span><span class="o">=</span><span class="n">routes</span><span class="p">)</span>
-                <span class="n">vehNr</span> <span class="o">+=</span> <span class="mi">1</span>
-                <span class="n">lastVeh</span> <span class="o">=</span> <span class="n">i</span>
-            <span class="k">if</span> <span class="n">random</span><span class="o">.</span><span class="n">uniform</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span> <span class="o">&lt;</span> <span class="n">pNS</span><span class="p">:</span>
-                <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;    &lt;vehicle id=&quot;down_</span><span class="si">%i</span><span class="s1">&quot; type=&quot;typeNS&quot; route=&quot;down&quot; depart=&quot;</span><span class="si">%i</span><span class="s1">&quot; color=&quot;1,0,0&quot;/&gt;&#39;</span> <span class="o">%</span> <span class="p">(</span>
-                    <span class="n">vehNr</span><span class="p">,</span> <span class="n">i</span><span class="p">),</span> <span class="n">file</span><span class="o">=</span><span class="n">routes</span><span class="p">)</span>
-                <span class="n">vehNr</span> <span class="o">+=</span> <span class="mi">1</span>
-                <span class="n">lastVeh</span> <span class="o">=</span> <span class="n">i</span>
-        <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;&lt;/routes&gt;&quot;</span><span class="p">,</span> <span class="n">file</span><span class="o">=</span><span class="n">routes</span><span class="p">)</span></div>
+<span class="kn">from</span> <span class="nn">six</span> <span class="k">import</span> <span class="n">string_types</span><span class="p">,</span> <span class="n">integer_types</span>
 
 <span class="n">overwrite_output_help</span> <span class="o">=</span> \
     <span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">    Overwrite the output directory.  This will remove all previous runs and regenerate the folder.</span>
 
 <span class="sd">    &quot;&quot;&quot;</span>
+
+
+<div class="viewcode-block" id="run_loop"><a class="viewcode-back" href="../../../ts_core.cli.ts_runner.html#ts_core.cli.ts_runner.run_loop">[docs]</a><span class="k">def</span> <span class="nf">run_loop</span><span class="p">():</span>
+    <span class="sd">&quot;&quot;&quot;execute the TraCI control loop&quot;&quot;&quot;</span>
+    <span class="n">tick</span> <span class="o">=</span> <span class="mi">0</span>
+    <span class="kn">from</span> <span class="nn">ts_core.optimization.optimizer_example</span> <span class="k">import</span> <span class="n">OptimizerExample</span>
+    <span class="n">op</span> <span class="o">=</span> <span class="n">OptimizerExample</span><span class="p">()</span>
+    <span class="n">op</span><span class="o">.</span><span class="n">train</span><span class="p">(</span><span class="n">tick</span><span class="p">)</span>
+    <span class="c1">#traci.trafficlights.setPhase(&quot;0&quot;, 2)</span>
+    <span class="k">while</span> <span class="n">traci</span><span class="o">.</span><span class="n">simulation</span><span class="o">.</span><span class="n">getMinExpectedNumber</span><span class="p">()</span> <span class="o">&gt;</span> <span class="mi">0</span><span class="p">:</span>
+        <span class="n">traci</span><span class="o">.</span><span class="n">simulationStep</span><span class="p">()</span>
+        <span class="n">op</span><span class="o">.</span><span class="n">train</span><span class="p">(</span><span class="n">tick</span><span class="p">)</span>
+        <span class="n">tick</span> <span class="o">+=</span> <span class="mi">1</span>
+    <span class="n">traci</span><span class="o">.</span><span class="n">close</span><span class="p">()</span>
+    <span class="n">sys</span><span class="o">.</span><span class="n">stdout</span><span class="o">.</span><span class="n">flush</span><span class="p">()</span></div>
+
+
+<div class="viewcode-block" id="make_phase"><a class="viewcode-back" href="../../../ts_core.cli.ts_runner.html#ts_core.cli.ts_runner.make_phase">[docs]</a><span class="k">def</span> <span class="nf">make_phase</span><span class="p">(</span><span class="n">light_array</span><span class="p">,</span> <span class="n">default_time</span><span class="p">,</span> <span class="n">min_time</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">max_time</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;</span>
+
+<span class="sd">    :param light_array:</span>
+<span class="sd">    :param default_time: Time in ticks</span>
+<span class="sd">    :param min_time:</span>
+<span class="sd">    :param max_time:</span>
+<span class="sd">    :return:</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="n">mult</span> <span class="o">=</span> <span class="mi">1000</span>  <span class="c1"># Multiplier (units are in mili ticks??) TODO Understand this</span>
+    <span class="k">if</span> <span class="n">min_time</span> <span class="ow">is</span> <span class="kc">None</span> <span class="ow">or</span> <span class="n">min_time</span> <span class="o">&gt;</span> <span class="n">default_time</span><span class="p">:</span>
+        <span class="n">min_time</span> <span class="o">=</span> <span class="n">default_time</span>
+    <span class="k">if</span> <span class="n">max_time</span> <span class="ow">is</span> <span class="kc">None</span> <span class="ow">or</span> <span class="n">max_time</span> <span class="o">&lt;</span> <span class="n">default_time</span><span class="p">:</span>
+        <span class="n">max_time</span> <span class="o">=</span> <span class="n">default_time</span>
+    <span class="k">return</span> <span class="n">traci</span><span class="o">.</span><span class="n">trafficlight</span><span class="o">.</span><span class="n">Phase</span><span class="p">(</span><span class="n">default_time</span><span class="o">*</span><span class="n">mult</span><span class="p">,</span> <span class="n">min_time</span><span class="o">*</span><span class="n">mult</span><span class="p">,</span> <span class="n">max_time</span><span class="o">*</span><span class="n">mult</span><span class="p">,</span> <span class="n">light_array</span><span class="p">)</span></div>
+
+
+<div class="viewcode-block" id="make_and_set_program"><a class="viewcode-back" href="../../../ts_core.cli.ts_runner.html#ts_core.cli.ts_runner.make_and_set_program">[docs]</a><span class="k">def</span> <span class="nf">make_and_set_program</span><span class="p">(</span><span class="n">program_name</span><span class="p">,</span> <span class="n">phases</span><span class="p">,</span> <span class="n">starting_phase</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">tl_type</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">traffic_light_ids</span><span class="o">=</span><span class="p">()):</span>
+    <span class="sd">&quot;&quot;&quot;</span>
+
+<span class="sd">    :param traffic_light_ids: Traffic lights to set to this program.</span>
+<span class="sd">            Accepts String, integer, or list (of mixed strings or integers)</span>
+<span class="sd">    :param tl_type:</span>
+<span class="sd">    :param program_name:</span>
+<span class="sd">    :param phases:</span>
+<span class="sd">    :param starting_phase:</span>
+<span class="sd">    :return: The program</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="n">new_program</span> <span class="o">=</span> <span class="n">traci</span><span class="o">.</span><span class="n">trafficlight</span><span class="o">.</span><span class="n">Logic</span><span class="p">(</span><span class="n">program_name</span><span class="p">,</span> <span class="n">tl_type</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="n">starting_phase</span><span class="p">,</span> <span class="n">phases</span><span class="p">)</span>
+    <span class="k">if</span> <span class="n">traffic_light_ids</span> <span class="o">!=</span> <span class="p">():</span>
+        <span class="k">if</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">traffic_light_ids</span><span class="p">,</span> <span class="n">string_types</span><span class="p">):</span>     <span class="c1"># If given as a single string</span>
+            <span class="n">traffic_light_ids</span> <span class="o">=</span> <span class="p">[</span><span class="n">traffic_light_ids</span><span class="p">]</span>
+        <span class="k">elif</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">traffic_light_ids</span><span class="p">,</span> <span class="n">integer_types</span><span class="p">):</span>  <span class="c1"># IF given as a single integer</span>
+            <span class="n">traffic_light_ids</span> <span class="o">=</span> <span class="p">[</span><span class="n">traffic_light_ids</span><span class="p">]</span>
+
+        <span class="k">for</span> <span class="n">light_id</span> <span class="ow">in</span> <span class="n">traffic_light_ids</span><span class="p">:</span>
+            <span class="n">traci</span><span class="o">.</span><span class="n">trafficlight</span><span class="o">.</span><span class="n">setCompleteRedYellowGreenDefinition</span><span class="p">(</span><span class="nb">str</span><span class="p">(</span><span class="n">light_id</span><span class="p">),</span> <span class="n">new_program</span><span class="p">)</span>
+
+    <span class="k">return</span> <span class="n">new_program</span></div>
 
 
 <div class="viewcode-block" id="main"><a class="viewcode-back" href="../../../ts_core.cli.ts_runner.html#ts_core.cli.ts_runner.main">[docs]</a><span class="k">def</span> <span class="nf">main</span><span class="p">():</span>
@@ -173,18 +196,17 @@
     <span class="c1"># A handy variable with the datetime object at the time when the run started</span>
     <span class="n">run_start_dt</span> <span class="o">=</span> <span class="n">dt</span><span class="o">.</span><span class="n">datetime</span><span class="o">.</span><span class="n">now</span><span class="p">()</span>
     <span class="n">run_start_dt_str</span> <span class="o">=</span> <span class="n">re</span><span class="o">.</span><span class="n">sub</span><span class="p">(</span><span class="s1">&#39;[^A-Za-z0-9]+&#39;</span><span class="p">,</span> <span class="s1">&#39;_&#39;</span><span class="p">,</span> <span class="n">run_start_dt</span><span class="o">.</span><span class="n">isoformat</span><span class="p">())</span>
-    <span class="n">output_dir</span> <span class="o">=</span> <span class="n">args</span><span class="o">.</span><span class="n">sumo_config_dir</span><span class="o">+</span><span class="s2">&quot;/output/&quot;</span><span class="o">+</span><span class="n">run_start_dt_str</span>
-
+    <span class="n">output_dir</span> <span class="o">=</span> <span class="n">args</span><span class="o">.</span><span class="n">sumo_config_dir</span> <span class="o">+</span> <span class="s2">&quot;/output/&quot;</span> <span class="o">+</span> <span class="n">run_start_dt_str</span>
 
     <span class="sd">&quot;&quot;&quot; Output Directory Handling &quot;&quot;&quot;</span>
 
     <span class="c1"># Wipe out the output directory if instructed by command line argument</span>
     <span class="k">if</span> <span class="n">args</span><span class="o">.</span><span class="n">overwrite_output</span><span class="p">:</span>
-        <span class="n">shutil</span><span class="o">.</span><span class="n">rmtree</span><span class="p">(</span><span class="n">args</span><span class="o">.</span><span class="n">sumo_config_dir</span><span class="o">+</span><span class="s2">&quot;/output&quot;</span><span class="p">)</span>
+        <span class="n">shutil</span><span class="o">.</span><span class="n">rmtree</span><span class="p">(</span><span class="n">args</span><span class="o">.</span><span class="n">sumo_config_dir</span> <span class="o">+</span> <span class="s2">&quot;/output&quot;</span><span class="p">,</span> <span class="n">ignore_errors</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>  <span class="c1"># Dont crash if there is no directory</span>
 
     <span class="c1"># Create the output director if it does not exist</span>
-    <span class="k">if</span> <span class="ow">not</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">isdir</span><span class="p">(</span><span class="n">args</span><span class="o">.</span><span class="n">sumo_config_dir</span><span class="o">+</span><span class="s2">&quot;/output&quot;</span><span class="p">):</span>
-        <span class="n">os</span><span class="o">.</span><span class="n">mkdir</span><span class="p">(</span><span class="n">args</span><span class="o">.</span><span class="n">sumo_config_dir</span><span class="o">+</span><span class="s2">&quot;/output&quot;</span><span class="p">)</span>
+    <span class="k">if</span> <span class="ow">not</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">isdir</span><span class="p">(</span><span class="n">args</span><span class="o">.</span><span class="n">sumo_config_dir</span> <span class="o">+</span> <span class="s2">&quot;/output&quot;</span><span class="p">):</span>
+        <span class="n">os</span><span class="o">.</span><span class="n">mkdir</span><span class="p">(</span><span class="n">args</span><span class="o">.</span><span class="n">sumo_config_dir</span> <span class="o">+</span> <span class="s2">&quot;/output&quot;</span><span class="p">)</span>
 
     <span class="c1"># Create the directory for this run&#39;s output</span>
     <span class="n">os</span><span class="o">.</span><span class="n">mkdir</span><span class="p">(</span><span class="n">output_dir</span><span class="p">)</span>
@@ -195,13 +217,23 @@
     <span class="k">else</span><span class="p">:</span>
         <span class="n">sumoBinary</span> <span class="o">=</span> <span class="n">sumolib</span><span class="o">.</span><span class="n">checkBinary</span><span class="p">(</span><span class="s1">&#39;sumo-gui&#39;</span><span class="p">)</span>
 
-    <span class="n">generate_routefile</span><span class="p">(</span><span class="n">args</span><span class="o">.</span><span class="n">sumo_config_dir</span><span class="p">)</span>
+    <span class="k">for</span> <span class="n">file</span> <span class="ow">in</span> <span class="n">os</span><span class="o">.</span><span class="n">listdir</span><span class="p">(</span><span class="n">args</span><span class="o">.</span><span class="n">sumo_config_dir</span><span class="p">):</span>
+        <span class="k">if</span> <span class="n">file</span><span class="o">.</span><span class="n">lower</span><span class="p">()</span><span class="o">.</span><span class="n">endswith</span><span class="p">(</span><span class="s2">&quot;.sumocfg&quot;</span><span class="p">):</span>
+            <span class="n">sumo_cfg_file</span> <span class="o">=</span> <span class="n">file</span>
+            <span class="c1"># sumo_cfg_name = file.split(&#39;.&#39;)[0]</span>
+            <span class="c1"># print(&quot;Configuration name: %s&quot; % sumo_cfg_name)</span>
+            <span class="c1"># print(&quot;Found .sumocfg file: %s&quot; % file)</span>
+            <span class="k">break</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;No .sumocfg file found in </span><span class="si">%s</span><span class="s2">&quot;</span> <span class="o">%</span> <span class="n">args</span><span class="o">.</span><span class="n">sumo_config_dir</span><span class="p">)</span>
+        <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;***EXITING***&quot;</span><span class="p">)</span>
+        <span class="k">return</span>
 
     <span class="sd">&quot;&quot;&quot; SUMO Startup &quot;&quot;&quot;</span>
     <span class="c1"># Start up the SUMO binary as specified by the SUMO_HOME environment variable</span>
-    <span class="n">traci</span><span class="o">.</span><span class="n">start</span><span class="p">([</span><span class="n">sumoBinary</span><span class="p">,</span> <span class="s2">&quot;-c&quot;</span><span class="p">,</span> <span class="n">args</span><span class="o">.</span><span class="n">sumo_config_dir</span><span class="o">+</span><span class="s2">&quot;/data/cross.sumocfg&quot;</span><span class="p">,</span>
-                             <span class="s2">&quot;--tripinfo-output&quot;</span><span class="p">,</span> <span class="n">output_dir</span><span class="o">+</span><span class="s2">&quot;/sutripinfo.xml&quot;</span><span class="p">])</span>
-
+    <span class="n">traci</span><span class="o">.</span><span class="n">start</span><span class="p">([</span><span class="n">sumoBinary</span><span class="p">,</span> <span class="s2">&quot;-c&quot;</span><span class="p">,</span> <span class="n">args</span><span class="o">.</span><span class="n">sumo_config_dir</span> <span class="o">+</span> <span class="s1">&#39;/&#39;</span> <span class="o">+</span> <span class="n">sumo_cfg_file</span><span class="p">,</span>
+                 <span class="s2">&quot;--tripinfo-output&quot;</span><span class="p">,</span> <span class="n">output_dir</span> <span class="o">+</span> <span class="s2">&quot;/sutripinfo.xml&quot;</span><span class="p">])</span>
+    
     <span class="sd">&quot;&quot;&quot; Engage the SUMO event loop &quot;&quot;&quot;</span>
     <span class="n">run_loop</span><span class="p">()</span>
 

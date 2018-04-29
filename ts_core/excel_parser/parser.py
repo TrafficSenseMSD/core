@@ -1,3 +1,7 @@
+"""
+
+
+"""
 from openpyxl import *
 import json
 import xml.etree.ElementTree as ET
@@ -51,8 +55,15 @@ def parse_general(sheet):
     Parses the General Settings Tab
 
     Fills out OUTPUT_DICT
-    :param sheet: openpyxl sheet - The General Settings tab
-    :return: None
+
+   
+    Parameters
+    ----------
+    sheet: openpyxl sheet - The General Settings tab
+
+    Returns
+    -------
+
     """
     # Get the Configuration name.
     input_config_name = get_input_from_row(sheet, MIN_ROW)     # Configuration Name
