@@ -11,10 +11,15 @@ user can focus on optimizing traffic light controls at an intersection.
 
 Making it easier to make intersections better.
 
+Installation
+------------
+
+
 
 ``ts_config`` Documentation
 ---------------------------
-Getting started with SUMO requires the definition of intersection geometery and traffic demand.
+Getting started with SUMO requires the definition of intersection geometery and traffic demand. If you need a first
+step, this is the droid you're looking for.
 
 :ref:`ts_config_cli`
 
