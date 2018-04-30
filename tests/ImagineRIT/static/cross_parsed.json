@@ -1,0 +1,100 @@
+{
+    "SUMOCFG": {
+        "gui_only": {
+            "gui_settings_file": "gui-settings.cfg"
+        },
+        "time": {
+            "end": "7200",
+            "begin": "0"
+        },
+        "input": {
+            "net_file": "cross.net.xml",
+            "additional_files": "cross.add.xml",
+            "route_files": "cross.rou.xml"
+        }
+    },
+    "Intersections": {
+        "I0": {
+            "type": "traffic_light",
+            "id": 0
+        }
+    },
+    "Branches": {
+        "B2": {
+            "L_lanes": 0,
+            "LS_lanes": 1,
+            "theta": 0,
+            "priority": 78,
+            "sensor_start": 1,
+            "speed": 20,
+            "inbound_node": 0,
+            "R_lanes": 0,
+            "outbound_lanes": 3,
+            "S_lanes": 3,
+            "RS_lanes": 1,
+            "sensor_end": 50,
+            "Length": 300,
+            "inbound_lanes": 5,
+            "id": 2,
+            "type": "Priority",
+            "outbound_node": 2
+        },
+        "B3": {
+            "L_lanes": 0,
+            "LS_lanes": 1,
+            "theta": 270,
+            "priority": 78,
+            "sensor_start": 1,
+            "speed": 20,
+            "inbound_node": 0,
+            "R_lanes": 0,
+            "outbound_lanes": 3,
+            "S_lanes": 3,
+            "RS_lanes": 1,
+            "sensor_end": 50,
+            "Length": 300,
+            "inbound_lanes": 5,
+            "id": 3,
+            "type": "Priority",
+            "outbound_node": 3
+        },
+        "B1": {
+            "L_lanes": 0,
+            "LS_lanes": 1,
+            "theta": 90,
+            "priority": 78,
+            "sensor_start": 1,
+            "speed": 20,
+            "inbound_node": 0,
+            "R_lanes": 0,
+            "outbound_lanes": 3,
+            "S_lanes": 3,
+            "RS_lanes": 1,
+            "sensor_end": 50,
+            "Length": 300,
+            "inbound_lanes": 5,
+            "id": 1,
+            "type": "Priority",
+            "outbound_node": 1
+        },
+        "B4": {
+            "L_lanes": 0,
+            "LS_lanes": 1,
+            "theta": 180,
+            "priority": 78,
+            "sensor_start": 1,
+            "speed": 20,
+            "inbound_node": 0,
+            "R_lanes": 0,
+            "outbound_lanes": 3,
+            "S_lanes": 3,
+            "RS_lanes": 1,
+            "sensor_end": 50,
+            "Length": 300,
+            "inbound_lanes": 5,
+            "id": 4,
+            "type": "Priority",
+            "outbound_node": 4
+        }
+    }
+}

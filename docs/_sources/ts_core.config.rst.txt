@@ -21,11 +21,5 @@ Submodules
    ts_core.config.config_exceptions
    ts_core.config.config_gen
    ts_core.config.config_helpers
-   ts_core.config.cross_conn_demo
-   ts_core.config.cross_edge_demo
-   ts_core.config.cross_node_demo
-   ts_core.config.cross_statfile_demo
-   ts_core.config.cross_sumocfg_demo
-   ts_core.config.messing
    ts_core.config.routes_xml_gen
 

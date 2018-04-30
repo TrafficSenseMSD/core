@@ -9,8 +9,53 @@ The TrafficSense project was started as part of the Rochester Institute of Techn
 program. The TrafficSense tools are designed to facilitate simple use of the SUMO traffic simulation software so the
 user can focus on optimizing traffic light controls at an intersection.
 
+The project aims to make it easier to make intersections better.
 
-:ref:`ts_runner`
+The original team behind this project has graduated. Please contact Dr. Katie McConky at RIT if you need anything.
+
+Installation
+------------
+Be sure to install ``git`` and have a dedicated Python 3.5+ environment handy. We recommend Anaconda.
+
+
+``git clone https://github.com/TrafficSenseMSD/core.git``
+
+``cd core``
+
+``pip install .``
+
+
+
+
+``ts_config`` Documentation
+---------------------------
+Getting started with SUMO requires the definition of intersection geometery and traffic demand. If you need a first
+step, this is the droid you're looking for.
+
+A template for intersection configuration can be found in ``ts_core/excel_parser/``. YOU WILL NEED THIS!
+
+:ref:`ts_config_cli`
+
+
+``ts_runner`` Documentation
+---------------------------
+:ref:`ts_runner_cli`
+
+
+Project Developer Documentation
+-------------------------------
+
+``ts_runner``
+~~~~~~~~~~~~~
+
+
+``ts_config``
+~~~~~~~~~~~~~
+
+:ref:`ts_config_bindings`
+
+:ref:`ts_config_parser`:
+
 
 .. toctree::
    :maxdepth: 2

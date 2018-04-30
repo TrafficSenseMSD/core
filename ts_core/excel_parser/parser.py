@@ -1,22 +1,34 @@
+"""
+
+.. _ts_config_parser:
+
+Excel Configuration Parser Internals
+------------------------------------
+
+A bunch of global parsing constants are defined in this file. Be sure to look at the source code before you pull
+your hair out. 
+
+
+"""
 from openpyxl import *
 import json
 import xml.etree.ElementTree as ET
 import xml.dom.minidom
 
-SUMO_ATTR_COLUMN = 0    # Column A
-SUMO_FILE_COLUMN = 1    # Column B
+SUMO_ATTR_COLUMN = 0  # Column A
+SUMO_FILE_COLUMN = 1  # Column B
 CATEGORY_COLUMN = 2
-UNITS_COLUMN = 4        # Column E
-VALUE_COLUMN = 5        # Column F for single entry data
+UNITS_COLUMN = 4  # Column E
+VALUE_COLUMN = 5  # Column F for single entry data
 
 MIN_ROW = 3  # Minimum row number where config information CAN be stored
-MAX_ROW = 100    # Max row where data is stored TODO update?
+MAX_ROW = 100  # Max row where data is stored TODO update?
 MIN_COLUMN = 2
 
 UNIT_CONVERT = {
-    "time": {"Hours": 60*60, "Days": 60*60*24,
-                "Months": 60*60*24*30.41,
-                "Years": 60*60*24*30.41*12},  # How many seconds per time unit
+    "time": {"Hours": 60 * 60, "Days": 60 * 60 * 24,
+             "Months": 60 * 60 * 24 * 30.41,
+             "Years": 60 * 60 * 24 * 30.41 * 12},  # How many seconds per time unit
 
     "angle": {"N": 90, "NE": 45, "E": 0, "SE": 315,
               "S": 270, "SW": 225, "W": 180, "NW": 135, },
@@ -48,24 +60,31 @@ OUTPUT_DICT = {
 
 def parse_general(sheet):
     """
-    Parses the General Settings Tab
+    Parses the given sheet assuming it is the General Settings sheet
 
-    Fills out OUTPUT_DICT
-    :param sheet: openpyxl sheet - The General Settings tab
-    :return: None
+    Adds parsed data to OUTPUT_DICT global variable
+
+    Parameters
+    ----------
+    sheet: openpyxl sheet - The General Settings tab
+
+    Returns
+    -------
+    String - The name of the current configuration
     """
     # Get the Configuration name.
-    input_config_name = get_input_from_row(sheet, MIN_ROW)     # Configuration Name
+    input_config_name = get_input_from_row(sheet, MIN_ROW)  # Configuration Name
     # Write Config names to the output dict
     if input_config_name[SUMOFILE] == "SUMOCFG" and input_config_name[SUMOATTR] == "input":
         config_name = input_config_name[USERVAL]
         OUTPUT_DICT["SUMOCFG"]["input"] = {"net_file": "%s.net.xml" % config_name,
-                                           "route_files": "%s.rou.xml" % config_name}
+                                           "route_files": "%s.rou.xml" % config_name,
+                                           "additional_files": "%s.add.xml" % config_name}
     else:
         print("Config name Error")  # TODO fill out
 
     # Simulation length
-    input_runtime_length = get_input_from_row(sheet, MIN_ROW+1)
+    input_runtime_length = get_input_from_row(sheet, MIN_ROW + 1)
 
     if input_runtime_length[SUMOFILE] == "SUMOCFG" and input_runtime_length[SUMOATTR] == "time.end":
         sim_seconds = input_runtime_length[USERVAL] * UNIT_CONVERT["time"][
@@ -74,6 +93,8 @@ def parse_general(sheet):
     else:
         print("TIME ERROR", input_runtime_length)  # TODO fill out
 
+    OUTPUT_DICT["SUMOCFG"]["gui_only"] = {"gui_settings_file": "gui-settings.cfg"}
+
     # Overall Traffic Demand
     # TODO Where does this go in the xmls if anywhere?
     # input_traffic_demand = get_input_from_row(sheet, MIN_ROW+2)
@@ -81,9 +102,10 @@ def parse_general(sheet):
 
 
 def parse_intersection(sheet):
-
     """
-    
+    Parses the given sheet assuming it is the Intersections sheet
+
+    Adds parsed data to OUTPUT_DICT global variable
     Parameters
     ----------
     sheet: openpyxl sheet - The General Intersection Settings tab
@@ -91,6 +113,7 @@ def parse_intersection(sheet):
     Returns
     -------
     String - The selected intersection type. Key in ITYPE_BRANCHES
+
     
     """
 
@@ -113,31 +136,37 @@ def parse_intersection(sheet):
 
 def parse_branches(sheet, intersection_type):
     """
-    Parse the Branch Settings tab
+    Parses the given sheet assuming it is the branches sheet
 
     Fills out OUTPUT_DICT with all information needed to parse the branches of the intersection.
-    :param sheet:
-    :param intersection_type: The intersection Type (Cross, T, Y, etc. Needs to be a key in ITYPE_BRANCHES
-    :return: None
+
+
+    Parameters
+    ----------
+    sheet: openpyxl sheet - The General Branches Settings tab
+    intersection_type: - enum specified in ITYPE_BRANCHES specifying the current intersection type (i.e cross, T, Y)
+
+    Returns
+    -------
+    None
     """
     # Get the number of branches
     num_branches = ITYPE_BRANCHES[intersection_type]
 
     # Initialize the output dictionary with the branches
-    for branch_num in range(1, num_branches+1):
-        b_name = "B%d" % branch_num # Branch name is Bn where n is the branches ID
+    for branch_num in range(1, num_branches + 1):
+        b_name = "B%d" % branch_num  # Branch name is Bn where n is the branches ID
         OUTPUT_DICT["Branches"][b_name] = {}
 
     for row in range(MIN_ROW, MAX_ROW):  # For each row that may contain data
-        if row_has_data(sheet, row):        # Check if this row has data
-            input_data = get_input_from_row(sheet, row, num_branches)   # Get the data
+        if row_has_data(sheet, row):  # Check if this row has data
+            input_data = get_input_from_row(sheet, row, num_branches)  # Get the data
             units = input_data[VALUNITS].lower()
-
 
             # Fill out OUTPUT_DICT with data from each branch for this attribute
             for branch_num in range(0, num_branches):
-                b_name = "B%d" % (branch_num+1)
-                user_value = input_data[USERVAL+branch_num]
+                b_name = "B%d" % (branch_num + 1)
+                user_value = input_data[USERVAL + branch_num]
                 if units in UNIT_CONVERT.keys():
                     user_value = UNIT_CONVERT[units][user_value]
                 # TODO normalize the data using the units
@@ -147,42 +176,38 @@ def parse_branches(sheet, intersection_type):
                 OUTPUT_DICT["Branches"][b_name][input_data[SUMOATTR]] = user_value
 
 
-def row_has_data(sheet, row_num):
-    """
-    Checks whether or not this row contains a user-entered value
-    :param sheet: openpyxl sheet - The sheet to use
-    :param row_num: The row to analyze
-    :return: Boolean - True if there is data, False otherwise
-    """
-
-    # Get the data from the row
-    rows = sheet.iter_rows(min_col=1, min_row=row_num, max_col=15, max_row=row_num)
-    for row in rows:    # FIXME Is there a better way to look at just 1 row
-        # if there is no SUMO Attribute specified, then there is no user entered data available
-        sumo_attr = row[SUMO_ATTR_COLUMN].value
-        if sumo_attr is None:
-            return False
-        else:
-            return True
-
-    # should not be executed
-    print("ERROR - row_has_data() did not find row")
-    return False
-
-
 def parse_stats(sheet):
+    """
+
+    Parses the given sheet assuming it is the advanced customization sheet
+    The parsed data is stored as a xml.etree.ElementTree element.
+
+    This becomes the stats file for SUMO
+
+    Parameters
+    ----------
+    sheet: The advanced customization sheet
+
+    Returns
+    -------
+    "xml.etree.ElementTree" node containing the full statistics file information
+    """
+
+    # TODO Bus Stops is not currently supported.
+
     category_translate = {"Work Hours": "workHours", "City Gates": "cityGates",
                           "Bus Stations": "busStations", "Bus Lines": "busLines"}
     expected_entries = {"bracket": 3, "opening": 2, "closing": 2, "street": 3, "entrance": 4,
                         "school": 7, "busStation": 3}
-    sub_tags = {"population": "bracket", "workHours": "opening", "streets": "street", "cityGates": "entrance", "schools": "school",
+    sub_tags = {"population": "bracket", "workHours": "opening", "streets": "street", "cityGates": "entrance",
+                "schools": "school",
                 "busStations": "busStation"}
 
     root = ET.Element("city")
     current_category = None
     category_root = None
     data = None
-    num_entries = 15    # Maximum number of entries for any category TODO global
+    num_entries = 15  # Maximum number of entries for any category TODO global
 
     for row in range(MIN_ROW, 100):
         # prettyprint(root)
@@ -203,7 +228,7 @@ def parse_stats(sheet):
                         continue
                     ET.SubElement(category_root, sub_tag, attrib={attr: str(attributes[attr]) for attr in attributes})
 
-                # prettyprint(root)
+                    # prettyprint(root)
             current_category = row_has_category(sheet, row)
             if current_category in category_translate.keys():
                 current_category = category_translate[current_category]
@@ -228,38 +253,98 @@ def parse_stats(sheet):
                 if data is None:
                     data = {"%s_%d" % (sub_tag, i): {} for i in range(0, num_entries)}
 
-                for i in range(0, len(input_data)-3):
+                for i in range(0, len(input_data) - 3):
                     attribute = input_data[SUMOATTR]
                     if attribute == "edge2":  # Deal with inbound/outbound attributes since sumo uses i and o notation
-                        data["%s_%d" % (sub_tag, i)]["edge"] += {"Inbound": "i", "Outbound": "o"}[input_data[USERVAL+i]]
+                        data["%s_%d" % (sub_tag, i)]["edge"] += {"Inbound": "i", "Outbound": "o"}[
+                            input_data[USERVAL + i]]
                     else:
-                        data["%s_%d" % (sub_tag, i)][attribute] = str(input_data[USERVAL+i])
+                        data["%s_%d" % (sub_tag, i)][attribute] = str(input_data[USERVAL + i])
 
-        elif current_category == "workHours":
-
-            pass
+        # Workhours is implicitly supported
+        # elif current_category == "workHours":
+        #     pass
     return root
 
 
-def prettyprint(root):
+def prettyprint(root, print_it=False, supress_errors=True):
+    """
+    Attempts to create a human readable string out of a given xml STRING
+
+    Parameters
+    ----------
+    root: String containing valid xml data
+    print_it: Tells the function whether or not it should also print out the xml
+    supress_errors: Tells the function to NOT print out errors if given data was invalid
+
+    Returns
+    -------
+    String containing the formatted xml data if possible
+    """
     try:
         xml1 = xml.dom.minidom.parseString(ET.tostring(root, encoding='utf8', method='xml').decode())
-        print(xml1.toprettyxml())
-    except:
-        pass
+        formatted_xml = xml1.toprettyxml()
+        if print_it:
+            print(formatted_xml)
+        return ET.tostring(formatted_xml, encoding='utf8', method='xml')
+    except Exception as e:
+        if supress_errors is False:
+            print(e)
+            print('Function "prettyprint()" received invalid xml data')
+            # print(root)
 
 
-def row_has_category(sheet, row_num):
+def row_has_data(sheet, row_num):
     """
-    Checks to see if this row starts a new category
-    :param sheet: openpyxl sheet - The sheet to use
-    :param row_num: The row to analyze
-    :return: Boolean - True if there is a new category, False otherwise
+
+    Checks whether or not this row contains a user-entered value.
+
+    Parameters
+    ----------
+    sheet: openpyxl sheet - The sheet to use
+    row_num: The row to analyze
+
+    Returns
+    -------
+    True if there is data to be analyzed
+    False otherwise
     """
 
     # Get the data from the row
     rows = sheet.iter_rows(min_col=1, min_row=row_num, max_col=15, max_row=row_num)
-    for row in rows:    # FIXME Is there a better way to look at just 1 row
+    for row in rows:  # FIXME Is there a better way to look at just 1 row
+        # if there is no SUMO Attribute specified, then there is no user entered data available
+        sumo_attr = row[SUMO_ATTR_COLUMN].value
+        if sumo_attr is None:
+            return False
+        else:
+            return True
+
+    # should not be executed
+    print("ERROR - row_has_data() did not find row")
+    return False
+
+
+def row_has_category(sheet, row_num):
+    """
+
+    Checks to see if this row starts a new category
+
+    Parameters
+    ----------
+    sheet: openpyxl sheet - The sheet to use
+    row_num: The row to analyze
+
+    Returns
+    -------
+    True if there is a new category
+    False otherwise
+
+    """
+
+    # Get the data from the row
+    rows = sheet.iter_rows(min_col=1, min_row=row_num, max_col=15, max_row=row_num)
+    for row in rows:  # FIXME Is there a better way to look at just 1 row
         # If there is text in the Category Column then it is a new category
         class_name = row[CATEGORY_COLUMN].value
         if class_name is None:
@@ -274,15 +359,23 @@ def row_has_category(sheet, row_num):
 
 def get_input_from_row(sheet, row_num, cols=1):
     """
+
     Retrieves the input from the row and returns a tuple of all the relevant data
-    :param sheet:
-    :param row_num:
-    :param cols:
-    :return: Tupple containing the data -
+
+    Parameters
+    ----------
+    sheet: The sheet to read
+    row_num: The row number to use
+    cols: The number of columns to the RIGHT of row_num to return
+
+    Returns
+    -------
+    Tupple containing the data -
               formatted as (sumo_file, sumo_attribute, units, user_val1, user_val2...)
     """
+
     output = []
-    rows = sheet.iter_rows(min_col=1, min_row=row_num, max_col=VALUE_COLUMN+cols, max_row=row_num)
+    rows = sheet.iter_rows(min_col=1, min_row=row_num, max_col=VALUE_COLUMN + cols, max_row=row_num)
 
     for row in rows:
         # Determine the SUMO_FILE attribute
@@ -301,7 +394,7 @@ def get_input_from_row(sheet, row_num, cols=1):
         output.append(units)
 
         # Determine all user entered values
-        for col in range(VALUE_COLUMN, VALUE_COLUMN+cols):
+        for col in range(VALUE_COLUMN, VALUE_COLUMN + cols):
             user_value = row[col].value
             if user_value is None: break
             output.append(user_value)
@@ -311,21 +404,25 @@ def get_input_from_row(sheet, row_num, cols=1):
 
 def run_parser(excel_file_path, outpath):
     """
-    
+
+    Main function to actually run the whole parser
+
     Parameters
     ----------
-    excel_file_path
-    outpath
-    stats_file_path
+    excel_file_path: FULL file path to the excel sheet
+    outpath: File to output the temporary json file
 
     Returns
     -------
+    In order:
+    1) config_name: The name for the current configuation
+    2) OUTPUT_DICT: python dictionary containing all relevant information
+    3) Stats file xml
 
     """
     wb = load_workbook(filename=excel_file_path, data_only=True)
 
     config_name = parse_general(wb["General Settings"])
-
 
     type = parse_intersection(wb["Intersection Settings"])
     if parse_intersection is None:
@@ -334,22 +431,15 @@ def run_parser(excel_file_path, outpath):
 
     parse_branches(wb["Branch Settings"], type)
 
-
     # Context manager to dump parsed config to json
-    with open(outpath+ "/" + config_name + "_parsed.json", 'w') as outfile:
-        json.dump(OUTPUT_DICT, outfile, indent=4,)
+    with open(outpath + "/" + config_name + "_parsed.json", 'w') as outfile:
+        json.dump(OUTPUT_DICT, outfile, indent=4, )
 
     stats_root_node = parse_stats(wb["Advanced Customization"])
-
-
     stats_xml = xml.dom.minidom.parseString(ET.tostring(stats_root_node, encoding='utf8', method='xml').decode())
 
     return config_name, OUTPUT_DICT, stats_xml.toprettyxml()
 
 
-
-
-
-
-
-
+if __name__ == "__main__":
+    run_parser('Configuration_template.xlsx', './test_dir')

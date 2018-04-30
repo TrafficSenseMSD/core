@@ -1,0 +1,19 @@
+<?xml version="1.0" ?>
+<configuration>
+   <input>
+      <net-file value="cross.net.xml"/>
+      <route-files value="cross.rou.xml"/>
+      <additional-files value="cross.add.xml"/>
+   </input>
+   
+   
+   <time>
+      <begin value="0.0"/>
+      <end value="1000.0"/>
+   </time>
+   
+   
+   <gui_only>
+      <gui-settings-file value="gui-settings.cfg"/>
+   </gui_only>
+</configuration>

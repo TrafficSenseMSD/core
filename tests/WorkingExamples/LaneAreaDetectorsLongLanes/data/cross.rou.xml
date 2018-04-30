@@ -1,0 +1,63 @@
+<routes>
+	<vTypeDistribution id="vehicledist1i">
+        <vType id="type11" accel="0.8" decel="4.5" length="5" minGap="2.5" sigma="0.95" maxSpeed="13.41" probability="0.8"/>
+        <vType id="type21" accel="1.8" decel="4.5" length="10" minGap="2.5" sigma="0.05" maxSpeed="13.41" probability="0.2"/>
+    </vTypeDistribution>	
+	
+	<vTypeDistribution id="vehicledist2i">
+        <vType id="type12" accel="0.8" decel="4.5" length="5" minGap="2.5" sigma="0.95" maxSpeed="13.41" probability="0.8"/>
+        <vType id="type22" accel="1.8" decel="4.5" length="10" minGap="2.5" sigma="0.05" maxSpeed="13.41" probability="0.2"/>
+    </vTypeDistribution>	
+	
+	<vTypeDistribution id="vehicledist3i">
+        <vType id="type13" accel="0.8" decel="4.5" length="5" minGap="2.5" sigma="0.95" maxSpeed="13.41" probability="0.8"/>
+        <vType id="type23" accel="1.8" decel="4.5" length="10" minGap="2.5" sigma="0.05" maxSpeed="13.41" probability="0.2"/>
+    </vTypeDistribution>
+	
+	<vTypeDistribution id="vehicledist4i">
+        <vType id="type14" accel="0.8" decel="4.5" length="5" minGap="2.5" sigma="0.95" maxSpeed="13.41" probability="0.8"/>
+        <vType id="type24" accel="1.8" decel="4.5" length="10" minGap="2.5" sigma="0.05" maxSpeed="13.41" probability="0.2"/>
+    </vTypeDistribution>
+	
+	
+	<flow id="type1" begin="10" end= "1000000" probability="0.25" departSpeed="13.41" departLane="random" type="vehicledist1i" >
+
+	    <routeDistribution id="routedist1i">
+			<route id="route01" color="255,0,0" edges="1i 4o" probability="0.2"/>
+			<route id="route11" color="0,255,0" edges="1i 3o" probability="0.4"/>
+			<route id="route21" color="0,0,255" edges="1i 2o" probability="0.6"/>
+		</routeDistribution>
+	
+	</flow>
+	
+	<flow id="type2" begin="10" end= "1000000" probability="0.07" departSpeed="13.41" departLane="random" type="vehicledist2i" >
+	
+		<routeDistribution id="routedist2i">
+			<route id="route02" color="0,255,0" edges="2i 4o" probability="0.2"/> <!-- Does NOT need probability to add to 1.0, it will normalize-->
+			<route id="route12" color="255,0,0" edges="2i 3o" probability="0.2"/>
+			<route id="route22" color="0,0,255" edges="2i 1o" probability="0.6"/>
+		</routeDistribution>
+	
+	</flow>
+	
+	<flow id="type3" begin="10" end= "1000000" probability="0.05" departSpeed="13.41" departLane="random" type="vehicledist3i" >
+	
+		<routeDistribution id="routedist3i">
+			<route id="route03" color="0,0,255" edges="3i 4o" probability="0.7"/>
+			<route id="route13" color="0,255,0" edges="3i 2o" probability="0.15"/>
+			<route id="route23" color="255,0,0" edges="3i 1o" probability="0.2"/>
+		</routeDistribution>
+	
+	</flow>
+	
+	<flow id="type4" begin="10" end= "1000000" probability="0.08" departSpeed="13.41" departLane="random" type="vehicledist4i" >
+	
+		<routeDistribution id="routedist4i">
+			<route id="route04" color="255,0,0" edges="4i 2o" probability="0.2"/>
+			<route id="route14" color="0,20,255" edges="4i 3o" probability="0.6"/>
+			<route id="route24" color="0,255,0" edges="4i 1o" probability="0.2"/>
+		</routeDistribution>
+	
+	</flow>
+
+</routes>

@@ -45,9 +45,219 @@
           <div class="body" role="main">
             
   <h1>Source code for ts_core.config.config_helpers</h1><div class="highlight"><pre>
-<span></span><span class="kn">import</span> <span class="nn">jsmin</span>
-<span class="kn">import</span> <span class="nn">json</span>
+<span></span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">This module contains a series of functions that transform the parsed excel document into SUMO conpatible XML. </span>
 
+<span class="sd">Each function corresponds to ONE of the SUMO configuration files</span>
+
+<span class="sd">&quot;&quot;&quot;</span>
+<span class="kn">import</span> <span class="nn">re</span>
+<span class="kn">import</span> <span class="nn">ts_core.config.bindings.sumocfg</span> <span class="k">as</span> <span class="nn">sumocfg</span>
+<span class="kn">from</span> <span class="nn">ts_core.config.config_exceptions</span> <span class="k">import</span> <span class="o">*</span>
+<span class="kn">import</span> <span class="nn">ts_core.config.bindings.nodes_xml</span> <span class="k">as</span> <span class="nn">nodes</span>
+<span class="kn">import</span> <span class="nn">ts_core.config.bindings.edges_xml</span> <span class="k">as</span> <span class="nn">edges</span>
+<span class="kn">import</span> <span class="nn">ts_core.config.bindings.additional_xml</span> <span class="k">as</span> <span class="nn">additional</span>
+<span class="kn">from</span> <span class="nn">xml.dom</span> <span class="k">import</span> <span class="n">minidom</span>
+<span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<span class="kn">from</span> <span class="nn">pyxb</span> <span class="k">import</span> <span class="n">BIND</span>
+
+<span class="n">_lanes_fields</span> <span class="o">=</span> <span class="p">[</span>
+    <span class="s1">&#39;L_lanes&#39;</span><span class="p">,</span>
+    <span class="s1">&#39;R_lanes&#39;</span><span class="p">,</span>
+    <span class="s1">&#39;S_lanes&#39;</span><span class="p">,</span>
+    <span class="s1">&#39;RS_lanes&#39;</span><span class="p">,</span>
+    <span class="s1">&#39;LS_lanes&#39;</span>
+<span class="p">]</span>
+
+
+
+<span class="k">def</span> <span class="nf">_sind</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">places</span><span class="p">):</span>
+    <span class="k">return</span> <span class="nb">round</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">sin</span><span class="p">(</span> <span class="n">x</span> <span class="o">*</span> <span class="n">np</span><span class="o">.</span><span class="n">pi</span> <span class="o">/</span> <span class="mi">180</span><span class="p">),</span> <span class="n">places</span><span class="p">)</span>
+
+
+<span class="k">def</span> <span class="nf">_cosd</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">places</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Helper function for doing degree </span>
+<span class="sd">    Parameters</span>
+<span class="sd">    ----------</span>
+<span class="sd">    x</span>
+<span class="sd">    places</span>
+
+<span class="sd">    Returns</span>
+<span class="sd">    -------</span>
+
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="k">return</span> <span class="nb">round</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">cos</span><span class="p">(</span><span class="n">x</span> <span class="o">*</span> <span class="n">np</span><span class="o">.</span><span class="n">pi</span> <span class="o">/</span> <span class="mi">180</span><span class="p">),</span> <span class="n">places</span><span class="p">)</span>
+
+
+<div class="viewcode-block" id="mk_add"><a class="viewcode-back" href="../../../ts_core.config.config_helpers.html#ts_core.config.config_helpers.mk_add">[docs]</a><span class="k">def</span> <span class="nf">mk_add</span><span class="p">(</span><span class="n">intersections</span><span class="p">:</span> <span class="nb">dict</span><span class="p">,</span> <span class="n">branches</span><span class="p">:</span> <span class="nb">dict</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Generate the additional attributes XML file. </span>
+<span class="sd">    </span>
+<span class="sd">    This file handles, among other things, traffic detectors. </span>
+<span class="sd">    </span>
+<span class="sd">    Lane Area Detectors</span>
+<span class="sd">    -------------------</span>
+<span class="sd">    </span>
+<span class="sd">    So far the only implemented option is a set of lane area detectors on</span>
+<span class="sd">    all lanes for each branch. For each branch the start and end points of the detector</span>
+<span class="sd">    are defined in the Excel configuration as the distance from the intersection. </span>
+<span class="sd">    </span>
+<span class="sd">    </span>
+<span class="sd">    Parameters</span>
+<span class="sd">    ----------</span>
+<span class="sd">    intersections</span>
+<span class="sd">    branches</span>
+
+<span class="sd">    Returns</span>
+<span class="sd">    -------</span>
+
+<span class="sd">    &quot;&quot;&quot;</span>
+
+    <span class="n">_branch_validation</span> <span class="o">=</span> <span class="p">[</span>
+        <span class="s1">&#39;id&#39;</span><span class="p">,</span>
+        <span class="s1">&#39;L_lanes&#39;</span><span class="p">,</span>
+        <span class="s1">&#39;R_lanes&#39;</span><span class="p">,</span>
+        <span class="s1">&#39;S_lanes&#39;</span><span class="p">,</span>
+        <span class="s1">&#39;RS_lanes&#39;</span><span class="p">,</span>
+        <span class="s1">&#39;LS_lanes&#39;</span><span class="p">,</span>
+        <span class="s1">&#39;priority&#39;</span><span class="p">,</span>
+        <span class="s1">&#39;sensor_start&#39;</span><span class="p">,</span>
+        <span class="s1">&#39;sensor_end&#39;</span>
+    <span class="p">]</span>
+
+    <span class="n">ad1</span> <span class="o">=</span> <span class="n">additional</span><span class="o">.</span><span class="n">additionalType</span><span class="p">()</span>
+
+    <span class="k">for</span> <span class="n">branch</span> <span class="ow">in</span> <span class="n">branches</span><span class="p">:</span>
+        <span class="n">numlanes</span> <span class="o">=</span> <span class="nb">sum</span><span class="p">([</span><span class="n">branches</span><span class="p">[</span><span class="n">branch</span><span class="p">][</span><span class="n">l</span><span class="p">]</span> <span class="k">for</span> <span class="n">l</span> <span class="ow">in</span> <span class="n">_lanes_fields</span><span class="p">])</span>
+        <span class="k">if</span> <span class="ow">not</span> <span class="nb">all</span><span class="p">(</span><span class="n">field</span> <span class="ow">in</span> <span class="n">branches</span><span class="p">[</span><span class="n">branch</span><span class="p">]</span> <span class="k">for</span> <span class="n">field</span> <span class="ow">in</span> <span class="n">_branch_validation</span><span class="p">):</span>
+            <span class="k">raise</span> <span class="n">ParsedSchemaError</span><span class="p">(</span><span class="s2">&quot;All of the fields in the list </span><span class="si">{}</span><span class="s2"> must be in each branch&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="nb">str</span><span class="p">(</span><span class="n">_branch_validation</span><span class="p">)))</span>
+
+        <span class="k">for</span> <span class="n">lane</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">numlanes</span><span class="p">):</span>
+            <span class="n">tmp</span> <span class="o">=</span> <span class="n">additional</span><span class="o">.</span><span class="n">e2DetectorType</span><span class="p">(</span>
+                <span class="nb">id</span><span class="o">=</span><span class="s2">&quot;Area&quot;</span> <span class="o">+</span> <span class="nb">str</span><span class="p">(</span><span class="n">branches</span><span class="p">[</span><span class="n">branch</span><span class="p">][</span><span class="s1">&#39;id&#39;</span><span class="p">])</span> <span class="o">+</span> <span class="s2">&quot;i&quot;</span> <span class="o">+</span> <span class="s2">&quot;_&quot;</span> <span class="o">+</span> <span class="nb">str</span><span class="p">(</span><span class="n">lane</span><span class="p">),</span>
+                <span class="n">lane</span><span class="o">=</span><span class="nb">str</span><span class="p">(</span><span class="n">branches</span><span class="p">[</span><span class="n">branch</span><span class="p">][</span><span class="s1">&#39;id&#39;</span><span class="p">])</span> <span class="o">+</span> <span class="s2">&quot;i&quot;</span> <span class="o">+</span> <span class="s2">&quot;_&quot;</span> <span class="o">+</span> <span class="nb">str</span><span class="p">(</span><span class="n">lane</span><span class="p">),</span>
+                <span class="n">pos</span><span class="o">=</span><span class="nb">str</span><span class="p">(</span><span class="o">-</span><span class="n">branches</span><span class="p">[</span><span class="n">branch</span><span class="p">][</span><span class="s1">&#39;sensor_end&#39;</span><span class="p">]),</span>
+                <span class="n">endPos</span><span class="o">=</span><span class="nb">str</span><span class="p">(</span><span class="o">-</span><span class="n">branches</span><span class="p">[</span><span class="n">branch</span><span class="p">][</span><span class="s1">&#39;sensor_start&#39;</span><span class="p">]),</span>
+                <span class="n">freq</span><span class="o">=</span><span class="s2">&quot;10&quot;</span><span class="p">,</span>
+                <span class="n">file</span><span class="o">=</span><span class="s2">&quot;test_area.xml&quot;</span>
+            <span class="p">)</span>
+            <span class="n">ad1</span><span class="o">.</span><span class="n">laneAreaDetector</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">tmp</span><span class="p">)</span>
+
+    <span class="n">xmlstr</span> <span class="o">=</span> <span class="n">minidom</span><span class="o">.</span><span class="n">parseString</span><span class="p">(</span><span class="n">ad1</span><span class="o">.</span><span class="n">toxml</span><span class="p">(</span><span class="s2">&quot;utf-8&quot;</span><span class="p">,</span> <span class="n">element_name</span><span class="o">=</span><span class="s1">&#39;additional&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">decode</span><span class="p">(</span><span class="s1">&#39;utf-8&#39;</span><span class="p">))</span><span class="o">.</span><span class="n">toprettyxml</span><span class="p">(</span><span class="n">indent</span><span class="o">=</span><span class="s2">&quot;   &quot;</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">xmlstr</span></div>
+
+<div class="viewcode-block" id="mk_edge"><a class="viewcode-back" href="../../../ts_core.config.config_helpers.html#ts_core.config.config_helpers.mk_edge">[docs]</a><span class="k">def</span> <span class="nf">mk_edge</span><span class="p">(</span><span class="n">intersections</span><span class="p">:</span> <span class="nb">dict</span><span class="p">,</span> <span class="n">branches</span><span class="p">:</span> <span class="nb">dict</span><span class="p">):</span>
+
+    <span class="n">edge</span> <span class="o">=</span> <span class="n">edges</span><span class="o">.</span><span class="n">edges</span><span class="p">()</span>
+
+
+    <span class="n">_branch_validation</span> <span class="o">=</span> <span class="p">[</span>
+        <span class="s1">&#39;id&#39;</span><span class="p">,</span>
+        <span class="s1">&#39;L_lanes&#39;</span><span class="p">,</span>
+        <span class="s1">&#39;R_lanes&#39;</span><span class="p">,</span>
+        <span class="s1">&#39;S_lanes&#39;</span><span class="p">,</span>
+        <span class="s1">&#39;RS_lanes&#39;</span><span class="p">,</span>
+        <span class="s1">&#39;LS_lanes&#39;</span><span class="p">,</span>
+        <span class="s1">&#39;priority&#39;</span>
+    <span class="p">]</span>
+
+    <span class="k">for</span> <span class="n">branch</span> <span class="ow">in</span> <span class="n">branches</span><span class="p">:</span>
+        <span class="n">numlanes</span> <span class="o">=</span> <span class="nb">sum</span><span class="p">([</span><span class="n">branches</span><span class="p">[</span><span class="n">branch</span><span class="p">][</span><span class="n">l</span><span class="p">]</span> <span class="k">for</span> <span class="n">l</span> <span class="ow">in</span> <span class="n">_lanes_fields</span><span class="p">])</span>
+
+        <span class="c1"># Make sure each branch has all the keys that are about to be called</span>
+        <span class="k">if</span> <span class="ow">not</span> <span class="nb">all</span><span class="p">(</span><span class="n">field</span> <span class="ow">in</span> <span class="n">branches</span><span class="p">[</span><span class="n">branch</span><span class="p">]</span> <span class="k">for</span> <span class="n">field</span> <span class="ow">in</span> <span class="n">_branch_validation</span><span class="p">):</span>
+            <span class="k">raise</span> <span class="n">ParsedSchemaError</span><span class="p">(</span><span class="s2">&quot;All of the fields in the list </span><span class="si">{}</span><span class="s2"> must be in each branch&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="nb">str</span><span class="p">(</span><span class="n">_branch_validation</span><span class="p">)))</span>
+
+
+        <span class="n">inbound_edge</span> <span class="o">=</span> <span class="n">edges</span><span class="o">.</span><span class="n">edgeType</span><span class="p">(</span>
+            <span class="nb">id</span><span class="o">=</span><span class="nb">str</span><span class="p">(</span><span class="n">branches</span><span class="p">[</span><span class="n">branch</span><span class="p">][</span><span class="s1">&#39;id&#39;</span><span class="p">])</span><span class="o">+</span><span class="s2">&quot;i&quot;</span><span class="p">,</span>
+            <span class="n">priority</span><span class="o">=</span><span class="n">branches</span><span class="p">[</span><span class="n">branch</span><span class="p">][</span><span class="s1">&#39;priority&#39;</span><span class="p">],</span>
+            <span class="n">from_</span><span class="o">=</span><span class="nb">str</span><span class="p">(</span><span class="n">branches</span><span class="p">[</span><span class="n">branch</span><span class="p">][</span><span class="s1">&#39;id&#39;</span><span class="p">]),</span>
+            <span class="n">to</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span>
+            <span class="n">numLanes</span><span class="o">=</span><span class="n">numlanes</span><span class="p">,</span>
+            <span class="n">speed</span><span class="o">=</span><span class="nb">str</span><span class="p">(</span><span class="n">branches</span><span class="p">[</span><span class="n">branch</span><span class="p">][</span><span class="s1">&#39;speed&#39;</span><span class="p">])</span>
+        <span class="p">)</span>
+
+        <span class="n">outbound_edge</span> <span class="o">=</span> <span class="n">edges</span><span class="o">.</span><span class="n">edgeType</span><span class="p">(</span>
+            <span class="nb">id</span><span class="o">=</span><span class="nb">str</span><span class="p">(</span><span class="n">branches</span><span class="p">[</span><span class="n">branch</span><span class="p">][</span><span class="s1">&#39;id&#39;</span><span class="p">])</span><span class="o">+</span><span class="s2">&quot;o&quot;</span><span class="p">,</span>
+            <span class="n">priority</span><span class="o">=</span><span class="n">branches</span><span class="p">[</span><span class="n">branch</span><span class="p">][</span><span class="s1">&#39;priority&#39;</span><span class="p">],</span>
+            <span class="n">to</span><span class="o">=</span><span class="nb">str</span><span class="p">(</span><span class="n">branches</span><span class="p">[</span><span class="n">branch</span><span class="p">][</span><span class="s1">&#39;id&#39;</span><span class="p">]),</span>
+            <span class="n">from_</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span>
+            <span class="n">numLanes</span><span class="o">=</span><span class="n">numlanes</span><span class="p">,</span>
+            <span class="n">speed</span><span class="o">=</span><span class="nb">str</span><span class="p">(</span><span class="n">branches</span><span class="p">[</span><span class="n">branch</span><span class="p">][</span><span class="s1">&#39;speed&#39;</span><span class="p">])</span>
+        <span class="p">)</span>
+        <span class="n">edge</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">inbound_edge</span><span class="p">)</span>
+        <span class="n">edge</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">outbound_edge</span><span class="p">)</span>
+
+    <span class="n">xmlstr</span> <span class="o">=</span> <span class="n">minidom</span><span class="o">.</span><span class="n">parseString</span><span class="p">(</span><span class="n">edge</span><span class="o">.</span><span class="n">toxml</span><span class="p">(</span><span class="s2">&quot;utf-8&quot;</span><span class="p">)</span><span class="o">.</span><span class="n">decode</span><span class="p">(</span><span class="s1">&#39;utf-8&#39;</span><span class="p">))</span><span class="o">.</span><span class="n">toprettyxml</span><span class="p">(</span><span class="n">indent</span><span class="o">=</span><span class="s2">&quot;   &quot;</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">xmlstr</span></div>
+
+
+<div class="viewcode-block" id="mk_node"><a class="viewcode-back" href="../../../ts_core.config.config_helpers.html#ts_core.config.config_helpers.mk_node">[docs]</a><span class="k">def</span> <span class="nf">mk_node</span><span class="p">(</span><span class="n">intersections</span><span class="p">:</span> <span class="nb">dict</span><span class="p">,</span> <span class="n">branches</span><span class="p">:</span> <span class="nb">dict</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    </span>
+<span class="sd">    Let&#39;s do an example...</span>
+<span class="sd">    </span>
+<span class="sd">    </span>
+<span class="sd">    Parameters</span>
+<span class="sd">    ----------</span>
+<span class="sd">    intersections</span>
+<span class="sd">    branches</span>
+
+<span class="sd">    Returns</span>
+<span class="sd">    -------</span>
+
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="n">n</span> <span class="o">=</span> <span class="n">nodes</span><span class="o">.</span><span class="n">nodes</span><span class="p">()</span>
+
+    <span class="n">_branch_validation</span> <span class="o">=</span> <span class="p">[</span>
+        <span class="s1">&#39;id&#39;</span><span class="p">,</span>
+        <span class="s1">&#39;type&#39;</span><span class="p">,</span>
+        <span class="s1">&#39;theta&#39;</span><span class="p">,</span>
+        <span class="s1">&#39;Length&#39;</span><span class="p">,</span>
+    <span class="p">]</span>
+
+    <span class="n">_intersection_validation</span> <span class="o">=</span> <span class="p">[</span>
+        <span class="s1">&#39;id&#39;</span><span class="p">,</span>
+        <span class="s1">&#39;type&#39;</span>
+    <span class="p">]</span>
+
+    <span class="n">branch_metadata</span> <span class="o">=</span> <span class="p">{}</span>
+
+    <span class="c1"># Iterate intersections</span>
+    <span class="c1"># NOTE: Will only generate the intersection with id == 0 until multiple intersection</span>
+    <span class="c1"># support is added.</span>
+    <span class="k">for</span> <span class="n">inter</span> <span class="ow">in</span> <span class="n">intersections</span><span class="p">:</span>
+        <span class="k">if</span> <span class="ow">not</span> <span class="nb">all</span><span class="p">(</span><span class="n">field</span> <span class="ow">in</span> <span class="n">intersections</span><span class="p">[</span><span class="n">inter</span><span class="p">]</span> <span class="k">for</span> <span class="n">field</span> <span class="ow">in</span> <span class="n">_intersection_validation</span><span class="p">):</span>
+            <span class="k">raise</span> <span class="n">ParsedSchemaError</span><span class="p">(</span><span class="s2">&quot;All of the fields in the list </span><span class="si">{}</span><span class="s2"> must be in each branch&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span>
+                <span class="nb">str</span><span class="p">(</span><span class="n">_branch_validation</span><span class="p">))</span>
+            <span class="p">)</span>
+        <span class="k">if</span> <span class="n">intersections</span><span class="p">[</span><span class="n">inter</span><span class="p">][</span><span class="s1">&#39;id&#39;</span><span class="p">]</span> <span class="o">!=</span> <span class="mi">0</span><span class="p">:</span>
+            <span class="k">continue</span>
+
+        <span class="n">n</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">nodes</span><span class="o">.</span><span class="n">nodeType</span><span class="p">(</span><span class="nb">id</span><span class="o">=</span><span class="n">intersections</span><span class="p">[</span><span class="n">inter</span><span class="p">][</span><span class="s1">&#39;id&#39;</span><span class="p">],</span> <span class="n">x</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">y</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="nb">type</span><span class="o">=</span><span class="n">intersections</span><span class="p">[</span><span class="n">inter</span><span class="p">][</span><span class="s1">&#39;type&#39;</span><span class="p">]))</span>
+
+    <span class="k">for</span> <span class="n">branch</span> <span class="ow">in</span> <span class="n">branches</span><span class="p">:</span>
+        <span class="c1"># Make sure each branch has all the keys that are about to be called</span>
+        <span class="k">if</span> <span class="ow">not</span> <span class="nb">all</span><span class="p">(</span><span class="n">field</span> <span class="ow">in</span> <span class="n">branches</span><span class="p">[</span><span class="n">branch</span><span class="p">]</span> <span class="k">for</span> <span class="n">field</span> <span class="ow">in</span> <span class="n">_branch_validation</span><span class="p">):</span>
+            <span class="k">raise</span> <span class="n">ParsedSchemaError</span><span class="p">(</span><span class="s2">&quot;All of the fields in the list </span><span class="si">{}</span><span class="s2"> must be in each branch&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="nb">str</span><span class="p">(</span><span class="n">_branch_validation</span><span class="p">)))</span>
+
+        <span class="c1"># branch_metadata[branches[branch][&#39;id&#39;]] = {}</span>
+
+
+        <span class="k">try</span><span class="p">:</span>
+            <span class="n">n</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">nodes</span><span class="o">.</span><span class="n">nodeType</span><span class="p">(</span><span class="nb">id</span><span class="o">=</span><span class="n">branches</span><span class="p">[</span><span class="n">branch</span><span class="p">][</span><span class="s1">&#39;id&#39;</span><span class="p">],</span>
+                                <span class="n">x</span><span class="o">=</span><span class="n">branches</span><span class="p">[</span><span class="n">branch</span><span class="p">][</span><span class="s1">&#39;Length&#39;</span><span class="p">]</span><span class="o">*</span><span class="n">_cosd</span><span class="p">(</span><span class="n">branches</span><span class="p">[</span><span class="n">branch</span><span class="p">][</span><span class="s1">&#39;theta&#39;</span><span class="p">],</span> <span class="mi">2</span><span class="p">),</span>
+                                <span class="n">y</span><span class="o">=</span><span class="n">branches</span><span class="p">[</span><span class="n">branch</span><span class="p">][</span><span class="s1">&#39;Length&#39;</span><span class="p">]</span><span class="o">*</span><span class="n">_sind</span><span class="p">(</span><span class="n">branches</span><span class="p">[</span><span class="n">branch</span><span class="p">][</span><span class="s1">&#39;theta&#39;</span><span class="p">],</span> <span class="mi">2</span><span class="p">),</span>
+                                <span class="nb">type</span><span class="o">=</span><span class="nb">str</span><span class="o">.</span><span class="n">lower</span><span class="p">(</span><span class="n">branches</span><span class="p">[</span><span class="n">branch</span><span class="p">][</span><span class="s1">&#39;type&#39;</span><span class="p">])))</span>
+        <span class="k">except</span> <span class="ne">Exception</span> <span class="k">as</span> <span class="n">e</span><span class="p">:</span>
+            <span class="nb">print</span><span class="p">(</span><span class="n">branches</span><span class="p">[</span><span class="n">branch</span><span class="p">])</span>
+            <span class="nb">print</span><span class="p">(</span><span class="n">e</span><span class="p">)</span>
+
+    <span class="n">xmlstr</span> <span class="o">=</span> <span class="n">minidom</span><span class="o">.</span><span class="n">parseString</span><span class="p">(</span><span class="n">n</span><span class="o">.</span><span class="n">toxml</span><span class="p">(</span><span class="s2">&quot;utf-8&quot;</span><span class="p">)</span><span class="o">.</span><span class="n">decode</span><span class="p">(</span><span class="s1">&#39;utf-8&#39;</span><span class="p">))</span><span class="o">.</span><span class="n">toprettyxml</span><span class="p">(</span><span class="n">indent</span><span class="o">=</span><span class="s2">&quot;   &quot;</span><span class="p">)</span>
+
+    <span class="k">return</span> <span class="n">xmlstr</span></div>
 
 <div class="viewcode-block" id="mk_sumocfg"><a class="viewcode-back" href="../../../ts_core.config.config_helpers.html#ts_core.config.config_helpers.mk_sumocfg">[docs]</a><span class="k">def</span> <span class="nf">mk_sumocfg</span><span class="p">(</span><span class="n">parsed_data</span><span class="p">:</span> <span class="nb">dict</span><span class="p">):</span>
     <span class="sd">&quot;&quot;&quot;</span>
@@ -64,7 +274,32 @@
 
 <span class="sd">    &quot;&quot;&quot;</span>
 
-    <span class="nb">print</span><span class="p">(</span><span class="n">parsed_data</span><span class="p">)</span></div>
+    <span class="n">underscore</span> <span class="o">=</span> <span class="n">re</span><span class="o">.</span><span class="n">compile</span><span class="p">(</span><span class="sa">r</span><span class="s1">&#39;_&#39;</span><span class="p">)</span>
+    <span class="n">cfg</span> <span class="o">=</span> <span class="n">sumocfg</span><span class="o">.</span><span class="n">configuration</span><span class="p">()</span>
+    <span class="n">_implemented</span> <span class="o">=</span> <span class="p">{</span><span class="s1">&#39;input&#39;</span><span class="p">,</span> <span class="s1">&#39;time&#39;</span><span class="p">,</span> <span class="s1">&#39;gui_only&#39;</span><span class="p">}</span>
+
+    <span class="c1"># Identify if any of the params passed are not implemented</span>
+    <span class="c1"># by this function.</span>
+    <span class="n">_not_implemented</span> <span class="o">=</span> <span class="nb">set</span><span class="p">(</span><span class="n">parsed_data</span><span class="o">.</span><span class="n">keys</span><span class="p">())</span> <span class="o">-</span> <span class="n">_implemented</span>
+
+    <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">_not_implemented</span><span class="p">)</span> <span class="o">&gt;</span> <span class="mi">0</span><span class="p">:</span>
+        <span class="k">raise</span>  <span class="n">ParsedConfigNotImplementedError</span>
+
+    <span class="k">for</span> <span class="n">tag</span> <span class="ow">in</span> <span class="n">_implemented</span><span class="p">:</span>
+        <span class="k">try</span><span class="p">:</span>
+            <span class="n">parsed_data</span><span class="p">[</span><span class="n">tag</span><span class="p">]</span>
+        <span class="k">except</span> <span class="ne">KeyError</span><span class="p">:</span>
+            <span class="k">continue</span>
+
+        <span class="n">_input</span> <span class="o">=</span> <span class="nb">getattr</span><span class="p">(</span><span class="n">sumocfg</span><span class="p">,</span> <span class="n">tag</span><span class="o">+</span><span class="s1">&#39;Type&#39;</span><span class="p">)()</span>
+        <span class="k">for</span> <span class="n">attr</span><span class="p">,</span> <span class="n">value</span> <span class="ow">in</span> <span class="n">parsed_data</span><span class="p">[</span><span class="n">tag</span><span class="p">]</span><span class="o">.</span><span class="n">items</span><span class="p">():</span>
+            <span class="n">attr_type</span> <span class="o">=</span> <span class="n">_input</span><span class="o">.</span><span class="fm">__getattribute__</span><span class="p">(</span><span class="s2">&quot;_&quot;</span><span class="o">+</span><span class="n">tag</span><span class="o">+</span><span class="s2">&quot;Type__&quot;</span><span class="o">+</span><span class="n">attr</span><span class="p">)</span><span class="o">.</span><span class="vm">__dict__</span><span class="p">[</span><span class="s1">&#39;_ElementDeclaration__elementBinding&#39;</span><span class="p">]</span>
+            <span class="n">_input</span><span class="o">.</span><span class="fm">__setattr__</span><span class="p">(</span><span class="n">attr</span><span class="p">,</span> <span class="n">attr_type</span><span class="p">(</span><span class="n">value_</span><span class="o">=</span><span class="n">value</span><span class="p">))</span>
+        <span class="n">cfg</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">_input</span><span class="p">)</span>
+
+
+    <span class="n">xmlstr</span> <span class="o">=</span> <span class="n">minidom</span><span class="o">.</span><span class="n">parseString</span><span class="p">(</span><span class="n">cfg</span><span class="o">.</span><span class="n">toxml</span><span class="p">(</span><span class="s2">&quot;utf-8&quot;</span><span class="p">)</span><span class="o">.</span><span class="n">decode</span><span class="p">(</span><span class="s1">&#39;utf-8&#39;</span><span class="p">))</span><span class="o">.</span><span class="n">toprettyxml</span><span class="p">(</span><span class="n">indent</span><span class="o">=</span><span class="s2">&quot;   &quot;</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">xmlstr</span></div>
 
 
 </pre></div>

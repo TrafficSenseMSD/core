@@ -45,6 +45,60 @@
             
   <div class="section" id="module-ts_core.config.bindings">
 <span id="ts-core-config-bindings-package"></span><h1>ts_core.config.bindings package<a class="headerlink" href="#module-ts_core.config.bindings" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="sumo-xsd-python-bindings">
+<span id="ts-config-bindings"></span><h2>SUMO XSD Python Bindings<a class="headerlink" href="#sumo-xsd-python-bindings" title="Permalink to this headline">¶</a></h2>
+<p>While there are other simpler XML generation tools, XSD bindings were used to guarantee schema and type correctness
+when generating SUMO configuration files.</p>
+<p>The primary usage for these bindings can be found here.</p>
+<p>SUMO provides schema definitions for all the XML files used in the SUMO ecosystem. The enumeration of the files
+and their definitions can be found <a class="reference external" href="http://sumo.dlr.de/wiki/Other/File_Extensions">here</a> .</p>
+<p>At the time of this release, bindings for the following were included:</p>
+<table border="1" class="docutils">
+<colgroup>
+<col width="47%" />
+<col width="53%" />
+</colgroup>
+<thead valign="bottom">
+<tr class="row-odd"><th class="head">SUMO Extension</th>
+<th class="head">Python File</th>
+</tr>
+</thead>
+<tbody valign="top">
+<tr class="row-even"><td>add.xml</td>
+<td>additional_xml.py</td>
+</tr>
+<tr class="row-odd"><td>con.xml</td>
+<td>con_xml.py</td>
+</tr>
+<tr class="row-even"><td>edg.xml</td>
+<td>edges_xml.py</td>
+</tr>
+<tr class="row-odd"><td>net.xml</td>
+<td>netflie.py</td>
+</tr>
+<tr class="row-even"><td>nod.xml</td>
+<td>nodes_xml.py</td>
+</tr>
+<tr class="row-odd"><td>rou.xml</td>
+<td>routes.py</td>
+</tr>
+<tr class="row-even"><td>.sumocfg</td>
+<td>sumocfg.py</td>
+</tr>
+</tbody>
+</table>
+<p>Note that only add.xml, edg.xml, and .sumocfg are actually used in this release.</p>
+<div class="section" id="regenerating-sumo-xsd-bindings">
+<h3>Regenerating SUMO XSD Bindings<a class="headerlink" href="#regenerating-sumo-xsd-bindings" title="Permalink to this headline">¶</a></h3>
+<p>From a Python environment with <code class="docutils literal"><span class="pre">pyxb</span></code> installed run:</p>
+<p><code class="docutils literal"><span class="pre">pyxbgen</span> <span class="pre">-u</span> <span class="pre">&lt;foo.xsd&gt;</span> <span class="pre">-m</span> <span class="pre">&lt;module</span> <span class="pre">name&gt;</span></code></p>
+<p>Move the generated files to the <code class="docutils literal"><span class="pre">bindings</span></code> directory and test that everything works as expected.</p>
+</div>
+<div class="section" id="working-with-bindings">
+<h3>Working with Bindings<a class="headerlink" href="#working-with-bindings" title="Permalink to this headline">¶</a></h3>
+<p>Check out <code class="docutils literal"><span class="pre">config/binding_examples/</span></code></p>
+</div>
+</div>
 <div class="section" id="submodules">
 <h2>Submodules<a class="headerlink" href="#submodules" title="Permalink to this headline">¶</a></h2>
 <div class="toctree-wrapper compound">
@@ -71,6 +125,11 @@
   <h3><a href="index.html">Table Of Contents</a></h3>
   <ul>
 <li><a class="reference internal" href="#">ts_core.config.bindings package</a><ul>
+<li><a class="reference internal" href="#sumo-xsd-python-bindings">SUMO XSD Python Bindings</a><ul>
+<li><a class="reference internal" href="#regenerating-sumo-xsd-bindings">Regenerating SUMO XSD Bindings</a></li>
+<li><a class="reference internal" href="#working-with-bindings">Working with Bindings</a></li>
+</ul>
+</li>
 <li><a class="reference internal" href="#submodules">Submodules</a></li>
 </ul>
 </li>

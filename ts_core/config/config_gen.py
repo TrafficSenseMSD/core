@@ -41,29 +41,50 @@ def transform_parsed_excel(parsed, project_path, stats_file, config_name):
     sumocfg_xml = mk_sumocfg(parsed["SUMOCFG"])
     node_xml = mk_node(parsed['Intersections'], parsed['Branches'])
     edge_xml = mk_edge(parsed['Intersections'], parsed['Branches'])
+    additional_xml = mk_add(parsed['Intersections'], parsed['Branches'])
 
     # Write SUMO config XML
+
     sumocfg_file_path = project_path+ "/" + config_name + ".sumocfg"
+    logger.info("Writing SUMO Config File to {}".format(sumocfg_file_path))
     with open(sumocfg_file_path                              , "w") as cfg_file:
         cfg_file.write(sumocfg_xml)
 
     # White nodes XML
     node_file_path = project_path + "/" + config_name + ".nod.xml"
-
+    logger.info("Writing Node File to {}".format(node_file_path))
     with open(node_file_path, "w") as cfg_file:
         cfg_file.writelines(node_xml)
 
     # Write edges XML
     edge_file_path = project_path + "/" + config_name + ".edg.xml"
+    logger.info("Writing Edge File to {}".format(edge_file_path))
     with open(edge_file_path, "w") as cfg_file:
         cfg_file.writelines(edge_xml)
 
     # Write stats XML
     stat_file_path = project_path + "/" + config_name + ".stat.xml"
+    logger.info("Writing Stats File to {}".format(stat_file_path))
     with open(stat_file_path, "w") as cfg_file:
         cfg_file.writelines(stats_file)
 
-    print(os.getcwd())
+    # Write additional XML
+    additional_file_path = project_path + "/" + config_name + ".add.xml"
+    logger.info("Writing Additional XML File to {}".format(additional_file_path))
+    with open(additional_file_path, "w") as cfg_file:
+        cfg_file.writelines(additional_xml)
+
+    gui_settings = """
+    <viewsettings>
+        <delay value="0"/>
+        <viewport zoom="100" x="510" y="510"/>
+    </viewsettings>
+
+    """
+    gui_settings_file_path = project_path + "/gui-settings.cfg"
+    logger.info("Writing GUI Settings File to {}".format(additional_file_path))
+    with open(gui_settings_file_path, "w") as cfg_file:
+        cfg_file.writelines(gui_settings)
 
     logger.info("******** ASSUMING NETCONVERT, ACTIVITYGEN, DUAROUTER ACCESSIBLE TO SHELL ********")
 

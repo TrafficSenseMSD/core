@@ -45,16 +45,31 @@
             
   <div class="section" id="module-ts_core.cli.ts_config">
 <span id="ts-core-cli-ts-config-module"></span><h1>ts_core.cli.ts_config module<a class="headerlink" href="#module-ts_core.cli.ts_config" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="ts-config-overview">
+<span id="ts-config-cli"></span><h2><code class="docutils literal"><span class="pre">ts_config</span></code> Overview<a class="headerlink" href="#ts-config-overview" title="Permalink to this headline">¶</a></h2>
+<p><code class="docutils literal"><span class="pre">ts_config</span></code> manages the build of SUMO configuration files from an Excel sheet.</p>
+<p>The user should understand that, because we have simplified configuration, not all SUMO features are supported
+out of the box.</p>
+<div class="section" id="quickstart">
+<h3>Quickstart<a class="headerlink" href="#quickstart" title="Permalink to this headline">¶</a></h3>
+<p>Once you’ve installed.</p>
+<ul class="simple">
+<li>Copy ts_core/config/Configuration_template.xlsx to the directory of your choosing.</li>
+<li>Edit the configuration file to your liking.</li>
+<li>From a shell, run <code class="docutils literal"><span class="pre">ts_config</span> <span class="pre">build</span> <span class="pre">-c</span> <span class="pre">&lt;config_path&gt;</span> <span class="pre">-p</span> <span class="pre">&lt;project_target_dir&gt;</span></code></li>
+</ul>
+</div>
 <hr class="docutils" />
 <div class="section" id="command-line-arguments">
-<h2>Command-line arguments<a class="headerlink" href="#command-line-arguments" title="Permalink to this headline">¶</a></h2>
+<h3>Command-line arguments<a class="headerlink" href="#command-line-arguments" title="Permalink to this headline">¶</a></h3>
 <div class="section" id="optional-arguments">
-<h3>Optional arguments<a class="headerlink" href="#optional-arguments" title="Permalink to this headline">¶</a></h3>
+<h4>Optional arguments<a class="headerlink" href="#optional-arguments" title="Permalink to this headline">¶</a></h4>
 <blockquote>
+<div><blockquote>
 <div><table border="1" class="docutils">
 <colgroup>
-<col width="66%" />
-<col width="34%" />
+<col width="62%" />
+<col width="38%" />
 </colgroup>
 <tbody valign="top">
 <tr class="row-odd"><td><strong>Argument</strong></td>
@@ -63,35 +78,29 @@
 <tr class="row-even"><td><code class="docutils literal"><span class="pre">-h</span></code>, <code class="docutils literal"><span class="pre">--help</span></code></td>
 <td>show this help message and exit</td>
 </tr>
-<tr class="row-odd"><td><code class="docutils literal"><span class="pre">-i</span>&#160; <span class="pre">INTERSECTION</span></code>, <code class="docutils literal"><span class="pre">--intersection</span>&#160; <span class="pre">INTERSECTION</span></code></td>
-<td>defines the Intersection to generate</td>
-</tr>
-<tr class="row-even"><td><code class="docutils literal"><span class="pre">-d</span>&#160; <span class="pre">DRIVER_BEHAVIOR</span></code>, <code class="docutils literal"><span class="pre">--driver_behav</span>&#160; <span class="pre">DRIVER_BEHAVIOR</span></code></td>
-<td>Specify the driver behavior</td>
-</tr>
-<tr class="row-odd"><td><code class="docutils literal"><span class="pre">-v</span>&#160; <span class="pre">VEHICLE_SIZE_DISTRIBUTION</span></code>, <code class="docutils literal"><span class="pre">--vehicle_size</span>&#160; <span class="pre">VEHICLE_SIZE_DISTRIBUTION</span></code></td>
-<td>Vehicle size distribution</td>
-</tr>
-<tr class="row-even"><td><code class="docutils literal"><span class="pre">-t</span>&#160; <span class="pre">TRAFFIC_DEMAND</span></code>, <code class="docutils literal"><span class="pre">--traffic_demand</span>&#160; <span class="pre">TRAFFIC_DEMAND</span></code></td>
+<tr class="row-odd"><td><code class="docutils literal"><span class="pre">-p</span>&#160; <span class="pre">PROJECT_PATH</span></code>, <code class="docutils literal"><span class="pre">--project_path</span>&#160; <span class="pre">PROJECT_PATH</span></code></td>
 <td>&#160;</td>
 </tr>
-<tr class="row-odd"><td><code class="docutils literal"><span class="pre">-a</span>&#160; <span class="pre">ACCIDENT_BEHAVIOR</span></code>, <code class="docutils literal"><span class="pre">--accident_behavior</span>&#160; <span class="pre">ACCIDENT_BEHAVIOR</span></code></td>
-<td>&#160;</td>
+</tbody>
+</table>
+</div></blockquote>
+<p>{build}               choose one</p>
+</div></blockquote>
+</div>
+<div class="section" id="subcommands">
+<h4>Subcommands<a class="headerlink" href="#subcommands" title="Permalink to this headline">¶</a></h4>
+<blockquote>
+<div><table border="1" class="docutils">
+<colgroup>
+<col width="25%" />
+<col width="75%" />
+</colgroup>
+<tbody valign="top">
+<tr class="row-odd"><td><strong>Argument</strong></td>
+<td><strong>Description</strong></td>
 </tr>
-<tr class="row-even"><td><code class="docutils literal"><span class="pre">-v2i</span>&#160; <span class="pre">V2I_DISTRIBUTION</span></code>, <code class="docutils literal"><span class="pre">--v2i_distribution</span>&#160; <span class="pre">V2I_DISTRIBUTION</span></code></td>
-<td>&#160;</td>
-</tr>
-<tr class="row-odd"><td><code class="docutils literal"><span class="pre">-o</span>&#160; <span class="pre">OPTIMIZER</span></code>, <code class="docutils literal"><span class="pre">--optimizer</span>&#160; <span class="pre">OPTIMIZER</span></code></td>
-<td>&#160;</td>
-</tr>
-<tr class="row-even"><td><code class="docutils literal"><span class="pre">-r</span>&#160; <span class="pre">ROUTE_WEIGHTS</span></code>, <code class="docutils literal"><span class="pre">--route_weights</span>&#160; <span class="pre">ROUTE_WEIGHTS</span></code></td>
-<td>&#160;</td>
-</tr>
-<tr class="row-odd"><td><code class="docutils literal"><span class="pre">--init</span></code></td>
-<td>Initializes the directory…</td>
-</tr>
-<tr class="row-even"><td><code class="docutils literal"><span class="pre">--randomize</span>&#160; <span class="pre">RANDOMIZE</span></code></td>
-<td>Makes the configs slightly randomized</td>
+<tr class="row-even"><td><code class="docutils literal"><span class="pre">build</span></code></td>
+<td>subcommand to build the configuration</td>
 </tr>
 </tbody>
 </table>
@@ -100,21 +109,19 @@
 </div>
 <hr class="docutils" />
 <div class="section" id="script-contents">
-<h2>Script contents<a class="headerlink" href="#script-contents" title="Permalink to this headline">¶</a></h2>
+<h3>Script contents<a class="headerlink" href="#script-contents" title="Permalink to this headline">¶</a></h3>
 <dl class="function">
 <dt id="ts_core.cli.ts_config.main">
-<code class="descname">main</code><span class="sig-paren">(</span><em>args</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/ts_core/cli/ts_config.html#main"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#ts_core.cli.ts_config.main" title="Permalink to this definition">¶</a></dt>
+<code class="descname">main</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/ts_core/cli/ts_config.html#main"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#ts_core.cli.ts_config.main" title="Permalink to this definition">¶</a></dt>
 <dd><p>Main function that parses the arguments and
 will (call functions that )creates all of the required files</p>
 <table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
 <tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>- ArgParse object with all the requirements</strong> (<em>args</em>) – </td>
+<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body"></td>
 </tr>
-<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"></td>
-</tr>
-<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body">Nothing</td>
+<tr class="field-even field"><th class="field-name">Return type:</th><td class="field-body">Nothing</td>
 </tr>
 </tbody>
 </table>
@@ -139,6 +146,7 @@ will (call functions that )creates all of the required files</p>
 
 </div>
 </div>
+</div>
 
 
           </div>
@@ -149,11 +157,16 @@ will (call functions that )creates all of the required files</p>
   <h3><a href="index.html">Table Of Contents</a></h3>
   <ul>
 <li><a class="reference internal" href="#">ts_core.cli.ts_config module</a><ul>
+<li><a class="reference internal" href="#ts-config-overview"><code class="docutils literal"><span class="pre">ts_config</span></code> Overview</a><ul>
+<li><a class="reference internal" href="#quickstart">Quickstart</a></li>
 <li><a class="reference internal" href="#command-line-arguments">Command-line arguments</a><ul>
 <li><a class="reference internal" href="#optional-arguments">Optional arguments</a></li>
+<li><a class="reference internal" href="#subcommands">Subcommands</a></li>
 </ul>
 </li>
 <li><a class="reference internal" href="#script-contents">Script contents</a></li>
+</ul>
+</li>
 </ul>
 </li>
 </ul>

@@ -11,6 +11,8 @@ Submodules
 
 .. toctree::
 
+   ts_core.execution.Rolodex
    ts_core.execution.TraCiWrapper
+   ts_core.execution.VariableDictionary
    ts_core.execution.traci_loop
 

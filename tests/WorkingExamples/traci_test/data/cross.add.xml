@@ -1,0 +1,14 @@
+<additional>
+
+	<e2Detector id="0" lane="4i_0" pos="425" endPos="-1" freq="10" file="cross.out" friendlyPos="x"/>
+	
+	<tlLogic id="0" programID="my_program" offset="0" type="static">
+		<phase duration="30" state="GrGr"/>
+		<phase duration="2"  state="yryr"/>
+		<phase duration="30" state="rGrG"/>
+		<phase duration="2"  state="ryry"/>
+	</tlLogic>
+	
+	<!-- tlLogic makes the TL follow the above phases. Now, runner.py will follow these listed phases. The above trumps the net file listed phases, which are just given as a default.-->
+
+</additional>

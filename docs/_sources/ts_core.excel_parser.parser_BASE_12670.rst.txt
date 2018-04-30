@@ -1,0 +1,7 @@
+ts\_core\.excel\_parser\.parser\_BASE\_12670 module
+===================================================
+
+.. automodule:: ts_core.excel_parser.parser_BASE_12670
+    :members:
+    :undoc-members:
+    :show-inheritance:

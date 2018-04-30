@@ -47,24 +47,197 @@
   <h1>Source code for ts_core.config.config_gen</h1><div class="highlight"><pre>
 <span></span><span class="kn">import</span> <span class="nn">jsmin</span>
 <span class="kn">import</span> <span class="nn">json</span>
+<span class="kn">import</span> <span class="nn">pyxb</span>
+<span class="kn">import</span> <span class="nn">os</span>
+<span class="kn">import</span> <span class="nn">warnings</span>
+
+<span class="kn">import</span> <span class="nn">subprocess</span>
+<span class="kn">import</span> <span class="nn">sumolib</span>
+<span class="n">pyxb</span><span class="o">.</span><span class="n">_CorruptionDetectionEnabled</span> <span class="o">=</span> <span class="kc">False</span>
 <span class="kn">from</span> <span class="nn">ts_core.config.config_helpers</span> <span class="k">import</span> <span class="o">*</span>
 <span class="kn">from</span> <span class="nn">ts_core.config.config_exceptions</span> <span class="k">import</span> <span class="o">*</span>
+<span class="kn">from</span> <span class="nn">ts_core.utils.ts_logging</span> <span class="k">import</span> <span class="n">setup_logging</span>
+<span class="kn">import</span> <span class="nn">logging</span>
+
+<span class="n">setup_logging</span><span class="p">()</span>
+
+<span class="n">logger</span> <span class="o">=</span> <span class="n">logging</span><span class="o">.</span><span class="n">getLogger</span><span class="p">()</span>
 
 
-<div class="viewcode-block" id="transform_parsed_excel"><a class="viewcode-back" href="../../../ts_core.config.config_gen.html#ts_core.config.config_gen.transform_parsed_excel">[docs]</a><span class="k">def</span> <span class="nf">transform_parsed_excel</span><span class="p">(</span><span class="n">parsed</span><span class="p">):</span>
+<div class="viewcode-block" id="transform_parsed_excel"><a class="viewcode-back" href="../../../ts_core.config.config_gen.html#ts_core.config.config_gen.transform_parsed_excel">[docs]</a><span class="k">def</span> <span class="nf">transform_parsed_excel</span><span class="p">(</span><span class="n">parsed</span><span class="p">,</span> <span class="n">project_path</span><span class="p">,</span> <span class="n">stats_file</span><span class="p">,</span> <span class="n">config_name</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    This is the manager function transforming</span>
+<span class="sd">    </span>
+<span class="sd">    There is a lot more to talk about but right now I have other things to do. </span>
+<span class="sd">    </span>
+<span class="sd">    Parameters</span>
+<span class="sd">    ----------</span>
+<span class="sd">    parsed</span>
+
+<span class="sd">    Returns</span>
+<span class="sd">    -------</span>
+<span class="sd">    None</span>
+<span class="sd">    </span>
+<span class="sd">    &quot;&quot;&quot;</span>
     <span class="k">if</span> <span class="s2">&quot;SUMOCFG&quot;</span> <span class="ow">not</span> <span class="ow">in</span> <span class="n">parsed</span><span class="p">:</span>
-        <span class="k">raise</span>
-    <span class="n">mk_sumocfg</span><span class="p">(</span><span class="n">parsed</span><span class="p">[</span><span class="s2">&quot;SUMOCFG&quot;</span><span class="p">])</span></div>
+        <span class="k">raise</span> <span class="n">ParsedSchemaError</span><span class="p">(</span><span class="s2">&quot;Key &#39;SUMOCFG&#39; is not in top level dict&quot;</span><span class="p">)</span>
 
 
-<span class="k">if</span> <span class="vm">__name__</span> <span class="o">==</span> <span class="s2">&quot;__main__&quot;</span><span class="p">:</span>
-    <span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="s1">&#39;parser_output.json&#39;</span><span class="p">,</span> <span class="s1">&#39;r&#39;</span><span class="p">)</span> <span class="k">as</span> <span class="n">_bad_json</span><span class="p">:</span>
-        <span class="n">parsed</span> <span class="o">=</span> <span class="n">jsmin</span><span class="o">.</span><span class="n">jsmin</span><span class="p">(</span><span class="n">_bad_json</span><span class="o">.</span><span class="n">read</span><span class="p">())</span>
-        <span class="n">parsed</span> <span class="o">=</span> <span class="n">json</span><span class="o">.</span><span class="n">loads</span><span class="p">(</span><span class="n">parsed</span><span class="p">)</span>
-        <span class="n">transform_parsed_excel</span><span class="p">(</span><span class="n">parsed</span><span class="p">)</span>
+    <span class="c1"># Generate each of the files from the parsed config sheet</span>
+
+    <span class="n">sumocfg_xml</span> <span class="o">=</span> <span class="n">mk_sumocfg</span><span class="p">(</span><span class="n">parsed</span><span class="p">[</span><span class="s2">&quot;SUMOCFG&quot;</span><span class="p">])</span>
+    <span class="n">node_xml</span> <span class="o">=</span> <span class="n">mk_node</span><span class="p">(</span><span class="n">parsed</span><span class="p">[</span><span class="s1">&#39;Intersections&#39;</span><span class="p">],</span> <span class="n">parsed</span><span class="p">[</span><span class="s1">&#39;Branches&#39;</span><span class="p">])</span>
+    <span class="n">edge_xml</span> <span class="o">=</span> <span class="n">mk_edge</span><span class="p">(</span><span class="n">parsed</span><span class="p">[</span><span class="s1">&#39;Intersections&#39;</span><span class="p">],</span> <span class="n">parsed</span><span class="p">[</span><span class="s1">&#39;Branches&#39;</span><span class="p">])</span>
+    <span class="n">additional_xml</span> <span class="o">=</span> <span class="n">mk_add</span><span class="p">(</span><span class="n">parsed</span><span class="p">[</span><span class="s1">&#39;Intersections&#39;</span><span class="p">],</span> <span class="n">parsed</span><span class="p">[</span><span class="s1">&#39;Branches&#39;</span><span class="p">])</span>
+
+    <span class="c1"># Write SUMO config XML</span>
+
+    <span class="n">sumocfg_file_path</span> <span class="o">=</span> <span class="n">project_path</span><span class="o">+</span> <span class="s2">&quot;/&quot;</span> <span class="o">+</span> <span class="n">config_name</span> <span class="o">+</span> <span class="s2">&quot;.sumocfg&quot;</span>
+    <span class="n">logger</span><span class="o">.</span><span class="n">info</span><span class="p">(</span><span class="s2">&quot;Writing SUMO Config File to </span><span class="si">{}</span><span class="s2">&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">sumocfg_file_path</span><span class="p">))</span>
+    <span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="n">sumocfg_file_path</span>                              <span class="p">,</span> <span class="s2">&quot;w&quot;</span><span class="p">)</span> <span class="k">as</span> <span class="n">cfg_file</span><span class="p">:</span>
+        <span class="n">cfg_file</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="n">sumocfg_xml</span><span class="p">)</span>
+
+    <span class="c1"># White nodes XML</span>
+    <span class="n">node_file_path</span> <span class="o">=</span> <span class="n">project_path</span> <span class="o">+</span> <span class="s2">&quot;/&quot;</span> <span class="o">+</span> <span class="n">config_name</span> <span class="o">+</span> <span class="s2">&quot;.nod.xml&quot;</span>
+    <span class="n">logger</span><span class="o">.</span><span class="n">info</span><span class="p">(</span><span class="s2">&quot;Writing Node File to </span><span class="si">{}</span><span class="s2">&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">node_file_path</span><span class="p">))</span>
+    <span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="n">node_file_path</span><span class="p">,</span> <span class="s2">&quot;w&quot;</span><span class="p">)</span> <span class="k">as</span> <span class="n">cfg_file</span><span class="p">:</span>
+        <span class="n">cfg_file</span><span class="o">.</span><span class="n">writelines</span><span class="p">(</span><span class="n">node_xml</span><span class="p">)</span>
+
+    <span class="c1"># Write edges XML</span>
+    <span class="n">edge_file_path</span> <span class="o">=</span> <span class="n">project_path</span> <span class="o">+</span> <span class="s2">&quot;/&quot;</span> <span class="o">+</span> <span class="n">config_name</span> <span class="o">+</span> <span class="s2">&quot;.edg.xml&quot;</span>
+    <span class="n">logger</span><span class="o">.</span><span class="n">info</span><span class="p">(</span><span class="s2">&quot;Writing Edge File to </span><span class="si">{}</span><span class="s2">&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">edge_file_path</span><span class="p">))</span>
+    <span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="n">edge_file_path</span><span class="p">,</span> <span class="s2">&quot;w&quot;</span><span class="p">)</span> <span class="k">as</span> <span class="n">cfg_file</span><span class="p">:</span>
+        <span class="n">cfg_file</span><span class="o">.</span><span class="n">writelines</span><span class="p">(</span><span class="n">edge_xml</span><span class="p">)</span>
+
+    <span class="c1"># Write stats XML</span>
+    <span class="n">stat_file_path</span> <span class="o">=</span> <span class="n">project_path</span> <span class="o">+</span> <span class="s2">&quot;/&quot;</span> <span class="o">+</span> <span class="n">config_name</span> <span class="o">+</span> <span class="s2">&quot;.stat.xml&quot;</span>
+    <span class="n">logger</span><span class="o">.</span><span class="n">info</span><span class="p">(</span><span class="s2">&quot;Writing Stats File to </span><span class="si">{}</span><span class="s2">&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">stat_file_path</span><span class="p">))</span>
+    <span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="n">stat_file_path</span><span class="p">,</span> <span class="s2">&quot;w&quot;</span><span class="p">)</span> <span class="k">as</span> <span class="n">cfg_file</span><span class="p">:</span>
+        <span class="n">cfg_file</span><span class="o">.</span><span class="n">writelines</span><span class="p">(</span><span class="n">stats_file</span><span class="p">)</span>
+
+    <span class="c1"># Write additional XML</span>
+    <span class="n">additional_file_path</span> <span class="o">=</span> <span class="n">project_path</span> <span class="o">+</span> <span class="s2">&quot;/&quot;</span> <span class="o">+</span> <span class="n">config_name</span> <span class="o">+</span> <span class="s2">&quot;.add.xml&quot;</span>
+    <span class="n">logger</span><span class="o">.</span><span class="n">info</span><span class="p">(</span><span class="s2">&quot;Writing Additional XML File to </span><span class="si">{}</span><span class="s2">&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">additional_file_path</span><span class="p">))</span>
+    <span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="n">additional_file_path</span><span class="p">,</span> <span class="s2">&quot;w&quot;</span><span class="p">)</span> <span class="k">as</span> <span class="n">cfg_file</span><span class="p">:</span>
+        <span class="n">cfg_file</span><span class="o">.</span><span class="n">writelines</span><span class="p">(</span><span class="n">additional_xml</span><span class="p">)</span>
+
+    <span class="n">gui_settings</span> <span class="o">=</span> <span class="s2">&quot;&quot;&quot;</span>
+<span class="s2">    &lt;viewsettings&gt;</span>
+<span class="s2">        &lt;delay value=&quot;0&quot;/&gt;</span>
+<span class="s2">        &lt;viewport zoom=&quot;100&quot; x=&quot;510&quot; y=&quot;510&quot;/&gt;</span>
+<span class="s2">    &lt;/viewsettings&gt;</span>
+
+<span class="s2">    &quot;&quot;&quot;</span>
+    <span class="n">gui_settings_file_path</span> <span class="o">=</span> <span class="n">project_path</span> <span class="o">+</span> <span class="s2">&quot;/gui-settings.cfg&quot;</span>
+    <span class="n">logger</span><span class="o">.</span><span class="n">info</span><span class="p">(</span><span class="s2">&quot;Writing GUI Settings File to </span><span class="si">{}</span><span class="s2">&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">additional_file_path</span><span class="p">))</span>
+    <span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="n">gui_settings_file_path</span><span class="p">,</span> <span class="s2">&quot;w&quot;</span><span class="p">)</span> <span class="k">as</span> <span class="n">cfg_file</span><span class="p">:</span>
+        <span class="n">cfg_file</span><span class="o">.</span><span class="n">writelines</span><span class="p">(</span><span class="n">gui_settings</span><span class="p">)</span>
+
+    <span class="n">logger</span><span class="o">.</span><span class="n">info</span><span class="p">(</span><span class="s2">&quot;******** ASSUMING NETCONVERT, ACTIVITYGEN, DUAROUTER ACCESSIBLE TO SHELL ********&quot;</span><span class="p">)</span>
+
+    <span class="c1"># ##### NETCONVERT HANDLING #######</span>
+
+    <span class="n">net_file_path</span> <span class="o">=</span> <span class="n">project_path</span> <span class="o">+</span> <span class="s2">&quot;/&quot;</span> <span class="o">+</span> <span class="n">config_name</span> <span class="o">+</span> <span class="s2">&quot;.net.xml&quot;</span>
+    <span class="n">netconvert</span> <span class="o">=</span> <span class="s2">&quot;netconvert --node-files=&quot;</span> <span class="o">+</span> <span class="n">node_file_path</span> <span class="o">+</span> \
+                 <span class="s2">&quot; --edge-files=&quot;</span> <span class="o">+</span> <span class="n">edge_file_path</span> <span class="o">+</span> \
+                 <span class="s2">&quot; --output-file=&quot;</span> <span class="o">+</span> <span class="n">net_file_path</span>
+
+    <span class="n">logger</span><span class="o">.</span><span class="n">info</span><span class="p">(</span><span class="s2">&quot;EXECUTING NETCONVERT&quot;</span><span class="p">)</span>
+    <span class="n">logger</span><span class="o">.</span><span class="n">debug</span><span class="p">(</span><span class="s2">&quot;EXECUTING: </span><span class="si">{}</span><span class="s2">&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">netconvert</span><span class="p">))</span>
 
 
-        <span class="nb">print</span><span class="p">(</span><span class="n">json</span><span class="o">.</span><span class="n">dumps</span><span class="p">(</span><span class="n">parsed</span><span class="p">,</span> <span class="n">indent</span><span class="o">=</span><span class="mi">3</span><span class="p">))</span>
+    <span class="k">try</span><span class="p">:</span>
+        <span class="n">completed</span> <span class="o">=</span> <span class="n">subprocess</span><span class="o">.</span><span class="n">run</span><span class="p">(</span>
+            <span class="n">netconvert</span><span class="p">,</span>
+            <span class="n">check</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span>
+            <span class="n">shell</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span>
+            <span class="n">stdout</span><span class="o">=</span><span class="n">subprocess</span><span class="o">.</span><span class="n">PIPE</span><span class="p">,</span>
+            <span class="n">stderr</span><span class="o">=</span><span class="n">subprocess</span><span class="o">.</span><span class="n">PIPE</span>
+        <span class="p">)</span>
+    <span class="k">except</span> <span class="n">subprocess</span><span class="o">.</span><span class="n">CalledProcessError</span> <span class="k">as</span> <span class="n">err</span><span class="p">:</span>
+        <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;ERROR:&#39;</span><span class="p">,</span> <span class="n">err</span><span class="p">)</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="n">stderr</span> <span class="o">=</span> <span class="n">completed</span><span class="o">.</span><span class="n">stderr</span><span class="o">.</span><span class="n">decode</span><span class="p">(</span><span class="s1">&#39;utf-8&#39;</span><span class="p">)</span>
+        <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">stderr</span><span class="p">)</span> <span class="o">&gt;</span> <span class="mi">0</span><span class="p">:</span>
+            <span class="n">warnings</span><span class="o">.</span><span class="n">warn</span><span class="p">(</span><span class="n">stderr</span><span class="p">)</span>
+
+        <span class="k">if</span> <span class="n">completed</span><span class="o">.</span><span class="n">returncode</span> <span class="o">!=</span> <span class="mi">0</span><span class="p">:</span>
+            <span class="k">raise</span> <span class="ne">RuntimeError</span><span class="p">(</span><span class="s2">&quot;SUMO SUBPROCESS CALLS FAILED! EXIT TO SAFETY&quot;</span><span class="p">)</span>
+
+        <span class="n">logger</span><span class="o">.</span><span class="n">info</span><span class="p">(</span><span class="s2">&quot;NETCONVERT Completed Successfully&quot;</span><span class="p">)</span>
+
+    <span class="c1"># ##### ACTIVITYGEN HANDLING #######</span>
+
+    <span class="n">activity_trips_file_path</span> <span class="o">=</span> <span class="n">project_path</span> <span class="o">+</span> <span class="s2">&quot;/&quot;</span> <span class="o">+</span> <span class="n">config_name</span> <span class="o">+</span> <span class="s2">&quot;.trips.rou.xml&quot;</span>
+
+    <span class="n">activitygen</span> <span class="o">=</span> <span class="s2">&quot;activitygen --net-file &quot;</span> <span class="o">+</span> <span class="n">net_file_path</span> <span class="o">+</span> \
+           <span class="s2">&quot; --stat-file &quot;</span> <span class="o">+</span> <span class="n">stat_file_path</span> <span class="o">+</span> \
+           <span class="s2">&quot; --output-file &quot;</span> <span class="o">+</span> <span class="n">activity_trips_file_path</span> <span class="o">+</span> \
+           <span class="s2">&quot; --random&quot;</span>
+
+    <span class="n">logger</span><span class="o">.</span><span class="n">info</span><span class="p">(</span><span class="s2">&quot;EXECUTING ACTIVITYGEN&quot;</span><span class="p">)</span>
+    <span class="n">logger</span><span class="o">.</span><span class="n">debug</span><span class="p">(</span><span class="s2">&quot;EXECUTING: </span><span class="si">{}</span><span class="s2">&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">activitygen</span><span class="p">))</span>
+
+    <span class="k">try</span><span class="p">:</span>
+        <span class="n">completed</span> <span class="o">=</span> <span class="n">subprocess</span><span class="o">.</span><span class="n">run</span><span class="p">(</span>
+            <span class="n">activitygen</span><span class="p">,</span>
+            <span class="n">check</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span>
+            <span class="n">shell</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span>
+            <span class="n">stdout</span><span class="o">=</span><span class="n">subprocess</span><span class="o">.</span><span class="n">PIPE</span><span class="p">,</span>
+            <span class="n">stderr</span><span class="o">=</span><span class="n">subprocess</span><span class="o">.</span><span class="n">PIPE</span>
+        <span class="p">)</span>
+    <span class="k">except</span> <span class="n">subprocess</span><span class="o">.</span><span class="n">CalledProcessError</span> <span class="k">as</span> <span class="n">err</span><span class="p">:</span>
+        <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;ERROR:&#39;</span><span class="p">,</span> <span class="n">err</span><span class="p">)</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="c1"># print(&#39;returncode:&#39;, completed.returncode)</span>
+        <span class="nb">print</span><span class="p">(</span><span class="n">completed</span><span class="o">.</span><span class="n">stderr</span><span class="o">.</span><span class="n">decode</span><span class="p">(</span><span class="s1">&#39;utf-8&#39;</span><span class="p">))</span>
+
+        <span class="n">stderr</span> <span class="o">=</span> <span class="n">completed</span><span class="o">.</span><span class="n">stderr</span><span class="o">.</span><span class="n">decode</span><span class="p">(</span><span class="s1">&#39;utf-8&#39;</span><span class="p">)</span>
+        <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">stderr</span><span class="p">)</span> <span class="o">&gt;</span> <span class="mi">0</span><span class="p">:</span>
+            <span class="n">warnings</span><span class="o">.</span><span class="n">warn</span><span class="p">(</span><span class="n">stderr</span><span class="p">)</span>
+
+        <span class="k">if</span> <span class="n">completed</span><span class="o">.</span><span class="n">returncode</span> <span class="o">!=</span> <span class="mi">0</span><span class="p">:</span>
+            <span class="k">raise</span> <span class="ne">RuntimeError</span><span class="p">(</span><span class="s2">&quot;SUMO SUBPROCESS CALLS FAILED! EXIT TO SAFETY&quot;</span><span class="p">)</span>
+
+        <span class="n">logger</span><span class="o">.</span><span class="n">info</span><span class="p">(</span><span class="s2">&quot;ACTIVITYGEN Completed Successfully&quot;</span><span class="p">)</span>
+
+
+    <span class="c1"># ##### DUAROUTER HANDLING #######</span>
+
+    <span class="n">route_file_path</span> <span class="o">=</span> <span class="n">project_path</span> <span class="o">+</span> <span class="s2">&quot;/&quot;</span> <span class="o">+</span> <span class="n">config_name</span> <span class="o">+</span> <span class="s2">&quot;.rou.xml&quot;</span>
+
+    <span class="n">duarouter</span> <span class="o">=</span> <span class="s2">&quot;duarouter --net-file &quot;</span> <span class="o">+</span> <span class="n">net_file_path</span> <span class="o">+</span> \
+        <span class="s2">&quot; --route-files &quot;</span> <span class="o">+</span> <span class="n">activity_trips_file_path</span> <span class="o">+</span> \
+        <span class="s2">&quot; -o &quot;</span> <span class="o">+</span> <span class="n">route_file_path</span>
+
+    <span class="n">logger</span><span class="o">.</span><span class="n">info</span><span class="p">(</span><span class="s2">&quot;EXECUTING DUAROUTER&quot;</span><span class="p">)</span>
+    <span class="n">logger</span><span class="o">.</span><span class="n">debug</span><span class="p">(</span><span class="s2">&quot;EXECUTING: </span><span class="si">{}</span><span class="s2">&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">activitygen</span><span class="p">))</span>
+
+    <span class="k">try</span><span class="p">:</span>
+        <span class="n">completed</span> <span class="o">=</span> <span class="n">subprocess</span><span class="o">.</span><span class="n">run</span><span class="p">(</span>
+            <span class="n">duarouter</span><span class="p">,</span>
+            <span class="n">check</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span>
+            <span class="n">shell</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span>
+            <span class="n">stdout</span><span class="o">=</span><span class="n">subprocess</span><span class="o">.</span><span class="n">PIPE</span><span class="p">,</span>
+            <span class="n">stderr</span><span class="o">=</span><span class="n">subprocess</span><span class="o">.</span><span class="n">PIPE</span>
+        <span class="p">)</span>
+    <span class="k">except</span> <span class="n">subprocess</span><span class="o">.</span><span class="n">CalledProcessError</span> <span class="k">as</span> <span class="n">err</span><span class="p">:</span>
+        <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;ERROR:&#39;</span><span class="p">,</span> <span class="n">err</span><span class="p">)</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="c1"># print(&#39;returncode:&#39;, completed.returncode)</span>
+        <span class="nb">print</span><span class="p">(</span><span class="n">completed</span><span class="o">.</span><span class="n">stderr</span><span class="o">.</span><span class="n">decode</span><span class="p">(</span><span class="s1">&#39;utf-8&#39;</span><span class="p">))</span>
+
+        <span class="n">stderr</span> <span class="o">=</span> <span class="n">completed</span><span class="o">.</span><span class="n">stderr</span><span class="o">.</span><span class="n">decode</span><span class="p">(</span><span class="s1">&#39;utf-8&#39;</span><span class="p">)</span>
+        <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">stderr</span><span class="p">)</span> <span class="o">&gt;</span> <span class="mi">0</span><span class="p">:</span>
+            <span class="n">warnings</span><span class="o">.</span><span class="n">warn</span><span class="p">(</span><span class="n">stderr</span><span class="p">)</span>
+
+        <span class="k">if</span> <span class="n">completed</span><span class="o">.</span><span class="n">returncode</span> <span class="o">!=</span> <span class="mi">0</span><span class="p">:</span>
+            <span class="k">raise</span> <span class="ne">RuntimeError</span><span class="p">(</span><span class="s2">&quot;SUMO SUBPROCESS CALLS FAILED! EXIT TO SAFETY&quot;</span><span class="p">)</span>
+
+        <span class="n">logger</span><span class="o">.</span><span class="n">info</span><span class="p">(</span><span class="s2">&quot;DUAROUTER Completed Successfully&quot;</span><span class="p">)</span>
+
+
+    <span class="k">return</span></div>
 </pre></div>
 
           </div>

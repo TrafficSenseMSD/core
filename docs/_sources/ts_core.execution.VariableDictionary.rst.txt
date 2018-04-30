@@ -1,0 +1,7 @@
+ts\_core\.execution\.VariableDictionary module
+==============================================
+
+.. automodule:: ts_core.execution.VariableDictionary
+    :members:
+    :undoc-members:
+    :show-inheritance:

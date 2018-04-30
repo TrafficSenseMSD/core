@@ -1,0 +1,7 @@
+ts\_core\.excel\_parser\.parser\_constants module
+=================================================
+
+.. automodule:: ts_core.excel_parser.parser_constants
+    :members:
+    :undoc-members:
+    :show-inheritance:
