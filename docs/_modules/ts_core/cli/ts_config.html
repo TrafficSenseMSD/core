@@ -68,11 +68,11 @@
 <span class="sd">&quot;&quot;&quot;</span>
 <span class="kn">import</span> <span class="nn">argparse</span>
 <span class="kn">from</span> <span class="nn">shutil</span> <span class="k">import</span> <span class="n">copyfile</span>
-<span class="kn">from</span> <span class="nn">..excel_parser</span> <span class="k">import</span> <span class="n">parser</span>
-<span class="kn">from</span> <span class="nn">..config.config_gen</span> <span class="k">import</span> <span class="n">transform_parsed_excel</span>
-<span class="kn">from</span> <span class="nn">..utils.argparse_utils</span> <span class="k">import</span> <span class="n">FullPaths</span><span class="p">,</span> <span class="n">is_dir</span><span class="p">,</span> <span class="n">is_file</span>
 
-<span class="kn">import</span> <span class="nn">os</span>
+<span class="kn">from</span> <span class="nn">..config</span> <span class="k">import</span> <span class="n">parser</span> <span class="k">as</span> <span class="n">ex_parser</span>
+
+<span class="kn">from</span> <span class="nn">..config.config_gen</span> <span class="k">import</span> <span class="n">transform_parsed_excel</span>
+<span class="kn">from</span> <span class="nn">..utils.argparse_utils</span> <span class="k">import</span> <span class="n">FullPaths</span>
 
 
 <div class="viewcode-block" id="move_file"><a class="viewcode-back" href="../../../ts_core.cli.ts_config.html#ts_core.cli.ts_config.move_file">[docs]</a><span class="k">def</span> <span class="nf">move_file</span><span class="p">(</span><span class="n">original_filename</span><span class="p">,</span> <span class="n">new_filename</span><span class="p">):</span>
@@ -104,7 +104,7 @@
 <span class="sd">    &quot;&quot;&quot;</span>
 
     <span class="n">parser</span> <span class="o">=</span> <span class="n">argparse</span><span class="o">.</span><span class="n">ArgumentParser</span><span class="p">()</span>
-    <span class="n">parser</span><span class="o">.</span><span class="n">add_argument</span><span class="p">(</span><span class="s2">&quot;-p&quot;</span><span class="p">,</span> <span class="s2">&quot;--project_path&quot;</span><span class="p">,</span> <span class="n">action</span><span class="o">=</span><span class="n">FullPaths</span><span class="p">)</span>
+
     <span class="n">subparsers</span> <span class="o">=</span> <span class="n">parser</span><span class="o">.</span><span class="n">add_subparsers</span><span class="p">(</span><span class="n">title</span><span class="o">=</span><span class="s2">&quot;subcommands&quot;</span><span class="p">,</span> <span class="n">help</span><span class="o">=</span><span class="s2">&quot;choose one&quot;</span><span class="p">)</span>
 
     <span class="c1"># init = subparsers.add_parser(&#39;init&#39;, help=&quot;&quot;, description=&quot;&quot;)</span>
@@ -112,14 +112,15 @@
     <span class="c1"># init.set_defaults(which=&#39;init&#39;)</span>
 
     <span class="n">build</span> <span class="o">=</span> <span class="n">subparsers</span><span class="o">.</span><span class="n">add_parser</span><span class="p">(</span><span class="s1">&#39;build&#39;</span><span class="p">,</span> <span class="n">help</span><span class="o">=</span><span class="s2">&quot;subcommand to build the configuration&quot;</span><span class="p">,</span> <span class="n">description</span><span class="o">=</span><span class="s2">&quot;Run the configuration build.&quot;</span><span class="p">)</span>
-    <span class="n">build</span><span class="o">.</span><span class="n">add_argument</span><span class="p">(</span><span class="s2">&quot;-c&quot;</span><span class="p">,</span> <span class="s2">&quot;--config&quot;</span><span class="p">,</span> <span class="n">action</span><span class="o">=</span><span class="n">FullPaths</span><span class="p">,</span> <span class="n">help</span><span class="o">=</span><span class="s2">&quot;Path to Excel config file. Will auto expand relative paths.&quot;</span><span class="p">)</span><span class="c1">#, action=FullPaths)</span>
+    <span class="n">build</span><span class="o">.</span><span class="n">add_argument</span><span class="p">(</span><span class="s2">&quot;-c&quot;</span><span class="p">,</span> <span class="s2">&quot;--config_file&quot;</span><span class="p">,</span> <span class="n">action</span><span class="o">=</span><span class="n">FullPaths</span><span class="p">,</span> <span class="n">help</span><span class="o">=</span><span class="s2">&quot;Path to Excel config file. Will auto expand relative paths.&quot;</span><span class="p">)</span><span class="c1">#, action=FullPaths)</span>
+    <span class="n">build</span><span class="o">.</span><span class="n">add_argument</span><span class="p">(</span><span class="s2">&quot;-p&quot;</span><span class="p">,</span> <span class="s2">&quot;--project_path&quot;</span><span class="p">,</span> <span class="n">action</span><span class="o">=</span><span class="n">FullPaths</span><span class="p">)</span>
     <span class="n">build</span><span class="o">.</span><span class="n">set_defaults</span><span class="p">(</span><span class="n">which</span><span class="o">=</span><span class="s1">&#39;build&#39;</span><span class="p">)</span>
 
     <span class="n">args</span> <span class="o">=</span> <span class="n">parser</span><span class="o">.</span><span class="n">parse_args</span><span class="p">()</span>
 
     <span class="k">if</span> <span class="n">args</span><span class="o">.</span><span class="n">which</span> <span class="o">==</span> <span class="s1">&#39;build&#39;</span><span class="p">:</span>
-        <span class="n">conf_file_path</span> <span class="o">=</span> <span class="n">args</span><span class="o">.</span><span class="n">project_path</span> <span class="o">+</span> <span class="s2">&quot;/&quot;</span> <span class="o">+</span> <span class="n">args</span><span class="o">.</span><span class="n">config_file</span>
-        <span class="n">config_name</span><span class="p">,</span> <span class="n">parsed_excel</span><span class="p">,</span> <span class="n">stats_xml</span> <span class="o">=</span> <span class="n">parser</span><span class="o">.</span><span class="n">run_parser</span><span class="p">(</span><span class="n">conf_file_path</span><span class="p">,</span> <span class="n">args</span><span class="o">.</span><span class="n">project_path</span><span class="p">)</span>
+        <span class="n">conf_file_path</span> <span class="o">=</span> <span class="n">args</span><span class="o">.</span><span class="n">config_file</span>
+        <span class="n">config_name</span><span class="p">,</span> <span class="n">parsed_excel</span><span class="p">,</span> <span class="n">stats_xml</span> <span class="o">=</span> <span class="n">ex_parser</span><span class="o">.</span><span class="n">run_parser</span><span class="p">(</span><span class="n">conf_file_path</span><span class="p">,</span> <span class="n">args</span><span class="o">.</span><span class="n">project_path</span><span class="p">)</span>
 
         <span class="n">transform_parsed_excel</span><span class="p">(</span><span class="n">parsed_excel</span><span class="p">,</span> <span class="n">args</span><span class="o">.</span><span class="n">project_path</span><span class="p">,</span> <span class="n">stats_xml</span><span class="p">,</span> <span class="n">config_name</span><span class="p">)</span>
 

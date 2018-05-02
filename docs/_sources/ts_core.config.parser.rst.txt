@@ -1,0 +1,7 @@
+ts\_core\.config\.parser module
+===============================
+
+.. automodule:: ts_core.config.parser
+    :members:
+    :undoc-members:
+    :show-inheritance:
