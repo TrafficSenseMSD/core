@@ -30,7 +30,7 @@ Usage (As of TrafficSenseMSD version 0.72.0):
 ts_core build -c <path> -p <path>
 ts_runner <path> [--gui]
 
-#3 Linux Install
+## Linux Install
 [SUMO Linux Install Docs](http://sumo.dlr.de/wiki/Installing/Linux_Build)
 
 The above documentation is spotty at best.  You will likely be able to follow the mac
