@@ -1,5 +1,5 @@
-ts\_core\.config\.bindings package
-==================================
+ts\_core.config.bindings package
+================================
 
 .. automodule:: ts_core.config.bindings
     :members:

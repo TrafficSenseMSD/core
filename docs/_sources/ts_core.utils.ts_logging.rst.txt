@@ -1,5 +1,5 @@
-ts\_core\.utils\.ts\_logging module
-===================================
+ts\_core.utils.ts\_logging module
+=================================
 
 .. automodule:: ts_core.utils.ts_logging
     :members:

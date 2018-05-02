@@ -26,8 +26,8 @@ Output
 
 Output from ts_runner is directed to ``<sumo_project_dir>/output/<YYYY_MM_DD_HH_MM_SS_dddddd>/'' which
 contains:
-    ``sutripinfo.xml``
-    ``YYYY_MM_DD_HH_MM_SS_dddddd_ts_runner.log`` (Not yet implemented, writes to current dir)
+    * ``sutripinfo.xml``
+    * ``YYYY_MM_DD_HH_MM_SS_dddddd_ts_runner.log`` (Not yet implemented, writes to current dir)
 
 
 

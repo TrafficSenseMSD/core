@@ -1,5 +1,5 @@
-ts\_core\.optimization package
-==============================
+ts\_core.optimization package
+=============================
 
 .. automodule:: ts_core.optimization
     :members:

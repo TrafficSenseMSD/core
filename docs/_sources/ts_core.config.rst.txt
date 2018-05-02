@@ -1,5 +1,5 @@
-ts\_core\.config package
-========================
+ts\_core.config package
+=======================
 
 .. automodule:: ts_core.config
     :members:

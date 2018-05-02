@@ -1,5 +1,5 @@
-ts\_core\.execution\.VariableDictionary module
-==============================================
+ts\_core.execution.VariableDictionary module
+============================================
 
 .. automodule:: ts_core.execution.VariableDictionary
     :members:

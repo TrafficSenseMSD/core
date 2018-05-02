@@ -1,7 +1,0 @@
-ts\_core\.config\.messing module
-================================
-
-.. automodule:: ts_core.config.messing
-    :members:
-    :undoc-members:
-    :show-inheritance:

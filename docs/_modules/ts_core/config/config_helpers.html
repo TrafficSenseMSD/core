@@ -4,27 +4,18 @@
 
 <html xmlns="http://www.w3.org/1999/xhtml">
   <head>
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge" />
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-    <title>ts_core.config.config_helpers &#8212; TrafficSense 0.01 documentation</title>
+    <title>ts_core.config.config_helpers &#8212; TrafficSense 0.3 documentation</title>
     <link rel="stylesheet" href="../../../_static/classic.css" type="text/css" />
     <link rel="stylesheet" href="../../../_static/pygments.css" type="text/css" />
-    <script type="text/javascript">
-      var DOCUMENTATION_OPTIONS = {
-        URL_ROOT:    '../../../',
-        VERSION:     '0.01',
-        COLLAPSE_INDEX: false,
-        FILE_SUFFIX: '.html',
-        HAS_SOURCE:  true,
-        SOURCELINK_SUFFIX: '.txt'
-      };
-    </script>
+    <script type="text/javascript" src="../../../_static/documentation_options.js"></script>
     <script type="text/javascript" src="../../../_static/jquery.js"></script>
     <script type="text/javascript" src="../../../_static/underscore.js"></script>
     <script type="text/javascript" src="../../../_static/doctools.js"></script>
     <link rel="index" title="Index" href="../../../genindex.html" />
     <link rel="search" title="Search" href="../../../search.html" /> 
-  </head>
-  <body>
+  </head><body>
     <div class="related" role="navigation" aria-label="related navigation">
       <h3>Navigation</h3>
       <ul>
@@ -34,7 +25,7 @@
         <li class="right" >
           <a href="../../../py-modindex.html" title="Python Module Index"
              >modules</a> |</li>
-        <li class="nav-item nav-item-0"><a href="../../../index.html">TrafficSense 0.01 documentation</a> &#187;</li>
+        <li class="nav-item nav-item-0"><a href="../../../index.html">TrafficSense 0.3 documentation</a> &#187;</li>
           <li class="nav-item nav-item-1"><a href="../../index.html" accesskey="U">Module code</a> &#187;</li> 
       </ul>
     </div>  
@@ -46,6 +37,9 @@
             
   <h1>Source code for ts_core.config.config_helpers</h1><div class="highlight"><pre>
 <span></span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">Config Helper Tools</span>
+<span class="sd">===================</span>
+
 <span class="sd">This module contains a series of functions that transform the parsed excel document into SUMO conpatible XML. </span>
 
 <span class="sd">Each function corresponds to ONE of the SUMO configuration files</span>
@@ -148,7 +142,18 @@
     <span class="k">return</span> <span class="n">xmlstr</span></div>
 
 <div class="viewcode-block" id="mk_edge"><a class="viewcode-back" href="../../../ts_core.config.config_helpers.html#ts_core.config.config_helpers.mk_edge">[docs]</a><span class="k">def</span> <span class="nf">mk_edge</span><span class="p">(</span><span class="n">intersections</span><span class="p">:</span> <span class="nb">dict</span><span class="p">,</span> <span class="n">branches</span><span class="p">:</span> <span class="nb">dict</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Helper to make the edg.xml file</span>
+<span class="sd">    </span>
+<span class="sd">    Parameters</span>
+<span class="sd">    ----------</span>
+<span class="sd">    intersections</span>
+<span class="sd">    branches</span>
 
+<span class="sd">    Returns</span>
+<span class="sd">    -------</span>
+
+<span class="sd">    &quot;&quot;&quot;</span>
     <span class="n">edge</span> <span class="o">=</span> <span class="n">edges</span><span class="o">.</span><span class="n">edges</span><span class="p">()</span>
 
 
@@ -197,8 +202,7 @@
 <div class="viewcode-block" id="mk_node"><a class="viewcode-back" href="../../../ts_core.config.config_helpers.html#ts_core.config.config_helpers.mk_node">[docs]</a><span class="k">def</span> <span class="nf">mk_node</span><span class="p">(</span><span class="n">intersections</span><span class="p">:</span> <span class="nb">dict</span><span class="p">,</span> <span class="n">branches</span><span class="p">:</span> <span class="nb">dict</span><span class="p">):</span>
     <span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">    </span>
-<span class="sd">    Let&#39;s do an example...</span>
-<span class="sd">    </span>
+<span class="sd">    Helper to make the nod.xml file </span>
 <span class="sd">    </span>
 <span class="sd">    Parameters</span>
 <span class="sd">    ----------</span>
@@ -311,12 +315,14 @@
         <div class="sphinxsidebarwrapper">
 <div id="searchbox" style="display: none" role="search">
   <h3>Quick search</h3>
+    <div class="searchformwrapper">
     <form class="search" action="../../../search.html" method="get">
-      <div><input type="text" name="q" /></div>
-      <div><input type="submit" value="Go" /></div>
+      <input type="text" name="q" />
+      <input type="submit" value="Go" />
       <input type="hidden" name="check_keywords" value="yes" />
       <input type="hidden" name="area" value="default" />
     </form>
+    </div>
 </div>
 <script type="text/javascript">$('#searchbox').show(0);</script>
         </div>
@@ -332,13 +338,13 @@
         <li class="right" >
           <a href="../../../py-modindex.html" title="Python Module Index"
              >modules</a> |</li>
-        <li class="nav-item nav-item-0"><a href="../../../index.html">TrafficSense 0.01 documentation</a> &#187;</li>
+        <li class="nav-item nav-item-0"><a href="../../../index.html">TrafficSense 0.3 documentation</a> &#187;</li>
           <li class="nav-item nav-item-1"><a href="../../index.html" >Module code</a> &#187;</li> 
       </ul>
     </div>
     <div class="footer" role="contentinfo">
         &#169; Copyright 2017, Samara, Gaitz, Eilif, Bryan, Justin, Jow.
-      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 1.6.5.
+      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 1.7.4.
     </div>
   </body>
 </html>

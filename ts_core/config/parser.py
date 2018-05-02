@@ -21,16 +21,19 @@ Attributes can only be read from Row 3 and below (MIN_ROW)
 Only the first 1000 rows can have any attributes (MAX_ROW)
 
 Current supported tabs:
-*Vehicle Type Customization
-*General Settings
-*Intersection Definition
-*Branch Settings
+* Vehicle Type Customization
+* General Settings
+* Intersection Definition
+* Branch Settings
 
 
 Current supported Intersection Types:
-*Cross
-*T
-*Y
+* Cross
+* T
+* Y
+
+Cross intersection has been tested. 
+
 
 
 """

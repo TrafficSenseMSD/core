@@ -1,0 +1,8 @@
+ts\_core.SUMO package
+=====================
+
+.. automodule:: ts_core.SUMO
+    :members:
+    :undoc-members:
+    :show-inheritance:
+

@@ -4,27 +4,18 @@
 
 <html xmlns="http://www.w3.org/1999/xhtml">
   <head>
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge" />
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-    <title>Welcome to TrafficSense’s documentation! &#8212; TrafficSense 0.01 documentation</title>
+    <title>Welcome to TrafficSense’s documentation! &#8212; TrafficSense 0.3 documentation</title>
     <link rel="stylesheet" href="_static/classic.css" type="text/css" />
     <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
-    <script type="text/javascript">
-      var DOCUMENTATION_OPTIONS = {
-        URL_ROOT:    './',
-        VERSION:     '0.01',
-        COLLAPSE_INDEX: false,
-        FILE_SUFFIX: '.html',
-        HAS_SOURCE:  true,
-        SOURCELINK_SUFFIX: '.txt'
-      };
-    </script>
+    <script type="text/javascript" src="_static/documentation_options.js"></script>
     <script type="text/javascript" src="_static/jquery.js"></script>
     <script type="text/javascript" src="_static/underscore.js"></script>
     <script type="text/javascript" src="_static/doctools.js"></script>
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" /> 
-  </head>
-  <body>
+  </head><body>
     <div class="related" role="navigation" aria-label="related navigation">
       <h3>Navigation</h3>
       <ul>
@@ -34,7 +25,7 @@
         <li class="right" >
           <a href="py-modindex.html" title="Python Module Index"
              >modules</a> |</li>
-        <li class="nav-item nav-item-0"><a href="#">TrafficSense 0.01 documentation</a> &#187;</li> 
+        <li class="nav-item nav-item-0"><a href="#">TrafficSense 0.3 documentation</a> &#187;</li> 
       </ul>
     </div>  
 
@@ -50,39 +41,40 @@ program. The TrafficSense tools are designed to facilitate simple use of the SUM
 user can focus on optimizing traffic light controls at an intersection.</p>
 <p>The project aims to make it easier to make intersections better.</p>
 <p>The original team behind this project has graduated. Please contact Dr. Katie McConky at RIT if you need anything.</p>
+<div class="toctree-wrapper compound">
+</div>
 <div class="section" id="installation">
 <h2>Installation<a class="headerlink" href="#installation" title="Permalink to this headline">¶</a></h2>
-<p>Be sure to install <code class="docutils literal"><span class="pre">git</span></code> and have a dedicated Python 3.5+ environment handy. We recommend Anaconda.</p>
-<p><code class="docutils literal"><span class="pre">git</span> <span class="pre">clone</span> <span class="pre">https://github.com/TrafficSenseMSD/core.git</span></code></p>
-<p><code class="docutils literal"><span class="pre">cd</span> <span class="pre">core</span></code></p>
-<p><code class="docutils literal"><span class="pre">pip</span> <span class="pre">install</span> <span class="pre">.</span></code></p>
+<p>Be sure to install <code class="docutils literal notranslate"><span class="pre">git</span></code> and have a dedicated Python 3.5+ environment handy. We recommend Anaconda.</p>
+<p><code class="docutils literal notranslate"><span class="pre">git</span> <span class="pre">clone</span> <span class="pre">https://github.com/TrafficSenseMSD/core.git</span></code></p>
+<p><code class="docutils literal notranslate"><span class="pre">cd</span> <span class="pre">core</span></code></p>
+<p><code class="docutils literal notranslate"><span class="pre">pip</span> <span class="pre">install</span> <span class="pre">.</span></code></p>
 </div>
 <div class="section" id="ts-config-documentation">
-<h2><code class="docutils literal"><span class="pre">ts_config</span></code> Documentation<a class="headerlink" href="#ts-config-documentation" title="Permalink to this headline">¶</a></h2>
+<h2><code class="docutils literal notranslate"><span class="pre">ts_config</span></code> Documentation<a class="headerlink" href="#ts-config-documentation" title="Permalink to this headline">¶</a></h2>
 <p>Getting started with SUMO requires the definition of intersection geometery and traffic demand. If you need a first
 step, this is the droid you’re looking for.</p>
-<p>A template for intersection configuration can be found in <code class="docutils literal"><span class="pre">ts_core/excel_parser/</span></code>. YOU WILL NEED THIS!</p>
+<p>A template for intersection configuration can be found in <code class="docutils literal notranslate"><span class="pre">ts_core/config/</span></code>. YOU WILL NEED THIS!</p>
 <p><a class="reference internal" href="ts_core.cli.ts_config.html#ts-config-cli"><span class="std std-ref">ts_config Overview</span></a></p>
 <p>Source code docs are written using the Numpydocs format in the code. Additional docs are written in ReStructuredtext
-format. Here’s a primer on ReStructuredText syntax. <a class="reference external" href="http://www.sphinx-doc.org/en/master/usage/restructuredtext/basics.html">http://www.sphinx-doc.org/en/master/usage/restructuredtext/basics.html</a></p>
+format.
+Here’s a primer on ReStructuredText syntax. <a class="reference external" href="http://www.sphinx-doc.org/en/master/usage/restructuredtext/basics.html">http://www.sphinx-doc.org/en/master/usage/restructuredtext/basics.html</a></p>
 </div>
 <div class="section" id="ts-runner-documentation">
-<h2><code class="docutils literal"><span class="pre">ts_runner</span></code> Documentation<a class="headerlink" href="#ts-runner-documentation" title="Permalink to this headline">¶</a></h2>
+<h2><code class="docutils literal notranslate"><span class="pre">ts_runner</span></code> Documentation<a class="headerlink" href="#ts-runner-documentation" title="Permalink to this headline">¶</a></h2>
 <p><a class="reference internal" href="ts_core.cli.ts_runner.html#ts-runner-cli"><span class="std std-ref">ts_runner Overview</span></a></p>
 </div>
 <div class="section" id="project-developer-documentation">
 <h2>Project Developer Documentation<a class="headerlink" href="#project-developer-documentation" title="Permalink to this headline">¶</a></h2>
 <div class="section" id="ts-runner">
-<h3><code class="docutils literal"><span class="pre">ts_runner</span></code><a class="headerlink" href="#ts-runner" title="Permalink to this headline">¶</a></h3>
+<h3><code class="docutils literal notranslate"><span class="pre">ts_runner</span></code><a class="headerlink" href="#ts-runner" title="Permalink to this headline">¶</a></h3>
 <p><a class="reference internal" href="ts_core.execution.Rolodex.html#ts-runner-rolodex"><span class="std std-ref">Rolodex Overview</span></a></p>
 <p><a class="reference internal" href="ts_core.execution.VariableDictionary.html#ts-runner-variable"><span class="std std-ref">VariableDictionary Overview</span></a></p>
 </div>
 <div class="section" id="ts-config">
-<h3><code class="docutils literal"><span class="pre">ts_config</span></code><a class="headerlink" href="#ts-config" title="Permalink to this headline">¶</a></h3>
+<h3><code class="docutils literal notranslate"><span class="pre">ts_config</span></code><a class="headerlink" href="#ts-config" title="Permalink to this headline">¶</a></h3>
 <p><a class="reference internal" href="ts_core.config.bindings.html#ts-config-bindings"><span class="std std-ref">SUMO XSD Python Bindings</span></a></p>
 <p><a class="reference internal" href="ts_core.config.parser.html#ts-config-parser"><span class="std std-ref">Excel Configuration Parser Internals</span></a>:</p>
-<div class="toctree-wrapper compound">
-</div>
 </div>
 </div>
 </div>
@@ -105,11 +97,11 @@ format. Here’s a primer on ReStructuredText syntax. <a class="reference extern
   <ul>
 <li><a class="reference internal" href="#">Welcome to TrafficSense’s documentation!</a><ul>
 <li><a class="reference internal" href="#installation">Installation</a></li>
-<li><a class="reference internal" href="#ts-config-documentation"><code class="docutils literal"><span class="pre">ts_config</span></code> Documentation</a></li>
-<li><a class="reference internal" href="#ts-runner-documentation"><code class="docutils literal"><span class="pre">ts_runner</span></code> Documentation</a></li>
+<li><a class="reference internal" href="#ts-config-documentation"><code class="docutils literal notranslate"><span class="pre">ts_config</span></code> Documentation</a></li>
+<li><a class="reference internal" href="#ts-runner-documentation"><code class="docutils literal notranslate"><span class="pre">ts_runner</span></code> Documentation</a></li>
 <li><a class="reference internal" href="#project-developer-documentation">Project Developer Documentation</a><ul>
-<li><a class="reference internal" href="#ts-runner"><code class="docutils literal"><span class="pre">ts_runner</span></code></a></li>
-<li><a class="reference internal" href="#ts-config"><code class="docutils literal"><span class="pre">ts_config</span></code></a></li>
+<li><a class="reference internal" href="#ts-runner"><code class="docutils literal notranslate"><span class="pre">ts_runner</span></code></a></li>
+<li><a class="reference internal" href="#ts-config"><code class="docutils literal notranslate"><span class="pre">ts_config</span></code></a></li>
 </ul>
 </li>
 </ul>
@@ -126,12 +118,14 @@ format. Here’s a primer on ReStructuredText syntax. <a class="reference extern
    </div>
 <div id="searchbox" style="display: none" role="search">
   <h3>Quick search</h3>
+    <div class="searchformwrapper">
     <form class="search" action="search.html" method="get">
-      <div><input type="text" name="q" /></div>
-      <div><input type="submit" value="Go" /></div>
+      <input type="text" name="q" />
+      <input type="submit" value="Go" />
       <input type="hidden" name="check_keywords" value="yes" />
       <input type="hidden" name="area" value="default" />
     </form>
+    </div>
 </div>
 <script type="text/javascript">$('#searchbox').show(0);</script>
         </div>
@@ -147,12 +141,12 @@ format. Here’s a primer on ReStructuredText syntax. <a class="reference extern
         <li class="right" >
           <a href="py-modindex.html" title="Python Module Index"
              >modules</a> |</li>
-        <li class="nav-item nav-item-0"><a href="#">TrafficSense 0.01 documentation</a> &#187;</li> 
+        <li class="nav-item nav-item-0"><a href="#">TrafficSense 0.3 documentation</a> &#187;</li> 
       </ul>
     </div>
     <div class="footer" role="contentinfo">
         &#169; Copyright 2017, Samara, Gaitz, Eilif, Bryan, Justin, Jow.
-      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 1.6.5.
+      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 1.7.4.
     </div>
   </body>
 </html>

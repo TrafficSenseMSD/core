@@ -1,5 +1,5 @@
-ts\_core\.config\.bindings\.edges\_xml module
-=============================================
+ts\_core.config.bindings.edges\_xml module
+==========================================
 
 .. automodule:: ts_core.config.bindings.edges_xml
     :members:

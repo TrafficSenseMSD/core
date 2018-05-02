@@ -1,5 +1,4 @@
 """
-
 .. _ts_config_cli:
 
 ``ts_config`` Overview
@@ -64,7 +63,7 @@ def main():
     # init.add_argument("-p", "--project_path", action=FullPaths)
     # init.set_defaults(which='init')
 
-    build = subparsers.add_parser('build', help="subcommand to build the configuration", description="Run the configuration build.")
+    build = subparsers.add_parser('build', help="subcommand to build the configuration")
     build.add_argument("-c", "--config_file", action=FullPaths, help="Path to Excel config file. Will auto expand relative paths.")#, action=FullPaths)
     build.add_argument("-p", "--project_path", action=FullPaths)
     build.set_defaults(which='build')

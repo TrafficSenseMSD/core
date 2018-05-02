@@ -1,7 +1,0 @@
-ts\_core\.config\.cross\_sumocfg\_demo module
-=============================================
-
-.. automodule:: ts_core.config.cross_sumocfg_demo
-    :members:
-    :undoc-members:
-    :show-inheritance:

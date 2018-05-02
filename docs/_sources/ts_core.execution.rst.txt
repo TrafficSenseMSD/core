@@ -1,5 +1,5 @@
-ts\_core\.execution package
-===========================
+ts\_core.execution package
+==========================
 
 .. automodule:: ts_core.execution
     :members:

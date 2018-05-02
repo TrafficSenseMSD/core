@@ -4,27 +4,18 @@
 
 <html xmlns="http://www.w3.org/1999/xhtml">
   <head>
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge" />
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-    <title>ts_core.cli.ts_config module &#8212; TrafficSense 0.01 documentation</title>
+    <title>ts_core.cli.ts_config module &#8212; TrafficSense 0.3 documentation</title>
     <link rel="stylesheet" href="_static/classic.css" type="text/css" />
     <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
-    <script type="text/javascript">
-      var DOCUMENTATION_OPTIONS = {
-        URL_ROOT:    './',
-        VERSION:     '0.01',
-        COLLAPSE_INDEX: false,
-        FILE_SUFFIX: '.html',
-        HAS_SOURCE:  true,
-        SOURCELINK_SUFFIX: '.txt'
-      };
-    </script>
+    <script type="text/javascript" src="_static/documentation_options.js"></script>
     <script type="text/javascript" src="_static/jquery.js"></script>
     <script type="text/javascript" src="_static/underscore.js"></script>
     <script type="text/javascript" src="_static/doctools.js"></script>
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" /> 
-  </head>
-  <body>
+  </head><body>
     <div class="related" role="navigation" aria-label="related navigation">
       <h3>Navigation</h3>
       <ul>
@@ -34,7 +25,7 @@
         <li class="right" >
           <a href="py-modindex.html" title="Python Module Index"
              >modules</a> |</li>
-        <li class="nav-item nav-item-0"><a href="index.html">TrafficSense 0.01 documentation</a> &#187;</li> 
+        <li class="nav-item nav-item-0"><a href="index.html">TrafficSense 0.3 documentation</a> &#187;</li> 
       </ul>
     </div>  
 
@@ -46,8 +37,8 @@
   <div class="section" id="module-ts_core.cli.ts_config">
 <span id="ts-core-cli-ts-config-module"></span><h1>ts_core.cli.ts_config module<a class="headerlink" href="#module-ts_core.cli.ts_config" title="Permalink to this headline">¶</a></h1>
 <div class="section" id="ts-config-overview">
-<span id="ts-config-cli"></span><h2><code class="docutils literal"><span class="pre">ts_config</span></code> Overview<a class="headerlink" href="#ts-config-overview" title="Permalink to this headline">¶</a></h2>
-<p><code class="docutils literal"><span class="pre">ts_config</span></code> manages the build of SUMO configuration files from an Excel sheet.</p>
+<span id="ts-config-cli"></span><h2><code class="docutils literal notranslate"><span class="pre">ts_config</span></code> Overview<a class="headerlink" href="#ts-config-overview" title="Permalink to this headline">¶</a></h2>
+<p><code class="docutils literal notranslate"><span class="pre">ts_config</span></code> manages the build of SUMO configuration files from an Excel sheet.</p>
 <p>The user should understand that, because we have simplified configuration, not all SUMO features are supported
 out of the box.</p>
 <div class="section" id="quickstart">
@@ -56,7 +47,7 @@ out of the box.</p>
 <ul class="simple">
 <li>Copy ts_core/config/Configuration_template.xlsx to the directory of your choosing.</li>
 <li>Edit the configuration file to your liking.</li>
-<li>From a shell, run <code class="docutils literal"><span class="pre">ts_config</span> <span class="pre">build</span> <span class="pre">-c</span> <span class="pre">&lt;config_path&gt;</span> <span class="pre">-p</span> <span class="pre">&lt;project_target_dir&gt;</span></code></li>
+<li>From a shell, run <code class="docutils literal notranslate"><span class="pre">ts_config</span> <span class="pre">build</span> <span class="pre">-c</span> <span class="pre">&lt;config_path&gt;</span> <span class="pre">-p</span> <span class="pre">&lt;project_target_dir&gt;</span></code></li>
 </ul>
 </div>
 <hr class="docutils" />
@@ -75,7 +66,7 @@ out of the box.</p>
 <tr class="row-odd"><td><strong>Argument</strong></td>
 <td><strong>Description</strong></td>
 </tr>
-<tr class="row-even"><td><code class="docutils literal"><span class="pre">-h</span></code>, <code class="docutils literal"><span class="pre">--help</span></code></td>
+<tr class="row-even"><td><code class="docutils literal notranslate"><span class="pre">-h</span></code>, <code class="docutils literal notranslate"><span class="pre">--help</span></code></td>
 <td>show this help message and exit</td>
 </tr>
 </tbody>
@@ -96,7 +87,7 @@ out of the box.</p>
 <tr class="row-odd"><td><strong>Argument</strong></td>
 <td><strong>Description</strong></td>
 </tr>
-<tr class="row-even"><td><code class="docutils literal"><span class="pre">build</span></code></td>
+<tr class="row-even"><td><code class="docutils literal notranslate"><span class="pre">build</span></code></td>
 <td>subcommand to build the configuration</td>
 </tr>
 </tbody>
@@ -154,7 +145,7 @@ will (call functions that )creates all of the required files</p>
   <h3><a href="index.html">Table Of Contents</a></h3>
   <ul>
 <li><a class="reference internal" href="#">ts_core.cli.ts_config module</a><ul>
-<li><a class="reference internal" href="#ts-config-overview"><code class="docutils literal"><span class="pre">ts_config</span></code> Overview</a><ul>
+<li><a class="reference internal" href="#ts-config-overview"><code class="docutils literal notranslate"><span class="pre">ts_config</span></code> Overview</a><ul>
 <li><a class="reference internal" href="#quickstart">Quickstart</a></li>
 <li><a class="reference internal" href="#command-line-arguments">Command-line arguments</a><ul>
 <li><a class="reference internal" href="#optional-arguments">Optional arguments</a></li>
@@ -177,12 +168,14 @@ will (call functions that )creates all of the required files</p>
    </div>
 <div id="searchbox" style="display: none" role="search">
   <h3>Quick search</h3>
+    <div class="searchformwrapper">
     <form class="search" action="search.html" method="get">
-      <div><input type="text" name="q" /></div>
-      <div><input type="submit" value="Go" /></div>
+      <input type="text" name="q" />
+      <input type="submit" value="Go" />
       <input type="hidden" name="check_keywords" value="yes" />
       <input type="hidden" name="area" value="default" />
     </form>
+    </div>
 </div>
 <script type="text/javascript">$('#searchbox').show(0);</script>
         </div>
@@ -198,12 +191,12 @@ will (call functions that )creates all of the required files</p>
         <li class="right" >
           <a href="py-modindex.html" title="Python Module Index"
              >modules</a> |</li>
-        <li class="nav-item nav-item-0"><a href="index.html">TrafficSense 0.01 documentation</a> &#187;</li> 
+        <li class="nav-item nav-item-0"><a href="index.html">TrafficSense 0.3 documentation</a> &#187;</li> 
       </ul>
     </div>
     <div class="footer" role="contentinfo">
         &#169; Copyright 2017, Samara, Gaitz, Eilif, Bryan, Justin, Jow.
-      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 1.6.5.
+      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 1.7.4.
     </div>
   </body>
 </html>

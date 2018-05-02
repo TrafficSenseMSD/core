@@ -3,7 +3,8 @@
 .. _ts_runner_variable:
 
 ``VariableDictionary`` Overview
-----------------------
+-------------------------------
+
 ``VariableDictionary`` serves as a lookup table for TraCi variables to be used for subscriptions
 
 

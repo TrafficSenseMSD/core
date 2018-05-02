@@ -1,7 +1,0 @@
-ts\_core\.config\.cross\_node\_demo module
-==========================================
-
-.. automodule:: ts_core.config.cross_node_demo
-    :members:
-    :undoc-members:
-    :show-inheritance:

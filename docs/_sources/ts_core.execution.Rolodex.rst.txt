@@ -1,5 +1,5 @@
-ts\_core\.execution\.Rolodex module
-===================================
+ts\_core.execution.Rolodex module
+=================================
 
 .. automodule:: ts_core.execution.Rolodex
     :members:

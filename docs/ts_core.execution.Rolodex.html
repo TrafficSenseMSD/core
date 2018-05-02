@@ -4,27 +4,18 @@
 
 <html xmlns="http://www.w3.org/1999/xhtml">
   <head>
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge" />
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-    <title>ts_core.execution.Rolodex module &#8212; TrafficSense 0.01 documentation</title>
+    <title>ts_core.execution.Rolodex module &#8212; TrafficSense 0.3 documentation</title>
     <link rel="stylesheet" href="_static/classic.css" type="text/css" />
     <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
-    <script type="text/javascript">
-      var DOCUMENTATION_OPTIONS = {
-        URL_ROOT:    './',
-        VERSION:     '0.01',
-        COLLAPSE_INDEX: false,
-        FILE_SUFFIX: '.html',
-        HAS_SOURCE:  true,
-        SOURCELINK_SUFFIX: '.txt'
-      };
-    </script>
+    <script type="text/javascript" src="_static/documentation_options.js"></script>
     <script type="text/javascript" src="_static/jquery.js"></script>
     <script type="text/javascript" src="_static/underscore.js"></script>
     <script type="text/javascript" src="_static/doctools.js"></script>
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" /> 
-  </head>
-  <body>
+  </head><body>
     <div class="related" role="navigation" aria-label="related navigation">
       <h3>Navigation</h3>
       <ul>
@@ -34,7 +25,7 @@
         <li class="right" >
           <a href="py-modindex.html" title="Python Module Index"
              >modules</a> |</li>
-        <li class="nav-item nav-item-0"><a href="index.html">TrafficSense 0.01 documentation</a> &#187;</li> 
+        <li class="nav-item nav-item-0"><a href="index.html">TrafficSense 0.3 documentation</a> &#187;</li> 
       </ul>
     </div>  
 
@@ -46,32 +37,35 @@
   <div class="section" id="module-ts_core.execution.Rolodex">
 <span id="ts-core-execution-rolodex-module"></span><h1>ts_core.execution.Rolodex module<a class="headerlink" href="#module-ts_core.execution.Rolodex" title="Permalink to this headline">¶</a></h1>
 <div class="section" id="rolodex-overview">
-<span id="ts-runner-rolodex"></span><h2><code class="docutils literal"><span class="pre">Rolodex</span></code> Overview<a class="headerlink" href="#rolodex-overview" title="Permalink to this headline">¶</a></h2>
-<p><code class="docutils literal"><span class="pre">Rolodex</span></code> handles data collection through TraCi variable subscriptions, data access, and supporting functions</p>
+<span id="ts-runner-rolodex"></span><h2><code class="docutils literal notranslate"><span class="pre">Rolodex</span></code> Overview<a class="headerlink" href="#rolodex-overview" title="Permalink to this headline">¶</a></h2>
+<p><code class="docutils literal notranslate"><span class="pre">Rolodex</span></code> handles data collection through TraCi variable subscriptions, data access, and supporting functions</p>
 <div class="section" id="software-structure-and-implementation">
 <h3>Software Structure and Implementation<a class="headerlink" href="#software-structure-and-implementation" title="Permalink to this headline">¶</a></h3>
 </div>
 <div class="section" id="light-control">
 <h3>Light Control<a class="headerlink" href="#light-control" title="Permalink to this headline">¶</a></h3>
-<p><code class="docutils literal"><span class="pre">ts_runner</span></code> will accept an argument that specifies the file and class name to import at startup.  Messing with this
+<p><code class="docutils literal notranslate"><span class="pre">ts_runner</span></code> will accept an argument that specifies the file and class name to import at startup.  Messing with this
 part of Python is tricky business.</p>
 </div>
 <div class="section" id="optimization">
 <h3>Optimization<a class="headerlink" href="#optimization" title="Permalink to this headline">¶</a></h3>
 <p>ts_runner looks for a file named optimizer_example to run
-inside the optimizer_example file an OptimizerExample class is expected to exist with a function called <code class="docutils literal"><span class="pre">train</span></code> which is called after every simulation tick</p>
+inside the optimizer_example file an OptimizerExample class is expected to exist with a function called <code class="docutils literal notranslate"><span class="pre">train</span></code> which is called after every simulation tick</p>
 </div>
 <div class="section" id="output">
 <h3>Output<a class="headerlink" href="#output" title="Permalink to this headline">¶</a></h3>
 <p>Output from ts_runner is directed to <a href="#id1"><span class="problematic" id="id2">``</span></a>&lt;sumo_project_dir&gt;/output/&lt;YYYY_MM_DD_HH_MM_SS_dddddd&gt;/’’ which
 contains:</p>
 <blockquote>
-<div><code class="docutils literal"><span class="pre">sutripinfo.xml</span></code>
-<code class="docutils literal"><span class="pre">YYYY_MM_DD_HH_MM_SS_dddddd_ts_runner.log</span></code> (Not yet implemented, writes to current dir)</div></blockquote>
+<div><ul class="simple">
+<li><code class="docutils literal notranslate"><span class="pre">sutripinfo.xml</span></code></li>
+<li><code class="docutils literal notranslate"><span class="pre">YYYY_MM_DD_HH_MM_SS_dddddd_ts_runner.log</span></code> (Not yet implemented, writes to current dir)</li>
+</ul>
+</div></blockquote>
 <dl class="class">
 <dt id="ts_core.execution.Rolodex.DataBuffer">
 <em class="property">class </em><code class="descname">DataBuffer</code><span class="sig-paren">(</span><em>buffer_length</em>, <em>domain</em>, <em>attributes=None</em>, <em>dumpfile=None</em>, <em>id_update_frequency=None</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/ts_core/execution/Rolodex.html#DataBuffer"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#ts_core.execution.Rolodex.DataBuffer" title="Permalink to this definition">¶</a></dt>
-<dd><p>Bases: <code class="xref py py-class docutils literal"><span class="pre">object</span></code></p>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
 <p>Buffers to hold simulation data collected by subscriptions</p>
 <dl class="method">
 <dt id="ts_core.execution.Rolodex.DataBuffer.add">
@@ -194,7 +188,7 @@ contains:</p>
 <dl class="class">
 <dt id="ts_core.execution.Rolodex.Rolodex">
 <em class="property">class </em><code class="descname">Rolodex</code><span class="sig-paren">(</span><em>attributes=None</em>, <em>buffer_length=None</em>, <em>frame_time=None</em>, <em>simulation_run_time=None</em>, <em>dumpfile=None</em>, <em>id_update_frequency=None</em>, <em>ticks_per_second=1</em>, <em>auto_removal_delay=10</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/ts_core/execution/Rolodex.html#Rolodex"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#ts_core.execution.Rolodex.Rolodex" title="Permalink to this definition">¶</a></dt>
-<dd><p>Bases: <code class="xref py py-class docutils literal"><span class="pre">object</span></code></p>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
 <p>Data buffer wrapper class</p>
 <table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
@@ -470,7 +464,7 @@ to use a global sampling frequency for all attributes</p>
   <h3><a href="index.html">Table Of Contents</a></h3>
   <ul>
 <li><a class="reference internal" href="#">ts_core.execution.Rolodex module</a><ul>
-<li><a class="reference internal" href="#rolodex-overview"><code class="docutils literal"><span class="pre">Rolodex</span></code> Overview</a><ul>
+<li><a class="reference internal" href="#rolodex-overview"><code class="docutils literal notranslate"><span class="pre">Rolodex</span></code> Overview</a><ul>
 <li><a class="reference internal" href="#software-structure-and-implementation">Software Structure and Implementation</a></li>
 <li><a class="reference internal" href="#light-control">Light Control</a></li>
 <li><a class="reference internal" href="#optimization">Optimization</a></li>
@@ -490,12 +484,14 @@ to use a global sampling frequency for all attributes</p>
    </div>
 <div id="searchbox" style="display: none" role="search">
   <h3>Quick search</h3>
+    <div class="searchformwrapper">
     <form class="search" action="search.html" method="get">
-      <div><input type="text" name="q" /></div>
-      <div><input type="submit" value="Go" /></div>
+      <input type="text" name="q" />
+      <input type="submit" value="Go" />
       <input type="hidden" name="check_keywords" value="yes" />
       <input type="hidden" name="area" value="default" />
     </form>
+    </div>
 </div>
 <script type="text/javascript">$('#searchbox').show(0);</script>
         </div>
@@ -511,12 +507,12 @@ to use a global sampling frequency for all attributes</p>
         <li class="right" >
           <a href="py-modindex.html" title="Python Module Index"
              >modules</a> |</li>
-        <li class="nav-item nav-item-0"><a href="index.html">TrafficSense 0.01 documentation</a> &#187;</li> 
+        <li class="nav-item nav-item-0"><a href="index.html">TrafficSense 0.3 documentation</a> &#187;</li> 
       </ul>
     </div>
     <div class="footer" role="contentinfo">
         &#169; Copyright 2017, Samara, Gaitz, Eilif, Bryan, Justin, Jow.
-      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 1.6.5.
+      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 1.7.4.
     </div>
   </body>
 </html>

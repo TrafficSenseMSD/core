@@ -1,5 +1,5 @@
-ts\_core\.execution\.TraCiWrapper module
-========================================
+ts\_core.execution.TraCiWrapper module
+======================================
 
 .. automodule:: ts_core.execution.TraCiWrapper
     :members:

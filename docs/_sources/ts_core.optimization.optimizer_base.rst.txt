@@ -1,5 +1,5 @@
-ts\_core\.optimization\.optimizer\_base module
-==============================================
+ts\_core.optimization.optimizer\_base module
+============================================
 
 .. automodule:: ts_core.optimization.optimizer_base
     :members:

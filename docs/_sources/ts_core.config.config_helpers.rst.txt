@@ -1,5 +1,5 @@
-ts\_core\.config\.config\_helpers module
-========================================
+ts\_core.config.config\_helpers module
+======================================
 
 .. automodule:: ts_core.config.config_helpers
     :members:

@@ -1,5 +1,5 @@
-ts\_core\.config\.bindings\.sumocfg module
-==========================================
+ts\_core.config.bindings.sumocfg module
+=======================================
 
 .. automodule:: ts_core.config.bindings.sumocfg
     :members:

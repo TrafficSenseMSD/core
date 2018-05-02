@@ -13,6 +13,11 @@ The project aims to make it easier to make intersections better.
 
 The original team behind this project has graduated. Please contact Dr. Katie McConky at RIT if you need anything.
 
+.. toctree::
+   :maxdepth: 5
+   :caption: Contents:
+
+
 Installation
 ------------
 Be sure to install ``git`` and have a dedicated Python 3.5+ environment handy. We recommend Anaconda.
@@ -26,18 +31,18 @@ Be sure to install ``git`` and have a dedicated Python 3.5+ environment handy. W
 
 
 
-
 ``ts_config`` Documentation
 ---------------------------
 Getting started with SUMO requires the definition of intersection geometery and traffic demand. If you need a first
 step, this is the droid you're looking for.
 
-A template for intersection configuration can be found in ``ts_core/excel_parser/``. YOU WILL NEED THIS!
+A template for intersection configuration can be found in ``ts_core/config/``. YOU WILL NEED THIS!
 
 :ref:`ts_config_cli`
 
 Source code docs are written using the Numpydocs format in the code. Additional docs are written in ReStructuredtext
-format. Here's a primer on ReStructuredText syntax. http://www.sphinx-doc.org/en/master/usage/restructuredtext/basics.html
+format.
+Here's a primer on ReStructuredText syntax. http://www.sphinx-doc.org/en/master/usage/restructuredtext/basics.html
 
 ``ts_runner`` Documentation
 ---------------------------
@@ -64,9 +69,6 @@ Project Developer Documentation
 :ref:`ts_config_parser`:
 
 
-.. toctree::
-   :maxdepth: 2
-   :caption: Contents:
 
 
 

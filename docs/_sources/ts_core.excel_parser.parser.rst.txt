@@ -1,7 +1,0 @@
-ts\_core\.excel\_parser\.parser module
-======================================
-
-.. automodule:: ts_core.excel_parser.parser
-    :members:
-    :undoc-members:
-    :show-inheritance:

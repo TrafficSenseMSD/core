@@ -1,5 +1,5 @@
-ts\_core\.config\.bindings\.nodes\_xml module
-=============================================
+ts\_core.config.bindings.nodes\_xml module
+==========================================
 
 .. automodule:: ts_core.config.bindings.nodes_xml
     :members:

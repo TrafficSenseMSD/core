@@ -1,5 +1,5 @@
-ts\_core\.utils package
-=======================
+ts\_core.utils package
+======================
 
 .. automodule:: ts_core.utils
     :members:

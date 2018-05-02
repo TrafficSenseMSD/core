@@ -1,7 +1,0 @@
-ts\_core\.excel\_parser\.parser\_LOCAL\_12670 module
-====================================================
-
-.. automodule:: ts_core.excel_parser.parser_LOCAL_12670
-    :members:
-    :undoc-members:
-    :show-inheritance:
