@@ -1,36 +1,25 @@
 """
-``ts_runner`` is a WORK IN PROGRESS, current objective is to implement the traci_tls tutorial using our abstraction.
 
 .. _ts_runner_cli:
 
 
 ``ts_runner`` Overview
 ----------------------
-``ts_runner`` manages the startup and execution of the SUMO runtime along with traffic light control and data collectio
+``ts_runner`` manages the startup and execution of the SUMO runtime along with data collection, traffic light control, and optimization
 
 
 Software Structure and Implementation
 -------------------------------------
 
-Light Control and Optimization
-------------------------------
+Light Control
+-------------
 ``ts_runner`` will accept an argument that specifies the file and class name to import at startup.  Messing with this
 part of Python is tricky business.  
 
-PaseBin:
-
-    import importlib
-    import sys
-    
-    def modify_and_import(module_name, package=None, modification_func):
-        spec = importlib.util.find_spec(module_name, package)
-        source = spec.loader.get_source(module_name)
-        new_source = modification_func(source)
-        module = importlib.util.module_from_spec(spec)
-        codeobj = compile(new_source, module.__spec__.origin, 'exec')
-        exec(codeobj, module.__dict__)
-        sys.modules[module_name] = module
-        return module
+Optimization
+------------
+ts_runner looks for a file named optimizer_example to run
+inside the optimizer_example file an OptimizerExample class is expected to exist with a function called ``train`` which is called after every simulation tick
 
 
 Output
@@ -74,7 +63,16 @@ overwrite_output_help = \
 
 
 def run_loop():
-    """execute the TraCI control loop"""
+    """
+    execute the TraCI control loop
+
+    Parameters
+    ----------
+
+    Returns
+    -------
+
+    """
     tick = 0
     # from ts_core.optimization.optimizer_example import OptimizerExample
     # op = OptimizerExample()
@@ -148,9 +146,12 @@ def make_and_set_program(program_name, phases, starting_phase=0, tl_type=0, traf
 def main():
     """
     Initializes sumo to run using given files
+    Starts either command-line or GUI SUMO binary based on command-line arguments
+    Orchestrates the running of the simulation, traingin the optimizer, and controlling the traffic lights
 
     Returns
     -------
+    Nothing
 
     """
     # Initialize argument parser and declare arguments.
