@@ -1,36 +1,48 @@
+"""
+
+.. _ts_runner_cli:
+
+``VariableDictionary`` Overview
+----------------------
+``VariableDictionary`` serves as a lookup table for TraCi variables to be used for subscriptions
+
+
+
+"""
 import traci
 import traci.constants as tc
 
+
 class VariableDictionary():
     def __init__(self):
-        
+
         self.edge = {}
-            # 'id list': traci.edge.getIDList,
-            # 'count': traci.edge.getIDCount,
-            # 'lane number': traci.edge.getLaneNumber,
-            # 'current travel time': traci.edge.getTraveltime,
-            # 'CO2 emissions': traci.edge.getCO2Emission,
-            # 'CO emissions': traci.edge.getCOEmission,
-            # 'HC emissions': traci.edge.getHCEmission,
-            # 'PMx emissions': traci.edge.getPMxEmission,
-            # 'NOx emissions': traci.edge.getNOxEmission,
-            # 'fuel consumption': traci.edge.getFuelConsumption,
-            # 'noise emission': traci.edge.getNoiseEmission,
-            # 'electricity consumption': traci.edge.getElectricityConsumption,
-            # 'last step vehicle number': traci.edge.getLastStepVehicleNumber,
-            # 'last step mean speed': traci.edge.getLastStepMeanSpeed,
-            # 'last step vehicle ids': traci.edge.getLastStepVehicleIDs,
-            # 'last step occupancy': traci.edge.getLastStepOccupancy,
-            # 'last step mean vehicle length': traci.edge.getLastStepLength,
-            # 'waiting time': traci.edge.getWaitingTime,
-            # 'last step person ids': traci.edge.getLastStepPersonIDs,
-            # 'last step halting number': traci.edge.getLastStepHaltingNumber} ]
-            
+        # 'id list': traci.edge.getIDList,
+        # 'count': traci.edge.getIDCount,
+        # 'lane number': traci.edge.getLaneNumber,
+        # 'current travel time': traci.edge.getTraveltime,
+        # 'CO2 emissions': traci.edge.getCO2Emission,
+        # 'CO emissions': traci.edge.getCOEmission,
+        # 'HC emissions': traci.edge.getHCEmission,
+        # 'PMx emissions': traci.edge.getPMxEmission,
+        # 'NOx emissions': traci.edge.getNOxEmission,
+        # 'fuel consumption': traci.edge.getFuelConsumption,
+        # 'noise emission': traci.edge.getNoiseEmission,
+        # 'electricity consumption': traci.edge.getElectricityConsumption,
+        # 'last step vehicle number': traci.edge.getLastStepVehicleNumber,
+        # 'last step mean speed': traci.edge.getLastStepMeanSpeed,
+        # 'last step vehicle ids': traci.edge.getLastStepVehicleIDs,
+        # 'last step occupancy': traci.edge.getLastStepOccupancy,
+        # 'last step mean vehicle length': traci.edge.getLastStepLength,
+        # 'waiting time': traci.edge.getWaitingTime,
+        # 'last step person ids': traci.edge.getLastStepPersonIDs,
+        # 'last step halting number': traci.edge.getLastStepHaltingNumber} ]
+
         self.gui = {}
         self.inductionloop = {}
         self.junction = {}
         self.lane = {
-        'waiting time': tc.VAR_WAITING_TIME}
+            'waiting time': tc.VAR_WAITING_TIME}
         self.lanearea = {}
         self.multientryexit = {}
         self.person = {}
@@ -38,8 +50,8 @@ class VariableDictionary():
         self.polygon = {}
         self.route = {}
         self.simulation = {}
-        #self.trafficlight = {}
-        
+        # self.trafficlight = {}
+
         self.vehicle = {
             'slope': tc.VAR_SLOPE,
             'speed': tc.VAR_SPEED,
@@ -89,7 +101,7 @@ class VariableDictionary():
             'current waiting time': tc.VAR_WAITING_TIME,
             'upcoming traffic lights': tc.VAR_NEXT_TLS,
             'current electricity consumption of a node': tc.VAR_ELECTRICITYCONSUMPTION}
-            
+
         self.vehicletype = {
             'max speed': tc.VAR_MAXSPEED,
             'angle': tc.VAR_ANGLE,
@@ -106,9 +118,9 @@ class VariableDictionary():
             'width': tc.VAR_WIDTH,
             'max lateral speed': tc.VAR_MAXSPEED_LAT,
             'vehicle height': tc.VAR_HEIGHT}
-        
+
         self.domains = {
-            'edge':(self.edge, traci.edge),
+            'edge': (self.edge, traci.edge),
             'gui': (self.gui, traci.gui),
             'induction loop': (self.inductionloop, traci.inductionloop),
             'junction': (self.junction, traci.junction),
@@ -120,27 +132,60 @@ class VariableDictionary():
             'polygon': (self.polygon, traci.polygon),
             'route': (self.route, traci.route),
             'simulation': (self.simulation, traci.simulation),
-            #'traffic light': (self.trafficlight, traci.trafficlight),
-            'vehicle': (self.vehicle, traci.vehicle),        
+            # 'traffic light': (self.trafficlight, traci.trafficlight),
+            'vehicle': (self.vehicle, traci.vehicle),
             'vehicle type': (self.vehicletype, traci.vehicletype)
         }
-    
-    #will make a new table for quicker lookup, but quick soln for now:
+
+    # will make a new table for quicker lookup, but quick soln for now:
     def get_attribute_label(self, domain_label, code):
+        """
+
+        Parameters
+        ----------
+        domain_label: String representing the TraCi domain ('Vehicle')
+        code: hex code for the given attribute (0x04)
+
+        Returns
+        -------
+        the label for the given code within the specified domain ('lane id')
+        """
         for key in self.domains[domain_label][0]:
             if self.domains[domain_label][0][key] == code:
                 return key
-    
+
     def get_var(self, domain_label, attribute_label):
+        """
+
+        Parameters
+        ----------
+        domain_label: String representing the TraCi domain ('Vehicle')
+        attribute label: the label for the given code ('lane id')
+
+        Returns
+        -------
+        hex code for the given attribute within the specified domain (0x04)
+        """
         if domain_label in self.domains:
             try:
                 return self.domains[domain_label][0][attribute_label]
             except KeyError:
-                print('ERROR::VariableDictionary.get_var: key {} not found in {} dictionary.'.format(attribute_label, domain_label))
+                print('ERROR::VariableDictionary.get_var: key {} not found in {} dictionary.'.format(attribute_label,
+                                                                                                     domain_label))
         else:
             print('ERROR::VariableDictionary:get_var: domain {} does not exist'.format(domain_label))
-            
+
     def get_domain_dictionary(self, domain_label):
+        """
+
+        Parameters
+        ----------
+        domain_label: String representing the TraCi domain ('Vehicle')
+
+        Returns
+        -------
+        lookup dictionary for the attributes in a certain domain ({'lane id':0x04, 'lane position':0x06})
+        """
         try:
             return self.domains[domain_label]
         except KeyError:
