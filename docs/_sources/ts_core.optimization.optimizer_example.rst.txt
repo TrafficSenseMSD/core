@@ -1,0 +1,7 @@
+ts\_core\.optimization\.optimizer\_example module
+=================================================
+
+.. automodule:: ts_core.optimization.optimizer_example
+    :members:
+    :undoc-members:
+    :show-inheritance:

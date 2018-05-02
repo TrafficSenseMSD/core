@@ -1,0 +1,7 @@
+ts\_core\.execution\.Rolodex module
+===================================
+
+.. automodule:: ts_core.execution.Rolodex
+    :members:
+    :undoc-members:
+    :show-inheritance:

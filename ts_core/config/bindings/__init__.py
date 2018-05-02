@@ -44,6 +44,9 @@ From a Python environment with ``pyxb`` installed run:
 
 Move the generated files to the ``bindings`` directory and test that everything works as expected. 
 
+Working with Bindings
+---------------------
 
+Check out ``config/binding_examples/``
 
 """

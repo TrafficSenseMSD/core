@@ -1,0 +1,491 @@
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title>ts_core.execution.Rolodex &#8212; TrafficSense 0.01 documentation</title>
+    <link rel="stylesheet" href="../../../_static/classic.css" type="text/css" />
+    <link rel="stylesheet" href="../../../_static/pygments.css" type="text/css" />
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    '../../../',
+        VERSION:     '0.01',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true,
+        SOURCELINK_SUFFIX: '.txt'
+      };
+    </script>
+    <script type="text/javascript" src="../../../_static/jquery.js"></script>
+    <script type="text/javascript" src="../../../_static/underscore.js"></script>
+    <script type="text/javascript" src="../../../_static/doctools.js"></script>
+    <link rel="index" title="Index" href="../../../genindex.html" />
+    <link rel="search" title="Search" href="../../../search.html" /> 
+  </head>
+  <body>
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../../../genindex.html" title="General Index"
+             accesskey="I">index</a></li>
+        <li class="right" >
+          <a href="../../../py-modindex.html" title="Python Module Index"
+             >modules</a> |</li>
+        <li class="nav-item nav-item-0"><a href="../../../index.html">TrafficSense 0.01 documentation</a> &#187;</li>
+          <li class="nav-item nav-item-1"><a href="../../index.html" accesskey="U">Module code</a> &#187;</li> 
+      </ul>
+    </div>  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body" role="main">
+            
+  <h1>Source code for ts_core.execution.Rolodex</h1><div class="highlight"><pre>
+<span></span><span class="kn">import</span> <span class="nn">traci</span>
+<span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<span class="c1">#from pandas import Panel</span>
+<span class="c1">#from pandas import DataFrame</span>
+<span class="kn">from</span> <span class="nn">ts_core.execution.VariableDictionary</span> <span class="k">import</span> <span class="n">VariableDictionary</span> <span class="k">as</span> <span class="n">vd</span>
+        
+<div class="viewcode-block" id="DataBuffer"><a class="viewcode-back" href="../../../ts_core.execution.Rolodex.html#ts_core.execution.Rolodex.DataBuffer">[docs]</a><span class="k">class</span> <span class="nc">DataBuffer</span><span class="p">():</span>
+    <span class="sd">&#39;&#39;&#39;</span>
+<span class="sd">    Buffers to hold simulation data</span>
+<span class="sd">    </span>
+<span class="sd">    &#39;&#39;&#39;</span>
+    <span class="c1">#attributes = [(attribute label, [id list], sampling frequency), ...]</span>
+    <span class="k">def</span> <span class="nf">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">buffer_length</span><span class="p">,</span> <span class="n">domain</span><span class="p">,</span> <span class="n">attributes</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">dumpfile</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">id_update_frequency</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">domain</span> <span class="o">=</span> <span class="n">domain</span> <span class="c1">#e.g.: traci.junction</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">attributes</span> <span class="o">=</span> <span class="n">attributes</span> <span class="c1">#(attribute label, [id list], sampling frequency)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">buffer_length</span> <span class="o">=</span> <span class="n">buffer_length</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">dumpfile</span> <span class="o">=</span> <span class="n">dumpfile</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">subscription_ledger</span> <span class="o">=</span> <span class="p">{}</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">id_table</span> <span class="o">=</span> <span class="p">{}</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">attribute_table</span> <span class="o">=</span> <span class="p">{}</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">auto_update_attributes</span> <span class="o">=</span> <span class="p">[]</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">last_tick_num</span> <span class="o">=</span> <span class="mi">1</span>
+        
+        <span class="bp">self</span><span class="o">.</span><span class="n">generate_data_structures</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">last_tick_num</span><span class="p">)</span>
+        
+<div class="viewcode-block" id="DataBuffer.generate_data_structures"><a class="viewcode-back" href="../../../ts_core.execution.Rolodex.html#ts_core.execution.Rolodex.DataBuffer.generate_data_structures">[docs]</a>    <span class="k">def</span> <span class="nf">generate_data_structures</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">tick_num</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">last_tick_num</span> <span class="o">=</span> <span class="n">tick_num</span>
+        <span class="n">new_ids</span> <span class="o">=</span> <span class="p">[]</span>
+        <span class="c1">#create subscription ledger and attribute table</span>
+        <span class="c1"># &#39;car100&#39;:[(attribute_label,sampling_frequency,simulation_ticks_since_last_update), ...]</span>
+        <span class="k">for</span> <span class="n">attribute</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">attributes</span><span class="p">:</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">attribute_table</span><span class="p">[</span><span class="n">attribute</span><span class="p">[</span><span class="mi">0</span><span class="p">]]</span> <span class="o">=</span> <span class="n">attribute</span><span class="p">[</span><span class="mi">1</span><span class="p">:]</span>
+            <span class="k">if</span> <span class="ow">not</span> <span class="n">attribute</span><span class="p">[</span><span class="mi">1</span><span class="p">]:</span>
+                <span class="k">if</span> <span class="n">attribute</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="ow">not</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">auto_update_attributes</span><span class="p">:</span>
+                    <span class="bp">self</span><span class="o">.</span><span class="n">auto_update_attributes</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">attribute</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span>
+                <span class="c1">#empty ID list, get current list from domain</span>
+                <span class="n">ids</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">domain</span><span class="o">.</span><span class="n">getIDList</span><span class="p">()</span>
+                <span class="n">new_ids</span> <span class="o">=</span> <span class="n">ids</span>
+            <span class="k">else</span><span class="p">:</span>
+                <span class="n">ids</span> <span class="o">=</span> <span class="n">attribute</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span>
+            <span class="k">for</span> <span class="nb">id</span> <span class="ow">in</span> <span class="n">ids</span><span class="p">:</span>
+                <span class="c1">#create subscription ledger</span>
+                <span class="k">try</span><span class="p">:</span>
+                    <span class="bp">self</span><span class="o">.</span><span class="n">subscription_ledger</span><span class="p">[</span><span class="nb">id</span><span class="p">]</span><span class="o">.</span><span class="n">append</span><span class="p">((</span><span class="n">attribute</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span><span class="n">attribute</span><span class="p">[</span><span class="mi">2</span><span class="p">],</span><span class="n">attribute</span><span class="p">[</span><span class="mi">2</span><span class="p">]))</span>
+                <span class="k">except</span> <span class="ne">KeyError</span><span class="p">:</span>
+                    <span class="bp">self</span><span class="o">.</span><span class="n">subscription_ledger</span><span class="p">[</span><span class="nb">id</span><span class="p">]</span> <span class="o">=</span> <span class="p">[(</span><span class="n">attribute</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span><span class="n">attribute</span><span class="p">[</span><span class="mi">2</span><span class="p">],</span><span class="n">attribute</span><span class="p">[</span><span class="mi">2</span><span class="p">])]</span>
+                
+                <span class="c1">#create ID look-up table</span>
+                <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;ID: </span><span class="si">{}</span><span class="s1">, attribute: </span><span class="si">{}</span><span class="s1">&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="nb">id</span><span class="p">,</span> <span class="n">attribute</span><span class="p">[</span><span class="mi">0</span><span class="p">]))</span>
+                <span class="k">try</span><span class="p">:</span>
+                    <span class="bp">self</span><span class="o">.</span><span class="n">id_table</span><span class="p">[</span><span class="nb">id</span><span class="p">]</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">attribute</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span>
+                <span class="k">except</span> <span class="ne">KeyError</span><span class="p">:</span>
+                    <span class="bp">self</span><span class="o">.</span><span class="n">id_table</span><span class="p">[</span><span class="nb">id</span><span class="p">]</span> <span class="o">=</span> <span class="p">[</span><span class="n">attribute</span><span class="p">[</span><span class="mi">0</span><span class="p">]]</span>
+                
+        <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;</span><span class="se">\n\n</span><span class="s1">Subscription Ledger: </span><span class="si">{}</span><span class="s1">&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">subscription_ledger</span><span class="p">))</span>
+        <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;ID table: </span><span class="si">{}</span><span class="s1">&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">id_table</span><span class="p">))</span>
+            
+        <span class="c1">#vehicle domain buffer:</span>
+        <span class="c1">#&#39;car100&#39; : { last_tick:{&#39;lane&#39;:&#39;0&#39;,&#39;speed&#39;:0} }</span>
+        <span class="c1">#&#39;car101&#39; : { last_tick:{&#39;lane&#39;:&#39;0&#39;,&#39;speed&#39;:0} }</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">buffer</span> <span class="o">=</span> <span class="p">{}</span>
+        <span class="k">for</span> <span class="nb">id</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">id_table</span><span class="p">:</span>
+            <span class="n">tick_dict</span> <span class="o">=</span> <span class="p">{}</span>
+            <span class="n">frame_dict</span> <span class="o">=</span> <span class="p">{}</span>
+            <span class="k">for</span> <span class="n">attribute</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">id_table</span><span class="p">[</span><span class="nb">id</span><span class="p">]:</span>
+                <span class="n">frame_dict</span><span class="p">[</span><span class="n">attribute</span><span class="p">]</span> <span class="o">=</span> <span class="o">-</span><span class="mi">1</span>
+            <span class="n">tick_dict</span><span class="p">[</span><span class="bp">self</span><span class="o">.</span><span class="n">last_tick_num</span><span class="p">]</span> <span class="o">=</span> <span class="n">frame_dict</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">buffer</span><span class="p">[</span><span class="nb">id</span><span class="p">]</span> <span class="o">=</span> <span class="n">tick_dict</span>
+            
+        <span class="k">return</span> <span class="n">new_ids</span></div>
+    
+    <span class="c1">#id = &#39;car100&#39;</span>
+    <span class="c1">#data = {&#39;lane position&#39;:123.12345123451234, ...}</span>
+<div class="viewcode-block" id="DataBuffer.update"><a class="viewcode-back" href="../../../ts_core.execution.Rolodex.html#ts_core.execution.Rolodex.DataBuffer.update">[docs]</a>    <span class="k">def</span> <span class="nf">update</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="nb">id</span><span class="p">,</span> <span class="n">data</span><span class="p">,</span> <span class="n">tick_num</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
+        <span class="k">if</span> <span class="ow">not</span> <span class="n">tick_num</span><span class="p">:</span>
+            <span class="n">tick_num</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">last_tick_num</span> <span class="o">+</span> <span class="mi">1</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">last_tick_num</span> <span class="o">=</span> <span class="n">tick_num</span>
+        <span class="n">old_data</span> <span class="o">=</span> <span class="p">{}</span>
+        <span class="n">keylist</span> <span class="o">=</span> <span class="nb">sorted</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">buffer</span><span class="p">[</span><span class="nb">id</span><span class="p">]</span><span class="o">.</span><span class="n">keys</span><span class="p">())</span>
+        <span class="k">for</span> <span class="n">old</span> <span class="ow">in</span> <span class="n">keylist</span><span class="p">[:</span><span class="o">-</span><span class="bp">self</span><span class="o">.</span><span class="n">buffer_length</span><span class="p">]:</span>
+            <span class="n">old_data</span><span class="p">[</span><span class="n">old</span><span class="p">]</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">buffer</span><span class="p">[</span><span class="nb">id</span><span class="p">]</span><span class="o">.</span><span class="n">pop</span><span class="p">(</span><span class="n">old</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">buffer</span><span class="p">[</span><span class="nb">id</span><span class="p">][</span><span class="n">tick_num</span><span class="p">]</span> <span class="o">=</span> <span class="n">data</span>
+        <span class="k">return</span> <span class="n">old_data</span></div>
+                  
+    <span class="c1">#attributes = [(attribute label, [id list], sampling frequency), ...] </span>
+    <span class="c1">#does not support empty ID lists</span>
+<div class="viewcode-block" id="DataBuffer.add"><a class="viewcode-back" href="../../../ts_core.execution.Rolodex.html#ts_core.execution.Rolodex.DataBuffer.add">[docs]</a>    <span class="k">def</span> <span class="nf">add</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">attributes</span><span class="p">,</span> <span class="n">tick_num</span><span class="p">):</span>
+        <span class="c1">#update subscription ledger and attribute table</span>
+        <span class="c1"># &#39;car100&#39;:[(attribute_label,sampling_frequency,simulation_ticks_since_last_update), ...]</span>
+        <span class="n">overall_new_ids</span> <span class="o">=</span> <span class="p">[]</span>
+        <span class="n">overall_new_attributes</span> <span class="o">=</span> <span class="p">{}</span>
+        <span class="c1">#print(&#39;attributes: {}&#39;.format(attributes))</span>
+        <span class="k">for</span> <span class="n">attribute</span> <span class="ow">in</span> <span class="n">attributes</span><span class="p">:</span>
+            <span class="n">new_ids</span> <span class="o">=</span> <span class="p">[]</span>
+            <span class="k">if</span> <span class="n">attribute</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">attribute_table</span><span class="p">:</span>
+                <span class="bp">self</span><span class="o">.</span><span class="n">attribute_table</span><span class="p">[</span><span class="n">attribute</span><span class="p">[</span><span class="mi">0</span><span class="p">]][</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">extend</span><span class="p">(</span><span class="n">attribute</span><span class="p">[</span><span class="mi">1</span><span class="p">])</span>
+                <span class="n">old_ids</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">attribute_table</span><span class="p">[</span><span class="n">attribute</span><span class="p">[</span><span class="mi">0</span><span class="p">]]</span>
+                <span class="k">for</span> <span class="nb">id</span> <span class="ow">in</span> <span class="n">attribute</span><span class="p">[</span><span class="mi">1</span><span class="p">]:</span>
+                    <span class="k">if</span> <span class="nb">id</span> <span class="ow">not</span> <span class="ow">in</span> <span class="n">old_ids</span><span class="p">:</span>
+                        <span class="n">new_ids</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="nb">id</span><span class="p">)</span>
+            <span class="k">else</span><span class="p">:</span>
+                <span class="n">overall_new_attributes</span><span class="p">[</span><span class="n">attribute</span><span class="p">[</span><span class="mi">0</span><span class="p">]]</span> <span class="o">=</span> <span class="n">attribute</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span>
+                <span class="bp">self</span><span class="o">.</span><span class="n">attribute_table</span><span class="p">[</span><span class="n">attribute</span><span class="p">[</span><span class="mi">0</span><span class="p">]]</span> <span class="o">=</span> <span class="n">attribute</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span>
+                <span class="n">new_ids</span> <span class="o">=</span> <span class="n">attribute</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span>
+            <span class="n">overall_new_ids</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">new_ids</span><span class="p">)</span>
+            <span class="c1">#print(&#39;new IDs: {}&#39;.format(len(overall_new_ids)))</span>
+            <span class="k">for</span> <span class="nb">id</span> <span class="ow">in</span> <span class="n">new_ids</span><span class="p">:</span>
+                <span class="c1">#update subscription ledger</span>
+                <span class="k">try</span><span class="p">:</span>
+                    <span class="bp">self</span><span class="o">.</span><span class="n">subscription_ledger</span><span class="p">[</span><span class="nb">id</span><span class="p">]</span><span class="o">.</span><span class="n">append</span><span class="p">((</span><span class="n">attribute</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span><span class="n">attribute</span><span class="p">[</span><span class="mi">2</span><span class="p">],</span><span class="n">attribute</span><span class="p">[</span><span class="mi">2</span><span class="p">]))</span>
+                <span class="k">except</span> <span class="ne">KeyError</span><span class="p">:</span>
+                    <span class="bp">self</span><span class="o">.</span><span class="n">subscription_ledger</span><span class="p">[</span><span class="nb">id</span><span class="p">]</span> <span class="o">=</span> <span class="p">[(</span><span class="n">attribute</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span><span class="n">attribute</span><span class="p">[</span><span class="mi">2</span><span class="p">],</span><span class="n">attribute</span><span class="p">[</span><span class="mi">2</span><span class="p">])]</span>
+                
+                <span class="c1">#update ID look-up table</span>
+                <span class="k">try</span><span class="p">:</span>
+                    <span class="bp">self</span><span class="o">.</span><span class="n">id_table</span><span class="p">[</span><span class="nb">id</span><span class="p">]</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">attribute</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span>
+                <span class="k">except</span> <span class="ne">KeyError</span><span class="p">:</span>
+                    <span class="bp">self</span><span class="o">.</span><span class="n">id_table</span><span class="p">[</span><span class="nb">id</span><span class="p">]</span> <span class="o">=</span> <span class="p">[</span><span class="n">attribute</span><span class="p">[</span><span class="mi">0</span><span class="p">]]</span>
+            
+        <span class="c1">#vehicle domain buffer:</span>
+        <span class="c1">#&#39;car100&#39; : { last_tick:{&#39;lane&#39;:&#39;0&#39;,&#39;speed&#39;:0} }</span>
+        <span class="c1">#&#39;car101&#39; : { last_tick:{&#39;lane&#39;:&#39;0&#39;,&#39;speed&#39;:0} }</span>
+        <span class="k">for</span> <span class="n">id_list</span> <span class="ow">in</span> <span class="n">overall_new_ids</span><span class="p">:</span>
+            <span class="k">for</span> <span class="nb">id</span> <span class="ow">in</span> <span class="n">id_list</span><span class="p">:</span>
+                <span class="n">frame_dict</span> <span class="o">=</span> <span class="p">{}</span>
+                <span class="k">for</span> <span class="n">attribute</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">id_table</span><span class="p">[</span><span class="nb">id</span><span class="p">]:</span>
+                    <span class="n">frame_dict</span><span class="p">[</span><span class="n">attribute</span><span class="p">]</span> <span class="o">=</span> <span class="o">-</span><span class="mi">1</span>
+                <span class="k">if</span> <span class="nb">id</span> <span class="ow">not</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">buffer</span><span class="p">:</span>
+                    <span class="n">tick_dict</span> <span class="o">=</span> <span class="p">{}</span>
+                    <span class="n">tick_dict</span><span class="p">[</span><span class="n">tick_num</span><span class="p">]</span> <span class="o">=</span> <span class="n">frame_dict</span>
+                    <span class="bp">self</span><span class="o">.</span><span class="n">buffer</span><span class="p">[</span><span class="nb">id</span><span class="p">]</span> <span class="o">=</span> <span class="n">tick_dict</span>
+                <span class="k">else</span><span class="p">:</span>
+                    <span class="bp">self</span><span class="o">.</span><span class="n">buffer</span><span class="p">[</span><span class="nb">id</span><span class="p">][</span><span class="n">tick_num</span><span class="p">]</span> <span class="o">=</span> <span class="n">frame_dict</span></div>
+                    
+                    
+        
+<div class="viewcode-block" id="DataBuffer.remove_id"><a class="viewcode-back" href="../../../ts_core.execution.Rolodex.html#ts_core.execution.Rolodex.DataBuffer.remove_id">[docs]</a>    <span class="k">def</span> <span class="nf">remove_id</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="nb">id</span><span class="p">):</span>
+        <span class="n">sl</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">subscription_ledger</span><span class="o">.</span><span class="n">pop</span><span class="p">(</span><span class="nb">id</span><span class="p">)</span>
+        <span class="n">it</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">id_table</span><span class="o">.</span><span class="n">pop</span><span class="p">(</span><span class="nb">id</span><span class="p">)</span>
+        <span class="n">bd</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">buffer</span><span class="o">.</span><span class="n">pop</span><span class="p">(</span><span class="nb">id</span><span class="p">)</span></div>
+        
+<div class="viewcode-block" id="DataBuffer.dump"><a class="viewcode-back" href="../../../ts_core.execution.Rolodex.html#ts_core.execution.Rolodex.DataBuffer.dump">[docs]</a>    <span class="k">def</span> <span class="nf">dump</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">dumpfile</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
+        <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">dumpfile</span><span class="p">:</span>
+            <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Changing dumpfile from </span><span class="si">{}</span><span class="s1"> to </span><span class="si">{}</span><span class="s1">&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">dumpfile</span><span class="o">.</span><span class="n">name</span><span class="p">,</span> <span class="n">dumpfile</span><span class="o">.</span><span class="n">name</span><span class="p">))</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">dumpfile</span> <span class="o">=</span> <span class="n">dumpfile</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">dumpfile</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">frame</span><span class="o">.</span><span class="n">to_pickle</span><span class="p">())</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">dumpfile</span><span class="o">.</span><span class="n">flush</span><span class="p">()</span></div>
+        
+<div class="viewcode-block" id="DataBuffer.reset"><a class="viewcode-back" href="../../../ts_core.execution.Rolodex.html#ts_core.execution.Rolodex.DataBuffer.reset">[docs]</a>    <span class="k">def</span> <span class="nf">reset</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">attributes</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
+        <span class="k">if</span> <span class="ow">not</span> <span class="n">attributes</span><span class="p">:</span>
+            <span class="bp">self</span><span class="o">.</span><span class="fm">__init__</span><span class="p">(</span><span class="n">attributes</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">attributes</span><span class="p">,</span> <span class="n">buffer_length</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">buffer_length</span><span class="p">,</span>
+            <span class="n">frame_time</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">frame_time</span><span class="p">,</span> <span class="n">dumpfile</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">dumpfile</span><span class="p">,</span> <span class="n">ticks_per_second</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">ticks_per_second</span><span class="p">)</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="k">for</span> <span class="n">attribute</span> <span class="ow">in</span> <span class="n">attributes</span><span class="p">:</span>
+                <span class="k">pass</span></div></div>
+
+<div class="viewcode-block" id="Rolodex"><a class="viewcode-back" href="../../../ts_core.execution.Rolodex.html#ts_core.execution.Rolodex.Rolodex">[docs]</a><span class="k">class</span> <span class="nc">Rolodex</span><span class="p">():</span>
+    <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Data buffer wrapper class</span>
+<span class="sd">    </span>
+<span class="sd">    Parameters</span>
+<span class="sd">    ----------</span>
+<span class="sd">    attributes - what data is needed to be collected, strings found in SumoAttributeDictionary</span>
+<span class="sd">        An empty id list will gather the specified attribute data for every id available </span>
+<span class="sd">        at setup time</span>
+<span class="sd">        Can specify unique sampling frequencies for each attribute/context id, or choose</span>
+<span class="sd">        to use a global sampling frequency for all attributes</span>
+<span class="sd">        </span>
+<span class="sd">        (context, attribute label, [id list], sampling frequency)</span>
+<span class="sd">        </span>
+<span class="sd">    buffer_length - if a global buffer length is desired for all attributes</span>
+<span class="sd">    </span>
+<span class="sd">    dumpfile - file pointer to dump buffer contents to when requested / on fatal errors</span>
+<span class="sd">    </span>
+<span class="sd">    Returns</span>
+<span class="sd">    -------</span>
+<span class="sd">    Nothing</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+   
+    <span class="k">def</span> <span class="nf">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">attributes</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">buffer_length</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">frame_time</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">simulation_run_time</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> 
+                <span class="n">dumpfile</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">id_update_frequency</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">ticks_per_second</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">auto_removal_delay</span><span class="o">=</span><span class="mi">10</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">frame_time</span> <span class="o">=</span> <span class="n">frame_time</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">simulation_run_time</span> <span class="o">=</span> <span class="n">simulation_run_time</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">dumpfile</span> <span class="o">=</span> <span class="n">dumpfile</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">ticks_per_second</span> <span class="o">=</span> <span class="n">ticks_per_second</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">default_buffer_length</span> <span class="o">=</span> <span class="mi">100</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">auto_removal_delay</span> <span class="o">=</span> <span class="n">auto_removal_delay</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">vehicles_to_remove</span> <span class="o">=</span> <span class="p">{}</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">buffers</span> <span class="o">=</span> <span class="p">{}</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">var_dict</span> <span class="o">=</span> <span class="n">vd</span><span class="p">()</span>
+        
+        <span class="bp">self</span><span class="o">.</span><span class="n">context_domains</span> <span class="o">=</span> <span class="p">{}</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">context_domains</span><span class="p">[</span><span class="s1">&#39;edge&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">traci</span><span class="o">.</span><span class="n">edge</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">context_domains</span><span class="p">[</span><span class="s1">&#39;gui&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">traci</span><span class="o">.</span><span class="n">gui</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">context_domains</span><span class="p">[</span><span class="s1">&#39;induction loop&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">traci</span><span class="o">.</span><span class="n">inductionloop</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">context_domains</span><span class="p">[</span><span class="s1">&#39;junction&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">traci</span><span class="o">.</span><span class="n">junction</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">context_domains</span><span class="p">[</span><span class="s1">&#39;lane&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">traci</span><span class="o">.</span><span class="n">lane</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">context_domains</span><span class="p">[</span><span class="s1">&#39;lane area&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">traci</span><span class="o">.</span><span class="n">lanearea</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">context_domains</span><span class="p">[</span><span class="s1">&#39;multi-entry-exit detector&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">traci</span><span class="o">.</span><span class="n">multientryexit</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">context_domains</span><span class="p">[</span><span class="s1">&#39;person&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">traci</span><span class="o">.</span><span class="n">person</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">context_domains</span><span class="p">[</span><span class="s1">&#39;poi&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">traci</span><span class="o">.</span><span class="n">poi</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">context_domains</span><span class="p">[</span><span class="s1">&#39;polygon&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">traci</span><span class="o">.</span><span class="n">polygon</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">context_domains</span><span class="p">[</span><span class="s1">&#39;route&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">traci</span><span class="o">.</span><span class="n">route</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">context_domains</span><span class="p">[</span><span class="s1">&#39;simulation&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">traci</span><span class="o">.</span><span class="n">simulation</span>
+        <span class="c1">#self.context_domains[&#39;traffic light&#39;] = traci.trafficlight</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">context_domains</span><span class="p">[</span><span class="s1">&#39;vehicle&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">traci</span><span class="o">.</span><span class="n">vehicle</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">context_domains</span><span class="p">[</span><span class="s1">&#39;vehicle type&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">traci</span><span class="o">.</span><span class="n">vehicletype</span>
+        
+        <span class="bp">self</span><span class="o">.</span><span class="n">domain_attributes</span> <span class="o">=</span> <span class="p">{}</span>
+        <span class="k">for</span> <span class="n">domain</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">context_domains</span><span class="p">:</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">domain_attributes</span><span class="p">[</span><span class="n">domain</span><span class="p">]</span> <span class="o">=</span> <span class="p">[]</span>
+
+        <span class="k">for</span> <span class="n">attribute</span> <span class="ow">in</span> <span class="n">attributes</span><span class="p">:</span>
+            <span class="k">try</span><span class="p">:</span>
+                <span class="bp">self</span><span class="o">.</span><span class="n">domain_attributes</span><span class="p">[</span><span class="n">attribute</span><span class="p">[</span><span class="mi">0</span><span class="p">]]</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">attribute</span><span class="p">[</span><span class="mi">1</span><span class="p">:])</span> <span class="c1">#verify appending a list for each attribute, not params of each</span>
+            <span class="k">except</span> <span class="ne">KeyError</span><span class="p">:</span>
+                <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;</span><span class="se">\n</span><span class="s1">ERROR:Rolodex:__init__:attributes :: attribute context: </span><span class="si">{}</span><span class="s1"> in </span><span class="si">{}</span><span class="s1"> not valid&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">attribute</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="n">attribute</span><span class="p">))</span>
+        
+        <span class="k">if</span> <span class="n">buffer_length</span><span class="p">:</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">buffer_length</span> <span class="o">=</span> <span class="n">buffer_length</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">frame_time</span><span class="p">:</span>
+                <span class="bp">self</span><span class="o">.</span><span class="n">buffer_length</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">frame_time</span> <span class="o">/</span> <span class="bp">self</span><span class="o">.</span><span class="n">ticks_per_second</span>
+            <span class="k">else</span><span class="p">:</span>
+                <span class="bp">self</span><span class="o">.</span><span class="n">buffer_length</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">default_buffer_length</span>
+                <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;</span><span class="se">\n</span><span class="s1">WARNING:Rolodex:__init__: Using default buffer lengths of </span><span class="si">{}</span><span class="s1"> for </span><span class="si">{}</span><span class="s1"> domain&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">default_buffer_length</span><span class="p">,</span> <span class="n">domain</span><span class="p">))</span>
+
+        <span class="k">for</span> <span class="n">domain</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">context_domains</span><span class="p">:</span>
+            <span class="k">if</span> <span class="n">domain</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">domain_attributes</span><span class="p">:</span>
+                <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;</span><span class="se">\n</span><span class="s1">Domain: </span><span class="si">{}</span><span class="s1">, attributes: </span><span class="si">{}</span><span class="s1">&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">domain</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">domain_attributes</span><span class="p">[</span><span class="n">domain</span><span class="p">]))</span>
+                <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">domain_attributes</span><span class="p">[</span><span class="n">domain</span><span class="p">]:</span>
+                    <span class="n">context</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">context_domains</span><span class="p">[</span><span class="n">domain</span><span class="p">]</span>
+                    <span class="bp">self</span><span class="o">.</span><span class="n">buffers</span><span class="p">[</span><span class="n">domain</span><span class="p">]</span> <span class="o">=</span> <span class="n">DataBuffer</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">buffer_length</span><span class="p">,</span> <span class="n">context</span><span class="p">,</span> <span class="n">attributes</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">domain_attributes</span><span class="p">[</span><span class="n">domain</span><span class="p">],</span> <span class="n">id_update_frequency</span><span class="o">=</span><span class="n">id_update_frequency</span><span class="p">)</span>
+                    <span class="bp">self</span><span class="o">.</span><span class="n">setup_subscription</span><span class="p">(</span><span class="n">context</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">buffers</span><span class="p">[</span><span class="n">domain</span><span class="p">]</span><span class="o">.</span><span class="n">id_table</span><span class="p">)</span>
+            <span class="k">else</span><span class="p">:</span>
+                <span class="bp">self</span><span class="o">.</span><span class="n">buffers</span><span class="p">[</span><span class="n">domain</span><span class="p">]</span> <span class="o">=</span> <span class="mi">0</span>
+        
+    <span class="c1">#id_table = &#39;car100&#39;:[attribute_label_0,attribute_label_1, ...]</span>
+<div class="viewcode-block" id="Rolodex.setup_subscription"><a class="viewcode-back" href="../../../ts_core.execution.Rolodex.html#ts_core.execution.Rolodex.Rolodex.setup_subscription">[docs]</a>    <span class="k">def</span> <span class="nf">setup_subscription</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">domain</span><span class="p">,</span> <span class="n">id_table</span><span class="p">):</span>
+        <span class="k">for</span> <span class="nb">id</span> <span class="ow">in</span> <span class="n">id_table</span><span class="p">:</span>
+            <span class="n">domain</span><span class="o">.</span><span class="n">subscribe</span><span class="p">(</span><span class="nb">id</span><span class="p">,</span> <span class="p">(</span><span class="n">id_table</span><span class="p">[</span><span class="nb">id</span><span class="p">]))</span></div>
+            
+    <span class="c1">#id_table = &#39;car100&#39;:[attribute_label_0,attribute_label_1, ...]</span>
+    <span class="c1">#also adds to DataBuffer</span>
+<div class="viewcode-block" id="Rolodex.add_subscription"><a class="viewcode-back" href="../../../ts_core.execution.Rolodex.html#ts_core.execution.Rolodex.Rolodex.add_subscription">[docs]</a>    <span class="k">def</span> <span class="nf">add_subscription</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">domain</span><span class="p">,</span> <span class="n">id_table</span><span class="p">,</span> <span class="n">ids</span><span class="o">=</span><span class="p">[]):</span>
+        <span class="k">if</span> <span class="ow">not</span> <span class="n">ids</span><span class="p">:</span>
+            <span class="n">ids</span> <span class="o">=</span> <span class="n">id_table</span>
+        <span class="k">for</span> <span class="nb">id</span> <span class="ow">in</span> <span class="n">ids</span><span class="p">:</span>
+            <span class="k">try</span><span class="p">:</span>
+                <span class="bp">self</span><span class="o">.</span><span class="n">context_domains</span><span class="p">[</span><span class="n">domain</span><span class="p">]</span><span class="o">.</span><span class="n">subscribe</span><span class="p">(</span><span class="nb">id</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">attribute_to_var_tuple</span><span class="p">(</span><span class="n">domain</span><span class="p">,</span><span class="n">id_table</span><span class="p">[</span><span class="nb">id</span><span class="p">]))</span>
+            <span class="k">except</span><span class="p">:</span>
+                <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;WARNING:Rolodex::add_subscription: unable to add subscription for </span><span class="si">{}</span><span class="s1"> </span><span class="si">{}</span><span class="s1">&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">domain</span><span class="p">,</span> <span class="nb">id</span><span class="p">))</span>
+                <span class="kn">import</span> <span class="nn">sys</span>
+                <span class="n">sys</span><span class="o">.</span><span class="n">exit</span><span class="p">()</span></div>
+                
+<div class="viewcode-block" id="Rolodex.list_context_domains"><a class="viewcode-back" href="../../../ts_core.execution.Rolodex.html#ts_core.execution.Rolodex.Rolodex.list_context_domains">[docs]</a>    <span class="k">def</span> <span class="nf">list_context_domains</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="k">for</span> <span class="n">context</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">context_domains</span><span class="p">:</span>
+            <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;</span><span class="si">{}</span><span class="s1">:</span><span class="si">{}</span><span class="s1">&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">context</span><span class="p">,</span> <span class="n">context_domains</span><span class="p">[</span><span class="n">context</span><span class="p">]))</span></div>
+            
+    <span class="c1">#context_attributes = [(context_domain, contextID, attribute_domain, range, [attributes])]</span>
+    <span class="c1">#example: [junctionID, tc.CMD_GET_VEHICLE_VARIABLE, 42, [tc.VAR_SPEED, tc.VAR_WAITING_TIME]]</span>
+<div class="viewcode-block" id="Rolodex.setup_context_subscription"><a class="viewcode-back" href="../../../ts_core.execution.Rolodex.html#ts_core.execution.Rolodex.Rolodex.setup_context_subscription">[docs]</a>    <span class="k">def</span> <span class="nf">setup_context_subscription</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">context_attributes</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
+        <span class="k">for</span> <span class="n">context</span> <span class="ow">in</span> <span class="n">context_attributes</span><span class="p">:</span>
+            <span class="k">if</span> <span class="n">context</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">context_domains</span><span class="p">:</span>
+                <span class="n">context_domains</span><span class="p">[</span><span class="n">context</span><span class="p">[</span><span class="mi">0</span><span class="p">]]</span><span class="o">.</span><span class="n">subscribe</span><span class="p">(</span><span class="n">context</span><span class="p">[</span><span class="mi">1</span><span class="p">],</span> <span class="n">context</span><span class="p">[</span><span class="mi">2</span><span class="p">],</span> <span class="n">context</span><span class="p">[</span><span class="mi">3</span><span class="p">],</span> <span class="n">context</span><span class="p">[</span><span class="mi">4</span><span class="p">])</span>
+            <span class="k">else</span><span class="p">:</span>
+                <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Error: Invalid Context Domain: </span><span class="si">{}</span><span class="s1">&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">context</span><span class="p">[</span><span class="mi">0</span><span class="p">]))</span></div>
+                
+    <span class="c1">#Ability to set the frequency of updates for each attribute after instantiation</span>
+<div class="viewcode-block" id="Rolodex.set_update_frequency"><a class="viewcode-back" href="../../../ts_core.execution.Rolodex.html#ts_core.execution.Rolodex.Rolodex.set_update_frequency">[docs]</a>    <span class="k">def</span> <span class="nf">set_update_frequency</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">attribute</span><span class="p">,</span> <span class="n">num_simulation_ticks_between_samples</span><span class="p">,</span> <span class="n">ids</span><span class="o">=</span><span class="p">[]):</span>
+        <span class="k">return</span></div>
+        
+<div class="viewcode-block" id="Rolodex.attribute_to_var_tuple"><a class="viewcode-back" href="../../../ts_core.execution.Rolodex.html#ts_core.execution.Rolodex.Rolodex.attribute_to_var_tuple">[docs]</a>    <span class="k">def</span> <span class="nf">attribute_to_var_tuple</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">domain</span><span class="p">,</span> <span class="nb">list</span><span class="p">):</span>
+        <span class="n">tp</span> <span class="o">=</span> <span class="p">[]</span>
+        <span class="k">for</span> <span class="n">item</span> <span class="ow">in</span> <span class="nb">list</span><span class="p">:</span>
+            <span class="n">tp</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">var_dict</span><span class="o">.</span><span class="n">get_var</span><span class="p">(</span><span class="n">domain</span><span class="p">,</span> <span class="n">item</span><span class="p">))</span>
+        <span class="k">return</span> <span class="nb">tuple</span><span class="p">(</span><span class="n">tp</span><span class="p">)</span></div>
+        
+<div class="viewcode-block" id="Rolodex.convert_hex_to_attribute"><a class="viewcode-back" href="../../../ts_core.execution.Rolodex.html#ts_core.execution.Rolodex.Rolodex.convert_hex_to_attribute">[docs]</a>    <span class="k">def</span> <span class="nf">convert_hex_to_attribute</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">domain</span><span class="p">,</span> <span class="n">data</span><span class="p">):</span>
+        <span class="n">converted</span> <span class="o">=</span> <span class="p">{}</span>
+        <span class="k">for</span> <span class="n">item</span> <span class="ow">in</span> <span class="n">data</span><span class="p">:</span>
+            <span class="n">converted</span><span class="p">[</span><span class="bp">self</span><span class="o">.</span><span class="n">var_dict</span><span class="o">.</span><span class="n">get_attribute_label</span><span class="p">(</span><span class="n">domain</span><span class="p">,</span> <span class="n">item</span><span class="p">)]</span> <span class="o">=</span> <span class="n">data</span><span class="p">[</span><span class="n">item</span><span class="p">]</span>
+        <span class="k">return</span> <span class="n">converted</span></div>
+            
+    <span class="c1">#Update functions</span>
+    <span class="c1">#Automatically update data at the specified frequency</span>
+    <span class="c1">#Manually update when requested</span>
+    <span class="c1"># domains = [&#39;junction&#39;, &#39;vehicle&#39;, ...]</span>
+    <span class="c1">#TODO: Implement frequency schedule updates</span>
+<div class="viewcode-block" id="Rolodex.update_subscription_buffers"><a class="viewcode-back" href="../../../ts_core.execution.Rolodex.html#ts_core.execution.Rolodex.Rolodex.update_subscription_buffers">[docs]</a>    <span class="k">def</span> <span class="nf">update_subscription_buffers</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">tick_num</span><span class="p">,</span> <span class="n">domains</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
+        <span class="n">i</span> <span class="o">=</span> <span class="mi">0</span>
+        <span class="k">while</span> <span class="n">i</span> <span class="o">&lt;</span> <span class="mi">2</span><span class="p">:</span>
+            <span class="k">try</span><span class="p">:</span>
+                <span class="k">if</span> <span class="ow">not</span> <span class="n">domains</span><span class="p">:</span>
+                    <span class="n">domains</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">context_domains</span>
+                <span class="k">for</span> <span class="n">domain</span> <span class="ow">in</span> <span class="n">domains</span><span class="p">:</span>
+                    <span class="k">try</span><span class="p">:</span>
+                        <span class="n">buffer</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">buffers</span><span class="p">[</span><span class="n">domain</span><span class="p">]</span>
+                        <span class="k">if</span> <span class="n">buffer</span><span class="p">:</span>
+                            <span class="k">if</span> <span class="n">domain</span> <span class="o">==</span> <span class="s1">&#39;vehicle&#39;</span><span class="p">:</span>
+                                <span class="k">for</span> <span class="n">arrived</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">vehicles_to_remove</span><span class="p">:</span>
+                                    <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">vehicles_to_remove</span><span class="p">[</span><span class="n">arrived</span><span class="p">]</span> <span class="o">&lt;=</span> <span class="n">tick_num</span><span class="p">:</span>
+                                        <span class="n">buffer</span><span class="o">.</span><span class="n">remove_id</span><span class="p">(</span><span class="n">arrived</span><span class="p">)</span>
+                                        <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;removed </span><span class="si">{}</span><span class="s1">: </span><span class="si">{}</span><span class="s1"> data&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">domain</span><span class="p">,</span> <span class="n">arrived</span><span class="p">))</span>
+                                <span class="k">if</span> <span class="n">buffer</span><span class="o">.</span><span class="n">auto_update_attributes</span><span class="p">:</span>
+                                    <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;auatts: </span><span class="si">{}</span><span class="s1">&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span> <span class="n">buffer</span><span class="o">.</span><span class="n">auto_update_attributes</span><span class="p">))</span>
+                                    <span class="n">arrived_vehicles</span> <span class="o">=</span> <span class="n">traci</span><span class="o">.</span><span class="n">simulation</span><span class="o">.</span><span class="n">getArrivedIDList</span><span class="p">()</span>
+                                    <span class="k">if</span> <span class="n">arrived_vehicles</span><span class="p">:</span>
+                                        <span class="k">for</span> <span class="n">arrived</span> <span class="ow">in</span> <span class="n">arrived_vehicles</span><span class="p">:</span>
+                                            <span class="bp">self</span><span class="o">.</span><span class="n">remove_subscription</span><span class="p">(</span><span class="n">arrived</span><span class="p">)</span>
+                                            <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;removed </span><span class="si">{}</span><span class="s1">: </span><span class="se">\&#39;</span><span class="si">{}</span><span class="se">\&#39;</span><span class="s1"> subscription&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">domain</span><span class="p">,</span> <span class="n">arrived</span><span class="p">))</span>
+                                    <span class="k">for</span> <span class="n">arrived</span> <span class="ow">in</span> <span class="n">arrived_vehicles</span><span class="p">:</span>
+                                        <span class="bp">self</span><span class="o">.</span><span class="n">vehicles_to_remove</span><span class="p">[</span><span class="n">arrived</span><span class="p">]</span> <span class="o">=</span> <span class="n">tick_num</span> <span class="o">+</span> <span class="bp">self</span><span class="o">.</span><span class="n">auto_removal_delay</span>
+                                    <span class="n">departed_vehicles</span> <span class="o">=</span> <span class="n">traci</span><span class="o">.</span><span class="n">simulation</span><span class="o">.</span><span class="n">getDepartedIDList</span><span class="p">()</span>
+                                    <span class="n">auto_attributes</span> <span class="o">=</span> <span class="p">[]</span>
+                                    <span class="k">for</span> <span class="n">attribute</span> <span class="ow">in</span> <span class="n">buffer</span><span class="o">.</span><span class="n">auto_update_attributes</span><span class="p">:</span>
+                                        <span class="c1">#attributes = [(attribute label, [id list], sampling frequency), ...] </span>
+                                        <span class="n">auto_attributes</span><span class="o">.</span><span class="n">append</span><span class="p">((</span><span class="n">attribute</span><span class="p">,</span> <span class="n">departed_vehicles</span><span class="p">,</span> <span class="n">buffer</span><span class="o">.</span><span class="n">attribute_table</span><span class="p">[</span><span class="n">attribute</span><span class="p">][</span><span class="mi">1</span><span class="p">]))</span>
+                                    <span class="n">buffer</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="n">auto_attributes</span><span class="p">,</span> <span class="n">tick_num</span><span class="p">)</span>
+                                    <span class="k">if</span> <span class="n">departed_vehicles</span><span class="p">:</span>
+                                        <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Departed vehicles during tick #</span><span class="si">{}</span><span class="s1">: </span><span class="si">{}</span><span class="s1">&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">tick_num</span><span class="p">,</span> <span class="n">departed_vehicles</span><span class="p">))</span>
+                                        <span class="bp">self</span><span class="o">.</span><span class="n">add_subscription</span><span class="p">(</span><span class="n">domain</span><span class="p">,</span> <span class="n">buffer</span><span class="o">.</span><span class="n">id_table</span><span class="p">,</span> <span class="n">ids</span><span class="o">=</span><span class="n">departed_vehicles</span><span class="p">)</span>
+                                        
+                            <span class="k">if</span> <span class="ow">not</span> <span class="n">buffer</span><span class="o">.</span><span class="n">id_table</span><span class="p">:</span>
+                                <span class="n">new_ids</span> <span class="o">=</span> <span class="n">buffer</span><span class="o">.</span><span class="n">generate_data_structures</span><span class="p">(</span><span class="n">tick_num</span><span class="p">)</span>
+                                <span class="k">if</span> <span class="n">new_ids</span><span class="p">:</span>
+                                    <span class="bp">self</span><span class="o">.</span><span class="n">add_subscription</span><span class="p">(</span><span class="n">domain</span><span class="p">,</span> <span class="n">buffer</span><span class="o">.</span><span class="n">id_table</span><span class="p">)</span>
+                                    <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;adding new vehicle ids: </span><span class="si">{}</span><span class="s1">&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">new_ids</span><span class="p">))</span>
+                            <span class="k">for</span> <span class="nb">id</span> <span class="ow">in</span> <span class="n">buffer</span><span class="o">.</span><span class="n">id_table</span><span class="p">:</span>
+                                <span class="k">if</span> <span class="nb">id</span> <span class="ow">not</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">vehicles_to_remove</span><span class="p">:</span>
+                                    <span class="c1"># buffer.id_table = {</span>
+                                    <span class="c1">#   &#39;car100&#39;:[(attribute_label,sampling_frequency,simulation_ticks_since_last_update), ...],</span>
+                                    <span class="c1">#   &#39;car101&#39;:[(attribute_label,sampling_frequency,simulation_ticks_since_last_update), ...]</span>
+                                    <span class="c1">#}       </span>
+                                    <span class="n">data</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">context_domains</span><span class="p">[</span><span class="n">domain</span><span class="p">]</span><span class="o">.</span><span class="n">getSubscriptionResults</span><span class="p">(</span><span class="nb">id</span><span class="p">)</span>
+                                    <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;New data for ID </span><span class="si">{}</span><span class="s1"> : </span><span class="si">{}</span><span class="s1">&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="nb">id</span><span class="p">,</span> <span class="n">data</span><span class="p">))</span>
+                                    <span class="k">try</span><span class="p">:</span>
+                                        <span class="n">buffer</span><span class="o">.</span><span class="n">update</span><span class="p">(</span><span class="nb">id</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">convert_hex_to_attribute</span><span class="p">(</span><span class="n">domain</span><span class="p">,</span> <span class="n">data</span><span class="p">),</span> <span class="n">tick_num</span><span class="o">=</span><span class="n">tick_num</span><span class="p">)</span>
+                                    <span class="k">except</span> <span class="ne">TypeError</span><span class="p">:</span>
+                                        <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;id: </span><span class="si">{}</span><span class="s1">, subscription results: </span><span class="si">{}</span><span class="s1">&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="nb">id</span><span class="p">,</span> <span class="n">data</span><span class="p">))</span>
+                                    <span class="c1">#for attribute in id_table[id]:</span>
+                                        <span class="c1">#if attribute[2] == attribute[1]:#if time to sample, based on sampling frequency</span>
+                                        <span class="c1">#buffer.update(id, attribute[0], data[vd.get_var(domain, attribute[0])])                        </span>
+                    <span class="k">except</span> <span class="ne">KeyError</span><span class="p">:</span>
+                        <span class="k">pass</span>
+                <span class="n">i</span><span class="o">=</span><span class="mi">3</span>
+            <span class="k">except</span> <span class="ne">MemoryError</span> <span class="k">as</span> <span class="n">e</span><span class="p">:</span>
+                <span class="nb">print</span><span class="p">(</span><span class="n">e</span><span class="p">)</span>
+                <span class="bp">self</span><span class="o">.</span><span class="n">dump_to_file</span><span class="p">()</span>
+                <span class="k">if</span> <span class="n">i</span> <span class="o">==</span> <span class="mi">1</span><span class="p">:</span>
+                    <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;UPDATE ABORTED: MEMORY ERROR&#39;</span><span class="p">)</span>
+                    <span class="k">return</span></div>
+     
+    <span class="c1"># domain = &#39;junction&#39;    </span>
+    <span class="c1"># id_table = {</span>
+    <span class="c1">#   &#39;car100&#39;:[(attribute_label,sampling_frequency,simulation_ticks_since_last_update), ...],</span>
+    <span class="c1">#   &#39;car101&#39;:[(attribute_label,sampling_frequency,simulation_ticks_since_last_update), ...]</span>
+    <span class="c1">#}       </span>
+<div class="viewcode-block" id="Rolodex.update"><a class="viewcode-back" href="../../../ts_core.execution.Rolodex.html#ts_core.execution.Rolodex.Rolodex.update">[docs]</a>    <span class="k">def</span> <span class="nf">update</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">domain</span><span class="p">,</span> <span class="n">id_table</span><span class="o">=</span><span class="p">[]):</span>
+        <span class="n">buffer</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">buffers</span><span class="p">[</span><span class="n">domain</span><span class="p">]</span>
+        <span class="k">for</span> <span class="nb">id</span> <span class="ow">in</span> <span class="n">id_table</span><span class="p">:</span>
+            <span class="k">if</span> <span class="nb">id</span> <span class="ow">not</span> <span class="ow">in</span> <span class="n">buffer</span><span class="o">.</span><span class="n">id_table</span><span class="p">:</span>
+                <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;</span><span class="se">\n</span><span class="s1">WARNING::Rolodex.update: ID: </span><span class="si">{}</span><span class="s1"> not in </span><span class="si">{}</span><span class="s1"> Subscription ID Table, adding the following attribute subscriptions:&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="nb">id</span><span class="p">,</span><span class="n">domain</span><span class="p">))</span>
+                <span class="bp">self</span><span class="o">.</span><span class="n">add_subscription</span><span class="p">(</span><span class="n">domain</span><span class="p">,</span> <span class="p">{</span><span class="nb">id</span><span class="p">:</span><span class="n">id_table</span><span class="p">[</span><span class="nb">id</span><span class="p">]})</span><span class="c1"># VERIFY behavior with customer</span>
+            <span class="n">data</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">context_domains</span><span class="p">[</span><span class="n">domain</span><span class="p">]</span><span class="o">.</span><span class="n">getSubscriptionResults</span><span class="p">(</span><span class="nb">id</span><span class="p">)</span>
+            <span class="k">for</span> <span class="n">attribute</span> <span class="ow">in</span> <span class="n">id_table</span><span class="p">[</span><span class="nb">id</span><span class="p">]:</span>
+                <span class="c1">#if attribute[2] == attribute[1]:#if time to sample, based on sampling frequency</span>
+                <span class="n">buffer</span><span class="o">.</span><span class="n">update</span><span class="p">(</span><span class="nb">id</span><span class="p">,</span> <span class="n">attribute</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="n">data</span><span class="p">[</span><span class="n">vd</span><span class="o">.</span><span class="n">get_var</span><span class="p">(</span><span class="n">domain</span><span class="p">,</span> <span class="n">attribute</span><span class="p">[</span><span class="mi">0</span><span class="p">])])</span></div>
+        
+    <span class="c1">#Returns a copy of the data buffers for the given domains</span>
+    <span class="c1">#domains = [&#39;vehicle&#39;, &#39;lane&#39;, ...]</span>
+<div class="viewcode-block" id="Rolodex.get_data"><a class="viewcode-back" href="../../../ts_core.execution.Rolodex.html#ts_core.execution.Rolodex.Rolodex.get_data">[docs]</a>    <span class="k">def</span> <span class="nf">get_data</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">domains</span><span class="o">=</span><span class="p">[]):</span>
+        <span class="n">data</span> <span class="o">=</span> <span class="p">{}</span>
+        <span class="k">for</span> <span class="n">domain</span> <span class="ow">in</span> <span class="n">domains</span><span class="p">:</span>
+            <span class="n">data</span><span class="p">[</span><span class="n">domain</span><span class="p">]</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">buffers</span><span class="p">[</span><span class="n">domain</span><span class="p">]</span><span class="o">.</span><span class="n">buffer</span><span class="o">.</span><span class="n">values</span><span class="p">()</span>
+        <span class="k">return</span> <span class="n">data</span></div>
+
+    <span class="c1">#Option to dump buffers to file</span>
+<div class="viewcode-block" id="Rolodex.dump_to_file"><a class="viewcode-back" href="../../../ts_core.execution.Rolodex.html#ts_core.execution.Rolodex.Rolodex.dump_to_file">[docs]</a>    <span class="k">def</span> <span class="nf">dump_to_file</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">domain</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">dumpfile</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
+        <span class="k">if</span> <span class="ow">not</span> <span class="bp">self</span><span class="o">.</span><span class="n">dumpfile</span><span class="p">:</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">dumpfile</span><span class="o">.</span><span class="n">open</span><span class="p">(</span><span class="s1">&#39;rolodex_dump&#39;</span><span class="p">,</span> <span class="s1">&#39;w&#39;</span><span class="p">)</span>
+        <span class="k">if</span> <span class="n">domain</span><span class="p">:</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">buffers</span><span class="p">[</span><span class="n">domain</span><span class="p">]</span><span class="o">.</span><span class="n">dump</span><span class="p">(</span><span class="n">dumpfile</span><span class="o">=</span><span class="n">dumpfile</span><span class="p">)</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="k">for</span> <span class="n">buffer</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">buffers</span><span class="p">:</span>
+                <span class="n">buffer</span><span class="o">.</span><span class="n">dump</span><span class="p">(</span><span class="n">dumpfile</span><span class="o">=</span><span class="n">dumpfile</span><span class="p">)</span></div>
+        
+    <span class="c1">#Function to retrieve the value of an attribute without a subscription</span>
+<div class="viewcode-block" id="Rolodex.get_value"><a class="viewcode-back" href="../../../ts_core.execution.Rolodex.html#ts_core.execution.Rolodex.Rolodex.get_value">[docs]</a>    <span class="k">def</span> <span class="nf">get_value</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">attributes</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">ids</span><span class="o">=</span><span class="p">[]):</span>
+        <span class="k">return</span></div>
+        
+<div class="viewcode-block" id="Rolodex.remove_subscription"><a class="viewcode-back" href="../../../ts_core.execution.Rolodex.html#ts_core.execution.Rolodex.Rolodex.remove_subscription">[docs]</a>    <span class="k">def</span> <span class="nf">remove_subscription</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">domain</span><span class="p">,</span> <span class="n">ids</span><span class="o">=</span><span class="p">[]):</span>
+        <span class="k">for</span> <span class="nb">id</span> <span class="ow">in</span> <span class="n">ids</span><span class="p">:</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">context_domains</span><span class="p">[</span><span class="n">domain</span><span class="p">]</span><span class="o">.</span><span class="n">unsubscribe</span><span class="p">(</span><span class="nb">id</span><span class="p">)</span></div>
+            
+        
+    <span class="c1">#Function to clear and reset buffers</span>
+<div class="viewcode-block" id="Rolodex.reset"><a class="viewcode-back" href="../../../ts_core.execution.Rolodex.html#ts_core.execution.Rolodex.Rolodex.reset">[docs]</a>    <span class="k">def</span> <span class="nf">reset</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">attributes</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">ids</span><span class="o">=</span><span class="p">[]):</span>
+        <span class="k">pass</span></div></div>
+
+<span class="k">if</span> <span class="vm">__name__</span> <span class="o">==</span> <span class="s1">&#39;__main__&#39;</span><span class="p">:</span>
+    <span class="n">buffers</span> <span class="o">=</span> <span class="n">Rolodex</span><span class="p">(</span><span class="n">attributes</span><span class="o">=</span><span class="n">attribute_frequency_list</span><span class="p">)</span>
+    <span class="c1">#Or initialize without assigning attributes to set up collection of all available attributes. Can set global_sampling_frequency for all attributes/ids, or use default of updating every simulation tick</span>
+    <span class="n">buffers</span> <span class="o">=</span> <span class="n">Rolodex</span><span class="p">(</span><span class="n">global_sampling_frequency</span><span class="o">=</span><span class="mi">60</span><span class="p">)</span>
+</pre></div>
+
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+<div id="searchbox" style="display: none" role="search">
+  <h3>Quick search</h3>
+    <form class="search" action="../../../search.html" method="get">
+      <div><input type="text" name="q" /></div>
+      <div><input type="submit" value="Go" /></div>
+      <input type="hidden" name="check_keywords" value="yes" />
+      <input type="hidden" name="area" value="default" />
+    </form>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../../../genindex.html" title="General Index"
+             >index</a></li>
+        <li class="right" >
+          <a href="../../../py-modindex.html" title="Python Module Index"
+             >modules</a> |</li>
+        <li class="nav-item nav-item-0"><a href="../../../index.html">TrafficSense 0.01 documentation</a> &#187;</li>
+          <li class="nav-item nav-item-1"><a href="../../index.html" >Module code</a> &#187;</li> 
+      </ul>
+    </div>
+    <div class="footer" role="contentinfo">
+        &#169; Copyright 2017, Samara, Gaitz, Eilif, Bryan, Justin, Jow.
+      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 1.6.5.
+    </div>
+  </body>
+</html>

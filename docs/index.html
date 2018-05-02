@@ -48,11 +48,20 @@
 <p>The TrafficSense project was started as part of the Rochester Institute of Technology Multidisciplinary Senior Design
 program. The TrafficSense tools are designed to facilitate simple use of the SUMO traffic simulation software so the
 user can focus on optimizing traffic light controls at an intersection.</p>
-<p>Making it easier to make intersections better.</p>
+<p>The project aims to make it easier to make intersections better.</p>
+<p>The original team behind this project has graduated. Please contact Dr. Katie McConky at RIT if you need anything.</p>
+<div class="section" id="installation">
+<h2>Installation<a class="headerlink" href="#installation" title="Permalink to this headline">¶</a></h2>
+<p>Be sure to install <code class="docutils literal"><span class="pre">git</span></code> and have a dedicated Python 3.5+ environment handy. We recommend Anaconda.</p>
+<p><code class="docutils literal"><span class="pre">git</span> <span class="pre">clone</span> <span class="pre">https://github.com/TrafficSenseMSD/core.git</span></code></p>
+<p><code class="docutils literal"><span class="pre">cd</span> <span class="pre">core</span></code></p>
+<p><code class="docutils literal"><span class="pre">pip</span> <span class="pre">install</span> <span class="pre">.</span></code></p>
+</div>
 <div class="section" id="ts-config-documentation">
 <h2><code class="docutils literal"><span class="pre">ts_config</span></code> Documentation<a class="headerlink" href="#ts-config-documentation" title="Permalink to this headline">¶</a></h2>
 <p>Getting started with SUMO requires the definition of intersection geometery and traffic demand. If you need a first
 step, this is the droid you’re looking for.</p>
+<p>A template for intersection configuration can be found in <code class="docutils literal"><span class="pre">ts_core/excel_parser/</span></code>. YOU WILL NEED THIS!</p>
 <p><a class="reference internal" href="ts_core.cli.ts_config.html#ts-config-cli"><span class="std std-ref">ts_config Overview</span></a></p>
 </div>
 <div class="section" id="ts-runner-documentation">
@@ -91,6 +100,7 @@ step, this is the droid you’re looking for.</p>
   <h3><a href="#">Table Of Contents</a></h3>
   <ul>
 <li><a class="reference internal" href="#">Welcome to TrafficSense’s documentation!</a><ul>
+<li><a class="reference internal" href="#installation">Installation</a></li>
 <li><a class="reference internal" href="#ts-config-documentation"><code class="docutils literal"><span class="pre">ts_config</span></code> Documentation</a></li>
 <li><a class="reference internal" href="#ts-runner-documentation"><code class="docutils literal"><span class="pre">ts_runner</span></code> Documentation</a></li>
 <li><a class="reference internal" href="#project-developer-documentation">Project Developer Documentation</a><ul>

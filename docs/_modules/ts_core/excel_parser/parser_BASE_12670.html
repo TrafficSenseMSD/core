@@ -1,0 +1,441 @@
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title>ts_core.excel_parser.parser_BASE_12670 &#8212; TrafficSense 0.01 documentation</title>
+    <link rel="stylesheet" href="../../../_static/classic.css" type="text/css" />
+    <link rel="stylesheet" href="../../../_static/pygments.css" type="text/css" />
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    '../../../',
+        VERSION:     '0.01',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true,
+        SOURCELINK_SUFFIX: '.txt'
+      };
+    </script>
+    <script type="text/javascript" src="../../../_static/jquery.js"></script>
+    <script type="text/javascript" src="../../../_static/underscore.js"></script>
+    <script type="text/javascript" src="../../../_static/doctools.js"></script>
+    <link rel="index" title="Index" href="../../../genindex.html" />
+    <link rel="search" title="Search" href="../../../search.html" /> 
+  </head>
+  <body>
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../../../genindex.html" title="General Index"
+             accesskey="I">index</a></li>
+        <li class="right" >
+          <a href="../../../py-modindex.html" title="Python Module Index"
+             >modules</a> |</li>
+        <li class="nav-item nav-item-0"><a href="../../../index.html">TrafficSense 0.01 documentation</a> &#187;</li>
+          <li class="nav-item nav-item-1"><a href="../../index.html" accesskey="U">Module code</a> &#187;</li> 
+      </ul>
+    </div>  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body" role="main">
+            
+  <h1>Source code for ts_core.excel_parser.parser_BASE_12670</h1><div class="highlight"><pre>
+<span></span><span class="kn">from</span> <span class="nn">openpyxl</span> <span class="k">import</span> <span class="o">*</span>
+<span class="kn">import</span> <span class="nn">json</span>
+<span class="kn">import</span> <span class="nn">xml.etree.ElementTree</span> <span class="k">as</span> <span class="nn">ET</span>
+<span class="kn">import</span> <span class="nn">xml.dom.minidom</span>
+
+<span class="n">SUMO_ATTR_COLUMN</span> <span class="o">=</span> <span class="mi">0</span>    <span class="c1"># Column A</span>
+<span class="n">SUMO_FILE_COLUMN</span> <span class="o">=</span> <span class="mi">1</span>    <span class="c1"># Column B</span>
+<span class="n">CATEGORY_COLUMN</span> <span class="o">=</span> <span class="mi">2</span>
+<span class="n">UNITS_COLUMN</span> <span class="o">=</span> <span class="mi">4</span>        <span class="c1"># Column E</span>
+<span class="n">VALUE_COLUMN</span> <span class="o">=</span> <span class="mi">5</span>        <span class="c1"># Column F for single entry data</span>
+
+<span class="n">MIN_ROW</span> <span class="o">=</span> <span class="mi">3</span>  <span class="c1"># Minimum row number where config information CAN be stored</span>
+<span class="n">MAX_ROW</span> <span class="o">=</span> <span class="mi">100</span>    <span class="c1"># Max row where data is stored TODO update?</span>
+<span class="n">MIN_COLUMN</span> <span class="o">=</span> <span class="mi">2</span>
+
+<span class="n">UNIT_CONVERT</span> <span class="o">=</span> <span class="p">{</span>
+    <span class="s2">&quot;time&quot;</span><span class="p">:</span> <span class="p">{</span><span class="s2">&quot;Hours&quot;</span><span class="p">:</span> <span class="mi">60</span><span class="o">*</span><span class="mi">60</span><span class="p">,</span> <span class="s2">&quot;Days&quot;</span><span class="p">:</span> <span class="mi">60</span><span class="o">*</span><span class="mi">60</span><span class="o">*</span><span class="mi">24</span><span class="p">,</span>
+                <span class="s2">&quot;Months&quot;</span><span class="p">:</span> <span class="mi">60</span><span class="o">*</span><span class="mi">60</span><span class="o">*</span><span class="mi">24</span><span class="o">*</span><span class="mf">30.41</span><span class="p">,</span>
+                <span class="s2">&quot;Years&quot;</span><span class="p">:</span> <span class="mi">60</span><span class="o">*</span><span class="mi">60</span><span class="o">*</span><span class="mi">24</span><span class="o">*</span><span class="mf">30.41</span><span class="o">*</span><span class="mi">12</span><span class="p">},</span>  <span class="c1"># How many seconds per time unit</span>
+
+    <span class="s2">&quot;angle&quot;</span><span class="p">:</span> <span class="p">{</span><span class="s2">&quot;N&quot;</span><span class="p">:</span> <span class="mi">90</span><span class="p">,</span> <span class="s2">&quot;NE&quot;</span><span class="p">:</span> <span class="mi">45</span><span class="p">,</span> <span class="s2">&quot;E&quot;</span><span class="p">:</span> <span class="mi">0</span><span class="p">,</span> <span class="s2">&quot;SE&quot;</span><span class="p">:</span> <span class="mi">315</span><span class="p">,</span>
+              <span class="s2">&quot;S&quot;</span><span class="p">:</span> <span class="mi">270</span><span class="p">,</span> <span class="s2">&quot;SW&quot;</span><span class="p">:</span> <span class="mi">225</span><span class="p">,</span> <span class="s2">&quot;W&quot;</span><span class="p">:</span> <span class="mi">180</span><span class="p">,</span> <span class="s2">&quot;NW&quot;</span><span class="p">:</span> <span class="mi">135</span><span class="p">,</span> <span class="p">},</span>
+
+<span class="p">}</span>
+<span class="c1"># List of file extensions</span>
+<span class="n">ROUTE</span> <span class="o">=</span> <span class="s2">&quot;rou&quot;</span>
+<span class="n">NET</span> <span class="o">=</span> <span class="s2">&quot;net&quot;</span>
+
+<span class="n">SUMOFILE</span> <span class="o">=</span> <span class="mi">0</span>
+<span class="n">SUMOATTR</span> <span class="o">=</span> <span class="mi">1</span>
+<span class="n">USERVAL</span> <span class="o">=</span> <span class="mi">3</span>  <span class="c1"># First user_val</span>
+<span class="n">VALUNITS</span> <span class="o">=</span> <span class="mi">2</span>
+
+<span class="n">TAB_NAMES</span> <span class="o">=</span> <span class="p">[</span><span class="s2">&quot;Vehicle Type Customization&quot;</span><span class="p">,</span> <span class="s2">&quot;General Settings&quot;</span><span class="p">,</span> <span class="s2">&quot;Intersection Definition&quot;</span><span class="p">,</span> <span class="s2">&quot;Branch Settings&quot;</span><span class="p">]</span>
+
+<span class="n">ITYPE_BRANCHES</span> <span class="o">=</span> <span class="p">{</span>
+    <span class="s2">&quot;Cross&quot;</span><span class="p">:</span> <span class="mi">4</span><span class="p">,</span>
+    <span class="s2">&quot;T&quot;</span><span class="p">:</span> <span class="mi">3</span><span class="p">,</span>
+    <span class="s2">&quot;Y&quot;</span><span class="p">:</span> <span class="mi">3</span><span class="p">,</span>
+<span class="p">}</span>
+
+<span class="n">OUTPUT_DICT</span> <span class="o">=</span> <span class="p">{</span>
+    <span class="s2">&quot;SUMOCFG&quot;</span><span class="p">:</span> <span class="p">{},</span>
+    <span class="s2">&quot;Branches&quot;</span><span class="p">:</span> <span class="p">{},</span>
+    <span class="s2">&quot;Intersections&quot;</span><span class="p">:</span> <span class="p">{},</span>
+<span class="p">}</span>
+
+
+<div class="viewcode-block" id="parse_general"><a class="viewcode-back" href="../../../ts_core.excel_parser.parser_BASE_12670.html#ts_core.excel_parser.parser_BASE_12670.parse_general">[docs]</a><span class="k">def</span> <span class="nf">parse_general</span><span class="p">(</span><span class="n">sheet</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Parses the General Settings Tab</span>
+
+<span class="sd">    Fills out OUTPUT_DICT</span>
+<span class="sd">    :param sheet: openpyxl sheet - The General Settings tab</span>
+<span class="sd">    :return: None</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="c1"># Get the Configuration name.</span>
+    <span class="n">input_config_name</span> <span class="o">=</span> <span class="n">get_input_from_row</span><span class="p">(</span><span class="n">sheet</span><span class="p">,</span> <span class="n">MIN_ROW</span><span class="p">)</span>     <span class="c1"># Configuration Name</span>
+    <span class="c1"># Write Config names to the output dict</span>
+    <span class="k">if</span> <span class="n">input_config_name</span><span class="p">[</span><span class="n">SUMOFILE</span><span class="p">]</span> <span class="o">==</span> <span class="s2">&quot;SUMOCFG&quot;</span> <span class="ow">and</span> <span class="n">input_config_name</span><span class="p">[</span><span class="n">SUMOATTR</span><span class="p">]</span> <span class="o">==</span> <span class="s2">&quot;input&quot;</span><span class="p">:</span>
+        <span class="n">config_name</span> <span class="o">=</span> <span class="n">input_config_name</span><span class="p">[</span><span class="n">USERVAL</span><span class="p">]</span>
+        <span class="n">OUTPUT_DICT</span><span class="p">[</span><span class="s2">&quot;SUMOCFG&quot;</span><span class="p">][</span><span class="s2">&quot;input&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="p">{</span><span class="s2">&quot;net_file&quot;</span><span class="p">:</span> <span class="s2">&quot;</span><span class="si">%s</span><span class="s2">.net.xml&quot;</span> <span class="o">%</span> <span class="n">config_name</span><span class="p">,</span>
+                                           <span class="s2">&quot;route_files&quot;</span><span class="p">:</span> <span class="s2">&quot;</span><span class="si">%s</span><span class="s2">.rou.xml&quot;</span> <span class="o">%</span> <span class="n">config_name</span><span class="p">,</span>
+                                           <span class="s2">&quot;additional_files&quot;</span><span class="p">:</span> <span class="s2">&quot;</span><span class="si">%s</span><span class="s2">.add.xml&quot;</span> <span class="o">%</span> <span class="n">config_name</span><span class="p">}</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Config name Error&quot;</span><span class="p">)</span>  <span class="c1"># TODO fill out</span>
+
+    <span class="c1"># Simulation length</span>
+    <span class="n">input_runtime_length</span> <span class="o">=</span> <span class="n">get_input_from_row</span><span class="p">(</span><span class="n">sheet</span><span class="p">,</span> <span class="n">MIN_ROW</span><span class="o">+</span><span class="mi">1</span><span class="p">)</span>
+
+    <span class="k">if</span> <span class="n">input_runtime_length</span><span class="p">[</span><span class="n">SUMOFILE</span><span class="p">]</span> <span class="o">==</span> <span class="s2">&quot;SUMOCFG&quot;</span> <span class="ow">and</span> <span class="n">input_runtime_length</span><span class="p">[</span><span class="n">SUMOATTR</span><span class="p">]</span> <span class="o">==</span> <span class="s2">&quot;time.end&quot;</span><span class="p">:</span>
+        <span class="n">sim_seconds</span> <span class="o">=</span> <span class="n">input_runtime_length</span><span class="p">[</span><span class="n">USERVAL</span><span class="p">]</span> <span class="o">*</span> <span class="n">UNIT_CONVERT</span><span class="p">[</span><span class="s2">&quot;time&quot;</span><span class="p">][</span>
+            <span class="n">input_runtime_length</span><span class="p">[</span><span class="n">VALUNITS</span><span class="p">]]</span>  <span class="c1"># TODO check if units is in time_convert?</span>
+        <span class="n">OUTPUT_DICT</span><span class="p">[</span><span class="s2">&quot;SUMOCFG&quot;</span><span class="p">][</span><span class="s2">&quot;time&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="p">{</span><span class="s2">&quot;begin&quot;</span><span class="p">:</span> <span class="s2">&quot;0&quot;</span><span class="p">,</span> <span class="s2">&quot;end&quot;</span><span class="p">:</span> <span class="s2">&quot;</span><span class="si">%d</span><span class="s2">&quot;</span> <span class="o">%</span> <span class="n">sim_seconds</span><span class="p">}</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;TIME ERROR&quot;</span><span class="p">,</span> <span class="n">input_runtime_length</span><span class="p">)</span>  <span class="c1"># TODO fill out</span>
+
+    <span class="n">OUTPUT_DICT</span><span class="p">[</span><span class="s2">&quot;SUMOCFG&quot;</span><span class="p">][</span><span class="s2">&quot;gui_only&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="p">{</span><span class="s2">&quot;gui_settings_file&quot;</span><span class="p">:</span> <span class="s2">&quot;gui-settings.cfg&quot;</span><span class="p">}</span>
+
+
+    <span class="c1"># Overall Traffic Demand</span>
+    <span class="c1"># TODO Where does this go in the xmls if anywhere?</span>
+    <span class="c1"># input_traffic_demand = get_input_from_row(sheet, MIN_ROW+2)</span>
+    <span class="k">return</span> <span class="n">config_name</span></div>
+
+
+<div class="viewcode-block" id="parse_intersection"><a class="viewcode-back" href="../../../ts_core.excel_parser.parser_BASE_12670.html#ts_core.excel_parser.parser_BASE_12670.parse_intersection">[docs]</a><span class="k">def</span> <span class="nf">parse_intersection</span><span class="p">(</span><span class="n">sheet</span><span class="p">):</span>
+
+    <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    </span>
+<span class="sd">    Parameters</span>
+<span class="sd">    ----------</span>
+<span class="sd">    sheet: openpyxl sheet - The General Intersection Settings tab</span>
+
+<span class="sd">    Returns</span>
+<span class="sd">    -------</span>
+<span class="sd">    String - The selected intersection type. Key in ITYPE_BRANCHES</span>
+<span class="sd">    </span>
+<span class="sd">    &quot;&quot;&quot;</span>
+
+    <span class="c1"># Intersection type (Cross, T, Y, etc)</span>
+    <span class="n">input_intersection_type</span> <span class="o">=</span> <span class="n">get_input_from_row</span><span class="p">(</span><span class="n">sheet</span><span class="p">,</span> <span class="n">MIN_ROW</span><span class="p">)</span>
+    <span class="n">intersection_type</span> <span class="o">=</span> <span class="n">input_intersection_type</span><span class="p">[</span><span class="n">USERVAL</span><span class="p">]</span>
+    <span class="k">if</span> <span class="n">intersection_type</span> <span class="ow">not</span> <span class="ow">in</span> <span class="n">ITYPE_BRANCHES</span><span class="o">.</span><span class="n">keys</span><span class="p">():</span>
+        <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Unrecognized Intersection type: </span><span class="si">%s</span><span class="s2">&quot;</span> <span class="o">%</span> <span class="n">intersection_type</span><span class="p">)</span>
+        <span class="k">return</span> <span class="kc">None</span>
+    <span class="n">OUTPUT_DICT</span><span class="p">[</span><span class="s2">&quot;Intersections&quot;</span><span class="p">][</span><span class="s2">&quot;I0&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="p">{}</span>
+
+    <span class="c1"># TODO Add in support for multiple intersections.</span>
+    <span class="c1"># Initialize the intersection in The output Dict</span>
+    <span class="n">intersection_name</span> <span class="o">=</span> <span class="s2">&quot;I</span><span class="si">%d</span><span class="s2">&quot;</span> <span class="o">%</span> <span class="mi">0</span>
+    <span class="n">OUTPUT_DICT</span><span class="p">[</span><span class="s2">&quot;Intersections&quot;</span><span class="p">][</span><span class="n">intersection_name</span><span class="p">][</span><span class="s2">&quot;id&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="mi">0</span>
+    <span class="n">OUTPUT_DICT</span><span class="p">[</span><span class="s2">&quot;Intersections&quot;</span><span class="p">][</span><span class="n">intersection_name</span><span class="p">][</span><span class="s2">&quot;type&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="s2">&quot;traffic_light&quot;</span>
+
+    <span class="k">return</span> <span class="n">intersection_type</span></div>
+
+
+<div class="viewcode-block" id="parse_branches"><a class="viewcode-back" href="../../../ts_core.excel_parser.parser_BASE_12670.html#ts_core.excel_parser.parser_BASE_12670.parse_branches">[docs]</a><span class="k">def</span> <span class="nf">parse_branches</span><span class="p">(</span><span class="n">sheet</span><span class="p">,</span> <span class="n">intersection_type</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Parse the Branch Settings tab</span>
+
+<span class="sd">    Fills out OUTPUT_DICT with all information needed to parse the branches of the intersection.</span>
+<span class="sd">    :param sheet:</span>
+<span class="sd">    :param intersection_type: The intersection Type (Cross, T, Y, etc. Needs to be a key in ITYPE_BRANCHES</span>
+<span class="sd">    :return: None</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="c1"># Get the number of branches</span>
+    <span class="n">num_branches</span> <span class="o">=</span> <span class="n">ITYPE_BRANCHES</span><span class="p">[</span><span class="n">intersection_type</span><span class="p">]</span>
+
+    <span class="c1"># Initialize the output dictionary with the branches</span>
+    <span class="k">for</span> <span class="n">branch_num</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="n">num_branches</span><span class="o">+</span><span class="mi">1</span><span class="p">):</span>
+        <span class="n">b_name</span> <span class="o">=</span> <span class="s2">&quot;B</span><span class="si">%d</span><span class="s2">&quot;</span> <span class="o">%</span> <span class="n">branch_num</span> <span class="c1"># Branch name is Bn where n is the branches ID</span>
+        <span class="n">OUTPUT_DICT</span><span class="p">[</span><span class="s2">&quot;Branches&quot;</span><span class="p">][</span><span class="n">b_name</span><span class="p">]</span> <span class="o">=</span> <span class="p">{}</span>
+
+    <span class="k">for</span> <span class="n">row</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">MIN_ROW</span><span class="p">,</span> <span class="n">MAX_ROW</span><span class="p">):</span>  <span class="c1"># For each row that may contain data</span>
+        <span class="k">if</span> <span class="n">row_has_data</span><span class="p">(</span><span class="n">sheet</span><span class="p">,</span> <span class="n">row</span><span class="p">):</span>        <span class="c1"># Check if this row has data</span>
+            <span class="n">input_data</span> <span class="o">=</span> <span class="n">get_input_from_row</span><span class="p">(</span><span class="n">sheet</span><span class="p">,</span> <span class="n">row</span><span class="p">,</span> <span class="n">num_branches</span><span class="p">)</span>   <span class="c1"># Get the data</span>
+            <span class="n">units</span> <span class="o">=</span> <span class="n">input_data</span><span class="p">[</span><span class="n">VALUNITS</span><span class="p">]</span><span class="o">.</span><span class="n">lower</span><span class="p">()</span>
+
+
+            <span class="c1"># Fill out OUTPUT_DICT with data from each branch for this attribute</span>
+            <span class="k">for</span> <span class="n">branch_num</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="n">num_branches</span><span class="p">):</span>
+                <span class="n">b_name</span> <span class="o">=</span> <span class="s2">&quot;B</span><span class="si">%d</span><span class="s2">&quot;</span> <span class="o">%</span> <span class="p">(</span><span class="n">branch_num</span><span class="o">+</span><span class="mi">1</span><span class="p">)</span>
+                <span class="n">user_value</span> <span class="o">=</span> <span class="n">input_data</span><span class="p">[</span><span class="n">USERVAL</span><span class="o">+</span><span class="n">branch_num</span><span class="p">]</span>
+                <span class="k">if</span> <span class="n">units</span> <span class="ow">in</span> <span class="n">UNIT_CONVERT</span><span class="o">.</span><span class="n">keys</span><span class="p">():</span>
+                    <span class="n">user_value</span> <span class="o">=</span> <span class="n">UNIT_CONVERT</span><span class="p">[</span><span class="n">units</span><span class="p">][</span><span class="n">user_value</span><span class="p">]</span>
+                <span class="c1"># TODO normalize the data using the units</span>
+                <span class="c1"># TODO verify inbound lanes sum up to numLanes</span>
+
+                <span class="c1"># write to output</span>
+                <span class="n">OUTPUT_DICT</span><span class="p">[</span><span class="s2">&quot;Branches&quot;</span><span class="p">][</span><span class="n">b_name</span><span class="p">][</span><span class="n">input_data</span><span class="p">[</span><span class="n">SUMOATTR</span><span class="p">]]</span> <span class="o">=</span> <span class="n">user_value</span></div>
+
+
+<div class="viewcode-block" id="row_has_data"><a class="viewcode-back" href="../../../ts_core.excel_parser.parser_BASE_12670.html#ts_core.excel_parser.parser_BASE_12670.row_has_data">[docs]</a><span class="k">def</span> <span class="nf">row_has_data</span><span class="p">(</span><span class="n">sheet</span><span class="p">,</span> <span class="n">row_num</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Checks whether or not this row contains a user-entered value</span>
+<span class="sd">    :param sheet: openpyxl sheet - The sheet to use</span>
+<span class="sd">    :param row_num: The row to analyze</span>
+<span class="sd">    :return: Boolean - True if there is data, False otherwise</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+
+    <span class="c1"># Get the data from the row</span>
+    <span class="n">rows</span> <span class="o">=</span> <span class="n">sheet</span><span class="o">.</span><span class="n">iter_rows</span><span class="p">(</span><span class="n">min_col</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">min_row</span><span class="o">=</span><span class="n">row_num</span><span class="p">,</span> <span class="n">max_col</span><span class="o">=</span><span class="mi">15</span><span class="p">,</span> <span class="n">max_row</span><span class="o">=</span><span class="n">row_num</span><span class="p">)</span>
+    <span class="k">for</span> <span class="n">row</span> <span class="ow">in</span> <span class="n">rows</span><span class="p">:</span>    <span class="c1"># FIXME Is there a better way to look at just 1 row</span>
+        <span class="c1"># if there is no SUMO Attribute specified, then there is no user entered data available</span>
+        <span class="n">sumo_attr</span> <span class="o">=</span> <span class="n">row</span><span class="p">[</span><span class="n">SUMO_ATTR_COLUMN</span><span class="p">]</span><span class="o">.</span><span class="n">value</span>
+        <span class="k">if</span> <span class="n">sumo_attr</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
+            <span class="k">return</span> <span class="kc">False</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="k">return</span> <span class="kc">True</span>
+
+    <span class="c1"># should not be executed</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;ERROR - row_has_data() did not find row&quot;</span><span class="p">)</span>
+    <span class="k">return</span> <span class="kc">False</span></div>
+
+
+<div class="viewcode-block" id="parse_stats"><a class="viewcode-back" href="../../../ts_core.excel_parser.parser_BASE_12670.html#ts_core.excel_parser.parser_BASE_12670.parse_stats">[docs]</a><span class="k">def</span> <span class="nf">parse_stats</span><span class="p">(</span><span class="n">sheet</span><span class="p">):</span>
+    <span class="n">category_translate</span> <span class="o">=</span> <span class="p">{</span><span class="s2">&quot;Work Hours&quot;</span><span class="p">:</span> <span class="s2">&quot;workHours&quot;</span><span class="p">,</span> <span class="s2">&quot;City Gates&quot;</span><span class="p">:</span> <span class="s2">&quot;cityGates&quot;</span><span class="p">,</span>
+                          <span class="s2">&quot;Bus Stations&quot;</span><span class="p">:</span> <span class="s2">&quot;busStations&quot;</span><span class="p">,</span> <span class="s2">&quot;Bus Lines&quot;</span><span class="p">:</span> <span class="s2">&quot;busLines&quot;</span><span class="p">}</span>
+    <span class="n">expected_entries</span> <span class="o">=</span> <span class="p">{</span><span class="s2">&quot;bracket&quot;</span><span class="p">:</span> <span class="mi">3</span><span class="p">,</span> <span class="s2">&quot;opening&quot;</span><span class="p">:</span> <span class="mi">2</span><span class="p">,</span> <span class="s2">&quot;closing&quot;</span><span class="p">:</span> <span class="mi">2</span><span class="p">,</span> <span class="s2">&quot;street&quot;</span><span class="p">:</span> <span class="mi">3</span><span class="p">,</span> <span class="s2">&quot;entrance&quot;</span><span class="p">:</span> <span class="mi">4</span><span class="p">,</span>
+                        <span class="s2">&quot;school&quot;</span><span class="p">:</span> <span class="mi">7</span><span class="p">,</span> <span class="s2">&quot;busStation&quot;</span><span class="p">:</span> <span class="mi">3</span><span class="p">}</span>
+    <span class="n">sub_tags</span> <span class="o">=</span> <span class="p">{</span><span class="s2">&quot;population&quot;</span><span class="p">:</span> <span class="s2">&quot;bracket&quot;</span><span class="p">,</span> <span class="s2">&quot;workHours&quot;</span><span class="p">:</span> <span class="s2">&quot;opening&quot;</span><span class="p">,</span> <span class="s2">&quot;streets&quot;</span><span class="p">:</span> <span class="s2">&quot;street&quot;</span><span class="p">,</span> <span class="s2">&quot;cityGates&quot;</span><span class="p">:</span> <span class="s2">&quot;entrance&quot;</span><span class="p">,</span> <span class="s2">&quot;schools&quot;</span><span class="p">:</span> <span class="s2">&quot;school&quot;</span><span class="p">,</span>
+                <span class="s2">&quot;busStations&quot;</span><span class="p">:</span> <span class="s2">&quot;busStation&quot;</span><span class="p">}</span>
+
+    <span class="n">root</span> <span class="o">=</span> <span class="n">ET</span><span class="o">.</span><span class="n">Element</span><span class="p">(</span><span class="s2">&quot;city&quot;</span><span class="p">)</span>
+    <span class="n">current_category</span> <span class="o">=</span> <span class="kc">None</span>
+    <span class="n">category_root</span> <span class="o">=</span> <span class="kc">None</span>
+    <span class="n">data</span> <span class="o">=</span> <span class="kc">None</span>
+    <span class="n">num_entries</span> <span class="o">=</span> <span class="mi">15</span>    <span class="c1"># Maximum number of entries for any category TODO global</span>
+
+    <span class="k">for</span> <span class="n">row</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">MIN_ROW</span><span class="p">,</span> <span class="mi">100</span><span class="p">):</span>
+        <span class="c1"># prettyprint(root)</span>
+
+        <span class="k">if</span> <span class="n">row_has_category</span><span class="p">(</span><span class="n">sheet</span><span class="p">,</span> <span class="n">row</span><span class="p">)</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
+            <span class="c1"># If a category has been parsed, put it in the xml</span>
+            <span class="k">if</span> <span class="n">data</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
+                <span class="k">for</span> <span class="n">tag</span> <span class="ow">in</span> <span class="n">data</span><span class="o">.</span><span class="n">keys</span><span class="p">():</span>
+                    <span class="n">attributes</span> <span class="o">=</span> <span class="n">data</span><span class="p">[</span><span class="n">tag</span><span class="p">]</span>
+
+                    <span class="k">if</span> <span class="s2">&quot;TAG&quot;</span> <span class="ow">in</span> <span class="n">attributes</span><span class="o">.</span><span class="n">keys</span><span class="p">():</span>
+                        <span class="n">sub_tag</span> <span class="o">=</span> <span class="n">attributes</span><span class="p">[</span><span class="s2">&quot;TAG&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">lower</span><span class="p">()</span>
+                        <span class="k">del</span> <span class="n">attributes</span><span class="p">[</span><span class="s2">&quot;TAG&quot;</span><span class="p">]</span>
+                    <span class="k">else</span><span class="p">:</span>
+                        <span class="n">sub_tag</span> <span class="o">=</span> <span class="n">tag</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s2">&quot;_&quot;</span><span class="p">)[</span><span class="mi">0</span><span class="p">]</span>
+
+                    <span class="k">if</span> <span class="n">sub_tag</span> <span class="ow">in</span> <span class="n">expected_entries</span><span class="o">.</span><span class="n">keys</span><span class="p">()</span> <span class="ow">and</span> <span class="nb">len</span><span class="p">(</span><span class="n">attributes</span><span class="p">)</span> <span class="o">&lt;</span> <span class="n">expected_entries</span><span class="p">[</span><span class="n">sub_tag</span><span class="p">]:</span>
+                        <span class="k">continue</span>
+                    <span class="n">ET</span><span class="o">.</span><span class="n">SubElement</span><span class="p">(</span><span class="n">category_root</span><span class="p">,</span> <span class="n">sub_tag</span><span class="p">,</span> <span class="n">attrib</span><span class="o">=</span><span class="p">{</span><span class="n">attr</span><span class="p">:</span> <span class="nb">str</span><span class="p">(</span><span class="n">attributes</span><span class="p">[</span><span class="n">attr</span><span class="p">])</span> <span class="k">for</span> <span class="n">attr</span> <span class="ow">in</span> <span class="n">attributes</span><span class="p">})</span>
+
+                <span class="c1"># prettyprint(root)</span>
+            <span class="n">current_category</span> <span class="o">=</span> <span class="n">row_has_category</span><span class="p">(</span><span class="n">sheet</span><span class="p">,</span> <span class="n">row</span><span class="p">)</span>
+            <span class="k">if</span> <span class="n">current_category</span> <span class="ow">in</span> <span class="n">category_translate</span><span class="o">.</span><span class="n">keys</span><span class="p">():</span>
+                <span class="n">current_category</span> <span class="o">=</span> <span class="n">category_translate</span><span class="p">[</span><span class="n">current_category</span><span class="p">]</span>
+            <span class="k">else</span><span class="p">:</span>
+                <span class="n">current_category</span> <span class="o">=</span> <span class="n">current_category</span><span class="o">.</span><span class="n">lower</span><span class="p">()</span><span class="o">.</span><span class="n">strip</span><span class="p">(</span><span class="s2">&quot; &quot;</span><span class="p">)</span>
+            <span class="n">category_root</span> <span class="o">=</span> <span class="n">ET</span><span class="o">.</span><span class="n">SubElement</span><span class="p">(</span><span class="n">root</span><span class="p">,</span> <span class="n">current_category</span><span class="p">)</span>
+            <span class="n">data</span> <span class="o">=</span> <span class="kc">None</span>
+            <span class="k">continue</span>
+        <span class="k">elif</span> <span class="n">category_root</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
+            <span class="k">continue</span>
+
+        <span class="k">if</span> <span class="n">current_category</span> <span class="ow">in</span> <span class="p">[</span><span class="s2">&quot;general&quot;</span><span class="p">,</span> <span class="s2">&quot;parameters&quot;</span><span class="p">]:</span>
+            <span class="k">if</span> <span class="n">row_has_data</span><span class="p">(</span><span class="n">sheet</span><span class="p">,</span> <span class="n">row</span><span class="p">):</span>
+                <span class="n">input_data</span> <span class="o">=</span> <span class="n">get_input_from_row</span><span class="p">(</span><span class="n">sheet</span><span class="p">,</span> <span class="n">row</span><span class="p">,</span> <span class="n">cols</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
+                <span class="n">category_root</span><span class="o">.</span><span class="n">attrib</span><span class="p">[</span><span class="n">input_data</span><span class="p">[</span><span class="n">SUMOATTR</span><span class="p">]]</span> <span class="o">=</span> <span class="nb">str</span><span class="p">(</span><span class="n">input_data</span><span class="p">[</span><span class="n">USERVAL</span><span class="p">])</span>
+
+        <span class="k">elif</span> <span class="n">current_category</span> <span class="ow">in</span> <span class="p">[</span><span class="s2">&quot;population&quot;</span><span class="p">,</span> <span class="s2">&quot;workHours&quot;</span><span class="p">,</span> <span class="s2">&quot;streets&quot;</span><span class="p">,</span> <span class="s2">&quot;cityGates&quot;</span><span class="p">,</span> <span class="s2">&quot;schools&quot;</span><span class="p">,</span> <span class="s2">&quot;busStations&quot;</span><span class="p">]:</span>
+            <span class="n">sub_tag</span> <span class="o">=</span> <span class="n">sub_tags</span><span class="p">[</span><span class="n">current_category</span><span class="p">]</span>
+
+            <span class="k">if</span> <span class="n">row_has_data</span><span class="p">(</span><span class="n">sheet</span><span class="p">,</span> <span class="n">row</span><span class="p">):</span>
+                <span class="n">input_data</span> <span class="o">=</span> <span class="n">get_input_from_row</span><span class="p">(</span><span class="n">sheet</span><span class="p">,</span> <span class="n">row</span><span class="p">,</span> <span class="n">cols</span><span class="o">=</span><span class="mi">100</span><span class="p">)</span>
+                <span class="k">if</span> <span class="n">data</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
+                    <span class="n">data</span> <span class="o">=</span> <span class="p">{</span><span class="s2">&quot;</span><span class="si">%s</span><span class="s2">_</span><span class="si">%d</span><span class="s2">&quot;</span> <span class="o">%</span> <span class="p">(</span><span class="n">sub_tag</span><span class="p">,</span> <span class="n">i</span><span class="p">):</span> <span class="p">{}</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="n">num_entries</span><span class="p">)}</span>
+
+                <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="nb">len</span><span class="p">(</span><span class="n">input_data</span><span class="p">)</span><span class="o">-</span><span class="mi">3</span><span class="p">):</span>
+                    <span class="n">attribute</span> <span class="o">=</span> <span class="n">input_data</span><span class="p">[</span><span class="n">SUMOATTR</span><span class="p">]</span>
+                    <span class="k">if</span> <span class="n">attribute</span> <span class="o">==</span> <span class="s2">&quot;edge2&quot;</span><span class="p">:</span>  <span class="c1"># Deal with inbound/outbound attributes since sumo uses i and o notation</span>
+                        <span class="n">data</span><span class="p">[</span><span class="s2">&quot;</span><span class="si">%s</span><span class="s2">_</span><span class="si">%d</span><span class="s2">&quot;</span> <span class="o">%</span> <span class="p">(</span><span class="n">sub_tag</span><span class="p">,</span> <span class="n">i</span><span class="p">)][</span><span class="s2">&quot;edge&quot;</span><span class="p">]</span> <span class="o">+=</span> <span class="p">{</span><span class="s2">&quot;Inbound&quot;</span><span class="p">:</span> <span class="s2">&quot;i&quot;</span><span class="p">,</span> <span class="s2">&quot;Outbound&quot;</span><span class="p">:</span> <span class="s2">&quot;o&quot;</span><span class="p">}[</span><span class="n">input_data</span><span class="p">[</span><span class="n">USERVAL</span><span class="o">+</span><span class="n">i</span><span class="p">]]</span>
+                    <span class="k">else</span><span class="p">:</span>
+                        <span class="n">data</span><span class="p">[</span><span class="s2">&quot;</span><span class="si">%s</span><span class="s2">_</span><span class="si">%d</span><span class="s2">&quot;</span> <span class="o">%</span> <span class="p">(</span><span class="n">sub_tag</span><span class="p">,</span> <span class="n">i</span><span class="p">)][</span><span class="n">attribute</span><span class="p">]</span> <span class="o">=</span> <span class="nb">str</span><span class="p">(</span><span class="n">input_data</span><span class="p">[</span><span class="n">USERVAL</span><span class="o">+</span><span class="n">i</span><span class="p">])</span>
+
+        <span class="k">elif</span> <span class="n">current_category</span> <span class="o">==</span> <span class="s2">&quot;workHours&quot;</span><span class="p">:</span>
+
+            <span class="k">pass</span>
+    <span class="k">return</span> <span class="n">root</span></div>
+
+
+<div class="viewcode-block" id="prettyprint"><a class="viewcode-back" href="../../../ts_core.excel_parser.parser_BASE_12670.html#ts_core.excel_parser.parser_BASE_12670.prettyprint">[docs]</a><span class="k">def</span> <span class="nf">prettyprint</span><span class="p">(</span><span class="n">root</span><span class="p">):</span>
+    <span class="k">try</span><span class="p">:</span>
+        <span class="n">xml1</span> <span class="o">=</span> <span class="n">xml</span><span class="o">.</span><span class="n">dom</span><span class="o">.</span><span class="n">minidom</span><span class="o">.</span><span class="n">parseString</span><span class="p">(</span><span class="n">ET</span><span class="o">.</span><span class="n">tostring</span><span class="p">(</span><span class="n">root</span><span class="p">,</span> <span class="n">encoding</span><span class="o">=</span><span class="s1">&#39;utf8&#39;</span><span class="p">,</span> <span class="n">method</span><span class="o">=</span><span class="s1">&#39;xml&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">decode</span><span class="p">())</span>
+        <span class="nb">print</span><span class="p">(</span><span class="n">xml1</span><span class="o">.</span><span class="n">toprettyxml</span><span class="p">())</span>
+    <span class="k">except</span><span class="p">:</span>
+        <span class="k">pass</span></div>
+
+
+<div class="viewcode-block" id="row_has_category"><a class="viewcode-back" href="../../../ts_core.excel_parser.parser_BASE_12670.html#ts_core.excel_parser.parser_BASE_12670.row_has_category">[docs]</a><span class="k">def</span> <span class="nf">row_has_category</span><span class="p">(</span><span class="n">sheet</span><span class="p">,</span> <span class="n">row_num</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Checks to see if this row starts a new category</span>
+<span class="sd">    :param sheet: openpyxl sheet - The sheet to use</span>
+<span class="sd">    :param row_num: The row to analyze</span>
+<span class="sd">    :return: Boolean - True if there is a new category, False otherwise</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+
+    <span class="c1"># Get the data from the row</span>
+    <span class="n">rows</span> <span class="o">=</span> <span class="n">sheet</span><span class="o">.</span><span class="n">iter_rows</span><span class="p">(</span><span class="n">min_col</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">min_row</span><span class="o">=</span><span class="n">row_num</span><span class="p">,</span> <span class="n">max_col</span><span class="o">=</span><span class="mi">15</span><span class="p">,</span> <span class="n">max_row</span><span class="o">=</span><span class="n">row_num</span><span class="p">)</span>
+    <span class="k">for</span> <span class="n">row</span> <span class="ow">in</span> <span class="n">rows</span><span class="p">:</span>    <span class="c1"># FIXME Is there a better way to look at just 1 row</span>
+        <span class="c1"># If there is text in the Category Column then it is a new category</span>
+        <span class="n">class_name</span> <span class="o">=</span> <span class="n">row</span><span class="p">[</span><span class="n">CATEGORY_COLUMN</span><span class="p">]</span><span class="o">.</span><span class="n">value</span>
+        <span class="k">if</span> <span class="n">class_name</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
+            <span class="k">return</span> <span class="kc">None</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="k">return</span> <span class="n">class_name</span>
+
+    <span class="c1"># should not be executed</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;ERROR - row_has_category() did not find any rows&quot;</span><span class="p">)</span>
+    <span class="k">return</span> <span class="kc">None</span></div>
+
+
+<div class="viewcode-block" id="get_input_from_row"><a class="viewcode-back" href="../../../ts_core.excel_parser.parser_BASE_12670.html#ts_core.excel_parser.parser_BASE_12670.get_input_from_row">[docs]</a><span class="k">def</span> <span class="nf">get_input_from_row</span><span class="p">(</span><span class="n">sheet</span><span class="p">,</span> <span class="n">row_num</span><span class="p">,</span> <span class="n">cols</span><span class="o">=</span><span class="mi">1</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Retrieves the input from the row and returns a tuple of all the relevant data</span>
+<span class="sd">    :param sheet:</span>
+<span class="sd">    :param row_num:</span>
+<span class="sd">    :param cols:</span>
+<span class="sd">    :return: Tupple containing the data -</span>
+<span class="sd">              formatted as (sumo_file, sumo_attribute, units, user_val1, user_val2...)</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="n">output</span> <span class="o">=</span> <span class="p">[]</span>
+    <span class="n">rows</span> <span class="o">=</span> <span class="n">sheet</span><span class="o">.</span><span class="n">iter_rows</span><span class="p">(</span><span class="n">min_col</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">min_row</span><span class="o">=</span><span class="n">row_num</span><span class="p">,</span> <span class="n">max_col</span><span class="o">=</span><span class="n">VALUE_COLUMN</span><span class="o">+</span><span class="n">cols</span><span class="p">,</span> <span class="n">max_row</span><span class="o">=</span><span class="n">row_num</span><span class="p">)</span>
+
+    <span class="k">for</span> <span class="n">row</span> <span class="ow">in</span> <span class="n">rows</span><span class="p">:</span>
+        <span class="c1"># Determine the SUMO_FILE attribute</span>
+        <span class="n">sumo_file</span> <span class="o">=</span> <span class="n">row</span><span class="p">[</span><span class="n">SUMO_FILE_COLUMN</span><span class="p">]</span><span class="o">.</span><span class="n">value</span>
+        <span class="k">if</span> <span class="n">sumo_file</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span> <span class="n">sumo_file</span> <span class="o">=</span> <span class="s2">&quot;N/A&quot;</span>
+        <span class="n">output</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">sumo_file</span><span class="p">)</span>
+
+        <span class="c1"># Determine the SUMO_ATTR attribute</span>
+        <span class="n">sumo_attr</span> <span class="o">=</span> <span class="n">row</span><span class="p">[</span><span class="n">SUMO_ATTR_COLUMN</span><span class="p">]</span><span class="o">.</span><span class="n">value</span>
+        <span class="k">if</span> <span class="n">sumo_attr</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span> <span class="n">sumo_attr</span> <span class="o">=</span> <span class="s2">&quot;N/A&quot;</span>
+        <span class="n">output</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">sumo_attr</span><span class="p">)</span>
+
+        <span class="c1"># Determine the units</span>
+        <span class="n">units</span> <span class="o">=</span> <span class="n">row</span><span class="p">[</span><span class="n">UNITS_COLUMN</span><span class="p">]</span><span class="o">.</span><span class="n">value</span>  <span class="c1"># TODO check if user entered units</span>
+        <span class="k">if</span> <span class="n">units</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span> <span class="n">units</span> <span class="o">=</span> <span class="s2">&quot;N/A&quot;</span>
+        <span class="n">output</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">units</span><span class="p">)</span>
+
+        <span class="c1"># Determine all user entered values</span>
+        <span class="k">for</span> <span class="n">col</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">VALUE_COLUMN</span><span class="p">,</span> <span class="n">VALUE_COLUMN</span><span class="o">+</span><span class="n">cols</span><span class="p">):</span>
+            <span class="n">user_value</span> <span class="o">=</span> <span class="n">row</span><span class="p">[</span><span class="n">col</span><span class="p">]</span><span class="o">.</span><span class="n">value</span>
+            <span class="k">if</span> <span class="n">user_value</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span> <span class="k">break</span>
+            <span class="n">output</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">user_value</span><span class="p">)</span>
+
+        <span class="k">return</span> <span class="nb">tuple</span><span class="p">(</span><span class="n">output</span><span class="p">)</span></div>
+
+
+<div class="viewcode-block" id="run_parser"><a class="viewcode-back" href="../../../ts_core.excel_parser.parser_BASE_12670.html#ts_core.excel_parser.parser_BASE_12670.run_parser">[docs]</a><span class="k">def</span> <span class="nf">run_parser</span><span class="p">(</span><span class="n">excel_file_path</span><span class="p">,</span> <span class="n">outpath</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    </span>
+<span class="sd">    Parameters</span>
+<span class="sd">    ----------</span>
+<span class="sd">    excel_file_path</span>
+<span class="sd">    outpath</span>
+<span class="sd">    stats_file_path</span>
+
+<span class="sd">    Returns</span>
+<span class="sd">    -------</span>
+
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="n">wb</span> <span class="o">=</span> <span class="n">load_workbook</span><span class="p">(</span><span class="n">filename</span><span class="o">=</span><span class="n">excel_file_path</span><span class="p">,</span> <span class="n">data_only</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+
+    <span class="n">config_name</span> <span class="o">=</span> <span class="n">parse_general</span><span class="p">(</span><span class="n">wb</span><span class="p">[</span><span class="s2">&quot;General Settings&quot;</span><span class="p">])</span>
+
+
+    <span class="nb">type</span> <span class="o">=</span> <span class="n">parse_intersection</span><span class="p">(</span><span class="n">wb</span><span class="p">[</span><span class="s2">&quot;Intersection Settings&quot;</span><span class="p">])</span>
+    <span class="k">if</span> <span class="n">parse_intersection</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
+        <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;ERROR&quot;</span><span class="p">)</span>
+        <span class="k">return</span> <span class="o">-</span><span class="mi">1</span>
+
+    <span class="n">parse_branches</span><span class="p">(</span><span class="n">wb</span><span class="p">[</span><span class="s2">&quot;Branch Settings&quot;</span><span class="p">],</span> <span class="nb">type</span><span class="p">)</span>
+
+
+    <span class="c1"># Context manager to dump parsed config to json</span>
+    <span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="n">outpath</span><span class="o">+</span> <span class="s2">&quot;/&quot;</span> <span class="o">+</span> <span class="n">config_name</span> <span class="o">+</span> <span class="s2">&quot;_parsed.json&quot;</span><span class="p">,</span> <span class="s1">&#39;w&#39;</span><span class="p">)</span> <span class="k">as</span> <span class="n">outfile</span><span class="p">:</span>
+        <span class="n">json</span><span class="o">.</span><span class="n">dump</span><span class="p">(</span><span class="n">OUTPUT_DICT</span><span class="p">,</span> <span class="n">outfile</span><span class="p">,</span> <span class="n">indent</span><span class="o">=</span><span class="mi">4</span><span class="p">,)</span>
+
+    <span class="n">stats_root_node</span> <span class="o">=</span> <span class="n">parse_stats</span><span class="p">(</span><span class="n">wb</span><span class="p">[</span><span class="s2">&quot;Advanced Customization&quot;</span><span class="p">])</span>
+    <span class="n">stats_xml</span> <span class="o">=</span> <span class="n">xml</span><span class="o">.</span><span class="n">dom</span><span class="o">.</span><span class="n">minidom</span><span class="o">.</span><span class="n">parseString</span><span class="p">(</span><span class="n">ET</span><span class="o">.</span><span class="n">tostring</span><span class="p">(</span><span class="n">stats_root_node</span><span class="p">,</span> <span class="n">encoding</span><span class="o">=</span><span class="s1">&#39;utf8&#39;</span><span class="p">,</span> <span class="n">method</span><span class="o">=</span><span class="s1">&#39;xml&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">decode</span><span class="p">())</span>
+
+    <span class="k">return</span> <span class="n">config_name</span><span class="p">,</span> <span class="n">OUTPUT_DICT</span><span class="p">,</span> <span class="n">stats_xml</span><span class="o">.</span><span class="n">toprettyxml</span><span class="p">()</span></div>
+
+
+<span class="k">if</span> <span class="vm">__name__</span> <span class="o">==</span> <span class="s2">&quot;__main__&quot;</span><span class="p">:</span>
+    <span class="n">run_parser</span><span class="p">(</span><span class="s1">&#39;Configuration_template.xlsx&#39;</span><span class="p">,</span> <span class="s1">&#39;./test_dir&#39;</span><span class="p">)</span>
+
+</pre></div>
+
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+<div id="searchbox" style="display: none" role="search">
+  <h3>Quick search</h3>
+    <form class="search" action="../../../search.html" method="get">
+      <div><input type="text" name="q" /></div>
+      <div><input type="submit" value="Go" /></div>
+      <input type="hidden" name="check_keywords" value="yes" />
+      <input type="hidden" name="area" value="default" />
+    </form>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../../../genindex.html" title="General Index"
+             >index</a></li>
+        <li class="right" >
+          <a href="../../../py-modindex.html" title="Python Module Index"
+             >modules</a> |</li>
+        <li class="nav-item nav-item-0"><a href="../../../index.html">TrafficSense 0.01 documentation</a> &#187;</li>
+          <li class="nav-item nav-item-1"><a href="../../index.html" >Module code</a> &#187;</li> 
+      </ul>
+    </div>
+    <div class="footer" role="contentinfo">
+        &#169; Copyright 2017, Samara, Gaitz, Eilif, Bryan, Justin, Jow.
+      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 1.6.5.
+    </div>
+  </body>
+</html>
