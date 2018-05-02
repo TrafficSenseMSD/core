@@ -36,6 +36,8 @@ A template for intersection configuration can be found in ``ts_core/excel_parser
 
 :ref:`ts_config_cli`
 
+Source code docs are written using the Numpydocs format in the code. Additional docs are written in ReStructuredtext
+format. Here's a primer on ReStructuredText syntax. http://www.sphinx-doc.org/en/master/usage/restructuredtext/basics.html
 
 ``ts_runner`` Documentation
 ---------------------------
