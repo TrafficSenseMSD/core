@@ -9,9 +9,9 @@ by RIT students for Multidisciplinary Senior Design. The design and project proc
 For the official source code documentation, go [here](https://trafficsensemsd.github.io/core/)
 
 
-----------------------------------------
-----------Windows Installation----------
-----------------------------------------
+# Installation Guides
+
+## Windows Installation
 Prerequisites:
 1) python 3.5+
 2) GIT
