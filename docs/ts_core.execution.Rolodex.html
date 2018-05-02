@@ -46,24 +46,23 @@
   <div class="section" id="module-ts_core.execution.Rolodex">
 <span id="ts-core-execution-rolodex-module"></span><h1>ts_core.execution.Rolodex module<a class="headerlink" href="#module-ts_core.execution.Rolodex" title="Permalink to this headline">¶</a></h1>
 <div class="section" id="rolodex-overview">
-<h2><code class="docutils literal"><span class="pre">Rolodex</span></code> Overview<a class="headerlink" href="#rolodex-overview" title="Permalink to this headline">¶</a></h2>
+<span id="ts-runner-rolodex"></span><h2><code class="docutils literal"><span class="pre">Rolodex</span></code> Overview<a class="headerlink" href="#rolodex-overview" title="Permalink to this headline">¶</a></h2>
 <p><code class="docutils literal"><span class="pre">Rolodex</span></code> handles data collection through TraCi variable subscriptions, data access, and supporting functions</p>
-</div>
 <div class="section" id="software-structure-and-implementation">
-<h2>Software Structure and Implementation<a class="headerlink" href="#software-structure-and-implementation" title="Permalink to this headline">¶</a></h2>
+<h3>Software Structure and Implementation<a class="headerlink" href="#software-structure-and-implementation" title="Permalink to this headline">¶</a></h3>
 </div>
 <div class="section" id="light-control">
-<h2>Light Control<a class="headerlink" href="#light-control" title="Permalink to this headline">¶</a></h2>
+<h3>Light Control<a class="headerlink" href="#light-control" title="Permalink to this headline">¶</a></h3>
 <p><code class="docutils literal"><span class="pre">ts_runner</span></code> will accept an argument that specifies the file and class name to import at startup.  Messing with this
 part of Python is tricky business.</p>
 </div>
 <div class="section" id="optimization">
-<h2>Optimization<a class="headerlink" href="#optimization" title="Permalink to this headline">¶</a></h2>
+<h3>Optimization<a class="headerlink" href="#optimization" title="Permalink to this headline">¶</a></h3>
 <p>ts_runner looks for a file named optimizer_example to run
 inside the optimizer_example file an OptimizerExample class is expected to exist with a function called <code class="docutils literal"><span class="pre">train</span></code> which is called after every simulation tick</p>
 </div>
 <div class="section" id="output">
-<h2>Output<a class="headerlink" href="#output" title="Permalink to this headline">¶</a></h2>
+<h3>Output<a class="headerlink" href="#output" title="Permalink to this headline">¶</a></h3>
 <p>Output from ts_runner is directed to <a href="#id1"><span class="problematic" id="id2">``</span></a>&lt;sumo_project_dir&gt;/output/&lt;YYYY_MM_DD_HH_MM_SS_dddddd&gt;/’’ which
 contains:</p>
 <blockquote>
@@ -460,6 +459,7 @@ to use a global sampling frequency for all attributes</p>
 
 </div>
 </div>
+</div>
 
 
           </div>
@@ -470,11 +470,13 @@ to use a global sampling frequency for all attributes</p>
   <h3><a href="index.html">Table Of Contents</a></h3>
   <ul>
 <li><a class="reference internal" href="#">ts_core.execution.Rolodex module</a><ul>
-<li><a class="reference internal" href="#rolodex-overview"><code class="docutils literal"><span class="pre">Rolodex</span></code> Overview</a></li>
+<li><a class="reference internal" href="#rolodex-overview"><code class="docutils literal"><span class="pre">Rolodex</span></code> Overview</a><ul>
 <li><a class="reference internal" href="#software-structure-and-implementation">Software Structure and Implementation</a></li>
 <li><a class="reference internal" href="#light-control">Light Control</a></li>
 <li><a class="reference internal" href="#optimization">Optimization</a></li>
 <li><a class="reference internal" href="#output">Output</a></li>
+</ul>
+</li>
 </ul>
 </li>
 </ul>

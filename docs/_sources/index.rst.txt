@@ -48,6 +48,8 @@ Project Developer Documentation
 ``ts_runner``
 ~~~~~~~~~~~~~
 
+:ref:`ts_runner_rolodex`
+
 
 ``ts_config``
 ~~~~~~~~~~~~~
