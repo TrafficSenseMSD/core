@@ -21,11 +21,11 @@ Once you've installed.
 """
 import argparse
 from shutil import copyfile
-from ..excel_parser import parser as ex_parser
-from ..config.config_gen import transform_parsed_excel
-from ..utils.argparse_utils import FullPaths, is_dir, is_file
 
-import os
+from ..config import parser as ex_parser
+
+from ..config.config_gen import transform_parsed_excel
+from ..utils.argparse_utils import FullPaths
 
 
 def move_file(original_filename, new_filename):
