@@ -45,39 +45,51 @@
           <div class="body" role="main">
             
   <h1>Source code for ts_core.execution.VariableDictionary</h1><div class="highlight"><pre>
-<span></span><span class="kn">import</span> <span class="nn">traci</span>
+<span></span><span class="sd">&quot;&quot;&quot;</span>
+
+<span class="sd">.. _ts_runner_cli:</span>
+
+<span class="sd">``VariableDictionary`` Overview</span>
+<span class="sd">----------------------</span>
+<span class="sd">``VariableDictionary`` serves as a lookup table for TraCi variables to be used for subscriptions</span>
+
+
+
+<span class="sd">&quot;&quot;&quot;</span>
+<span class="kn">import</span> <span class="nn">traci</span>
 <span class="kn">import</span> <span class="nn">traci.constants</span> <span class="k">as</span> <span class="nn">tc</span>
+
 
 <div class="viewcode-block" id="VariableDictionary"><a class="viewcode-back" href="../../../ts_core.execution.VariableDictionary.html#ts_core.execution.VariableDictionary.VariableDictionary">[docs]</a><span class="k">class</span> <span class="nc">VariableDictionary</span><span class="p">():</span>
     <span class="k">def</span> <span class="nf">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
-        
+
         <span class="bp">self</span><span class="o">.</span><span class="n">edge</span> <span class="o">=</span> <span class="p">{}</span>
-            <span class="c1"># &#39;id list&#39;: traci.edge.getIDList,</span>
-            <span class="c1"># &#39;count&#39;: traci.edge.getIDCount,</span>
-            <span class="c1"># &#39;lane number&#39;: traci.edge.getLaneNumber,</span>
-            <span class="c1"># &#39;current travel time&#39;: traci.edge.getTraveltime,</span>
-            <span class="c1"># &#39;CO2 emissions&#39;: traci.edge.getCO2Emission,</span>
-            <span class="c1"># &#39;CO emissions&#39;: traci.edge.getCOEmission,</span>
-            <span class="c1"># &#39;HC emissions&#39;: traci.edge.getHCEmission,</span>
-            <span class="c1"># &#39;PMx emissions&#39;: traci.edge.getPMxEmission,</span>
-            <span class="c1"># &#39;NOx emissions&#39;: traci.edge.getNOxEmission,</span>
-            <span class="c1"># &#39;fuel consumption&#39;: traci.edge.getFuelConsumption,</span>
-            <span class="c1"># &#39;noise emission&#39;: traci.edge.getNoiseEmission,</span>
-            <span class="c1"># &#39;electricity consumption&#39;: traci.edge.getElectricityConsumption,</span>
-            <span class="c1"># &#39;last step vehicle number&#39;: traci.edge.getLastStepVehicleNumber,</span>
-            <span class="c1"># &#39;last step mean speed&#39;: traci.edge.getLastStepMeanSpeed,</span>
-            <span class="c1"># &#39;last step vehicle ids&#39;: traci.edge.getLastStepVehicleIDs,</span>
-            <span class="c1"># &#39;last step occupancy&#39;: traci.edge.getLastStepOccupancy,</span>
-            <span class="c1"># &#39;last step mean vehicle length&#39;: traci.edge.getLastStepLength,</span>
-            <span class="c1"># &#39;waiting time&#39;: traci.edge.getWaitingTime,</span>
-            <span class="c1"># &#39;last step person ids&#39;: traci.edge.getLastStepPersonIDs,</span>
-            <span class="c1"># &#39;last step halting number&#39;: traci.edge.getLastStepHaltingNumber} ]</span>
-            
+        <span class="c1"># &#39;id list&#39;: traci.edge.getIDList,</span>
+        <span class="c1"># &#39;count&#39;: traci.edge.getIDCount,</span>
+        <span class="c1"># &#39;lane number&#39;: traci.edge.getLaneNumber,</span>
+        <span class="c1"># &#39;current travel time&#39;: traci.edge.getTraveltime,</span>
+        <span class="c1"># &#39;CO2 emissions&#39;: traci.edge.getCO2Emission,</span>
+        <span class="c1"># &#39;CO emissions&#39;: traci.edge.getCOEmission,</span>
+        <span class="c1"># &#39;HC emissions&#39;: traci.edge.getHCEmission,</span>
+        <span class="c1"># &#39;PMx emissions&#39;: traci.edge.getPMxEmission,</span>
+        <span class="c1"># &#39;NOx emissions&#39;: traci.edge.getNOxEmission,</span>
+        <span class="c1"># &#39;fuel consumption&#39;: traci.edge.getFuelConsumption,</span>
+        <span class="c1"># &#39;noise emission&#39;: traci.edge.getNoiseEmission,</span>
+        <span class="c1"># &#39;electricity consumption&#39;: traci.edge.getElectricityConsumption,</span>
+        <span class="c1"># &#39;last step vehicle number&#39;: traci.edge.getLastStepVehicleNumber,</span>
+        <span class="c1"># &#39;last step mean speed&#39;: traci.edge.getLastStepMeanSpeed,</span>
+        <span class="c1"># &#39;last step vehicle ids&#39;: traci.edge.getLastStepVehicleIDs,</span>
+        <span class="c1"># &#39;last step occupancy&#39;: traci.edge.getLastStepOccupancy,</span>
+        <span class="c1"># &#39;last step mean vehicle length&#39;: traci.edge.getLastStepLength,</span>
+        <span class="c1"># &#39;waiting time&#39;: traci.edge.getWaitingTime,</span>
+        <span class="c1"># &#39;last step person ids&#39;: traci.edge.getLastStepPersonIDs,</span>
+        <span class="c1"># &#39;last step halting number&#39;: traci.edge.getLastStepHaltingNumber} ]</span>
+
         <span class="bp">self</span><span class="o">.</span><span class="n">gui</span> <span class="o">=</span> <span class="p">{}</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">inductionloop</span> <span class="o">=</span> <span class="p">{}</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">junction</span> <span class="o">=</span> <span class="p">{}</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">lane</span> <span class="o">=</span> <span class="p">{</span>
-        <span class="s1">&#39;waiting time&#39;</span><span class="p">:</span> <span class="n">tc</span><span class="o">.</span><span class="n">VAR_WAITING_TIME</span><span class="p">}</span>
+            <span class="s1">&#39;waiting time&#39;</span><span class="p">:</span> <span class="n">tc</span><span class="o">.</span><span class="n">VAR_WAITING_TIME</span><span class="p">}</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">lanearea</span> <span class="o">=</span> <span class="p">{}</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">multientryexit</span> <span class="o">=</span> <span class="p">{}</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">person</span> <span class="o">=</span> <span class="p">{}</span>
@@ -85,8 +97,8 @@
         <span class="bp">self</span><span class="o">.</span><span class="n">polygon</span> <span class="o">=</span> <span class="p">{}</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">route</span> <span class="o">=</span> <span class="p">{}</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">simulation</span> <span class="o">=</span> <span class="p">{}</span>
-        <span class="c1">#self.trafficlight = {}</span>
-        
+        <span class="c1"># self.trafficlight = {}</span>
+
         <span class="bp">self</span><span class="o">.</span><span class="n">vehicle</span> <span class="o">=</span> <span class="p">{</span>
             <span class="s1">&#39;slope&#39;</span><span class="p">:</span> <span class="n">tc</span><span class="o">.</span><span class="n">VAR_SLOPE</span><span class="p">,</span>
             <span class="s1">&#39;speed&#39;</span><span class="p">:</span> <span class="n">tc</span><span class="o">.</span><span class="n">VAR_SPEED</span><span class="p">,</span>
@@ -136,7 +148,7 @@
             <span class="s1">&#39;current waiting time&#39;</span><span class="p">:</span> <span class="n">tc</span><span class="o">.</span><span class="n">VAR_WAITING_TIME</span><span class="p">,</span>
             <span class="s1">&#39;upcoming traffic lights&#39;</span><span class="p">:</span> <span class="n">tc</span><span class="o">.</span><span class="n">VAR_NEXT_TLS</span><span class="p">,</span>
             <span class="s1">&#39;current electricity consumption of a node&#39;</span><span class="p">:</span> <span class="n">tc</span><span class="o">.</span><span class="n">VAR_ELECTRICITYCONSUMPTION</span><span class="p">}</span>
-            
+
         <span class="bp">self</span><span class="o">.</span><span class="n">vehicletype</span> <span class="o">=</span> <span class="p">{</span>
             <span class="s1">&#39;max speed&#39;</span><span class="p">:</span> <span class="n">tc</span><span class="o">.</span><span class="n">VAR_MAXSPEED</span><span class="p">,</span>
             <span class="s1">&#39;angle&#39;</span><span class="p">:</span> <span class="n">tc</span><span class="o">.</span><span class="n">VAR_ANGLE</span><span class="p">,</span>
@@ -153,9 +165,9 @@
             <span class="s1">&#39;width&#39;</span><span class="p">:</span> <span class="n">tc</span><span class="o">.</span><span class="n">VAR_WIDTH</span><span class="p">,</span>
             <span class="s1">&#39;max lateral speed&#39;</span><span class="p">:</span> <span class="n">tc</span><span class="o">.</span><span class="n">VAR_MAXSPEED_LAT</span><span class="p">,</span>
             <span class="s1">&#39;vehicle height&#39;</span><span class="p">:</span> <span class="n">tc</span><span class="o">.</span><span class="n">VAR_HEIGHT</span><span class="p">}</span>
-        
+
         <span class="bp">self</span><span class="o">.</span><span class="n">domains</span> <span class="o">=</span> <span class="p">{</span>
-            <span class="s1">&#39;edge&#39;</span><span class="p">:(</span><span class="bp">self</span><span class="o">.</span><span class="n">edge</span><span class="p">,</span> <span class="n">traci</span><span class="o">.</span><span class="n">edge</span><span class="p">),</span>
+            <span class="s1">&#39;edge&#39;</span><span class="p">:</span> <span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">edge</span><span class="p">,</span> <span class="n">traci</span><span class="o">.</span><span class="n">edge</span><span class="p">),</span>
             <span class="s1">&#39;gui&#39;</span><span class="p">:</span> <span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">gui</span><span class="p">,</span> <span class="n">traci</span><span class="o">.</span><span class="n">gui</span><span class="p">),</span>
             <span class="s1">&#39;induction loop&#39;</span><span class="p">:</span> <span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">inductionloop</span><span class="p">,</span> <span class="n">traci</span><span class="o">.</span><span class="n">inductionloop</span><span class="p">),</span>
             <span class="s1">&#39;junction&#39;</span><span class="p">:</span> <span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">junction</span><span class="p">,</span> <span class="n">traci</span><span class="o">.</span><span class="n">junction</span><span class="p">),</span>
@@ -167,27 +179,60 @@
             <span class="s1">&#39;polygon&#39;</span><span class="p">:</span> <span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">polygon</span><span class="p">,</span> <span class="n">traci</span><span class="o">.</span><span class="n">polygon</span><span class="p">),</span>
             <span class="s1">&#39;route&#39;</span><span class="p">:</span> <span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">route</span><span class="p">,</span> <span class="n">traci</span><span class="o">.</span><span class="n">route</span><span class="p">),</span>
             <span class="s1">&#39;simulation&#39;</span><span class="p">:</span> <span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">simulation</span><span class="p">,</span> <span class="n">traci</span><span class="o">.</span><span class="n">simulation</span><span class="p">),</span>
-            <span class="c1">#&#39;traffic light&#39;: (self.trafficlight, traci.trafficlight),</span>
-            <span class="s1">&#39;vehicle&#39;</span><span class="p">:</span> <span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">vehicle</span><span class="p">,</span> <span class="n">traci</span><span class="o">.</span><span class="n">vehicle</span><span class="p">),</span>        
+            <span class="c1"># &#39;traffic light&#39;: (self.trafficlight, traci.trafficlight),</span>
+            <span class="s1">&#39;vehicle&#39;</span><span class="p">:</span> <span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">vehicle</span><span class="p">,</span> <span class="n">traci</span><span class="o">.</span><span class="n">vehicle</span><span class="p">),</span>
             <span class="s1">&#39;vehicle type&#39;</span><span class="p">:</span> <span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">vehicletype</span><span class="p">,</span> <span class="n">traci</span><span class="o">.</span><span class="n">vehicletype</span><span class="p">)</span>
         <span class="p">}</span>
-    
-    <span class="c1">#will make a new table for quicker lookup, but quick soln for now:</span>
+
+    <span class="c1"># will make a new table for quicker lookup, but quick soln for now:</span>
 <div class="viewcode-block" id="VariableDictionary.get_attribute_label"><a class="viewcode-back" href="../../../ts_core.execution.VariableDictionary.html#ts_core.execution.VariableDictionary.VariableDictionary.get_attribute_label">[docs]</a>    <span class="k">def</span> <span class="nf">get_attribute_label</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">domain_label</span><span class="p">,</span> <span class="n">code</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+
+<span class="sd">        Parameters</span>
+<span class="sd">        ----------</span>
+<span class="sd">        domain_label: String representing the TraCi domain (&#39;Vehicle&#39;)</span>
+<span class="sd">        code: hex code for the given attribute (0x04)</span>
+
+<span class="sd">        Returns</span>
+<span class="sd">        -------</span>
+<span class="sd">        the label for the given code within the specified domain (&#39;lane id&#39;)</span>
+<span class="sd">        &quot;&quot;&quot;</span>
         <span class="k">for</span> <span class="n">key</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">domains</span><span class="p">[</span><span class="n">domain_label</span><span class="p">][</span><span class="mi">0</span><span class="p">]:</span>
             <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">domains</span><span class="p">[</span><span class="n">domain_label</span><span class="p">][</span><span class="mi">0</span><span class="p">][</span><span class="n">key</span><span class="p">]</span> <span class="o">==</span> <span class="n">code</span><span class="p">:</span>
                 <span class="k">return</span> <span class="n">key</span></div>
-    
+
 <div class="viewcode-block" id="VariableDictionary.get_var"><a class="viewcode-back" href="../../../ts_core.execution.VariableDictionary.html#ts_core.execution.VariableDictionary.VariableDictionary.get_var">[docs]</a>    <span class="k">def</span> <span class="nf">get_var</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">domain_label</span><span class="p">,</span> <span class="n">attribute_label</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+
+<span class="sd">        Parameters</span>
+<span class="sd">        ----------</span>
+<span class="sd">        domain_label: String representing the TraCi domain (&#39;Vehicle&#39;)</span>
+<span class="sd">        attribute label: the label for the given code (&#39;lane id&#39;)</span>
+
+<span class="sd">        Returns</span>
+<span class="sd">        -------</span>
+<span class="sd">        hex code for the given attribute within the specified domain (0x04)</span>
+<span class="sd">        &quot;&quot;&quot;</span>
         <span class="k">if</span> <span class="n">domain_label</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">domains</span><span class="p">:</span>
             <span class="k">try</span><span class="p">:</span>
                 <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">domains</span><span class="p">[</span><span class="n">domain_label</span><span class="p">][</span><span class="mi">0</span><span class="p">][</span><span class="n">attribute_label</span><span class="p">]</span>
             <span class="k">except</span> <span class="ne">KeyError</span><span class="p">:</span>
-                <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;ERROR::VariableDictionary.get_var: key </span><span class="si">{}</span><span class="s1"> not found in </span><span class="si">{}</span><span class="s1"> dictionary.&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">attribute_label</span><span class="p">,</span> <span class="n">domain_label</span><span class="p">))</span>
+                <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;ERROR::VariableDictionary.get_var: key </span><span class="si">{}</span><span class="s1"> not found in </span><span class="si">{}</span><span class="s1"> dictionary.&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">attribute_label</span><span class="p">,</span>
+                                                                                                     <span class="n">domain_label</span><span class="p">))</span>
         <span class="k">else</span><span class="p">:</span>
             <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;ERROR::VariableDictionary:get_var: domain </span><span class="si">{}</span><span class="s1"> does not exist&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">domain_label</span><span class="p">))</span></div>
-            
+
 <div class="viewcode-block" id="VariableDictionary.get_domain_dictionary"><a class="viewcode-back" href="../../../ts_core.execution.VariableDictionary.html#ts_core.execution.VariableDictionary.VariableDictionary.get_domain_dictionary">[docs]</a>    <span class="k">def</span> <span class="nf">get_domain_dictionary</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">domain_label</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+
+<span class="sd">        Parameters</span>
+<span class="sd">        ----------</span>
+<span class="sd">        domain_label: String representing the TraCi domain (&#39;Vehicle&#39;)</span>
+
+<span class="sd">        Returns</span>
+<span class="sd">        -------</span>
+<span class="sd">        lookup dictionary for the attributes in a certain domain ({&#39;lane id&#39;:0x04, &#39;lane position&#39;:0x06})</span>
+<span class="sd">        &quot;&quot;&quot;</span>
         <span class="k">try</span><span class="p">:</span>
             <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">domains</span><span class="p">[</span><span class="n">domain_label</span><span class="p">]</span>
         <span class="k">except</span> <span class="ne">KeyError</span><span class="p">:</span>

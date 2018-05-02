@@ -46,38 +46,27 @@
             
   <h1>Source code for ts_core.cli.ts_runner</h1><div class="highlight"><pre>
 <span></span><span class="sd">&quot;&quot;&quot;</span>
-<span class="sd">``ts_runner`` is a WORK IN PROGRESS, current objective is to implement the traci_tls tutorial using our abstraction.</span>
 
 <span class="sd">.. _ts_runner_cli:</span>
 
 
 <span class="sd">``ts_runner`` Overview</span>
 <span class="sd">----------------------</span>
-<span class="sd">``ts_runner`` manages the startup and execution of the SUMO runtime along with traffic light control and data collectio</span>
+<span class="sd">``ts_runner`` manages the startup and execution of the SUMO runtime along with data collection, traffic light control, and optimization</span>
 
 
 <span class="sd">Software Structure and Implementation</span>
 <span class="sd">-------------------------------------</span>
 
-<span class="sd">Light Control and Optimization</span>
-<span class="sd">------------------------------</span>
+<span class="sd">Light Control</span>
+<span class="sd">-------------</span>
 <span class="sd">``ts_runner`` will accept an argument that specifies the file and class name to import at startup.  Messing with this</span>
 <span class="sd">part of Python is tricky business.  </span>
 
-<span class="sd">PaseBin:</span>
-
-<span class="sd">    import importlib</span>
-<span class="sd">    import sys</span>
-<span class="sd">    </span>
-<span class="sd">    def modify_and_import(module_name, package=None, modification_func):</span>
-<span class="sd">        spec = importlib.util.find_spec(module_name, package)</span>
-<span class="sd">        source = spec.loader.get_source(module_name)</span>
-<span class="sd">        new_source = modification_func(source)</span>
-<span class="sd">        module = importlib.util.module_from_spec(spec)</span>
-<span class="sd">        codeobj = compile(new_source, module.__spec__.origin, &#39;exec&#39;)</span>
-<span class="sd">        exec(codeobj, module.__dict__)</span>
-<span class="sd">        sys.modules[module_name] = module</span>
-<span class="sd">        return module</span>
+<span class="sd">Optimization</span>
+<span class="sd">------------</span>
+<span class="sd">ts_runner looks for a file named optimizer_example to run</span>
+<span class="sd">inside the optimizer_example file an OptimizerExample class is expected to exist with a function called ``train`` which is called after every simulation tick</span>
 
 
 <span class="sd">Output</span>
@@ -121,7 +110,16 @@
 
 
 <div class="viewcode-block" id="run_loop"><a class="viewcode-back" href="../../../ts_core.cli.ts_runner.html#ts_core.cli.ts_runner.run_loop">[docs]</a><span class="k">def</span> <span class="nf">run_loop</span><span class="p">():</span>
-    <span class="sd">&quot;&quot;&quot;execute the TraCI control loop&quot;&quot;&quot;</span>
+    <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    execute the TraCI control loop</span>
+
+<span class="sd">    Parameters</span>
+<span class="sd">    ----------</span>
+
+<span class="sd">    Returns</span>
+<span class="sd">    -------</span>
+
+<span class="sd">    &quot;&quot;&quot;</span>
     <span class="n">tick</span> <span class="o">=</span> <span class="mi">0</span>
     <span class="c1"># from ts_core.optimization.optimizer_example import OptimizerExample</span>
     <span class="c1"># op = OptimizerExample()</span>
@@ -195,9 +193,12 @@
 <div class="viewcode-block" id="main"><a class="viewcode-back" href="../../../ts_core.cli.ts_runner.html#ts_core.cli.ts_runner.main">[docs]</a><span class="k">def</span> <span class="nf">main</span><span class="p">():</span>
     <span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">    Initializes sumo to run using given files</span>
+<span class="sd">    Starts either command-line or GUI SUMO binary based on command-line arguments</span>
+<span class="sd">    Orchestrates the running of the simulation, traingin the optimizer, and controlling the traffic lights</span>
 
 <span class="sd">    Returns</span>
 <span class="sd">    -------</span>
+<span class="sd">    Nothing</span>
 
 <span class="sd">    &quot;&quot;&quot;</span>
     <span class="c1"># Initialize argument parser and declare arguments.</span>

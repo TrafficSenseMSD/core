@@ -48,6 +48,10 @@ Project Developer Documentation
 ``ts_runner``
 ~~~~~~~~~~~~~
 
+:ref:`ts_runner_rolodex`
+
+:ref:`ts_runner_traci`
+
 
 ``ts_config``
 ~~~~~~~~~~~~~
