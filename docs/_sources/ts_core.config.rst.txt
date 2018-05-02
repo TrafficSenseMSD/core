@@ -21,5 +21,6 @@ Submodules
    ts_core.config.config_exceptions
    ts_core.config.config_gen
    ts_core.config.config_helpers
+   ts_core.config.parser
    ts_core.config.routes_xml_gen
 
