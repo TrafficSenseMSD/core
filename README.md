@@ -33,7 +33,9 @@ ts_runner <path> [--gui]
 ## Linux Install
 [SUMO Linux Install Docs](http://sumo.dlr.de/wiki/Installing/Linux_Build)
 
-The above documentation is spotty at best.  You will likely be able to follow the mac
+The above documentation is spotty at best.  You will likely be able to follow the Mac OS install method
+if the above doesn't work.  DON'T USE `apt-get`!!!
+
 
 ## Mac Installation
 [The somewhat difficult to follow SUMO install docs for Mac OS](http://sumo.dlr.de/wiki/Installing/MacOS_Build_w_Homebrew)
