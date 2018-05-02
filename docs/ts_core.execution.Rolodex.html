@@ -45,40 +45,150 @@
             
   <div class="section" id="module-ts_core.execution.Rolodex">
 <span id="ts-core-execution-rolodex-module"></span><h1>ts_core.execution.Rolodex module<a class="headerlink" href="#module-ts_core.execution.Rolodex" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="rolodex-overview">
+<h2><code class="docutils literal"><span class="pre">Rolodex</span></code> Overview<a class="headerlink" href="#rolodex-overview" title="Permalink to this headline">¶</a></h2>
+<p><code class="docutils literal"><span class="pre">Rolodex</span></code> handles data collection through TraCi variable subscriptions, data access, and supporting functions</p>
+</div>
+<div class="section" id="software-structure-and-implementation">
+<h2>Software Structure and Implementation<a class="headerlink" href="#software-structure-and-implementation" title="Permalink to this headline">¶</a></h2>
+</div>
+<div class="section" id="light-control">
+<h2>Light Control<a class="headerlink" href="#light-control" title="Permalink to this headline">¶</a></h2>
+<p><code class="docutils literal"><span class="pre">ts_runner</span></code> will accept an argument that specifies the file and class name to import at startup.  Messing with this
+part of Python is tricky business.</p>
+</div>
+<div class="section" id="optimization">
+<h2>Optimization<a class="headerlink" href="#optimization" title="Permalink to this headline">¶</a></h2>
+<p>ts_runner looks for a file named optimizer_example to run
+inside the optimizer_example file an OptimizerExample class is expected to exist with a function called <code class="docutils literal"><span class="pre">train</span></code> which is called after every simulation tick</p>
+</div>
+<div class="section" id="output">
+<h2>Output<a class="headerlink" href="#output" title="Permalink to this headline">¶</a></h2>
+<p>Output from ts_runner is directed to <a href="#id1"><span class="problematic" id="id2">``</span></a>&lt;sumo_project_dir&gt;/output/&lt;YYYY_MM_DD_HH_MM_SS_dddddd&gt;/’’ which
+contains:</p>
+<blockquote>
+<div><code class="docutils literal"><span class="pre">sutripinfo.xml</span></code>
+<code class="docutils literal"><span class="pre">YYYY_MM_DD_HH_MM_SS_dddddd_ts_runner.log</span></code> (Not yet implemented, writes to current dir)</div></blockquote>
 <dl class="class">
 <dt id="ts_core.execution.Rolodex.DataBuffer">
 <em class="property">class </em><code class="descname">DataBuffer</code><span class="sig-paren">(</span><em>buffer_length</em>, <em>domain</em>, <em>attributes=None</em>, <em>dumpfile=None</em>, <em>id_update_frequency=None</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/ts_core/execution/Rolodex.html#DataBuffer"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#ts_core.execution.Rolodex.DataBuffer" title="Permalink to this definition">¶</a></dt>
 <dd><p>Bases: <code class="xref py py-class docutils literal"><span class="pre">object</span></code></p>
-<p>Buffers to hold simulation data</p>
+<p>Buffers to hold simulation data collected by subscriptions</p>
 <dl class="method">
 <dt id="ts_core.execution.Rolodex.DataBuffer.add">
 <code class="descname">add</code><span class="sig-paren">(</span><em>attributes</em>, <em>tick_num</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/ts_core/execution/Rolodex.html#DataBuffer.add"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#ts_core.execution.Rolodex.DataBuffer.add" title="Permalink to this definition">¶</a></dt>
-<dd></dd></dl>
+<dd><p>Adds the given attributes to buffer</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
+<li><strong>attributes</strong> (<em>attributes/ids/sampling frequencies to be added to the buffer</em><em>, </em><em>same as __init__</em>) – </li>
+<li><strong>tick_num</strong> (<em>the tick number of the simulation</em>) – </li>
+</ul>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first"></p>
+</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body"><p class="first last">Nothing</p>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
 
 <dl class="method">
 <dt id="ts_core.execution.Rolodex.DataBuffer.dump">
 <code class="descname">dump</code><span class="sig-paren">(</span><em>dumpfile=None</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/ts_core/execution/Rolodex.html#DataBuffer.dump"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#ts_core.execution.Rolodex.DataBuffer.dump" title="Permalink to this definition">¶</a></dt>
-<dd></dd></dl>
+<dd><p>Writes the pickle representation of the buffer to the dumpfile</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>dumpfile</strong> (<em>file handle to write data to</em>) – </td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"></td>
+</tr>
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body">Nothing</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
 
 <dl class="method">
 <dt id="ts_core.execution.Rolodex.DataBuffer.generate_data_structures">
 <code class="descname">generate_data_structures</code><span class="sig-paren">(</span><em>tick_num</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/ts_core/execution/Rolodex.html#DataBuffer.generate_data_structures"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#ts_core.execution.Rolodex.DataBuffer.generate_data_structures" title="Permalink to this definition">¶</a></dt>
-<dd></dd></dl>
+<dd><p>Generates lookup tables for the buffer</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>tick_num</strong> (<em>the tick number of the simulation</em>) – </td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"></td>
+</tr>
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body">The list of ids of objects of the given domain that are discovered, if id_table is empty</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
 
 <dl class="method">
 <dt id="ts_core.execution.Rolodex.DataBuffer.remove_id">
 <code class="descname">remove_id</code><span class="sig-paren">(</span><em>id</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/ts_core/execution/Rolodex.html#DataBuffer.remove_id"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#ts_core.execution.Rolodex.DataBuffer.remove_id" title="Permalink to this definition">¶</a></dt>
-<dd></dd></dl>
+<dd><p>Removes the specified ID from the buffer</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>id</strong> (<em>the ID of the object to be removed e.g. 'car100'</em>) – </td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"></td>
+</tr>
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body">Nothing</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
 
 <dl class="method">
 <dt id="ts_core.execution.Rolodex.DataBuffer.reset">
 <code class="descname">reset</code><span class="sig-paren">(</span><em>attributes=None</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/ts_core/execution/Rolodex.html#DataBuffer.reset"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#ts_core.execution.Rolodex.DataBuffer.reset" title="Permalink to this definition">¶</a></dt>
-<dd></dd></dl>
+<dd><p>Resets the buffer (esentially calls __init__ again)</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>attributes</strong> (<em>same as __init__</em>) – </td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
 
 <dl class="method">
 <dt id="ts_core.execution.Rolodex.DataBuffer.update">
 <code class="descname">update</code><span class="sig-paren">(</span><em>id</em>, <em>data</em>, <em>tick_num=None</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/ts_core/execution/Rolodex.html#DataBuffer.update"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#ts_core.execution.Rolodex.DataBuffer.update" title="Permalink to this definition">¶</a></dt>
-<dd></dd></dl>
+<dd><p>Updates the data stored in the buffer for the given ID</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
+<li><strong>id</strong> (<em>the ID of the object in the buffer's domain e.g. 'car100'</em>) – </li>
+<li><strong>data</strong> (<em>a dictionary containing the data to be put into the buffer e.g.</em>) – data = {‘lane position’:123.12345123451234, …}</li>
+</ul>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first"></p>
+</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body"><p class="first last">any data removed from the buffer when inserting the new data</p>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
 
 </dd></dl>
 
@@ -100,6 +210,12 @@ to use a global sampling frequency for all attributes</p>
 </li>
 <li><strong>- if a global buffer length is desired for all attributes</strong> (<em>buffer_length</em>) – </li>
 <li><strong>- file pointer to dump buffer contents to when requested / on fatal errors</strong> (<em>dumpfile</em>) – </li>
+<li><strong>frame_time</strong> (<em>the time period o collect data for</em>) – </li>
+<li><strong>simulation_run_time</strong> (<em>the total time that the simulaion is run for</em>) – </li>
+<li><strong>dumpfile</strong> (<em>the file to dump data to in case of a memory errors</em>) – </li>
+<li><strong>id_update_frequency</strong> (<em>how often to update the the list of objects when auto-updating is used</em>) – </li>
+<li><strong>ticks_per_second</strong> (<em>how many ticks per second of simulation time</em>) – </li>
+<li><strong>auto_removal_delay</strong> (<em>how many simulation ticks to wait before removing the data for an object that has left the simulation</em>) – </li>
 </ul>
 </td>
 </tr>
@@ -114,75 +230,235 @@ to use a global sampling frequency for all attributes</p>
 <dl class="method">
 <dt id="ts_core.execution.Rolodex.Rolodex.add_subscription">
 <code class="descname">add_subscription</code><span class="sig-paren">(</span><em>domain</em>, <em>id_table</em>, <em>ids=[]</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/ts_core/execution/Rolodex.html#Rolodex.add_subscription"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#ts_core.execution.Rolodex.Rolodex.add_subscription" title="Permalink to this definition">¶</a></dt>
-<dd></dd></dl>
+<dd><p>Adds a TraCi subscription for the given domain, IDs and attributes</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
+<li><strong>domain</strong> (<em>the label of the domain e.g. 'vehicle'</em>) – </li>
+<li><strong>id_table</strong> (<em>a dictionary containing the IDs and the attributes to collect data for for them e.g.</em>) – id_table = ‘car100’:[attribute_label_0,attribute_label_1, …]</li>
+<li><strong>ids</strong> (<em>a list to specify which IDs within the id_table will be added</em>) – </li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
 
 <dl class="method">
 <dt id="ts_core.execution.Rolodex.Rolodex.attribute_to_var_tuple">
 <code class="descname">attribute_to_var_tuple</code><span class="sig-paren">(</span><em>domain</em>, <em>list</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/ts_core/execution/Rolodex.html#Rolodex.attribute_to_var_tuple"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#ts_core.execution.Rolodex.Rolodex.attribute_to_var_tuple" title="Permalink to this definition">¶</a></dt>
-<dd></dd></dl>
+<dd><p>Used to get the tuple of attributes for establishing a TraCi subscription</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
+<li><strong>domain</strong> (<em>the label of the domain e.g. 'vehicle'</em>) – </li>
+<li><strong>list</strong> (<em>the list of attributes e.g.</em><em> [</em><em>'lane position'</em><em>, </em><em>'lane id'</em><em>, </em><em>..</em><em>]</em>) – </li>
+</ul>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first"></p>
+</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body"><p class="first last">A tuple containing the TraCi hex codes for the given attributes</p>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
 
 <dl class="method">
 <dt id="ts_core.execution.Rolodex.Rolodex.convert_hex_to_attribute">
 <code class="descname">convert_hex_to_attribute</code><span class="sig-paren">(</span><em>domain</em>, <em>data</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/ts_core/execution/Rolodex.html#Rolodex.convert_hex_to_attribute"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#ts_core.execution.Rolodex.Rolodex.convert_hex_to_attribute" title="Permalink to this definition">¶</a></dt>
-<dd></dd></dl>
+<dd><p>Converts the data returned by a TraCi subscription from hex codes to attribute labels</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
+<li><strong>domain</strong> (<em>the label of the domain e.g. 'vehicle'</em>) – </li>
+<li><strong>data</strong> (<em>the data returned by traci.{domain}.getSubscriptionResults</em><em>(</em><em>)</em>) – </li>
+</ul>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first"></p>
+</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body"><p class="first last">A dictionary containing the attribute labels as keys and their data as values</p>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
 
 <dl class="method">
 <dt id="ts_core.execution.Rolodex.Rolodex.dump_to_file">
 <code class="descname">dump_to_file</code><span class="sig-paren">(</span><em>domain=None</em>, <em>dumpfile=None</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/ts_core/execution/Rolodex.html#Rolodex.dump_to_file"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#ts_core.execution.Rolodex.Rolodex.dump_to_file" title="Permalink to this definition">¶</a></dt>
-<dd></dd></dl>
+<dd><p>Option to dump buffers to file</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
+<li><strong>domain</strong> (<em>can specify the domain to dump e.g. 'vehicle'</em>) – </li>
+<li><strong>dumpfile</strong> (<em>the file handle to write the data to</em>) – </li>
+</ul>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first"></p>
+</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body"><p class="first last">Nothing</p>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
 
 <dl class="method">
 <dt id="ts_core.execution.Rolodex.Rolodex.get_data">
 <code class="descname">get_data</code><span class="sig-paren">(</span><em>domains=[]</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/ts_core/execution/Rolodex.html#Rolodex.get_data"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#ts_core.execution.Rolodex.Rolodex.get_data" title="Permalink to this definition">¶</a></dt>
-<dd></dd></dl>
-
-<dl class="method">
-<dt id="ts_core.execution.Rolodex.Rolodex.get_value">
-<code class="descname">get_value</code><span class="sig-paren">(</span><em>attributes=None</em>, <em>ids=[]</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/ts_core/execution/Rolodex.html#Rolodex.get_value"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#ts_core.execution.Rolodex.Rolodex.get_value" title="Permalink to this definition">¶</a></dt>
-<dd></dd></dl>
+<dd><p>Returns a copy of the data buffers for the given domains</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>domains</strong> (<em>[</em><em>'vehicle'</em><em>, </em><em>'lane'</em><em>, </em><em>..</em><em>]</em>) – </td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"></td>
+</tr>
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body">data</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
 
 <dl class="method">
 <dt id="ts_core.execution.Rolodex.Rolodex.list_context_domains">
 <code class="descname">list_context_domains</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/ts_core/execution/Rolodex.html#Rolodex.list_context_domains"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#ts_core.execution.Rolodex.Rolodex.list_context_domains" title="Permalink to this definition">¶</a></dt>
-<dd></dd></dl>
+<dd><p>prints the TraCi domains</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>Nothing</strong> – </td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"></td>
+</tr>
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body">Nothing</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
 
 <dl class="method">
 <dt id="ts_core.execution.Rolodex.Rolodex.remove_subscription">
 <code class="descname">remove_subscription</code><span class="sig-paren">(</span><em>domain</em>, <em>ids=[]</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/ts_core/execution/Rolodex.html#Rolodex.remove_subscription"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#ts_core.execution.Rolodex.Rolodex.remove_subscription" title="Permalink to this definition">¶</a></dt>
-<dd></dd></dl>
-
-<dl class="method">
-<dt id="ts_core.execution.Rolodex.Rolodex.reset">
-<code class="descname">reset</code><span class="sig-paren">(</span><em>attributes=None</em>, <em>ids=[]</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/ts_core/execution/Rolodex.html#Rolodex.reset"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#ts_core.execution.Rolodex.Rolodex.reset" title="Permalink to this definition">¶</a></dt>
-<dd></dd></dl>
+<dd><p>removes a subscription from TraCi</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
+<li><strong>domain</strong> (<em>the label of the domain e.g. 'vehicle'</em>) – </li>
+<li><strong>ids</strong> (<em>the list of ids to remove subscriptions for e.g.</em><em> [</em><em>'car100'</em><em>, </em><em>'car101'</em><em>]</em>) – </li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
 
 <dl class="method">
 <dt id="ts_core.execution.Rolodex.Rolodex.set_update_frequency">
 <code class="descname">set_update_frequency</code><span class="sig-paren">(</span><em>attribute</em>, <em>num_simulation_ticks_between_samples</em>, <em>ids=[]</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/ts_core/execution/Rolodex.html#Rolodex.set_update_frequency"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#ts_core.execution.Rolodex.Rolodex.set_update_frequency" title="Permalink to this definition">¶</a></dt>
-<dd></dd></dl>
+<dd><p>Not implemented</p>
+</dd></dl>
 
 <dl class="method">
 <dt id="ts_core.execution.Rolodex.Rolodex.setup_context_subscription">
 <code class="descname">setup_context_subscription</code><span class="sig-paren">(</span><em>context_attributes=None</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/ts_core/execution/Rolodex.html#Rolodex.setup_context_subscription"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#ts_core.execution.Rolodex.Rolodex.setup_context_subscription" title="Permalink to this definition">¶</a></dt>
-<dd></dd></dl>
+<dd><p>Not implemented</p>
+</dd></dl>
 
 <dl class="method">
 <dt id="ts_core.execution.Rolodex.Rolodex.setup_subscription">
 <code class="descname">setup_subscription</code><span class="sig-paren">(</span><em>domain</em>, <em>id_table</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/ts_core/execution/Rolodex.html#Rolodex.setup_subscription"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#ts_core.execution.Rolodex.Rolodex.setup_subscription" title="Permalink to this definition">¶</a></dt>
-<dd></dd></dl>
+<dd><p>Sets up a TraCi subscription for the given IDs and attributes</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
+<li><strong>domain</strong> (<em>the label of the domain e.g. 'vehicle'</em>) – </li>
+<li><strong>id_table</strong> (<em>a dictionary containing the IDs and the attributes to collect data for for them e.g.</em>) – id_table = ‘car100’:[attribute_label_0,attribute_label_1, …]</li>
+</ul>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first"></p>
+</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body"><p class="first last">Nothing</p>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
 
 <dl class="method">
 <dt id="ts_core.execution.Rolodex.Rolodex.update">
 <code class="descname">update</code><span class="sig-paren">(</span><em>domain</em>, <em>id_table=[]</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/ts_core/execution/Rolodex.html#Rolodex.update"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#ts_core.execution.Rolodex.Rolodex.update" title="Permalink to this definition">¶</a></dt>
-<dd></dd></dl>
+<dd><p>updates the buffer for the given domain and ids/attributes</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
+<li><strong>domain</strong> (<em>the label of the domain e.g. 'vehicle'</em>) – </li>
+<li><strong>id_table</strong> (<em>a dictionary containing the IDs and the attributes to collect data for for them e.g.</em>) – <dl class="docutils">
+<dt>id_table = {</dt>
+<dd>‘car100’:[(attribute_label,sampling_frequency,simulation_ticks_since_last_update), …],
+‘car101’:[(attribute_label,sampling_frequency,simulation_ticks_since_last_update), …]</dd>
+</dl>
+<p>}</p>
+</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
 
 <dl class="method">
 <dt id="ts_core.execution.Rolodex.Rolodex.update_subscription_buffers">
 <code class="descname">update_subscription_buffers</code><span class="sig-paren">(</span><em>tick_num</em>, <em>domains=None</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/ts_core/execution/Rolodex.html#Rolodex.update_subscription_buffers"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#ts_core.execution.Rolodex.Rolodex.update_subscription_buffers" title="Permalink to this definition">¶</a></dt>
-<dd></dd></dl>
+<dd><p>Updates the subscription buffers</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
+<li><strong>tick_num</strong> (<em>the current tick number of the simulation_run_time</em>) – </li>
+<li><strong>domains</strong> (<em>used to specify which domains are updates e.g.</em><em> [</em><em>'junction'</em><em>, </em><em>'vehicle'</em><em>, </em><em>..</em><em>]</em>) – </li>
+</ul>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first"></p>
+</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body"><p class="first last">Nothing</p>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
 
 </dd></dl>
 
+</div>
 </div>
 
 
@@ -191,6 +467,18 @@ to use a global sampling frequency for all attributes</p>
       </div>
       <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
         <div class="sphinxsidebarwrapper">
+  <h3><a href="index.html">Table Of Contents</a></h3>
+  <ul>
+<li><a class="reference internal" href="#">ts_core.execution.Rolodex module</a><ul>
+<li><a class="reference internal" href="#rolodex-overview"><code class="docutils literal"><span class="pre">Rolodex</span></code> Overview</a></li>
+<li><a class="reference internal" href="#software-structure-and-implementation">Software Structure and Implementation</a></li>
+<li><a class="reference internal" href="#light-control">Light Control</a></li>
+<li><a class="reference internal" href="#optimization">Optimization</a></li>
+<li><a class="reference internal" href="#output">Output</a></li>
+</ul>
+</li>
+</ul>
+
   <div role="note" aria-label="source link">
     <h3>This Page</h3>
     <ul class="this-page-menu">

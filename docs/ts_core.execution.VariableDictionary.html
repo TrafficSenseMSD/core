@@ -45,6 +45,9 @@
             
   <div class="section" id="module-ts_core.execution.VariableDictionary">
 <span id="ts-core-execution-variabledictionary-module"></span><h1>ts_core.execution.VariableDictionary module<a class="headerlink" href="#module-ts_core.execution.VariableDictionary" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="variabledictionary-overview">
+<span id="ts-runner-cli"></span><h2><code class="docutils literal"><span class="pre">VariableDictionary</span></code> Overview<a class="headerlink" href="#variabledictionary-overview" title="Permalink to this headline">¶</a></h2>
+<p><code class="docutils literal"><span class="pre">VariableDictionary</span></code> serves as a lookup table for TraCi variables to be used for subscriptions</p>
 <dl class="class">
 <dt id="ts_core.execution.VariableDictionary.VariableDictionary">
 <em class="property">class </em><code class="descname">VariableDictionary</code><a class="reference internal" href="_modules/ts_core/execution/VariableDictionary.html#VariableDictionary"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#ts_core.execution.VariableDictionary.VariableDictionary" title="Permalink to this definition">¶</a></dt>
@@ -52,20 +55,69 @@
 <dl class="method">
 <dt id="ts_core.execution.VariableDictionary.VariableDictionary.get_attribute_label">
 <code class="descname">get_attribute_label</code><span class="sig-paren">(</span><em>domain_label</em>, <em>code</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/ts_core/execution/VariableDictionary.html#VariableDictionary.get_attribute_label"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#ts_core.execution.VariableDictionary.VariableDictionary.get_attribute_label" title="Permalink to this definition">¶</a></dt>
-<dd></dd></dl>
+<dd><table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
+<li><strong>domain_label</strong> (<em>String representing the TraCi domain</em><em> (</em><em>'Vehicle'</em><em>)</em>) – </li>
+<li><strong>code</strong> (<em>hex code for the given attribute</em><em> (</em><em>0x04</em><em>)</em>) – </li>
+</ul>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first"></p>
+</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body"><p class="first last">the label for the given code within the specified domain (‘lane id’)</p>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
 
 <dl class="method">
 <dt id="ts_core.execution.VariableDictionary.VariableDictionary.get_domain_dictionary">
 <code class="descname">get_domain_dictionary</code><span class="sig-paren">(</span><em>domain_label</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/ts_core/execution/VariableDictionary.html#VariableDictionary.get_domain_dictionary"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#ts_core.execution.VariableDictionary.VariableDictionary.get_domain_dictionary" title="Permalink to this definition">¶</a></dt>
-<dd></dd></dl>
+<dd><table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>domain_label</strong> (<em>String representing the TraCi domain</em><em> (</em><em>'Vehicle'</em><em>)</em>) – </td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><strong>lookup dictionary for the attributes in a certain domain ({‘lane id’</strong></td>
+</tr>
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body">0x04, ‘lane position’:0x06})</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
 
 <dl class="method">
 <dt id="ts_core.execution.VariableDictionary.VariableDictionary.get_var">
 <code class="descname">get_var</code><span class="sig-paren">(</span><em>domain_label</em>, <em>attribute_label</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/ts_core/execution/VariableDictionary.html#VariableDictionary.get_var"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#ts_core.execution.VariableDictionary.VariableDictionary.get_var" title="Permalink to this definition">¶</a></dt>
-<dd></dd></dl>
+<dd><table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
+<li><strong>domain_label</strong> (<em>String representing the TraCi domain</em><em> (</em><em>'Vehicle'</em><em>)</em>) – </li>
+<li><strong>label</strong> (<em>attribute</em>) – </li>
+</ul>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first"></p>
+</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body"><p class="first last">hex code for the given attribute within the specified domain (0x04)</p>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
 
 </dd></dl>
 
+</div>
 </div>
 
 
@@ -74,6 +126,14 @@
       </div>
       <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
         <div class="sphinxsidebarwrapper">
+  <h3><a href="index.html">Table Of Contents</a></h3>
+  <ul>
+<li><a class="reference internal" href="#">ts_core.execution.VariableDictionary module</a><ul>
+<li><a class="reference internal" href="#variabledictionary-overview"><code class="docutils literal"><span class="pre">VariableDictionary</span></code> Overview</a></li>
+</ul>
+</li>
+</ul>
+
   <div role="note" aria-label="source link">
     <h3>This Page</h3>
     <ul class="this-page-menu">
