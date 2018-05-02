@@ -21,8 +21,7 @@ Once you've installed.
 """
 import argparse
 from shutil import copyfile
-
-from core.ts_core.config import parser
+from ..excel_parser import parser as ex_parser
 from ..config.config_gen import transform_parsed_excel
 from ..utils.argparse_utils import FullPaths, is_dir, is_file
 
@@ -58,7 +57,7 @@ def main():
     """
 
     parser = argparse.ArgumentParser()
-    parser.add_argument("-p", "--project_path", action=FullPaths)
+
     subparsers = parser.add_subparsers(title="subcommands", help="choose one")
 
     # init = subparsers.add_parser('init', help="", description="")
@@ -66,14 +65,15 @@ def main():
     # init.set_defaults(which='init')
 
     build = subparsers.add_parser('build', help="subcommand to build the configuration", description="Run the configuration build.")
-    build.add_argument("-c", "--config", action=FullPaths, help="Path to Excel config file. Will auto expand relative paths.")#, action=FullPaths)
+    build.add_argument("-c", "--config_file", action=FullPaths, help="Path to Excel config file. Will auto expand relative paths.")#, action=FullPaths)
+    build.add_argument("-p", "--project_path", action=FullPaths)
     build.set_defaults(which='build')
 
     args = parser.parse_args()
 
     if args.which == 'build':
-        conf_file_path = args.project_path + "/" + args.config_file
-        config_name, parsed_excel, stats_xml = parser.run_parser(conf_file_path, args.project_path)
+        conf_file_path = args.config_file
+        config_name, parsed_excel, stats_xml = ex_parser.run_parser(conf_file_path, args.project_path)
 
         transform_parsed_excel(parsed_excel, args.project_path, stats_xml, config_name)
 
