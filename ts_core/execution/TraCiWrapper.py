@@ -1,12 +1,3 @@
-"""
-
-.. _ts_runner_traci:
-
-``ts_runner`` TRACI Interface 
-=============================
-
-
-"""
 import traci
 import traci.constants as tc
 import runner

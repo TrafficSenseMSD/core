@@ -1,6 +1,6 @@
 """
 
-.. _ts_runner_cli:
+.. _ts_runner_variable:
 
 ``VariableDictionary`` Overview
 ----------------------

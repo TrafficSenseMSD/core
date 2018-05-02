@@ -39,6 +39,7 @@ A template for intersection configuration can be found in ``ts_core/excel_parser
 
 ``ts_runner`` Documentation
 ---------------------------
+
 :ref:`ts_runner_cli`
 
 
@@ -50,7 +51,7 @@ Project Developer Documentation
 
 :ref:`ts_runner_rolodex`
 
-:ref:`ts_runner_traci`
+:ref:`ts_runner_variable`
 
 
 ``ts_config``

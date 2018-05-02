@@ -2,7 +2,6 @@
 
 .. _ts_runner_cli:
 
-
 ``ts_runner`` Overview
 ----------------------
 ``ts_runner`` manages the startup and execution of the SUMO runtime along with data collection, traffic light control, and optimization
