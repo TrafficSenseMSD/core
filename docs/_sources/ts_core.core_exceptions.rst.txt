@@ -1,5 +1,5 @@
-ts\_core\.core\_exceptions module
-=================================
+ts\_core.core\_exceptions module
+================================
 
 .. automodule:: ts_core.core_exceptions
     :members:

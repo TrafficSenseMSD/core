@@ -1,7 +1,0 @@
-ts\_core\.config\.cross\_edge\_demo module
-==========================================
-
-.. automodule:: ts_core.config.cross_edge_demo
-    :members:
-    :undoc-members:
-    :show-inheritance:

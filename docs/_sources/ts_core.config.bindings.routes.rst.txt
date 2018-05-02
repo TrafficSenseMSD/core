@@ -1,5 +1,5 @@
-ts\_core\.config\.bindings\.routes module
-=========================================
+ts\_core.config.bindings.routes module
+======================================
 
 .. automodule:: ts_core.config.bindings.routes
     :members:

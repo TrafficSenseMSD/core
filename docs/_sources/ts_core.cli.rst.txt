@@ -1,5 +1,5 @@
-ts\_core\.cli package
-=====================
+ts\_core.cli package
+====================
 
 .. automodule:: ts_core.cli
     :members:

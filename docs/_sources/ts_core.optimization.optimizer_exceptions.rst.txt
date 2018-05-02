@@ -1,5 +1,5 @@
-ts\_core\.optimization\.optimizer\_exceptions module
-====================================================
+ts\_core.optimization.optimizer\_exceptions module
+==================================================
 
 .. automodule:: ts_core.optimization.optimizer_exceptions
     :members:

@@ -1,5 +1,5 @@
-ts\_core\.config\.parser module
-===============================
+ts\_core.config.parser module
+=============================
 
 .. automodule:: ts_core.config.parser
     :members:

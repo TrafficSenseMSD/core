@@ -1,7 +1,0 @@
-ts\_core\.config\.cross\_statfile\_demo module
-==============================================
-
-.. automodule:: ts_core.config.cross_statfile_demo
-    :members:
-    :undoc-members:
-    :show-inheritance:

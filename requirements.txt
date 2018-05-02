@@ -4,7 +4,7 @@ numpy==1.13.1
 pandas==0.20.3
 scipy==1.0.0b1
 sklearn==0.0
-sphinx
+Sphinx==1.7.1
 sphinxcontrib-argdoc
 sumotools==0.7.2
 jsmin==2.2.2

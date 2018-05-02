@@ -1,5 +1,5 @@
-ts\_core\.config\.bindings\.netfile module
-==========================================
+ts\_core.config.bindings.netfile module
+=======================================
 
 .. automodule:: ts_core.config.bindings.netfile
     :members:

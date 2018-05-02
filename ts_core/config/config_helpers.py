@@ -1,4 +1,7 @@
 """
+Config Helper Tools
+===================
+
 This module contains a series of functions that transform the parsed excel document into SUMO conpatible XML. 
 
 Each function corresponds to ONE of the SUMO configuration files
@@ -101,7 +104,18 @@ def mk_add(intersections: dict, branches: dict):
     return xmlstr
 
 def mk_edge(intersections: dict, branches: dict):
+    """
+    Helper to make the edg.xml file
+    
+    Parameters
+    ----------
+    intersections
+    branches
 
+    Returns
+    -------
+
+    """
     edge = edges.edges()
 
 
@@ -150,8 +164,7 @@ def mk_edge(intersections: dict, branches: dict):
 def mk_node(intersections: dict, branches: dict):
     """
     
-    Let's do an example...
-    
+    Helper to make the nod.xml file 
     
     Parameters
     ----------
